@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+            <connections>
+                <outlet property="statStepper" destination="ty9-ao-dc9" id="5hI-yI-UT4"/>
+                <outlet property="statTitleLabel" destination="IXJ-oz-Mug" id="0pU-sh-Iiq"/>
+                <outlet property="statValueLabel" destination="YeE-Zs-iFg" id="4qe-7U-0uC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="115" height="125"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeE-Zs-iFg">
+                    <rect key="frame" x="41.5" y="47.5" width="32" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ty9-ao-dc9">
+                    <rect key="frame" x="10" y="86" width="94" height="29"/>
+                    <connections>
+                        <action selector="stepperDidChange:" destination="-1" eventType="valueChanged" id="koq-h0-mSx"/>
+                    </connections>
+                </stepper>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXJ-oz-Mug">
+                    <rect key="frame" x="0.0" y="15" width="115" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="YeE-Zs-iFg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6CB-oi-JCC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ty9-ao-dc9" secondAttribute="bottom" constant="10" id="JoS-hf-EWU"/>
+                <constraint firstItem="IXJ-oz-Mug" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="TWN-Hj-OBa"/>
+                <constraint firstItem="IXJ-oz-Mug" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="aZ1-wm-4Mx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IXJ-oz-Mug" secondAttribute="trailing" id="edw-jR-4cQ"/>
+                <constraint firstItem="YeE-Zs-iFg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="h7x-y0-PVg"/>
+                <constraint firstItem="ty9-ao-dc9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="kn5-dU-ChT"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

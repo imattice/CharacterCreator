@@ -8,13 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123671020CA44DA00F7AEFC /* AppDelegate.swift */; };
-		8123671320CA44DA00F7AEFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123671220CA44DA00F7AEFC /* ViewController.swift */; };
 		8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671420CA44DA00F7AEFC /* Main.storyboard */; };
 		8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */; };
 		8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8123671A20CA44DD00F7AEFC /* Assets.xcassets */; };
 		8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */; };
 		8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */; };
 		8123673420CA44DD00F7AEFC /* CharacterCreatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */; };
+		8123674520CA454D00F7AEFC /* Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123674420CA454D00F7AEFC /* Traits.swift */; };
+		8123674B20CA5EB000F7AEFC /* ClassTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123674A20CA5EB000F7AEFC /* ClassTraits.swift */; };
+		8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C020D9D320008B7A1A /* Modifier.swift */; };
+		8152B3C320D9D32F008B7A1A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C220D9D32F008B7A1A /* Character.swift */; };
+		8152B3C520D9D337008B7A1A /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C420D9D337008B7A1A /* Class.swift */; };
+		8152B3C720D9D340008B7A1A /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C620D9D340008B7A1A /* Race.swift */; };
+		8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */; };
+		8152B3CF20D9E054008B7A1A /* ClassSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3CE20D9E054008B7A1A /* ClassSelectionTableViewController.swift */; };
+		8152B3D120D9E097008B7A1A /* RaceSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D020D9E097008B7A1A /* RaceSelectionTableViewController.swift */; };
+		8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */; };
+		8152B3D720D9F88A008B7A1A /* StatSelectionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D620D9F88A008B7A1A /* StatSelectionPickerView.swift */; };
+		8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */; };
+		8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +49,6 @@
 /* Begin PBXFileReference section */
 		8123670D20CA44DA00F7AEFC /* CharacterCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123671020CA44DA00F7AEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8123671220CA44DA00F7AEFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8123671520CA44DA00F7AEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8123671820CA44DA00F7AEFC /* CharacterCreator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CharacterCreator.xcdatamodel; sourceTree = "<group>"; };
 		8123671A20CA44DD00F7AEFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +60,21 @@
 		8123672F20CA44DD00F7AEFC /* CharacterCreatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorUITests.swift; sourceTree = "<group>"; };
 		8123673520CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8123674420CA454D00F7AEFC /* Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traits.swift; sourceTree = "<group>"; };
+		8123674720CA5C9400F7AEFC /* FlavorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorText.swift; sourceTree = "<group>"; };
+		8123674920CA5D6D00F7AEFC /* FlavorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorText.swift; sourceTree = "<group>"; };
+		8123674A20CA5EB000F7AEFC /* ClassTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTraits.swift; sourceTree = "<group>"; };
+		8152B3C020D9D320008B7A1A /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
+		8152B3C220D9D32F008B7A1A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		8152B3C420D9D337008B7A1A /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		8152B3C620D9D340008B7A1A /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
+		8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatDistributionViewController.swift; sourceTree = "<group>"; };
+		8152B3CE20D9E054008B7A1A /* ClassSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassSelectionTableViewController.swift; sourceTree = "<group>"; };
+		8152B3D020D9E097008B7A1A /* RaceSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSelectionTableViewController.swift; sourceTree = "<group>"; };
+		8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		8152B3D620D9F88A008B7A1A /* StatSelectionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatSelectionPickerView.swift; sourceTree = "<group>"; };
+		8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatStepperView.swift; sourceTree = "<group>"; };
+		8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatStepperView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +126,13 @@
 			isa = PBXGroup;
 			children = (
 				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
-				8123671220CA44DA00F7AEFC /* ViewController.swift */,
+				8152B3CB20D9E004008B7A1A /* View Controllers */,
+				8152B3D920D9FD65008B7A1A /* Views */,
+				8152B3BF20D9D2F5008B7A1A /* Models */,
 				8123671420CA44DA00F7AEFC /* Main.storyboard */,
 				8123671A20CA44DD00F7AEFC /* Assets.xcassets */,
+				8152B3D820D9F891008B7A1A /* Extensions */,
+				8123674120CA44EE00F7AEFC /* Data */,
 				8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */,
 				8123671F20CA44DD00F7AEFC /* Info.plist */,
 				8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */,
@@ -126,6 +156,72 @@
 				8123673520CA44DD00F7AEFC /* Info.plist */,
 			);
 			path = CharacterCreatorUITests;
+			sourceTree = "<group>";
+		};
+		8123674120CA44EE00F7AEFC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8123674620CA5C9300F7AEFC /* Races */,
+				8123674820CA5D6D00F7AEFC /* Classes */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8123674620CA5C9300F7AEFC /* Races */ = {
+			isa = PBXGroup;
+			children = (
+				8123674720CA5C9400F7AEFC /* FlavorText.swift */,
+				8123674420CA454D00F7AEFC /* Traits.swift */,
+			);
+			path = Races;
+			sourceTree = "<group>";
+		};
+		8123674820CA5D6D00F7AEFC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8123674920CA5D6D00F7AEFC /* FlavorText.swift */,
+				8123674A20CA5EB000F7AEFC /* ClassTraits.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8152B3BF20D9D2F5008B7A1A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8152B3C220D9D32F008B7A1A /* Character.swift */,
+				8152B3C020D9D320008B7A1A /* Modifier.swift */,
+				8152B3C420D9D337008B7A1A /* Class.swift */,
+				8152B3C620D9D340008B7A1A /* Race.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8152B3CB20D9E004008B7A1A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8152B3D020D9E097008B7A1A /* RaceSelectionTableViewController.swift */,
+				8152B3CE20D9E054008B7A1A /* ClassSelectionTableViewController.swift */,
+				8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */,
+				8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8152B3D820D9F891008B7A1A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8152B3D620D9F88A008B7A1A /* StatSelectionPickerView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8152B3D920D9FD65008B7A1A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */,
+				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +330,7 @@
 			files = (
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
+				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,9 +356,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8123671320CA44DA00F7AEFC /* ViewController.swift in Sources */,
+				8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */,
+				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
+				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
+				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
+				8123674520CA454D00F7AEFC /* Traits.swift in Sources */,
+				8123674B20CA5EB000F7AEFC /* ClassTraits.swift in Sources */,
+				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
+				8152B3D120D9E097008B7A1A /* RaceSelectionTableViewController.swift in Sources */,
+				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
+				8152B3C320D9D32F008B7A1A /* Character.swift in Sources */,
+				8152B3CF20D9E054008B7A1A /* ClassSelectionTableViewController.swift in Sources */,
+				8152B3D720D9F88A008B7A1A /* StatSelectionPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
