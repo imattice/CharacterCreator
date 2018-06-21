@@ -14,8 +14,8 @@ import UIKit
 	@IBOutlet weak var statTitleLabel: UILabel!
 	@IBOutlet weak var statValueLabel: UILabel!
 	@IBOutlet weak var statStepper: UIStepper!
-	@IBOutlet weak var topModifierView: ModifierView!
-	@IBOutlet weak var bottomModifierView: ModifierView!
+	@IBOutlet weak var statModifierLabel: UILabel!
+	
 
 	let statArray = ["8", "10", "12", "13", "14", "15"]
 	

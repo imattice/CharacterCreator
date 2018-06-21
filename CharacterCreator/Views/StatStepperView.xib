@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
             <connections>
+                <outlet property="statModifierLabel" destination="t0P-vk-Yrr" id="zGq-6P-rYB"/>
                 <outlet property="statStepper" destination="ty9-ao-dc9" id="5hI-yI-UT4"/>
                 <outlet property="statTitleLabel" destination="IXJ-oz-Mug" id="0pU-sh-Iiq"/>
                 <outlet property="statValueLabel" destination="YeE-Zs-iFg" id="4qe-7U-0uC"/>
@@ -32,32 +33,40 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="ty9-ao-dc9">
-                            <rect key="frame" x="53" y="123" width="94" height="29"/>
+                            <rect key="frame" x="53" y="128" width="94" height="29"/>
                             <connections>
                                 <action selector="stepperDidChange:" destination="-1" eventType="valueChanged" id="koq-h0-mSx"/>
                             </connections>
                         </stepper>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXJ-oz-Mug">
                             <rect key="frame" x="0.0" y="5" width="200" height="21"/>
-                            <color key="backgroundColor" red="1" green="0.0" blue="0.04677283753" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0P-vk-Yrr">
+                            <rect key="frame" x="139" y="40" width="36" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="oyG-3B-5fa"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="YeE-Zs-iFg" firstAttribute="centerY" secondItem="SOp-5Q-Sd5" secondAttribute="centerY" id="8MP-uC-Inp"/>
                         <constraint firstItem="IXJ-oz-Mug" firstAttribute="top" secondItem="SOp-5Q-Sd5" secondAttribute="top" constant="5" id="BF7-C5-pCh"/>
                         <constraint firstItem="ty9-ao-dc9" firstAttribute="centerX" secondItem="SOp-5Q-Sd5" secondAttribute="centerX" id="E1H-Nx-AVF"/>
                         <constraint firstAttribute="trailing" secondItem="IXJ-oz-Mug" secondAttribute="trailing" id="Jat-jH-N0x"/>
                         <constraint firstItem="IXJ-oz-Mug" firstAttribute="leading" secondItem="SOp-5Q-Sd5" secondAttribute="leading" id="K74-d0-iuQ"/>
+                        <constraint firstAttribute="trailing" secondItem="t0P-vk-Yrr" secondAttribute="trailing" constant="25" id="Krp-TS-Ol8"/>
                         <constraint firstItem="YeE-Zs-iFg" firstAttribute="centerX" secondItem="SOp-5Q-Sd5" secondAttribute="centerX" id="y5p-iv-MZ1"/>
-                        <constraint firstAttribute="bottom" secondItem="ty9-ao-dc9" secondAttribute="bottom" constant="20" id="zS9-vX-9mv"/>
+                        <constraint firstItem="t0P-vk-Yrr" firstAttribute="top" secondItem="SOp-5Q-Sd5" secondAttribute="top" constant="40" id="yKh-w5-yiH"/>
+                        <constraint firstAttribute="bottom" secondItem="ty9-ao-dc9" secondAttribute="bottom" constant="15" id="zS9-vX-9mv"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="SOp-5Q-Sd5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3wl-rF-Y7h"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SOp-5Q-Sd5" secondAttribute="trailing" id="8M0-9X-Hys"/>
@@ -73,7 +82,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-132.5" y="77"/>
+            <point key="canvasLocation" x="-133" y="77"/>
         </view>
     </objects>
 </document>
