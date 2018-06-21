@@ -27,6 +27,9 @@
 		8152B3D720D9F88A008B7A1A /* StatSelectionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D620D9F88A008B7A1A /* StatSelectionPickerView.swift */; };
 		8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */; };
 		8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */; };
+		8152B3E320DC107E008B7A1A /* ModifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3E220DC107E008B7A1A /* ModifierView.swift */; };
+		8152B3E520DC1090008B7A1A /* ModifierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E420DC1090008B7A1A /* ModifierView.xib */; };
+		8152B3E720DC124D008B7A1A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3E620DC124D008B7A1A /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		8152B3D620D9F88A008B7A1A /* StatSelectionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatSelectionPickerView.swift; sourceTree = "<group>"; };
 		8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatStepperView.swift; sourceTree = "<group>"; };
 		8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatStepperView.xib; sourceTree = "<group>"; };
+		8152B3E220DC107E008B7A1A /* ModifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierView.swift; sourceTree = "<group>"; };
+		8152B3E420DC1090008B7A1A /* ModifierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModifierView.xib; sourceTree = "<group>"; };
+		8152B3E620DC124D008B7A1A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				8152B3D620D9F88A008B7A1A /* StatSelectionPickerView.swift */,
+				8152B3E620DC124D008B7A1A /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,6 +227,8 @@
 			children = (
 				8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */,
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
+				8152B3E220DC107E008B7A1A /* ModifierView.swift */,
+				8152B3E420DC1090008B7A1A /* ModifierView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,6 +340,7 @@
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
+				8152B3E520DC1090008B7A1A /* ModifierView.xib in Resources */,
 				8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,12 +366,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
+				8152B3E320DC107E008B7A1A /* ModifierView.swift in Sources */,
 				8123674520CA454D00F7AEFC /* Traits.swift in Sources */,
 				8123674B20CA5EB000F7AEFC /* ClassTraits.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,

@@ -14,6 +14,8 @@ import UIKit
 	@IBOutlet weak var statTitleLabel: UILabel!
 	@IBOutlet weak var statValueLabel: UILabel!
 	@IBOutlet weak var statStepper: UIStepper!
+	@IBOutlet weak var topModifierView: ModifierView!
+	@IBOutlet weak var bottomModifierView: ModifierView!
 
 	let statArray = ["8", "10", "12", "13", "14", "15"]
 	
@@ -42,28 +44,6 @@ import UIKit
 		statStepper.minimumValue	= 0
 	}
 
-
-	private func xibSetup() {
-		view = loadViewFromNib()
-
-		// use bounds not frame or it'll be offset
-		view.frame = bounds
-
-		// Make the view stretch with containing view
-		view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
-		// Adding custom subview on top of our view (over any custom drawing > see note below)
-		addSubview(view)
-	}
-
-	private func loadViewFromNib() -> UIView {
-
-		let bundle = Bundle(for: type(of: self))
-		let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-		let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
-
-		return view
-	}
 
 	private func updateStatLabel() {
 		statValueLabel.text = statArray[Int(statStepper.value)]
