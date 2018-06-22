@@ -9,15 +9,20 @@
 class Character {
 	var `class`: String? 		= nil
 	var race: String? 			= nil
-	var stats: statBlock		= statBlock()
+	var stats: StatBlock		= StatBlock()
 
-	struct statBlock {
+	struct Race {
+		var name: String
+		var parent: String
+	}
+
+	struct StatBlock {
 		var str: Int		= 0
-		var con: Int	= 0
+		var con: Int		= 0
 		var dex: Int		= 0
 		var cha: Int		= 0
-		var wis: Int			= 0
-		var int: Int	= 0
+		var wis: Int		= 0
+		var int: Int		= 0
 	}
 
 	static let current = Character()

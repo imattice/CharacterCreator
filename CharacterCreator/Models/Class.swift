@@ -7,5 +7,6 @@
 //
 
 struct Class {
-	
+	let name: String
+	let modifiers: [Modifier]
 }
