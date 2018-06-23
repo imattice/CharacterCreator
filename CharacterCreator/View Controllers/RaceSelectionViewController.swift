@@ -6,9 +6,11 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
+//TODO: Close all other cells when a cell is selected
+
 import UIKit
 
-struct cellData {
+struct ExpandableCellData {
 	var isOpen: Bool 			= false
 	var parentTitle: String
 	var childData: [String]
@@ -22,103 +24,108 @@ struct cellData {
 
 class RaceSelectionViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
+	var tableViewData: [ExpandableCellData] = [ExpandableCellData]()
 
-	var tableViewData = [cellData]()
-	
-	let raceNames: [String] 	= Array(raceData.keys)
-//	let subraceNames: [String] 	= {
-//		let result = [String]()
-//		for name in raceNames {
-//			guard let race = raceData[name] as [String: Any],
-//			let subraces = race["subraces"] as [String: Any] else { return }
-//			result.append(Array(subraces.keys))
-//
-//		}
-//		print("Subrace names: \(result)")
-//		return result
-//	}()
-
-	//https://www.youtube.com/watch?v=b1LiBiLjca4
-
-    override func viewDidLoad() {
+	override func viewDidLoad() {
         super.viewDidLoad()
-
-		for race in raceData {
-			if let raceDict = race.value as? [String : Any],
-				let subraces = raceDict["subraces"] as? [String : Any] {
-				print(subraces.keys)
-
-				let data = cellData(parentTitle: race.key.capitalized, childData: Array(subraces.keys))
-				tableViewData.append(data)
-			} else {
-				let data = cellData(parentTitle: race.key.capitalized, childData: [String]())
-				tableViewData.append(data)
-			}
-		}
-
-		tableViewData.append(contentsOf: [ cellData(parentTitle: "title1", childData: ["cell1", "cell2", "cell3", "cell4"]),
-										   cellData(parentTitle: "title2", childData: ["cell1", "cell2", "cell3", "cell4"]),
-										   cellData(parentTitle: "title3", childData: ["cell1", "cell2", "cell3", "cell4"]),
-										cellData(parentTitle: "title4", childData: ["cell1", "cell2", "cell3", "cell4"]) ])
-
-        //preserves selection between presentations
-//		tableView.clearsSelectionOnViewWillAppear = false
+		getRaceData()
 
 		tableView.tableFooterView = UIView()
     }
 
+	private func getRaceData() {
+		for race in raceData {
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+			//check if the race has subraces
+			if let raceDict = race.value as? [String : Any],
+				let subraces = raceDict["subraces"] as? [String : Any] {
+				let data = ExpandableCellData(parentTitle: race.key.capitalized, childData: Array(subraces.keys))
+				tableViewData.append(data) }
+
+			//if there are no subraces, just show the parent race
+			else {
+				let data = ExpandableCellData(parentTitle: race.key.capitalized, childData: [String]())
+				tableViewData.append(data) }
+		}
+	}
+
+
+	//MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let selectedIndex = tableView.indexPathForSelectedRow?.row  else { return }
-		let selectedRace = raceNames[selectedIndex]
+		guard let selectedIndexPath = tableView.indexPathForSelectedRow  else { return }
+		let race 	= tableViewData[selectedIndexPath.section]
 
-		Character.current.race = selectedRace
+		//if there are subraces available, check which subrace was selected
+		if !race.childData.isEmpty {
+			let subrace = race.childData[selectedIndexPath.row]
+
+			Character.current.race = subrace					}
+
+		//if there are no subraces, just use the parent race
+		else {
+			Character.current.race = race.parentTitle  			}
+
 		print("Character's race is set to: \(String(describing: Character.current.race))")
-
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
+
 }
 
 //MARK: - Table View Data Source & Delegate
 extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegate {
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return tableViewData.count
-	}
 
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//		return raceNames.count
-		if tableViewData[section].isOpen {
-			return tableViewData[section].childData.count + 1
-		} else {
-			return 1
-		}
-	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath) // else { return UITableViewCell() }
 		let dataIndex = indexPath.row - 1
 
+		//configure parent cells
 		if indexPath.row == 0 {
-			cell.textLabel?.text = tableViewData[indexPath.section].parentTitle
-			return cell
-		} else {
-			cell.textLabel?.text = tableViewData[indexPath.section].childData[dataIndex]
-//			cell.layoutMargins.left = 30
-			return cell
-		}
+			cell.textLabel?.text 	= tableViewData[indexPath.section].parentTitle
+
+			//prevent the parent cell from being selected if it has children
+			if !tableViewData[indexPath.section].childData.isEmpty {
+				cell.selectionStyle 	= .none						}
+
+			return cell																		}
+
+
+		//configure child cells
+		else {
+			cell.textLabel?.text = tableViewData[indexPath.section].childData[dataIndex].capitalized
+			cell.indentationLevel = 3
+
+			return cell																		}
 	}
+
+
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if indexPath.row == 0 {
-//			print("here")
-			if tableViewData[indexPath.section].isOpen {
-				tableViewData[indexPath.section].isOpen = false
-			} else {
-				tableViewData[indexPath.section].isOpen = true
-			}
+
+		//selected parent cell
+		if indexPath.row == 0 && !tableViewData[indexPath.section].childData.isEmpty {
+			//toggle the cell open
+			tableViewData[indexPath.section].isOpen = !tableViewData[indexPath.section].isOpen
+
+
 			let sections = IndexSet.init(integer: indexPath.section)
 			tableView.reloadSections(sections, with: .none)
+
+			tableView.cellForRow(at: indexPath)?.indentationLevel = 0
 		}
 	}
+
+
+	func numberOfSections(in tableView: UITableView) -> Int {
+
+		return tableViewData.count
+	}
+
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+		if tableViewData[section].isOpen {
+			return tableViewData[section].childData.count + 1	}
+		else {
+			return 1											}
+	}
+
 }
