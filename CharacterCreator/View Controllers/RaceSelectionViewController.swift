@@ -75,23 +75,32 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath) // else { return UITableViewCell() }
+		let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath)
 		let dataIndex = indexPath.row - 1
+			cell.accessoryView = nil
 
 		//configure parent cells
 		if indexPath.row == 0 {
-			cell.textLabel?.text 	= tableViewData[indexPath.section].parentTitle
+			cell.textLabel?.text 	=  tableViewData[indexPath.section].parentTitle  //"Section: \(indexPath.section) Row: \(indexPath.row)"
 
 			//prevent the parent cell from being selected if it has children
+			//add chevron accessory
 			if !tableViewData[indexPath.section].childData.isEmpty {
-				cell.selectionStyle 	= .none						}
+				cell.selectionStyle 			= .none
+
+				let chevronView 		= UIImageView(image: UIImage(named: "chevron"))
+					chevronView.frame 	= CGRect(x: 0, y: 0, width: 30, height: 30)
+					chevronView.alpha	= 0.8
+
+				cell.accessoryView				= chevronView
+				cell.accessoryView?.transform 	= CGAffineTransform(rotationAngle: 90°)		}
 
 			return cell																		}
 
 
 		//configure child cells
 		else {
-			cell.textLabel?.text = tableViewData[indexPath.section].childData[dataIndex].capitalized
+			cell.textLabel?.text = tableViewData[indexPath.section].childData[dataIndex].capitalized //"Section: \(indexPath.section) Row: \(indexPath.row)"
 			cell.indentationLevel = 3
 
 			return cell																		}
@@ -105,11 +114,30 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 			//toggle the cell open
 			tableViewData[indexPath.section].isOpen = !tableViewData[indexPath.section].isOpen
 
-
+			//expand the sections
 			let sections = IndexSet.init(integer: indexPath.section)
 			tableView.reloadSections(sections, with: .none)
 
+			//prevent the parent cell from indenting
+			guard let parentCell = tableView.cellForRow(at: indexPath) else { return }
 			tableView.cellForRow(at: indexPath)?.indentationLevel = 0
+
+			//rotate the chevron
+			guard let accessoryView = parentCell.accessoryView else { return }
+			let rotation = CABasicAnimation(keyPath: "transform.rotation")
+				if tableViewData[indexPath.section].isOpen {
+					rotation.fromValue 	= 90°
+					rotation.toValue	= 270°	}
+				else {
+					rotation.fromValue 	= 270°
+					rotation.toValue	= 90°	}
+
+				rotation.duration	= 0.25
+
+				accessoryView.layer.add(rotation, forKey: nil)
+				accessoryView.transform 	= CGAffineTransform(rotationAngle: rotation.toValue as! CGFloat)
+
+
 		}
 	}
 
