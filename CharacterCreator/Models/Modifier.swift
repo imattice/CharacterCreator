@@ -7,7 +7,6 @@
 //
 
 struct Modifier {
-//	init(ofType: String) {
-//		<#statements#>
-//	}
+	let type: String
+	let value: Int
 }

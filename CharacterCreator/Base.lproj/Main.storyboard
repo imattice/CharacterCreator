@@ -100,8 +100,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uFU-4X-ndv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1u9-h1-owz"/>
+                    <navigationItem key="navigationItem" id="1u9-h1-owz">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="vau-c4-hyc">
+                            <connections>
+                                <segue destination="ENq-EC-1qX" kind="show" id="N2J-PB-plF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="nextNavButton" destination="vau-c4-hyc" id="2aV-18-cqW"/>
                         <outlet property="tableView" destination="mMe-Ff-Czg" id="afo-4O-zYV"/>
                     </connections>
                 </viewController>
@@ -411,4 +418,7 @@
             <point key="canvasLocation" x="377" y="768"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="N2J-PB-plF"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -8,5 +8,6 @@
 
 struct Race {
 	let name: String
-	let modifiers: [Modifier]
+	let description: String
+	let modifiers: [Modifier]	
 }

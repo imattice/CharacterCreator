@@ -9,38 +9,38 @@
 let raceData: [String: Any] = [
 	"dwarf": [
 		"modifiers": [
-			"con": 2				],
+			"con"				: 2	],
 		"subraces": [
 			"hill": [
 				"modifiers": [
-					"wis"	: 1,
-					"hp"	: 1		]],
+					"wis"		: 1,
+					"hp"		: 1	]],
 			"mountian": [
 				"modifiers": [
-					"str"	: 2,	]]]],
+					"str"		: 2,]]]],
 	"elf": [
 		"modifiers": [
-			"dex": 2				],
+			"dex"				: 2 ],
 		"subraces": [
 			"high": [
 				"modifiers": [
-					"int"	: 1		] ],
+					"int"		: 1	] ],
 			"wood": [
 				"modifiers": [
-					"wis"	: 1		] ] ] ],
+					"wis"		: 1	] ] ] ],
 	"halfling": [
 		"modifiers": [
-			"dex": 2				],
+			"dex"				: 2	],
 		"subraces": [
 			"lightfoot": [
 				"modifiers": [
-					"cha"	: 1		] ],
+					"cha"		: 1	] ],
 			"stout": [
 				"modifiers": [
-					"con"	: 1		] ] ] ],
+					"con"		: 1	] ] ] ],
 	"human": [
 		"modifiers": [
-			"all_stats": 1				]]
+			"all_stats"			: 1	]]
 ]
 
 
