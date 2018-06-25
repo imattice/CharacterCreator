@@ -9,4 +9,5 @@
 struct Modifier {
 	let type: String
 	let value: Int
+	let origin: String
 }

@@ -6,8 +6,11 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
+typealias Subrace = Race
+
 struct Race {
 	let name: String
-	let description: String
-	let modifiers: [Modifier]	
+	let subrace: String?
+//	let description: String?
+	let modifiers: [Modifier]
 }

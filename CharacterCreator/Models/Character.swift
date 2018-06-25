@@ -8,13 +8,8 @@
 
 class Character {
 	var `class`: String? 		= nil
-	var race: String? 			= nil
+	var race: Race?				= nil
 	var stats: StatBlock		= StatBlock()
-
-	struct Race {
-		var name: String
-		var parent: String
-	}
 
 	struct StatBlock {
 		var str: Int		= 0
