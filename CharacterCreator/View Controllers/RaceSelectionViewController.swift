@@ -10,20 +10,6 @@
 
 import UIKit
 
-//struct ExpandableCellData {
-//	var isOpen: Bool 			= false
-//
-//	var parentTitle: String
-//	var childData: [String]
-//
-//
-//	init(parentTitle: String, childData: [String]) {
-//		self.isOpen 		= false
-//		self.parentTitle 	= parentTitle
-//		self.childData		= childData
-//	}
-//}
-
 struct ExpandableCellData {
 	var isOpen: Bool 			= false
 
@@ -47,7 +33,6 @@ class RaceSelectionViewController: UIViewController {
 
 	var selectionWasMade: Bool = false
 
-
 	override func viewDidLoad() {
         super.viewDidLoad()
 		tableViewData = createTableData()
@@ -58,24 +43,9 @@ class RaceSelectionViewController: UIViewController {
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 190
 
-		tableView.tableFooterView = UIView()
+		//add a footer view to give space to the last row to expand
+		tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
     }
-
-//	private func getRaceData() {
-//		for race in raceData {
-//
-//			//check if the race has subraces
-//			if let raceDict = race.value as? [String : Any],
-//				let subraces = raceDict["subraces"] as? [String : Any] {
-//				let data = ExpandableCellData(parentTitle: race.key.capitalized, childData: Array(subraces.keys))
-//				tableViewData.append(data) }
-//
-//			//if there are no subraces, just show the parent race
-//			else {
-//				let data = ExpandableCellData(parentTitle: race.key.capitalized, childData: [String]())
-//				tableViewData.append(data) }
-//		}
-//	}
 
 	private func createTableData() -> [ExpandableCellData] {
 		var result = [ExpandableCellData]()
@@ -144,8 +114,6 @@ class RaceSelectionViewController: UIViewController {
 
 				result.append(data)
 			}
-
-
 		}
 
 		return result
@@ -184,13 +152,11 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 
 		//configure parent cells
 		if indexPath.row == 0 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath)
+			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath) as! ParentRaceTableViewCell
 
 			//reset dequeued cells
 			cell.accessoryView 		= nil
 			cell.selectionStyle 	= .default
-
-			cell.textLabel?.text 	= tableViewData[indexPath.section].parentData.name  //"Section: \(indexPath.section) Row: \(indexPath.row)"
 
 			//prevent the parent cell from being selected if it has children
 			//add chevron accessory
@@ -204,30 +170,44 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 				cell.accessoryView				= chevronView
 				cell.accessoryView?.transform 	= CGAffineTransform(rotationAngle: 90°)		}
 
+			//finish the label configuration
+			let parentRace = tableViewData[indexPath.section].parentData
+
+			cell.titleLabel.text 			= tableViewData[indexPath.section].parentData.name
+			cell.portraitImageView.image 	= UIImage(named: parentRace.name.lowercased())
+			cell.descriptionLabel.text 		= tableViewData[indexPath.section].description
+			cell.modifierLabel.text			= tableViewData[indexPath.section].parentData.modifierString()
+
 			return cell																		}
 
 
 		//configure child cells
 		else {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "SubraceCell", for: indexPath) as! SubraceTableViewCell
-			guard let subrace = tableViewData[indexPath.section].childData else { print("could not initialize subrace cell from data"); return UITableViewCell()}
+			guard let subraceData = tableViewData[indexPath.section].childData
+				else { print("could not initialize subrace cell from data"); return UITableViewCell()}
 
-			cell.titleLabel.text = subrace[dataIndex].race.name.capitalized //"Section: \(indexPath.section) Row: \(indexPath.row)"
-//			cell.portraitImageView.image = UIImagÇe(named: subraceName)
-//			cell.descriptionLabel
-//			cell.modifierLabel =
+			let titleString = "\(subraceData[dataIndex].race.name.capitalized) \(tableViewData[indexPath.section].parentData.name.capitalized)"
+
+			cell.titleLabel.text 				= titleString
+			cell.descriptionLabel.text 			= subraceData[dataIndex].description
+			cell.modifierLabel.text				= subraceData[dataIndex].race.modifierString()
 
 			return cell																		}
 	}
 
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		//ensure a proper selection was made before enabling the next button
+		//enable the next button if a race can be set from the selection
 		if indexPath.row == 0 { selectionWasMade = false; nextNavButton.isEnabled = false }
 		if indexPath.row != 0 || tableViewData[indexPath.section].childData == nil { selectionWasMade = true; nextNavButton.isEnabled = true }
 
+
 		//selected parent cell
 		if indexPath.row == 0 && tableViewData[indexPath.section].childData != nil {
+			//send the selected cell to the top
+			tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+
 			//toggle the cell open
 			tableViewData[indexPath.section].isOpen = !tableViewData[indexPath.section].isOpen
 
@@ -254,7 +234,12 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 				accessoryView.layer.add(rotation, forKey: nil)
 				accessoryView.transform 	= CGAffineTransform(rotationAngle: rotation.toValue as! CGFloat)
 
+			//scroll the selected cell to the top
+			tableView.scrollToRow(at: indexPath, at: .top, animated: true)
 
+			//add a footer view buffer if the selected cell is the last cell
+			if indexPath.section == tableViewData.count - 1 {
+			}
 		}
 	}
 
@@ -274,7 +259,9 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 	}
 
 	private func registerCells() {
+		tableView.register(UINib(nibName: "ParentRaceTableViewCell", bundle: nil), forCellReuseIdentifier: "RaceCell")
 		tableView.register(UINib(nibName: "SubraceTableViewCell", bundle: nil), forCellReuseIdentifier: "SubraceCell")
+
 	}
 
 }

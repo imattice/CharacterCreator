@@ -11,6 +11,14 @@ typealias Subrace = Race
 struct Race {
 	let name: String
 	let subrace: String?
-//	let description: String?
 	let modifiers: [Modifier]
+
+	func modifierString() -> String {
+		var result: String = ""
+		for modifier in modifiers {
+			result += "+ \(modifier.type.capitalized)  "
+		}
+
+		return result.replacingOccurrences(of: "_", with: " ").trimmingCharacters(in: .whitespaces)
+	}
 }
