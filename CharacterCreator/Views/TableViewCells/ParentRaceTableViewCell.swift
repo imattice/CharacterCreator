@@ -14,8 +14,6 @@ class ParentRaceTableViewCell: UITableViewCell {
 	@IBOutlet weak var modifierLabel: UILabel!
 	@IBOutlet weak var portraitImageView: UIImageView!
 
-	var isOpen: Bool = false
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,15 +26,4 @@ class ParentRaceTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-	func configure(for race: String) {
-
-	}
-
-	func toggle() {
-		if !isOpen {
-			descriptionLabel.isHidden 	= !descriptionLabel.isHidden
-			portraitImageView.isHidden 	= !portraitImageView.isHidden
-			modifierLabel.isHidden		= !modifierLabel.isHidden
-		}
-	}
 }
