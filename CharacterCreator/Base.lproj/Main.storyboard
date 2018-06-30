@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qWb-DI-Svr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hth-vz-2wL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -166,6 +166,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="hth-vz-2wL" kind="presentation" id="59e-u3-YnD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -197,6 +200,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NyG-XY-Vm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1904.8" y="767.76611694152928"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="di7-sg-cMw">
+            <objects>
+                <viewController id="hth-vz-2wL" customClass="ClassDetailViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mem-00-PqR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-Av-U31" customClass="ClassHeaderView" customModule="CharacterCreator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="9yn-5j-l5u"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jBs-Av-U31" firstAttribute="top" secondItem="mem-00-PqR" secondAttribute="top" id="XMB-2a-YeV"/>
+                            <constraint firstItem="jBs-Av-U31" firstAttribute="leading" secondItem="pUx-02-f7c" secondAttribute="leading" id="XiE-3u-QTD"/>
+                            <constraint firstItem="jBs-Av-U31" firstAttribute="trailing" secondItem="pUx-02-f7c" secondAttribute="trailing" id="j5z-xi-Bs9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pUx-02-f7c"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="3Xj-OP-QDc"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="headerView" destination="jBs-Av-U31" id="yVN-Xk-D5j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="77L-7Z-gpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1904.8" y="1606.5967016491754"/>
         </scene>
         <!--Class Selection-->
         <scene sceneID="AWO-Lh-j2X">
@@ -247,26 +285,26 @@
         <scene sceneID="BQ6-6G-ocN">
             <objects>
                 <viewController id="XyP-LY-mLj" customClass="StatDistributionViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UUb-LY-rdP">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="UUb-LY-rdP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTH-hv-VzL" userLabel="StatView Container">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KTH-hv-VzL" userLabel="StatView Container">
                                 <rect key="frame" x="15" y="229" width="345" height="418"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DUx-ZJ-a9G" userLabel="Row Stack View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DUx-ZJ-a9G" userLabel="Row Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="516"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3GR-S3-umP" userLabel="Column Stack">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3GR-S3-umP" userLabel="Column Stack">
                                                 <rect key="frame" x="0.0" y="0.0" width="172.5" height="516"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXW-f0-kjy" userLabel="Str Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pXW-f0-kjy" userLabel="Str Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="172.5" height="172"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDZ-Kk-0kf" userLabel="Dex Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDZ-Kk-0kf" userLabel="Dex Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="172" width="172.5" height="172"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wW-P2-hcs" userLabel="Wis Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wW-P2-hcs" userLabel="Wis Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="344" width="172.5" height="172"/>
                                                     </view>
                                                 </subviews>
@@ -279,16 +317,16 @@
                                                     <constraint firstAttribute="trailing" secondItem="hDZ-Kk-0kf" secondAttribute="trailing" id="xk7-7G-fdu"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fcj-YN-mZk" userLabel="Column Stack">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fcj-YN-mZk" userLabel="Column Stack">
                                                 <rect key="frame" x="172.5" y="0.0" width="172.5" height="516"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KzF-RD-kJ6" userLabel="Con Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KzF-RD-kJ6" userLabel="Con Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="172.5" height="172"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vrk-yQ-p6R" userLabel="Cha Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vrk-yQ-p6R" userLabel="Cha Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="172" width="172.5" height="172"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-Eh-aO7" userLabel="Int Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-Eh-aO7" userLabel="Int Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="344" width="172.5" height="172"/>
                                                     </view>
                                                 </subviews>
@@ -322,7 +360,7 @@
                                     <constraint firstAttribute="bottom" secondItem="DUx-ZJ-a9G" secondAttribute="bottom" id="UXs-Wy-520"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTn-Bt-4HC" userLabel="Available Stat Container">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cTn-Bt-4HC" userLabel="Available Stat Container">
                                 <rect key="frame" x="0.0" y="64" width="375" height="165"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYC-7u-jUn">

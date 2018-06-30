@@ -35,6 +35,9 @@
 		8152B41520DEE659008B7A1A /* ParentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */; };
 		8152B41920E160AA008B7A1A /* SubraceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41720E160AA008B7A1A /* SubraceTableViewCell.swift */; };
 		8152B41A20E160AA008B7A1A /* SubraceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41820E160AA008B7A1A /* SubraceTableViewCell.xib */; };
+		819B065F20E7455300902D4E /* ClassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ClassDetailViewController.swift */; };
+		819B066220E75AE700902D4E /* ClassHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B066120E75AE700902D4E /* ClassHeaderView.swift */; };
+		819B066420E75E3400902D4E /* ClassHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819B066320E75E3400902D4E /* ClassHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,9 @@
 		8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParentTableViewCell.xib; sourceTree = "<group>"; };
 		8152B41720E160AA008B7A1A /* SubraceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubraceTableViewCell.swift; sourceTree = "<group>"; };
 		8152B41820E160AA008B7A1A /* SubraceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubraceTableViewCell.xib; sourceTree = "<group>"; };
+		819B065E20E7455300902D4E /* ClassDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewController.swift; sourceTree = "<group>"; };
+		819B066120E75AE700902D4E /* ClassHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassHeaderView.swift; sourceTree = "<group>"; };
+		819B066320E75E3400902D4E /* ClassHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				8152B3D020D9E097008B7A1A /* RaceSelectionViewController.swift */,
-				8152B3CE20D9E054008B7A1A /* ClassSelectionViewController.swift */,
+				819B066020E7456600902D4E /* Class Selection */,
 				8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */,
 				8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */,
 			);
@@ -238,6 +244,8 @@
 		8152B3D920D9FD65008B7A1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				819B066120E75AE700902D4E /* ClassHeaderView.swift */,
+				819B066320E75E3400902D4E /* ClassHeaderView.xib */,
 				8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */,
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
 				8152B41620DEE7F6008B7A1A /* TableViewCells */,
@@ -262,6 +270,15 @@
 				8152B41820E160AA008B7A1A /* SubraceTableViewCell.xib */,
 			);
 			path = "Race Table View";
+			sourceTree = "<group>";
+		};
+		819B066020E7456600902D4E /* Class Selection */ = {
+			isa = PBXGroup;
+			children = (
+				8152B3CE20D9E054008B7A1A /* ClassSelectionViewController.swift */,
+				819B065E20E7455300902D4E /* ClassDetailViewController.swift */,
+			);
+			path = "Class Selection";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +391,7 @@
 				8152B41A20E160AA008B7A1A /* SubraceTableViewCell.xib in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */,
+				819B066420E75E3400902D4E /* ClassHeaderView.xib in Resources */,
 				8152B3E920DC354B008B7A1A /* SpecSheet in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,12 +421,14 @@
 				8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
+				819B066220E75AE700902D4E /* ClassHeaderView.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
 				8152B41420DEE659008B7A1A /* ParentTableViewCell.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				8152B40F20DD4DD6008B7A1A /* ExpandableTableView.swift in Sources */,
 				8123674520CA454D00F7AEFC /* Traits.swift in Sources */,
+				819B065F20E7455300902D4E /* ClassDetailViewController.swift in Sources */,
 				8152B41920E160AA008B7A1A /* SubraceTableViewCell.swift in Sources */,
 				8123674B20CA5EB000F7AEFC /* ClassTraits.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,

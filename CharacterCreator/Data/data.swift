@@ -25,6 +25,10 @@ let classData: [String : Any] = [
 	],
 ]
 
+enum ClassKey: String {
+	case description, hitDie = "hit_dice"
+}
+
 
 
 
@@ -78,11 +82,14 @@ let raceData: [String: Any] = [
 			"all_stats"			: 1	]]
 ]
 
-
-
-//let classData: [String: Any] = [
-//	"cleric":
-//	"fighter":
-//	"rogue":
-//	"wizard":
-//]
+enum RaceKey: String {
+	case description, modifiers, subraces
+}
+enum Stat: String {
+	case strength,
+		constitution,
+		dexterity,
+		charisma,
+		wisdom,
+		intelligence
+}
