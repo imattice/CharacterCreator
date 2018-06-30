@@ -7,7 +7,7 @@
 //
 
 class Character {
-	var `class`: String? 		= nil
+	var `class`: Class? 		= nil
 	var race: Race?				= nil
 	var stats: StatBlock		= StatBlock()
 

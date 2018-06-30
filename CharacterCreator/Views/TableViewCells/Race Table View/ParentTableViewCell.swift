@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ParentRaceTableViewCell: UITableViewCell {
+class ParentTableViewCell: UITableViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var modifierLabel: UILabel!
-	@IBOutlet weak var portraitImageView: UIImageView!
+	@IBOutlet weak var iconImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

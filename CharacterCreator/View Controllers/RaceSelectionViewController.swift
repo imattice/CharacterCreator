@@ -135,7 +135,7 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 
 		//configure parent cells
 		if indexPath.row == 0 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath) as! ParentRaceTableViewCell
+			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath) as! ParentTableViewCell
 
 			//reset dequeued cells
 			cell.accessoryView 		= nil
@@ -158,7 +158,7 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 			let parentRace = tableViewData[indexPath.section].parentData
 
 			cell.titleLabel.text 			= tableViewData[indexPath.section].parentData.name
-			cell.portraitImageView.image 	= UIImage(named: parentRace.name.lowercased())
+			cell.iconImageView.image 	= UIImage(named: parentRace.name.lowercased())
 			cell.descriptionLabel.text 		= tableViewData[indexPath.section].description
 			cell.modifierLabel.text			= tableViewData[indexPath.section].parentData.modifierString()
 
@@ -236,7 +236,7 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 	}
 
 	private func registerCells() {
-		tableView.register(UINib(nibName: "ParentRaceTableViewCell", bundle: nil), forCellReuseIdentifier: "RaceCell")
+		tableView.register(UINib(nibName: "ParentTableViewCell", bundle: nil), forCellReuseIdentifier: "RaceCell")
 		tableView.register(UINib(nibName: "SubraceTableViewCell", bundle: nil), forCellReuseIdentifier: "SubraceCell")
 	}
 
@@ -252,7 +252,7 @@ extension RaceSelectionViewController {
 
 		//if there are subraces available, check which subrace was selected
 		if let subrace = data.childData {
-			let race = subrace[selectedIndexPath.row].race
+			let race = subrace[selectedIndexPath.row - 1].race
 
 			Character.current.race = race						}
 

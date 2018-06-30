@@ -31,8 +31,8 @@
 		8152B3EB20DC3B48008B7A1A /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3EA20DC3B48008B7A1A /* data.swift */; };
 		8152B40F20DD4DD6008B7A1A /* ExpandableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B40E20DD4DD6008B7A1A /* ExpandableTableView.swift */; };
 		8152B41120DEDA8D008B7A1A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41020DEDA8D008B7A1A /* Int.swift */; };
-		8152B41420DEE659008B7A1A /* ParentRaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* ParentRaceTableViewCell.swift */; };
-		8152B41520DEE659008B7A1A /* ParentRaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* ParentRaceTableViewCell.xib */; };
+		8152B41420DEE659008B7A1A /* ParentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */; };
+		8152B41520DEE659008B7A1A /* ParentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */; };
 		8152B41920E160AA008B7A1A /* SubraceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41720E160AA008B7A1A /* SubraceTableViewCell.swift */; };
 		8152B41A20E160AA008B7A1A /* SubraceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41820E160AA008B7A1A /* SubraceTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -87,8 +87,8 @@
 		8152B3EA20DC3B48008B7A1A /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		8152B40E20DD4DD6008B7A1A /* ExpandableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableView.swift; sourceTree = "<group>"; };
 		8152B41020DEDA8D008B7A1A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
-		8152B41220DEE659008B7A1A /* ParentRaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentRaceTableViewCell.swift; sourceTree = "<group>"; };
-		8152B41320DEE659008B7A1A /* ParentRaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParentRaceTableViewCell.xib; sourceTree = "<group>"; };
+		8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentTableViewCell.swift; sourceTree = "<group>"; };
+		8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParentTableViewCell.xib; sourceTree = "<group>"; };
 		8152B41720E160AA008B7A1A /* SubraceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubraceTableViewCell.swift; sourceTree = "<group>"; };
 		8152B41820E160AA008B7A1A /* SubraceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubraceTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,12 +248,20 @@
 		8152B41620DEE7F6008B7A1A /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				8152B41220DEE659008B7A1A /* ParentRaceTableViewCell.swift */,
-				8152B41320DEE659008B7A1A /* ParentRaceTableViewCell.xib */,
+				819B065920E73FDF00902D4E /* Race Table View */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		819B065920E73FDF00902D4E /* Race Table View */ = {
+			isa = PBXGroup;
+			children = (
+				8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */,
+				8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */,
 				8152B41720E160AA008B7A1A /* SubraceTableViewCell.swift */,
 				8152B41820E160AA008B7A1A /* SubraceTableViewCell.xib */,
 			);
-			path = TableViewCells;
+			path = "Race Table View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,7 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
-				8152B41520DEE659008B7A1A /* ParentRaceTableViewCell.xib in Resources */,
+				8152B41520DEE659008B7A1A /* ParentTableViewCell.xib in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				8152B41A20E160AA008B7A1A /* SubraceTableViewCell.xib in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
@@ -396,7 +404,7 @@
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
-				8152B41420DEE659008B7A1A /* ParentRaceTableViewCell.swift in Sources */,
+				8152B41420DEE659008B7A1A /* ParentTableViewCell.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				8152B40F20DD4DD6008B7A1A /* ExpandableTableView.swift in Sources */,
