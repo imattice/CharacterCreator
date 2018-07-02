@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubraceTableViewCell: UITableViewCell {
+class ChildTableViewCell: UITableViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var modifierLabel: UILabel!

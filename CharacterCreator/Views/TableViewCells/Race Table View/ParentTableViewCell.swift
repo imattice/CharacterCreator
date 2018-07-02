@@ -1,5 +1,5 @@
 //
-//  SubraceTableViewCell.swift
+//  ParentTableViewCell.swift
 //  CharacterCreator
 //
 //  Created by Ike Mattice on 6/23/18.

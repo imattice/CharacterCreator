@@ -27,15 +27,15 @@
 		8152B3E720DC124D008B7A1A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3E620DC124D008B7A1A /* UIView.swift */; };
 		8152B3E920DC354B008B7A1A /* SpecSheet in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E820DC354B008B7A1A /* SpecSheet */; };
 		8152B3EB20DC3B48008B7A1A /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3EA20DC3B48008B7A1A /* data.swift */; };
-		8152B40F20DD4DD6008B7A1A /* ExpandableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B40E20DD4DD6008B7A1A /* ExpandableTableView.swift */; };
 		8152B41120DEDA8D008B7A1A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41020DEDA8D008B7A1A /* Int.swift */; };
 		8152B41420DEE659008B7A1A /* ParentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */; };
 		8152B41520DEE659008B7A1A /* ParentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */; };
-		8152B41920E160AA008B7A1A /* SubraceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41720E160AA008B7A1A /* SubraceTableViewCell.swift */; };
-		8152B41A20E160AA008B7A1A /* SubraceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41820E160AA008B7A1A /* SubraceTableViewCell.xib */; };
+		8152B41920E160AA008B7A1A /* ChildTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41720E160AA008B7A1A /* ChildTableViewCell.swift */; };
+		8152B41A20E160AA008B7A1A /* ChildTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */; };
 		819B065F20E7455300902D4E /* ClassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ClassDetailViewController.swift */; };
 		819B066220E75AE700902D4E /* ClassHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B066120E75AE700902D4E /* ClassHeaderView.swift */; };
 		819B066420E75E3400902D4E /* ClassHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819B066320E75E3400902D4E /* ClassHeaderView.xib */; };
+		81BC72A320EABF9500B48195 /* ExpandableCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A220EABF9500B48195 /* ExpandableCellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,15 +82,15 @@
 		8152B3E620DC124D008B7A1A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8152B3E820DC354B008B7A1A /* SpecSheet */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpecSheet; sourceTree = "<group>"; };
 		8152B3EA20DC3B48008B7A1A /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
-		8152B40E20DD4DD6008B7A1A /* ExpandableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableView.swift; sourceTree = "<group>"; };
 		8152B41020DEDA8D008B7A1A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentTableViewCell.swift; sourceTree = "<group>"; };
 		8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParentTableViewCell.xib; sourceTree = "<group>"; };
-		8152B41720E160AA008B7A1A /* SubraceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubraceTableViewCell.swift; sourceTree = "<group>"; };
-		8152B41820E160AA008B7A1A /* SubraceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubraceTableViewCell.xib; sourceTree = "<group>"; };
+		8152B41720E160AA008B7A1A /* ChildTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildTableViewCell.swift; sourceTree = "<group>"; };
+		8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildTableViewCell.xib; sourceTree = "<group>"; };
 		819B065E20E7455300902D4E /* ClassDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewController.swift; sourceTree = "<group>"; };
 		819B066120E75AE700902D4E /* ClassHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassHeaderView.swift; sourceTree = "<group>"; };
 		819B066320E75E3400902D4E /* ClassHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassHeaderView.xib; sourceTree = "<group>"; };
+		81BC72A220EABF9500B48195 /* ExpandableCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCellData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +190,7 @@
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				8152B3C420D9D337008B7A1A /* Class.swift */,
 				8152B3C620D9D340008B7A1A /* Race.swift */,
+				81BC72A220EABF9500B48195 /* ExpandableCellData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				8152B3E620DC124D008B7A1A /* UIView.swift */,
-				8152B40E20DD4DD6008B7A1A /* ExpandableTableView.swift */,
 				8152B41020DEDA8D008B7A1A /* Int.swift */,
 			);
 			path = Extensions;
@@ -239,8 +239,8 @@
 			children = (
 				8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */,
 				8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */,
-				8152B41720E160AA008B7A1A /* SubraceTableViewCell.swift */,
-				8152B41820E160AA008B7A1A /* SubraceTableViewCell.xib */,
+				8152B41720E160AA008B7A1A /* ChildTableViewCell.swift */,
+				8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */,
 			);
 			path = "Race Table View";
 			sourceTree = "<group>";
@@ -370,7 +370,7 @@
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8152B41520DEE659008B7A1A /* ParentTableViewCell.xib in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
-				8152B41A20E160AA008B7A1A /* SubraceTableViewCell.xib in Resources */,
+				8152B41A20E160AA008B7A1A /* ChildTableViewCell.xib in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */,
 				819B066420E75E3400902D4E /* ClassHeaderView.xib in Resources */,
@@ -402,15 +402,15 @@
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
+				81BC72A320EABF9500B48195 /* ExpandableCellData.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				819B066220E75AE700902D4E /* ClassHeaderView.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
 				8152B41420DEE659008B7A1A /* ParentTableViewCell.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
-				8152B40F20DD4DD6008B7A1A /* ExpandableTableView.swift in Sources */,
 				819B065F20E7455300902D4E /* ClassDetailViewController.swift in Sources */,
-				8152B41920E160AA008B7A1A /* SubraceTableViewCell.swift in Sources */,
+				8152B41920E160AA008B7A1A /* ChildTableViewCell.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				8152B3EB20DC3B48008B7A1A /* data.swift in Sources */,
 				8152B3D120D9E097008B7A1A /* RaceSelectionViewController.swift in Sources */,

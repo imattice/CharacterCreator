@@ -103,6 +103,57 @@ extension ClassSelectionViewController: UITableViewDataSource, UITableViewDelega
 		cell.cornerButton.setTitle("Level +", for: .normal)
 		cell.cornerButton.addTarget(self, action: #selector(showClassDetail(_:)), for: .touchUpInside)
 
+//		if indexPath.row == 0 {
+//			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath) as! ParentTableViewCell
+//
+//			//reset dequeued cells
+//			cell.accessoryView 					= nil
+//			cell.selectionStyle 				= .default
+//
+//			//prevent the parent cell from being selected if it has children
+//			//add chevron accessory
+//			if tableViewData[indexPath.section].childData != nil {
+//				cell.selectionStyle 			= .none
+//
+//				let chevronView 		= UIImageView(image: UIImage(named: "chevron"))
+//				chevronView.frame 	= CGRect(x: 0, y: 0, width: 30, height: 30)
+//				chevronView.alpha	= 0.8
+//
+//				cell.accessoryView				= chevronView
+//				cell.accessoryView?.transform 	= CGAffineTransform(rotationAngle: 90°)
+//			}
+//
+//			//make the button look like a label
+//			cell.cornerButton.setTitleColor(.black, for: .normal)
+//			cell.cornerButton.isUserInteractionEnabled		= false
+//
+//			//finish the label configuration
+//			let parentRace = tableViewData[indexPath.section].parentData
+//			let modifierString = tableViewData[indexPath.section].parentData.modifierString()
+//
+//			cell.titleLabel.text 				= tableViewData[indexPath.section].parentData.name
+//			cell.iconImageView.image 			= UIImage(named: parentRace.name.lowercased())
+//			cell.descriptionLabel.text 			= tableViewData[indexPath.section].description
+//
+//			cell.cornerButton.setTitle(modifierString, for: .normal )
+//
+//			return cell																		}
+//
+//
+//			//configure child cells
+//		else {
+//			let cell = tableView.dequeueReusableCell(withIdentifier: "SubraceCell", for: indexPath) as! ChildTableViewCell
+//			guard let data = tableViewData[indexPath.section].childData
+//				else { print("could not initialize subrace cell from data"); return UITableViewCell()}
+//			let subraceData = data[indexPath.row - 1]
+//
+//			cell.titleLabel.text 				= subraceData.race.name.capitalized
+//			cell.descriptionLabel.text 			= subraceData.description
+//			cell.modifierLabel.text				= subraceData.race.modifierString()
+//
+//			return cell																		}
+//
+//
         return cell
     }
 

@@ -43,7 +43,7 @@ class RaceSelectionViewController: UIViewController {
 
 			var parentRace: Race?
 			var parentDescription: String?
-			var childData: [(race: Race, description: String)]?
+			var childData: [(object: Any, description: String)]?
 
 
 			//build the parent race
@@ -64,7 +64,7 @@ class RaceSelectionViewController: UIViewController {
 
 			//build an array containing available subraces
 			if let subraceDict = raceDict["subraces"] as? [String : [String: Any]] {
-				var subraceArray = [(race: Race, description: String)]()
+				var subraceArray = [(object: Any, description: String)]()
 
 				for subraceData in subraceDict {
 					//check for subrace modifiers
@@ -82,7 +82,7 @@ class RaceSelectionViewController: UIViewController {
 									  subrace: nil,
 									  modifiers: subraceModifiers)
 
-						subraceArray.append((race: subrace, description: description))
+						subraceArray.append((object: subrace, description: description))
 					}
 				}
 
@@ -114,23 +114,6 @@ class RaceSelectionViewController: UIViewController {
 
 //MARK: - Table View Data Source & Delegate
 extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegate {
-	struct ExpandableCellData {
-		//tracks if the cell is open or closed
-		var isOpen: Bool 			= false
-
-		var parentData: Race
-		var description: String
-		var childData: [(race: Race, description: String)]?
-
-
-		init(parentData: Race, description: String) {
-			self.isOpen 		= false
-			self.parentData 	= parentData
-			self.description	= description
-		}
-	}
-
-
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 		//configure parent cells
@@ -159,12 +142,12 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 			cell.cornerButton.isUserInteractionEnabled		= false
 
 			//finish the label configuration
-			let parentRace = tableViewData[indexPath.section].parentData
-			let modifierString = tableViewData[indexPath.section].parentData.modifierString()
+			let parentRace = tableViewData[indexPath.section].parentData.object as! Race
+			let modifierString = parentRace.modifierString()
 
-			cell.titleLabel.text 				= tableViewData[indexPath.section].parentData.name
+			cell.titleLabel.text 				= parentRace.name
 			cell.iconImageView.image 			= UIImage(named: parentRace.name.lowercased())
-			cell.descriptionLabel.text 			= tableViewData[indexPath.section].description
+			cell.descriptionLabel.text 			= tableViewData[indexPath.section].parentData.description
 
 			cell.cornerButton.setTitle(modifierString, for: .normal )
 
@@ -173,14 +156,15 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 
 		//configure child cells
 		else {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "SubraceCell", for: indexPath) as! SubraceTableViewCell
-			guard let data = tableViewData[indexPath.section].childData
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SubraceCell", for: indexPath) as! ChildTableViewCell
+			guard let childData = tableViewData[indexPath.section].childData
 				else { print("could not initialize subrace cell from data"); return UITableViewCell()}
-			let subraceData = data[indexPath.row - 1]
+			let subraceData = childData[indexPath.row - 1]
+			let subrace = subraceData.object as! Race
 
-			cell.titleLabel.text 				= subraceData.race.name.capitalized
+			cell.titleLabel.text 				= subrace.name.capitalized
 			cell.descriptionLabel.text 			= subraceData.description
-			cell.modifierLabel.text				= subraceData.race.modifierString()
+			cell.modifierLabel.text				= subrace.modifierString()
 
 			return cell																		}
 	}
@@ -242,8 +226,8 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 	}
 
 	private func registerCells() {
-		tableView.register(UINib(nibName: "ParentTableViewCell", bundle: nil), forCellReuseIdentifier: "RaceCell")
-		tableView.register(UINib(nibName: "SubraceTableViewCell", bundle: nil), forCellReuseIdentifier: "SubraceCell")
+		tableView.register(UINib(nibName: String(describing: ParentTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "RaceCell")
+		tableView.register(UINib(nibName: String(describing: ChildTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "SubraceCell")
 	}
 
 }
@@ -258,13 +242,13 @@ extension RaceSelectionViewController {
 
 		//if there are subraces available, check which subrace was selected
 		if let subrace = data.childData {
-			let race = subrace[selectedIndexPath.row - 1].race
+			let race = subrace[selectedIndexPath.row - 1].object as! Race
 
 			Character.current.race = race						}
 
 		//if there are no subraces, just use the parent race
 		else {
-			Character.current.race = data.parentData  			}
+			Character.current.race = data.parentData.object as? Race  			}
 
 		print("Character's race is set to: \(String(describing: Character.current.race))")
 	}
