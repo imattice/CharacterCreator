@@ -17,7 +17,7 @@ class ClassDetailViewController: UIViewController {
 	@IBOutlet weak var headerView: ClassHeaderView!
 
 
-	let targetClass: String? 	= "rogue"
+	var targetClass: String? 	= "rogue"
 	var selectedClass: Class? 	= nil
 
     override func viewDidLoad() {

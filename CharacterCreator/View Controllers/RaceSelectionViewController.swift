@@ -138,8 +138,8 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath) as! ParentTableViewCell
 
 			//reset dequeued cells
-			cell.accessoryView 		= nil
-			cell.selectionStyle 	= .default
+			cell.accessoryView 					= nil
+			cell.selectionStyle 				= .default
 
 			//prevent the parent cell from being selected if it has children
 			//add chevron accessory
@@ -154,13 +154,19 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 				cell.accessoryView?.transform 	= CGAffineTransform(rotationAngle: 90°)
 			}
 
+			//make the button look like a label
+			cell.cornerButton.setTitleColor(.black, for: .normal)
+			cell.cornerButton.isUserInteractionEnabled		= false
+
 			//finish the label configuration
 			let parentRace = tableViewData[indexPath.section].parentData
+			let modifierString = tableViewData[indexPath.section].parentData.modifierString()
 
-			cell.titleLabel.text 			= tableViewData[indexPath.section].parentData.name
-			cell.iconImageView.image 	= UIImage(named: parentRace.name.lowercased())
-			cell.descriptionLabel.text 		= tableViewData[indexPath.section].description
-			cell.modifierLabel.text			= tableViewData[indexPath.section].parentData.modifierString()
+			cell.titleLabel.text 				= tableViewData[indexPath.section].parentData.name
+			cell.iconImageView.image 			= UIImage(named: parentRace.name.lowercased())
+			cell.descriptionLabel.text 			= tableViewData[indexPath.section].description
+
+			cell.cornerButton.setTitle(modifierString, for: .normal )
 
 			return cell																		}
 

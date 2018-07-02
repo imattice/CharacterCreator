@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class StatStepperView: UIView {
+class StatStepperView: UIView {
 	var view: UIView!
 
 	@IBOutlet weak var statTitleLabel: UILabel!

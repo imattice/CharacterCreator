@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hth-vz-2wL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0BV-s2-vtb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -131,7 +131,7 @@
             </objects>
             <point key="canvasLocation" x="1120.8" y="767.76611694152928"/>
         </scene>
-        <!--Title-->
+        <!--Select A Class-->
         <scene sceneID="S7C-WJ-1La">
             <objects>
                 <viewController id="qWb-DI-Svr" customClass="ClassSelectionViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
@@ -186,7 +186,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ved-oN-nOZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="40X-ZP-TXK">
+                    <navigationItem key="navigationItem" title="Select A Class" id="40X-ZP-TXK">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="cZ7-WX-2Ij">
                             <connections>
                                 <segue destination="XyP-LY-mLj" kind="show" id="llh-c0-5jq"/>
@@ -201,10 +201,40 @@
             </objects>
             <point key="canvasLocation" x="1904.8" y="767.76611694152928"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="RLY-UI-1Kv">
+            <objects>
+                <viewController id="Wea-iB-bAx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qBW-9Y-pfb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="50U-RB-vS5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBt-u5-Ysi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3718" y="768"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jvn-yn-bj6">
+            <objects>
+                <viewController id="6U4-Hk-cy1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zLL-Jw-OhW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tih-7c-Eyy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24d-F6-HQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3106" y="768"/>
+        </scene>
         <!--Title-->
         <scene sceneID="di7-sg-cMw">
             <objects>
-                <viewController id="hth-vz-2wL" customClass="ClassDetailViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClassDetail" id="hth-vz-2wL" customClass="ClassDetailViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mem-00-PqR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,7 +255,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pUx-02-f7c"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="3Xj-OP-QDc"/>
+                    <navigationItem key="navigationItem" title="Title" id="3Xj-OP-QDc" userLabel="Class Detail"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
@@ -234,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77L-7Z-gpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1904.8" y="1606.5967016491754"/>
+            <point key="canvasLocation" x="1904.8" y="1606.1469265367318"/>
         </scene>
         <!--Class Selection-->
         <scene sceneID="AWO-Lh-j2X">
@@ -285,27 +315,27 @@
         <scene sceneID="BQ6-6G-ocN">
             <objects>
                 <viewController id="XyP-LY-mLj" customClass="StatDistributionViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="UUb-LY-rdP">
+                    <view key="view" contentMode="scaleToFill" id="UUb-LY-rdP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KTH-hv-VzL" userLabel="StatView Container">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTH-hv-VzL" userLabel="StatView Container">
                                 <rect key="frame" x="15" y="229" width="345" height="418"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DUx-ZJ-a9G" userLabel="Row Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="345" height="516"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DUx-ZJ-a9G" userLabel="Row Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="418"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3GR-S3-umP" userLabel="Column Stack">
-                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="516"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3GR-S3-umP" userLabel="Column Stack">
+                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="418"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pXW-f0-kjy" userLabel="Str Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="172"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXW-f0-kjy" userLabel="Str Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="139.5"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hDZ-Kk-0kf" userLabel="Dex Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="172" width="172.5" height="172"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDZ-Kk-0kf" userLabel="Dex Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="139.5" width="172.5" height="139"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wW-P2-hcs" userLabel="Wis Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="344" width="172.5" height="172"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wW-P2-hcs" userLabel="Wis Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="278.5" width="172.5" height="139.5"/>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -317,17 +347,17 @@
                                                     <constraint firstAttribute="trailing" secondItem="hDZ-Kk-0kf" secondAttribute="trailing" id="xk7-7G-fdu"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fcj-YN-mZk" userLabel="Column Stack">
-                                                <rect key="frame" x="172.5" y="0.0" width="172.5" height="516"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fcj-YN-mZk" userLabel="Column Stack">
+                                                <rect key="frame" x="172.5" y="0.0" width="172.5" height="418"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KzF-RD-kJ6" userLabel="Con Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="172"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KzF-RD-kJ6" userLabel="Con Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="172.5" height="139.5"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vrk-yQ-p6R" userLabel="Cha Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="172" width="172.5" height="172"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vrk-yQ-p6R" userLabel="Cha Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="139.5" width="172.5" height="139"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-Eh-aO7" userLabel="Int Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="344" width="172.5" height="172"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-Eh-aO7" userLabel="Int Stat Stepper View" customClass="StatStepperView" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="278.5" width="172.5" height="139.5"/>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -360,7 +390,7 @@
                                     <constraint firstAttribute="bottom" secondItem="DUx-ZJ-a9G" secondAttribute="bottom" id="UXs-Wy-520"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cTn-Bt-4HC" userLabel="Available Stat Container">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTn-Bt-4HC" userLabel="Available Stat Container">
                                 <rect key="frame" x="0.0" y="64" width="375" height="165"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jYC-7u-jUn">
@@ -457,7 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Eb-y0-9fl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2728.8000000000002" y="37.331334332833585"/>
+            <point key="canvasLocation" x="2520" y="45"/>
         </scene>
         <!--Complete!-->
         <scene sceneID="WKn-wD-GuD">
@@ -499,7 +529,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="piY-cm-0I5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3501.5999999999999" y="34.632683658170919"/>
+            <point key="canvasLocation" x="4452" y="45"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FYB-Ff-Zyz">

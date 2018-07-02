@@ -8,16 +8,11 @@
 
 import UIKit
 
-@IBDesignable class ClassHeaderView: UIView {
+class ClassHeaderView: UIView {
 	var view: UIView!
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var iconImageView: UIImageView!
 	@IBOutlet weak var hitDieLabel: UILabel!
-
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		xibSetup()
-	}
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)

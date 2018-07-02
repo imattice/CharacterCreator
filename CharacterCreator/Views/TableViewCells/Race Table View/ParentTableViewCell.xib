@@ -27,15 +27,9 @@
                             <constraint firstAttribute="width" constant="100" id="zOS-j1-vsK"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This should be a description." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSc-7r-rdw" userLabel="DescriptionLabel">
-                        <rect key="frame" x="136" y="60" width="178" height="78.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="This should be a description." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSc-7r-rdw" userLabel="DescriptionLabel">
+                        <rect key="frame" x="136" y="60" width="178" height="86"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="+ 2 Con" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkp-Eh-bKS" userLabel="ModifierLabel">
-                        <rect key="frame" x="136" y="146.5" width="178" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,27 +39,31 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiW-xO-cgP" userLabel="Corner Button">
+                        <rect key="frame" x="126" y="151" width="188" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Xxf-T6-pWr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="0L1-N2-dyy"/>
                     <constraint firstItem="qSc-7r-rdw" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="0mU-Ps-3Pa"/>
-                    <constraint firstItem="Zkp-Eh-bKS" firstAttribute="top" secondItem="qSc-7r-rdw" secondAttribute="bottom" constant="8" id="8cN-tu-VFZ"/>
                     <constraint firstItem="Xxf-T6-pWr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="Cmq-nA-HcX"/>
-                    <constraint firstItem="Zkp-Eh-bKS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="HUi-X2-fU0"/>
+                    <constraint firstItem="IiW-xO-cgP" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Fnz-aT-Xp5"/>
+                    <constraint firstItem="IiW-xO-cgP" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="KUv-4e-DUI"/>
                     <constraint firstItem="Xvh-6m-dsf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="RHE-au-Rld"/>
+                    <constraint firstItem="IiW-xO-cgP" firstAttribute="leading" secondItem="Xvh-6m-dsf" secondAttribute="trailing" constant="10" id="Tcq-yh-9G3"/>
                     <constraint firstItem="Xxf-T6-pWr" firstAttribute="leading" secondItem="Xvh-6m-dsf" secondAttribute="trailing" constant="20" id="iVe-zs-zEb"/>
-                    <constraint firstItem="Zkp-Eh-bKS" firstAttribute="leading" secondItem="Xvh-6m-dsf" secondAttribute="trailing" constant="20" id="mCk-pB-Fnj"/>
                     <constraint firstItem="qSc-7r-rdw" firstAttribute="top" secondItem="Xxf-T6-pWr" secondAttribute="bottom" constant="8" id="o4a-bc-2fd"/>
+                    <constraint firstItem="IiW-xO-cgP" firstAttribute="top" secondItem="qSc-7r-rdw" secondAttribute="bottom" constant="5" id="pA9-0g-deX"/>
                     <constraint firstItem="Xvh-6m-dsf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uB1-nG-7jQ"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Zkp-Eh-bKS" secondAttribute="bottom" constant="20" id="wLD-XQ-M14"/>
                     <constraint firstItem="qSc-7r-rdw" firstAttribute="leading" secondItem="Xvh-6m-dsf" secondAttribute="trailing" constant="20" id="xLt-qi-6K6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cornerButton" destination="IiW-xO-cgP" id="ETS-qK-JCG"/>
                 <outlet property="descriptionLabel" destination="qSc-7r-rdw" id="BpR-hx-gJp"/>
                 <outlet property="iconImageView" destination="Xvh-6m-dsf" id="ycS-Wj-drD"/>
-                <outlet property="modifierLabel" destination="Zkp-Eh-bKS" id="MF8-bD-wdp"/>
                 <outlet property="titleLabel" destination="Xxf-T6-pWr" id="4C2-wE-GhF"/>
             </connections>
             <point key="canvasLocation" x="29" y="128"/>

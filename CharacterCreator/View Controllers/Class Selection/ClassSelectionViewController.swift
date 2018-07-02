@@ -31,6 +31,7 @@ class ClassSelectionViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 
 	var tableViewData: [TableViewData] = [TableViewData]()
+	var selectedClass: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,15 @@ class ClassSelectionViewController: UIViewController {
 
 		return result
 	}
+
+	@objc func showClassDetail(_ sender: UIButton) {
+		
+		guard let storyboard = storyboard, let vc = storyboard.instantiateViewController(withIdentifier: "ClassDetail") as? ClassDetailViewController else { print("Could not instantiate Class Detail View Controller"); return }
+
+		vc.targetClass = tableViewData[sender.tag].value.name
+
+		self.present(vc, animated: true, completion: nil)
+	}
 }
 
 
@@ -85,27 +95,16 @@ extension ClassSelectionViewController: UITableViewDataSource, UITableViewDelega
 
 		let cellData = tableViewData[indexPath.row]
 
-		cell.titleLabel.text 		= cellData.value.name.capitalized
-		cell.descriptionLabel.text 	= cellData.description
-		cell.iconImageView.image 	= UIImage(named: cellData.value.name.lowercased() )
-		cell.modifierLabel.isHidden = true
+		cell.titleLabel.text 				= cellData.value.name.capitalized
+		cell.descriptionLabel.text 			= cellData.description
+		cell.iconImageView.image 			= UIImage(named: cellData.value.name.lowercased() )
+		cell.cornerButton.tag 				= indexPath.row
+
+		cell.cornerButton.setTitle("Level +", for: .normal)
+		cell.cornerButton.addTarget(self, action: #selector(showClassDetail(_:)), for: .touchUpInside)
 
         return cell
     }
-
-    // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let selectedIndex = tableView.indexPathForSelectedRow?.row  else { return }
-		let selectedClass = tableViewData[selectedIndex].value
-
-		Character.current.class = selectedClass
-		print("Character's class is set to: \(String(describing: Character.current.class))")
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return tableViewData.count
@@ -114,5 +113,17 @@ extension ClassSelectionViewController: UITableViewDataSource, UITableViewDelega
 	private func registerCells() {
 		tableView.register(UINib(nibName: "ParentTableViewCell", bundle: nil), forCellReuseIdentifier: "ClassCell")
 	}
+}
 
+// MARK: - Navigation
+extension ClassSelectionViewController {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let selectedIndex = tableView.indexPathForSelectedRow?.row  else { return }
+		let selectedClass = tableViewData[selectedIndex].value
+
+		Character.current.class = selectedClass
+		print("Character's class is set to: \(String(describing: Character.current.class))")
+		// Get the new view controller using segue.destinationViewController.
+		// Pass the selected object to the new view controller.
+	}
 }

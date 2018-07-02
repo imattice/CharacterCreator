@@ -244,8 +244,7 @@
 		8152B3D920D9FD65008B7A1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				819B066120E75AE700902D4E /* ClassHeaderView.swift */,
-				819B066320E75E3400902D4E /* ClassHeaderView.xib */,
+				819B066720E814D200902D4E /* Class Selection */,
 				8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */,
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
 				8152B41620DEE7F6008B7A1A /* TableViewCells */,
@@ -277,6 +276,15 @@
 			children = (
 				8152B3CE20D9E054008B7A1A /* ClassSelectionViewController.swift */,
 				819B065E20E7455300902D4E /* ClassDetailViewController.swift */,
+			);
+			path = "Class Selection";
+			sourceTree = "<group>";
+		};
+		819B066720E814D200902D4E /* Class Selection */ = {
+			isa = PBXGroup;
+			children = (
+				819B066120E75AE700902D4E /* ClassHeaderView.swift */,
+				819B066320E75E3400902D4E /* ClassHeaderView.xib */,
 			);
 			path = "Class Selection";
 			sourceTree = "<group>";
