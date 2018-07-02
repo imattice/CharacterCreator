@@ -14,8 +14,6 @@
 		8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */; };
 		8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */; };
 		8123673420CA44DD00F7AEFC /* CharacterCreatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */; };
-		8123674520CA454D00F7AEFC /* Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123674420CA454D00F7AEFC /* Traits.swift */; };
-		8123674B20CA5EB000F7AEFC /* ClassTraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123674A20CA5EB000F7AEFC /* ClassTraits.swift */; };
 		8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C020D9D320008B7A1A /* Modifier.swift */; };
 		8152B3C320D9D32F008B7A1A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C220D9D32F008B7A1A /* Character.swift */; };
 		8152B3C520D9D337008B7A1A /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C420D9D337008B7A1A /* Class.swift */; };
@@ -71,10 +69,6 @@
 		8123672F20CA44DD00F7AEFC /* CharacterCreatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorUITests.swift; sourceTree = "<group>"; };
 		8123673520CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8123674420CA454D00F7AEFC /* Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traits.swift; sourceTree = "<group>"; };
-		8123674720CA5C9400F7AEFC /* FlavorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorText.swift; sourceTree = "<group>"; };
-		8123674920CA5D6D00F7AEFC /* FlavorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorText.swift; sourceTree = "<group>"; };
-		8123674A20CA5EB000F7AEFC /* ClassTraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTraits.swift; sourceTree = "<group>"; };
 		8152B3C020D9D320008B7A1A /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		8152B3C220D9D32F008B7A1A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8152B3C420D9D337008B7A1A /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
@@ -185,28 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				8152B3EA20DC3B48008B7A1A /* data.swift */,
-				8123674620CA5C9300F7AEFC /* Races */,
-				8123674820CA5D6D00F7AEFC /* Classes */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		8123674620CA5C9300F7AEFC /* Races */ = {
-			isa = PBXGroup;
-			children = (
-				8123674720CA5C9400F7AEFC /* FlavorText.swift */,
-				8123674420CA454D00F7AEFC /* Traits.swift */,
-			);
-			path = Races;
-			sourceTree = "<group>";
-		};
-		8123674820CA5D6D00F7AEFC /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				8123674920CA5D6D00F7AEFC /* FlavorText.swift */,
-				8123674A20CA5EB000F7AEFC /* ClassTraits.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		8152B3BF20D9D2F5008B7A1A /* Models */ = {
@@ -435,10 +409,8 @@
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				8152B40F20DD4DD6008B7A1A /* ExpandableTableView.swift in Sources */,
-				8123674520CA454D00F7AEFC /* Traits.swift in Sources */,
 				819B065F20E7455300902D4E /* ClassDetailViewController.swift in Sources */,
 				8152B41920E160AA008B7A1A /* SubraceTableViewCell.swift in Sources */,
-				8123674B20CA5EB000F7AEFC /* ClassTraits.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				8152B3EB20DC3B48008B7A1A /* data.swift in Sources */,
 				8152B3D120D9E097008B7A1A /* RaceSelectionViewController.swift in Sources */,

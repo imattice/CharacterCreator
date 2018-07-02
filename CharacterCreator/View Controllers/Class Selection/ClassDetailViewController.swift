@@ -14,33 +14,61 @@ protocol ClassDetail {
 }
 
 class ClassDetailViewController: UIViewController {
-	@IBOutlet weak var headerView: ClassHeaderView!
+	@IBOutlet weak var tableView: UITableView!
 
-
-	var targetClass: String? 	= "rogue"
-	var selectedClass: Class? 	= nil
+	var tableViewData = [TableViewData]()
+	var targetClass: String? 	= "cleric"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		selectedClass = getData()
-
-		guard let selectedClass = selectedClass else { print("Could not load selected class for \(targetClass!)"); return }
-
-		headerView.titleLabel.text			= selectedClass.name.capitalized
-		headerView.iconImageView.image		= UIImage(named: selectedClass.name.lowercased())
-		headerView.hitDieLabel.text			= String(selectedClass.hitDie)
+		tableViewData = getData()
     }
 
-	private func getData() -> Class? {
+	private func getData() -> [TableViewData] {
 		guard let targetClass = targetClass,
 			let classDict = classData[targetClass] as? [String : Any],
-			let hitDieData = classDict[ClassKey.hitDie.rawValue] as? String,
-			let hitDie = Int(hitDieData) else {print("Could not fetch data for the class \(self.targetClass!)"); return nil }
+			let levels = classDict["levels"] as? [String : Any]
+			else { print("could not initialize data for the \(self.targetClass!) class"); return [TableViewData]()}
 
+		let result = [TableViewData]()
 
+		for level in levels {
+			guard let levelDict = level.value as? [String: Any]
+				else {print("invalid level value for \(targetClass) at level \(level.key)"); return [TableViewData]() }
+			let data = TableViewData(level: level.key, content: [TableViewData.LevelFeature]())
 
+			for feature in levelDict {
+				guard let value = feature.value as? String
+					else { print("invalid level value for \(targetClass) at level \(level.key)"); return [TableViewData]() }
+				let levelFeature = TableViewData.LevelFeature(title: feature.key, description: value)
+			}
+		}
 
-		return Class(name: targetClass, hitDie: hitDie)
+		return result
 	}
+}
+
+extension ClassDetailViewController: UITableViewDelegate, UITableViewDataSource {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		return UITableViewCell()
+	}
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return tableViewData[section].content.count
+	}
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return tableViewData.count
+	}
+
+	struct TableViewData {
+		let level: String
+		let content: [LevelFeature]
+
+		struct LevelFeature {
+			let title: String
+			let description: String
+		}
+	}
+
 }
