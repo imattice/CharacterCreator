@@ -22,7 +22,7 @@ class RaceSelectionViewController: UIViewController {
         super.viewDidLoad()
 
 		//set up data and cells
-		tableViewData = createTableData()
+		tableViewData = ExpandableCellData.createArray(forDataType: .race)  //createTableData()
 		registerCells()
 
 		tableView.rowHeight = UITableViewAutomaticDimension
@@ -35,76 +35,72 @@ class RaceSelectionViewController: UIViewController {
 		if !selectionWasMade { nextNavButton.isEnabled = false }
     }
 
-	private func createTableData() -> [ExpandableCellData] {
-		var result = [ExpandableCellData]()
+//	private func createTableData() -> [ExpandableCellData] {
+//		var result = [ExpandableCellData]()
+//
+//		for race in raceData {
+//			guard let raceDict = race.value as? [String : Any],
+//				let raceDescription = raceDict[RaceKey.description.rawValue] as? String
+//				else { print("could not create the \(race.key) race from available data"); return [ExpandableCellData]() }
+//
+//			let parentRace: String 			= race.key
+//			let parentDescription: String 	= raceDescription
+//			var childData: [(title: String, description: String)]?
+//
+//			//check for available subraces
+//			if let subraceDict = raceDict[RaceKey.subraces.rawValue] as? [String : [String: Any]] {
+//				var subraceArray = [(title: String, description: String)]()
+//
+//				//loop through subraces
+//				for subraceData in subraceDict {
+//					//fetch the description
+//					if let description = subraceData.value[RaceKey.description.rawValue] as? String {
+//
+//						subraceArray.append((title: subraceData.key, description: description))
+//					}
+//				}
+//
+//				childData = subraceArray
+//			}
+//
+//			//create the data object here so we can add to it if there are subraces
+//			var data = ExpandableCellData(title: parentRace, description: parentDescription)
+//
+//				if let subraces = childData {
+//					data.childData = subraces
+//				}
+//
+//				result.append(data)
+//			}
+//
+//		return result
+//	}
 
-		for race in raceData {
-			guard let raceDict = race.value as? [String : Any] else { return [ExpandableCellData]() }
+	private func modifierString(forRaceName raceName: String, withSubrace subraceName: String?) -> String {
+		guard let raceData = raceData[raceName] as? [String : Any] else {print("invalid raceName: \(raceName)"); return ""}
 
-			var parentRace: Race?
-			var parentDescription: String?
-			var childData: [(object: Any, description: String)]?
+		var result: String = ""
+		var modifierArray: [String: Int]
 
+		//set loop to subrace modifiers
+		if let subraceName = subraceName {
+			guard let subraces = raceData["subraces"] as? [String: Any],
+				let subraceData = subraces[subraceName] as? [String: Any],
+				let modifiers = subraceData["modifiers"] as? [String : Int] else {print("invalid modifiers for subrace"); return "" }
+			modifierArray = modifiers
 
-			//build the parent race
-			//fetch the description
-			if let description = raceDict["description"] as? String,
-				let modifiers = raceDict["modifiers"] as? [String : Int] {
-				var parentModifiers = [Modifier]()
+		//set loop to parent modifiers
+		} else {
+			guard let modifiers = raceData["modifiers"] as? [String : Int] else {print("invalid modifiers for parent race"); return "" }
 
-				for (key, value) in modifiers {
-					let modifier = Modifier(type: key, value: value, origin: race.key.capitalized)
-					parentModifiers.append(modifier)
-				}
-
-				parentRace 			= Race(name: race.key.capitalized, subrace: nil, modifiers: parentModifiers)
-				parentDescription 	= description
-
-			} else { print("could not create the \(race.key) race from available data")}
-
-			//build an array containing available subraces
-			if let subraceDict = raceDict["subraces"] as? [String : [String: Any]] {
-				var subraceArray = [(object: Any, description: String)]()
-
-				for subraceData in subraceDict {
-					//check for subrace modifiers
-					//fetch the description
-					if let description = subraceData.value["description"] as? String,
-						let modifiers = subraceData.value["modifiers"] as? [String : Int] {
-						var subraceModifiers = [Modifier]()
-
-						for (key, value) in modifiers {
-							let modifier = Modifier(type: key, value: value, origin: race.key.capitalized)
-							subraceModifiers.append(modifier)
-						}
-
-						let subrace = Race(name: "\(subraceData.key.capitalized) \(race.key.capitalized)",
-									  subrace: nil,
-									  modifiers: subraceModifiers)
-
-						subraceArray.append((object: subrace, description: description))
-					}
-				}
-
-				childData = subraceArray
-			}
-
-			//unwrap the newly set variables and add to the ExpandableCellData array
-			if let race = parentRace,
-				let description = parentDescription {
-
-				//create the data object here so we can add to it if there are subraces
-				var data = ExpandableCellData(parentData: race, description: description)
-
-				if let subraces = childData {
-					data.childData = subraces
-				}
-
-				result.append(data)
-			}
+			modifierArray = modifiers
 		}
 
-		return result
+
+		//append each modifier to the result
+		for modifier in modifierArray { result += "+ \(modifier.key.capitalized) " }
+
+		return result.replacingOccurrences(of: "_", with: " ").trimmingCharacters(in: .whitespaces)
 	}
 }
 
@@ -142,14 +138,13 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 			cell.cornerButton.isUserInteractionEnabled		= false
 
 			//finish the label configuration
-			let parentRace = tableViewData[indexPath.section].parentData.object as! Race
-			let modifierString = parentRace.modifierString()
+			let parentRace = tableViewData[indexPath.section].parentData.title
 
-			cell.titleLabel.text 				= parentRace.name
-			cell.iconImageView.image 			= UIImage(named: parentRace.name.lowercased())
+			cell.titleLabel.text 				= parentRace
+			cell.iconImageView.image 			= UIImage(named: parentRace.lowercased())
 			cell.descriptionLabel.text 			= tableViewData[indexPath.section].parentData.description
 
-			cell.cornerButton.setTitle(modifierString, for: .normal )
+			cell.cornerButton.setTitle(modifierString(forRaceName: parentRace, withSubrace: nil), for: .normal )
 
 			return cell																		}
 
@@ -159,12 +154,13 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 			let cell = tableView.dequeueReusableCell(withIdentifier: "SubraceCell", for: indexPath) as! ChildTableViewCell
 			guard let childData = tableViewData[indexPath.section].childData
 				else { print("could not initialize subrace cell from data"); return UITableViewCell()}
+			let parentData = tableViewData[indexPath.section].parentData
 			let subraceData = childData[indexPath.row - 1]
-			let subrace = subraceData.object as! Race
+			let subraceTitle = subraceData.title
 
-			cell.titleLabel.text 				= subrace.name.capitalized
+			cell.titleLabel.text 				= subraceTitle.capitalized
 			cell.descriptionLabel.text 			= subraceData.description
-			cell.modifierLabel.text				= subrace.modifierString()
+			cell.modifierLabel.text				= modifierString(forRaceName: parentData.title, withSubrace: subraceTitle)
 
 			return cell																		}
 	}
@@ -239,16 +235,17 @@ extension RaceSelectionViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow  else { return }
 		let data = tableViewData[selectedIndexPath.section]
+		let raceTitle = data.parentData.title
 
 		//if there are subraces available, check which subrace was selected
 		if let subrace = data.childData {
-			let race = subrace[selectedIndexPath.row - 1].object as! Race
+			let subraceTitle = subrace[selectedIndexPath.row - 1].title
 
-			Character.current.race = race						}
+			Character.current.race = Race(fromParent: raceTitle, withSubrace: subraceTitle)						}
 
 		//if there are no subraces, just use the parent race
 		else {
-			Character.current.race = data.parentData.object as? Race  			}
+			Character.current.race = Race(fromParent: raceTitle, withSubrace: nil)			}
 
 		print("Character's race is set to: \(String(describing: Character.current.race))")
 	}

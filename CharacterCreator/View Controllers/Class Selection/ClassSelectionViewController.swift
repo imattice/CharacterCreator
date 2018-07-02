@@ -30,13 +30,13 @@ import UIKit
 class ClassSelectionViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 
-	var tableViewData: [TableViewData] = [TableViewData]()
+	var tableViewData: [ExpandableCellData] = [ExpandableCellData]()
 	var selectedClass: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		tableViewData = fetchClassData()
+		tableViewData = ExpandableCellData.createArray(forDataType: .class)
 		registerCells()
 
 		tableView.rowHeight = UITableViewAutomaticDimension
@@ -45,37 +45,53 @@ class ClassSelectionViewController: UIViewController {
 		tableView.tableFooterView = UIView()
     }
 
-	private func fetchClassData() -> [TableViewData] {
-		var result: [TableViewData] = [TableViewData]()
-
-		for data in classData {
-			guard let classDict = data.value as? [String : Any] else { return [TableViewData]() }
-
-//			print(classDict)
-
-			//build the class summary
-			if let description = classDict["description"] as? String,
-				let hitDieData = classDict["hit_dice"] as? String,
-				let hitDie = Int(hitDieData) {
-
-				let classStruct 		= Class(name: data.key, hitDie: hitDie)
-				let classDescription 	= description
-				let tableData = TableViewData(value: classStruct, description: classDescription)
-
-				result.append(tableData)
-
-			} else { print("could not initialize the \(data.key) class from available data")}
-
-		}
-
-		return result
-	}
+//	private func fetchClassData() -> [ExpandableCellData] {
+//		var result: [ExpandableCellData] = [ExpandableCellData]()
+//
+//		for data in classData {
+//			guard let classDict = data.value as? [String : Any] else { return [ExpandableCellData]() }
+//
+////			print(classDict)
+//
+//			//build the class summary
+//			if let description = classDict["description"] as? String,
+//				let hitDieData = classDict["hit_dice"] as? String,
+//				let hitDie = Int(hitDieData) {
+//
+//				let classDescription 	= description
+//				let tableData = ExpandableCellData(title: data.key, description: classDescription)
+//
+//				//check for class paths
+//				if let pathsDict = classDict[ClassKey.path.rawValue] as? [String : Any] {
+//
+//					//loop through each path
+//					for path in pathsDict {
+//						let pathOptions = [(title: String, description: String)]
+//						let pathName = path.key
+//						guard let pathDetails = path.value as? [String : Any],
+//							let pathDescription = pathDetails[ClassKey.description.rawValue] as? String
+//						else { print("toruble creating path for \(pathName)"); return result}
+//
+//						let pathData = (object: pathName, description: pathDescription)
+//					}
+//
+//
+//				}
+//
+//				result.append(tableData)
+//
+//			} else { print("could not initialize the \(data.key) class from available data")}
+//
+//		}
+//
+//		return result
+//	}
 
 	@objc func showClassDetail(_ sender: UIButton) {
 		
 		guard let storyboard = storyboard, let vc = storyboard.instantiateViewController(withIdentifier: "ClassDetail") as? ClassDetailViewController else { print("Could not instantiate Class Detail View Controller"); return }
 
-		vc.targetClass = tableViewData[sender.tag].value.name
+		vc.targetClass = tableViewData[sender.tag].parentData.title
 
 		self.present(vc, animated: true, completion: nil)
 	}
@@ -84,10 +100,10 @@ class ClassSelectionViewController: UIViewController {
 
 // MARK: - Table view delegate and data source
 extension ClassSelectionViewController: UITableViewDataSource, UITableViewDelegate {
-	struct TableViewData {
-		let value: Class
-		let description: String
-	}
+//	struct TableViewData {
+//		let value: Class
+//		let description: String
+//	}
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -95,15 +111,18 @@ extension ClassSelectionViewController: UITableViewDataSource, UITableViewDelega
 
 		let cellData = tableViewData[indexPath.row]
 
-		cell.titleLabel.text 				= cellData.value.name.capitalized
-		cell.descriptionLabel.text 			= cellData.description
-		cell.iconImageView.image 			= UIImage(named: cellData.value.name.lowercased() )
+		cell.titleLabel.text 				= cellData.parentData.title.capitalized
+		cell.descriptionLabel.text 			= cellData.parentData.description
+		cell.iconImageView.image 			= UIImage(named: cellData.parentData.title.lowercased() )
 		cell.cornerButton.tag 				= indexPath.row
 
 		cell.cornerButton.setTitle("Level +", for: .normal)
 		cell.cornerButton.addTarget(self, action: #selector(showClassDetail(_:)), for: .touchUpInside)
 
-//		if indexPath.row == 0 {
+		if indexPath.row == 0 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "ClassCell", for: indexPath) as! ParentTableViewCell
+
+		}
 //			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath) as! ParentTableViewCell
 //
 //			//reset dequeued cells
@@ -169,12 +188,12 @@ extension ClassSelectionViewController: UITableViewDataSource, UITableViewDelega
 // MARK: - Navigation
 extension ClassSelectionViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let selectedIndex = tableView.indexPathForSelectedRow?.row  else { return }
-		let selectedClass = tableViewData[selectedIndex].value
+		guard let selectedIndexPath = tableView.indexPathForSelectedRow,
+			let selectedChildData = tableViewData[selectedIndexPath.section].childData else { return }
+			let selectedClass = tableViewData[selectedIndexPath.section].parentData.title
+			let selectedPath  = selectedChildData[selectedIndexPath.row].title
 
-		Character.current.class = selectedClass
+		Character.current.class = Class(fromString: selectedClass, withPath: selectedPath)
 		print("Character's class is set to: \(String(describing: Character.current.class))")
-		// Get the new view controller using segue.destinationViewController.
-		// Pass the selected object to the new view controller.
 	}
 }

@@ -10,7 +10,7 @@ let classData: [String : Any] = [
 	"cleric": [
 		"description": "Clerics combine the helpful magic of healing and inspiring their allies with spells that harm and hinder foes. They can provoke awe and dread, lay curses of plague or poison, and even call down flames from heaven to consume their enemies.",
 		"hit_dice": "8",
-		"path": [
+		"paths": [
 			"Life Domain": [
 				"description": "The Life domain focuses on the vibrant positive energy— one of the fundamental forces of the universe—that sustains all life.",
 				"levels": [

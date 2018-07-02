@@ -9,5 +9,7 @@
 struct Modifier {
 	let type: String
 	let value: Int
-	let origin: String
+	let origin: ModifierOrigin
+
+	enum ModifierOrigin { case race, subrace, `class` }
 }
