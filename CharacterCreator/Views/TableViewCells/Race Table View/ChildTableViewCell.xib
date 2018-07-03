@@ -54,8 +54,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cornerLabel" destination="aF2-lj-EUy" id="sml-cN-Ka7"/>
                 <outlet property="descriptionLabel" destination="3Vf-Rc-vyC" id="xBl-xS-z1Y"/>
-                <outlet property="modifierLabel" destination="aF2-lj-EUy" id="sml-cN-Ka7"/>
                 <outlet property="titleLabel" destination="e5z-eS-WPd" id="rOw-gd-zT4"/>
             </connections>
             <point key="canvasLocation" x="34" y="130.5"/>

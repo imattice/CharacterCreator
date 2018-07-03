@@ -11,5 +11,5 @@ import UIKit
 class ChildTableViewCell: UITableViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
-	@IBOutlet weak var modifierLabel: UILabel!
+	@IBOutlet weak var cornerLabel: UILabel!
 }

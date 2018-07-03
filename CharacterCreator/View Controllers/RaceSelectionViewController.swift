@@ -35,47 +35,6 @@ class RaceSelectionViewController: UIViewController {
 		if !selectionWasMade { nextNavButton.isEnabled = false }
     }
 
-//	private func createTableData() -> [ExpandableCellData] {
-//		var result = [ExpandableCellData]()
-//
-//		for race in raceData {
-//			guard let raceDict = race.value as? [String : Any],
-//				let raceDescription = raceDict[RaceKey.description.rawValue] as? String
-//				else { print("could not create the \(race.key) race from available data"); return [ExpandableCellData]() }
-//
-//			let parentRace: String 			= race.key
-//			let parentDescription: String 	= raceDescription
-//			var childData: [(title: String, description: String)]?
-//
-//			//check for available subraces
-//			if let subraceDict = raceDict[RaceKey.subraces.rawValue] as? [String : [String: Any]] {
-//				var subraceArray = [(title: String, description: String)]()
-//
-//				//loop through subraces
-//				for subraceData in subraceDict {
-//					//fetch the description
-//					if let description = subraceData.value[RaceKey.description.rawValue] as? String {
-//
-//						subraceArray.append((title: subraceData.key, description: description))
-//					}
-//				}
-//
-//				childData = subraceArray
-//			}
-//
-//			//create the data object here so we can add to it if there are subraces
-//			var data = ExpandableCellData(title: parentRace, description: parentDescription)
-//
-//				if let subraces = childData {
-//					data.childData = subraces
-//				}
-//
-//				result.append(data)
-//			}
-//
-//		return result
-//	}
-
 	private func modifierString(forRaceName raceName: String, withSubrace subraceName: String?) -> String {
 		guard let raceData = raceData[raceName] as? [String : Any] else {print("invalid raceName: \(raceName)"); return ""}
 
@@ -160,7 +119,7 @@ extension RaceSelectionViewController: UITableViewDataSource, UITableViewDelegat
 
 			cell.titleLabel.text 				= subraceTitle.capitalized
 			cell.descriptionLabel.text 			= subraceData.description
-			cell.modifierLabel.text				= modifierString(forRaceName: parentData.title, withSubrace: subraceTitle)
+			cell.cornerLabel.text				= modifierString(forRaceName: parentData.title, withSubrace: subraceTitle)
 
 			return cell																		}
 	}

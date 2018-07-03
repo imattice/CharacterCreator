@@ -29,9 +29,11 @@ import UIKit
 
 class ClassSelectionViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var nextNavButton: UIBarButtonItem!
 
 	var tableViewData: [ExpandableCellData] = [ExpandableCellData]()
-	var selectedClass: String?
+	var selectionWasMade: Bool 					= false
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,48 +46,6 @@ class ClassSelectionViewController: UIViewController {
 
 		tableView.tableFooterView = UIView()
     }
-
-//	private func fetchClassData() -> [ExpandableCellData] {
-//		var result: [ExpandableCellData] = [ExpandableCellData]()
-//
-//		for data in classData {
-//			guard let classDict = data.value as? [String : Any] else { return [ExpandableCellData]() }
-//
-////			print(classDict)
-//
-//			//build the class summary
-//			if let description = classDict["description"] as? String,
-//				let hitDieData = classDict["hit_dice"] as? String,
-//				let hitDie = Int(hitDieData) {
-//
-//				let classDescription 	= description
-//				let tableData = ExpandableCellData(title: data.key, description: classDescription)
-//
-//				//check for class paths
-//				if let pathsDict = classDict[ClassKey.path.rawValue] as? [String : Any] {
-//
-//					//loop through each path
-//					for path in pathsDict {
-//						let pathOptions = [(title: String, description: String)]
-//						let pathName = path.key
-//						guard let pathDetails = path.value as? [String : Any],
-//							let pathDescription = pathDetails[ClassKey.description.rawValue] as? String
-//						else { print("toruble creating path for \(pathName)"); return result}
-//
-//						let pathData = (object: pathName, description: pathDescription)
-//					}
-//
-//
-//				}
-//
-//				result.append(tableData)
-//
-//			} else { print("could not initialize the \(data.key) class from available data")}
-//
-//		}
-//
-//		return result
-//	}
 
 	@objc func showClassDetail(_ sender: UIButton) {
 		
@@ -107,81 +67,83 @@ extension ClassSelectionViewController: UITableViewDataSource, UITableViewDelega
 
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ClassCell", for: indexPath) as! ParentTableViewCell
+		let cellData = tableViewData[indexPath.section]
 
-		let cellData = tableViewData[indexPath.row]
-
-		cell.titleLabel.text 				= cellData.parentData.title.capitalized
-		cell.descriptionLabel.text 			= cellData.parentData.description
-		cell.iconImageView.image 			= UIImage(named: cellData.parentData.title.lowercased() )
-		cell.cornerButton.tag 				= indexPath.row
-
-		cell.cornerButton.setTitle("Level +", for: .normal)
-		cell.cornerButton.addTarget(self, action: #selector(showClassDetail(_:)), for: .touchUpInside)
-
+		//configure the class cell
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "ClassCell", for: indexPath) as! ParentTableViewCell
+			let classData = cellData.parentData
 
+
+			cell.titleLabel.text 				= classData.title.capitalized
+			cell.descriptionLabel.text 			= classData.description
+			cell.iconImageView.image 			= UIImage(named: classData.title.lowercased() )
+			cell.cornerButton.isHidden			= true
+	//		cell.cornerButton.tag 				= indexPath.row
+
+	//		cell.cornerButton.setTitle("Level +", for: .normal)
+	//		cell.cornerButton.addTarget(self, action: #selector(showClassDetail(_:)), for: .touchUpInside)
+
+			return cell
 		}
-//			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell", for: indexPath) as! ParentTableViewCell
-//
-//			//reset dequeued cells
-//			cell.accessoryView 					= nil
-//			cell.selectionStyle 				= .default
-//
-//			//prevent the parent cell from being selected if it has children
-//			//add chevron accessory
-//			if tableViewData[indexPath.section].childData != nil {
-//				cell.selectionStyle 			= .none
-//
-//				let chevronView 		= UIImageView(image: UIImage(named: "chevron"))
-//				chevronView.frame 	= CGRect(x: 0, y: 0, width: 30, height: 30)
-//				chevronView.alpha	= 0.8
-//
-//				cell.accessoryView				= chevronView
-//				cell.accessoryView?.transform 	= CGAffineTransform(rotationAngle: 90°)
-//			}
-//
-//			//make the button look like a label
-//			cell.cornerButton.setTitleColor(.black, for: .normal)
-//			cell.cornerButton.isUserInteractionEnabled		= false
-//
-//			//finish the label configuration
-//			let parentRace = tableViewData[indexPath.section].parentData
-//			let modifierString = tableViewData[indexPath.section].parentData.modifierString()
-//
-//			cell.titleLabel.text 				= tableViewData[indexPath.section].parentData.name
-//			cell.iconImageView.image 			= UIImage(named: parentRace.name.lowercased())
-//			cell.descriptionLabel.text 			= tableViewData[indexPath.section].description
-//
-//			cell.cornerButton.setTitle(modifierString, for: .normal )
-//
-//			return cell																		}
-//
-//
-//			//configure child cells
-//		else {
-//			let cell = tableView.dequeueReusableCell(withIdentifier: "SubraceCell", for: indexPath) as! ChildTableViewCell
-//			guard let data = tableViewData[indexPath.section].childData
-//				else { print("could not initialize subrace cell from data"); return UITableViewCell()}
-//			let subraceData = data[indexPath.row - 1]
-//
-//			cell.titleLabel.text 				= subraceData.race.name.capitalized
-//			cell.descriptionLabel.text 			= subraceData.description
-//			cell.modifierLabel.text				= subraceData.race.modifierString()
-//
-//			return cell																		}
-//
-//
-        return cell
+		//configure the path cell
+		else {
+			guard let childData = cellData.childData
+				else { print("no path data available when attempting to create path cells for \(cellData.parentData.title)"); return UITableViewCell()}
+			let cell = tableView.dequeueReusableCell(withIdentifier: "ClassCell", for: indexPath) as! ParentTableViewCell
+			print("\(indexPath)")
+			let pathData = childData[indexPath.row - 1]
+
+			cell.titleLabel.text 			= pathData.title.capitalized
+			cell.descriptionLabel.text 		= pathData.description
+			cell.iconImageView.isHidden		= true
+
+			return cell
+		}
     }
 
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		//enable the next button if a race can be set from the selection
+		if indexPath.row == 0 { selectionWasMade = false; nextNavButton.isEnabled = false }
+		if indexPath.row != 0 || tableViewData[indexPath.section].childData == nil { selectionWasMade = true; nextNavButton.isEnabled = true }
+
+
+		//selected parent cell
+		if indexPath.row == 0 && tableViewData[indexPath.section].childData != nil {
+			//send the selected cell to the top
+			tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+
+			//toggle the cell open
+			tableViewData[indexPath.section].isOpen = !tableViewData[indexPath.section].isOpen
+
+			//expand the sections
+			let sections = IndexSet.init(integer: indexPath.section)
+			tableView.reloadSections(sections, with: .fade)
+
+			//prevent the parent cell from indenting
+			guard let parentCell = tableView.cellForRow(at: indexPath) else { return }
+			tableView.cellForRow(at: indexPath)?.indentationLevel = 0
+
+			//scroll the selected cell to the top
+			tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+		}
+	}
+
+	func numberOfSections(in tableView: UITableView) -> Int {
 		return tableViewData.count
+	}
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if tableViewData[section].isOpen && tableViewData[section].childData != nil {
+			return tableViewData[section].childData!.count + 1	}
+		else {
+			return 1											}
+
 	}
 
 	private func registerCells() {
-		tableView.register(UINib(nibName: "ParentTableViewCell", bundle: nil), forCellReuseIdentifier: "ClassCell")
+		tableView.register(UINib(nibName: String(describing: ParentTableViewCell.self), bundle: nil), forCellReuseIdentifier: "ClassCell")
+		tableView.register(UINib(nibName: String(describing: ChildTableViewCell.self), bundle: nil),  forCellReuseIdentifier: "PathCell")
+
 	}
 }
 
