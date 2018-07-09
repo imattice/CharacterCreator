@@ -45,4 +45,31 @@ struct Race {
 
 		self.modifiers = allModifiers
 	}
+
+	static func modifierString(for raceName: String, withSubrace subraceName: String?) -> String {
+		guard let raceData = raceData[raceName] as? [String : Any] else {print("invalid raceName: \(raceName)"); return ""}
+
+		var result: String = ""
+		var modifierArray: [String: Int]
+
+		//set loop to subrace modifiers
+		if let subraceName = subraceName {
+			guard let subraces = raceData["subraces"] as? [String: Any],
+				let subraceData = subraces[subraceName] as? [String: Any],
+				let modifiers = subraceData["modifiers"] as? [String : Int] else {print("invalid modifiers for subrace"); return "" }
+			modifierArray = modifiers
+
+			//set loop to parent modifiers
+		} else {
+			guard let modifiers = raceData["modifiers"] as? [String : Int] else {print("invalid modifiers for parent race"); return "" }
+
+			modifierArray = modifiers
+		}
+
+
+		//append each modifier to the result
+		for modifier in modifierArray { result += "+ \(modifier.key.capitalized) " }
+
+		return result.replacingOccurrences(of: "_", with: " ").trimmingCharacters(in: .whitespaces)
+	}
 }

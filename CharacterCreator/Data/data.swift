@@ -6,57 +6,6 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
-let classData: [String : Any] = [
-	"cleric": [
-		"description": "Clerics combine the helpful magic of healing and inspiring their allies with spells that harm and hinder foes. They can provoke awe and dread, lay curses of plague or poison, and even call down flames from heaven to consume their enemies.",
-		"hit_dice": "8",
-		"paths": [
-			"Life Domain": [
-				"description": "The Life domain focuses on the vibrant positive energy— one of the fundamental forces of the universe—that sustains all life.",
-				"levels": [
-					"1": [
-						"Bonus Proficiency" : "You gain proficiency with heavy armor.",
-						"Disciple of Life": "Your healing spells are more effective."	],
-					"2": [
-						"Channel Divinity: Preserve Life": "Evoke healing energy that can restore hit points to a living creature."
-					]
-				]
-			]
-		],
-		"levels": [
-			"1": [
-				"Spellcasting": "As a conduit for divine power, you can cast cleric spells.",
-				"Divine Domain": "Choose one domain related to your deity: Knowledge, Life, Light, Nature, Tempest, Trickery, or War. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity." ],
-			"2": [
-				"Channel Divinity: Turn Undead": "As an action, you present your holy symbol and speak a prayer censuring the undead and causing it to flee.",
-				"Upgrade: Divine Domain": [], ],
-			"4": [
-				"Ability Score Improvement": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1"]
-		]
-	],
-
-
-
-	"fighter": [
-		"description": "Fighters learn the basics of all combat styles. Every fighter can swing an axe, fence with a rapier, wield a longsword or a greatsword, use a bow, and even trap foes in a net with some degree of skill. Likewise, a fighter is adept with shields and every form of armor.",
-		"hit_dice": "10"
-	],
-	"rogue": [
-		"description": "Rogues devote as much effort to mastering the use of a variety of skills as they do to perfecting their combat abilities, giving them a broad expertise that few other characters can match. Many rogues focus on stealth and deception, while others refine the skills that help them in a dungeon environment, such as climbing, finding and disarming traps, and opening locks. When it comes to combat, rogues prioritize cunning over brute strength.",
-		"hit_dice": "8",
-],
-	"wizard": [
-		"description": "Wizards live and die by their spells. Everything else is secondary. Though the casting of a typical spell requires merely the utterance of a few strange words, fleeting gestures, and sometimes a pinch or clump of exotic materials, these surface components barely hint at the expertise attained after years of apprenticeship and countless hours of study.",
-		"hit_dice": "6",
-	],
-]
-
-enum ClassKey: String {
-	case description, hitDie = "hit_dice", path, levels
-}
-
-
-
 
 let raceData: [String: Any] = [
 	"dwarf": [

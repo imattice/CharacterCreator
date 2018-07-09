@@ -5,7 +5,6 @@
 //  Created by Ike Mattice on 7/2/18.
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
-
 struct ExpandableCellData {
 	//tracks if the cell is open or closed
 	var isOpen: Bool 			= false
@@ -71,5 +70,4 @@ struct ExpandableCellData {
 			return result
 		}
 
-	enum DataType { case `class`, race }
 }

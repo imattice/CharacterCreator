@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatStepperView: UIView {
+@IBDesignable class StatStepperView: UIView {
 	var view: UIView!
 
 	@IBOutlet weak var statTitleLabel: UILabel!
@@ -50,7 +50,6 @@ class StatStepperView: UIView {
 
 	//MARK: - IBActions
 	@IBAction func stepperDidChange(_ sender: UIStepper) {
-//		print("stepper value: \(statStepper.value)")
 		updateStatLabel()
 	}
 }
