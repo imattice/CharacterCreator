@@ -25,7 +25,7 @@
 		8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */; };
 		8152B3E720DC124D008B7A1A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3E620DC124D008B7A1A /* UIView.swift */; };
 		8152B3E920DC354B008B7A1A /* SpecSheet in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E820DC354B008B7A1A /* SpecSheet */; };
-		8152B3EB20DC3B48008B7A1A /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3EA20DC3B48008B7A1A /* data.swift */; };
+		8152B3EB20DC3B48008B7A1A /* raceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3EA20DC3B48008B7A1A /* raceData.swift */; };
 		8152B41120DEDA8D008B7A1A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41020DEDA8D008B7A1A /* Int.swift */; };
 		8152B41420DEE659008B7A1A /* ParentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */; };
 		8152B41520DEE659008B7A1A /* ParentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */; };
@@ -84,7 +84,7 @@
 		8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatStepperView.xib; sourceTree = "<group>"; };
 		8152B3E620DC124D008B7A1A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8152B3E820DC354B008B7A1A /* SpecSheet */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpecSheet; sourceTree = "<group>"; };
-		8152B3EA20DC3B48008B7A1A /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
+		8152B3EA20DC3B48008B7A1A /* raceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raceData.swift; sourceTree = "<group>"; };
 		8152B41020DEDA8D008B7A1A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentTableViewCell.swift; sourceTree = "<group>"; };
 		8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParentTableViewCell.xib; sourceTree = "<group>"; };
@@ -186,9 +186,9 @@
 		8123674120CA44EE00F7AEFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8152B3EA20DC3B48008B7A1A /* data.swift */,
-				81BC72AA20F17F2500B48195 /* spellData.swift */,
+				8152B3EA20DC3B48008B7A1A /* raceData.swift */,
 				81BC72B020F18DB500B48195 /* classData.swift */,
+				81BC72AA20F17F2500B48195 /* spellData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -418,7 +418,7 @@
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				8152B41920E160AA008B7A1A /* ChildTableViewCell.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
-				8152B3EB20DC3B48008B7A1A /* data.swift in Sources */,
+				8152B3EB20DC3B48008B7A1A /* raceData.swift in Sources */,
 				8152B3D120D9E097008B7A1A /* ExpandableSelectionViewController.swift in Sources */,
 				81BC72AB20F17F2500B48195 /* spellData.swift in Sources */,
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,

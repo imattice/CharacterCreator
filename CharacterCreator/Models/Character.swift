@@ -7,6 +7,7 @@
 //
 
 class Character {
+	var level: Int				= 1
 	var `class`: Class? 		= nil
 	var race: Race?				= nil
 	var stats: StatBlock		= StatBlock()
@@ -23,4 +24,6 @@ class Character {
 	static let current = Character()
 
 	public init() { }
+
+	static var levelMax: Int { get { return 20 } }
 }

@@ -18,86 +18,68 @@ class ClassDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		tableViewData = getPathLevels()
+		getLevelData()
 
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 190
 
     }
 
-	//TODO: This method seems pretty heavy handed.  There's probably a better way to do this. 🤔
-	private func getPathLevels() -> [TableViewData] {
-			//class variables
-		guard let targetClass = targetClass,
-			let classDict = classData[targetClass] as? [String : Any],
-			let classLevels = classDict["levels"] as? [String : Any]
-				else { print("could not initialize class data for the \(self.targetClass!) class");
-					return [TableViewData]()}
+	private func getLevelData() {
+		guard let targetClass = targetClass else { print("the target class is nil"); return }
+		guard let classDict = classData[targetClass] as? [String:Any],
+			let classLevelDict = classDict["levels"] as? [String:Any] else { print("Could not initialize class data for the \(targetClass) class"); return}
 
-			//path variables
 		guard let targetPath = targetPath,
-			let paths = classDict["paths"] as? [String: Any],
-			let pathDict = paths[targetPath] as? [String: Any],
-			let pathLevels = pathDict["levels"] as? [String: Any]
-			else { print("could not initialize path data for the \(self.targetClass!) class");
-	 	return [TableViewData]() }
+			let paths = classDict["paths"] as? [String:Any],
+			let pathDict = paths[targetPath] as? [String:Any],
+			let pathLevelDict = pathDict["levels"] as? [String:Any] else { print("could not initialize path data for the \(targetClass) class"); return}
 
-		var result = [TableViewData]()
-		var appendedLevels = [Int]()
 
-		
-		//get the path levels
-		for classLevel in classLevels {
+		// get features for each level
+		for level in 1...Character.levelMax {
+			print("For Level \(level):\n")
+			var levelFeatures = [TableViewData.LevelFeature]()
 
-			//dig through each level value
-			guard let classLevelDict = classLevel.value as? [String: Any]
-				else {print("invalid level value for \(targetClass) at level \(classLevel.key)"); return result }
+			//check for features for all classes
+			if [4, 8, 12, 16, 19].contains(level) {
+				let title = AllClassKey.abilityScoreIncrease.rawValue
+				let dict = allClassLevels[title] as! [String: String]
+				let description = dict["description"]!
 
-			//grab each feature for the current level
-			var levelFeatures = getFeatures(forDict: classLevelDict)
+				let levelFeature = TableViewData.LevelFeature(title: title, description: description, source: "All Classes")
 
-			//check if there are path levels for the current class level
-			for pathLevel in pathLevels {
-				guard let pathLevelDict = pathLevel.value as? [String: Any]
-					else {print("invalid level value for \(targetPath) at level \(pathLevel.key)"); return result }
-
-				let pathFeatures = getFeatures(forDict: pathLevelDict)
-
-				//if the level key matches the current class level, combine the level features
-				if pathLevel.key == classLevel.key {
-
-					levelFeatures.append(contentsOf: pathFeatures)
-
-					//leave the path check loop
-					continue
-				}
+				levelFeatures.append(levelFeature)
 			}
 
-			//return the data from this level
-			let levelData = TableViewData(level: Int(classLevel.key)!, content: levelFeatures)
-				result.append(levelData)
-				appendedLevels.append(levelData.level)
-		}
+			//check for class specific features
+			if let classLevel = classLevelDict[String(level)] as? [String:Any] {
+				let levelFeature = getFeatures(forDict: classLevel)
 
-		//sweep through the paths to grab any level features that were not combined with class levels
-		for pathLevel in pathLevels {
-			guard let pathLevelDict = pathLevel.value as? [String: Any]
-				else {print("invalid level value for \(targetPath) at level \(pathLevel.key)"); return result }
-
-			// check if a combined level was already added
-			if appendedLevels.contains(Int(pathLevel.key)!) { continue }
-
-			//if not, add a path level option
-			else {
-				let pathFeatures = getFeatures(forDict: pathLevelDict)
-				let pathData = TableViewData(level: Int(pathLevel.key)!, content: pathFeatures)
-					result.append(pathData)
-					appendedLevels.append(pathData.level)
+				levelFeatures.append(contentsOf: levelFeature)
 			}
+
+			//check for path specific features
+			if let pathLevel = pathLevelDict[String(level)] as? [String:Any] {
+				let levelFeature = getFeatures(forDict: pathLevel)
+
+				levelFeatures.append(contentsOf: levelFeature)
+			}
+
+			// if we haven't found any features, skip this level
+			if levelFeatures.isEmpty { continue }
+
+
+			for feature in levelFeatures {
+				print(feature.title)
+			}
+
+			let levelData = TableViewData(level: level, content: levelFeatures)
+			tableViewData.append(levelData)
 		}
 
-		//return the result, sorted by level
-		return result.sorted(by: { $0.level < $1.level } )
+		//ensure the data is sorted by level
+		tableViewData.sort(by: { $0.level < $1.level } )
 	}
 
 	private func getFeatures(forDict dict: [String: Any]) -> [TableViewData.LevelFeature] {

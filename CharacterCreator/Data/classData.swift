@@ -8,16 +8,14 @@
 
 let classData: [String : Any] = [
 	"cleric": [
-		"description": "Clerics combine the helpful magic of healing and inspiring their allies with spells that harm and hinder foes. They can provoke awe and dread, lay curses of plague or poison, and even call down flames from heaven to consume their enemies.",
+		"description": "Clerics dedicate their lives to the service of a higher power.  They are missionaries of their god and strive to defend their allies to the end.  Channeling the higher powers, Clerics provide healing and defense from the unjustices and evil in the world.",
 		"hit_dice": "8",
 		"levels": [
 			"1": [
 				"Spellcasting": "As a conduit for divine power, you can cast cleric spells.",
-				"Divine Domain": "Choose one domain related to your deity: Knowledge, Life, Light, Nature, Tempest, Trickery, or War. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity." ],
+				"Divine Domain": "Dedicate yourself to the cause of your choosing. Your choice grants you specific spells and other features that align with that domain. Your dedication also provides an additional way to use the Channel Divinity ability." ],
 			"2": [
-				"Channel Divinity: Turn Undead": "As an action, you present your holy symbol and speak a prayer censuring the undead and causing it to flee." ],
-			"4": [
-				"Ability Score Improvement": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1"] ],
+				"Channel Divinity: Turn Undead": "Cause an undead creature to run, filling it a sense of dread eminating from the overwhelming power of your diety." ], ],
 		"paths": [
 			"life domain": [
 				"description": "The Life domain focuses on the vibrant positive energy— one of the fundamental forces of the universe—that sustains all life.",
@@ -111,6 +109,16 @@ let classData: [String : Any] = [
 					"Burning Hands","Charm Person", "Comprehend Languages", "Detect Magic", "Disguise Self", "Identify", "Mage Armor", "Magic Missile", "Shield", "Silent Image", "Sleep", "Thunderwave" ]
 	]
 ]
+
+let allClassLevels: [String: Any] = [
+	"Ability Score Improvement": [
+		"description": "Your skill increases! You gain two points to distribute among your ability scores as you continue to focus your training in that area."
+	]
+]
+
+enum AllClassKey: String {
+	case abilityScoreIncrease = "Ability Score Improvement"
+}
 
 enum ClassKey: String {
 	case description, hitDie = "hit_dice", path, levels
