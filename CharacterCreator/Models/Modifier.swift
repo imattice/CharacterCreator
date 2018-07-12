@@ -12,4 +12,14 @@ struct Modifier {
 	let origin: ModifierOrigin
 
 	enum ModifierOrigin { case race, subrace, `class` }
+	enum ModifierType	{
+		case onAdvantage,
+		grantAdvantage,
+		onDisadvantage,
+		imposeDisadvantage,
+		increaseStat,
+		decreaseStat,
+		increaseHP,
+		decreaseHP
+	}
 }

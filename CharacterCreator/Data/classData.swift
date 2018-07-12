@@ -18,95 +18,95 @@ let classData: [String : Any] = [
 				"Channel Divinity: Turn Undead": "Cause an undead creature to run, filling it a sense of dread eminating from the overwhelming power of your diety." ], ],
 		"paths": [
 			"life domain": [
-				"description": "The Life domain focuses on the vibrant positive energy— one of the fundamental forces of the universe—that sustains all life.",
+				"description": "Dedication to protecting and preserving all that is living gives those beholden to the Life Domain unprecidented healing abilities as well as increased training to defenses.",
 				"levels": [
 					"1": [
-						"Bonus Proficiency" : "You gain proficiency with heavy armor.",
-						"Disciple of Life": "Your healing spells are more effective."	],
+						"Bonus Proficiency" : "Life defenders are no stranger to heavy armor and are familiar to the weight and increased defences that it grants.",
+						"Disciple of Life": "Knitting wounds and curing ills come easily and are more effective for Life Clerics."	],
 					"2": [
-						"Channel Divinity: Preserve Life": "Evoke healing energy that can restore hit points to a living creature." ] ] ] ],
-		"spells": ["Guidance", "Light", "Resistance", "Sacred Flame", "Spare the Dying", "Thaumaturgy",
-				   "Bless", "Command", "Cure Wounds", "Detect Magic", "Guiding Bolt", "Healing Word", "Inflict Wounds", "Sanctuary", "Shield of Faith"]
+						"Channel Divinity: Preserve Life": "Focus your will into a grievious wound to quicken the restoration for that creature." ] ] ] ],
+		"spells": [
+			//Cantrips
+			"Guidance", "Light", "Resistance", "Sacred Flame", "Spare the Dying", "Thaumaturgy",
+			//Level 1
+			"Bless", "Command", "Cure Wounds", "Detect Magic", "Guiding Bolt", "Healing Word", "Inflict Wounds", "Sanctuary", "Shield of Faith"]
 	],
 
 
 
 	"fighter": [
-		"description": "Fighters learn the basics of all combat styles. Every fighter can swing an axe, fence with a rapier, wield a longsword or a greatsword, use a bow, and even trap foes in a net with some degree of skill. Likewise, a fighter is adept with shields and every form of armor.",
+		"description": "Wielding a variety of weapons, a fighter's physical prowess gives them an advangage in multiple arenas.  They accell in inflicting damage and leading with their weapons to get what they need. Fighters can train to be equally good at raising a defense and deflecting blows that would harm more fragile allies.",
 		"hit_dice": "10",
 		"levels": [
 			"1": [
-				"Fighting Style": "You adopt a particular style of fighting as your specialty, such as Archery, Defense, or Dual Weapon Fighting.",
-				"Second Wind": "You have a limited well of stamina that you can draw on to protect yourself from harm." ],
+				"Fighting Style": "Train in a particular weapon that fits your fighting style, be that from a distance with a bow, in the middle of the frey with multiple swords, or even a great shield to keep yourself safe.",
+				"Second Wind": "Brush off the imediate sting of previous wounds to maintain your relentless fighting stance." ],
 			"2": [
-				"Action Surge": "You can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action.", ],
+				"Action Surge": "Draw from your reserved power to take an additional action this turn.", ],
 			"3": [
-				"Martial Archetype": "Choose an archetype that you strive to emulate in your combat styles and techniques.", ],
-			"4": [
-				"Ability Score Improvement": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1"],
+				"Martial Archetype": "Choose a path that befits your goals as a warrior.", ],
 			"17": [
-				"Upgrade: Action Surge": "You can use Action Surge twice between rests."], ],
+				"Upgrade: Action Surge": "Increase your reserves, allowing you to take an additional Action Surge between rests."], ],
 		"paths": [
 			"champion": [
-				"description": "The archetypal Champion focuses on the development of raw physical power honed to deadly perfection. Those who model themselves in this way combine rigorous training with physical excellence to deal devastating blows.",
+				"description": "Tested and proven, the champion knows how to land critical blows frequently.  They focus their training on increasing the physical abilities that will bring them glory and praise.",
 				"levels": [
 					"3": [
-						"Improved Critical": "Your weapon attacks score a critical hit on a roll of 19 or 20."],
+						"Improved Critical": "You know exactly where to strike to land a devastating hit and take any opportunity to do so, landing critical hits on a roll of 19 or 20."],
 					"7": [
-						"Remarkable Athlete": "you can add half your proficiency bonus (round up) to any Strength, Dexterity, or Constitution check you make that doesn’t already use your proficiency bonus. In addition, when you make a running long jump, the distance you can cover increases by a number of feet equal to your Strength modifier."], ] ], ],
+						"Remarkable Athlete": "Your physical skills show themselves as you attempt to use your body to accomplish a feat. You are more successful when attempting a feat using Strenth, Dexterity, or Constitution.  You can also jump further, increasing the distance you travel midair by your Strength modifier."], ] ], ],
 	],
 
 
 
 	"rogue": [
-		"description": "Rogues devote as much effort to mastering the use of a variety of skills as they do to perfecting their combat abilities, giving them a broad expertise that few other characters can match. Many rogues focus on stealth and deception, while others refine the skills that help them in a dungeon environment, such as climbing, finding and disarming traps, and opening locks. When it comes to combat, rogues prioritize cunning over brute strength.",
+		"description": "As a master of multiple skills, Rogues often have a plan or two up their sleeve, ready to act in a moment's notice.  You never know what could be useful, so a true Rogue can talk their way out of any situation or slip through the shadows.  They aren't afraid to practice abilities that may be considered unsavory by the traditional culture, such as lockpicking, setting an ambush, or stealing what they need",
 		"hit_dice": "8",
 		"levels": [
 			"1": [
-				"Expertise": "Choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves’ tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.",
-				"Sneak Attack": "You know how to strike subtly and exploit a foe’s distraction. You can deal an extra damage to one creature you hit with an attack when you have advantage.",
-				"Thieves' Cant": "During your rogue training you learned thieves’ cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves’ guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.", ],
+				"Expertise": "You focus on two skills to truely accell in, doubling your proficiency bonus in the event you need to pull talent out of your bag of tricks.",
+				"Sneak Attack": "Fight dirty while a creature is distracted, landing an fierce attack when you have the advantage.",
+				"Thieves' Cant": "You recognize the symbols written on the wall and the keywords that are spoken only by fellow rogues.  Utilizing this secret language, you can decode scripts and relay messages to others that know of this code.", ],
 			"2": [
-				"Cunning Action": "Your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action."],
+				"Cunning Action": "Being slippery, speedy and sneaky, you can use a bonus action each turn to Dash, Disengage or Hide."],
 			"3": [
-				"Roguish Archetype": "You choose an archetype that you emulate in the exercise of your rogue abilities."],
-			"4": [
-				"Ability Score Improvement": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1"],
+				"Roguish Archetype": "You plan out your future training, dedicating your focus to a specific roguish path."],
 			"6": [
-				"Upgrade: Expertise": "You choose two more of your proficiencies (in skills or with thieves’ tools) to gain double the proficiency bonus on any ability check for the chosen proficiencies."]
+				"Upgrade: Expertise": "With additional study, you gain bonus proficiency in two additional skills of your choice, doubling your proficiency boonus for ability checks for those skills."]
 		],
 		"paths": [
 			"thief": [
-				"description": "You hone your skills in the larcenous arts. In addition to improving your agility and stealth, you learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items you normally couldn’t employ.",
+				"description": "The world's possessions belong to you... you're just reclaiming what's rightfully yours!  Thieves are facinated by the rare and valuable and dedicate their lives to learning how to claim them.  Physical locks, unscalable walls, and magic barriers cannot stop you from making off with your prize.",
 				"levels": [
 					"3": [
-						"Fast Hands": "You can use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves’ tools to disarm a trap or open a lock, or take the Use an Object action.",
-						"Second-Story Work": "you gain the ability to climb faster than normal; climbing no longer costs you extra movement. In addition, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier." ] ] ] ],
+						"Fast Hands": "Before anyone can notice, you've already flicked open a lock, disarmed a trap, or Used an Item as a Cunning Action.",
+						"Second-Story Work": "The world becomes your playground as you discover your ability to quickly scale a climbable surface and leap across wide chasms." ] ] ] ],
 	],
 
 
 
 	"wizard": [
-		"description": "Wizards live and die by their spells. Everything else is secondary. Though the casting of a typical spell requires merely the utterance of a few strange words, fleeting gestures, and sometimes a pinch or clump of exotic materials, these surface components barely hint at the expertise attained after years of apprenticeship and countless hours of study.",
+		"description": "Obsessed with the working of magic, Wizards strive to learn as much as they can about the workings of spells and magical items.  With so much to learn, wizards tend to focus their time on a single school of magic that interests them, keeping copious notes and incantations for each spell in their spellbook.",
 		"hit_dice": "6",
 		"levels": [
 			"1": [
-				"Spellcasting": "As a student of arcane magic, you have a spellbook containing spells that show the first glimmerings of your true power.",
-				"Arcane Recovery": "You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover." ],
+				"Spellcasting": "All of your arcane knowledge resides in your spellbook, allowing you to cast a multitude of spells that you've studied.  This is your life's work, encapsulated between the delicate pages.",
+				"Arcane Recovery": "Reading and rereading your spellbook offers you the ability to quickly regenerate your spellcasting power during a short rest." ],
 			"2": [
-				"Arcane Tradition": "you choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation.", ],
-			"4": [
-				"Ability Score Improvement": "You can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1"]
+				"Arcane Tradition": "You point your studies to a specific genre of magic, allowing you additional bonuses when you study or cast a spell within your specialty.", ],
 		],
 		"paths": [
 			"school of evocation": [
-				"description": "You focus your study on magic that creates powerful elemental effects such as bitter cold, searing flame, rolling thunder, crackling lightning, and burning acid.",
+				"description": "You want to manipulate the world around to, using the physical makeup of your world.  Evocation magic allows you to manipulate fire and ice, thunder and arcane energy to create devistating effects.",
 				"levels": [
 					"2": [
-						"Evocation Savant": "The gold and time you must spend to copy an evocation spell into your spellbook is halved.",
-						"Sculpt Spells": "You can create pockets of relative safety within the effects of your evocation spells." ] ], ], ],
-		"spells": [ "Acid Splash", "Dancing Lights", "Fire Bolt", "Light", "Mage Hand", "Minor Illusion", "Poison Spray", "Prestidigitation", "Ray of Frost", "Shocking Grasp",
-					"Burning Hands","Charm Person", "Comprehend Languages", "Detect Magic", "Disguise Self", "Identify", "Mage Armor", "Magic Missile", "Shield", "Silent Image", "Sleep", "Thunderwave" ]
+						"Evocation Savant": "Your natural interest expidites the efficiency at which it takes to add an evocation spell to your spellbook.",
+						"Sculpt Spells": "Knowing how damaging your spells can be, you learn how to manipulate your magic so that no allies are hurt by your evocation spells." ] ], ], ],
+		"spells": [
+			//Cantrips
+			"Acid Splash", "Dancing Lights", "Fire Bolt", "Light", "Mage Hand", "Minor Illusion", "Poison Spray", "Prestidigitation", "Ray of Frost", "Shocking Grasp",
+			//Level 1
+			"Burning Hands","Charm Person", "Comprehend Languages", "Detect Magic", "Disguise Self", "Identify", "Mage Armor", "Magic Missile", "Shield", "Silent Image", "Sleep", "Thunderwave" ]
 	]
 ]
 

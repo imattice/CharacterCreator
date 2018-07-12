@@ -18,27 +18,28 @@ class ClassDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		//fill the tableviewdatasource with delicious content
 		getLevelData()
 
+		//enable flexible table view heights
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 190
-
     }
 
 	private func getLevelData() {
-		guard let targetClass = targetClass else { print("the target class is nil"); return }
+		//make sure we have the data we need
+		guard let targetClass = targetClass 							else { print("the target class is nil"); return }
 		guard let classDict = classData[targetClass] as? [String:Any],
-			let classLevelDict = classDict["levels"] as? [String:Any] else { print("Could not initialize class data for the \(targetClass) class"); return}
+			let classLevelDict = classDict["levels"] as? [String:Any] 	else { print("Could not initialize class data for the \(targetClass) class"); return}
 
 		guard let targetPath = targetPath,
 			let paths = classDict["paths"] as? [String:Any],
 			let pathDict = paths[targetPath] as? [String:Any],
-			let pathLevelDict = pathDict["levels"] as? [String:Any] else { print("could not initialize path data for the \(targetClass) class"); return}
+			let pathLevelDict = pathDict["levels"] as? [String:Any] 	else { print("could not initialize path data for the \(targetClass) class"); return}
 
 
 		// get features for each level
 		for level in 1...Character.levelMax {
-			print("For Level \(level):\n")
 			var levelFeatures = [TableViewData.LevelFeature]()
 
 			//check for features for all classes
@@ -69,11 +70,7 @@ class ClassDetailTableViewController: UITableViewController {
 			// if we haven't found any features, skip this level
 			if levelFeatures.isEmpty { continue }
 
-
-			for feature in levelFeatures {
-				print(feature.title)
-			}
-
+			// add the level data to the table view data
 			let levelData = TableViewData(level: level, content: levelFeatures)
 			tableViewData.append(levelData)
 		}

@@ -7,6 +7,7 @@
 //
 
 class Character {
+	//character creation values
 	var level: Int				= 1
 	var `class`: Class? 		= nil
 	var race: Race?				= nil
@@ -21,9 +22,12 @@ class Character {
 		var int: Int		= 0
 	}
 
-	static let current = Character()
 
 	public init() { }
 
+	//static information
 	static var levelMax: Int { get { return 20 } }
+
+	//the singleton 👻
+	static let current = Character()
 }
