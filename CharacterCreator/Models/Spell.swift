@@ -32,9 +32,11 @@ struct Spell {
 		if self.level != "0" { print("Invalid Spell level: \(level) \(name)"); return damage}
 
 
-		if 		level >= 5  && level <= 10 	{ return "2\(damage)" }
-		else if level >= 11 && level <= 16 	{ return "3\(damage)" }
-		else if level >= 17 				{ return "4\(damage)" }
-		else 								{return "1\(damage)" }
+		if 		level >= 5  && level <= 10 	{ return "2d\(damage)" }
+		else if level >= 11 && level <= 16 	{ return "3d\(damage)" }
+		else if level >= 17 				{ return "4d\(damage)" }
+		else 								{ return "1d\(damage)" }
 	}
+
+	static let maxLevel = 9
 }

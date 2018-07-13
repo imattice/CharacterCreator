@@ -32,6 +32,19 @@ class StatDistributionViewController: UIViewController {
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		setCharacterStats()
+
+		if let characterClass = Character.current.class,
+			let storyboard = storyboard {
+
+			//if the caster is a spellcaster, push to the Spell Selection Controller
+			if characterClass.features[1]!.contains(where: { $0.title == "Spellcasting" }) {
+				let vc = storyboard.instantiateViewController(withIdentifier: "SpellSelection")
+
+				navigationController?.pushViewController(vc, animated: true)
+			}
+
+			//otherwise move to the inventory selection controller
+		}
 	}
 
 	private func setCharacterStats() {

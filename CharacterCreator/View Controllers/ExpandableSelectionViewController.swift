@@ -63,11 +63,12 @@ class ExpandableSelectionViewController: UIViewController {
 		let navController = UINavigationController(rootViewController: vc)
 		let cellData = tableViewData[indexPath.section]
 
-		vc.targetClass = cellData.parentData.title.lowercased()
-		vc.targetPath = cellData.childData![indexPath.row - 1].title.lowercased()
+		vc.target = Class(fromString: cellData.parentData.title.lowercased(), withPath: cellData.childData![indexPath.row - 1].title.lowercased())
+//		vc.targetClass = cellData.parentData.title.lowercased()
+//		vc.targetPath = cellData.childData![indexPath.row - 1].title.lowercased()
 		vc.title = "\(cellData.parentData.title.capitalized)"
 
-		print("initializing details for a \(vc.targetPath) \(vc.targetClass)")
+		print("initializing details for a \(vc.target!.path) \(vc.target!.base)")
 
 
 //		vc.modalPresentationStyle = .overCurrentContext
@@ -252,9 +253,10 @@ extension ExpandableSelectionViewController {
 		if dataType == "class" {
 			//ensure there is a path selected
 			guard let selectedChildData = data.childData else { return }
+			let selectedClass = parentTitle
 			let selectedPath  = selectedChildData[selectedIndexPath.row - 1].title
 
-			Character.current.class = Class(fromString: parentTitle, withPath: selectedPath)
+			Character.current.class = Class(fromString: selectedClass, withPath: selectedPath)
 
 			print("Character's class is set to: \(String(describing: Character.current.class))")
 		}
