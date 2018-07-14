@@ -40,6 +40,13 @@ class SpellSelectionHeaderView: UIView {
 			self.layoutIfNeeded()
 		}
 	}
+	func shiftSlider(toSection section: Int) {
+		sliderLeftConstraint.constant	= sliderWidthConstraint.constant * CGFloat(section)
+
+		UIView.animate(withDuration: 0.25) {
+			self.layoutIfNeeded()
+		}
+	}
 
 	private func setInitialSliderConstraints() {
 		let firstLevelView = levelViews[0]

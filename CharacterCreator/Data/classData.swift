@@ -29,7 +29,9 @@ let classData: [String : Any] = [
 			//Cantrips
 			"Guidance", "Light", "Resistance", "Sacred Flame", "Spare the Dying", "Thaumaturgy",
 			//Level 1
-			"Bless", "Command", "Cure Wounds", "Detect Magic", "Guiding Bolt", "Healing Word", "Inflict Wounds", "Sanctuary", "Shield of Faith"]
+			"Bless", "Command", "Cure Wounds", "Detect Magic", "Guiding Bolt", "Healing Word", "Inflict Wounds", "Sanctuary", "Shield of Faith",
+			//Level 2
+			"Aid", "Augury", "Hold Person", "Lesser Restoration", "Prayer of Healing", "Silence", "Spiritual Weapon", "Warding Bond"]
 	],
 
 
@@ -106,7 +108,10 @@ let classData: [String : Any] = [
 			//Cantrips
 			"Acid Splash", "Dancing Lights", "Fire Bolt", "Light", "Mage Hand", "Minor Illusion", "Poison Spray", "Prestidigitation", "Ray of Frost", "Shocking Grasp",
 			//Level 1
-			"Burning Hands","Charm Person", "Comprehend Languages", "Detect Magic", "Disguise Self", "Identify", "Mage Armor", "Magic Missile", "Shield", "Silent Image", "Sleep", "Thunderwave" ]
+			"Burning Hands","Charm Person", "Comprehend Languages", "Detect Magic", "Disguise Self", "Identify", "Mage Armor", "Magic Missile", "Shield", "Silent Image", "Sleep", "Thunderwave",
+			//Level 2
+			"Arcane Lock", "Blur", "Darkness", "Flaming Sphere", "Hold Person", "Invisibility", "Knock",
+			"Levitate", "Magic Weapon", "Misty Step", "Shatter", "Spider Climb", "Suggestion", "Web"]
 	]
 ]
 

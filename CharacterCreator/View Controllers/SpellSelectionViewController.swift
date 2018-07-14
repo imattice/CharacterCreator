@@ -19,7 +19,7 @@ class SpellSelectionViewController: UIViewController {
 			print("defaulted to spells for wizard class")
 			return "wizard"} }
 
-	var availableSpellData = [SpellTableData]()
+	var tableViewData = [SpellTableData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,13 +59,45 @@ class SpellSelectionViewController: UIViewController {
 
 		for spells in spellsByLevel {
 			if !spells.value.isEmpty {
-				availableSpellData.append(SpellTableData(level: spells.key, spells: spells.value))
+				tableViewData.append(SpellTableData(level: spells.key, spells: spells.value))
 			}
 		}
 
-		availableSpellData.sort(by: { $0.level < $1.level })
+		tableViewData.sort(by: { $0.level < $1.level })
 	}
 
+	//pushing up
+	func tableView(_ tableView: UITableView,
+				   didEndDisplayingHeaderView view: UIView,
+				   forSection section: Int) {
+
+		//lets ensure there are visible rows.  Safety first!
+		guard let pathsForVisibleRows = tableView.indexPathsForVisibleRows,
+			let lastPath = pathsForVisibleRows.last else { return }
+
+		//compare the section for the header that just disappeared to the section
+		//for the bottom-most cell in the table view
+		if lastPath.section >= section  && section != tableViewData.count {
+			headerView.shiftSlider(toSection: section + 1)
+		}
+
+	}
+
+	//pulling down
+	func tableView(_ tableView: UITableView,
+				   willDisplayHeaderView view: UIView,
+				   forSection section: Int) {
+
+		//lets ensure there are visible rows.  Safety first!
+		guard let pathsForVisibleRows = tableView.indexPathsForVisibleRows,
+			let firstPath = pathsForVisibleRows.first else { return }
+
+		//compare the section for the header that just appeared to the section
+		//for the top-most cell in the table view
+		if firstPath.section == section {
+			headerView.shiftSlider(toSection: section)
+		}
+	}
 
 
 
@@ -73,9 +105,9 @@ class SpellSelectionViewController: UIViewController {
 
 extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if availableSpellData[indexPath.section].spells.isEmpty { return UITableViewCell() }
+		if tableViewData[indexPath.section].spells.isEmpty { return UITableViewCell() }
 		let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell", for: indexPath) as! SpellTableViewCell
-		let spell = availableSpellData[indexPath.section].spells[indexPath.row]//availableSpells[indexPath.row]
+		let spell = tableViewData[indexPath.section].spells[indexPath.row]//availableSpells[indexPath.row]
 		if let damage = spell.damage { 	cell.damageLabel.text			= "💥:\(damage)" }
 		else { 							cell.damageLabel.text			= "" }
 
@@ -90,21 +122,21 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		headerView.shiftSlider(.right)
+		headerView.shiftSlider(.left)
 	}
 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 0 { return "Cantrips" }
-		return "Level \(availableSpellData[section].level) Spells"
+		return "Level \(tableViewData[section].level) Spells"
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if availableSpellData[section].spells.isEmpty { print("No!"); print(availableSpellData[section].spells); return 1 }
+		if tableViewData[section].spells.isEmpty { print("No!"); print(tableViewData[section].spells); return 1 }
 
-		return availableSpellData[section].spells.count
+		return tableViewData[section].spells.count
 	}
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return availableSpellData.count
+		return tableViewData.count
 	}
 	private func registerCells() {
 		tableView.register(UINib(nibName: String(describing: SpellTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "SpellCell")
@@ -114,6 +146,44 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 		let level: Int
 		var spells: [Spell]
 	}
+
+	func isFloatingSectionHeader( view: UIView )->Bool {
+		if let section = section( for: view ) {
+			return isFloatingHeaderInSection( section:section )
+		}
+		return false
+	}
+
+	func isFloatingHeaderInSection( section:Int ) -> Bool {
+		let frame = tableView.rectForHeader(inSection: section)
+		let y = tableView.contentInset.top + tableView.contentOffset.y
+		return y > frame.origin.y
+	}
+
+	func section( for view: UIView )->Int? {
+
+		for i in stride( from:0, to:tableView.numberOfSections, by:1 ) {
+			let a = view.convert( CGPoint.zero, from: tableView.headerView( forSection:i ) )
+			let b = view.convert( CGPoint.zero, from: view )
+			if a.y == b.y {
+				return i
+			}
+		}
+		return nil
+	}
+
+	func isSectionHeaderSticky(section: Int) -> Bool {
+		guard let sectionView = tableView.headerView(forSection: section) else { return false }
+		let originalFrame = tableView.rectForHeader(inSection: section)
+//		CGRect originalFrame = [self.listTableView rectForHeaderInSection:0];
+//		UIView *section0 = [self.listTableView headerViewForSection:0];
+
+		if originalFrame.origin.y < sectionView.frame.origin.y {
+			return  true
+		}
+		return false
+	}
+
 
 }
 
