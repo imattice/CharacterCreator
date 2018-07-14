@@ -13,7 +13,7 @@ class SpellSelectionViewController: UIViewController {
 
 	var targetClass: String {
 		if let characterClass = Character.current.class {
-			return characterClass.name	}
+			return characterClass.base	}
 		else {
 			print("defaulted to spells for wizard class")
 			return "wizard"} }
@@ -46,39 +46,17 @@ class SpellSelectionViewController: UIViewController {
 							   8: [Spell](),
 							   9: [Spell]()]
 
-		for spell in classSpells {
-			print("getting info for \(spell)")
+		for spellName in classSpells {
+			print("getting info for \(spellName)")
 
-			//get the spell info
-			guard let targetSpell = spellData[spell] as? [String: Any] else { print("could not find data for \(spell)"); continue }
-			let level 		= targetSpell["level"] 			as! String
-			let school 		= targetSpell["school"] 		as! String
-			let description	= targetSpell["description"] 	as! String
-			let castTime 	= targetSpell["cast"] 			as! String
-			let range		= targetSpell["range"] 			as! String
-			let components	= targetSpell["components"] 	as! String
-			let duration	= targetSpell["duration"] 		as! String
-
-			let damage		= targetSpell["damage"] 		as? String
-
-
-			//create the spell
-			let spellFromData = Spell(level: level,
-							  name: spell,
-							  description: description,
-							  school: school,
-							  range: range,
-							  castTime: castTime,
-							  duration: duration,
-							  damage: damage,
-							  components: components)
+			guard let spell = Spell(name: spellName) else { continue }
 
 			//add the spell to the correct index
-			guard let levelIndex = Int(level),
-				var spellArray = spellsByLevel[levelIndex] else { print("could not initialize array from \(level) as a key"); continue }
-			print("adding \(spellFromData.name) to the \(levelIndex) array")
+			guard let levelIndex = Int(spell.level),
+				var _ = spellsByLevel[levelIndex] else { print("could not initialize array from \(spell.level) as a key"); continue }
+			print("adding \(spell.name) to the \(levelIndex) array")
 
-			spellsByLevel[levelIndex]?.append(spellFromData)
+			spellsByLevel[levelIndex]!.append(spell)
 		}
 
 		for spells in spellsByLevel {
@@ -117,26 +95,25 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 	}
 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return String(availableSpellData[section].level)
+		if section == 0 { return "Cantrips" }
+		return "Level \(availableSpellData[section].level) Spells"
 	}
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if availableSpellData[indexPath.section].spells.isEmpty { return UITableViewCell() }
 		let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell", for: indexPath) as! SpellTableViewCell
 		let spell = availableSpellData[indexPath.section].spells[indexPath.row]//availableSpells[indexPath.row]
-		if let damage = spell.damage { 	cell.damageLabel.text			= damage }
-		else { 							cell.damageLabel.text			= "-" }
+		if let damage = spell.damage { 	cell.damageLabel.text			= "💥:\(damage)" }
+		else { 							cell.damageLabel.text			= "" }
 
 			cell.titleLabel.text 			= spell.name
-			cell.componentLabel.text 		= spell.components
-			cell.descriptionLabel.text		= spell.description
-//			cell.iconView.image		= UIImage(named: spell.name)
-			cell.castTimeLabel.text			= spell.castTime
-			cell.rangeLabel.text			= spell.range
+			cell.descriptionLabel.text		= spell.description()
+			cell.iconView.image				= UIImage(named: spell.school)
+
+			cell.rangeLabel.text			= "🏹: \(spell.range)"
 
 
 		return cell
 	}
-
 	private func registerCells() {
 		tableView.register(UINib(nibName: String(describing: SpellTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "SpellCell")
 	}

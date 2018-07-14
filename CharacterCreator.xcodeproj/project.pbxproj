@@ -155,11 +155,10 @@
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
-				8123671420CA44DA00F7AEFC /* Main.storyboard */,
-				8123671A20CA44DD00F7AEFC /* Assets.xcassets */,
 				8152B3D820D9F891008B7A1A /* Extensions */,
 				8178317420F7F99800BF9B03 /* Design */,
 				8123674120CA44EE00F7AEFC /* Data */,
+				8123671420CA44DA00F7AEFC /* Main.storyboard */,
 				8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */,
 				8123671F20CA44DD00F7AEFC /* Info.plist */,
 				8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */,
@@ -256,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				8178317520F7F9AE00BF9B03 /* UIColor.swift */,
+				8123671A20CA44DD00F7AEFC /* Assets.xcassets */,
 			);
 			path = Design;
 			sourceTree = "<group>";

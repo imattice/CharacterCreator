@@ -64,15 +64,10 @@ class ExpandableSelectionViewController: UIViewController {
 		let cellData = tableViewData[indexPath.section]
 
 		vc.target = Class(fromString: cellData.parentData.title.lowercased(), withPath: cellData.childData![indexPath.row - 1].title.lowercased())
-//		vc.targetClass = cellData.parentData.title.lowercased()
-//		vc.targetPath = cellData.childData![indexPath.row - 1].title.lowercased()
 		vc.title = "\(cellData.parentData.title.capitalized)"
 
 		print("initializing details for a \(vc.target!.path) \(vc.target!.base)")
 
-
-//		vc.modalPresentationStyle = .overCurrentContext
-//		navigationController?.pushViewController(vc, animated: true)
 		present(navController, animated: true, completion: nil)
 	}
 }
@@ -94,21 +89,8 @@ extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewD
 			cell.accessoryView 					= nil
 			cell.selectionStyle 				= .default
 
-			//prevent the parent cell from being selected if it has children
-			//add chevron accessory
-//			if tableViewData[indexPath.section].childData != nil {
-//				cell.selectionStyle 			= .none
-//
-//				let chevronView 		= UIImageView(image: UIImage(named: "chevron"))
-//					chevronView.frame 	= CGRect(x: 0, y: 0, width: 30, height: 30)
-//					chevronView.alpha	= 0.8
-//
-//				cell.accessoryView				= chevronView
-//				cell.accessoryView?.transform 	= CGAffineTransform(rotationAngle: 90°)
-//			}
-
 			//finish the label configuration
-			cell.titleLabel.text 				= cellData.title
+			cell.titleLabel.text 				= cellData.title.capitalized
 			cell.iconImageView.image 			= UIImage(named: cellData.title.lowercased())
 			cell.descriptionLabel.text 			= cellData.description
 
@@ -180,25 +162,6 @@ extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewD
 			//expand the sections
 			let sections = IndexSet.init(integer: indexPath.section)
 			tableView.reloadSections(sections, with: .fade)
-
-			//prevent the parent cell from indenting
-//			guard let parentCell = tableView.cellForRow(at: indexPath) else { return }
-//			tableView.cellForRow(at: indexPath)?.indentationLevel = 0
-
-			//rotate the chevron
-//			guard let accessoryView = parentCell.accessoryView else { return }
-//			let rotation = CABasicAnimation(keyPath: "transform.rotation")
-//				if tableViewData[indexPath.section].isOpen {
-//					rotation.fromValue 	= 90°
-//					rotation.toValue	= 270°	}
-//				else {
-//					rotation.fromValue 	= 270°
-//					rotation.toValue	= 90°	}
-//
-//				rotation.duration	= 0.25
-//
-//				accessoryView.layer.add(rotation, forKey: nil)
-//				accessoryView.transform 	= CGAffineTransform(rotationAngle: rotation.toValue as! CGFloat)
 
 			//scroll the selected cell to the top
 			tableView.scrollToRow(at: indexPath, at: .top, animated: true)

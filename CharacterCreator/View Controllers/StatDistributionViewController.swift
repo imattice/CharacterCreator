@@ -30,20 +30,24 @@ class StatDistributionViewController: UIViewController {
 		intStatView.statTitleLabel.text = "Intelligence"
 	}
 
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+	@IBAction func navigateToNextController(_ sender: UIBarButtonItem) {
 		setCharacterStats()
 
 		if let characterClass = Character.current.class,
+			let navigationController = navigationController,
 			let storyboard = storyboard {
 
 			//if the caster is a spellcaster, push to the Spell Selection Controller
 			if characterClass.features[1]!.contains(where: { $0.title == "Spellcasting" }) {
 				let vc = storyboard.instantiateViewController(withIdentifier: "SpellSelection")
+				vc.title = "\(characterClass.base) Spells"
 
-				navigationController?.pushViewController(vc, animated: true)
-			}
+				navigationController.pushViewController(vc, animated: true)						}
 
 			//otherwise move to the inventory selection controller
+			else {
+				let vc = storyboard.instantiateViewController(withIdentifier: "Result")
+				navigationController.pushViewController(vc, animated: true)						}
 		}
 	}
 
