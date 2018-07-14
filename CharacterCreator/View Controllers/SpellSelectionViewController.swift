@@ -10,7 +10,8 @@ import UIKit
 
 class SpellSelectionViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
-
+	@IBOutlet weak var headerView: SpellSelectionHeaderView!
+	
 	var targetClass: String {
 		if let characterClass = Character.current.class {
 			return characterClass.base	}
@@ -47,35 +48,22 @@ class SpellSelectionViewController: UIViewController {
 							   9: [Spell]()]
 
 		for spellName in classSpells {
-			print("getting info for \(spellName)")
-
 			guard let spell = Spell(name: spellName) else { continue }
 
 			//add the spell to the correct index
 			guard let levelIndex = Int(spell.level),
 				var _ = spellsByLevel[levelIndex] else { print("could not initialize array from \(spell.level) as a key"); continue }
-			print("adding \(spell.name) to the \(levelIndex) array")
 
 			spellsByLevel[levelIndex]!.append(spell)
 		}
 
 		for spells in spellsByLevel {
 			if !spells.value.isEmpty {
-				print("adding data for the \(spells.key) level")
-				print("are there spells in the array? \(!spells.value.isEmpty) \n How many? \(spells.value.count)")
-
 				availableSpellData.append(SpellTableData(level: spells.key, spells: spells.value))
 			}
 		}
 
 		availableSpellData.sort(by: { $0.level < $1.level })
-
-		for spells in availableSpellData {
-			print(spells.level)
-			for spell in spells.spells {
-				print(spell.name)
-			}
-		}
 	}
 
 
@@ -84,20 +72,6 @@ class SpellSelectionViewController: UIViewController {
 }
 
 extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSource {
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if availableSpellData[section].spells.isEmpty { print("No!"); print(availableSpellData[section].spells); return 1 }
-
-		return availableSpellData[section].spells.count
-	}
-
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return availableSpellData.count
-	}
-
-	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		if section == 0 { return "Cantrips" }
-		return "Level \(availableSpellData[section].level) Spells"
-	}
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if availableSpellData[indexPath.section].spells.isEmpty { return UITableViewCell() }
 		let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell", for: indexPath) as! SpellTableViewCell
@@ -113,6 +87,24 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 
 
 		return cell
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		headerView.shiftSlider(.right)
+	}
+
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		if section == 0 { return "Cantrips" }
+		return "Level \(availableSpellData[section].level) Spells"
+	}
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if availableSpellData[section].spells.isEmpty { print("No!"); print(availableSpellData[section].spells); return 1 }
+
+		return availableSpellData[section].spells.count
+	}
+
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return availableSpellData.count
 	}
 	private func registerCells() {
 		tableView.register(UINib(nibName: String(describing: SpellTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "SpellCell")

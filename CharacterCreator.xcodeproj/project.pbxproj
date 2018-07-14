@@ -33,6 +33,8 @@
 		8152B41A20E160AA008B7A1A /* ChildTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		819B065F20E7455300902D4E /* ClassDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ClassDetailTableViewController.swift */; };
+		819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */; };
+		819D371720F9BF7900986AFB /* SpellSelectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819D371620F9BF7900986AFB /* SpellSelectionHeaderView.xib */; };
 		81BC72A320EABF9500B48195 /* ExpandableCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A220EABF9500B48195 /* ExpandableCellData.swift */; };
 		81BC72A520EEAE8B00B48195 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A420EEAE8B00B48195 /* UIButton.swift */; };
 		81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A620F0813700B48195 /* SpellTableViewCell.swift */; };
@@ -93,6 +95,8 @@
 		8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildTableViewCell.xib; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		819B065E20E7455300902D4E /* ClassDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailTableViewController.swift; sourceTree = "<group>"; };
+		819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionHeaderView.swift; sourceTree = "<group>"; };
+		819D371620F9BF7900986AFB /* SpellSelectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellSelectionHeaderView.xib; sourceTree = "<group>"; };
 		81BC72A220EABF9500B48195 /* ExpandableCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCellData.swift; sourceTree = "<group>"; };
 		81BC72A420EEAE8B00B48195 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		81BC72A620F0813700B48195 /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 		8152B3D920D9FD65008B7A1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */,
+				819D371620F9BF7900986AFB /* SpellSelectionHeaderView.xib */,
 				819B066720E814D200902D4E /* Class Selection */,
 				8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */,
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
@@ -382,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819D371720F9BF7900986AFB /* SpellSelectionHeaderView.xib in Resources */,
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8152B41520DEE659008B7A1A /* ParentTableViewCell.xib in Resources */,
 				81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */,
@@ -424,6 +431,7 @@
 				81BC72A520EEAE8B00B48195 /* UIButton.swift in Sources */,
 				8152B41420DEE659008B7A1A /* ParentTableViewCell.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
+				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				819B065F20E7455300902D4E /* ClassDetailTableViewController.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
