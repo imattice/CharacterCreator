@@ -24,6 +24,7 @@ class SpellSelectionHeaderView: UIView {
 		xibSetup()
 
 		setInitialSliderConstraints()
+
 	}
 
 

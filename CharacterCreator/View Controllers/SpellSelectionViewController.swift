@@ -26,8 +26,9 @@ class SpellSelectionViewController: UIViewController {
 		registerCells()
 
 		getSpellData()
+		paint()
 
-		tableView.reloadData()
+//		tableView.reloadData()
     }
 
 	//this seems like a clumsy way to handle this.  :/
@@ -122,7 +123,6 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		headerView.shiftSlider(.left)
 	}
 
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -146,45 +146,6 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 		let level: Int
 		var spells: [Spell]
 	}
-
-	func isFloatingSectionHeader( view: UIView )->Bool {
-		if let section = section( for: view ) {
-			return isFloatingHeaderInSection( section:section )
-		}
-		return false
-	}
-
-	func isFloatingHeaderInSection( section:Int ) -> Bool {
-		let frame = tableView.rectForHeader(inSection: section)
-		let y = tableView.contentInset.top + tableView.contentOffset.y
-		return y > frame.origin.y
-	}
-
-	func section( for view: UIView )->Int? {
-
-		for i in stride( from:0, to:tableView.numberOfSections, by:1 ) {
-			let a = view.convert( CGPoint.zero, from: tableView.headerView( forSection:i ) )
-			let b = view.convert( CGPoint.zero, from: view )
-			if a.y == b.y {
-				return i
-			}
-		}
-		return nil
-	}
-
-	func isSectionHeaderSticky(section: Int) -> Bool {
-		guard let sectionView = tableView.headerView(forSection: section) else { return false }
-		let originalFrame = tableView.rectForHeader(inSection: section)
-//		CGRect originalFrame = [self.listTableView rectForHeaderInSection:0];
-//		UIView *section0 = [self.listTableView headerViewForSection:0];
-
-		if originalFrame.origin.y < sectionView.frame.origin.y {
-			return  true
-		}
-		return false
-	}
-
-
 }
 
 
@@ -195,6 +156,22 @@ extension SpellSelectionViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 	// Get the new view controller using segue.destinationViewController.
 	// Pass the selected object to the new view controller.
+	}
+}
+
+extension SpellSelectionViewController: Paintable {
+	func paint() {
+		headerView.sliderView.backgroundColor 	= UIColor.paintColor()
+		self.view.backgroundColor				= UIColor.paintColor()
+	}
+
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let headerView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+
+		print("painting the headers")
+		headerView.tintColor = UIColor.paintColor()
+
+		return headerView
 	}
 }
 
