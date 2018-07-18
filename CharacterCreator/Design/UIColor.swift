@@ -8,6 +8,7 @@
 
 import UIKit
 import Hue
+//import ChameleonFramework
 
 protocol Paintable {
 	func paint()
@@ -71,6 +72,44 @@ extension UIColor {
 		print("false color")
 		return UIButton(type: .system).tintColor
 	}
+
+	static func gradientForCurrentClass() -> [UIColor] {
+		if let characterClass = Character.current.class,
+			let availableClass = AvailableClass(rawValue: characterClass.base.lowercased()) {
+
+			return gradient(for: availableClass)
+		}
+		else if let characterClass = Character.default.class,
+			let availableClass = AvailableClass(rawValue: characterClass.base.lowercased()) {
+
+			return gradient(for: availableClass)}
+
+		print("false color")
+		return [UIButton(type: .system).tintColor]
+	}
+
+	static func lightestShadeForCurrentClass() -> UIColor {
+		var targetClass: AvailableClass
+		if let currentClass = Character.current.class {
+			targetClass = AvailableClass(rawValue: currentClass.base)!  }
+		else {
+			targetClass = AvailableClass(rawValue: Character.default.class!.base)!
+		}
+
+		return gradient(for: targetClass).first!
+	}
+
+	static func darkestShadeForCurrentClass() -> UIColor {
+		var targetClass: AvailableClass
+		if let currentClass = Character.current.class {
+			targetClass = AvailableClass(rawValue: currentClass.base)!  }
+		else {
+			targetClass = AvailableClass(rawValue: Character.default.class!.base)!
+		}
+
+		return gradient(for: targetClass).last!
+	}
+
 
 
 	//https://www.materialui.co/colors
