@@ -13,23 +13,37 @@ class SpellSelectionViewController: UIViewController {
 	@IBOutlet weak var headerView: SpellSelectionHeaderView!
 	
 	var targetClass: String {
-		if let characterClass = Character.current.class {
+		if let characterClass = Character.default.class {
 			return characterClass.base	}
 		else {
-			print("defaulted to spells for wizard class")
-			return "wizard"} }
+			print("Default character is being used to display class data in the Spell Selection")
+			return Character.default.class!.base } }
 
+	var spellCountRemaining: Int = 0 {
+		didSet {
+			//update the label
+			headerView.spellCountLabel.text = String(spellCountRemaining)
+			//prevent further selection if there are no remaining spells
+//			if spellCountRemaining <= 0 { tableView.allowsSelection = false }
+//			else { tableView.allowsSelection = true }
+		}}
 	var tableViewData = [SpellTableData]()
+
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		registerCells()
+		tableView.allowsMultipleSelection = true
 
 		getSpellData()
+		restoreSpellsKnown()
+
+		headerView.spellCountLabel.text = String( Character.default.numberOfSpellsKnown()!) //Character.current.numberOfSpellsKnown()!)
 		paint()
 
-//		tableView.reloadData()
-    }
+	}
 
 	//this seems like a clumsy way to handle this.  :/
 	private func getSpellData() {
@@ -67,6 +81,131 @@ class SpellSelectionViewController: UIViewController {
 		tableViewData.sort(by: { $0.level < $1.level })
 	}
 
+
+	func addToSpellbook(_ spell: Spell) {
+		print("will add spell \(spell.name)")
+
+		//check if the spell is already in the book to avoid duplicates
+		if Character.default.spellBook.contains(where: { $0.name == spell.name }) {print("spellbook already contains \(spell.name)"); return}
+
+		//add the spell
+		Character.default.spellBook.append(spell)
+
+		print("All Spells:")
+		for spells in Character.default.spellBook {
+			print(spells.name)
+		}
+		subtractSpellsKnown()
+	}
+	func removeFromSpellbook(_ spell: Spell) {
+		print("will remove spell \(spell.name)")
+
+		guard let index = Character.default.spellBook.index(where: { $0.name == spell.name }) else { print("\(spell.name) not in spellbook"); return }
+		Character.default.spellBook.remove(at: index)
+
+		print("All Spells:")
+		for spells in Character.default.spellBook {
+			print(spells.name)
+		}
+
+		increaseSpellsKnown()
+	}
+
+	func subtractSpellsKnown() {
+		spellCountRemaining -= 1
+	}
+	func increaseSpellsKnown() {
+		spellCountRemaining += 1
+	}
+
+	func spellForCell(at indexPath: IndexPath) -> Spell? {
+		if let data = tableViewData.first(where: { $0.level == indexPath.section }) {
+
+			return data.spells[indexPath.row]
+		} else {
+			print("could not initialize spell for specified cell at indexPath: \(indexPath.section) \(indexPath.row)")
+			return nil
+		}
+	}
+
+	func restoreSpellsKnown() {
+		spellCountRemaining = setNumberOfSpellsKnown()
+	}
+	func setNumberOfSpellsKnown() -> Int {
+		if let spellsKnownCount = Character.default.numberOfSpellsKnown() {
+			return spellsKnownCount	}
+		else {
+			print("Default character is being used to display spellCount data in the Spell Selection")
+			return Character.default.numberOfSpellsKnown()! }
+	}
+}
+
+extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSource {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if tableViewData[indexPath.section].spells.isEmpty { return UITableViewCell() }
+		let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell", for: indexPath) as! SpellTableViewCell
+		let spell = tableViewData[indexPath.section].spells[indexPath.row]//availableSpells[indexPath.row]
+		if let damage = spell.damage { 	cell.damageLabel.text			= "💥:\(damage)" }
+		else { 							cell.damageLabel.text			= "" }
+
+			cell.titleLabel.text 			= spell.name
+			cell.descriptionLabel.text		= spell.description()
+			cell.iconView.image				= UIImage(named: spell.school)
+
+			cell.rangeLabel.text			= "🏹: \(spell.range)"
+
+//			cell.selectedBackgroundView?.backgroundColor = UIColor.colorForCurrentClass()
+				let backgroundView = UIView()
+					backgroundView.backgroundColor 	= UIColor.colorForCurrentClass()
+					backgroundView.alpha			= 0.3
+				cell.selectedBackgroundView = backgroundView
+
+		return cell
+	}
+
+	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+		guard let cell = tableView.cellForRow(at: indexPath) else { print("issue creating cell from selected index path"); return indexPath }
+
+		if spellCountRemaining <= 0 { cell.selectionStyle = .none }
+
+
+		return indexPath
+	}
+
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		guard let cell = tableView.cellForRow(at: indexPath) else { print("issue creating cell from selected index path"); return }
+		guard let spell = spellForCell(at: indexPath) else { print("no spell for cell at index path section \(indexPath.section) row \(indexPath.row)"); return }
+
+		//if there are no spell count left
+//		if spellCountRemaining <= 0 { cell.setSelected(false, animated: false) }
+
+//		else {
+		if spellCountRemaining > 0 {
+			addToSpellbook(spell)	} else { print("No room!") }
+
+
+	}
+
+	func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+		guard let cell = tableView.cellForRow(at: indexPath) else { print("issue creating cell from selected index path"); return indexPath }
+
+		if spellCountRemaining >= 0 { cell.selectionStyle = .default }
+
+		return indexPath
+	}
+
+	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+		guard let spell = spellForCell(at: indexPath) else { print("no spell for cell at index path section \(indexPath.section) row \(indexPath.row)"); return }
+
+		removeFromSpellbook(spell)
+	}
+
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		if section == 0 { return "Cantrips" }
+		return "Level \(tableViewData[section].level) Spells"
+	}
+
 	//pushing up
 	func tableView(_ tableView: UITableView,
 				   didEndDisplayingHeaderView view: UIView,
@@ -98,36 +237,8 @@ class SpellSelectionViewController: UIViewController {
 		if firstPath.section == section {
 			headerView.shiftSlider(toSection: section)
 		}
-	}
 
-
-
-}
-
-extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSource {
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if tableViewData[indexPath.section].spells.isEmpty { return UITableViewCell() }
-		let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell", for: indexPath) as! SpellTableViewCell
-		let spell = tableViewData[indexPath.section].spells[indexPath.row]//availableSpells[indexPath.row]
-		if let damage = spell.damage { 	cell.damageLabel.text			= "💥:\(damage)" }
-		else { 							cell.damageLabel.text			= "" }
-
-			cell.titleLabel.text 			= spell.name
-			cell.descriptionLabel.text		= spell.description()
-			cell.iconView.image				= UIImage(named: spell.school)
-
-			cell.rangeLabel.text			= "🏹: \(spell.range)"
-
-
-		return cell
-	}
-
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-	}
-
-	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		if section == 0 { return "Cantrips" }
-		return "Level \(tableViewData[section].level) Spells"
+		tableView.backgroundColor = UIColor.paintGradientColors()[section]
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if tableViewData[section].spells.isEmpty { print("No!"); print(tableViewData[section].spells); return 1 }
@@ -161,15 +272,13 @@ extension SpellSelectionViewController {
 
 extension SpellSelectionViewController: Paintable {
 	func paint() {
-		headerView.sliderView.backgroundColor 	= UIColor.paintColor()
-		self.view.backgroundColor				= UIColor.paintColor()
+		tableView.backgroundColor				= UIColor.paintGradientColors()[0]
 	}
 
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
 
-		print("painting the headers")
-		headerView.tintColor = UIColor.paintColor()
+		headerView.contentView.backgroundColor = UIColor.paintGradientColors()[section]
 
 		return headerView
 	}

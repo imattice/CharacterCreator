@@ -16,6 +16,7 @@
                 <outlet property="sliderLeftConstraint" destination="KqC-B9-Wix" id="rMs-4d-7fE"/>
                 <outlet property="sliderView" destination="mfL-2V-1gd" id="HsE-xB-E5N"/>
                 <outlet property="sliderWidthConstraint" destination="CzF-Jo-HhB" id="WUl-4T-EXO"/>
+                <outlet property="spellCountLabel" destination="Kxo-Nl-JNx" id="ZeC-fw-foM"/>
                 <outletCollection property="levelViews" destination="coh-vO-j5e" collectionClass="NSMutableArray" id="YOf-gO-DLD"/>
                 <outletCollection property="levelViews" destination="cMi-SX-XgJ" collectionClass="NSMutableArray" id="aUa-fc-5H0"/>
                 <outletCollection property="levelViews" destination="64Y-7o-iZf" collectionClass="NSMutableArray" id="boO-h8-U0P"/>
@@ -23,17 +24,20 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Spells Known" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vt7-xg-ayl">
-                    <rect key="frame" x="20" y="5" width="335" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Spells Remaining" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vt7-xg-ayl">
+                    <rect key="frame" x="20" y="5" width="335" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Enc-2t-K23"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x6E-cM-XdX">
-                    <rect key="frame" x="0.0" y="69" width="375" height="20"/>
+                    <rect key="frame" x="0.0" y="80" width="375" height="20"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coh-vO-j5e" userLabel="Cantrips">
                             <rect key="frame" x="0.0" y="0.0" width="125" height="20"/>
@@ -102,21 +106,33 @@
                         <constraint firstItem="coh-vO-j5e" firstAttribute="top" secondItem="x6E-cM-XdX" secondAttribute="top" id="q2I-7l-6in"/>
                     </constraints>
                 </stackView>
-                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfL-2V-1gd" userLabel="Slider View">
-                    <rect key="frame" x="0.0" y="69" width="125" height="20"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfL-2V-1gd" userLabel="Slider View">
+                    <rect key="frame" x="0.0" y="80" width="125" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" identifier="sliderHeight" id="0rC-qg-qAV"/>
                         <constraint firstAttribute="width" constant="125" identifier="sliderWidth" id="CzF-Jo-HhB"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxo-Nl-JNx">
+                    <rect key="frame" x="172.5" y="33" width="30" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Gut-fo-wcd"/>
+                        <constraint firstAttribute="width" constant="30" id="J7c-4B-kkL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Kxo-Nl-JNx" firstAttribute="top" secondItem="vt7-xg-ayl" secondAttribute="bottom" constant="8" id="3us-lz-lC0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vt7-xg-ayl" secondAttribute="trailing" constant="20" id="4e5-O9-oRH"/>
                 <constraint firstItem="mfL-2V-1gd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" identifier="sliderLeadingConstraint" id="KqC-B9-Wix"/>
                 <constraint firstItem="x6E-cM-XdX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YJU-VK-tSv"/>
+                <constraint firstItem="x6E-cM-XdX" firstAttribute="top" secondItem="Kxo-Nl-JNx" secondAttribute="bottom" constant="10" id="YfX-1j-pKy"/>
                 <constraint firstAttribute="bottom" secondItem="mfL-2V-1gd" secondAttribute="bottom" id="dcI-yx-SZa"/>
+                <constraint firstItem="Kxo-Nl-JNx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dw3-xX-Auh"/>
                 <constraint firstItem="vt7-xg-ayl" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="eZA-aD-Q8b"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="x6E-cM-XdX" secondAttribute="trailing" id="gbk-Gr-ZrQ"/>
                 <constraint firstItem="vt7-xg-ayl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="mEa-1c-M2l"/>
@@ -124,7 +140,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="33.5" y="342.5"/>
+            <point key="canvasLocation" x="33.5" y="348"/>
         </view>
     </objects>
 </document>

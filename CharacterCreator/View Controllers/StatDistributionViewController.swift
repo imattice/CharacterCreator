@@ -40,7 +40,7 @@ class StatDistributionViewController: UIViewController {
 			//if the caster is a spellcaster, push to the Spell Selection Controller
 			if characterClass.features[1]!.contains(where: { $0.title == "Spellcasting" }) {
 				let vc = storyboard.instantiateViewController(withIdentifier: "SpellSelection")
-				vc.title = "\(characterClass.base) Spells"
+				vc.title = "\(characterClass.base.capitalized) Spells"
 
 				navigationController.pushViewController(vc, animated: true)						}
 
@@ -59,11 +59,11 @@ class StatDistributionViewController: UIViewController {
 				let wis = Int(wisStatView.statValueLabel.text!),
 				let int = Int(intStatView.statValueLabel.text!) else { return }
 
-		Character.current.stats.str = str
-		Character.current.stats.con = con
-		Character.current.stats.dex = dex
-		Character.current.stats.cha = cha
-		Character.current.stats.wis = wis
-		Character.current.stats.int = int
+		Character.current.stats.str = Character.StatBlock.Stat(value: str)
+		Character.current.stats.con = Character.StatBlock.Stat(value: con)
+		Character.current.stats.dex = Character.StatBlock.Stat(value: dex)
+		Character.current.stats.cha = Character.StatBlock.Stat(value: cha)
+		Character.current.stats.wis = Character.StatBlock.Stat(value: wis)
+		Character.current.stats.int = Character.StatBlock.Stat(value: int)
 	}
 }

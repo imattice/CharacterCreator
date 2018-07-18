@@ -60,11 +60,4 @@ let raceData: [String: Any] = [
 enum RaceKey: String {
 	case description, modifiers, subraces
 }
-enum Stat: String {
-	case strength,
-		constitution,
-		dexterity,
-		charisma,
-		wisdom,
-		intelligence
-}
+

@@ -10,6 +10,9 @@ import UIKit
 struct Class {
 	let base: String
 	let path: String
+	let availableClass: AvailableClass
+	var castingAbility: Stats?				= nil
+
 
 	var name: String 						{ return "\(path.capitalized) \(base.capitalized)" }
 	var features: [Int: [ClassFeature]] 	{ return getAllLevelFeatures() }
@@ -17,9 +20,25 @@ struct Class {
 	init?(fromString className: String, withPath pathName: String) {
 
 		//set the name to a subrace friendly name
-		self.base 		= className.lowercased()
-		self.path		= pathName.lowercased()
+		self.base 				= className.lowercased()
+		self.path				= pathName.lowercased()
+		self.availableClass 	= AvailableClass(rawValue: base.lowercased())!
+
+
+		if let classDict = classData[base] as? [String:Any],
+			let spellcastingDict = classDict["spellcasting"] as? [String:Any],
+			let castingAbilityData = spellcastingDict["casting_ability"] as? String {
+
+			guard let castingAbility = Stats(rawValue: castingAbilityData)
+				else { print("could not convert \(castingAbilityData) to Stat"); return }
+
+			self.castingAbility = castingAbility
+
+
+		} else { print("Could not initialize casting data for the \(base) class") }
 	}
+
+
 
 	public func getAllLevelFeatures() -> [Int: [ClassFeature]] {
 		var result = [Int: [ClassFeature]]()
@@ -92,6 +111,17 @@ struct Class {
 
 		return result
 	}
+
+	func color() -> UIColor {
+		return UIColor.color(for: availableClass)
+	}
+	func gradient() -> [UIColor] {
+		return UIColor.gradient(for: availableClass)
+	}
+}
+
+enum AvailableClass: String {
+	case fighter, cleric, wizard, rogue
 }
 
 struct ClassFeature {

@@ -135,8 +135,11 @@ extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewD
 				cell.descriptionLabel.text 			= childData.description
 
 				cell.cornerButton.setTitle("Level +", for: .normal)
+				cell.cornerButton.tintColor = UIColor.color(for: AvailableClass(rawValue: parentData.title.lowercased())!)
 				cell.cornerButton.addTarget(self, action: #selector(showClassDetail(_:)), for: .touchUpInside)
 
+
+				cell.selectionStyle = .none
 
 				return cell																		}
 
@@ -165,6 +168,10 @@ extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewD
 
 			//scroll the selected cell to the top
 			tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+		}
+		//selected child cell
+		else {
+			updateTintColor()
 		}
 	}
 
@@ -225,6 +232,39 @@ extension ExpandableSelectionViewController {
 		}
 	}
 
+}
+
+extension ExpandableSelectionViewController {
+	private func updateTintColor() {
+		guard let selectedIndexPath = tableView.indexPathForSelectedRow,
+		let selectedClass = AvailableClass(rawValue: tableViewData[selectedIndexPath.section].parentData.title.lowercased()) else { return }
+		let color = UIColor.color(for: selectedClass)
+
+		if let navController = navigationController, let items = navController.navigationBar.items {
+			for item in items {
+				UIView.animate(withDuration: 1,
+							   delay: 0,
+							   usingSpringWithDamping: 0.8,
+							   initialSpringVelocity: 0.5,
+							   options: .curveLinear,
+							   animations: {
+									item.backBarButtonItem?.tintColor	= color
+									item.leftBarButtonItem?.tintColor 	= color
+									item.rightBarButtonItem?.tintColor 	= color
+
+				},
+							   completion: nil)
+
+			}
+		}
+
+		let lightColor = UIColor.gradient(for: selectedClass)[0]
+		UIView.animate(withDuration: 0.25) {
+			self.tableView.cellForRow(at: selectedIndexPath)!.contentView.backgroundColor = lightColor
+		}
+		self.tableView.cellForRow(at: selectedIndexPath)!.contentView.backgroundColor = lightColor
+
+	}
 }
 
 

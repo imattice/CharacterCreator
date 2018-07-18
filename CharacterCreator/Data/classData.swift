@@ -31,7 +31,13 @@ let classData: [String : Any] = [
 			//Level 1
 			"Bless", "Command", "Cure Wounds", "Detect Magic", "Guiding Bolt", "Healing Word", "Inflict Wounds", "Sanctuary", "Shield of Faith",
 			//Level 2
-			"Aid", "Augury", "Hold Person", "Lesser Restoration", "Prayer of Healing", "Silence", "Spiritual Weapon", "Warding Bond"]
+			"Aid", "Augury", "Hold Person", "Lesser Restoration", "Prayer of Healing", "Silence", "Spiritual Weapon", "Warding Bond"],
+		"spellcasting": [
+			"casting_ability": "wis",
+
+
+
+		]
 	],
 
 
@@ -111,7 +117,14 @@ let classData: [String : Any] = [
 			"Burning Hands","Charm Person", "Comprehend Languages", "Detect Magic", "Disguise Self", "Identify", "Mage Armor", "Magic Missile", "Shield", "Silent Image", "Sleep", "Thunderwave",
 			//Level 2
 			"Arcane Lock", "Blur", "Darkness", "Flaming Sphere", "Hold Person", "Invisibility", "Knock",
-			"Levitate", "Magic Weapon", "Misty Step", "Shatter", "Spider Climb", "Suggestion", "Web"]
+			"Levitate", "Magic Weapon", "Misty Step", "Shatter", "Spider Climb", "Suggestion", "Web"],
+		"spellcasting": [
+			"casting_ability": "int",
+
+
+
+		]
+
 	]
 ]
 

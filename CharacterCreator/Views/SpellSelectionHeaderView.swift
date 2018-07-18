@@ -8,13 +8,14 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class SpellSelectionHeaderView: UIView {
 	var view: UIView!
 
 	@IBOutlet var levelViews: [UIView]!
 	@IBOutlet weak var sliderView: UIView!
-
+	@IBOutlet weak var spellCountLabel: UILabel!
+	
 	@IBOutlet weak var sliderLeftConstraint: NSLayoutConstraint!
 	@IBOutlet weak var sliderHeightConstraint: NSLayoutConstraint!
 	@IBOutlet weak var sliderWidthConstraint: NSLayoutConstraint!
@@ -25,26 +26,19 @@ class SpellSelectionHeaderView: UIView {
 
 		setInitialSliderConstraints()
 
+		sliderView.backgroundColor 	= UIColor.paintGradientColors()[0]
+		sliderView.alpha			= 0.5
+
+
 	}
 
-
-
-	func shiftSlider(_ direction: ShiftDirection) {
-		switch direction {
-		case .right:
-			self.sliderLeftConstraint.constant += self.sliderWidthConstraint.constant
-		case .left:
-			self.sliderLeftConstraint.constant -= self.sliderWidthConstraint.constant
-		}
-
-		UIView.animate(withDuration: 0.25) {
-			self.layoutIfNeeded()
-		}
-	}
 	func shiftSlider(toSection section: Int) {
+		let setColor = UIColor.paintGradientColors()
+
 		sliderLeftConstraint.constant	= sliderWidthConstraint.constant * CGFloat(section)
 
 		UIView.animate(withDuration: 0.25) {
+			self.sliderView.backgroundColor = setColor[section]
 			self.layoutIfNeeded()
 		}
 	}
@@ -57,9 +51,5 @@ class SpellSelectionHeaderView: UIView {
 		sliderHeightConstraint.constant = height
 		sliderWidthConstraint.constant	= width
 		sliderLeftConstraint.constant	= 0
-	}
-
-	enum ShiftDirection {
-		case left, right
 	}
 }
