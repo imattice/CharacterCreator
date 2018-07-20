@@ -8,7 +8,6 @@
 
 import UIKit
 import Hue
-//import ChameleonFramework
 
 protocol Paintable {
 	func paint()
@@ -16,29 +15,25 @@ protocol Paintable {
 
 extension UIColor {
 	static func paintColor() -> UIColor {
-		var targetClass: String 	= "wizard"
-		if let characterClass 		= Character.current.class { targetClass = characterClass.base.lowercased() }
+		var targetClass: AvailableClass 	= Character.default.class!.availableClass
+		if let characterClass 				= Character.current.class { targetClass = characterClass.availableClass }
 
 		switch targetClass {
-		case "fighter": 	return UIColor.MaterialColor.red
-		case "cleric": 		return UIColor.MaterialColor.lightBlue
-		case "rogue":		return UIColor.MaterialColor.grey
-		case "wizard":		return UIColor.MaterialColor.deepPurple
-
-		default:			print("false color"); return UIButton(type: .system).tintColor
+		case .fighter: 		return UIColor.MaterialColor.red
+		case .cleric: 		return UIColor.MaterialColor.lightBlue
+		case .rogue:		return UIColor.MaterialColor.grey
+		case .wizard:		return UIColor.MaterialColor.deepPurple
 		}
 	}
 	static func paintGradientColors() -> [UIColor] {
-			var targetClass: String 	= "wizard"
-			if let characterClass 		= Character.current.class { targetClass = characterClass.base.lowercased() }
+			var targetClass: AvailableClass 	= Character.default.class!.availableClass
+			if let characterClass 				= Character.current.class { targetClass = characterClass.availableClass }
 
 			switch targetClass {
-			case "fighter": 	return UIColor.MaterialColor.redGradientColors
-			case "cleric": 		return UIColor.MaterialColor.lightBlueGradientColors
-			case "rogue":		return UIColor.MaterialColor.greyGradientColors
-			case "wizard":		return UIColor.MaterialColor.deepPurpleGradientColors
-
-			default:			print("false color"); return [UIButton(type: .system).tintColor]
+			case .fighter: 		return UIColor.MaterialColor.redGradientColors
+			case .cleric: 		return UIColor.MaterialColor.lightBlueGradientColors
+			case .rogue:		return UIColor.MaterialColor.greyGradientColors
+			case .wizard:		return UIColor.MaterialColor.deepPurpleGradientColors
 			}
 	}
 

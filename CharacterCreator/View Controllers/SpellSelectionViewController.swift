@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ChameleonFramework
 
 class SpellSelectionViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
@@ -32,6 +31,7 @@ class SpellSelectionViewController: UIViewController {
 
 		//set the spell selection limit
 		restoreSpellsKnown()
+		configureSpellbookView()
 
 		//add color and design
 		paint()
@@ -103,6 +103,25 @@ class SpellSelectionViewController: UIViewController {
 		return data.spells[indexPath.row]
 	}
 
+	func configureSpellbookView() {
+
+		let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showSpellbook))
+		headerView.spellCountLabel.addGestureRecognizer(gestureRecognizer)
+		headerView.spellCountLabel.isUserInteractionEnabled = true
+	}
+
+	@objc func showSpellbook(_ sender: UIGestureRecognizer) {
+		guard let storyboard = storyboard,
+			let vc = storyboard.instantiateViewController(withIdentifier: "SpellbookDetail") as? ModalTableViewController else { print("didn't work"); return }
+			let navController = UINavigationController(rootViewController: vc)
+
+			vc.dataType = .Spellbook
+			vc.title = "Spellbook"
+
+
+			present(navController, animated: true, completion: nil)
+	}
+
 	//HELPERS
 	func subtractSpellsKnown() {
 		spellCountRemaining -= 1
@@ -125,18 +144,12 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 		if tableViewData[indexPath.section].spells.isEmpty { return UITableViewCell() }
 		let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell", for: indexPath) as! SpellTableViewCell
 		let spell = tableViewData[indexPath.section].spells[indexPath.row]
-		if let damage = spell.damage { 	cell.damageLabel.text			= "💥:\(damage)" }
-		else { 							cell.damageLabel.text			= "" }
 
-			cell.titleLabel.text 			= spell.name
-			cell.descriptionLabel.text		= spell.description()
-			cell.iconView.image				= UIImage(named: spell.school)
+		cell.configure(for: spell)
 
-			cell.rangeLabel.text			= "🏹: \(spell.range)"
-
-			let backgroundView = UIView()
-				backgroundView.backgroundColor 	= UIColor.lightestShadeForCurrentClass()
-			cell.selectedBackgroundView = backgroundView
+		let backgroundView = UIView()
+			backgroundView.backgroundColor 	= UIColor.lightestShadeForCurrentClass()
+		cell.selectedBackgroundView = backgroundView
 
 		return cell
 	}

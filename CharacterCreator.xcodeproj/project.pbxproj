@@ -32,7 +32,7 @@
 		8152B41920E160AA008B7A1A /* ChildTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41720E160AA008B7A1A /* ChildTableViewCell.swift */; };
 		8152B41A20E160AA008B7A1A /* ChildTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
-		819B065F20E7455300902D4E /* ClassDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ClassDetailTableViewController.swift */; };
+		819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ModalTableViewController.swift */; };
 		819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */; };
 		819D371720F9BF7900986AFB /* SpellSelectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819D371620F9BF7900986AFB /* SpellSelectionHeaderView.xib */; };
 		81BC72A320EABF9500B48195 /* ExpandableCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A220EABF9500B48195 /* ExpandableCellData.swift */; };
@@ -103,7 +103,7 @@
 		8152B41720E160AA008B7A1A /* ChildTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildTableViewCell.swift; sourceTree = "<group>"; };
 		8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildTableViewCell.xib; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		819B065E20E7455300902D4E /* ClassDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailTableViewController.swift; sourceTree = "<group>"; };
+		819B065E20E7455300902D4E /* ModalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionHeaderView.swift; sourceTree = "<group>"; };
 		819D371620F9BF7900986AFB /* SpellSelectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellSelectionHeaderView.xib; sourceTree = "<group>"; };
 		819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				8152B3D020D9E097008B7A1A /* ExpandableSelectionViewController.swift */,
-				819B065E20E7455300902D4E /* ClassDetailTableViewController.swift */,
+				819B065E20E7455300902D4E /* ModalTableViewController.swift */,
 				8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */,
 				81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */,
 				8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */,
@@ -490,12 +490,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CharacterCreator/Pods-CharacterCreator-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,7 +570,7 @@
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
-				819B065F20E7455300902D4E /* ClassDetailTableViewController.swift in Sources */,
+				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
 				8152B41920E160AA008B7A1A /* ChildTableViewCell.swift in Sources */,
@@ -762,7 +760,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreator/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
@@ -781,7 +782,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreator/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
@@ -799,7 +803,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -817,7 +825,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -834,7 +846,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -851,7 +867,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

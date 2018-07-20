@@ -15,7 +15,8 @@ class SpellSelectionHeaderView: UIView {
 	@IBOutlet var levelViews: [UIView]!
 	@IBOutlet weak var sliderView: UIView!
 	@IBOutlet weak var spellCountLabel: UILabel!
-	
+	@IBOutlet weak var spellbookView: UIView!
+
 	@IBOutlet weak var sliderLeftConstraint: NSLayoutConstraint!
 	@IBOutlet weak var sliderHeightConstraint: NSLayoutConstraint!
 	@IBOutlet weak var sliderWidthConstraint: NSLayoutConstraint!
