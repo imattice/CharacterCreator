@@ -111,15 +111,14 @@ class SpellSelectionViewController: UIViewController {
 	}
 
 	@objc func showSpellbook(_ sender: UIGestureRecognizer) {
-		guard let storyboard = storyboard,
-			let vc = storyboard.instantiateViewController(withIdentifier: "SpellbookDetail") as? ModalTableViewController else { print("didn't work"); return }
-			let navController = UINavigationController(rootViewController: vc)
+		let vc = ModalTableViewController()
+		let navController = UINavigationController(rootViewController: vc)
 
-			vc.dataType = .Spellbook
-			vc.title = "Spellbook"
+		vc.dataType = .Spellbook
+		vc.title = "Spellbook"
 
 
-			present(navController, animated: true, completion: nil)
+		present(navController, animated: true, completion: nil)
 	}
 
 	//HELPERS

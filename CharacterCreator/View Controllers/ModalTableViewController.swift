@@ -13,7 +13,9 @@ class ModalTableViewController: UITableViewController {
 
 	var tableViewData = [TableViewData]()
 	var target: Class?			= Character.default.class!  //nil
-	var dataType: DataType?		= .Spellbook				//nil
+	var dataType: DataType?		= .ClassFeature				//nil
+
+	
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class ModalTableViewController: UITableViewController {
 		registerCells()
 		getTableData()
 
+		configureNav()
 
 		//enable flexible table view heights
 		tableView.rowHeight = UITableViewAutomaticDimension
@@ -30,6 +33,20 @@ class ModalTableViewController: UITableViewController {
 
 	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
 		self.dismiss(animated: true, completion: nil)
+	}
+
+	func configureNav() {
+		if let _ = navigationController,
+			let dataType = dataType {
+
+			let backButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(backButtonPressed(_:)))
+			navigationItem.leftBarButtonItem = backButton
+
+			switch dataType {
+			case .ClassFeature: navigationItem.title = "\(target!.path.capitalized) Features"
+			case .Spellbook: 	navigationItem.title = "Spellbook"
+			}
+		}
 	}
 }
 
@@ -41,11 +58,13 @@ extension ModalTableViewController {
 		guard let dataType = dataType else { print("failed initialize with data type"); return UITableViewCell()}
 
 		if dataType == .ClassFeature {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureCell", for: indexPath)
+			//TODO: We should dequeue the cells, but it's tricky to do this and get a .subtitle tableviewcell
+			let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "FeatureCell")
 			let cellData = tableViewData[indexPath.section].content[indexPath.row] as! ClassFeature
 
-			cell.textLabel?.text 		= cellData.title
-			cell.detailTextLabel?.text 	= cellData.description
+			cell.textLabel?.text 				= cellData.title
+			cell.detailTextLabel?.text 			= cellData.description
+			cell.detailTextLabel?.numberOfLines = 0
 
 			return cell
 		}
@@ -109,7 +128,6 @@ extension ModalTableViewController {
 
 	private func registerCells() {
 		tableView.register(UINib(nibName: String(describing: SpellTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "SpellCell")
-//		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "FeatureCell")
 	}
 
 

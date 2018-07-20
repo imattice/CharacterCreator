@@ -57,17 +57,16 @@ class ExpandableSelectionViewController: UIViewController {
 	@objc func showClassDetail(_ sender: UIButton) {
 		guard let contentView = sender.superview,
 			let parentCell = contentView.superview as? UITableViewCell,
-			let indexPath = tableView.indexPath(for: parentCell),
-			let textLabel = parentCell.textLabel,
-			let storyboard = storyboard,
-			let vc = storyboard.instantiateViewController(withIdentifier: "ClassDetail") as? ModalTableViewController else { print("Could not instantiate Class Detail View Controller"); return }
+			let indexPath = tableView.indexPath(for: parentCell)
+			else { print("Could not instantiate Class Detail View Controller"); return }
+
+		let vc = ModalTableViewController()
 		let navController = UINavigationController(rootViewController: vc)
 		let cellData = tableViewData[indexPath.section]
 
 		vc.target = Class(fromString: cellData.parentData.title.lowercased(),
 						  withPath: cellData.childData![indexPath.row - 1].title.lowercased())
 		vc.dataType = .ClassFeature
-		vc.title = "\(textLabel.text) \(cellData.parentData.title.capitalized)"
 
 		present(navController, animated: true)
 	}
