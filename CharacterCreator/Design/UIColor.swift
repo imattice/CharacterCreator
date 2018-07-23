@@ -14,42 +14,20 @@ protocol Paintable {
 }
 
 extension UIColor {
-	static func paintColor() -> UIColor {
-		var targetClass: AvailableClass 	= Character.default.class!.availableClass
-		if let characterClass 				= Character.current.class { targetClass = characterClass.availableClass }
-
-		switch targetClass {
-		case .fighter: 		return UIColor.MaterialColor.red
-		case .cleric: 		return UIColor.MaterialColor.lightBlue
-		case .rogue:		return UIColor.MaterialColor.grey
-		case .wizard:		return UIColor.MaterialColor.deepPurple
-		}
-	}
-	static func paintGradientColors() -> [UIColor] {
-			var targetClass: AvailableClass 	= Character.default.class!.availableClass
-			if let characterClass 				= Character.current.class { targetClass = characterClass.availableClass }
-
-			switch targetClass {
-			case .fighter: 		return UIColor.MaterialColor.redGradientColors
-			case .cleric: 		return UIColor.MaterialColor.lightBlueGradientColors
-			case .rogue:		return UIColor.MaterialColor.greyGradientColors
-			case .wizard:		return UIColor.MaterialColor.deepPurpleGradientColors
-			}
-	}
 
 	static func color(for targetClass: AvailableClass ) -> UIColor {
 		switch targetClass {
-		case .cleric: 		return UIColor.MaterialColor.red
-		case .fighter: 		return UIColor.MaterialColor.lightBlue
-		case .rogue: 		return UIColor.MaterialColor.grey
+		case .cleric: 		return UIColor.MaterialColor.lightBlue
+		case .fighter: 		return UIColor.MaterialColor.red
+		case .rogue: 		return UIColor.MaterialColor.green
 		case .wizard:		return UIColor.MaterialColor.deepPurple
 		}
 	}
 	static func gradient(for targetClass: AvailableClass ) -> [UIColor] {
 		switch targetClass {
-		case .cleric: 		return UIColor.MaterialColor.redGradientColors
-		case .fighter: 		return UIColor.MaterialColor.lightBlueGradientColors
-		case .rogue: 		return UIColor.MaterialColor.greyGradientColors
+		case .cleric: 		return UIColor.MaterialColor.lightBlueGradientColors
+		case .fighter: 		return UIColor.MaterialColor.redGradientColors
+		case .rogue: 		return UIColor.MaterialColor.greenGradientColors
 		case .wizard:		return UIColor.MaterialColor.deepPurpleGradientColors
 		}
 	}
@@ -131,9 +109,11 @@ extension UIColor {
 
 
 		static let redGradientColors =
-			[UIColor(hex: "607D8B"), UIColor(hex: "607D8B"), UIColor(hex: "607D8B"), UIColor(hex: "607D8B"), UIColor(hex: "607D8B"), UIColor(hex: "607D8B"), UIColor(hex: "607D8B"), UIColor(hex: "607D8B"), UIColor(hex: "607D8B")]
+			[UIColor(hex: "ffcdd2"), UIColor(hex: "ef9a9a"), UIColor(hex: "e57373"), UIColor(hex: "ef5350"), UIColor(hex: "f44336"), UIColor(hex: "e53935"), UIColor(hex: "d32f2f"), UIColor(hex: "c62828"), UIColor(hex: "b71c1c")]
 		static let lightBlueGradientColors =
 			[UIColor(hex: "B3E5FC"), UIColor(hex: "81D4FA"), UIColor(hex: "4FC3F7"), UIColor(hex: "29B6F6"), UIColor(hex: "03A9F4"), UIColor(hex: "039BE5"), UIColor(hex: "0288D1"), UIColor(hex: "0277BD"), UIColor(hex: "01579B")]
+		static let greenGradientColors =
+			[UIColor(hex: "C8E6C9"), UIColor(hex: "A5D6A7"), UIColor(hex: "81C784"), UIColor(hex: "66BB6A"), UIColor(hex: "4CAF50"), UIColor(hex: "43A047"), UIColor(hex: "388E3C"), UIColor(hex: "2E7D32"), UIColor(hex: "1B5E20")]
 		static let greyGradientColors =
 			[UIColor(hex: "F5F5F5"), UIColor(hex: "EEEEEE"), UIColor(hex: "E0E0E0"), UIColor(hex: "BDBDBD"), UIColor(hex: "9E9E9E"), UIColor(hex: "757575"), UIColor(hex: "616161"), UIColor(hex: "424242"), UIColor(hex: "212121")]
 		static let deepPurpleGradientColors =
@@ -141,11 +121,4 @@ extension UIColor {
 
 
 	}
-
-//	struct RaceColor {
-//		static let human 		= UIColor.white
-//		static let elf 			= UIColor.lightGreen
-//		static let dwarf 		= UIColor.brown
-//		static let halfling 	= UIColor.burntOrange
-//	}
 }

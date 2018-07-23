@@ -275,7 +275,7 @@ extension SpellSelectionViewController: Paintable {
 
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-		let headerColor = UIColor.paintGradientColors()[section]
+		let headerColor = UIColor.gradientForCurrentClass()[section]
 		let textColor: UIColor = { if headerColor.isDark { return .white } else { return .black } }()
 
 		headerView.contentView.backgroundColor 	= headerColor

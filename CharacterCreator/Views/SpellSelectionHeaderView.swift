@@ -27,14 +27,12 @@ class SpellSelectionHeaderView: UIView {
 
 		setInitialSliderConstraints()
 
-		sliderView.backgroundColor 	= UIColor.paintGradientColors()[0]
+		sliderView.backgroundColor 	= UIColor.lightestShadeForCurrentClass()
 		sliderView.alpha			= 0.5
-
-
 	}
 
 	func shiftSlider(toSection section: Int) {
-		let setColor = UIColor.paintGradientColors()
+		let setColor = UIColor.gradientForCurrentClass()
 
 		sliderLeftConstraint.constant	= sliderWidthConstraint.constant * CGFloat(section)
 

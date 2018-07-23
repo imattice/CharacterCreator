@@ -83,68 +83,23 @@ extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewD
 		//configure parent cells
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "ParentCell", for: indexPath) as! ParentTableViewCell
-			let cellData = tableViewData[indexPath.section].parentData
-
-			//reset dequeued cells
-			cell.accessoryView 					= nil
-			cell.selectionStyle 				= .default
-
-			//finish the label configuration
-			cell.titleLabel.text 				= cellData.title.capitalized
-			cell.iconImageView.image 			= UIImage(named: cellData.title.lowercased())
-			cell.descriptionLabel.text 			= cellData.description
-
-			if dataType == "race" {
-				//make the button look like a label
-				cell.cornerButton.setTitleColor(.black, for: .normal)
-				cell.cornerButton.isUserInteractionEnabled		= false
-
-				cell.cornerButton.setTitle(Race.modifierString(for: cellData.title, withSubrace: nil), for: .normal )
-			}
-
-			if dataType == "class" {
-				//remove th corner button for parent classes
-				cell.cornerButton.isHidden 		= true
-			}
+			cell.configure(forDataType: dataType!, withData: tableViewData[indexPath.section], at: indexPath)
 
 			return cell																		}
 
-
 		//configure child cells
 		else {
-			guard let data = tableViewData[indexPath.section].childData
-				else { print("could not initialize subrace cell from data"); return UITableViewCell()}
-			let parentData = tableViewData[indexPath.section].parentData
-			let childData = data[indexPath.row - 1]
-
-			if dataType == "race" {
-				let cell = tableView.dequeueReusableCell(withIdentifier: "ChildCell", for: indexPath) as! ChildTableViewCell
-
-				cell.titleLabel.text 				= childData.title.capitalized
-				cell.descriptionLabel.text 			= childData.description
-
-				cell.cornerLabel.text				= Race.modifierString(for: parentData.title, withSubrace: childData.title)
-
-				return cell																		}
-
+			let cell = tableView.dequeueReusableCell(withIdentifier: "PathCell", for: indexPath) as! ParentTableViewCell
+			cell.configure(forDataType: dataType!, withData: tableViewData[indexPath.section], at: indexPath)
+			cell.removeImageView()
 
 			if dataType == "class" {
-				let cell = tableView.dequeueReusableCell(withIdentifier: "PathCell", for: indexPath) as! ParentTableViewCell
-
-				cell.titleLabel.text 				= childData.title.capitalized
-				cell.descriptionLabel.text 			= childData.description
-
-				cell.cornerButton.setTitle("Level +", for: .normal)
-				cell.cornerButton.tintColor = UIColor.color(for: AvailableClass(rawValue: parentData.title.lowercased())!)
 				cell.cornerButton.addTarget(self, action: #selector(showClassDetail(_:)), for: .touchUpInside)
+			}
 
+			return cell
 
-				cell.selectionStyle = .none
-
-				return cell																		}
-
-			return UITableViewCell()
-	}
+		}
 	}
 
 
@@ -152,7 +107,6 @@ extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewD
 		//enable the next button if a race can be set from the selection
 		if indexPath.row == 0 { selectionWasMade = false; nextNavButton.isEnabled = false }
 		if indexPath.row != 0 || tableViewData[indexPath.section].childData == nil { selectionWasMade = true; nextNavButton.isEnabled = true }
-
 
 		//selected parent cell
 		if indexPath.row == 0 && tableViewData[indexPath.section].childData != nil {
@@ -170,9 +124,15 @@ extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewD
 			tableView.scrollToRow(at: indexPath, at: .top, animated: true)
 		}
 		//selected child cell
-		else {
-			updateTintColor()
-		}
+//		else {
+//			updateSelectedCellTintColor()
+//		}
+	}
+
+	func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+		guard let cell = tableView.cellForRow(at: indexPath) else { print("could not create cell from deslected index \(indexPath)"); return }
+
+		cell.contentView.backgroundColor = .white
 	}
 
 
@@ -191,7 +151,7 @@ extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewD
 	private func registerCells() {
 		tableView.register(UINib(nibName: String(describing: ParentTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "ParentCell")
 		tableView.register(UINib(nibName: String(describing: ParentTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "PathCell")
-		tableView.register(UINib(nibName: String(describing: ChildTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "ChildCell")
+//		tableView.register(UINib(nibName: String(describing: ChildTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "ChildCell")
 	}
 
 }
@@ -217,7 +177,7 @@ extension ExpandableSelectionViewController {
 			else {
 				Character.current.race = Race(fromParent: parentTitle, withSubrace: nil)			}
 
-			print("Character's race is set to: \(String(describing: Character.current.race))")
+			print("Character's race is set to: \(String(describing: Character.current.race?.name))")
 		}
 
 		if dataType == "class" {
@@ -228,42 +188,31 @@ extension ExpandableSelectionViewController {
 
 			Character.current.class = Class(fromString: selectedClass, withPath: selectedPath)
 
-			print("Character's class is set to: \(String(describing: Character.current.class))")
+			print("Character's class is set to: \(String(describing: Character.current.class?.name))")
 		}
 	}
 
 }
 
 extension ExpandableSelectionViewController {
-	private func updateTintColor() {
+	private func updateSelectedCellTintColor() {
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow,
-		let selectedClass = AvailableClass(rawValue: tableViewData[selectedIndexPath.section].parentData.title.lowercased()) else { return }
+			let selectedClass = AvailableClass(rawValue: tableViewData[selectedIndexPath.section].parentData.title.lowercased()) else { return }
+
 		let color = UIColor.color(for: selectedClass)
 
-		if let navController = navigationController, let items = navController.navigationBar.items {
-			for item in items {
-				UIView.animate(withDuration: 1,
-							   delay: 0,
-							   usingSpringWithDamping: 0.8,
-							   initialSpringVelocity: 0.5,
-							   options: .curveLinear,
-							   animations: {
-									item.backBarButtonItem?.tintColor	= color
-									item.leftBarButtonItem?.tintColor 	= color
-									item.rightBarButtonItem?.tintColor 	= color
+		UIView.animate(withDuration: 1,
+					   delay: 0,
+					   usingSpringWithDamping: 0.8,
+					   initialSpringVelocity: 0.5,
+					   options: .curveLinear,
+					   animations: {
+							self.navigationItem.backBarButtonItem?.tintColor	= color
+							self.navigationItem.leftBarButtonItem?.tintColor 	= color
+							self.navigationItem.rightBarButtonItem?.tintColor 	= color
 
-				},
-							   completion: nil)
-
-			}
-		}
-
-		let lightColor = UIColor.gradient(for: selectedClass)[0]
-		UIView.animate(withDuration: 0.25) {
-			self.tableView.cellForRow(at: selectedIndexPath)!.contentView.backgroundColor = lightColor
-		}
-		self.tableView.cellForRow(at: selectedIndexPath)!.contentView.backgroundColor = lightColor
-
+						},
+					   completion: nil)
 	}
 }
 

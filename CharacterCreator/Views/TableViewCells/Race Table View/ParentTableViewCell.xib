@@ -52,11 +52,11 @@
                     <constraint firstItem="IiW-xO-cgP" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="KUv-4e-DUI"/>
                     <constraint firstItem="Xvh-6m-dsf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="RHE-au-Rld"/>
                     <constraint firstItem="IiW-xO-cgP" firstAttribute="leading" secondItem="Xvh-6m-dsf" secondAttribute="trailing" constant="10" id="Tcq-yh-9G3"/>
-                    <constraint firstItem="Xxf-T6-pWr" firstAttribute="leading" secondItem="Xvh-6m-dsf" secondAttribute="trailing" constant="20" id="iVe-zs-zEb"/>
+                    <constraint firstItem="Xxf-T6-pWr" firstAttribute="leading" secondItem="Xvh-6m-dsf" secondAttribute="trailing" constant="20" identifier="leading" id="iVe-zs-zEb"/>
                     <constraint firstItem="qSc-7r-rdw" firstAttribute="top" secondItem="Xxf-T6-pWr" secondAttribute="bottom" constant="8" id="o4a-bc-2fd"/>
                     <constraint firstItem="IiW-xO-cgP" firstAttribute="top" secondItem="qSc-7r-rdw" secondAttribute="bottom" constant="5" id="pA9-0g-deX"/>
                     <constraint firstItem="Xvh-6m-dsf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uB1-nG-7jQ"/>
-                    <constraint firstItem="qSc-7r-rdw" firstAttribute="leading" secondItem="Xvh-6m-dsf" secondAttribute="trailing" constant="20" id="xLt-qi-6K6"/>
+                    <constraint firstItem="qSc-7r-rdw" firstAttribute="leading" secondItem="Xvh-6m-dsf" secondAttribute="trailing" constant="20" identifier="leading" id="xLt-qi-6K6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
