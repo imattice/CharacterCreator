@@ -8,26 +8,89 @@
 
 import UIKit
 
-class StatDistributionViewController: UIViewController {
-	@IBOutlet weak var strStatView: StatStepperView!
-	@IBOutlet weak var conStatView: StatStepperView!
-	@IBOutlet weak var dexStatView: StatStepperView!
-	@IBOutlet weak var chaStatView: StatStepperView!
-	@IBOutlet weak var wisStatView: StatStepperView!
-	@IBOutlet weak var intStatView: StatStepperView!
-	
+protocol StatViewDelegate: class {
+	func stepperDidChange(_ value: (new: Int, previous: Int?))
+}
+
+class StatDistributionViewController: UIViewController, StatViewDelegate {
+	@IBOutlet var statViewCollection: [StatStepperView]!
+	@IBOutlet var availableStatLabels: [UILabel]!
+
+	let viewTitles = ["Strength", "Constitution", "Dexterity", "Charisma", "Wisdom", "Intelligence" ]
+
+	// controls the animation size of the available stats
+	@IBInspectable let minScale: CGFloat = 0.8
+	@IBInspectable let maxScale: CGFloat = 1.2
+
+	// repository to track which stats are selected
+	var selectedStatValues = [Int]()
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		labelViews()
+		setUpLabelViews()
+
+		//match the max size of the animated stats
+		for label in availableStatLabels {
+			label.transform = CGAffineTransform(scaleX: maxScale, y: maxScale)
+		}
+
+		//prevent navigation until stat selection is made
+		navigationItem.rightBarButtonItem?.isEnabled = false
 	}
 
-	private func labelViews() {
-		strStatView.statTitleLabel.text = "Strength"
-		conStatView.statTitleLabel.text = "Constitution"
-		dexStatView.statTitleLabel.text = "Dexterity"
-		chaStatView.statTitleLabel.text = "Charisma"
-		wisStatView.statTitleLabel.text = "Wisdom"
-		intStatView.statTitleLabel.text = "Intelligence"
+	private func setUpLabelViews() {
+		for view in statViewCollection.enumerated() {
+			view.element.statTitleLabel.text = viewTitles[view.offset]
+			view.element.delegate = self
+		}
+	}
+	private func updateLabelViews() {
+		//if there is a view that already has this specific number
+		for view in statViewCollection {
+			//ignore labels with a "-"
+			guard let viewValue = Int(view.statValueLabel.text!) else { continue }
+
+			//color the labels
+			if selectedStatValues.hasDuplicate(viewValue) {
+				view.statValueLabel.textColor = .gray								}
+			else {
+				view.statValueLabel.textColor = UIColor.colorForCurrentClass()		}
+		}
+	}
+
+	private func updateAvailableStats(_ value: (new: Int, previous: Int?)) {
+		//add the new value
+		selectedStatValues.append(value.new)
+
+		//remove the previous
+		if let previousValue = value.previous,
+			let indexOfPrevious = selectedStatValues.index(where: { $0 == previousValue }) {
+			selectedStatValues.remove(at: indexOfPrevious)
+		}
+
+		//update the status of the available stats
+		for label in availableStatLabels {
+				if selectedStatValues.contains(Int(label.text!)!) {
+					UIView.animate(withDuration: 0.25) {
+						label.transform = CGAffineTransform(scaleX: self.minScale, y: self.minScale)
+						label.textColor = .gray
+					} }
+				else {
+					UIView.animate(withDuration: 0.5) {
+						label.transform = CGAffineTransform(scaleX: self.maxScale, y: self.maxScale)
+						label.textColor = .black
+					} }
+		}
+	}
+
+	func stepperDidChange(_ value: (new: Int, previous: Int?)) {
+		updateAvailableStats(value)
+		updateLabelViews()
+
+		if selectedStatValues.count == 6 && !selectedStatValues.hasDuplicates() {
+			navigationItem.rightBarButtonItem?.isEnabled = true					}
+		else {
+			navigationItem.rightBarButtonItem?.isEnabled = false				}
 	}
 
 	@IBAction func navigateToNextController(_ sender: UIBarButtonItem) {
@@ -38,7 +101,7 @@ class StatDistributionViewController: UIViewController {
 			let storyboard = storyboard {
 
 			//if the caster is a spellcaster, push to the Spell Selection Controller
-			if characterClass.features[1]!.contains(where: { $0.title == "Spellcasting" }) {
+			if characterClass.castingAbility != nil {
 				let vc = storyboard.instantiateViewController(withIdentifier: "SpellSelection")
 				vc.title = "\(characterClass.base.capitalized) Spells"
 
@@ -52,18 +115,22 @@ class StatDistributionViewController: UIViewController {
 	}
 
 	private func setCharacterStats() {
-		guard let str = Int(strStatView.statValueLabel.text!),
-				let con = Int(conStatView.statValueLabel.text!),
-				let dex = Int(dexStatView.statValueLabel.text!),
-				let cha = Int(chaStatView.statValueLabel.text!),
-				let wis = Int(wisStatView.statValueLabel.text!),
-				let int = Int(intStatView.statValueLabel.text!) else { return }
+		for view in statViewCollection {
+			guard let valueString = view.statValueLabel.text,
+				let titleString = view.statTitleLabel.text,
+				let value = Int(valueString),
+				let stat = StatType(fromLonghand: titleString) else { print("could not initilialize the stat data from the view."); continue }
 
-		Character.current.stats.str = Character.StatBlock.Stat(value: str)
-		Character.current.stats.con = Character.StatBlock.Stat(value: con)
-		Character.current.stats.dex = Character.StatBlock.Stat(value: dex)
-		Character.current.stats.cha = Character.StatBlock.Stat(value: cha)
-		Character.current.stats.wis = Character.StatBlock.Stat(value: wis)
-		Character.current.stats.int = Character.StatBlock.Stat(value: int)
+				switch stat {
+				case .str: 		Character.current.stats.str = Character.StatBlock.Stat(value: value)
+				case .con:		Character.current.stats.con = Character.StatBlock.Stat(value: value)
+				case .cha:		Character.current.stats.cha = Character.StatBlock.Stat(value: value)
+				case .dex:		Character.current.stats.dex = Character.StatBlock.Stat(value: value)
+				case .wis:		Character.current.stats.wis = Character.StatBlock.Stat(value: value)
+				case .int:		Character.current.stats.int = Character.StatBlock.Stat(value: value)
+				}
+		}
 	}
 }
+
+

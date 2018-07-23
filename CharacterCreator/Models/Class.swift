@@ -11,7 +11,7 @@ struct Class {
 	let base: String
 	let path: String
 	let availableClass: AvailableClass
-	var castingAbility: Stats?				= nil
+	var castingAbility: StatType?				= nil
 
 
 	var name: String 						{ return "\(path.capitalized) \(base.capitalized)" }
@@ -29,7 +29,7 @@ struct Class {
 			let spellcastingDict = classDict["spellcasting"] as? [String:Any],
 			let castingAbilityData = spellcastingDict["casting_ability"] as? String {
 
-			guard let castingAbility = Stats(rawValue: castingAbilityData)
+			guard let castingAbility = StatType(rawValue: castingAbilityData)
 				else { print("could not convert \(castingAbilityData) to Stat"); return }
 
 			self.castingAbility = castingAbility

@@ -15,17 +15,13 @@ class StatStepperView: UIView {
 	@IBOutlet weak var statTitleLabel: UILabel!
 	@IBOutlet weak var statValueLabel: UILabel!
 	@IBOutlet weak var statStepper: UIStepper!
-	@IBOutlet weak var statModifierLabel: UILabel!
 
-	let statArray = ["8", "10", "12", "13", "14", "15"]
-	
+	var delegate: StatViewDelegate?
+
+	var statArray = ["8", "10", "12", "13", "14", "15"]
+	var isFirstTap = true
+
 	//MARK: - View Lifecycle
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-
-		xibSetup()
-	}
-
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 
@@ -33,10 +29,6 @@ class StatStepperView: UIView {
 	}
 
 	override func awakeFromNib() {
-		backgroundColor = .white
-
-		updateStatLabel()
-
 		statStepper.autorepeat 		= true
 		statStepper.isContinuous 	= true
 		statStepper.wraps			= true
@@ -46,11 +38,25 @@ class StatStepperView: UIView {
 
 
 	private func updateStatLabel() {
+		//prevent the first increase from skipping index 0
+		if isFirstTap && statStepper.value == 1.0 {
+			statStepper.value = 0.0
+			isFirstTap = false
+		}
+
 		statValueLabel.text = statArray[Int(statStepper.value)]
 	}
 
 	//MARK: - IBActions
 	@IBAction func stepperDidChange(_ sender: UIStepper) {
+		guard let prevText = statValueLabel.text  else {print("could not secure previous value"); return }
+
 		updateStatLabel()
+
+		guard let delegate = delegate else { print("delegate not set"); return }
+		guard let text = statValueLabel.text,
+			let newValue = Int(text) else { print("could not get a value from the stat stepper text"); return }
+
+		delegate.stepperDidChange((new: newValue, previous: Int(prevText)))
 	}
 }

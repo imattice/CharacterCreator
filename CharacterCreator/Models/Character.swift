@@ -34,7 +34,7 @@ class Character {
 		var wis: Stat		= Stat(value: 0)
 		var int: Stat		= Stat(value: 0)
 
-		func stat(from stat: Stats) -> Stat{
+		func stat(from stat: StatType) -> Stat{
 			switch stat {
 			case .str: 		return self.str
 			case .con:		return self.con
@@ -87,13 +87,26 @@ class Character {
 													  int: StatBlock.Stat(value: 15)))
 }
 
-enum Stats: String {
+enum StatType: String {
 	case str,
 	con,
 	dex,
 	cha,
 	wis,
 	int
+
+	init?(fromLonghand string: String){
+		switch string.lowercased() {
+		case "strength":		self.init(rawValue: "str")
+		case "constitution":	self.init(rawValue: "con")
+		case "dexterity":		self.init(rawValue: "dex")
+		case "charisma":		self.init(rawValue: "cha")
+		case "wisdom":			self.init(rawValue: "wis")
+		case "intelligence":	self.init(rawValue: "int")
+
+		default: print("could not create StatType from \(string)"); return nil
+		}
+	}
 
 	func label() -> String {
 		switch self {
@@ -103,7 +116,7 @@ enum Stats: String {
 		case .cha:		return "Charisma"
 		case .wis:		return "Wisdom"
 		case .int:		return "Intelligence"
-
 		}
 	}
+
 }
