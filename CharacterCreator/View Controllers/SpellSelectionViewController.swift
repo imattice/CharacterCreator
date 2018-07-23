@@ -25,6 +25,7 @@ class SpellSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		registerCells()
+		configureNav()
 		tableView.allowsMultipleSelection = true
 
 		getSpellData()
@@ -35,7 +36,6 @@ class SpellSelectionViewController: UIViewController {
 
 		//add color and design
 		paint()
-
 	}
 
 //MARK: - SPELL MANAGEMENT
@@ -254,6 +254,17 @@ extension SpellSelectionViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 	// Get the new view controller using segue.destinationViewController.
 	// Pass the selected object to the new view controller.
+	}
+	private func configureNav() {
+		let nextNavItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(navNext))
+
+		navigationItem.rightBarButtonItem = nextNavItem
+	}
+
+	@objc func navNext() {
+		guard let vc = storyboard?.instantiateViewController(withIdentifier: "Background") else { print("could not instatniate result vc"); return }
+
+		navigationController?.pushViewController(vc, animated: true)
 	}
 }
 

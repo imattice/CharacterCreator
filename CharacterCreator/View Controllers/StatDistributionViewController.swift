@@ -109,7 +109,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 
 			//otherwise move to the inventory selection controller
 			else {
-				let vc = storyboard.instantiateViewController(withIdentifier: "Result")
+				let vc = storyboard.instantiateViewController(withIdentifier: "Background")
 				navigationController.pushViewController(vc, animated: true)						}
 		}
 	}
