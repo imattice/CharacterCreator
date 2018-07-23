@@ -19,7 +19,7 @@
 		8152B3C520D9D337008B7A1A /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C420D9D337008B7A1A /* Class.swift */; };
 		8152B3C720D9D340008B7A1A /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C620D9D340008B7A1A /* Race.swift */; };
 		8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */; };
-		8152B3D120D9E097008B7A1A /* ExpandableSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D020D9E097008B7A1A /* ExpandableSelectionViewController.swift */; };
+		8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D020D9E097008B7A1A /* DropdownViewController.swift */; };
 		8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */; };
 		8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */; };
 		8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */; };
@@ -27,15 +27,13 @@
 		8152B3E920DC354B008B7A1A /* SpecSheet in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E820DC354B008B7A1A /* SpecSheet */; };
 		8152B3EB20DC3B48008B7A1A /* raceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3EA20DC3B48008B7A1A /* raceData.swift */; };
 		8152B41120DEDA8D008B7A1A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41020DEDA8D008B7A1A /* Int.swift */; };
-		8152B41420DEE659008B7A1A /* ParentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */; };
-		8152B41520DEE659008B7A1A /* ParentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */; };
-		8152B41920E160AA008B7A1A /* ChildTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41720E160AA008B7A1A /* ChildTableViewCell.swift */; };
-		8152B41A20E160AA008B7A1A /* ChildTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */; };
+		8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */; };
+		8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* DropdownTableViewCell.xib */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ModalTableViewController.swift */; };
 		819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */; };
 		819D371720F9BF7900986AFB /* SpellSelectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819D371620F9BF7900986AFB /* SpellSelectionHeaderView.xib */; };
-		81BC72A320EABF9500B48195 /* ExpandableCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A220EABF9500B48195 /* ExpandableCellData.swift */; };
+		81BC72A320EABF9500B48195 /* DropdownCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A220EABF9500B48195 /* DropdownCellData.swift */; };
 		81BC72A520EEAE8B00B48195 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A420EEAE8B00B48195 /* UIButton.swift */; };
 		81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A620F0813700B48195 /* SpellTableViewCell.swift */; };
 		81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BC72A720F0813700B48195 /* SpellTableViewCell.xib */; };
@@ -44,6 +42,8 @@
 		81BC72AF20F186C000B48195 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AE20F186C000B48195 /* Spell.swift */; };
 		81BC72B120F18DB500B48195 /* classData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72B020F18DB500B48195 /* classData.swift */; };
 		81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF0210556F800BBDDD7 /* Array.swift */; };
+		81FC7CF32106855E00BBDDD7 /* backgroundData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF22106855D00BBDDD7 /* backgroundData.swift */; };
+		81FC7CF52106965E00BBDDD7 /* ExpandableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */; };
 		CC1F493675FF25B9E4DEAB06 /* Pods_CharacterCreatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED2703BE5306DD2AFE0554E /* Pods_CharacterCreatorTests.framework */; };
 		CD67F86C0FD12DE972D64430 /* Pods_CharacterCreator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B00BB9E155699B25486A18 /* Pods_CharacterCreator.framework */; };
 		DD2AC61F7A5A4CAAB2043AD2 /* Pods_CharacterCreatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D60020B1D87D63B1BB2DBA /* Pods_CharacterCreatorUITests.framework */; };
@@ -91,7 +91,7 @@
 		8152B3C420D9D337008B7A1A /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		8152B3C620D9D340008B7A1A /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatDistributionViewController.swift; sourceTree = "<group>"; };
-		8152B3D020D9E097008B7A1A /* ExpandableSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableSelectionViewController.swift; sourceTree = "<group>"; };
+		8152B3D020D9E097008B7A1A /* DropdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownViewController.swift; sourceTree = "<group>"; };
 		8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatStepperView.swift; sourceTree = "<group>"; };
 		8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatStepperView.xib; sourceTree = "<group>"; };
@@ -99,16 +99,14 @@
 		8152B3E820DC354B008B7A1A /* SpecSheet */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpecSheet; sourceTree = "<group>"; };
 		8152B3EA20DC3B48008B7A1A /* raceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raceData.swift; sourceTree = "<group>"; };
 		8152B41020DEDA8D008B7A1A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
-		8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentTableViewCell.swift; sourceTree = "<group>"; };
-		8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParentTableViewCell.xib; sourceTree = "<group>"; };
-		8152B41720E160AA008B7A1A /* ChildTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildTableViewCell.swift; sourceTree = "<group>"; };
-		8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildTableViewCell.xib; sourceTree = "<group>"; };
+		8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTableViewCell.swift; sourceTree = "<group>"; };
+		8152B41320DEE659008B7A1A /* DropdownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownTableViewCell.xib; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		819B065E20E7455300902D4E /* ModalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionHeaderView.swift; sourceTree = "<group>"; };
 		819D371620F9BF7900986AFB /* SpellSelectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellSelectionHeaderView.xib; sourceTree = "<group>"; };
 		819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
-		81BC72A220EABF9500B48195 /* ExpandableCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableCellData.swift; sourceTree = "<group>"; };
+		81BC72A220EABF9500B48195 /* DropdownCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownCellData.swift; sourceTree = "<group>"; };
 		81BC72A420EEAE8B00B48195 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		81BC72A620F0813700B48195 /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
 		81BC72A720F0813700B48195 /* SpellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellTableViewCell.xib; sourceTree = "<group>"; };
@@ -117,6 +115,8 @@
 		81BC72AE20F186C000B48195 /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		81BC72B020F18DB500B48195 /* classData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classData.swift; sourceTree = "<group>"; };
 		81FC7CF0210556F800BBDDD7 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		81FC7CF22106855D00BBDDD7 /* backgroundData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = backgroundData.swift; path = "/Users/imattice/Documents/Programming Projects/CharacterCreator/CharacterCreator/Data/backgroundData.swift"; sourceTree = "<absolute>"; };
+		81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableViewController.swift; sourceTree = "<group>"; };
 		83618B6881998D87BABA9F69 /* Pods-CharacterCreatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreatorTests/Pods-CharacterCreatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F4B5632BB96D2AF90E107BC /* Pods-CharacterCreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreator/Pods-CharacterCreator.debug.xcconfig"; sourceTree = "<group>"; };
 		B4D60020B1D87D63B1BB2DBA /* Pods_CharacterCreatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterCreatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +226,7 @@
 		8123674120CA44EE00F7AEFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				81FC7CF22106855D00BBDDD7 /* backgroundData.swift */,
 				8152B3EA20DC3B48008B7A1A /* raceData.swift */,
 				81BC72B020F18DB500B48195 /* classData.swift */,
 				81BC72AA20F17F2500B48195 /* spellData.swift */,
@@ -240,7 +241,7 @@
 				8152B3C620D9D340008B7A1A /* Race.swift */,
 				8152B3C420D9D337008B7A1A /* Class.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
-				81BC72A220EABF9500B48195 /* ExpandableCellData.swift */,
+				81BC72A220EABF9500B48195 /* DropdownCellData.swift */,
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 			);
 			path = Models;
@@ -249,10 +250,11 @@
 		8152B3CB20D9E004008B7A1A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8152B3D020D9E097008B7A1A /* ExpandableSelectionViewController.swift */,
+				8152B3D020D9E097008B7A1A /* DropdownViewController.swift */,
 				819B065E20E7455300902D4E /* ModalTableViewController.swift */,
 				8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */,
 				81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */,
+				81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */,
 				8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */,
 			);
 			path = "View Controllers";
@@ -285,7 +287,8 @@
 		8152B41620DEE7F6008B7A1A /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				819B065920E73FDF00902D4E /* Race Table View */,
+				8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */,
+				8152B41320DEE659008B7A1A /* DropdownTableViewCell.xib */,
 				81BC72A620F0813700B48195 /* SpellTableViewCell.swift */,
 				81BC72A720F0813700B48195 /* SpellTableViewCell.xib */,
 			);
@@ -299,17 +302,6 @@
 				8123671A20CA44DD00F7AEFC /* Assets.xcassets */,
 			);
 			path = Design;
-			sourceTree = "<group>";
-		};
-		819B065920E73FDF00902D4E /* Race Table View */ = {
-			isa = PBXGroup;
-			children = (
-				8152B41220DEE659008B7A1A /* ParentTableViewCell.swift */,
-				8152B41320DEE659008B7A1A /* ParentTableViewCell.xib */,
-				8152B41720E160AA008B7A1A /* ChildTableViewCell.swift */,
-				8152B41820E160AA008B7A1A /* ChildTableViewCell.xib */,
-			);
-			path = "Race Table View";
 			sourceTree = "<group>";
 		};
 		819B066720E814D200902D4E /* Class Selection */ = {
@@ -441,10 +433,9 @@
 			files = (
 				819D371720F9BF7900986AFB /* SpellSelectionHeaderView.xib in Resources */,
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
-				8152B41520DEE659008B7A1A /* ParentTableViewCell.xib in Resources */,
+				8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */,
 				81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
-				8152B41A20E160AA008B7A1A /* ChildTableViewCell.xib in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */,
 				8152B3E920DC354B008B7A1A /* SpecSheet in Resources */,
@@ -562,14 +553,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
+				81FC7CF32106855E00BBDDD7 /* backgroundData.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
-				81BC72A320EABF9500B48195 /* ExpandableCellData.swift in Sources */,
+				81BC72A320EABF9500B48195 /* DropdownCellData.swift in Sources */,
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
 				81BC72A520EEAE8B00B48195 /* UIButton.swift in Sources */,
-				8152B41420DEE659008B7A1A /* ParentTableViewCell.swift in Sources */,
+				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
@@ -577,10 +569,10 @@
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
-				8152B41920E160AA008B7A1A /* ChildTableViewCell.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
+				81FC7CF52106965E00BBDDD7 /* ExpandableViewController.swift in Sources */,
 				8152B3EB20DC3B48008B7A1A /* raceData.swift in Sources */,
-				8152B3D120D9E097008B7A1A /* ExpandableSelectionViewController.swift in Sources */,
+				8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */,
 				81BC72AB20F17F2500B48195 /* spellData.swift in Sources */,
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
 				81BC72B120F18DB500B48195 /* classData.swift in Sources */,

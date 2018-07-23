@@ -10,7 +10,7 @@
 
 import UIKit
 
-class ExpandableSelectionViewController: UIViewController {
+class DropdownViewController: UIViewController {
 	@IBOutlet weak var nextNavButton: UIBarButtonItem!
 	@IBOutlet weak var tableView: UITableView!
 
@@ -18,7 +18,7 @@ class ExpandableSelectionViewController: UIViewController {
 	
 	@IBInspectable var dataType: String? = nil
 
-	var tableViewData: [ExpandableCellData] 	= [ExpandableCellData]()
+	var tableViewData: [DropdownCellData] 	= [DropdownCellData]()
 	var selectionWasMade: Bool 					= false
 
 
@@ -32,10 +32,10 @@ class ExpandableSelectionViewController: UIViewController {
 		//configure the view controller based on the intended display data
 		switch dataType.lowercased() {
 		case "race":
-			tableViewData = ExpandableCellData.createArray(forDataType: .race)
+			tableViewData = DropdownCellData.createArray(forDataType: .race)
 
 		case "class":
-			tableViewData = ExpandableCellData.createArray(forDataType: .class)
+			tableViewData = DropdownCellData.createArray(forDataType: .class)
 
 		default:
 			break;
@@ -77,19 +77,19 @@ class ExpandableSelectionViewController: UIViewController {
 
 
 //MARK: - Table View Data Source & Delegate
-extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewDelegate {
+extension DropdownViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 		//configure parent cells
 		if indexPath.row == 0 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "ParentCell", for: indexPath) as! ParentTableViewCell
+			let cell = tableView.dequeueReusableCell(withIdentifier: "ParentCell", for: indexPath) as! DropdownTableViewCell
 			cell.configure(forDataType: dataType!, withData: tableViewData[indexPath.section], at: indexPath)
 
 			return cell																		}
 
 		//configure child cells
 		else {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "PathCell", for: indexPath) as! ParentTableViewCell
+			let cell = tableView.dequeueReusableCell(withIdentifier: "PathCell", for: indexPath) as! DropdownTableViewCell
 			cell.configure(forDataType: dataType!, withData: tableViewData[indexPath.section], at: indexPath)
 			cell.removeImageView()
 
@@ -149,16 +149,15 @@ extension ExpandableSelectionViewController: UITableViewDataSource, UITableViewD
 	}
 
 	private func registerCells() {
-		tableView.register(UINib(nibName: String(describing: ParentTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "ParentCell")
-		tableView.register(UINib(nibName: String(describing: ParentTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "PathCell")
-//		tableView.register(UINib(nibName: String(describing: ChildTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "ChildCell")
+		tableView.register(UINib(nibName: String(describing: DropdownTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "ParentCell")
+		tableView.register(UINib(nibName: String(describing: DropdownTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "PathCell")
 	}
 
 }
 
 
 //MARK: Segue Navigation
-extension ExpandableSelectionViewController {
+extension DropdownViewController {
 	//MARK: - Segue
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow  else { return }
@@ -194,7 +193,7 @@ extension ExpandableSelectionViewController {
 
 }
 
-extension ExpandableSelectionViewController {
+extension DropdownViewController {
 	private func updateSelectedCellTintColor() {
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow,
 			let selectedClass = AvailableClass(rawValue: tableViewData[selectedIndexPath.section].parentData.title.lowercased()) else { return }

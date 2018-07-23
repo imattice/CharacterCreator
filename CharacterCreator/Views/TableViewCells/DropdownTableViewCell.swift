@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParentTableViewCell: UITableViewCell {
+class DropdownTableViewCell: UITableViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var iconImageView: UIImageView!
@@ -64,7 +64,7 @@ class ParentTableViewCell: UITableViewCell {
 		}
 	}
 
-	func configure(forDataType dataType: String, withData data: ExpandableCellData, at indexPath: IndexPath) {
+	func configure(forDataType dataType: String, withData data: DropdownCellData, at indexPath: IndexPath) {
 
 		//configure parent cells
 		if indexPath.row == 0 {
@@ -88,7 +88,7 @@ class ParentTableViewCell: UITableViewCell {
 			}
 
 			if dataType == "class" {
-				//remove th corner button for parent classes
+				//remove the corner button for parent classes
 				 cornerButton.isHidden 		= true
 			}
 		}

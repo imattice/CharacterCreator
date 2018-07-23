@@ -5,7 +5,7 @@
 //  Created by Ike Mattice on 7/2/18.
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
-struct ExpandableCellData {
+struct DropdownCellData {
 	//tracks if the cell is open or closed
 	var isOpen: Bool 			= false
 
@@ -18,11 +18,11 @@ struct ExpandableCellData {
 		self.parentData 	= (title: title, description: description)
 	}
 
-	static func createArray(forDataType dataType: DataType) -> [ExpandableCellData] {
+	static func createArray(forDataType dataType: DataType) -> [DropdownCellData] {
 		let sourceArray: [String: Any]
 		let childKey: String
 
-		var result = [ExpandableCellData]()
+		var result = [DropdownCellData]()
 
 		//set source-specific values
 		switch dataType {
@@ -34,7 +34,7 @@ struct ExpandableCellData {
 		for parent in sourceArray {
 			guard let parentDict = parent.value as? [String : Any],
 				let description = parentDict["description"] as? String
-				else { print("could not create \(parent.key) parent data from available data"); return [ExpandableCellData]() }
+				else { print("could not create \(parent.key) parent data from available data"); return [DropdownCellData]() }
 
 			let parentTitle: String 			= parent.key
 			let parentDescription: String 		= description
@@ -58,7 +58,7 @@ struct ExpandableCellData {
 			}
 
 			//create the data object here so we can add to it if there is child data
-			var parentData = ExpandableCellData(title: parentTitle, description: parentDescription)
+			var parentData = DropdownCellData(title: parentTitle, description: parentDescription)
 
 			if childData != nil {
 				parentData.childData = childData
