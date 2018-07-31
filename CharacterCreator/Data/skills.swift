@@ -62,13 +62,32 @@ enum Skill: String {
 	perception,
 	survival
 
-	init(rawValue: String) {
-		if rawValue == "animal handling" {
+	init?(fromString string: String) {
+		if string == "animal handling" {
 			self.init(rawValue: "animalHandling") 	}
-		else if rawValue == "slight of hand" {
+		else if string == "slight of hand" {
 			self.init(rawValue: "slightOfHand") 	}
 		else {
-			self.init(rawValue: rawValue)			}
+			self.init(rawValue: string)			}
+	}
+
+	func stat() -> StatType {
+		switch self {
+		case .athletics:
+			return .str
+
+		case .acrobatics, .slightOfHand, .stealth:
+			return .dex
+
+		case .arcana, .history, .investigation, .nature, .religion:
+			return .int
+
+		case .animalHandling, .insight, .medicine, .perception, .survival:
+			return .wis
+
+		case .deception, .intimidation, .performance, .persuasion:
+			return .cha
+		}
 	}
 
 	func colors() -> [UIColor] {

@@ -18,6 +18,8 @@ class Character {
 	var race: Race?				= nil
 	var stats: StatBlock		= StatBlock()
 	var background: Background? = nil
+
+	lazy var proficiencyBonus: Int =  { calculateProficiencyBonus() }()
 	var proficiencies: [String] = [String]()
 
 	var spellBook: [Spell]		= [Spell]()
@@ -27,6 +29,8 @@ class Character {
 		self.race 		= race
 		self.stats  	= stats
 		self.background = background
+
+		proficiencyBonus	= calculateProficiencyBonus()
 	}
 
 	struct StatBlock {
@@ -71,6 +75,29 @@ class Character {
 
 			return level
 		}
+	}
+	private func calculateProficiencyBonus() -> Int {
+		//level 1 - 4:   2
+		//level 5 - 8:   3
+		//level 9 - 12:  4
+		//level 13 - 16: 5
+		//level 17 - 20: 6
+		let	result = Int((Double(level) / 4.0).rounded(.up)) + 1
+
+		print("prof bonus: \(result)")
+
+		return result
+	}
+
+	func skillModifier(for skill: Skill) -> Int {
+		var result = stats.stat(from: skill.stat()).modifier()
+
+		//if proficient, add the modifier
+		if proficiencies.contains(skill.rawValue) {
+			result += proficiencyBonus
+		}
+
+		return result
 	}
 
 	public init() { }

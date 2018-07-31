@@ -31,8 +31,6 @@ class CollectionSelectionViewController: UIViewController {
 
 		collectionView.allowsMultipleSelection = true
 		registerCells()
-
-		print(proficiencies!)
 	}
 }
 
@@ -57,9 +55,10 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 			cell.isUserInteractionEnabled 	= true 					}
 
 		cell.titleLabel.text = cellSkill.capitalized
-//		cell.modifierLabel.text = "\(modifier)"
 
-
+		guard let skill = Skill(fromString: cellSkill) else { return cell }
+		let modifier = Character.default.skillModifier(for: skill)
+		cell.modifierLabel.text = "\(modifier)"
 
 		return cell
 	}

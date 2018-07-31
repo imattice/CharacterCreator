@@ -47,4 +47,13 @@ class SkillSelectionCollectionViewCell: UICollectionViewCell {
 						  completion: nil)
 	}
 
+	func updateModifierLabel(from oldValue: Int, to newValue: Int, animated: Bool) {
+
+
+		if animated {
+
+		}
+
+	}
+
 }
