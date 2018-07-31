@@ -43,28 +43,31 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SkillCell", for: indexPath) as! SkillSelectionCollectionViewCell
 		let cellSkill = collectionViewData[indexPath.row]
 
-		cell.isUserInteractionEnabled = false
-
-		//prevent user from deselecting background proficiencies
-		if proficiencies!.contains(cellSkill) {
-			cell.isSelected 				= true					}
-
-		//enable skills that are in the class skill selection list
-		if availableSkills!.contains(cellSkill) && !proficiencies!.contains(cellSkill) {
-			cell.isAvailable 				= true
-			cell.isUserInteractionEnabled 	= true 					}
-
+		//update the text labels
 		cell.titleLabel.text = cellSkill.capitalized
 
 		guard let skill = Skill(fromString: cellSkill) else { return cell }
 		let modifier = Character.default.skillModifier(for: skill)
 		cell.modifierLabel.text = "\(modifier)"
 
+
+		//configure the interactions
+		cell.isUserInteractionEnabled = false
+
+		//automatically select background proficiencies
+		if proficiencies!.contains(cellSkill) {
+			cell.isSelected 				= true
+			cell.updateModifierWithProficiency(animated: false)		}
+
+		//enable skills that are in the class skill selection list
+		if availableSkills!.contains(cellSkill) && !proficiencies!.contains(cellSkill) {
+			cell.isAvailable 				= true
+			cell.isUserInteractionEnabled 	= true 					}
+
 		return cell
 	}
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let cell = collectionView.cellForItem(at: indexPath)! as! SkillSelectionCollectionViewCell
-		let cellSkill = collectionViewData[indexPath.row]
 
 		//check if we are at or over the selection limit
 		if selectionsMade >= selectionLimit {
@@ -74,20 +77,21 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 		}
 
 		else {
+
+			cell.updateModifierWithProficiency(animated: true)
 			selectionsMade += 1
 		}
-
-		print("selections made: \(selectionsMade) /n selection limit: \(selectionLimit)")
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+		let cell = collectionView.cellForItem(at: indexPath)! as! SkillSelectionCollectionViewCell
 
 
 		//prevent selectionsMade counter from going into negative values
 		if selectionsMade != 0 {
 			selectionsMade -= 1 }
 
-		print("selections made: \(selectionsMade) /n selection limit: \(selectionLimit)")
+		cell.updateModifierWithProficiency(animated: true)
 	}
 
 	func collectionView(_ collectionView: UICollectionView,

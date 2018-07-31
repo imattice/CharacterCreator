@@ -25,3 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //globals
 enum DataType: String { case `class`, race }
 
+func delay(seconds: Double, completion: @escaping ()-> Void) {
+	DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: completion)
+}

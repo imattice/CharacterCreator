@@ -47,13 +47,25 @@ class SkillSelectionCollectionViewCell: UICollectionViewCell {
 						  completion: nil)
 	}
 
-	func updateModifierLabel(from oldValue: Int, to newValue: Int, animated: Bool) {
+	func updateModifierLabel(to value: Int, animated: Bool) {
+		modifierLabel.text = String(value)
 
-
+		print("updated")
 		if animated {
-
+			UIView.transition(with: modifierLabel,
+							  duration: 0.5,
+							  options: [.curveEaseIn, .transitionFlipFromTop],
+							  animations: { },
+							  completion:  nil)
 		}
-
 	}
 
+	func updateModifierWithProficiency(animated: Bool) {
+		let currentValue = Int(modifierLabel.text!)!
+		let proficiency = Character.default.proficiencyBonus
+		var newValue: Int = 0
+		if isSelected { newValue = currentValue + proficiency } else { newValue = currentValue - proficiency }
+
+		updateModifierLabel(to: newValue, animated: true)
+	}
 }
