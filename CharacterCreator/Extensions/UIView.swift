@@ -31,4 +31,16 @@ extension UIView {
 
 		return view
 	}
+
+	func setTextColor() {
+		guard let backgroundColor = backgroundColor else { return }
+
+		for view in subviews {
+		guard let label = view as? UILabel  else { continue }
+			if backgroundColor.isDark {
+				label.textColor = .lightText		}
+			else {
+				label.textColor = .darkText			}
+		}
+	}
 }

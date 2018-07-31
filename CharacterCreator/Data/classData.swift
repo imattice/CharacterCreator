@@ -15,7 +15,21 @@ let classData: [String : Any] = [
 				"Spellcasting": "As a conduit for divine power, you can cast cleric spells.",
 				"Divine Domain": "Dedicate yourself to the cause of your choosing. Your choice grants you specific spells and other features that align with that domain. Your dedication also provides an additional way to use the Channel Divinity ability." ],
 			"2": [
-				"Channel Divinity: Turn Undead": "Cause an undead creature to run, filling it a sense of dread eminating from the overwhelming power of your diety." ], ],
+				"Channel Divinity: Turn Undead": "Cause an undead creature to run, filling it a sense of dread eminating from the overwhelming power of your diety." ],
+			"5": [
+				"Upgrade: Channel Divinity: Destroy Undead": "Weak undead creatures are instantly destroyed when you use your Channel Divinity ability on them.  This affects creatures that are at CR 1/2 or lower."],
+			"8": [
+				"Upgrade: Channel Divinity: Destroy Undead": "You obliterate strong undead creatures when you use your Channel Divinity on them. This affects creatures that are at CR 1 or lower. "],
+			"10": [
+				"Divine Intervention": "You call on your diety when you are in great need of their help.  The likelihood that they are willing to intervene grows as your gain levels as a Cleric." ],
+			"11": [
+				"Upgrade: Channel Divinity: Destroy Undead": "As your power grows, even strong undead creatures are instantly destroyed when you use your Channel Divinity on them. This affects creatures that are at CR 2 or lower."],
+			"14": [
+				"Upgrade: Channel Divinity: Destroy Undead": "Greater undead creatures begin to fall to your power and are  instantly destroyed when you use your Channel Divinity on them. This affects creatures that are at CR 3 or lower."],
+			"17": [
+				"Upgrade: Channel Divinity: Destroy Undead": "All but the most powerful undead creatures fail to resist the final call to death, destroying their mortal husks once and for all. This affects creatures that are at CR 4 or lower."],
+			"20": [
+				"Upgrade: Divine Intervention": "You have proven yourself to be a reliable servent to your deity.  They are willing to help you once every 7 days." ] ],
 		"paths": [
 			"life domain": [
 				"description": "Dedication to protecting and preserving all that is living gives those beholden to the Life Domain unprecidented healing abilities as well as increased training to defenses.",
@@ -24,7 +38,24 @@ let classData: [String : Any] = [
 						"Bonus Proficiency" : "Life defenders are no stranger to heavy armor and are familiar to the weight and increased defences that it grants.",
 						"Disciple of Life": "Knitting wounds and curing ills come easily and are more effective for Life Clerics."	],
 					"2": [
-						"Channel Divinity: Preserve Life": "Focus your will into a grievious wound to quicken the restoration for that creature." ] ] ] ],
+						"Channel Divinity: Preserve Life": "Focus your will into a grievious wound to quicken the restoration for that creature." ],
+					"6": [
+						"Blessed Healer": "As you channel greater healing power through yourself, some of that power is applied to your own wounds."],
+					"8": [
+						"Divine Strike": "Your attacks are imbued with greater power."]
+
+				],
+				"spells": [
+					//Level 1
+					"bless", "cure wounds",
+					//Level 3
+					"lesser restoration", "spiritual weapon",
+					//Level 5
+					"beacon of hope", "revivify",
+					//Level 7
+					"death ward", "guardian of faith",
+					//Level 9
+					"mass cure wounds", "raise dead", ], ] ],
 		"spells": [
 			//Cantrips
 			"Guidance", "Light", "Resistance", "Sacred Flame", "Spare the Dying", "Thaumaturgy",
@@ -34,10 +65,16 @@ let classData: [String : Any] = [
 			"Aid", "Augury", "Hold Person", "Lesser Restoration", "Prayer of Healing", "Silence", "Spiritual Weapon", "Warding Bond"],
 		"spellcasting": [
 			"casting_ability": "wis",
-
-
-
-		]
+		],
+		"equipment": [
+			["mace", "warhammer"],
+			["scale mail", "leather armor", "chain mail"],
+			["light crossbow", "simple weapon"],
+			["priest's pack", "explorer's pack"],
+			["shield"],
+			["holy symbol"],
+		],
+		"skills": 	[ "history", "insight", "medicine", "persuasion", "religion"],
 	],
 
 
@@ -63,6 +100,13 @@ let classData: [String : Any] = [
 						"Improved Critical": "You know exactly where to strike to land a devastating hit and take any opportunity to do so, landing critical hits on a roll of 19 or 20."],
 					"7": [
 						"Remarkable Athlete": "Your physical skills show themselves as you attempt to use your body to accomplish a feat. You are more successful when attempting a feat using Strenth, Dexterity, or Constitution.  You can also jump further, increasing the distance you travel midair by your Strength modifier."], ] ], ],
+		"equipment": [
+			["chain mail", "leather armor and longbow"],
+			["martial weapon and a shield", "two martial weapons"],
+			["light crossbow", "two handaxes"],
+			["dungeoneer's pack", "explorer's pack"],
+		],
+		"skills": 	[ "acrobatics", "animal handling", "athletics", "history", "insight", "intimidation", "perception", "survival"],
 	],
 
 
@@ -89,6 +133,15 @@ let classData: [String : Any] = [
 					"3": [
 						"Fast Hands": "Before anyone can notice, you've already flicked open a lock, disarmed a trap, or Used an Item as a Cunning Action.",
 						"Second-Story Work": "The world becomes your playground as you discover your ability to quickly scale a climbable surface and leap across wide chasms." ] ] ] ],
+		"equipment": [
+			["rapier", "shortsword"],
+			["shortbow", "shortsword"],
+			["burglar's pack", "dungeoneer's pack", "explorer's pack"],
+			["leather armor"],
+			["two daggers"],
+			["thieve's tools"]
+		],
+		"skills": 	[ "acrobatics", "athletics", "deception", "insight", "intimidation", "investigation", "perception", "performance", "persuasion", "sleight of hand", "stealth"],
 	],
 
 
@@ -121,10 +174,14 @@ let classData: [String : Any] = [
 		"spellcasting": [
 			"casting_ability": "int",
 
-
-
-		]
-
+		],
+		"equipment": [
+			["quarterstaff", "dagger"],
+			["component pouch", "arcane focus"],
+			["scholar's pack", "explorer's pack"],
+			["spellbook"],
+		],
+		"skills": 	[ "arcana", "history", "insight", "investigation", "medicine", "religion"],
 	]
 ]
 

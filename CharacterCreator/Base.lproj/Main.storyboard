@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0BV-s2-vtb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5QB-Hv-8cA">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -105,7 +105,7 @@
         <!--Background Selection-->
         <scene sceneID="5yF-Fc-AKj">
             <objects>
-                <viewController storyboardIdentifier="Background" title="Background Selection" id="Fpf-gs-cWf" customClass="ExandableViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Background" title="Background Selection" id="Fpf-gs-cWf" customClass="ExpandableViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xbQ-OR-rlJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -412,13 +412,48 @@
         <!--Ability  Selection-->
         <scene sceneID="or0-sF-RCG">
             <objects>
-                <viewController title="Ability  Selection" id="5QB-Hv-8cA" sceneMemberID="viewController">
+                <viewController title="Ability  Selection" id="5QB-Hv-8cA" customClass="CollectionSelectionViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZJD-bE-LeS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="euj-Vm-v8I">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RrD-yX-j4y">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WOb-Ls-fjA">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="5QB-Hv-8cA" id="FfU-I9-rZl"/>
+                                    <outlet property="delegate" destination="5QB-Hv-8cA" id="isx-AU-NXL"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="drg-Zv-kMQ" firstAttribute="bottom" secondItem="euj-Vm-v8I" secondAttribute="bottom" id="SHn-CA-WoJ"/>
+                            <constraint firstItem="euj-Vm-v8I" firstAttribute="top" secondItem="drg-Zv-kMQ" secondAttribute="top" id="XlT-eH-pPM"/>
+                            <constraint firstItem="drg-Zv-kMQ" firstAttribute="trailing" secondItem="euj-Vm-v8I" secondAttribute="trailing" id="qyo-tq-qeF"/>
+                            <constraint firstItem="euj-Vm-v8I" firstAttribute="leading" secondItem="drg-Zv-kMQ" secondAttribute="leading" id="zDH-5j-XyZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="drg-Zv-kMQ"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="euj-Vm-v8I" id="eo3-JS-Mgc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l12-ou-ygA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -118,6 +118,12 @@ struct Class {
 	func gradient() -> [UIColor] {
 		return UIColor.gradient(for: availableClass)
 	}
+	func skillSelection() -> [String]? {
+		guard let dict = classData[base] as? [String: Any] else { print("could not create dict from \(base)"); return nil }
+		guard let skills = dict["skills"] as? [String] else { print("could not get skills for \(base)"); return nil }
+
+		return skills
+	}
 }
 
 enum AvailableClass: String {

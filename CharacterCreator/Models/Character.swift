@@ -17,13 +17,16 @@ class Character {
 		}}}
 	var race: Race?				= nil
 	var stats: StatBlock		= StatBlock()
+	var background: Background? = nil
+	var proficiencies: [String] = [String]()
 
 	var spellBook: [Spell]		= [Spell]()
 
-	init(class: Class, race: Race, stats: StatBlock) {
+	init(class: Class, race: Race, stats: StatBlock, background: Background) {
 		self.class 		= `class`
 		self.race 		= race
 		self.stats  	= stats
+		self.background = background
 	}
 
 	struct StatBlock {
@@ -84,7 +87,8 @@ class Character {
 													  dex: StatBlock.Stat(value: 10),
 													  cha: StatBlock.Stat(value: 12),
 													  wis: StatBlock.Stat(value: 14),
-													  int: StatBlock.Stat(value: 15)))
+													  int: StatBlock.Stat(value: 15)),
+									 background: Background(name: "sage"))
 }
 
 enum StatType: String {
@@ -120,3 +124,4 @@ enum StatType: String {
 	}
 
 }
+
