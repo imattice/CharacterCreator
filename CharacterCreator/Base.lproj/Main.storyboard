@@ -418,7 +418,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="euj-Vm-v8I">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="662"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RrD-yX-j4y">
                                     <size key="itemSize" width="50" height="50"/>
@@ -441,11 +441,41 @@
                                     <outlet property="delegate" destination="5QB-Hv-8cA" id="isx-AU-NXL"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBA-qS-nPg">
+                                <rect key="frame" x="0.0" y="44" width="375" height="72"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proficiencies Remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVb-hW-xzf">
+                                        <rect key="frame" x="0.0" y="8" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PE0-2c-quI">
+                                        <rect key="frame" x="0.0" y="40" width="375" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="PE0-2c-quI" secondAttribute="bottom" constant="8" id="NC2-LQ-N4I"/>
+                                    <constraint firstItem="PE0-2c-quI" firstAttribute="leading" secondItem="vBA-qS-nPg" secondAttribute="leading" id="Nzc-oJ-DCp"/>
+                                    <constraint firstAttribute="trailing" secondItem="PE0-2c-quI" secondAttribute="trailing" id="UyG-xY-I1f"/>
+                                    <constraint firstItem="QVb-hW-xzf" firstAttribute="leading" secondItem="vBA-qS-nPg" secondAttribute="leading" id="Ycz-3P-Qd4"/>
+                                    <constraint firstAttribute="trailing" secondItem="QVb-hW-xzf" secondAttribute="trailing" id="aak-jE-gaR"/>
+                                    <constraint firstItem="PE0-2c-quI" firstAttribute="top" secondItem="QVb-hW-xzf" secondAttribute="bottom" constant="11" id="d7W-tb-Ygd"/>
+                                    <constraint firstItem="QVb-hW-xzf" firstAttribute="top" secondItem="vBA-qS-nPg" secondAttribute="top" constant="8" id="w6c-AK-v7f"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="drg-Zv-kMQ" firstAttribute="trailing" secondItem="vBA-qS-nPg" secondAttribute="trailing" id="2ph-L6-qHM"/>
+                            <constraint firstItem="euj-Vm-v8I" firstAttribute="top" secondItem="vBA-qS-nPg" secondAttribute="bottom" id="OBg-g0-ObJ"/>
+                            <constraint firstItem="vBA-qS-nPg" firstAttribute="top" secondItem="drg-Zv-kMQ" secondAttribute="top" id="Qo1-ko-7sw"/>
                             <constraint firstItem="drg-Zv-kMQ" firstAttribute="bottom" secondItem="euj-Vm-v8I" secondAttribute="bottom" id="SHn-CA-WoJ"/>
-                            <constraint firstItem="euj-Vm-v8I" firstAttribute="top" secondItem="drg-Zv-kMQ" secondAttribute="top" id="XlT-eH-pPM"/>
+                            <constraint firstItem="vBA-qS-nPg" firstAttribute="leading" secondItem="drg-Zv-kMQ" secondAttribute="leading" id="YaE-GD-fth"/>
                             <constraint firstItem="drg-Zv-kMQ" firstAttribute="trailing" secondItem="euj-Vm-v8I" secondAttribute="trailing" id="qyo-tq-qeF"/>
                             <constraint firstItem="euj-Vm-v8I" firstAttribute="leading" secondItem="drg-Zv-kMQ" secondAttribute="leading" id="zDH-5j-XyZ"/>
                         </constraints>
@@ -453,11 +483,12 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="euj-Vm-v8I" id="eo3-JS-Mgc"/>
+                        <outlet property="proficiencyCountLabel" destination="PE0-2c-quI" id="xn4-80-PAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l12-ou-ygA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5303" y="768"/>
+            <point key="canvasLocation" x="5301.6000000000004" y="767.73399014778329"/>
         </scene>
         <!--FlavorDetail-->
         <scene sceneID="r2v-bH-YGi">

@@ -10,6 +10,7 @@ import UIKit
 
 class CollectionSelectionViewController: UIViewController {
 	@IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet weak var proficiencyCountLabel: UILabel!
 	let collectionViewData = skills.sorted(by: { $0 < $1 } )
 
 	let proficiencies = Character.default.background!.proficiencies()
@@ -31,6 +32,46 @@ class CollectionSelectionViewController: UIViewController {
 
 		collectionView.allowsMultipleSelection = true
 		registerCells()
+
+		updateProficiencyCountLabel(animated: false)
+	}
+
+	func updateProficiencyCountLabel(animated: Bool) {
+		let currentValue = Int(proficiencyCountLabel.text!)!
+		let nextValue = selectionLimit - selectionsMade
+		let animationDirection: UIViewAnimationOptions = currentValue > nextValue ? .transitionFlipFromTop : .transitionFlipFromBottom
+
+		proficiencyCountLabel.text = String(selectionLimit - selectionsMade)
+
+		if animated {
+			UIView.transition(with: proficiencyCountLabel,
+							  duration: 0.5,
+							  options: animationDirection,
+							  animations: { },
+							  completion: nil)
+		}
+	}
+
+	func highlightProficiencyCountLabel() {
+		let originalTextColor = proficiencyCountLabel.textColor
+		UIView.transition(with: proficiencyCountLabel,
+						  duration: 0.5,
+						  options: [],
+						  animations: {
+							self.proficiencyCountLabel.textColor = .red
+							self.proficiencyCountLabel.transform = CGAffineTransform(scaleX: 2, y: 2)
+							self.proficiencyCountLabel.font = UIFont.boldSystemFont(ofSize: 20)				},
+						  completion: { _ in
+
+		UIView.transition(with: self.proficiencyCountLabel,
+						  duration: 0.5,
+						  options: [],
+						  animations: {
+							self.proficiencyCountLabel.textColor = originalTextColor
+							self.proficiencyCountLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+							self.proficiencyCountLabel.font = UIFont.systemFont(ofSize: 20)					},
+						  completion: nil)
+		})
 	}
 }
 
@@ -74,12 +115,14 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 			print("over limit")
 			cell.isSelected = !cell.isSelected
 			collectionView.deselectItem(at: indexPath, animated: false)
+			highlightProficiencyCountLabel()
 		}
 
 		else {
 
 			cell.updateModifierWithProficiency(animated: true)
 			selectionsMade += 1
+			updateProficiencyCountLabel(animated: true)
 		}
 	}
 
@@ -89,7 +132,8 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 
 		//prevent selectionsMade counter from going into negative values
 		if selectionsMade != 0 {
-			selectionsMade -= 1 }
+			selectionsMade -= 1
+			updateProficiencyCountLabel(animated: true) }
 
 		cell.updateModifierWithProficiency(animated: true)
 	}
