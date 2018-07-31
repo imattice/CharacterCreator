@@ -36,7 +36,20 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 
 		//prevent navigation until stat selection is made
 		navigationItem.rightBarButtonItem?.isEnabled = false
+
+		SETSTATSFORTESTING()
 	}
+
+	func SETSTATSFORTESTING() {
+		var statArray = ["8", "10", "12", "13", "14", "15"]
+		selectedStatValues = [8, 10, 12, 13, 14, 15]
+		navigationItem.rightBarButtonItem?.isEnabled = true 
+
+		for label in statViewCollection.enumerated() {
+			label.element.statValueLabel.text = statArray[label.offset]
+		}
+	}
+
 
 	private func setUpLabelViews() {
 		for view in statViewCollection.enumerated() {
@@ -131,6 +144,36 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 				}
 		}
 	}
+
+//	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//		setCharacterStats()
+//
+//		if segue.identifier == "toBackgroundSelection" {
+//
+//		if let characterClass = Character.current.class,
+//			let navigationController = navigationController,
+//			let storyboard = storyboard {
+//
+//
+//			//if the caster is a spellcaster, push to the Spell Selection Controller
+//			if characterClass.castingAbility != nil {
+//				let vc = storyboard.instantiateViewController(withIdentifier: "SpellSelection")
+//				vc.title = "\(characterClass.base.capitalized) Spells"
+//
+//
+//				segue.destination = vc															}
+//
+//			//otherwise move to the inventory selection controller
+//			else {
+//				performSegue
+//				let vc = storyboard.instantiateViewController(withIdentifier: "Background")
+//
+//
+//				navigationController.pushViewController(vc, animated: true)						}
+//		}
+//		}
+//	}
+
 }
 
 

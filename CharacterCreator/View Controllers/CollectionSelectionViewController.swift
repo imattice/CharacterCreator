@@ -13,11 +13,11 @@ class CollectionSelectionViewController: UIViewController {
 	@IBOutlet weak var proficiencyCountLabel: UILabel!
 	let collectionViewData = skills.sorted(by: { $0 < $1 } )
 
-	let proficiencies = Character.default.background!.proficiencies()
-	let availableSkills = Character.default.class!.skillSelection()
+	lazy var proficiencies: [String]? 	= Character.current.background!.proficiencies()
+	lazy var availableSkills: [String]?	= Character.current.class!.skillSelection()
 
 	let selectionLimit: Int = {
-		if Character.default.class!.base == "rogue" {
+		if Character.current.class!.base == "rogue" {
 			return 4 }
 		else {
 			return 2 }}()
@@ -88,7 +88,7 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 		cell.titleLabel.text = cellSkill.capitalized
 
 		guard let skill = Skill(fromString: cellSkill) else { return cell }
-		let modifier = Character.default.skillModifier(for: skill)
+		let modifier = Character.current.skillModifier(for: skill)
 		cell.modifierLabel.text = "\(modifier)"
 
 

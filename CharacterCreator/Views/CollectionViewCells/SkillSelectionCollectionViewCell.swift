@@ -62,7 +62,7 @@ class SkillSelectionCollectionViewCell: UICollectionViewCell {
 
 	func updateModifierWithProficiency(animated: Bool) {
 		let currentValue = Int(modifierLabel.text!)!
-		let proficiency = Character.default.proficiencyBonus
+		let proficiency = Character.current.proficiencyBonus
 		var newValue: Int = 0
 		if isSelected { newValue = currentValue + proficiency } else { newValue = currentValue - proficiency }
 

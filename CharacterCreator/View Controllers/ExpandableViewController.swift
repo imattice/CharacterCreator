@@ -20,6 +20,8 @@ class ExpandableViewController: UIViewController {
 		registerCells()
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 190
+
+//		configureNav()
 	}
 
 }
@@ -114,6 +116,8 @@ extension ExpandableViewController: UITableViewDelegate, UITableViewDataSource {
 extension ExpandableViewController {
 	//MARK: - Segue
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		print("Hi!")
+
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
 		let data = tableViewData[selectedIndexPath.section]
 		let background = Background(name: data.title)
@@ -123,5 +127,27 @@ extension ExpandableViewController {
 		Character.current.proficiencies.append(contentsOf: proficiencies)
 		
 	}
+
+//	func configureNav() {
+//		let nextButton = UIBarButtonItem(title: "Hey", style: .plain, target: self, action: #selector(goToNextController))
+//
+//		navigationItem.rightBarButtonItem = nextButton
+//	}
+//
+//	@objc func goToNextController() {
+//		guard let selectedIndexPath = tableView.indexPathForSelectedRow else { print("could not get data for index path"); return }
+//
+//		let vc = CollectionSelectionViewController()
+//		let data = tableViewData[selectedIndexPath.section]
+//		let background = Background(name: data.title)
+//		guard let proficiencies = background.proficiencies() else { print("no proficiencries"); return }
+//
+//		Character.current.background = background
+//		Character.current.proficiencies.append(contentsOf: proficiencies)
+//
+//		print("Character background: \(Character.current.background?.name)")
+//
+//		navigationController?.pushViewController(vc, animated: true)
+//	}
 
 }
