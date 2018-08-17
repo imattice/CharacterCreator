@@ -50,7 +50,6 @@ class SkillSelectionCollectionViewCell: UICollectionViewCell {
 	func updateModifierLabel(to value: Int, animated: Bool) {
 		modifierLabel.text = String(value)
 
-		print("updated")
 		if animated {
 			UIView.transition(with: modifierLabel,
 							  duration: 0.5,

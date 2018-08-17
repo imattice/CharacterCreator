@@ -116,7 +116,6 @@ extension ExpandableViewController: UITableViewDelegate, UITableViewDataSource {
 extension ExpandableViewController {
 	//MARK: - Segue
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		print("Hi!")
 
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
 		let data = tableViewData[selectedIndexPath.section]

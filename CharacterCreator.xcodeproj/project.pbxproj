@@ -48,6 +48,11 @@
 		81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E47210BBA64002F6AE4 /* skills.swift */; };
 		81DC8E4C210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4A210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift */; };
 		81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */; };
+		81DC8E4F211252AD002F6AE4 /* ChoiceContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4E211252AD002F6AE4 /* ChoiceContainerView.swift */; };
+		81DC8E512112548A002F6AE4 /* ChoiceContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E502112548A002F6AE4 /* ChoiceContainerView.xib */; };
+		81DC8E5321125627002F6AE4 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E5221125627002F6AE4 /* ChoiceView.swift */; };
+		81DC8E5521125637002F6AE4 /* ChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E5421125637002F6AE4 /* ChoiceView.xib */; };
+		81DC8E57211256EC002F6AE4 /* ChoiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */; };
 		81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF0210556F800BBDDD7 /* Array.swift */; };
 		81FC7CF52106965E00BBDDD7 /* ExpandableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */; };
 		81FC7CF921078F9100BBDDD7 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF821078F9100BBDDD7 /* ExpandableTableViewCell.swift */; };
@@ -129,6 +134,11 @@
 		81DC8E47210BBA64002F6AE4 /* skills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skills.swift; sourceTree = "<group>"; };
 		81DC8E4A210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillSelectionCollectionViewCell.xib; sourceTree = "<group>"; };
+		81DC8E4E211252AD002F6AE4 /* ChoiceContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceContainerView.swift; sourceTree = "<group>"; };
+		81DC8E502112548A002F6AE4 /* ChoiceContainerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceContainerView.xib; sourceTree = "<group>"; };
+		81DC8E5221125627002F6AE4 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
+		81DC8E5421125637002F6AE4 /* ChoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceView.xib; sourceTree = "<group>"; };
+		81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceSelectionViewController.swift; sourceTree = "<group>"; };
 		81FC7CF0210556F800BBDDD7 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableViewController.swift; sourceTree = "<group>"; };
 		81FC7CF821078F9100BBDDD7 /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
@@ -274,6 +284,7 @@
 				8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */,
 				81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */,
 				81DC8E45210BB993002F6AE4 /* CollectionSelectionViewController.swift */,
+				81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */,
 				8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */,
 			);
 			path = "View Controllers";
@@ -294,12 +305,16 @@
 		8152B3D920D9FD65008B7A1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				81DC8E49210BBF01002F6AE4 /* CollectionViewCells */,
+				81DC8E5221125627002F6AE4 /* ChoiceView.swift */,
+				81DC8E5421125637002F6AE4 /* ChoiceView.xib */,
+				81DC8E4E211252AD002F6AE4 /* ChoiceContainerView.swift */,
+				81DC8E502112548A002F6AE4 /* ChoiceContainerView.xib */,
 				819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */,
 				819D371620F9BF7900986AFB /* SpellSelectionHeaderView.xib */,
 				8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */,
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
 				8152B41620DEE7F6008B7A1A /* TableViewCells */,
+				81DC8E49210BBF01002F6AE4 /* CollectionViewCells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -460,7 +475,9 @@
 				8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */,
 				81FC7CFB21078FA800BBDDD7 /* ExpandableTableViewCell.xib in Resources */,
 				81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */,
+				81DC8E5521125637002F6AE4 /* ChoiceView.xib in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
+				81DC8E512112548A002F6AE4 /* ChoiceContainerView.xib in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */,
 				8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */,
@@ -595,6 +612,7 @@
 				81DC8E46210BB993002F6AE4 /* CollectionSelectionViewController.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
+				81DC8E5321125627002F6AE4 /* ChoiceView.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
@@ -603,10 +621,12 @@
 				8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */,
 				81BC72AB20F17F2500B48195 /* spellData.swift in Sources */,
 				81DC8E4C210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift in Sources */,
+				81DC8E57211256EC002F6AE4 /* ChoiceSelectionViewController.swift in Sources */,
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
 				81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */,
 				81FC7CF921078F9100BBDDD7 /* ExpandableTableViewCell.swift in Sources */,
 				81BC72B120F18DB500B48195 /* classData.swift in Sources */,
+				81DC8E4F211252AD002F6AE4 /* ChoiceContainerView.swift in Sources */,
 				81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */,
 				8152B41120DEDA8D008B7A1A /* Int.swift in Sources */,
 				8152B3C320D9D32F008B7A1A /* Character.swift in Sources */,

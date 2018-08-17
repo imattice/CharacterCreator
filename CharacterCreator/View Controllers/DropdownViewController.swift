@@ -176,7 +176,7 @@ extension DropdownViewController {
 			else {
 				Character.current.race = Race(fromParent: parentTitle, withSubrace: nil)			}
 
-			print("Character's race is set to: \(String(describing: Character.current.race?.name))")
+//			print("Character's race is set to: \(String(describing: Character.current.race?.name))")
 		}
 
 		if dataType == "class" {
@@ -187,7 +187,7 @@ extension DropdownViewController {
 
 			Character.current.class = Class(fromString: selectedClass, withPath: selectedPath)
 
-			print("Character's class is set to: \(String(describing: Character.current.class?.name))")
+//			print("Character's class is set to: \(String(describing: Character.current.class?.name))")
 		}
 	}
 

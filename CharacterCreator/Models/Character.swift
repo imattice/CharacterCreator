@@ -84,7 +84,6 @@ class Character {
 		//level 17 - 20: 6
 		let	result = Int((Double(level) / 4.0).rounded(.up)) + 1
 
-		print("prof bonus: \(result)")
 
 		return result
 	}
