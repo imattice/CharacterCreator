@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChoiceContainerView: UIView {
+class ChoiceSelectionView: UIView {
 	var view: UIView!
 
 	@IBOutlet weak var stackView: UIStackView!

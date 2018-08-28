@@ -19,7 +19,7 @@ class ChoiceSelectionViewController: UIViewController {
 		getClassChoices()
 
 		for choice in choiceData.enumerated() {
-			let container = ChoiceContainerView()
+			let container = ChoiceSelectionView()
 				container.backgroundColor = .red
 
 			stackView.addArrangedSubview(container)
@@ -40,41 +40,57 @@ class ChoiceSelectionViewController: UIViewController {
 							   attribute: .trailing,
 							   multiplier: 1,
 							   constant: 0).isActive = true
+			NSLayoutConstraint(item: container,
+							   attribute: .height,
+							   relatedBy: .equal,
+							   toItem: nil,
+							   attribute: .height,
+							   multiplier: 1,
+							   constant: 300).isActive = true
 //			NSLayoutConstraint(item: container,
-//							   attribute: .height,
+//							   attribute: .width,
 //							   relatedBy: .equal,
 //							   toItem: nil,
-//							   attribute: .height,
+//							   attribute: .width,
 //							   multiplier: 1,
-//							   constant: 300).isActive = true
+//							   constant: view.bounds.width).isActive = true
 
 			for option in choice.element {
-				let optionView = ChoiceView()
+				let optionView = ChoiceView(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
 					optionView.titleLabel.text = option
 					optionView.backgroundColor = .red
 
 				addToStack(atIndex: choice.offset, optionView)
 			}
 		}
-
-		print("choice count: \(choiceData.count)")
-		print("Subview count: \(stackView.arrangedSubviews.count)")
-
 	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-	private func addToStack(atIndex index: Int, _ view: UIView) {
+	private func addToStack(atIndex index: Int, _ choiceView: UIView) {
 		guard index <= stackView.arrangedSubviews.count else { print("placement index out of range"); return }
 
 		for containerViews in stackView.arrangedSubviews.enumerated() {
 			if containerViews.offset == index {
 				//ensure the view is a container view
-				guard let containerView = containerViews.element as? ChoiceContainerView else { continue }
-				containerView.stackView.addArrangedSubview(view)
+				guard let containerView = containerViews.element as? ChoiceSelectionView else { continue }
+				containerView.stackView.addArrangedSubview(choiceView)
+
+				choiceView.translatesAutoresizingMaskIntoConstraints = false
+				NSLayoutConstraint(item: choiceView,
+								   attribute: .height,
+								   relatedBy: .equal,
+								   toItem: nil,
+								   attribute: .height,
+								   multiplier: 1,
+								   constant: 200).isActive = true
+				NSLayoutConstraint(item: choiceView,
+								   attribute: .width,
+								   relatedBy: .equal,
+								   toItem: nil,
+								   attribute: .width,
+								   multiplier: 1,
+								   constant: 500).isActive = true
+
+
 			}
 		}
 

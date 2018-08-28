@@ -1,0 +1,20 @@
+PODS:
+  - Hue (3.0.1)
+  - NewRelicAgent (6.3.0)
+
+DEPENDENCIES:
+  - Hue
+  - NewRelicAgent
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Hue
+    - NewRelicAgent
+
+SPEC CHECKSUMS:
+  Hue: 93e852fa6211ab35922ad8c293f51c43d6c79eb2
+  NewRelicAgent: ab8a64123a29856b7675de78178addd96b01113d
+
+PODFILE CHECKSUM: b5cf87563d1d80159aea831ad63cb1ed43dbb7bf
+
+COCOAPODS: 1.5.3
