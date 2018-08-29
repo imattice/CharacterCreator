@@ -9,22 +9,22 @@
 import UIKit
 
 class ChoiceView: UIView {
-	var view: UIView!
-
+//	var view: UIView!
+//
 	@IBOutlet weak var titleLabel: UILabel!
-	@IBOutlet weak var descriptionLabel: UILabel!
-	@IBOutlet weak var imageView: UIImageView!
+//	@IBOutlet weak var descriptionLabel: UILabel!
+//	@IBOutlet weak var imageView: UIImageView!
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 
-		xibSetup()
+//		xibSetup()
 	}
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 
-		xibSetup()
+//		xibSetup()
 	}
 
 	

@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+//TODO: We could move this xib file to the top of the view controller in the storyboard since we only need one instance of it!
 //@IBDesignable
 class SpellSelectionHeaderView: UIView {
 	var view: UIView!

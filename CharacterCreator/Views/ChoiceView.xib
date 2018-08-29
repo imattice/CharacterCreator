@@ -10,15 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChoiceView" customModule="CharacterCreator" customModuleProvider="target">
-            <connections>
-                <outlet property="descriptionLabel" destination="vrW-x1-YrD" id="MbR-LU-fGq"/>
-                <outlet property="imageView" destination="9u6-q6-C7T" id="lwt-4N-Sg9"/>
-                <outlet property="titleLabel" destination="rDQ-o1-Bii" id="rwo-zb-r6G"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChoiceView" customModule="CharacterCreator" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="142"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -52,6 +46,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="titleLabel" destination="rDQ-o1-Bii" id="Yak-Nf-KT5"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="316"/>
         </view>
     </objects>
