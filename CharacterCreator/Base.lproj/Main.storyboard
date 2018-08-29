@@ -176,6 +176,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="50U-RB-vS5"/>
                     </view>
+                    <connections>
+                        <outlet property="stackView" destination="Tak-9C-CVy" id="Xdb-GG-i37"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBt-u5-Ysi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,58 +9,53 @@
 import UIKit
 
 class ChoiceSelectionViewController: UIViewController {
-//	@IBOutlet weak var stackView: UIStackView!
+	@IBOutlet weak var stackView: UIStackView!
 
 	var choiceData = [[String]]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		guard let choiceView = Bundle.main.loadNibNamed("ChoiceView", owner: self, options: nil)?.first as? ChoiceView else { print("nope"); return }
+//		guard let choiceView = Bundle.main.loadNibNamed("ChoiceView", owner: self, options: nil)?.first as? ChoiceView else { print("nope"); return }
+//
+//		choiceView.backgroundColor = .blue
+//		choiceView.titleLabel.text = "hellow world"
+//		self.view.addSubview(choiceView)
 
-		choiceView.backgroundColor = .blue
-		choiceView.titleLabel.text = "hellow world"
-		self.view.addSubview(choiceView)
-//		getClassChoices()
+		loadChoiceData()
 
-//		for choice in choiceData.enumerated() {
-//			let container = ChoiceSelectionView()
-//				container.backgroundColor = .red
-//
-//			stackView.addArrangedSubview(container)
-//
-//
-//			container.translatesAutoresizingMaskIntoConstraints = false
-//			NSLayoutConstraint(item: container,
-//							   attribute: .leading,
-//							   relatedBy: .equal,
-//							   toItem: stackView,
-//							   attribute: .leading,
-//							   multiplier: 1,
-//							   constant: 0).isActive = true
-//			NSLayoutConstraint(item: container,
-//							   attribute: .trailing,
-//							   relatedBy: .equal,
-//							   toItem: stackView,
-//							   attribute: .trailing,
-//							   multiplier: 1,
-//							   constant: 0).isActive = true
-//			NSLayoutConstraint(item: container,
-//							   attribute: .height,
-//							   relatedBy: .equal,
-//							   toItem: nil,
-//							   attribute: .height,
-//							   multiplier: 1,
-//							   constant: 300).isActive = true
-//
-////			for option in choice.element {
-////				let optionView = ChoiceView(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
-////					optionView.titleLabel.text = option
-////					optionView.backgroundColor = .red
-////
-////				addToStack(atIndex: choice.offset, optionView)
-////			}
-//		}
+		for choice in choiceData {
+			guard let container = Bundle.main.loadNibNamed("ChoiceSelectionView", owner: self, options: nil)?.first as? ChoiceSelectionView
+				else { print("Could not create selectionView"); continue }
+				container.backgroundColor = .red
+				container.choices = choice
+
+			stackView.addArrangedSubview(container)
+
+
+			container.translatesAutoresizingMaskIntoConstraints = false
+			NSLayoutConstraint(item: container,
+							   attribute: .leading,
+							   relatedBy: .equal,
+							   toItem: stackView,
+							   attribute: .leading,
+							   multiplier: 1,
+							   constant: 0).isActive = true
+			NSLayoutConstraint(item: container,
+							   attribute: .trailing,
+							   relatedBy: .equal,
+							   toItem: stackView,
+							   attribute: .trailing,
+							   multiplier: 1,
+							   constant: 0).isActive = true
+			NSLayoutConstraint(item: container,
+							   attribute: .height,
+							   relatedBy: .equal,
+							   toItem: nil,
+							   attribute: .height,
+							   multiplier: 1,
+							   constant: 300).isActive = true
+		}
 	}
 
 //	private func addToStack(atIndex index: Int, _ choiceView: UIView) {
@@ -92,12 +87,12 @@ class ChoiceSelectionViewController: UIViewController {
 //
 //	}
 
-//	func getClassChoices() {
-//		guard let classDict = classData["cleric"] as? [String : Any],
-//			let equiptmentChoices = classDict["equipment"] as? [[String]]  else { print("Could not initialize race equiptment data"); return }
-//
-//		choiceData = equiptmentChoices
-//	}
+	func loadChoiceData() {
+		guard let classDict = classData["cleric"] as? [String : Any],
+			let equiptmentChoices = classDict["equipment"] as? [[String]]  else { print("Could not initialize race equiptment data"); return }
+
+		choiceData = equiptmentChoices
+	}
 
 
     /*
