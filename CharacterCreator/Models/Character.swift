@@ -18,6 +18,7 @@ class Character {
 	var race: Race?				= nil
 	var stats: StatBlock		= StatBlock()
 	var background: Background? = nil
+	var items: [Item]			= [Item]()
 
 	lazy var proficiencyBonus: Int =  { calculateProficiencyBonus() }()
 	var proficiencies: [String] = [String]()

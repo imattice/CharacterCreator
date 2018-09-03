@@ -34,6 +34,8 @@ class CollectionSelectionViewController: UIViewController {
 		registerCells()
 
 		updateProficiencyCountLabel(animated: false)
+
+		navigationItem.rightBarButtonItem?.isEnabled = false
 	}
 
 	func updateProficiencyCountLabel(animated: Bool) {
@@ -115,15 +117,21 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 			print("over limit")
 			cell.isSelected = !cell.isSelected
 			collectionView.deselectItem(at: indexPath, animated: false)
-			highlightProficiencyCountLabel()
-		}
+			highlightProficiencyCountLabel()								}
 
+		//this is a normal selection
 		else {
 
 			cell.updateModifierWithProficiency(animated: true)
 			selectionsMade += 1
 			updateProficiencyCountLabel(animated: true)
+			if selectionsMade >= selectionLimit  {
+				navigationItem.rightBarButtonItem?.isEnabled = true
+			}
 		}
+		print(selectionsMade)
+
+
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -136,6 +144,10 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 			updateProficiencyCountLabel(animated: true) }
 
 		cell.updateModifierWithProficiency(animated: true)
+
+		if selectionsMade > 0 {
+			navigationItem.rightBarButtonItem?.isEnabled = false
+		}
 	}
 
 	func collectionView(_ collectionView: UICollectionView,
@@ -147,5 +159,13 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 	private func registerCells() {
 		collectionView.register(UINib(nibName: String(describing: SkillSelectionCollectionViewCell.self), bundle: nil),
 								forCellWithReuseIdentifier: "SkillCell")
+	}
+}
+
+//Navigation
+extension CollectionSelectionViewController {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+
 	}
 }

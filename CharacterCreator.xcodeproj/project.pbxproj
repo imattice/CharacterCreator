@@ -25,7 +25,7 @@
 		8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */; };
 		8152B3E720DC124D008B7A1A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3E620DC124D008B7A1A /* UIView.swift */; };
 		8152B3E920DC354B008B7A1A /* SpecSheet in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E820DC354B008B7A1A /* SpecSheet */; };
-		8152B3EB20DC3B48008B7A1A /* raceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3EA20DC3B48008B7A1A /* raceData.swift */; };
+		8152B3EB20DC3B48008B7A1A /* races.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3EA20DC3B48008B7A1A /* races.swift */; };
 		8152B41120DEDA8D008B7A1A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41020DEDA8D008B7A1A /* Int.swift */; };
 		8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */; };
 		8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* DropdownTableViewCell.xib */; };
@@ -37,10 +37,10 @@
 		81BC72A520EEAE8B00B48195 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A420EEAE8B00B48195 /* UIButton.swift */; };
 		81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A620F0813700B48195 /* SpellTableViewCell.swift */; };
 		81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BC72A720F0813700B48195 /* SpellTableViewCell.xib */; };
-		81BC72AB20F17F2500B48195 /* spellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AA20F17F2500B48195 /* spellData.swift */; };
+		81BC72AB20F17F2500B48195 /* spells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AA20F17F2500B48195 /* spells.swift */; };
 		81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */; };
 		81BC72AF20F186C000B48195 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AE20F186C000B48195 /* Spell.swift */; };
-		81BC72B120F18DB500B48195 /* classData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72B020F18DB500B48195 /* classData.swift */; };
+		81BC72B120F18DB500B48195 /* classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72B020F18DB500B48195 /* classes.swift */; };
 		81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */; };
 		81DC8E4221080E9E002F6AE4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4121080E9E002F6AE4 /* String.swift */; };
 		81DC8E44210BA599002F6AE4 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E43210BA599002F6AE4 /* Background.swift */; };
@@ -53,6 +53,8 @@
 		81DC8E5321125627002F6AE4 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E5221125627002F6AE4 /* ChoiceView.swift */; };
 		81DC8E5521125637002F6AE4 /* ChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E5421125637002F6AE4 /* ChoiceView.xib */; };
 		81DC8E57211256EC002F6AE4 /* ChoiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */; };
+		81DF302C213C5D6A00C939CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302B213C5D6A00C939CE /* Item.swift */; };
+		81DF302E213C5F3200C939CE /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302D213C5F3200C939CE /* items.swift */; };
 		81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF0210556F800BBDDD7 /* Array.swift */; };
 		81FC7CF52106965E00BBDDD7 /* ExpandableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */; };
 		81FC7CF921078F9100BBDDD7 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF821078F9100BBDDD7 /* ExpandableTableViewCell.swift */; };
@@ -110,7 +112,7 @@
 		8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatStepperView.xib; sourceTree = "<group>"; };
 		8152B3E620DC124D008B7A1A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8152B3E820DC354B008B7A1A /* SpecSheet */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpecSheet; sourceTree = "<group>"; };
-		8152B3EA20DC3B48008B7A1A /* raceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = raceData.swift; sourceTree = "<group>"; };
+		8152B3EA20DC3B48008B7A1A /* races.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = races.swift; sourceTree = "<group>"; };
 		8152B41020DEDA8D008B7A1A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTableViewCell.swift; sourceTree = "<group>"; };
 		8152B41320DEE659008B7A1A /* DropdownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownTableViewCell.xib; sourceTree = "<group>"; };
@@ -123,10 +125,10 @@
 		81BC72A420EEAE8B00B48195 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		81BC72A620F0813700B48195 /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
 		81BC72A720F0813700B48195 /* SpellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellTableViewCell.xib; sourceTree = "<group>"; };
-		81BC72AA20F17F2500B48195 /* spellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spellData.swift; sourceTree = "<group>"; };
+		81BC72AA20F17F2500B48195 /* spells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spells.swift; sourceTree = "<group>"; };
 		81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionViewController.swift; sourceTree = "<group>"; };
 		81BC72AE20F186C000B48195 /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
-		81BC72B020F18DB500B48195 /* classData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classData.swift; sourceTree = "<group>"; };
+		81BC72B020F18DB500B48195 /* classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classes.swift; sourceTree = "<group>"; };
 		81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgrounds.swift; sourceTree = "<group>"; };
 		81DC8E4121080E9E002F6AE4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		81DC8E43210BA599002F6AE4 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
@@ -139,6 +141,8 @@
 		81DC8E5221125627002F6AE4 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
 		81DC8E5421125637002F6AE4 /* ChoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceView.xib; sourceTree = "<group>"; };
 		81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceSelectionViewController.swift; sourceTree = "<group>"; };
+		81DF302B213C5D6A00C939CE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		81DF302D213C5F3200C939CE /* items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
 		81FC7CF0210556F800BBDDD7 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableViewController.swift; sourceTree = "<group>"; };
 		81FC7CF821078F9100BBDDD7 /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
@@ -252,9 +256,10 @@
 		8123674120CA44EE00F7AEFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8152B3EA20DC3B48008B7A1A /* raceData.swift */,
-				81BC72B020F18DB500B48195 /* classData.swift */,
-				81BC72AA20F17F2500B48195 /* spellData.swift */,
+				81DF302D213C5F3200C939CE /* items.swift */,
+				8152B3EA20DC3B48008B7A1A /* races.swift */,
+				81BC72B020F18DB500B48195 /* classes.swift */,
+				81BC72AA20F17F2500B48195 /* spells.swift */,
 				81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */,
 				81DC8E47210BBA64002F6AE4 /* skills.swift */,
 			);
@@ -271,6 +276,7 @@
 				81BC72A220EABF9500B48195 /* DropdownCellData.swift */,
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
+				81DF302B213C5D6A00C939CE /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -597,6 +603,7 @@
 			files = (
 				81DC8E4221080E9E002F6AE4 /* String.swift in Sources */,
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
+				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
 				81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */,
@@ -617,15 +624,16 @@
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				81FC7CF52106965E00BBDDD7 /* ExpandableViewController.swift in Sources */,
-				8152B3EB20DC3B48008B7A1A /* raceData.swift in Sources */,
+				8152B3EB20DC3B48008B7A1A /* races.swift in Sources */,
 				8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */,
-				81BC72AB20F17F2500B48195 /* spellData.swift in Sources */,
+				81BC72AB20F17F2500B48195 /* spells.swift in Sources */,
 				81DC8E4C210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift in Sources */,
 				81DC8E57211256EC002F6AE4 /* ChoiceSelectionViewController.swift in Sources */,
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
 				81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */,
+				81DF302E213C5F3200C939CE /* items.swift in Sources */,
 				81FC7CF921078F9100BBDDD7 /* ExpandableTableViewCell.swift in Sources */,
-				81BC72B120F18DB500B48195 /* classData.swift in Sources */,
+				81BC72B120F18DB500B48195 /* classes.swift in Sources */,
 				81DC8E4F211252AD002F6AE4 /* ChoiceSelectionView.swift in Sources */,
 				81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */,
 				8152B41120DEDA8D008B7A1A /* Int.swift in Sources */,

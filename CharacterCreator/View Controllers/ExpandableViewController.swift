@@ -21,12 +21,19 @@ class ExpandableViewController: UIViewController {
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 190
 
-//		configureNav()
+		navigationItem.rightBarButtonItem?.isEnabled = false
 	}
 
 }
 
 extension ExpandableViewController: UITableViewDelegate, UITableViewDataSource {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if let selectedPaths = tableView.indexPathsForSelectedRows {
+			if !selectedPaths.isEmpty {
+				navigationItem.rightBarButtonItem?.isEnabled = true
+			}
+		}
+	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return tableViewData.count
 	}

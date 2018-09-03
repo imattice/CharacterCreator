@@ -29,24 +29,28 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9u6-q6-C7T">
-                    <rect key="frame" x="135" y="7" width="240" height="128"/>
+                    <rect key="frame" x="305" y="65" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="O51-tl-MGv"/>
+                        <constraint firstAttribute="width" constant="70" id="SI4-OJ-sUM"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="9u6-q6-C7T" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="135" id="6Wy-qK-pcB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="9u6-q6-C7T" secondAttribute="bottom" constant="7" id="J1H-t1-7tp"/>
                 <constraint firstItem="vrW-x1-YrD" firstAttribute="top" secondItem="rDQ-o1-Bii" secondAttribute="bottom" constant="15" id="K8u-On-3gq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rDQ-o1-Bii" secondAttribute="trailing" constant="16" id="KUS-z0-5Cn"/>
                 <constraint firstItem="9u6-q6-C7T" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="UWe-vF-M27"/>
                 <constraint firstItem="rDQ-o1-Bii" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="XSu-hQ-7oq"/>
                 <constraint firstItem="vrW-x1-YrD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="cug-28-GYb"/>
-                <constraint firstItem="9u6-q6-C7T" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="7" id="fa9-2O-1T3"/>
                 <constraint firstItem="rDQ-o1-Bii" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="hkf-oC-YTW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vrW-x1-YrD" secondAttribute="trailing" constant="16" id="qmT-fV-yhX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="descriptionLabel" destination="vrW-x1-YrD" id="0SP-6K-21d"/>
+                <outlet property="imageView" destination="9u6-q6-C7T" id="Xtu-zQ-lXl"/>
                 <outlet property="titleLabel" destination="rDQ-o1-Bii" id="Yak-Nf-KT5"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="316"/>

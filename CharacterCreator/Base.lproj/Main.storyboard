@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wea-iB-bAx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0BV-s2-vtb">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -167,7 +167,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tYS-vK-gpj" firstAttribute="trailing" secondItem="50U-RB-vS5" secondAttribute="trailing" id="0wJ-ou-tv0"/>
                             <constraint firstItem="tYS-vK-gpj" firstAttribute="leading" secondItem="50U-RB-vS5" secondAttribute="leading" id="Aag-lv-I6v"/>
@@ -176,6 +176,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="50U-RB-vS5"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Starting Items" id="vX1-Br-6nE">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="H2f-ws-5G4" userLabel="Next"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="stackView" destination="Tak-9C-CVy" id="Xdb-GG-i37"/>
                     </connections>
@@ -518,7 +521,11 @@
                         <viewLayoutGuide key="safeArea" id="drg-Zv-kMQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="xoN-7N-0ws">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="cIe-J1-J3Z"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="cIe-J1-J3Z">
+                            <connections>
+                                <segue destination="Wea-iB-bAx" kind="show" id="cY6-m7-bFg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="euj-Vm-v8I" id="eo3-JS-Mgc"/>
