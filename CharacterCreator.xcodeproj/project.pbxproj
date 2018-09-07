@@ -55,6 +55,8 @@
 		81DC8E57211256EC002F6AE4 /* ChoiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */; };
 		81DF302C213C5D6A00C939CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302B213C5D6A00C939CE /* Item.swift */; };
 		81DF302E213C5F3200C939CE /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302D213C5F3200C939CE /* items.swift */; };
+		81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302F213D8A4C00C939CE /* FlavorViewController.swift */; };
+		81DF3032214310AD00C939CE /* IdentityFlavorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3031214310AD00C939CE /* IdentityFlavorView.swift */; };
 		81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF0210556F800BBDDD7 /* Array.swift */; };
 		81FC7CF52106965E00BBDDD7 /* ExpandableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */; };
 		81FC7CF921078F9100BBDDD7 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF821078F9100BBDDD7 /* ExpandableTableViewCell.swift */; };
@@ -143,6 +145,8 @@
 		81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceSelectionViewController.swift; sourceTree = "<group>"; };
 		81DF302B213C5D6A00C939CE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		81DF302D213C5F3200C939CE /* items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
+		81DF302F213D8A4C00C939CE /* FlavorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorViewController.swift; sourceTree = "<group>"; };
+		81DF3031214310AD00C939CE /* IdentityFlavorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityFlavorView.swift; sourceTree = "<group>"; };
 		81FC7CF0210556F800BBDDD7 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableViewController.swift; sourceTree = "<group>"; };
 		81FC7CF821078F9100BBDDD7 /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 				81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */,
 				81DC8E45210BB993002F6AE4 /* CollectionSelectionViewController.swift */,
 				81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */,
+				81DF302F213D8A4C00C939CE /* FlavorViewController.swift */,
 				8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */,
 			);
 			path = "View Controllers";
@@ -321,6 +326,7 @@
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
 				8152B41620DEE7F6008B7A1A /* TableViewCells */,
 				81DC8E49210BBF01002F6AE4 /* CollectionViewCells */,
+				81DF3031214310AD00C939CE /* IdentityFlavorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -602,6 +608,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81DC8E4221080E9E002F6AE4 /* String.swift in Sources */,
+				81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */,
+				81DF3032214310AD00C939CE /* IdentityFlavorView.swift in Sources */,
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */,

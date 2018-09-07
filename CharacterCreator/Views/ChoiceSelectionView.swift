@@ -36,7 +36,7 @@ class ChoiceSelectionView: UIView {
 		for (index, choice) in choices.enumerated() {
 			guard let choiceView = Bundle.main.loadNibNamed("ChoiceView", owner: self, options: nil)?.first as? ChoiceView
 				else { print("Could not load nib for \(choice)"); continue }
-			choiceView.titleLabel.text 				= choice.name
+			choiceView.titleLabel.text 				= choice.name.capitalized
 			choiceView.descriptionLabel.text 		= choice.description()
 			choiceView.imageView.image 				= choice.image()
 			choiceView.backgroundColor				= UIColor.lightGray
