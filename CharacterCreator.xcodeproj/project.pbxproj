@@ -56,7 +56,8 @@
 		81DF302C213C5D6A00C939CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302B213C5D6A00C939CE /* Item.swift */; };
 		81DF302E213C5F3200C939CE /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302D213C5F3200C939CE /* items.swift */; };
 		81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302F213D8A4C00C939CE /* FlavorViewController.swift */; };
-		81DF3032214310AD00C939CE /* IdentityFlavorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3031214310AD00C939CE /* IdentityFlavorView.swift */; };
+		81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3031214310AD00C939CE /* FlavorViews.swift */; };
+		81DF30342143369300C939CE /* AppearanceFlavorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF30332143369300C939CE /* AppearanceFlavorView.swift */; };
 		81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF0210556F800BBDDD7 /* Array.swift */; };
 		81FC7CF52106965E00BBDDD7 /* ExpandableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */; };
 		81FC7CF921078F9100BBDDD7 /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF821078F9100BBDDD7 /* ExpandableTableViewCell.swift */; };
@@ -146,7 +147,8 @@
 		81DF302B213C5D6A00C939CE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		81DF302D213C5F3200C939CE /* items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
 		81DF302F213D8A4C00C939CE /* FlavorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorViewController.swift; sourceTree = "<group>"; };
-		81DF3031214310AD00C939CE /* IdentityFlavorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityFlavorView.swift; sourceTree = "<group>"; };
+		81DF3031214310AD00C939CE /* FlavorViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorViews.swift; sourceTree = "<group>"; };
+		81DF30332143369300C939CE /* AppearanceFlavorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceFlavorView.swift; sourceTree = "<group>"; };
 		81FC7CF0210556F800BBDDD7 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		81FC7CF42106965E00BBDDD7 /* ExpandableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableViewController.swift; sourceTree = "<group>"; };
 		81FC7CF821078F9100BBDDD7 /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
@@ -326,7 +328,8 @@
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
 				8152B41620DEE7F6008B7A1A /* TableViewCells */,
 				81DC8E49210BBF01002F6AE4 /* CollectionViewCells */,
-				81DF3031214310AD00C939CE /* IdentityFlavorView.swift */,
+				81DF3031214310AD00C939CE /* FlavorViews.swift */,
+				81DF30332143369300C939CE /* AppearanceFlavorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -609,7 +612,7 @@
 			files = (
 				81DC8E4221080E9E002F6AE4 /* String.swift in Sources */,
 				81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */,
-				81DF3032214310AD00C939CE /* IdentityFlavorView.swift in Sources */,
+				81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */,
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */,
@@ -625,6 +628,7 @@
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				81DC8E46210BB993002F6AE4 /* CollectionSelectionViewController.swift in Sources */,
+				81DF30342143369300C939CE /* AppearanceFlavorView.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81DC8E5321125627002F6AE4 /* ChoiceView.swift in Sources */,

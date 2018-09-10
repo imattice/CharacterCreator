@@ -16,12 +16,53 @@
 import UIKit
 
 class FlavorViewController: UIViewController {
+	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var pageControl: UIPageControl!
 
-    override func viewDidLoad() {
+	@IBOutlet weak var identityFlavorView: IdentityFlavorView!
+	@IBOutlet var flavorViews: [UIView]!
+
+	let colors: [UIColor] = [.red, .yellow, .green, .blue]
+
+
+	override func viewDidLoad() {
         super.viewDidLoad()
+		addViews()
+
+		configureScrollView()
+
+		scrollView.addSubview(identityFlavorView)
+
+
 
         // Do any additional setup after loading the view.
     }
+
+	private func configureScrollView() {
+		scrollView.delegate 						= self
+		scrollView.isPagingEnabled 					= true
+		scrollView.contentSize 						= CGSize(width: view.frame.width,
+																height: view.frame.height * CGFloat(flavorViews.count))
+		scrollView.showsVerticalScrollIndicator	 	= false
+		scrollView.alwaysBounceVertical 			= false
+		scrollView.isDirectionalLockEnabled 		= true
+		scrollView.bounces							= false
+
+
+		pageControl.numberOfPages = flavorViews.count
+		pageControl.transform = CGAffineTransform(rotationAngle: 90°)
+	}
+	private func addViews() {
+		for (index, flavorView) in flavorViews.enumerated() {
+
+			scrollView.addSubview(flavorView)
+
+			flavorView.frame.size.height 	= self.view.frame.size.height - 40
+			flavorView.frame.origin.y		= CGFloat(index) * self.view.bounds.size.height
+
+			flavorView.backgroundColor = colors[index]
+		}
+	}
 
 
     
@@ -36,4 +77,15 @@ class FlavorViewController: UIViewController {
     }
     */
 
+}
+
+extension FlavorViewController: UIScrollViewDelegate {
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		//prevent horizontal scrolls
+		if scrollView.contentOffset.x != 0 {
+			scrollView.contentOffset.x = 0 }
+
+		let pageIndex = scrollView.contentOffset.y / scrollView.frame.size.height
+		pageControl.currentPage = Int(pageIndex)
+	}
 }

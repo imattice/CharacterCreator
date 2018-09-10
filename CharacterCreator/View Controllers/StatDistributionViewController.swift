@@ -37,7 +37,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 		//prevent navigation until stat selection is made
 		navigationItem.rightBarButtonItem?.isEnabled = false
 
-		SETSTATSFORTESTING()
+//		SETSTATSFORTESTING()
 	}
 
 	func SETSTATSFORTESTING() {

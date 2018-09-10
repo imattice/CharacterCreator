@@ -52,6 +52,7 @@ class ChoiceSelectionView: UIView {
 
 extension ChoiceSelectionView: UIScrollViewDelegate {
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		//prevent vertical scrolls
 		if scrollView.contentOffset.y != 0 {
 			scrollView.contentOffset.y = 0 }
 
