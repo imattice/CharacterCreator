@@ -16,6 +16,8 @@ class CollectionSelectionViewController: UIViewController {
 	lazy var proficiencies: [String]? 	= Character.current.background!.proficiencies()
 	lazy var availableSkills: [String]?	= Character.current.class!.skillSelection()
 
+	var selectedProficiencies: [String] = [String]()
+
 	let selectionLimit: Int = {
 		if Character.current.class!.base == "rogue" {
 			return 4 }
@@ -121,7 +123,8 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 
 		//this is a normal selection
 		else {
-
+//			guard let selectedProficiency = collectionViewData[indexPath.row] else { print("invalid selection.  Could not add proficiency."); return }
+			selectedProficiencies.append(collectionViewData[indexPath.row])
 			cell.updateModifierWithProficiency(animated: true)
 			selectionsMade += 1
 			updateProficiencyCountLabel(animated: true)
@@ -129,14 +132,14 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 				navigationItem.rightBarButtonItem?.isEnabled = true
 			}
 		}
-		print(selectionsMade)
-
-
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 		let cell = collectionView.cellForItem(at: indexPath)! as! SkillSelectionCollectionViewCell
 
+		if let removeIndex = selectedProficiencies.index(of: collectionViewData[indexPath.row]) {
+			selectedProficiencies.remove(at: removeIndex)	}
+		else { print("could not remove skill from proficiency list")}
 
 		//prevent selectionsMade counter from going into negative values
 		if selectionsMade != 0 {
@@ -166,6 +169,6 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 extension CollectionSelectionViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-
+		Character.current.proficiencies.append(contentsOf: selectedProficiencies)
 	}
 }

@@ -13,54 +13,19 @@ class Character {
 	var `class`: Class? 		= nil { didSet {
 		UIView.animate(withDuration: 2) {
 			UIApplication.shared.delegate!.window!!.tintColor = UIColor.colorForCurrentClass()
-//			print("Character.swift: global tint is set")
 		}}}
 	var race: Race?				= nil
 	var stats: StatBlock		= StatBlock()
 	var background: Background? = nil
 	var items: [Item]			= [Item]()
 
-	lazy var proficiencyBonus: Int =  { calculateProficiencyBonus() }()
 	var proficiencies: [String] = [String]()
+	lazy var proficiencyBonus: Int =  { calculateProficiencyBonus() }()
 
 	var spellBook: [Spell]		= [Spell]()
 
-	init(class: Class, race: Race, stats: StatBlock, background: Background) {
-		self.class 		= `class`
-		self.race 		= race
-		self.stats  	= stats
-		self.background = background
-
-		proficiencyBonus	= calculateProficiencyBonus()
-	}
-
-	struct StatBlock {
-		var str: Stat		= Stat(value: 0)
-		var con: Stat		= Stat(value: 0)
-		var dex: Stat		= Stat(value: 0)
-		var cha: Stat		= Stat(value: 0)
-		var wis: Stat		= Stat(value: 0)
-		var int: Stat		= Stat(value: 0)
-
-		func stat(from stat: StatType) -> Stat{
-			switch stat {
-			case .str: 		return self.str
-			case .con:		return self.con
-			case .dex:		return self.dex
-			case .cha:		return self.cha
-			case .int:		return self.int
-			case .wis:		return self.wis
-			}
-		}
-
-		struct Stat {
-			let value: Int
-
-			func modifier() -> Int {
-				return value / 2 - 5
-			}
-		}
-	}
+	var flavorText: FlavorText  = FlavorText()
+	var languages: [String] = [String]()
 
 
 
@@ -107,15 +72,80 @@ class Character {
 
 	//the singleton 👻
 	static let current = Character()
-	static let `default` = Character(class: Class(fromString: "wizard", withPath: "school of evocation")!,
-									 race: Race(fromParent: "elf", withSubrace: "high")!,
-									 stats: StatBlock(str: StatBlock.Stat(value: 8),
-													  con: StatBlock.Stat(value: 13),
-													  dex: StatBlock.Stat(value: 10),
-													  cha: StatBlock.Stat(value: 12),
-													  wis: StatBlock.Stat(value: 14),
-													  int: StatBlock.Stat(value: 15)),
-									 background: Background(name: "sage"))
+	static let `default` = Character(default: "default")
+
+	private init(default: String) {
+		self.class 			= Class(fromString: "wizard", withPath: "school of evocation")!
+		self.race 			= Race(fromParent: "elf", withSubrace: "high")!
+		self.stats 			= StatBlock(str: StatBlock.Stat(value: 8),
+								   con: StatBlock.Stat(value: 13),
+								   dex: StatBlock.Stat(value: 10),
+								   cha: StatBlock.Stat(value: 12),
+								   wis: StatBlock.Stat(value: 14),
+								   int: StatBlock.Stat(value: 15))
+		self.background 	= Background(name: "sage")
+		self.items			= [Item(name: "quarterstaff"),
+								 Item(name: "component pouch"),
+								 Item(name: "arcane focus"),
+								 Item(name: "scholar's pack"),
+								 Item(name: "spellbook"),
+								 Item(name: "a bottle of black ink"), Item(name: "a quill"), Item(name: "a small knife"), Item(name: "a inquisitive letter")	]
+		self.proficiencies	= ["arcana", "history"]
+		self.spellBook		= [Spell(name: "Dancing Lights")!, Spell(name: "Fire Bolt")!, Spell(name: "Prestidigitation")!,
+								 Spell(name: "Charm Person")!, Spell(name: "Identify")!, Spell(name: "Sleep")!]
+		self.languages		= ["Common", "Elvan"]
+	}
+
+
+}
+
+
+//Structs
+extension Character {
+	struct StatBlock {
+		var str: Stat		= Stat(value: 0)
+		var con: Stat		= Stat(value: 0)
+		var dex: Stat		= Stat(value: 0)
+		var cha: Stat		= Stat(value: 0)
+		var wis: Stat		= Stat(value: 0)
+		var int: Stat		= Stat(value: 0)
+
+		func stat(from stat: StatType) -> Stat{
+			switch stat {
+			case .str: 		return self.str
+			case .con:		return self.con
+			case .dex:		return self.dex
+			case .cha:		return self.cha
+			case .int:		return self.int
+			case .wis:		return self.wis
+			}
+		}
+
+		struct Stat {
+			let value: Int
+
+			func modifier() -> Int {
+				return value / 2 - 5
+			}
+		}
+	}
+
+	struct FlavorText {
+		var name: String			= "Unknown"
+		var age: String				= "Uknown"
+		var alignment: String		= "Neutral"
+		var personality: String		= "Friendly"
+		var gender: String			= "Unkown"
+		var clothing: String		= "Common garb"
+		var appearance: String		= "Unremarkable"
+		var ideals: String			= "What keeps you going is a mystery."
+		var bonds: String			= "You are interested in seeing new places and meeting new people."
+		var flaws: String			= "You aren't one to admit your own faults."
+		var relationships: String	= "You're known to keep your friends close and your enemies closer."
+		var backstory: String		= "You find it hard to remember your past."
+
+		var image: UIImage?			= UIImage(named: "elf")
+	}
 }
 
 enum StatType: String {

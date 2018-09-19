@@ -57,7 +57,8 @@ class ChoiceSelectionViewController: UIViewController {
 
 
 	func loadChoiceData() {
-		guard let classDict = classData["cleric"] as? [String : Any],
+		guard let currentClass = Character.current.class?.base,
+			let classDict = classData[currentClass] as? [String : Any],
 			let classChoices = classDict["equipment"] as? [[String]]  else { print("Could not initialize race equiptment data"); return }
 
 		var choiceOptions = [[Item]]()
@@ -82,8 +83,6 @@ class ChoiceSelectionViewController: UIViewController {
 			guard let selectionView = selectionView as? ChoiceSelectionView else { print("could not cast to Choice Selection View when getting selections"); continue }
 			let optionIndex = selectionView.pageControl.currentPage
 			let item = selectionView.choices[optionIndex]
-
-			print("Selected Item: \(item.name)")
 		}
 
 		return result

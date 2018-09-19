@@ -20,7 +20,7 @@
 		8152B3C720D9D340008B7A1A /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C620D9D340008B7A1A /* Race.swift */; };
 		8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */; };
 		8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D020D9E097008B7A1A /* DropdownViewController.swift */; };
-		8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */; };
+		8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3D220D9E0B5008B7A1A /* ReviewViewController.swift */; };
 		8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */; };
 		8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */; };
 		8152B3E720DC124D008B7A1A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3E620DC124D008B7A1A /* UIView.swift */; };
@@ -44,7 +44,7 @@
 		81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */; };
 		81DC8E4221080E9E002F6AE4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4121080E9E002F6AE4 /* String.swift */; };
 		81DC8E44210BA599002F6AE4 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E43210BA599002F6AE4 /* Background.swift */; };
-		81DC8E46210BB993002F6AE4 /* CollectionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E45210BB993002F6AE4 /* CollectionSelectionViewController.swift */; };
+		81DC8E46210BB993002F6AE4 /* SkillSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E45210BB993002F6AE4 /* SkillSelectionViewController.swift */; };
 		81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E47210BBA64002F6AE4 /* skills.swift */; };
 		81DC8E4C210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4A210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift */; };
 		81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */; };
@@ -52,7 +52,7 @@
 		81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E502112548A002F6AE4 /* ChoiceSelectionView.xib */; };
 		81DC8E5321125627002F6AE4 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E5221125627002F6AE4 /* ChoiceView.swift */; };
 		81DC8E5521125637002F6AE4 /* ChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E5421125637002F6AE4 /* ChoiceView.xib */; };
-		81DC8E57211256EC002F6AE4 /* ChoiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */; };
+		81DC8E57211256EC002F6AE4 /* InventorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E56211256EC002F6AE4 /* InventorySelectionViewController.swift */; };
 		81DF302C213C5D6A00C939CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302B213C5D6A00C939CE /* Item.swift */; };
 		81DF302E213C5F3200C939CE /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302D213C5F3200C939CE /* items.swift */; };
 		81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302F213D8A4C00C939CE /* FlavorViewController.swift */; };
@@ -110,7 +110,7 @@
 		8152B3C620D9D340008B7A1A /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatDistributionViewController.swift; sourceTree = "<group>"; };
 		8152B3D020D9E097008B7A1A /* DropdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownViewController.swift; sourceTree = "<group>"; };
-		8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		8152B3D220D9E0B5008B7A1A /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatStepperView.swift; sourceTree = "<group>"; };
 		8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatStepperView.xib; sourceTree = "<group>"; };
 		8152B3E620DC124D008B7A1A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgrounds.swift; sourceTree = "<group>"; };
 		81DC8E4121080E9E002F6AE4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		81DC8E43210BA599002F6AE4 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
-		81DC8E45210BB993002F6AE4 /* CollectionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSelectionViewController.swift; sourceTree = "<group>"; };
+		81DC8E45210BB993002F6AE4 /* SkillSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSelectionViewController.swift; sourceTree = "<group>"; };
 		81DC8E47210BBA64002F6AE4 /* skills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = skills.swift; sourceTree = "<group>"; };
 		81DC8E4A210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillSelectionCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		81DC8E502112548A002F6AE4 /* ChoiceSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceSelectionView.xib; sourceTree = "<group>"; };
 		81DC8E5221125627002F6AE4 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
 		81DC8E5421125637002F6AE4 /* ChoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceView.xib; sourceTree = "<group>"; };
-		81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceSelectionViewController.swift; sourceTree = "<group>"; };
+		81DC8E56211256EC002F6AE4 /* InventorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventorySelectionViewController.swift; sourceTree = "<group>"; };
 		81DF302B213C5D6A00C939CE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		81DF302D213C5F3200C939CE /* items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
 		81DF302F213D8A4C00C939CE /* FlavorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorViewController.swift; sourceTree = "<group>"; };
@@ -295,10 +295,10 @@
 				819B065E20E7455300902D4E /* ModalTableViewController.swift */,
 				8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */,
 				81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */,
-				81DC8E45210BB993002F6AE4 /* CollectionSelectionViewController.swift */,
-				81DC8E56211256EC002F6AE4 /* ChoiceSelectionViewController.swift */,
+				81DC8E45210BB993002F6AE4 /* SkillSelectionViewController.swift */,
+				81DC8E56211256EC002F6AE4 /* InventorySelectionViewController.swift */,
 				81DF302F213D8A4C00C939CE /* FlavorViewController.swift */,
-				8152B3D220D9E0B5008B7A1A /* ResultViewController.swift */,
+				8152B3D220D9E0B5008B7A1A /* ReviewViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -615,7 +615,7 @@
 				81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */,
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
-				8152B3D320D9E0B5008B7A1A /* ResultViewController.swift in Sources */,
+				8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
 				81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */,
 				81BC72A320EABF9500B48195 /* DropdownCellData.swift in Sources */,
@@ -627,7 +627,7 @@
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
-				81DC8E46210BB993002F6AE4 /* CollectionSelectionViewController.swift in Sources */,
+				81DC8E46210BB993002F6AE4 /* SkillSelectionViewController.swift in Sources */,
 				81DF30342143369300C939CE /* AppearanceFlavorView.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
@@ -640,7 +640,7 @@
 				8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */,
 				81BC72AB20F17F2500B48195 /* spells.swift in Sources */,
 				81DC8E4C210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift in Sources */,
-				81DC8E57211256EC002F6AE4 /* ChoiceSelectionViewController.swift in Sources */,
+				81DC8E57211256EC002F6AE4 /* InventorySelectionViewController.swift in Sources */,
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
 				81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */,
 				81DF302E213C5F3200C939CE /* items.swift in Sources */,
