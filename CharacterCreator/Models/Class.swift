@@ -14,7 +14,7 @@ struct Class {
 	var castingAbility: StatType?				= nil
 
 
-	var name: String 						{ return "\(path.capitalized) \(base.capitalized)" }
+//	var name: String 						{ return "\(path.capitalized) \(base.capitalized)" }
 	var features: [Int: [ClassFeature]] 	{ return getAllLevelFeatures() }
 
 	init?(fromString className: String, withPath pathName: String) {
@@ -111,7 +111,27 @@ struct Class {
 
 		return result
 	}
+	func name() -> String {
+		return "\(path.capitalized) \(base.capitalized)"
+	}
 
+	func baseDescription() -> String {
+		guard let classDict = classData[base] as? [String : Any],
+			let description = classDict["description"] as? String
+			else { print("could not initialize description for \(base)"); return ""	}
+
+		return description
+	}
+
+	func pathDescription() -> String {
+		guard let classDict = classData[base] as? [String : Any],
+			let pathsDict	= classDict["paths"] as? [String : Any],
+			let pathDict	= pathsDict[path] as? [String : Any],
+			let description = pathDict["description"] as? String
+			else { print("could not initialize description for \(path)"); return ""	}
+
+		return description
+	}
 	func color() -> UIColor {
 		return UIColor.color(for: availableClass)
 	}

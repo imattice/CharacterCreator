@@ -9,8 +9,10 @@
 typealias Subrace = Race
 
 struct Race {
-	let name: String
+	let parentRace: String
+	let subrace: String?
 	let modifiers: [Modifier]
+
 
 	init?(fromParent parentName: String, withSubrace subraceName: String?) {
 		guard let parentData = raceData[parentName] as? [String : Any]
@@ -24,8 +26,8 @@ struct Race {
 				let subraceData = subraceArray[subraceName] as? [String: Any]
 				else { print("invalid value \(subraceName)"); return nil }
 
-			//set the name to a subrace friendly name
-			self.name = "\(subraceName.capitalized) \(parentName.capitalized)"
+			self.subrace = subraceName.lowercased()
+			self.parentRace = parentName.lowercased()
 
 			//check for modifiers from the subrace
 			if let modifiers = subraceData["modifiers"] as? [String: Int] {
@@ -33,7 +35,8 @@ struct Race {
 					allModifiers.append(Modifier(type: modifierData.key, value: modifierData.value, origin: .subrace))			}}}
 		else {
 			//set the name to just be the parent race if no subrace is available
-			self.name = "\(parentName.capitalized)"  }
+			self.subrace 	= nil
+			self.parentRace = parentName.lowercased()  }
 
 		//add modifiers from the parent race
 		if let modifiers = parentData["modifiers"] as? [String : Int] {
@@ -66,10 +69,23 @@ struct Race {
 			modifierArray = modifiers
 		}
 
-
 		//append each modifier to the result
 		for modifier in modifierArray { result += "+ \(modifier.key.capitalized) " }
 
 		return result.replacingOccurrences(of: "_", with: " ").trimmingCharacters(in: .whitespaces)
+	}
+
+	func modifierString() -> String {
+		var result = ""
+
+		for modifier in modifiers {
+			result += "+ \(modifier.value) \(modifier.type)\n"
+		}
+
+		return result.trimmingCharacters(in: .whitespacesAndNewlines)
+	}
+
+	func name() -> String {
+		return "\(subrace?.capitalized ?? "") \(parentRace.capitalized)".trimmingCharacters(in: .whitespaces)
 	}
 }

@@ -132,8 +132,7 @@ class SpellSelectionViewController: UIViewController {
 		spellCountRemaining = setNumberOfSpellsKnown()
 	}
 	func setNumberOfSpellsKnown() -> Int {
-		return Character.default.numberOfSpellsKnown()!
-
+		return Character.default.totalSpellsKnown()
 	}
 }
 

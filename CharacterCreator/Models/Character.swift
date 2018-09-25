@@ -29,19 +29,38 @@ class Character {
 
 
 
-	func numberOfSpellsKnown() -> Int? {
-		if let currentClass = self.class,
-			let castingAbility = currentClass.castingAbility {
-
-			let castingModifier = self.stats.stat(from: castingAbility).modifier()
-
-			return castingModifier + level
-		} else {
-			print("failed to initialize stat from the class \(String(describing: self.class))")
-
-			return level
-		}
+//	func numberOfSpellsKnown() -> Int? {
+//		if let currentClass = self.class,
+//			let castingAbility = currentClass.castingAbility {
+//
+//			let castingModifier = self.stats.stat(from: castingAbility).modifier()
+//
+//			return castingModifier + level
+//		} else {
+//			print("failed to initialize stat from the class \(String(describing: self.class))")
+//
+//			return level
+//		}
+//	}
+	func numberOfCantripsKnown() -> Int {
+		return 3
 	}
+	func totalSpellsKnown() -> Int {
+		let abilityModifier = self.stats.stat(from: self.class!.castingAbility!).modifier()
+		var result = abilityModifier + level
+
+		if result < 1 { result = 1 }
+
+		return result
+	}
+	func numberOfAvailableSpellSlots() -> (spellLevel: Int, slots: Int) {
+		return (spellLevel: 1, slots: 2)
+	}
+	func numberOfSpells(forSpellLevel level: Int) -> Int {
+		let result = spellBook.filter({ $0.level == String(level) })
+		return result.count
+	}
+
 	private func calculateProficiencyBonus() -> Int {
 		//level 1 - 4:   2
 		//level 5 - 8:   3
@@ -77,22 +96,22 @@ class Character {
 	private init(default: String) {
 		self.class 			= Class(fromString: "wizard", withPath: "school of evocation")!
 		self.race 			= Race(fromParent: "elf", withSubrace: "high")!
-		self.stats 			= StatBlock(str: StatBlock.Stat(value: 8),
-								   con: StatBlock.Stat(value: 13),
-								   dex: StatBlock.Stat(value: 10),
-								   cha: StatBlock.Stat(value: 12),
-								   wis: StatBlock.Stat(value: 14),
-								   int: StatBlock.Stat(value: 15))
+		self.stats 			= StatBlock(   str: StatBlock.Stat(value: 8),
+										   con: StatBlock.Stat(value: 13),
+										   dex: StatBlock.Stat(value: 10),
+										   cha: StatBlock.Stat(value: 12),
+										   wis: StatBlock.Stat(value: 14),
+										   int: StatBlock.Stat(value: 15))
 		self.background 	= Background(name: "sage")
 		self.items			= [Item(name: "quarterstaff"),
 								 Item(name: "component pouch"),
 								 Item(name: "arcane focus"),
 								 Item(name: "scholar's pack"),
 								 Item(name: "spellbook"),
-								 Item(name: "a bottle of black ink"), Item(name: "a quill"), Item(name: "a small knife"), Item(name: "a inquisitive letter")	]
+								 Item(name: "a bottle of black ink"), Item(name: "a quill"), Item(name: "a small knife"), Item(name: "a inquisitive letter")]
 		self.proficiencies	= ["arcana", "history"]
 		self.spellBook		= [Spell(name: "Dancing Lights")!, Spell(name: "Fire Bolt")!, Spell(name: "Prestidigitation")!,
-								 Spell(name: "Charm Person")!, Spell(name: "Identify")!, Spell(name: "Sleep")!]
+								 Spell(name: "Charm Person")!, Spell(name: "Identify")!, Spell(name: "Sleep")!, Spell(name: "Magic Missile")!, Spell(name: "Thunderwave")!, Spell(name: "Burning Hands")!]
 		self.languages		= ["Common", "Elvan"]
 	}
 

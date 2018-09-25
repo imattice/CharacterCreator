@@ -14,6 +14,7 @@
 		8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */; };
 		8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */; };
 		8123673420CA44DD00F7AEFC /* CharacterCreatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */; };
+		81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */; };
 		8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C020D9D320008B7A1A /* Modifier.swift */; };
 		8152B3C320D9D32F008B7A1A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C220D9D32F008B7A1A /* Character.swift */; };
 		8152B3C520D9D337008B7A1A /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C420D9D337008B7A1A /* Class.swift */; };
@@ -104,6 +105,7 @@
 		8123672F20CA44DD00F7AEFC /* CharacterCreatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorUITests.swift; sourceTree = "<group>"; };
 		8123673520CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCells.swift; sourceTree = "<group>"; };
 		8152B3C020D9D320008B7A1A /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		8152B3C220D9D32F008B7A1A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8152B3C420D9D337008B7A1A /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				81BC72A720F0813700B48195 /* SpellTableViewCell.xib */,
 				81FC7CF821078F9100BBDDD7 /* ExpandableTableViewCell.swift */,
 				81FC7CFA21078FA800BBDDD7 /* ExpandableTableViewCell.xib */,
+				81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81DC8E5321125627002F6AE4 /* ChoiceView.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
+				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				81FC7CF52106965E00BBDDD7 /* ExpandableViewController.swift in Sources */,

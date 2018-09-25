@@ -18,4 +18,12 @@ struct Background {
 
 		return skills
 	}
+	func description() -> String {
+		guard let backgroundDict = backgroundData[name] as? [String : Any],
+			let reputationDict = backgroundDict["reputation"] as? [String : String],
+			let description = reputationDict.values.first
+		else { print("could not initialize data for background \(name)"); return "" }
+
+		return description
+	}
 }

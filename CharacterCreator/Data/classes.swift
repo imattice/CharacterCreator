@@ -65,7 +65,16 @@ let classData: [String : Any] = [
 			"Aid", "Augury", "Hold Person", "Lesser Restoration", "Prayer of Healing", "Silence", "Spiritual Weapon", "Warding Bond"],
 		"spellcasting": [
 			"casting_ability": "wis",
-		],
+			"cantripCount": [
+				"1" : "3",
+				"4" : "4",
+				"10": "5", ],
+			"spellSlots": [
+				"1": ["1": "2"],
+				"2": ["1": "3"],
+				"3": ["1": "4", "2": "2"],
+				"4": ["2": "3"],
+				"5": ["3": "2"], ] ],
 		"equipment": [
 			["mace", "warhammer"],
 			["scale mail", "leather armor", "chain mail"],
@@ -94,7 +103,7 @@ let classData: [String : Any] = [
 				"Upgrade: Action Surge": "Increase your reserves, allowing you to take an additional Action Surge between rests."], ],
 		"paths": [
 			"champion": [
-				"description": "Tested and proven, the champion knows how to land critical blows frequently.  They focus their training on increasing the physical abilities that will bring them glory and praise.",
+				"description": "Tested and proven, a champion knows how to land devistating blows frequently.  They focus their training on increasing the physical abilities that will bring them glory and praise.",
 				"levels": [
 					"3": [
 						"Improved Critical": "You know exactly where to strike to land a devastating hit and take any opportunity to do so, landing critical hits on a roll of 19 or 20."],
@@ -158,7 +167,7 @@ let classData: [String : Any] = [
 		],
 		"paths": [
 			"school of evocation": [
-				"description": "You want to manipulate the world around to, using the physical makeup of your world.  Evocation magic allows you to manipulate fire and ice, thunder and arcane energy to create devistating effects.",
+				"description": "You manipulate the world around to you, bending the foundational elemental makeup of your world.  Evocation magic allows you to manipulate fire and ice, thunder and arcane energy to create devistating effects.",
 				"levels": [
 					"2": [
 						"Evocation Savant": "Your natural interest expidites the efficiency at which it takes to add an evocation spell to your spellbook.",
@@ -173,8 +182,16 @@ let classData: [String : Any] = [
 			"Levitate", "Magic Weapon", "Misty Step", "Shatter", "Spider Climb", "Suggestion", "Web"],
 		"spellcasting": [
 			"casting_ability": "int",
-
-		],
+			"cantripCount": [
+				"1" : "3",
+				"4" : "4",
+				"10": "5", ],
+			"spellSlots": [
+				"1": ["1": "2"],
+				"2": ["1": "3"],
+				"3": ["1": "4", "2": "2"],
+				"4": ["2": "3"],
+				"5": ["3": "2"], ] ],
 		"equipment": [
 			["quarterstaff", "dagger"],
 			["component pouch", "arcane focus"],

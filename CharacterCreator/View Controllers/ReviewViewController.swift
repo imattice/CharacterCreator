@@ -18,6 +18,8 @@ class ReviewViewController: UIViewController {
 
 		loadTableData()
 
+		tableView.estimatedRowHeight = 100.0
+		tableView.rowHeight = UITableViewAutomaticDimension
     }
 
 	private func loadTableData() {
@@ -49,18 +51,50 @@ class ReviewViewController: UIViewController {
 		let attributes: [String : String]
 	}
 
+	@IBAction func printButtonTapped(_ sender: UITapGestureRecognizer) {
+		print("print this!")
+	}
 }
 
 extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 9
+		return 8
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
 		switch indexPath.row {
 		case 0:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "IdentityCell") as! UITableViewCell
-
+			let cell = tableView.dequeueReusableCell(withIdentifier: "IdentityCell") as! IdentityReviewTableViewCell
+				cell.config()
+			return cell
+		case 1:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell") as! RaceReviewTableViewCell
+				cell.config()
+			return cell
+		case 2:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "ClassCell") as! ClassReviewTableViewCell
+			cell.config()
+			return cell
+		case 3:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "StatCell") as! StatReviewTableViewCell
+				cell.config()
+			return cell
+		case 4:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell") as! SpellReviewTableViewCell
+				cell.config()
+			return cell
+		case 5:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "BackgroundCell") as! BackgroundReviewTableViewCell
+			cell.config()
+			return cell
+		case 6:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell") as! SkillReviewTableViewCell
+			cell.config()
+			return cell
+		case 7:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell") as! InventoryReviewTableViewCell
+			cell.config()
 			return cell
 		default:
 			return UITableViewCell()
