@@ -119,7 +119,7 @@ class DropdownTableViewCell: UITableViewCell {
 				 descriptionLabel.text 			= childData.description
 
 				 cornerButton.setTitle("Level +", for: .normal)
-				 cornerButton.tintColor = UIColor.color(for: AvailableClass(rawValue: parentData.title.lowercased())!)
+				 cornerButton.tintColor = UIColor.color(for: AvailableClass(rawValue: parentData.title.lowercased())!).lightColor()
 
 				if let parentClass = AvailableClass(rawValue: parentData.title.lowercased()) {
 					 highlightColor = UIColor.gradient(for: parentClass)[0]

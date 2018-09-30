@@ -132,7 +132,7 @@ struct Class {
 
 		return description
 	}
-	func color() -> UIColor {
+	func color() -> UIColor.AppColor {
 		return UIColor.color(for: availableClass)
 	}
 	func gradient() -> [UIColor] {

@@ -146,7 +146,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 		cell.configure(for: spell)
 
 		let backgroundView = UIView()
-			backgroundView.backgroundColor 	= UIColor.lightestShadeForCurrentClass()
+			backgroundView.backgroundColor 	= Character.current.class!.color().base()
 		cell.selectedBackgroundView = backgroundView
 
 		return cell
@@ -226,7 +226,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 			headerView.shiftSlider(toSection: section)
 		}
 
-		tableView.backgroundColor = UIColor.darkestShadeForCurrentClass()
+		tableView.backgroundColor = Character.current.class!.color().darkColor()
 	}
 
 //BORING CONFIG STUFF
@@ -269,12 +269,12 @@ extension SpellSelectionViewController {
 
 extension SpellSelectionViewController: Paintable {
 	func paint() {
-		tableView.backgroundColor				= UIColor.lightestShadeForCurrentClass()
+		tableView.backgroundColor				= Character.current.class!.color().lightColor()
 	}
 
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-		let headerColor = UIColor.gradientForCurrentClass()[section]
+		let headerColor = Character.current.class!.color().base()
 		let textColor: UIColor = { if headerColor.isDark { return .white } else { return .black } }()
 
 		headerView.contentView.backgroundColor 	= headerColor

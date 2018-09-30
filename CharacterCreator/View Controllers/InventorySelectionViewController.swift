@@ -23,7 +23,7 @@ class ChoiceSelectionViewController: UIViewController {
 			guard let selectionView = Bundle.main.loadNibNamed("ChoiceSelectionView", owner: self, options: nil)?.first as? ChoiceSelectionView
 				else { print("Could not create selectionView"); continue }
 				selectionView.choices = choice
-				selectionView.backgroundColor = Character.current.class?.color()
+				selectionView.backgroundColor = Character.current.class?.color().base()
 
 			stackView.addArrangedSubview(selectionView)
 

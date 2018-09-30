@@ -50,8 +50,8 @@ class FlavorViewController: UIViewController {
 
 
 		pageControl.numberOfPages 					= flavorViews.count
-		pageControl.pageIndicatorTintColor 			= UIColor.lightestShadeForCurrentClass()
-		pageControl.currentPageIndicatorTintColor 	= UIColor.colorForCurrentClass()
+		pageControl.pageIndicatorTintColor 			= Character.current.class!.color().lightColor()
+		pageControl.currentPageIndicatorTintColor 	= Character.current.class!.color().base()
 
 	}
 	private func addViews() {

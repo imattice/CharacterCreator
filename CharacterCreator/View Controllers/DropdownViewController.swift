@@ -198,7 +198,7 @@ extension DropdownViewController {
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow,
 			let selectedClass = AvailableClass(rawValue: tableViewData[selectedIndexPath.section].parentData.title.lowercased()) else { return }
 
-		let color = UIColor.color(for: selectedClass)
+		let color = UIColor.color(for: selectedClass).base()
 
 		UIView.animate(withDuration: 1,
 					   delay: 0,

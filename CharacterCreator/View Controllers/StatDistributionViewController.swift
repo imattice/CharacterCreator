@@ -67,7 +67,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 			if selectedStatValues.hasDuplicate(viewValue) {
 				view.statValueLabel.textColor = .gray								}
 			else {
-				view.statValueLabel.textColor = UIColor.colorForCurrentClass()		}
+				view.statValueLabel.textColor = Character.current.class!.color().base()		}
 		}
 	}
 

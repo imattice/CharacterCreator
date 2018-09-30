@@ -12,7 +12,7 @@ class Character {
 	var level: Int				= 1
 	var `class`: Class? 		= nil { didSet {
 		UIView.animate(withDuration: 2) {
-			UIApplication.shared.delegate!.window!!.tintColor = UIColor.colorForCurrentClass()
+			UIApplication.shared.delegate!.window!!.tintColor = Character.current.class!.color().base()
 		}}}
 	var race: Race?				= nil
 	var stats: StatBlock		= StatBlock()

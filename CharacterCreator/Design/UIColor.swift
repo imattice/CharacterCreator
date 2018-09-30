@@ -15,12 +15,12 @@ protocol Paintable {
 
 extension UIColor {
 
-	static func color(for targetClass: AvailableClass ) -> UIColor {
+	static func color(for targetClass: AvailableClass ) -> AppColor {
 		switch targetClass {
-		case .cleric: 		return UIColor.MaterialColor.lightBlue
-		case .fighter: 		return UIColor.MaterialColor.red
-		case .rogue: 		return UIColor.MaterialColor.green
-		case .wizard:		return UIColor.MaterialColor.deepPurple
+		case .cleric: 		return UIColor.AppColor.blue
+		case .fighter: 		return UIColor.AppColor.red
+		case .rogue: 		return UIColor.AppColor.green
+		case .wizard:		return UIColor.AppColor.purple
 		}
 	}
 	static func gradient(for targetClass: AvailableClass ) -> [UIColor] {
@@ -31,58 +31,38 @@ extension UIColor {
 		case .wizard:		return UIColor.MaterialColor.deepPurpleGradientColors
 		}
 	}
-	static func colorForCurrentClass() -> UIColor {
-		if let characterClass = Character.current.class,
-			let availableClass = AvailableClass(rawValue: characterClass.base.lowercased()) {
 
-			return color(for: availableClass)
-		}
-		else if let characterClass = Character.default.class,
-			let availableClass = AvailableClass(rawValue: characterClass.base.lowercased()) {
 
-			return color(for: availableClass)}
+	enum AppColor {
+		case red, green, blue, purple
 
-		print("false color")
-		return UIButton(type: .system).tintColor
-	}
-
-	static func gradientForCurrentClass() -> [UIColor] {
-		if let characterClass = Character.current.class,
-			let availableClass = AvailableClass(rawValue: characterClass.base.lowercased()) {
-
-			return gradient(for: availableClass)
-		}
-		else if let characterClass = Character.default.class,
-			let availableClass = AvailableClass(rawValue: characterClass.base.lowercased()) {
-
-			return gradient(for: availableClass)}
-
-		print("false color")
-		return [UIButton(type: .system).tintColor]
-	}
-
-	static func lightestShadeForCurrentClass() -> UIColor {
-		var targetClass: AvailableClass
-		if let currentClass = Character.current.class {
-			targetClass = AvailableClass(rawValue: currentClass.base)!  }
-		else {
-			targetClass = AvailableClass(rawValue: Character.default.class!.base)!
+		func base() -> UIColor {
+			switch self {
+			case .red: 		return UIColor(hex: "DC413A")
+			case .green: 	return UIColor(hex: "47A64D")
+			case .blue:		return UIColor(hex: "3F9AC9")
+			case .purple:	return UIColor(hex: "5C4287")
+			}
 		}
 
-		return gradient(for: targetClass).first!
-	}
-
-	static func darkestShadeForCurrentClass() -> UIColor {
-		var targetClass: AvailableClass
-		if let currentClass = Character.current.class {
-			targetClass = AvailableClass(rawValue: currentClass.base)!  }
-		else {
-			targetClass = AvailableClass(rawValue: Character.default.class!.base)!
+		func lightColor() -> UIColor {
+			switch self {
+			case .red: 		return UIColor(hex: "F4827E")
+			case .green: 	return UIColor(hex: "A4EAA4")
+			case .blue:		return UIColor(hex: "8CD3F3")
+			case .purple:	return UIColor(hex: "8C7CB9")
+			}
 		}
 
-		return gradient(for: targetClass).last!
+		func darkColor() -> UIColor {
+			switch self {
+			case .red: 		return UIColor(hex: "7D251D")
+			case .green: 	return UIColor(hex: "387E3D")
+			case .blue:		return UIColor(hex: "205D7D")
+			case .purple:	return UIColor(hex: "513B7E")
+			}
+		}
 	}
-
 
 
 	//https://www.materialui.co/colors
