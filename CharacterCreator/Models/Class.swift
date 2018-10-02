@@ -27,13 +27,6 @@ struct Class {
 		else {
 			self.castingAttributes = nil 										}
 	}
-//	init(empty: String) {
-//		self.base 				= ""
-//		self.path				= ""
-//		self.availableClass 	= AvailableClass.cleric
-//	}
-
-
 
 	public func getAllLevelFeatures() -> [Int: [ClassFeature]] {
 		var result = [Int: [ClassFeature]]()
@@ -146,7 +139,6 @@ extension Class {
 	struct SpellCastingAttributes {
 		let castingAbility: StatType
 		let initialSpellCount: Int
-//		var spells 						= [Spell]()
 
 		init?(for base: String) {
 

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
+//Used to display Spells and Class Features
 import UIKit
 
 class ModalTableViewController: UITableViewController {
@@ -27,7 +28,7 @@ class ModalTableViewController: UITableViewController {
 		configureNav()
 
 		//enable flexible table view heights
-		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 190
     }
 

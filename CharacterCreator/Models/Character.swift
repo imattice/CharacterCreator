@@ -8,7 +8,6 @@
 import UIKit
 
 class Character {
-	//character creation values
 	var level: Int				= 1
 	var race: Race!
 	var `class`: Class! 		{ didSet { setGlobalTint() }}
@@ -19,7 +18,6 @@ class Character {
 	var proficiencies: [String] = [String]()
 	lazy var proficiencyBonus: Int =  { calculateProficiencyBonus() }()
 
-	//TODO: Spells should probably be moved to the Class
 	var spellBook: [Spell]		= [Spell]()
 
 	var flavorText: FlavorText  = FlavorText()
@@ -28,7 +26,6 @@ class Character {
 
 	private func calculateProficiencyBonus() -> Int {
 		let	result = Int((Double(level) / 4.0).rounded(.up)) + 1
-
 		return result
 	}
 
@@ -85,8 +82,6 @@ class Character {
 	init(race: Race, class: Class) {
 		self.race 	= race
 		self.class 	= `class`
-
-
 	}
 
 	func numberOfCantripsKnown() -> Int {

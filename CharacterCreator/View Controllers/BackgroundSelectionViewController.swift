@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExpandableViewController: UIViewController {
+class BackgroundSelectionViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
 	var tableViewData = [TableViewData]()
@@ -18,7 +18,7 @@ class ExpandableViewController: UIViewController {
 		getTableViewData()
 
 		registerCells()
-		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 190
 
 		navigationItem.rightBarButtonItem?.isEnabled = false
@@ -26,7 +26,7 @@ class ExpandableViewController: UIViewController {
 
 }
 
-extension ExpandableViewController: UITableViewDelegate, UITableViewDataSource {
+extension BackgroundSelectionViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let selectedPaths = tableView.indexPathsForSelectedRows {
 			if !selectedPaths.isEmpty {
@@ -120,7 +120,7 @@ extension ExpandableViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 //MARK: Segue Navigation
-extension ExpandableViewController {
+extension BackgroundSelectionViewController {
 	//MARK: - Segue
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 

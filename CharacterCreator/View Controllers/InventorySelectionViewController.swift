@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChoiceSelectionViewController: UIViewController {
+class InventorySelectionViewController: UIViewController {
 	@IBOutlet weak var stackView: UIStackView!
 
 	var choiceData = [[Item]]()

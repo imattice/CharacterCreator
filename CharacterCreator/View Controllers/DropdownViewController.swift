@@ -26,26 +26,19 @@ class DropdownViewController: UIViewController {
         super.viewDidLoad()
 
 		//ensure there is a data type; otherwise, remove the controller
-		guard let dataType = dataType else { print("cannot do a thing with \(self.dataType!)"); navigationController?.popViewController(animated: true);  return }
+		guard let dataTypeString = dataType,
+			let dataType = DataType(rawValue: dataTypeString)
+			else { print("cannot present data with \(self.dataType!)"); navigationController?.popViewController(animated: true);  return }
 
 		if let selectedRace = selectedRace { print("selected race: \(selectedRace.name())")}
 
 		//configure the view controller based on the intended display data
-		switch dataType.lowercased() {
-		case "race":
-			tableViewData = DropdownCellData.createArray(forDataType: .race)
-
-		case "class":
-			tableViewData = DropdownCellData.createArray(forDataType: .class)
-
-		default:
-			break;
-		}
+		tableViewData = DropdownCellData.createArray(forDataType: dataType)
 
 		//set up data and cells
 		registerCells()
 
-		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 190
 
 		//add a footer view to give space to the last row to expand
@@ -272,8 +265,7 @@ struct DropdownCellData {
 						childArray.append((title: childData.key, description: description))
 					}
 				}
-
-				childData = childArray
+				childData = childArray.sorted(by: { $0.title < $1.title })
 			}
 
 			//create the data object here so we can add to it if there is child data
@@ -286,7 +278,7 @@ struct DropdownCellData {
 			result.append(parentData)
 		}
 
-		return result
+		return result.sorted(by: { $0.parentData.title < $1.parentData.title })
 	}
 
 }

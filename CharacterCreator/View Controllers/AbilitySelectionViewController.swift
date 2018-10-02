@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionSelectionViewController: UIViewController {
+class AbilitySelectionViewController: UIViewController {
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var proficiencyCountLabel: UILabel!
 	let collectionViewData = skills.sorted(by: { $0 < $1 } )
@@ -43,7 +43,7 @@ class CollectionSelectionViewController: UIViewController {
 	func updateProficiencyCountLabel(animated: Bool) {
 		let currentValue = Int(proficiencyCountLabel.text!)!
 		let nextValue = selectionLimit - selectionsMade
-		let animationDirection: UIViewAnimationOptions = currentValue > nextValue ? .transitionFlipFromTop : .transitionFlipFromBottom
+		let animationDirection: UIView.AnimationOptions = currentValue > nextValue ? .transitionFlipFromTop : .transitionFlipFromBottom
 
 		proficiencyCountLabel.text = String(selectionLimit - selectionsMade)
 
@@ -79,7 +79,7 @@ class CollectionSelectionViewController: UIViewController {
 	}
 }
 
-extension CollectionSelectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension AbilitySelectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return collectionViewData.count
 	}
@@ -166,7 +166,7 @@ extension CollectionSelectionViewController: UICollectionViewDelegate, UICollect
 }
 
 //Navigation
-extension CollectionSelectionViewController {
+extension AbilitySelectionViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
 		Character.current.proficiencies.append(contentsOf: selectedProficiencies)

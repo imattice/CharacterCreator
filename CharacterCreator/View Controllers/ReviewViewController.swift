@@ -19,7 +19,7 @@ class ReviewViewController: UIViewController {
 		loadTableData()
 
 		tableView.estimatedRowHeight = 100.0
-		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.rowHeight = UITableView.automaticDimension
     }
 
 	private func loadTableData() {

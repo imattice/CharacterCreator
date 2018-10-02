@@ -105,7 +105,7 @@
         <!--Background Selection-->
         <scene sceneID="5yF-Fc-AKj">
             <objects>
-                <viewController storyboardIdentifier="Background" title="Background Selection" id="Fpf-gs-cWf" customClass="ExpandableViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Background" title="Background Selection" id="Fpf-gs-cWf" customClass="BackgroundSelectionViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xbQ-OR-rlJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,7 +147,7 @@
         <!--Inventory Selection-->
         <scene sceneID="RLY-UI-1Kv">
             <objects>
-                <viewController storyboardIdentifier="Inventory" title="Inventory Selection" id="Wea-iB-bAx" customClass="ChoiceSelectionViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Inventory" title="Inventory Selection" id="Wea-iB-bAx" customClass="InventorySelectionViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qBW-9Y-pfb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -449,7 +449,7 @@
         <!--Ability  Selection-->
         <scene sceneID="or0-sF-RCG">
             <objects>
-                <viewController storyboardIdentifier="AbilitySelection" title="Ability  Selection" id="5QB-Hv-8cA" customClass="CollectionSelectionViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AbilitySelection" title="Ability  Selection" id="5QB-Hv-8cA" customClass="AbilitySelectionViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZJD-bE-LeS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
