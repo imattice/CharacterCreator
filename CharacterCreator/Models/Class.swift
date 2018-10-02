@@ -11,10 +11,8 @@ struct Class {
 	let base: String
 	let path: String
 	let availableClass: AvailableClass
-	var castingAbility: StatType?				= nil
+	var castingAttributes: SpellCastingAttributes?
 
-
-//	var name: String 						{ return "\(path.capitalized) \(base.capitalized)" }
 	var features: [Int: [ClassFeature]] 	{ return getAllLevelFeatures() }
 
 	init?(fromString className: String, withPath pathName: String) {
@@ -24,19 +22,16 @@ struct Class {
 		self.path				= pathName.lowercased()
 		self.availableClass 	= AvailableClass(rawValue: base.lowercased())!
 
-
-		if let classDict = classData[base] as? [String:Any],
-			let spellcastingDict = classDict["spellcasting"] as? [String:Any],
-			let castingAbilityData = spellcastingDict["casting_ability"] as? String {
-
-			guard let castingAbility = StatType(rawValue: castingAbilityData)
-				else { print("could not convert \(castingAbilityData) to Stat"); return }
-
-			self.castingAbility = castingAbility
-
-
-		} else { print("Could not initialize casting data for the \(base) class") }
+		if let spellcastingAttributes = SpellCastingAttributes(for: base) {
+			self.castingAttributes = spellcastingAttributes						}
+		else {
+			self.castingAttributes = nil 										}
 	}
+//	init(empty: String) {
+//		self.base 				= ""
+//		self.path				= ""
+//		self.availableClass 	= AvailableClass.cleric
+//	}
 
 
 
@@ -111,6 +106,7 @@ struct Class {
 
 		return result
 	}
+
 	func name() -> String {
 		return "\(path.capitalized) \(base.capitalized)"
 	}
@@ -143,6 +139,29 @@ struct Class {
 		guard let skills = dict["skills"] as? [String] else { print("could not get skills for \(base)"); return nil }
 
 		return skills
+	}
+}
+
+extension Class {
+	struct SpellCastingAttributes {
+		let castingAbility: StatType
+		let initialSpellCount: Int
+//		var spells 						= [Spell]()
+
+		init?(for base: String) {
+
+			guard let classDict = classData[base] as? [String: Any],
+				let spellcastingDict = classDict["spellcasting"] as? [String : Any]
+				else { print("no casting data for \(base)"); return nil }
+			guard let castingAbilityData = spellcastingDict["casting_ability"] as? String,
+				let castingAbility = StatType(rawValue: castingAbilityData),
+				let spellCountData = spellcastingDict["initialSpellCount"] as? String,
+				let initialSpellCount = Int(spellCountData)
+				else { print("failed to initialize casting data for class \(base)."); return nil }
+
+			self.castingAbility 		= castingAbility
+			self.initialSpellCount 		= initialSpellCount
+		}
 	}
 }
 

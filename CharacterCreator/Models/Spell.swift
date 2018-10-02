@@ -18,7 +18,7 @@ struct Spell {
 	let duration: String
 	var damage: String? 	= nil
 
-	init?(name: String) {
+	init?(_ name: String) {
 		//get the spell info
 		guard let targetSpell = spellData[name] as? [String: Any] else { print("could not find data for \(name)"); return nil }
 		let level 		= targetSpell["level"] 			as! String

@@ -10,11 +10,8 @@ import UIKit
 class Character {
 	//character creation values
 	var level: Int				= 1
-	var `class`: Class? 		= nil { didSet {
-		UIView.animate(withDuration: 2) {
-			UIApplication.shared.delegate!.window!!.tintColor = Character.current.class!.color().base()
-		}}}
-	var race: Race?				= nil
+	var race: Race!
+	var `class`: Class! 		{ didSet { setGlobalTint() }}
 	var stats: StatBlock		= StatBlock()
 	var background: Background? = nil
 	var items: [Item]			= [Item]()
@@ -22,53 +19,15 @@ class Character {
 	var proficiencies: [String] = [String]()
 	lazy var proficiencyBonus: Int =  { calculateProficiencyBonus() }()
 
+	//TODO: Spells should probably be moved to the Class
 	var spellBook: [Spell]		= [Spell]()
 
 	var flavorText: FlavorText  = FlavorText()
 	var languages: [String] = [String]()
 
 
-
-//	func numberOfSpellsKnown() -> Int? {
-//		if let currentClass = self.class,
-//			let castingAbility = currentClass.castingAbility {
-//
-//			let castingModifier = self.stats.stat(from: castingAbility).modifier()
-//
-//			return castingModifier + level
-//		} else {
-//			print("failed to initialize stat from the class \(String(describing: self.class))")
-//
-//			return level
-//		}
-//	}
-	func numberOfCantripsKnown() -> Int {
-		return 3
-	}
-	func totalSpellsKnown() -> Int {
-		let abilityModifier = self.stats.stat(from: self.class!.castingAbility!).modifier()
-		var result = abilityModifier + level
-
-		if result < 1 { result = 1 }
-
-		return result
-	}
-	func numberOfAvailableSpellSlots() -> (spellLevel: Int, slots: Int) {
-		return (spellLevel: 1, slots: 2)
-	}
-	func numberOfSpells(forSpellLevel level: Int) -> Int {
-		let result = spellBook.filter({ $0.level == String(level) })
-		return result.count
-	}
-
 	private func calculateProficiencyBonus() -> Int {
-		//level 1 - 4:   2
-		//level 5 - 8:   3
-		//level 9 - 12:  4
-		//level 13 - 16: 5
-		//level 17 - 20: 6
 		let	result = Int((Double(level) / 4.0).rounded(.up)) + 1
-
 
 		return result
 	}
@@ -83,8 +42,16 @@ class Character {
 
 		return result
 	}
+	private func setGlobalTint() {
+		guard let delegate = UIApplication.shared.delegate,
+			let delegateWindow = delegate.window,
+			let window = delegateWindow else { return }
+		UIView.animate(withDuration: 2) {
+			window.tintColor = Character.current.class.color().base()
+		}
+	}
 
-	public init() { }
+	public init() {}
 
 	//static information
 	static var levelMax: Int { get { return 20 } }
@@ -102,17 +69,45 @@ class Character {
 										   cha: StatBlock.Stat(value: 12),
 										   wis: StatBlock.Stat(value: 14),
 										   int: StatBlock.Stat(value: 15))
-		self.background 	= Background(name: "sage")
-		self.items			= [Item(name: "quarterstaff"),
-								 Item(name: "component pouch"),
-								 Item(name: "arcane focus"),
-								 Item(name: "scholar's pack"),
-								 Item(name: "spellbook"),
-								 Item(name: "a bottle of black ink"), Item(name: "a quill"), Item(name: "a small knife"), Item(name: "a inquisitive letter")]
+		self.background 	= Background("sage")
+		self.items			= [Item("quarterstaff"),
+								 Item("component pouch"),
+								 Item("arcane focus"),
+								 Item("scholar's pack"),
+								 Item("spellbook"),
+								 Item("a bottle of black ink"), Item("a quill"), Item("a small knife"), Item("a inquisitive letter")]
 		self.proficiencies	= ["arcana", "history"]
-		self.spellBook		= [Spell(name: "Dancing Lights")!, Spell(name: "Fire Bolt")!, Spell(name: "Prestidigitation")!,
-								 Spell(name: "Charm Person")!, Spell(name: "Identify")!, Spell(name: "Sleep")!, Spell(name: "Magic Missile")!, Spell(name: "Thunderwave")!, Spell(name: "Burning Hands")!]
+		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
+								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
 		self.languages		= ["Common", "Elvan"]
+	}
+
+	init(race: Race, class: Class) {
+		self.race 	= race
+		self.class 	= `class`
+
+
+	}
+
+	func numberOfCantripsKnown() -> Int {
+		return 3
+	}
+	func totalSpellsKnown() -> Int {
+		guard let castingAttributes = self.class.castingAttributes else { return 0 }
+
+		let abilityModifier = stats.stat(from: castingAttributes.castingAbility).modifier()
+		var result = abilityModifier + level
+
+		if result < 1 { result = 1 }
+
+		return result
+	}
+	func numberOfAvailableSpellSlots() -> (spellLevel: Int, slots: Int) {
+		return (spellLevel: 1, slots: 2)
+	}
+	func numberOfSpells(forSpellLevel level: Int) -> Int {
+		let result = spellBook.filter({ $0.level == String(level) })
+		return result.count
 	}
 
 

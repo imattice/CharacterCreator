@@ -11,7 +11,7 @@ struct Item {
 	let name: String
 	let type: ItemType
 
-	init(name: String) {
+	init(_ name: String) {
 		if let itemDict = itemData[name] as? [String : Any],
 			let typeKey = itemDict["type"] as? String,
 			let type = ItemType(rawValue: typeKey){

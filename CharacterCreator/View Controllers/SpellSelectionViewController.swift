@@ -41,8 +41,7 @@ class SpellSelectionViewController: UIViewController {
 //MARK: - SPELL MANAGEMENT
 	//this seems like a clumsy way to handle this.  :/
 	private func getSpellData() {
-		guard let currentClass = Character.default.class,
-			let classDict = classData[currentClass.base] as? [String: Any],
+		guard let classDict = classData[Character.default.class.base] as? [String: Any],
 			let classSpells = classDict["spells"] as? [String]
 		else { return }
 
@@ -58,7 +57,7 @@ class SpellSelectionViewController: UIViewController {
 							   9: [Spell]()]
 
 		for spellName in classSpells {
-			guard let spell = Spell(name: spellName) else { continue }
+			guard let spell = Spell(spellName) else { continue }
 
 			//add the spell to the correct index
 			guard let levelIndex = Int(spell.level),
@@ -79,17 +78,17 @@ class SpellSelectionViewController: UIViewController {
 
 	func addToSpellbook(_ spell: Spell) {
 		//check if the spell is already in the book to avoid duplicates
-		if Character.default.spellBook.contains(where: { $0.name == spell.name }) {print("spellbook already contains \(spell.name)"); return}
+		if Character.current.spellBook.contains(where: { $0.name == spell.name }) {print("spellbook already contains \(spell.name)"); return}
 
 		//add the spell
-		Character.default.spellBook.append(spell)
+		Character.current.spellBook.append(spell)
 
 		//decrease the counter
 		subtractSpellsKnown()
 	}
 	func removeFromSpellbook(_ spell: Spell) {
 		//ensure the spell is in the spellbook before removing it
-		guard let index = Character.default.spellBook.index(where: { $0.name == spell.name }) else { print("\(spell.name) not in spellbook"); return }
+		guard let index = Character.current.spellBook.index(where: { $0.name == spell.name }) else { print("\(spell.name) not in spellbook"); return }
 		Character.default.spellBook.remove(at: index)
 
 		//increase the counter
@@ -146,7 +145,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 		cell.configure(for: spell)
 
 		let backgroundView = UIView()
-			backgroundView.backgroundColor 	= Character.current.class!.color().base()
+			backgroundView.backgroundColor 	= Character.current.class.color().base()
 		cell.selectedBackgroundView = backgroundView
 
 		return cell
@@ -226,7 +225,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 			headerView.shiftSlider(toSection: section)
 		}
 
-		tableView.backgroundColor = Character.current.class!.color().darkColor()
+		tableView.backgroundColor = Character.current.class.color().darkColor()
 	}
 
 //BORING CONFIG STUFF
@@ -237,7 +236,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 	func numberOfSections(in tableView: UITableView) -> Int { return tableViewData.count }
 
 	private func registerCells() {
-		tableView.register(UINib(nibName: String(describing: SpellTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "SpellCell")  }
+		tableView.register(UINib(nibName: String(describing: SpellTableViewCell.self),bundle: nil), forCellReuseIdentifier: "SpellCell")  }
 
 	struct SpellTableData {
 		let level: Int
@@ -269,12 +268,12 @@ extension SpellSelectionViewController {
 
 extension SpellSelectionViewController: Paintable {
 	func paint() {
-		tableView.backgroundColor				= Character.current.class!.color().lightColor()
+		tableView.backgroundColor				= Character.current.class.color().lightColor()
 	}
 
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-		let headerColor = Character.current.class!.color().base()
+		let headerColor = Character.current.class.color().base()
 		let textColor: UIColor = { if headerColor.isDark { return .white } else { return .black } }()
 
 		headerView.contentView.backgroundColor 	= headerColor

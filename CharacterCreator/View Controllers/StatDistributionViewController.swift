@@ -67,7 +67,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 			if selectedStatValues.hasDuplicate(viewValue) {
 				view.statValueLabel.textColor = .gray								}
 			else {
-				view.statValueLabel.textColor = Character.current.class!.color().base()		}
+				view.statValueLabel.textColor = Character.current.class.color().base()		}
 		}
 	}
 
@@ -109,12 +109,13 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 	@IBAction func navigateToNextController(_ sender: UIBarButtonItem) {
 		setCharacterStats()
 
-		if let characterClass = Character.current.class,
-			let navigationController = navigationController,
-			let storyboard = storyboard {
+		if let navigationController = navigationController,
+			let storyboard = storyboard,
+			let characterClass = Character.current.class {
+
 
 			//if the caster is a spellcaster, push to the Spell Selection Controller
-			if characterClass.castingAbility != nil {
+			if characterClass.castingAttributes != nil {
 				let vc = storyboard.instantiateViewController(withIdentifier: "SpellSelection")
 				vc.title = "\(characterClass.base.capitalized) Spells"
 

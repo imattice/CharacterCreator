@@ -14,12 +14,12 @@ class CollectionSelectionViewController: UIViewController {
 	let collectionViewData = skills.sorted(by: { $0 < $1 } )
 
 	lazy var proficiencies: [String]? 	= Character.current.background!.proficiencies()
-	lazy var availableSkills: [String]?	= Character.current.class!.skillSelection()
+	lazy var availableSkills: [String]?	= Character.current.class.skillSelection()
 
 	var selectedProficiencies: [String] = [String]()
 
 	let selectionLimit: Int = {
-		if Character.current.class!.base == "rogue" {
+		if Character.current.class.base == "rogue" {
 			return 4 }
 		else {
 			return 2 }}()

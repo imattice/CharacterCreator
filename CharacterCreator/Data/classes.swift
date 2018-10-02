@@ -69,6 +69,7 @@ let classData: [String : Any] = [
 				"1" : "3",
 				"4" : "4",
 				"10": "5", ],
+			"initialSpellCount": "6",
 			"spellSlots": [
 				"1": ["1": "2"],
 				"2": ["1": "3"],
@@ -186,6 +187,7 @@ let classData: [String : Any] = [
 				"1" : "3",
 				"4" : "4",
 				"10": "5", ],
+			"initialSpellCount": "6",
 			"spellSlots": [
 				"1": ["1": "2"],
 				"2": ["1": "3"],

@@ -30,10 +30,10 @@ class SkillSelectionCollectionViewCell: UICollectionViewCell {
 		var backgroundColor: UIColor = .lightGray
 
 		if isAvailable {
-			backgroundColor = Character.current.class!.color().lightColor()
+			backgroundColor = Character.current.class.color().lightColor()
 		}
 		if isSelected {
-			backgroundColor = Character.current.class!.color().base()
+			backgroundColor = Character.current.class.color().base()
 		}
 
 		UIView.transition(with: contentView,

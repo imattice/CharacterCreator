@@ -23,7 +23,7 @@ class ChoiceSelectionViewController: UIViewController {
 			guard let selectionView = Bundle.main.loadNibNamed("ChoiceSelectionView", owner: self, options: nil)?.first as? ChoiceSelectionView
 				else { print("Could not create selectionView"); continue }
 				selectionView.choices = choice
-				selectionView.backgroundColor = Character.current.class?.color().base()
+				selectionView.backgroundColor = Character.current.class.color().base()
 
 			stackView.addArrangedSubview(selectionView)
 
@@ -52,13 +52,12 @@ class ChoiceSelectionViewController: UIViewController {
 							   constant: 200).isActive = true
 		}
 
-		getSelections()
+		selections = getSelections()
 	}
 
 
 	func loadChoiceData() {
-		guard let currentClass = Character.current.class?.base,
-			let classDict = classData[currentClass] as? [String : Any],
+		guard let classDict = classData[Character.current.class.base] as? [String : Any],
 			let classChoices = classDict["equipment"] as? [[String]]  else { print("Could not initialize race equiptment data"); return }
 
 		var choiceOptions = [[Item]]()
@@ -67,7 +66,7 @@ class ChoiceSelectionViewController: UIViewController {
 			var choices = [Item]()
 
 			for choice in options {
-				let item = Item(name: choice)
+				let item = Item(choice)
 				choices.append(item)
 			}
 
@@ -77,12 +76,14 @@ class ChoiceSelectionViewController: UIViewController {
 	}
 
 	func getSelections() -> [Item] {
-		let result = [Item]()
+		var result = [Item]()
 
 		for selectionView in stackView.arrangedSubviews {
 			guard let selectionView = selectionView as? ChoiceSelectionView else { print("could not cast to Choice Selection View when getting selections"); continue }
 			let optionIndex = selectionView.pageControl.currentPage
 			let item = selectionView.choices[optionIndex]
+
+			result.append(item)
 		}
 
 		return result

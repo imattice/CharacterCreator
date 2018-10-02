@@ -12,6 +12,10 @@ import Foundation
 struct Background {
 	let name: String
 
+	init(_ name: String) {
+		self.name = name
+	}
+
 	func proficiencies() -> [String]? {
 		guard let dict = backgroundData[name] as? [String: Any] else { print("could not initialize background data"); return nil }
 		guard let skills = dict["skills"] as? [String] else { print("Could not get skills froom \(name)"); return nil }

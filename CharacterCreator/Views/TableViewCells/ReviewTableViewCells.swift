@@ -25,9 +25,9 @@ class RaceReviewTableViewCell: UITableViewCell, Configurable {
 	@IBOutlet weak var detailLabel: UILabel!
 
 	func config() {
-		raceImageView.image = UIImage(named: (Character.default.race?.parentRace)!)
-		nameLabel.text		= Character.default.race?.name()
-		detailLabel.text	= Character.default.race?.modifierString()
+		raceImageView.image = UIImage(named: Character.default.race.parentRace)
+		nameLabel.text		= Character.default.race.name()
+		detailLabel.text	= Character.default.race.modifierString()
 	}
 }
 class ClassReviewTableViewCell: UITableViewCell {
@@ -37,14 +37,14 @@ class ClassReviewTableViewCell: UITableViewCell {
 	@IBOutlet weak var detailTextView: UITextView!
 
 	func config() {
-		classImageView.image	= UIImage(named: (Character.default.class?.base)!)
+		classImageView.image	= UIImage(named: Character.default.class.base)
 
 		let pathRect = CGRect(x: 0, y: 0, width: classImageView.frame.width, height: classImageView.frame.height / 2)
 		let exclusionPath = UIBezierPath(rect: pathRect)
 		detailTextView.textContainer.exclusionPaths = [exclusionPath]
 
-		nameLabel.text			= Character.default.class?.name()
-		detailTextView.text		= "\(Character.default.class!.baseDescription())\n\n\(Character.default.class!.pathDescription())"
+		nameLabel.text			= Character.default.class.name()
+		detailTextView.text		= "\(Character.default.class.baseDescription())\n\n\(Character.default.class.pathDescription())"
 	}
 }
 class StatReviewTableViewCell: UITableViewCell {
@@ -75,8 +75,12 @@ class SpellReviewTableViewCell: UITableViewCell {
 	}
 
 	private func spellList(forSpellLevel level: Int) -> String {
+		guard Character.default.class.castingAttributes != nil
+			else { return "\(Character.current.class.name())'s are not able to cast spells."}
+		guard Character.current.spellBook.isEmpty else { return "\(Character.current.flavorText.name) does not know any spells." }
+
 		var result = ""
-		let spells = Character.default.spellBook.filter({ $0.level == String(level) })
+		let spells = Character.current.spellBook.filter({ $0.level == String(level) })
 
 		for spell in spells {
 			result += "\(spell.name)  |  "

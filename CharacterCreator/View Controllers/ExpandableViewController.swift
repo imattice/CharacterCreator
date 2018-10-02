@@ -126,7 +126,7 @@ extension ExpandableViewController {
 
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
 		let data = tableViewData[selectedIndexPath.section]
-		let background = Background(name: data.title)
+		let background = Background(data.title)
 
 		Character.current.background = background
 		guard let proficiencies = background.proficiencies() else { return }

@@ -12,14 +12,14 @@ class ModalTableViewController: UITableViewController {
 	@IBOutlet weak var backButton: UIBarButtonItem!
 
 	var tableViewData = [TableViewData]()
-	var target: Class?			= Character.default.class!  //nil
+	var target: Class?			= Character.default.class  //nil
 	var dataType: DataType?		= .ClassFeature				//nil
 
 	
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		Character.default.spellBook = [Spell(name: "Acid Splash")!, Spell(name: "Fire Bolt")!, Spell(name: "Charm Person")!, Spell(name: "Magic Missile")!, Spell(name: "Blur")!]
+//		Character.default.class.spellCasting?.spells = [Spell(name: "Acid Splash")!, Spell(name: "Fire Bolt")!, Spell(name: "Charm Person")!, Spell(name: "Magic Missile")!, Spell(name: "Blur")!]
 
 		registerCells()
 		getTableData()
@@ -100,6 +100,9 @@ extension ModalTableViewController {
 	}
 
 	private func getTableData() {
+		guard Character.default.class.castingAttributes != nil
+			else { print("no casting attributes available for \(Character.default.class.base)"); return }
+
 		if dataType == .ClassFeature {
 			//fill the tableviewdatasource with delicious content
 			guard let target = target else {print("No class set"); return }
@@ -113,7 +116,7 @@ extension ModalTableViewController {
 		if dataType == .Spellbook {
 			for level in 0...Spell.maxLevel {
 				var spells = [Spell]()
-				for spell in Character.default.spellBook {
+				for spell in Character.current.spellBook {
 					if spell.level == String(level) { spells.append(spell)}
 				}
 				if !spells.isEmpty {
