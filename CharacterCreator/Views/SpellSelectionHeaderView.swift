@@ -15,42 +15,81 @@ class SpellSelectionHeaderView: UIView {
 	var view: UIView!
 
 	@IBOutlet var levelViews: [UIView]!
-	@IBOutlet weak var sliderView: UIView!
-	@IBOutlet weak var spellCountLabel: UILabel!
-	@IBOutlet weak var spellbookView: UIView!
+	@IBOutlet weak var slotSlider: UIView!
+	@IBOutlet weak var spellbookCountContainer: UIView!
+	@IBOutlet weak var cantripCountContainer: UIView!
+	@IBOutlet weak var cantripCountLabel: UILabel!
+	@IBOutlet weak var spellbookCountLabel: UILabel!
 
+	@IBOutlet var spellSlotLabels: [UILabel]!
 	@IBOutlet weak var sliderLeftConstraint: NSLayoutConstraint!
-	@IBOutlet weak var sliderHeightConstraint: NSLayoutConstraint!
-	@IBOutlet weak var sliderWidthConstraint: NSLayoutConstraint!
+
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		xibSetup()
 
-		setInitialSliderConstraints()
+		configureSpellSlotLabels()
+		setUpSlider()
 
-		sliderView.backgroundColor 	= Character.current.class.color().lightColor()
-		sliderView.alpha			= 0.5
 	}
 
-	func shiftSlider(toSection section: Int) {
-		let setColor = Character.current.class.gradient()
+	func shiftSlotSlider(toSection section: Int) {
+		let setColor = Character.default.class.gradient()
 
-		sliderLeftConstraint.constant	= sliderWidthConstraint.constant * CGFloat(section)
+		sliderLeftConstraint.constant	= slotSlider.frame.width * CGFloat(section)
 
 		UIView.animate(withDuration: 0.25) {
-			self.sliderView.backgroundColor = setColor[section]
 			self.layoutIfNeeded()
+
+			guard section >= 0 else { return }
+
+			self.slotSlider.backgroundColor = setColor[section]
 		}
 	}
 
-	private func setInitialSliderConstraints() {
-		let firstLevelView = levelViews[0]
-		let width = firstLevelView.bounds.width
-		let height = firstLevelView.bounds.height
+	func highlight(countView view: CountView) {
+		let enabledColor = Character.default.class.color().lightColor()
+		let disabledColor = UIColor.white
+		let cornerRadius = CGFloat(5.0)
+		var enabledView: UIView { switch view {
+			case .spellbook: 	return spellbookCountContainer
+			case .cantrip: 		return cantripCountContainer			}}
+		var disabledView: UIView { switch view {
+			case .spellbook: 	return cantripCountContainer
+			case .cantrip: 		return spellbookCountContainer			}}
 
-		sliderHeightConstraint.constant = height
-		sliderWidthConstraint.constant	= width
-		sliderLeftConstraint.constant	= 0
+		UIView.animate(withDuration: 0.25) {
+			enabledView.backgroundColor = enabledColor
+			enabledView.layer.cornerRadius = cornerRadius
+
+			disabledView.backgroundColor	= disabledColor
+			disabledView.layer.cornerRadius = 0
+		}
+	}
+
+	enum CountView {
+		case cantrip, spellbook
+	}
+
+
+	private func setUpSlider() {
+		slotSlider.backgroundColor 	= Character.default.class.color().lightColor()
+		slotSlider.alpha			= 0.5
+		shiftSlotSlider(toSection: 0)
+
+//		countSlider.backgroundColor		= Character.default.class.color().lightColor()
+//		countSlider.alpha				= 0.5
+	}
+	private func configureSpellSlotLabels() {
+		guard let castingAttributes = Character.default.class.castingAttributes else { print("could not label slots"); return }
+
+		for (index, label) in spellSlotLabels.enumerated() {
+			let spellLevel = index + 1
+			if let slotCount = castingAttributes.spellSlots.filter({ $0.SpellLevel == spellLevel }).first {
+				label.text = String(slotCount.SpellLevel)													}
+			else {
+				label.text = "-" 	}
+		}
 	}
 }

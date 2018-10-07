@@ -14,6 +14,7 @@ class DropdownTableViewCell: UITableViewCell {
 	@IBOutlet weak var iconImageView: UIImageView!
 	@IBOutlet weak var cornerButton: UIButton!
 
+	var buttonColor: UIColor?
 	var highlightColor: UIColor?
 	var buttonAction: Selector?
 
@@ -45,12 +46,13 @@ class DropdownTableViewCell: UITableViewCell {
 		super.setSelected(selected, animated: animated)
 
 		if selected {
-		guard let highlightColor = highlightColor else { return }
+		guard let highlightColor = highlightColor, let buttonColor = buttonColor else { return }
 		UIView.transition(with: contentView,
 						  duration: 0.25,
 						  options: .transitionCrossDissolve,
 						  animations: {
 							self.contentView.backgroundColor = highlightColor
+							self.cornerButton.setTitleColor(buttonColor, for: .normal)
 							},
 						  completion: nil)
 		} else {
@@ -118,18 +120,18 @@ class DropdownTableViewCell: UITableViewCell {
 				 titleLabel.text 				= childData.title.capitalized
 				 descriptionLabel.text 			= childData.description
 
-				 cornerButton.setTitle("Level +", for: .normal)
-				 cornerButton.tintColor = UIColor.color(for: AvailableClass(rawValue: parentData.title.lowercased())!).lightColor()
+				 cornerButton.setTitle("Advanced Level Features", for: .normal)
+				 cornerButton.tintColor = UIColor.color(for: AvailableClass(rawValue: parentData.title.lowercased())!).base()
 
 				if let parentClass = AvailableClass(rawValue: parentData.title.lowercased()) {
-					 highlightColor = UIColor.gradient(for: parentClass)[0]
+					highlightColor = UIColor.color(for: parentClass).lightColor()
+					buttonColor = UIColor.color(for: parentClass).darkColor()
 				} else { print("no highlight color")}
 
 
 				if  imageView?.image == nil {
 					 removeImageView()
 				}
-
 			}
 		}
 	}

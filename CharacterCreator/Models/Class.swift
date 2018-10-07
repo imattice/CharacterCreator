@@ -139,6 +139,7 @@ extension Class {
 	struct SpellCastingAttributes {
 		let castingAbility: StatType
 		let initialSpellCount: Int
+		let spellSlots: [(SpellLevel: Int, SlotCount: Int)]
 
 		init?(for base: String) {
 
@@ -150,10 +151,39 @@ extension Class {
 				let spellCountData = spellcastingDict["initialSpellCount"] as? String,
 				let initialSpellCount = Int(spellCountData)
 				else { print("failed to initialize casting data for class \(base)."); return nil }
+			guard let slotDict = spellcastingDict["spellSlots"] as? [String : Any ],
+				let slotsForLevel = slotDict["1"] as? [String : String]
+				else { print("failed to initialize spell slot data for class \(base)."); return nil }
+
+			//process the spell slot data
+			var result = [(SpellLevel: Int, SlotCount: Int)]()
+			for (level, slot) in slotsForLevel {
+				guard let level = Int(level), let slot = Int(slot)
+					else { print("could not create spell slot tuple"); continue }
+				result.append((SpellLevel: level, SlotCount: slot))
+			}
 
 			self.castingAbility 		= castingAbility
 			self.initialSpellCount 		= initialSpellCount
+			self.spellSlots				= result
+
+
+
+
+
 		}
+
+//		private func slotsForLevel() -> [(SpellLevel: Int, SlotCount: Int)]{
+//			var result = [(SpellLevel: Int, SlotCount: Int)]()
+//			for (level, slot) in slotsForLevel {
+//				guard let level = Int(level), let slot = Int(slot)
+//					else { print("could not create spell slot tuple"); return }
+//				result.append((SpellLevel: level, SlotCount: slot))
+//			}
+//
+//			return result
+//
+//		}
 	}
 }
 

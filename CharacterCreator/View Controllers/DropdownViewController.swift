@@ -26,17 +26,17 @@ class DropdownViewController: UIViewController {
         super.viewDidLoad()
 
 		//ensure there is a data type; otherwise, remove the controller
+		//this is currently set in the storyboard
 		guard let dataTypeString = dataType,
 			let dataType = DataType(rawValue: dataTypeString)
 			else { print("cannot present data with \(self.dataType!)"); navigationController?.popViewController(animated: true);  return }
 
 		if let selectedRace = selectedRace { print("selected race: \(selectedRace.name())")}
 
-		//configure the view controller based on the intended display data
-		tableViewData = DropdownCellData.createArray(forDataType: dataType)
 
 		//set up data and cells
 		registerCells()
+		tableViewData = DropdownCellData.array(forDataType: dataType)
 
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 190
@@ -48,6 +48,7 @@ class DropdownViewController: UIViewController {
 		if !selectionWasMade { nextNavButton.isEnabled = false }
     }
 
+	//presents a modal view to show class level progression
 	@objc func showClassDetail(_ sender: UIButton) {
 		guard let contentView = sender.superview,
 			let parentCell = contentView.superview as? UITableViewCell,
@@ -65,7 +66,6 @@ class DropdownViewController: UIViewController {
 		present(navController, animated: true)
 	}
 }
-
 
 
 
@@ -117,10 +117,6 @@ extension DropdownViewController: UITableViewDataSource, UITableViewDelegate {
 			//scroll the selected cell to the top
 			tableView.scrollToRow(at: indexPath, at: .top, animated: true)
 		}
-		//selected child cell
-//		else {
-//			updateSelectedCellTintColor()
-//		}
 	}
 
 	func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
@@ -131,8 +127,7 @@ extension DropdownViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return tableViewData.count
-	}
+		return tableViewData.count }
 
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -140,6 +135,7 @@ extension DropdownViewController: UITableViewDataSource, UITableViewDelegate {
 			return tableViewData[section].childData!.count + 1	}
 		else {
 			return 1											}
+
 	}
 
 	private func registerCells() {
@@ -169,8 +165,6 @@ extension DropdownViewController {
 				let subraceTitle = subrace[selectedIndexPath.row - 1].title
 
 				destinationRace = Race(fromParent: parentTitle, withSubrace: subraceTitle)
-//				Character.current.race = Race(fromParent: parentTitle, withSubrace: subraceTitle)
-
 			}
 			else {
 				destinationRace = Race(fromParent: parentTitle, withSubrace: nil)
@@ -230,7 +224,7 @@ struct DropdownCellData {
 		self.parentData 	= (title: title, description: description)
 	}
 
-	static func createArray(forDataType dataType: DataType) -> [DropdownCellData] {
+	static func array(forDataType dataType: DataType) -> [DropdownCellData] {
 		let sourceArray: [String: Any]
 		let childKey: String
 

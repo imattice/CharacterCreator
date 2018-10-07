@@ -74,8 +74,8 @@ class Character {
 								 Item("spellbook"),
 								 Item("a bottle of black ink"), Item("a quill"), Item("a small knife"), Item("a inquisitive letter")]
 		self.proficiencies	= ["arcana", "history"]
-		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
-								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
+//		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
+//								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
 		self.languages		= ["Common", "Elvan"]
 	}
 
@@ -99,6 +99,9 @@ class Character {
 	}
 	func numberOfAvailableSpellSlots() -> (spellLevel: Int, slots: Int) {
 		return (spellLevel: 1, slots: 2)
+	}
+	func spellSlots(forSpellLevel level: Int) -> Int {
+		return 2
 	}
 	func numberOfSpells(forSpellLevel level: Int) -> Int {
 		let result = spellBook.filter({ $0.level == String(level) })

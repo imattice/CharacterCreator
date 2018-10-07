@@ -15,7 +15,8 @@ protocol StatViewDelegate: class {
 class StatDistributionViewController: UIViewController, StatViewDelegate {
 	@IBOutlet var statViewCollection: [StatStepperView]!
 	@IBOutlet var availableStatLabels: [UILabel]!
-
+	@IBOutlet weak var availableStatContainerView: UIView!
+	
 	let viewTitles = ["Strength", "Constitution", "Dexterity", "Charisma", "Wisdom", "Intelligence" ]
 
 	// controls the animation size of the available stats
@@ -28,6 +29,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setUpLabelViews()
+		availableStatContainerView.backgroundColor = Character.current.class.color().lightColor()
 
 		//match the max size of the animated stats
 		for label in availableStatLabels {

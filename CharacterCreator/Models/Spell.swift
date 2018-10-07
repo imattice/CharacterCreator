@@ -16,7 +16,9 @@ struct Spell {
 	let range: String
 	let castTime: String
 	let duration: String
-	var damage: String? 	= nil
+	var damage: String? 		= nil
+
+
 
 	init?(_ name: String) {
 		//get the spell info
@@ -65,6 +67,11 @@ struct Spell {
 			let description = spellData["description"] as? String else { print("description unavailable for \(name)"); return nil }
 		return description
 	}
+
+	func isCantrip() -> Bool {
+		return level == "0" ? true :  false }
+
+
 
 	static let maxLevel = 9
 }
