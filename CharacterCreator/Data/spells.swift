@@ -27,7 +27,7 @@ let spellData: [String: Any ] = [
 		"damage": [
 			"value": "6",
 			"type": "acid",],
-		"targets": ">2",
+		"target": "two",
 		"save": [
 			"stat": "dex",
 			"effectOnSuccess": "no damage" ],
@@ -45,7 +45,6 @@ let spellData: [String: Any ] = [
 		"duration": "1 minute",
 		"requiresConcentration": true,
 		"effent": "dim light",
-		"targets": ">4",
 		"shape": [
 			"size": "10",
 			"shape": "sphere" ],
@@ -60,7 +59,7 @@ let spellData: [String: Any ] = [
 		"range": 	"120 feet",
 		"components": "v, s",
 		"duration": "Instantaneous",
-		"targets": "1",
+		"target": "one",
 		"damage": [
 			"value": "10",
 			"type": "fire",],
@@ -74,7 +73,7 @@ let spellData: [String: Any ] = [
 		"components": "v, s",
 		"duration": "1 minute",
 		"requiresConcentration": true,
-		"targets": "1",
+		"target": "one",
 		"modifier": [
 			"type": "ability_check",
 			"value": "4" ],
@@ -236,9 +235,12 @@ let spellData: [String: Any ] = [
 		"school": "evocation",
 		"cast": "1 action",
 		"range": "self",
-		"shape": "15 foot cone",
+		"shape": [
+			"size": "15 feet",
+			"shape": "cone" ],
 		"components": "v, s",
 		"duration": "Instantaneous",
+		"target": "all",
 		"damage": [
 			"value": "6",
 			"type": "fire",
@@ -465,7 +467,7 @@ let spellData: [String: Any ] = [
 		"components": "v, s, m",
 		"material": "a tiny strip of white cloth",
 		"duration": "8 hours",
-		"targets": "3",
+		"target": "three",
 		"description": "Bolster your allies with increased toughness, increasing their maximum hit points" ],
 	"Arcane Lock": [
 		"level": "2",
@@ -475,7 +477,7 @@ let spellData: [String: Any ] = [
 		"components": "v, s, m",
 		"material": "gold dust worth at least 25 gp, which the spell consumes",
 		"duration": "infinite",
-		"targets": "1",
+		"target": "one",
 		"description": "Seal an object with magic so that none may breach it without knowing the password that you designate." ],
 	"Augury": [
 		"level": "2",
@@ -505,7 +507,7 @@ let spellData: [String: Any ] = [
 		"material": "bat fur and a drop of pitch or piece of coal",
 		"requiresConcentration": true,
 		"duration": "10 minutes",
-		"targets": "1",
+		"target": "one",
 		"shape": [
 			"size": "15",
 			"shape": "sphere" ],
@@ -519,7 +521,7 @@ let spellData: [String: Any ] = [
 		"material": "a bit of tallow, a pinch of brimstone, and a dusting of powdered iron",
 		"requiresConcentration": true,
 		"duration": "1 minute",
-		"targets": "1",
+		"target": "one",
 		"shape": [
 			"size": "5",
 			"shape": "sphere" ],
@@ -540,7 +542,7 @@ let spellData: [String: Any ] = [
 		"material": "a small, straight piece of iron",
 		"requiresConcentration": true,
 		"duration": "1 minute",
-		"targets": "1",
+		"target": "one",
 		"save": [
 			"stat": "wis",
 			"success": "no_effect" ],
@@ -554,7 +556,7 @@ let spellData: [String: Any ] = [
 		"material": "an eyelash encased in gum arabic",
 		"requiresConcentration": true,
 		"duration": "1 hour",
-		"targets": "1",
+		"target": "one",
 		"description": "Shroud your target in a powerful, but fragile, illusion, allowing it to blend perfectly with its surroundings.  The magics flucutate as your target moves, maintaining the secrecy as they move about until they make an attack or cast magic." ],
 	"Knock": [
 		"level": "2",
@@ -563,7 +565,7 @@ let spellData: [String: Any ] = [
 		"range": "60",
 		"components": "v",
 		"duration": "instant",
-		"targets": "1",
+		"target": "one",
 		"description": "A loud crack emminates from the locked object you point at, providing an opportunity for you to open the object, be it magically or mundanely sealed." ],
 	"Lesser Restoration": [
 		"level": "2",
@@ -572,7 +574,7 @@ let spellData: [String: Any ] = [
 		"range": "touch",
 		"components": "v, s",
 		"duration": "instant",
-		"targets": "1",
+		"target": "one",
 		"description": "Wipe away any ailments that are inflicted on a creature, be it a disease, paralysis, blindness, or deafness." ],
 	"Levitate": [
 		"level": "2",
@@ -583,7 +585,7 @@ let spellData: [String: Any ] = [
 		"material": "either a small leather loop or a piece of golden wire bent into a cup shape with a long shank on one end",
 		"requiresConcentration": true,
 		"duration": "10 minutes",
-		"targets": "1",
+		"target": "one",
 		"save": [
 			"stat": "con",
 			"success": "no_effect" ],
@@ -596,7 +598,7 @@ let spellData: [String: Any ] = [
 		"components": "v, s",
 		"requiresConcentration": true,
 		"duration": "1 hour",
-		"targets": "1",
+		"target": "one",
 		"description": "Imbue magic into a otherwise ordinary weapon, granting it additional damage and accuracy." ],
 	"Misty Step": [
 		"level": "2",
@@ -613,7 +615,7 @@ let spellData: [String: Any ] = [
 		"range": "30",
 		"components": "v",
 		"duration": "instant",
-		"targets": "6",
+		"target": "6",
 		"description": "Your faith lends you the power to recover your allies, filling them with rejuvinated life." ],
 	"Shatter": [
 		"level": "2",
@@ -623,7 +625,7 @@ let spellData: [String: Any ] = [
 		"components": "v, s, m",
 		"material": "a chip of mica",
 		"duration": "instant",
-		"targets": "1",
+		"target": "one",
 		"save": [
 			"stat": "con",
 			"success": "half_damage" ],
@@ -641,7 +643,7 @@ let spellData: [String: Any ] = [
 		"components": "v, s",
 		"requiresConcentration": true,
 		"duration": "10 minutes",
-		"targets": "1",
+		"target": "one",
 		"shape": [
 			"size": "20",
 			"shape": "sphere" ],
@@ -655,7 +657,7 @@ let spellData: [String: Any ] = [
 		"material": "a drop of bitumen and a spider",
 		"requiresConcentration": true,
 		"duration": "1 hour",
-		"targets": "1",
+		"target": "one",
 		"description": "A target of your choice gains magical, magnet-like forces on their extremities, allowing them to stick to vertical and horizontal surfaces as if they were walking on normal ground." ],
 	"Spiritual Weapon": [
 		"level": "2",
@@ -664,7 +666,7 @@ let spellData: [String: Any ] = [
 		"range": "60",
 		"components": "v, s",
 		"duration": "1 minute",
-		"targets": "1",
+		"target": "one",
 		"damage": [
 			"value": "8",
 			"type": "force",
@@ -679,7 +681,7 @@ let spellData: [String: Any ] = [
 		"material": "a snake’s tongue and either a bit of honeycomb or a drop of sweet oil",
 		"requiresConcentration": true,
 		"duration": "8 hours",
-		"targets": "1",
+		"target": "one",
 		"save": [
 			"stat": "wis",
 			"success": "no_effect" ],
@@ -692,7 +694,7 @@ let spellData: [String: Any ] = [
 		"components": "v, s, m",
 		"material": "a pair of platinum rings worth at least 50 gp each, which you and the target must wear for the duration",
 		"duration": "1 hour",
-		"targets": "1",
+		"target": "one",
 		"description": "Cast a spiritual link between yourself and a target, granting them increased defenses and resistances.  The bond is so tightly woven that you share the pain of your ally, taking equal damage every time they are hit.  The link breaks if you fall unconcious or move out of the spells range." ],
 	"Web": [
 		"level": "2",
@@ -703,7 +705,7 @@ let spellData: [String: Any ] = [
 		"material": "a bit of spiderweb",
 		"requiresConcentration": true,
 		"duration": "1 hour",
-		"targets": "1",
+		"target": "one",
 		"shape": [
 			"size": "20",
 			"shape": "cube" ],

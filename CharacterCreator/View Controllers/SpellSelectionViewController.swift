@@ -35,6 +35,9 @@ class SpellSelectionViewController: UIViewController {
 
 		setSelectedSpells()
 
+
+		let spellDetail = SpellDetailView.create(forSpell: Spell("Bless")!)
+		view.addSubview(spellDetail)
 	}
 
 	private func updateCantripLabel() {
@@ -148,6 +151,9 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 		guard let spell = spellForCell(at: indexPath)
 			else { print("no spell for cell at index path section \(indexPath.section) row \(indexPath.row)"); return }
 		addToSpellbook(spell)
+
+		let spellDetail = SpellDetailView.create(forSpell: spell)
+		view.addSubview(spellDetail)
 
 	}
 
