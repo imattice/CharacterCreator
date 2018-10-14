@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Spell {
-	let level: String
+	let level: Int
 	let name: String
 	let school: String
 	let range: String
@@ -27,7 +27,8 @@ struct Spell {
 	init?(_ name: String) {
 		//get the spell info
 		guard let targetSpell = spellData[name] as? [String: Any],
-		let level 		= targetSpell["level"] 			as? String,
+		let levelString = targetSpell["level"] 			as? String,
+		let level 		= Int(levelString),
 		let school 		= targetSpell["school"] 		as? String,
 		let castTime 	= targetSpell["cast"] 			as? String,
 		let range		= targetSpell["range"] 			as? String,
@@ -99,7 +100,7 @@ struct Spell {
 	}
 
 	func isCantrip() -> Bool {
-		return level == "0" ? true :  false }
+		return level == 0 ? true :  false }
 
 
 

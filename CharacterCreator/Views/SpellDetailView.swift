@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol SpellDetailDelegate {
+	func addToSpellbook(_ spell: Spell)
+	func didCancelSelection(of spell: Spell)
+}
+
 class SpellDetailView: UIView {
 	@IBOutlet weak var backgroundView: UIView!
 	@IBOutlet weak var detailView: UIView!
@@ -29,16 +34,22 @@ class SpellDetailView: UIView {
 	@IBOutlet weak var shapeView: UIView!
 	@IBOutlet weak var targetView: UIView!
 
-	static func create(forSpell spell: Spell) -> SpellDetailView {
+	var spell: Spell? { didSet { configure() }}
+	var delegate: SpellDetailDelegate?
+
+	static func view(for spell: Spell) -> SpellDetailView {
 		let view: SpellDetailView = .fromNib()
-			view.configure(forSpell: spell)
+		view.spell = spell
+		view.configure()
 
 		view.detailView.layer.cornerRadius 	= CGFloat(15.0)
 
 		return view
 	}
 
-	private func configure(forSpell spell: Spell) {
+
+	private func configure() {
+		guard let spell = spell else { return }
 		titleLabel.text 			= spell.name.capitalized
 		levelLabel.text				= { spell.isCantrip() ? "Cantrip" : "Level \(spell.level)" }()
 		descriptionLabel.text		= spell.description()
@@ -63,6 +74,7 @@ class SpellDetailView: UIView {
 			shapeImageView.image		= UIImage(named: shape.shape.rawValue)
 			shapeLabel.text				= shape.size	}
 		else { shapeView.removeFromSuperview() }
+
 		if let target = spell.target {
 			var text = ""
 			if target.count == .all {
@@ -73,21 +85,53 @@ class SpellDetailView: UIView {
 					text.append("s")	}
 			}
 
-
-
 			targetImageView.image		= UIImage(named: target.count.rawValue)
 			targetLabel.text			= text
 		} else { targetView.removeFromSuperview() }
 
 	}
+
 	@IBAction func add(_ sender: UIButton) {
-		dismiss()
-	}
-	@IBAction func close(_ sender: UIButton) {
-		dismiss()
+		guard let delegate = delegate,
+			let spell = spell
+			else { print("failed to add \(String(describing: self.spell?.name)) to spellbook"); disappear(true); return }
+		delegate.addToSpellbook(spell)
+		disappear(true)
 	}
 
-	func dismiss() {
+	@IBAction func close(_ sender: UIButton) {
+		guard let delegate = delegate,
+			let spell = spell
+			else { print("failed to cancel \(String(describing: self.spell?.name)) selection"); disappear(true); return }
+		delegate.didCancelSelection(of: spell)
+		disappear(true)
+	}
+
+	func hide() {
+		self.isHidden = true
+	}
+
+	func appear(_ animated: Bool) {
+		self.alpha			= 0.0
+
+		if animated {
+			self.isHidden = false
+
+			UIView.animate(withDuration: 0.25,
+						   animations: {
+							self.alpha		= 1.0
+			})
+		}
+	}
+	func disappear(_ animated: Bool) {
+		self.alpha			= 1.0
+
+		if animated {
+			UIView.animate(withDuration: 5,
+						   animations: {
+							self.alpha		= 0.0
+			})
+		}
 		self.removeFromSuperview()
 	}
 }

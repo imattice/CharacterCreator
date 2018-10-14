@@ -211,7 +211,7 @@
                                         <constraint firstItem="ynW-9u-aTc" firstAttribute="leading" secondItem="ohr-kv-kdz" secondAttribute="leading" constant="3" id="w4T-0F-v1U"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mux-aE-87g" userLabel="Target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mux-aE-87g" userLabel="Target" customClass="ShapeTargetView" customModule="CharacterCreator" customModuleProvider="target">
                                     <rect key="frame" x="172.5" y="0.0" width="172.5" height="114"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Target -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKW-Co-rxq">

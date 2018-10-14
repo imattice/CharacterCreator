@@ -80,7 +80,7 @@ class SpellReviewTableViewCell: UITableViewCell {
 		guard Character.current.spellBook.isEmpty else { return "\(Character.current.flavorText.name) does not know any spells." }
 
 		var result = ""
-		let spells = Character.current.spellBook.filter({ $0.level == String(level) })
+		let spells = Character.current.spellBook.filter({ $0.level == level })
 
 		for spell in spells {
 			result += "\(spell.name)  |  "

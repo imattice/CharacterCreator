@@ -118,7 +118,7 @@ extension ModalTableViewController {
 			for level in 0...Spell.maxLevel {
 				var spells = [Spell]()
 				for spell in Character.current.spellBook {
-					if spell.level == String(level) { spells.append(spell)}
+					if spell.level == level { spells.append(spell)}
 				}
 				if !spells.isEmpty {
 					let data = TableViewData(level: level, content: spells)

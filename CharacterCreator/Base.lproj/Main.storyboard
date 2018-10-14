@@ -774,7 +774,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rCk-V3-Vug">
-                                            <rect key="frame" x="20" y="50" width="135" height="99.999999999999972"/>
+                                            <rect key="frame" x="20" y="50" width="135" height="100"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="JfB-02-tVt"/>
@@ -808,7 +808,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Jmc-N0-gWX">
-                                            <rect key="frame" x="20" y="50" width="135" height="79.999999999999972"/>
+                                            <rect key="frame" x="20" y="50" width="135" height="80"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="4bZ-Nq-F4n"/>

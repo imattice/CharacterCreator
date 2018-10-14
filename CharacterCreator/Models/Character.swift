@@ -104,7 +104,7 @@ class Character {
 		return 2
 	}
 	func numberOfSpells(forSpellLevel level: Int) -> Int {
-		let result = spellBook.filter({ $0.level == String(level) })
+		let result = spellBook.filter({ $0.level == level })
 		return result.count
 	}
 

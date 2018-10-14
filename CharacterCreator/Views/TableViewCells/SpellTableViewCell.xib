@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,83 +33,28 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHn-KK-jra" userLabel="Description">
-                        <rect key="frame" x="70" y="47.5" width="542" height="113"/>
+                        <rect key="frame" x="70" y="47.5" width="542" height="153"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TbU-Zy-V0V">
-                        <rect key="frame" x="70" y="170.5" width="482" height="25"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qi-Qa-UHp" userLabel="Range View">
-                                <rect key="frame" x="0.0" y="0.0" width="115" height="25"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="000 feet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldc-zc-ZPJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="115" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="115" id="6hF-ln-05P"/>
-                                    <constraint firstItem="Ldc-zc-ZPJ" firstAttribute="trailing" secondItem="7qi-Qa-UHp" secondAttribute="trailing" id="cUj-Vy-P71"/>
-                                    <constraint firstItem="Ldc-zc-ZPJ" firstAttribute="leading" secondItem="7qi-Qa-UHp" secondAttribute="leading" id="pMp-xe-Tnq"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ldc-zc-ZPJ" secondAttribute="bottom" id="sQk-Fp-j7f"/>
-                                    <constraint firstItem="Ldc-zc-ZPJ" firstAttribute="top" secondItem="7qi-Qa-UHp" secondAttribute="top" id="sSY-Lo-7Eq"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ae4-XI-cqf" userLabel="Damage View">
-                                <rect key="frame" x="367" y="0.0" width="115" height="25"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="00d00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ah-Ye-TPA">
-                                        <rect key="frame" x="0.0" y="0.0" width="115" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="9Ah-Ye-TPA" secondAttribute="trailing" id="5rd-N4-bM4"/>
-                                    <constraint firstAttribute="bottom" secondItem="9Ah-Ye-TPA" secondAttribute="bottom" id="Qed-Vj-fvn"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="115" id="eia-VG-7a7"/>
-                                    <constraint firstItem="9Ah-Ye-TPA" firstAttribute="leading" secondItem="Ae4-XI-cqf" secondAttribute="leading" id="gsh-ij-BnJ"/>
-                                    <constraint firstItem="9Ah-Ye-TPA" firstAttribute="top" secondItem="Ae4-XI-cqf" secondAttribute="top" id="hNo-8o-RBx"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="7qi-Qa-UHp" firstAttribute="top" secondItem="TbU-Zy-V0V" secondAttribute="top" id="71f-OZ-L4o"/>
-                            <constraint firstItem="Ae4-XI-cqf" firstAttribute="top" secondItem="TbU-Zy-V0V" secondAttribute="top" id="DF8-3Z-E9f"/>
-                            <constraint firstAttribute="bottom" secondItem="Ae4-XI-cqf" secondAttribute="bottom" id="JR4-lu-O1E"/>
-                            <constraint firstAttribute="height" constant="25" id="evf-Fw-6XZ"/>
-                            <constraint firstAttribute="bottom" secondItem="7qi-Qa-UHp" secondAttribute="bottom" id="zHj-uc-2M9"/>
-                        </constraints>
-                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="TbU-Zy-V0V" secondAttribute="trailing" constant="70" id="6rO-Cs-kuX"/>
                     <constraint firstItem="lcg-Id-cdH" firstAttribute="leading" secondItem="fd5-aH-TeX" secondAttribute="trailing" constant="10" id="8KR-1l-SFb"/>
                     <constraint firstItem="HHn-KK-jra" firstAttribute="top" secondItem="lcg-Id-cdH" secondAttribute="bottom" constant="5" id="ATh-OB-8V2"/>
+                    <constraint firstAttribute="bottom" secondItem="HHn-KK-jra" secondAttribute="bottom" constant="5" id="DZQ-ti-WBD"/>
                     <constraint firstItem="fd5-aH-TeX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Eh1-RC-lJ9"/>
                     <constraint firstItem="HHn-KK-jra" firstAttribute="leading" secondItem="fd5-aH-TeX" secondAttribute="trailing" constant="10" id="MlW-C0-Fho"/>
                     <constraint firstItem="fd5-aH-TeX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="TNd-BV-lxL"/>
                     <constraint firstAttribute="trailing" secondItem="HHn-KK-jra" secondAttribute="trailing" constant="10" id="YSN-qh-Ss7"/>
-                    <constraint firstItem="TbU-Zy-V0V" firstAttribute="top" secondItem="HHn-KK-jra" secondAttribute="bottom" constant="10" id="YZG-7c-duy"/>
-                    <constraint firstItem="TbU-Zy-V0V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="70" id="fES-dl-9g4"/>
                     <constraint firstAttribute="trailingMargin" secondItem="lcg-Id-cdH" secondAttribute="trailing" id="mbo-cR-GVO"/>
                     <constraint firstItem="lcg-Id-cdH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="qV6-9S-czw"/>
-                    <constraint firstAttribute="bottom" secondItem="TbU-Zy-V0V" secondAttribute="bottom" constant="10" id="zUC-At-1Uf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="damageLabel" destination="9Ah-Ye-TPA" id="CZw-uB-noS"/>
                 <outlet property="descriptionLabel" destination="HHn-KK-jra" id="Qux-wl-h9w"/>
                 <outlet property="iconView" destination="fd5-aH-TeX" id="XEb-ic-obD"/>
-                <outlet property="rangeLabel" destination="Ldc-zc-ZPJ" id="dDg-FS-k5I"/>
                 <outlet property="titleLabel" destination="lcg-Id-cdH" id="Vmp-GF-fu3"/>
             </connections>
             <point key="canvasLocation" x="0.0" y="135"/>
