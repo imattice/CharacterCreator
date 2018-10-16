@@ -15,7 +15,7 @@ class BackgroundSelectionViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		getTableViewData()
+		tableViewData = loadTableData()
 
 		registerCells()
 		tableView.rowHeight = UITableView.automaticDimension
@@ -24,56 +24,64 @@ class BackgroundSelectionViewController: UIViewController {
 		navigationItem.rightBarButtonItem?.isEnabled = false
 	}
 
+
+	private func toggleCellExpansion(at indexPath: IndexPath) {
+		tableViewData[indexPath.row].expanded = !tableViewData[indexPath.row].expanded
+		tableView.reloadRows(at: [indexPath], with: .automatic)
+	}
 }
 
 extension BackgroundSelectionViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let selectedPaths = tableView.indexPathsForSelectedRows {
 			if !selectedPaths.isEmpty {
-				navigationItem.rightBarButtonItem?.isEnabled = true
-			}
+				navigationItem.rightBarButtonItem?.isEnabled = true  }
+			else {
+				navigationItem.rightBarButtonItem?.isEnabled = false }
 		}
+
+		toggleCellExpansion(at: indexPath)
+		tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+	}
+
+	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+		toggleCellExpansion(at: indexPath)
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return tableViewData.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "BackgroundCell", for: indexPath) as! ExpandableTableViewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "BackgroundCell", for: indexPath) as! BackgroundSelectionTableViewCell
 		let data = tableViewData[indexPath.row]
 
-		cell.titleLabel.text 	= data.title.capitalized
-		cell.goldLabel.text		= data.gold
-		cell.itemsLabel.text	= data.itemString()
-		cell.proficiencyLabel.text = data.skillString()
-		cell.reputationTitleLabel.text = data.reputationString().title
-		cell.reputationLabel.text = data.reputationString().description
-
-
-		cell.backgroundImageView.image = UIImage(named: data.title.lowercased())
-
+		cell.configure(data)
 		return cell
 	}
 
 	private func registerCells() {
-		tableView.register(UINib(nibName: String(describing: ExpandableTableViewCell.self),bundle: nil), forCellReuseIdentifier: "BackgroundCell")
+		tableView.register(UINib(nibName: String(describing: BackgroundSelectionTableViewCell.self),bundle: nil), forCellReuseIdentifier: "BackgroundCell")
 	}
 
-	func getTableViewData() {
+	private func loadTableData() -> [TableViewData] {
+		var result = [TableViewData]()
 		for data in backgroundData {
 			guard let dataObject = TableViewData(title: data.key) else { print("failed to create data object for \(data.key)"); continue }
 
-			tableViewData.append(dataObject)
+			result.append(dataObject)
 		}
+
+		return result.sorted(by: { $0.title < $1.title })
 	}
 
 	struct TableViewData {
 		let title: String
 		let gold: String
 		private let skills: [String]
-//		let description: String
 		private let items: [String]
 		private let reputation: [String : String]
+
+		var expanded: Bool = false
 
 		init?(title: String) {
 			guard let backgroundDict = backgroundData[title.lowercased()] as? [String : Any]
@@ -103,7 +111,7 @@ extension BackgroundSelectionViewController: UITableViewDelegate, UITableViewDat
 		func itemString() -> String {
 			var result = ""
 			for item in items {
-				result += "\(item) "
+				result += "• \(item.capitalized) \n"
 			}
 			return result.replacingLastOccurrenceOfString(",", with: "").trimmingCharacters(in: .whitespaces).capitalized
 		}
@@ -111,9 +119,10 @@ extension BackgroundSelectionViewController: UITableViewDelegate, UITableViewDat
 		func skillString() -> String {
 			var result = ""
 			for skill in skills {
-				result += "+ \(skill)  "
+				result += "• \(skill.capitalized)  "
 			}
-			return result.trimmingCharacters(in: .whitespaces)
+			result += "•"
+			return result
 		}
 	}
 
@@ -133,27 +142,4 @@ extension BackgroundSelectionViewController {
 		Character.current.proficiencies.append(contentsOf: proficiencies)
 		
 	}
-
-//	func configureNav() {
-//		let nextButton = UIBarButtonItem(title: "Hey", style: .plain, target: self, action: #selector(goToNextController))
-//
-//		navigationItem.rightBarButtonItem = nextButton
-//	}
-//
-//	@objc func goToNextController() {
-//		guard let selectedIndexPath = tableView.indexPathForSelectedRow else { print("could not get data for index path"); return }
-//
-//		let vc = CollectionSelectionViewController()
-//		let data = tableViewData[selectedIndexPath.section]
-//		let background = Background(name: data.title)
-//		guard let proficiencies = background.proficiencies() else { print("no proficiencries"); return }
-//
-//		Character.current.background = background
-//		Character.current.proficiencies.append(contentsOf: proficiencies)
-//
-//		print("Character background: \(Character.current.background?.name)")
-//
-//		navigationController?.pushViewController(vc, animated: true)
-//	}
-
 }

@@ -22,7 +22,7 @@ let backgroundData: [String : Any] = [
 		"equipment": ["A crowbar", "a set of hooded, dark clothes", "coin pouch (15gp)"],
 		"specialty": ["Blackmailer", "Burgler", "Enforcer", "Fence", "Highway Robber", "Hired Killer", "Pickpocket", "Smuggler"],
 		"reputation": [
-			"Criminal Contact": "Your primary contact can serve as a liason to other criminals and organizations that may find your skills... useful.  Using this network of messagers, you can quickly get your words accross great distances. " ],
+			"Criminal Contact": "Your primary contact can serve as a liason to other criminals and organizations that may find your skills... useful.  Using this network of messagers, you can quickly get your words across great distances. " ],
 		"description": "" ],
 	"folk hero": [
 		"skills": ["animal handling", "survival"],

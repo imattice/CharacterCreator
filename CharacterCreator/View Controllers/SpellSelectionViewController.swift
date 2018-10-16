@@ -13,11 +13,11 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 	@IBOutlet weak var headerView: SpellSelectionHeaderView!
 	var tableViewData = [SpellTableData]()
 
-	var cantripSelectionCount: Int 	{ return Character.default.spellBook.filter( { $0.level == 0 } ).count }
-	var spellSelectionCount: Int 	{ return Character.default.spellBook.filter( { $0.level != 0 } ).count }
+	var cantripSelectionCount: Int 	{ return Character.current.spellBook.filter( { $0.level == 0 } ).count }
+	var spellSelectionCount: Int 	{ return Character.current.spellBook.filter( { $0.level != 0 } ).count }
 
-	let cantripCapacity 	= Character.default.numberOfCantripsKnown()
-	let spellbookCapacity	= Character.default.class.castingAttributes!.initialSpellCount
+	let cantripCapacity 	= Character.current.numberOfCantripsKnown()
+	let spellbookCapacity	= Character.current.class.castingAttributes!.initialSpellCount
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 		updateCantripLabel()
 		updateSpellLabel()
 
-		tableView.backgroundColor			= Character.default.class.color().darkColor()
+		tableView.backgroundColor			= Character.current.class.color().darkColor()
 
 		setSelectedSpells()
 	}
@@ -45,7 +45,7 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 
 	//sets any spells that are already in the spellbook as selected in the tableview
 	private func setSelectedSpells() {
-		for spell in Character.default.spellBook {
+		for spell in Character.current.spellBook {
 			//create an index path to select in table view
 			//get the level for the spell, which will also be the section
 			//also grab the index where the names match, which will also be the row
@@ -61,11 +61,11 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 
 	func addToSpellbook(_ spell: Spell) {
 		//check if the spell is already in the book to avoid duplicates
-		guard !Character.default.spellBook.contains(where: { $0.name == spell.name })
+		guard !Character.current.spellBook.contains(where: { $0.name == spell.name })
 			else {print("Spellbook already contains \(spell.name)"); return}
 
 		//add the spell to the character spellbook
-		Character.default.spellBook.append(spell)
+		Character.current.spellBook.append(spell)
 
 		//update UI
 		if spell.level == 0 { updateCantripLabel() }
@@ -73,11 +73,11 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 	}
 	func removeFromSpellbook(_ spell: Spell) {
 		//ensure the spell is in the spellbook before removing it
-		guard let index = Character.default.spellBook.index(where: { $0.name == spell.name })
+		guard let index = Character.current.spellBook.index(where: { $0.name == spell.name })
 			else { print("\(spell.name) not in spellbook"); return }
 
 		//remove from character spellbook
-		Character.default.spellBook.remove(at: index)
+		Character.current.spellBook.remove(at: index)
 
 		//update UI
 		if spell.level == 0 { updateCantripLabel() }
@@ -114,7 +114,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 		cell.configure(for: spell)
 
 		let backgroundView = UIView()
-			backgroundView.backgroundColor 	= Character.default.class.color().base()
+			backgroundView.backgroundColor 	= Character.current.class.color().base()
 		cell.selectedBackgroundView = backgroundView
 
 		return cell
@@ -195,7 +195,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 
 		//configure the colors of the headerview
 		if let headerView = view as? UITableViewHeaderFooterView {
-			headerView.contentView.backgroundColor = Character.default.class.color().darkColor()
+			headerView.contentView.backgroundColor = Character.current.class.color().darkColor()
 			headerView.textLabel?.textColor = .lightGray
 		}
 		
@@ -233,7 +233,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 		//this seems like a clumsy way to handle this.  :/
 		static func getSpellData() -> [SpellTableData] {
 			var result = [SpellTableData]()
-			guard let classDict = classData[Character.default.class.base] as? [String: Any],
+			guard let classDict = classData[Character.current.class.base] as? [String: Any],
 				let classSpells = classDict["spells"] as? [String]
 				else { return result }
 
