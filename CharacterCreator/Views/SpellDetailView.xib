@@ -211,7 +211,7 @@
                                         <constraint firstItem="ynW-9u-aTc" firstAttribute="leading" secondItem="ohr-kv-kdz" secondAttribute="leading" constant="3" id="w4T-0F-v1U"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mux-aE-87g" userLabel="Target" customClass="ShapeTargetView" customModule="CharacterCreator" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mux-aE-87g" userLabel="Target">
                                     <rect key="frame" x="172.5" y="0.0" width="172.5" height="114"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Target -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKW-Co-rxq">
@@ -223,7 +223,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="triple" translatesAutoresizingMaskIntoConstraints="NO" id="1gP-UC-luK">
+                                        <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="1gP-UC-luK">
                                             <rect key="frame" x="5" y="34" width="162.5" height="75"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="75" id="L3L-qH-zxf"/>
@@ -356,6 +356,5 @@
     </objects>
     <resources>
         <image name="sphere" width="700" height="700"/>
-        <image name="triple" width="700" height="700"/>
     </resources>
 </document>

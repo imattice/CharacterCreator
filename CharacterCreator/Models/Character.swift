@@ -24,6 +24,9 @@ class Character {
 	var languages: [String] = [String]()
 
 
+	func proficiencyChoiceCount() -> Int {
+		return self.class.base == "rogue" ? 4 : 2	}
+
 	private func calculateProficiencyBonus() -> Int {
 		let	result = Int((Double(level) / 4.0).rounded(.up)) + 1
 		return result

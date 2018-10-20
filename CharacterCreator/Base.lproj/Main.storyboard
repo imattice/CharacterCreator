@@ -453,8 +453,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="euj-Vm-v8I">
-                                <rect key="frame" x="0.0" y="116" width="375" height="662"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="euj-Vm-v8I">
+                                <rect key="frame" x="5" y="115.33333333333331" width="365" height="662.66666666666674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RrD-yX-j4y">
                                     <size key="itemSize" width="50" height="50"/>
@@ -469,17 +469,17 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBA-qS-nPg">
-                                <rect key="frame" x="0.0" y="44" width="375" height="72"/>
+                                <rect key="frame" x="0.0" y="43.999999999999993" width="375" height="71.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proficiencies Remaining:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVb-hW-xzf">
-                                        <rect key="frame" x="0.0" y="8" width="375" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proficiencies Remaining:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVb-hW-xzf">
+                                        <rect key="frame" x="0.0" y="7.9999999999999982" width="375" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PE0-2c-quI">
-                                        <rect key="frame" x="0.0" y="40" width="375" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <rect key="frame" x="0.0" y="39.333333333333329" width="375" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -503,8 +503,8 @@
                             <constraint firstItem="vBA-qS-nPg" firstAttribute="top" secondItem="drg-Zv-kMQ" secondAttribute="top" id="Qo1-ko-7sw"/>
                             <constraint firstItem="drg-Zv-kMQ" firstAttribute="bottom" secondItem="euj-Vm-v8I" secondAttribute="bottom" id="SHn-CA-WoJ"/>
                             <constraint firstItem="vBA-qS-nPg" firstAttribute="leading" secondItem="drg-Zv-kMQ" secondAttribute="leading" id="YaE-GD-fth"/>
-                            <constraint firstItem="drg-Zv-kMQ" firstAttribute="trailing" secondItem="euj-Vm-v8I" secondAttribute="trailing" id="qyo-tq-qeF"/>
-                            <constraint firstItem="euj-Vm-v8I" firstAttribute="leading" secondItem="drg-Zv-kMQ" secondAttribute="leading" id="zDH-5j-XyZ"/>
+                            <constraint firstItem="drg-Zv-kMQ" firstAttribute="trailing" secondItem="euj-Vm-v8I" secondAttribute="trailing" constant="5" id="qyo-tq-qeF"/>
+                            <constraint firstItem="euj-Vm-v8I" firstAttribute="leading" secondItem="drg-Zv-kMQ" secondAttribute="leading" constant="5" id="zDH-5j-XyZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="drg-Zv-kMQ"/>
                     </view>
@@ -518,12 +518,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="euj-Vm-v8I" id="eo3-JS-Mgc"/>
+                        <outlet property="headerMessage" destination="QVb-hW-xzf" id="xb8-2M-CYg"/>
                         <outlet property="proficiencyCountLabel" destination="PE0-2c-quI" id="xn4-80-PAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l12-ou-ygA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4726" y="768"/>
+            <point key="canvasLocation" x="4725.6000000000004" y="767.73399014778329"/>
         </scene>
         <!--FlavorDetail-->
         <scene sceneID="r2v-bH-YGi">
@@ -2035,6 +2036,6 @@
         <image name="acolyte" width="256" height="256"/>
         <image name="cleric" width="700" height="700"/>
         <image name="elf" width="700" height="700"/>
-        <image name="sage" width="256" height="256"/>
+        <image name="sage" width="192" height="192"/>
     </resources>
 </document>

@@ -134,12 +134,12 @@ extension BackgroundSelectionViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
-		let data = tableViewData[selectedIndexPath.section]
+		let data = tableViewData[selectedIndexPath.row]
 		let background = Background(data.title)
 
 		Character.current.background = background
 		guard let proficiencies = background.proficiencies() else { return }
 		Character.current.proficiencies.append(contentsOf: proficiencies)
-		
+		print("Selected background: \(Character.current.background?.name)")
 	}
 }
