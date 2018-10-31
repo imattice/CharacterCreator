@@ -52,7 +52,6 @@
 		81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */; };
 		81DC8E4F211252AD002F6AE4 /* ChoiceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4E211252AD002F6AE4 /* ChoiceSelectionView.swift */; };
 		81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E502112548A002F6AE4 /* ChoiceSelectionView.xib */; };
-		81DC8E5321125627002F6AE4 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E5221125627002F6AE4 /* ChoiceView.swift */; };
 		81DC8E5521125637002F6AE4 /* ChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E5421125637002F6AE4 /* ChoiceView.xib */; };
 		81DC8E57211256EC002F6AE4 /* InventorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E56211256EC002F6AE4 /* InventorySelectionViewController.swift */; };
 		81DF302C213C5D6A00C939CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302B213C5D6A00C939CE /* Item.swift */; };
@@ -145,7 +144,6 @@
 		81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillSelectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		81DC8E4E211252AD002F6AE4 /* ChoiceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceSelectionView.swift; sourceTree = "<group>"; };
 		81DC8E502112548A002F6AE4 /* ChoiceSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceSelectionView.xib; sourceTree = "<group>"; };
-		81DC8E5221125627002F6AE4 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
 		81DC8E5421125637002F6AE4 /* ChoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceView.xib; sourceTree = "<group>"; };
 		81DC8E56211256EC002F6AE4 /* InventorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventorySelectionViewController.swift; sourceTree = "<group>"; };
 		81DF302B213C5D6A00C939CE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -323,9 +321,8 @@
 			children = (
 				819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */,
 				8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */,
-				81DC8E5221125627002F6AE4 /* ChoiceView.swift */,
-				81DC8E5421125637002F6AE4 /* ChoiceView.xib */,
 				81DC8E4E211252AD002F6AE4 /* ChoiceSelectionView.swift */,
+				81DC8E5421125637002F6AE4 /* ChoiceView.xib */,
 				81DC8E502112548A002F6AE4 /* ChoiceSelectionView.xib */,
 				8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */,
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
@@ -644,7 +641,6 @@
 				81DF30342143369300C939CE /* AppearanceFlavorView.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
-				81DC8E5321125627002F6AE4 /* ChoiceView.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,

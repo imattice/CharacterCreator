@@ -10,6 +10,7 @@ import UIKit
 
 class InventorySelectionViewController: UIViewController {
 	@IBOutlet weak var stackView: UIStackView!
+	@IBOutlet weak var scrollView: UIScrollView!
 
 	var choiceData = [[Item]]()
 	var selections = [Item]()
@@ -24,6 +25,12 @@ class InventorySelectionViewController: UIViewController {
 				else { print("Could not create selectionView"); continue }
 				selectionView.choices = choice
 				selectionView.backgroundColor = Character.current.class.color().base()
+
+
+//			scrollView.addSubview(selectionView)
+//
+//			selectionView.frame.size.width 	= view.bounds.size.width
+//			selectionView.frame.origin.y 		= CGFloat(index) * selectionView.bounds.size.height
 
 			stackView.addArrangedSubview(selectionView)
 
@@ -43,13 +50,6 @@ class InventorySelectionViewController: UIViewController {
 							   attribute: .trailing,
 							   multiplier: 1,
 							   constant: 0).isActive = true
-			NSLayoutConstraint(item: selectionView,
-							   attribute: .height,
-							   relatedBy: .equal,
-							   toItem: nil,
-							   attribute: .height,
-							   multiplier: 1,
-							   constant: 200).isActive = true
 		}
 
 		selections = getSelections()

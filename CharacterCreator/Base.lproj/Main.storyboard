@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0BV-s2-vtb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0BV-s2-vtb">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -152,28 +152,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYS-vK-gpj">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYS-vK-gpj">
                                 <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tak-9C-CVy">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tak-9C-CVy">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="768"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Tak-9C-CVy" secondAttribute="width" id="OZ4-9m-iaN"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tak-9C-CVy" secondAttribute="trailing" id="hOg-dc-awG"/>
-                                    <constraint firstItem="Tak-9C-CVy" firstAttribute="leading" secondItem="tYS-vK-gpj" secondAttribute="leading" id="iHu-ej-QBg"/>
+                                    <constraint firstItem="Tak-9C-CVy" firstAttribute="leading" secondItem="tYS-vK-gpj" secondAttribute="leading" id="Sj8-GN-lrH"/>
+                                    <constraint firstAttribute="bottom" secondItem="Tak-9C-CVy" secondAttribute="bottom" id="fFk-ls-iKa"/>
+                                    <constraint firstItem="Tak-9C-CVy" firstAttribute="top" secondItem="tYS-vK-gpj" secondAttribute="top" id="fGE-n4-jnM"/>
+                                    <constraint firstItem="Tak-9C-CVy" firstAttribute="width" secondItem="tYS-vK-gpj" secondAttribute="width" id="laM-9c-ng5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tak-9C-CVy" secondAttribute="trailing" id="zz1-bl-vgv"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tYS-vK-gpj" firstAttribute="trailing" secondItem="50U-RB-vS5" secondAttribute="trailing" id="NGw-ci-Pg3"/>
-                            <constraint firstItem="tYS-vK-gpj" firstAttribute="top" secondItem="50U-RB-vS5" secondAttribute="top" id="Wg7-je-FFg"/>
-                            <constraint firstItem="tYS-vK-gpj" firstAttribute="leading" secondItem="50U-RB-vS5" secondAttribute="leading" id="jKy-pP-lLa"/>
-                            <constraint firstItem="Tak-9C-CVy" firstAttribute="bottom" secondItem="50U-RB-vS5" secondAttribute="bottom" constant="34" id="la6-Rr-IqY"/>
-                            <constraint firstItem="Tak-9C-CVy" firstAttribute="top" secondItem="50U-RB-vS5" secondAttribute="top" id="mAd-vL-t9M"/>
-                            <constraint firstAttribute="bottom" secondItem="tYS-vK-gpj" secondAttribute="bottom" id="wQI-X7-7bJ"/>
+                            <constraint firstItem="tYS-vK-gpj" firstAttribute="leading" secondItem="50U-RB-vS5" secondAttribute="leading" id="0nc-eJ-9DB"/>
+                            <constraint firstItem="tYS-vK-gpj" firstAttribute="top" secondItem="50U-RB-vS5" secondAttribute="top" id="PrD-hc-j7e"/>
+                            <constraint firstAttribute="bottom" secondItem="tYS-vK-gpj" secondAttribute="bottom" id="ULA-Qv-1aj"/>
+                            <constraint firstItem="tYS-vK-gpj" firstAttribute="trailing" secondItem="50U-RB-vS5" secondAttribute="trailing" id="jBK-5z-Mby"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="50U-RB-vS5"/>
                     </view>
@@ -186,6 +186,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="scrollView" destination="tYS-vK-gpj" id="UeJ-Li-n66"/>
                         <outlet property="stackView" destination="Tak-9C-CVy" id="Xdb-GG-i37"/>
                     </connections>
                 </viewController>

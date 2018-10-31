@@ -17,9 +17,7 @@ struct Item {
 			let type = ItemType(rawValue: typeKey){
 
 			self.type = type	}
-		else {
-			print("could not intialize type from dict");
-			self.type = .other }
+		else { self.type = .other }
 
 		self.name = name
 	}

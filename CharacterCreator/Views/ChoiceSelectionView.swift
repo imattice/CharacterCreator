@@ -16,7 +16,8 @@ class ChoiceSelectionView: UIView {
 		didSet {
 			config()
 			addChoiceViews() } }
-	var presentedChoice: String? = nil
+	var presentedChoice: String? 	= nil
+	var contentHeight: Int? 		= nil
 
 	private func config() {
 		scrollView.delegate 						= self
@@ -28,24 +29,23 @@ class ChoiceSelectionView: UIView {
 		scrollView.isDirectionalLockEnabled 		= true
 		scrollView.bounces							= false
 
-
-		pageControl.numberOfPages = choices.count
+		pageControl.numberOfPages 					= choices.count
+		pageControl.hidesForSinglePage				= true
 	}
 
 	private func addChoiceViews() {
 		for (index, choice) in choices.enumerated() {
 			guard let choiceView = Bundle.main.loadNibNamed("ChoiceView", owner: self, options: nil)?.first as? ChoiceView
 				else { print("Could not load nib for \(choice)"); continue }
-			choiceView.titleLabel.text 				= choice.name.capitalized
-			choiceView.descriptionLabel.text 		= choice.description()
-			choiceView.imageView.image 				= choice.image()
-			choiceView.backgroundColor				= UIColor.lightGray
+
+			choiceView.config(for: choice)
 
 			scrollView.addSubview(choiceView)
 
 			choiceView.frame.size.width 	= self.bounds.size.width
 			choiceView.frame.origin.x 		= CGFloat(index) * self.bounds.size.width
 		}
+
 	}
 
 }
@@ -58,5 +58,23 @@ extension ChoiceSelectionView: UIScrollViewDelegate {
 
 		let pageIndex = scrollView.contentOffset.x / scrollView.frame.size.width
 		pageControl.currentPage = Int(pageIndex)
+	}
+}
+
+
+class ChoiceView: UIView {
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet weak var imageView: UIImageView!
+
+	func config(for choice: Item) {
+		self.layoutIfNeeded()
+
+		titleLabel.text 			= choice.name.capitalized
+		descriptionLabel.text 		= choice.description()
+		imageView.image 			= choice.image()
+		backgroundColor				= UIColor.lightGray
+
+		descriptionLabel.sizeToFit()
 	}
 }

@@ -6,44 +6,35 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
-
-//extension Array {
-//	func containsDuplicate() -> Bool {
-//		for item in self.enumerated() {
-//			return self.filter( { $0 == item }).count > 1
-//		}
-//
-//		return false
-//	}
-//}
-
 extension Array where Element:Equatable {
-//	func hasDuplicates() -> Bool {
-//		for value in self {
-//			if result.contains(value) == false {
-//				result.append(value)
-//			}
-//		}
-//
-//		return result
-//	}
 
 	func hasDuplicates() -> Bool {
 		for item in self {
 			let filtered = self.filter( { $0 == item })
-//			print("filtered: \(filtered)")
 			if filtered.count > 1 {
-//				print("full: \(self)")
-//				print("duplicates found")
+
 				return true
 			}
 		}
-//		print("full: \(self)")
-//		print("no duplicates")
+
 		return false
 	}
 
 	func hasDuplicate(_ element: Element) -> Bool {
 		return self.filter( { $0 == element }).count > 1
+	}
+}
+
+extension Array where Element == String {
+	func columnList(_ columns: Int) -> String{
+		var result = ""
+		let columnLineCount = self.count / columns
+		var columnArray = [String]()
+
+		for index in 0...columns {
+
+		}
+
+		return result
 	}
 }

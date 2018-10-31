@@ -39,7 +39,7 @@ class ClassReviewTableViewCell: UITableViewCell {
 	func config() {
 		classImageView.image	= UIImage(named: Character.default.class.base)
 
-		let pathRect = CGRect(x: 0, y: 0, width: classImageView.frame.width, height: classImageView.frame.height / 2)
+		let pathRect = CGRect(x: 0, y: 0, width: classImageView.frame.width + 5, height: classImageView.frame.height / 2 + 5)
 		let exclusionPath = UIBezierPath(rect: pathRect)
 		detailTextView.textContainer.exclusionPaths = [exclusionPath]
 
