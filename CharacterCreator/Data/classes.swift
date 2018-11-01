@@ -111,9 +111,9 @@ let classData: [String : Any] = [
 					"7": [
 						"Remarkable Athlete": "Your physical skills show themselves as you attempt to use your body to accomplish a feat. You are more successful when attempting a feat using Strenth, Dexterity, or Constitution.  You can also jump further, increasing the distance you travel midair by your Strength modifier."], ] ], ],
 		"equipment": [
-			["chain mail", "leather armor and longbow"],
+			["chain mail", "leather armor and a longbow"],
 			["martial weapon and a shield", "two martial weapons"],
-			["light crossbow", "two handaxes"],
+			["light crossbow", "a pair of handaxes"],
 			["dungeoneer's pack", "explorer's pack"],
 		],
 		"skills": 	[ "acrobatics", "animal handling", "athletics", "history", "insight", "intimidation", "perception", "survival"],
