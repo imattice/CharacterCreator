@@ -24,7 +24,7 @@ class InventorySelectionViewController: UIViewController {
 			guard let selectionView = Bundle.main.loadNibNamed("ChoiceSelectionView", owner: self, options: nil)?.first as? ChoiceSelectionView
 				else { print("Could not create selectionView"); continue }
 				selectionView.choices = choice
-				selectionView.backgroundColor = Character.current.class.color().base()
+				selectionView.backgroundColor = Character.default.class.color().base()
 
 
 //			scrollView.addSubview(selectionView)
@@ -53,11 +53,20 @@ class InventorySelectionViewController: UIViewController {
 		}
 
 		selections = getSelections()
+
+
+	}
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)	
+		let vc = ModalTableViewController()
+		vc.dataType = .ItemSelectionMartial
+
+		present(vc, animated: true)
 	}
 
 
 	func loadChoiceData() {
-		guard let classDict = classData[Character.current.class.base] as? [String : Any],
+		guard let classDict = classData[Character.default.class.base] as? [String : Any],
 			let classChoices = classDict["equipment"] as? [[String]]  else { print("Could not initialize race equiptment data"); return }
 
 		var choiceOptions = [[Item]]()
@@ -92,7 +101,7 @@ class InventorySelectionViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let selectedItems = getSelections()
 
-		Character.current.items = selectedItems
+		Character.default.items = selectedItems
 	}
 
 	struct Choice {

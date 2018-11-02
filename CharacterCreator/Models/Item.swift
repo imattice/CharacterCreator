@@ -51,4 +51,17 @@ struct Item {
 
 		}
 	}
+
+	func damage() -> String {
+		guard let itemDict = itemData[name] as? [String : Any],
+			let damageDict = itemDict["damage"] as? String
+			else { print("damage data unavailable for \(name)"); return "" }
+
+		
+
+		var result = ""
+
+
+		return result
+	}
 }

@@ -44,8 +44,10 @@ class ModalTableViewController: UITableViewController {
 			navigationItem.leftBarButtonItem = backButton
 
 			switch dataType {
-			case .ClassFeature: navigationItem.title = "\(target!.path.capitalized) Features"
-			case .Spellbook: 	navigationItem.title = "Spellbook"
+			case .ClassFeature: 		navigationItem.title 	= "\(target!.path.capitalized) Features"
+			case .Spellbook: 			navigationItem.title 	= "Spellbook"
+			case .ItemSelectionMartial: navigationItem.title 	= "Martial Weapons"
+			case .ItemSelectionSimple:	navigationItem.title	= "Simple Weapons"
 			}
 		}
 	}
@@ -58,7 +60,8 @@ extension ModalTableViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let dataType = dataType else { print("failed initialize with data type"); return UITableViewCell()}
 
-		if dataType == .ClassFeature {
+		switch dataType {
+		case .ClassFeature:
 			//TODO: We should dequeue the cells, but it's tricky to do this and get a .subtitle tableviewcell
 			let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "FeatureCell")
 			let cellData = tableViewData[indexPath.section].content[indexPath.row] as! ClassFeature
@@ -68,27 +71,32 @@ extension ModalTableViewController {
 			cell.detailTextLabel?.numberOfLines = 0
 
 			return cell
-		}
-		if dataType == .Spellbook {
+
+		case .Spellbook:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell", for: indexPath) as! SpellTableViewCell
 			let spell = tableViewData[indexPath.section].content[indexPath.row] as! Spell
 
 			cell.configure(for: spell)
 
 			return cell
+		case .ItemSelectionMartial, .ItemSelectionSimple:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "ItemSelectionCell", for: indexPath) as! ItemSelectionTableViewCell
+			let item = tableViewData[indexPath.section].content[indexPath.row] as! Item
+
+			cell.configure(for: item)
+
+			return cell
 		}
 
-		return UITableViewCell()
 	}
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		guard let dataType = dataType else { print("failed to initialize header title with data type"); return nil }
-		var result = ""
-		switch dataType {
-		case .ClassFeature: result  = "Level \(tableViewData[section].level)"
-		case .Spellbook: result 		= "Spell Level \(tableViewData[section].level)"
-		}
 
-		return result
+		switch dataType {
+		case .ClassFeature: 								return "Level \(tableViewData[section].level)"
+		case .Spellbook: 									return "Spell Level \(tableViewData[section].level)"
+		case .ItemSelectionMartial, .ItemSelectionSimple: 	return ""
+		}
 	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -101,10 +109,10 @@ extension ModalTableViewController {
 	}
 
 	private func getTableData() {
-		guard Character.default.class.castingAttributes != nil
-			else { print("no casting attributes available for \(Character.default.class.base)"); return }
+		guard let dataType = dataType else { print("failed to initialize table data with data type"); return }
 
-		if dataType == .ClassFeature {
+		switch dataType {
+		case .ClassFeature:
 			//fill the tableviewdatasource with delicious content
 			guard let target = target else {print("No class set"); return }
 			let features = target.getAllLevelFeatures()
@@ -112,9 +120,11 @@ extension ModalTableViewController {
 			for feature in features {
 				tableViewData.append(TableViewData(level: feature.key, content: feature.value) )
 			}
-		}
 
-		if dataType == .Spellbook {
+
+		case .Spellbook:
+			guard Character.default.class.castingAttributes != nil
+				else { print("no casting attributes available for \(Character.default.class.base)"); return }
 			for level in 0...Spell.maxLevel {
 				var spells = [Spell]()
 				for spell in Character.current.spellBook {
@@ -125,13 +135,42 @@ extension ModalTableViewController {
 					tableViewData.append(data)
 				}
 			}
+
+
+		case .ItemSelectionMartial, .ItemSelectionSimple:
+			guard let weaponDict = itemData["weapons"] as? [String : Any]
+			else { print("Could not intialize weapon data for modal view"); return }
+
+			var dataSource: [String] {
+				switch dataType {
+				case .ItemSelectionMartial:	return MartialWeapons
+				case .ItemSelectionSimple: 	return SimpleWeapons
+
+				default:					return [String]()	} }
+
+			var result = [Item]()
+			for string in dataSource {
+				let item = Item(string)
+				result.append(item)
+			}
+
+			let data = TableViewData(level: 0, content: result)
+			tableViewData.append(data)
 		}
 
 		tableViewData.sort(by: { $0.level < $1.level })
 	}
 
 	private func registerCells() {
-		tableView.register(UINib(nibName: String(describing: SpellTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "SpellCell")
+		guard let dataType = dataType else { print("failed to initialize tableViewCells with data type"); return }
+
+		switch dataType {
+		case .Spellbook:
+			tableView.register(UINib(nibName: String(describing: SpellTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "SpellCell")
+		case .ItemSelectionMartial, .ItemSelectionSimple:
+			tableView.register(UINib(nibName: String(describing: ItemSelectionTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "ItemSelectionCell")
+		default:	return
+		}
 	}
 
 
@@ -140,7 +179,7 @@ extension ModalTableViewController {
 		var content: [Any]
 	}
 	enum DataType {
-		case ClassFeature, Spellbook
+		case ClassFeature, Spellbook, ItemSelectionMartial, ItemSelectionSimple
 	}
 
 

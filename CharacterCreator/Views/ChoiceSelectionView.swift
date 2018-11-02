@@ -45,9 +45,7 @@ class ChoiceSelectionView: UIView {
 			choiceView.frame.size.width 	= self.bounds.size.width
 			choiceView.frame.origin.x 		= CGFloat(index) * self.bounds.size.width
 		}
-
 	}
-
 }
 
 extension ChoiceSelectionView: UIScrollViewDelegate {
@@ -66,6 +64,7 @@ class ChoiceView: UIView {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var button: UIButton!
 
 	func config(for choice: Item) {
 		self.layoutIfNeeded()
@@ -75,6 +74,26 @@ class ChoiceView: UIView {
 		imageView.image 			= choice.image()
 		backgroundColor				= UIColor.lightGray
 
+		if choice.name == "quarterstaff" {
+			configureButton(for: choice)					}
+		else {
+			button.removeFromSuperview()		}
+
 		descriptionLabel.sizeToFit()
+
+
+	}
+
+	private func configureButton(for choice: Item) {
+		let buttonTitle = "Select Weapon"
+
+		button.setTitle(buttonTitle, for: .normal)
+	}
+	@IBAction func buttonSelected(_ sender: UIButton) {
+
+	}
+
+	private func updateConfig(for item: Item) {
+
 	}
 }
