@@ -26,22 +26,22 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0B-8D-l6m">
-                        <rect key="frame" x="20" y="41" width="284" height="98"/>
+                        <rect key="frame" x="20" y="41" width="284" height="99"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damage: 1d4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyh-bZ-9LN">
-                        <rect key="frame" x="16" y="147" width="288" height="20"/>
+                        <rect key="frame" x="16" y="148" width="288" height="20"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCR-LT-LAu" userLabel="Divider View">
-                        <rect key="frame" x="21" y="172" width="278" height="3"/>
+                        <rect key="frame" x="21" y="173" width="278" height="2"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="3" id="zDr-43-pC0"/>
+                            <constraint firstAttribute="height" constant="2" id="zDr-43-pC0"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWM-a8-IOF">

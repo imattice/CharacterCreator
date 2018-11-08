@@ -9,23 +9,41 @@ import UIKit
 
 struct Item {
 	let name: String
-	let type: ItemType
+	let tags: [ItemTag]?
 
 	init(_ name: String) {
-		if let itemDict = itemData[name] as? [String : Any],
-			let typeKey = itemDict["type"] as? String,
-			let type = ItemType(rawValue: typeKey){
-
-			self.type = type	}
-		else { self.type = .other }
-
 		self.name = name
+
+		if let itemDict = itemData[name] as? [String : Any] {
+			if let tags = itemDict["tags"] as? [String] {
+				var result = [ItemTag]()
+				for tag in tags {
+					guard let itemTag = ItemTag(rawValue: tag) else { print("could not create itemtag enum from \(tag)"); continue }
+					result.append(itemTag)
+				}
+				self.tags = result
+			}
+			else {
+				self.tags = nil
+			}
+
+		}
+		else {
+			print("no data for \(name)")
+			self.tags = nil
+		}
 	}
 
 	func description() -> String {
 		guard let itemDict = itemData[name] as? [String : Any],
-			let description = itemDict["description"] as? String
-		else { print("could not create itemDict for \(name)"); return "" }
+			var description = itemDict["description"] as? String
+		else { print("could not create itemDict for \(name) for item description"); return "" }
+
+		if let tags = tags,
+			tags.contains(.special),
+			let specialText = itemDict["special"] as? String {
+			description += "\n\n*\(specialText)"
+		}
 
 		return description
 	}
@@ -35,33 +53,41 @@ struct Item {
 		if let namedImage = UIImage(named: name) {
 			return namedImage									}
 
-		//if there's a icon for the type
-		if let typeImage = UIImage(named: type.rawValue) {
-			return typeImage									}
+		//if there's a icon for the tag
+		if let tags = self.tags,
+			let tag = tags.first {
+			return tag.image()									}
 
-		//fall back on some default images
 		else {
-			switch type {
-			case .meleeWeapon,
-				 .simple: 		return UIImage(named: "sword")
-			case .rangedWeapon: return UIImage(named: "bow")
-			case .mixedWeapon: 	return UIImage(named: "handaxe")
-			default:			return UIImage(named: "arcane focus")
-			}
-
-		}
+			print("no image available for \(name)")
+			return nil											}
 	}
 
-	func damage() -> String {
-		guard let itemDict = itemData[name] as? [String : Any],
-			let damageDict = itemDict["damage"] as? String
-			else { print("damage data unavailable for \(name)"); return "" }
+	func damage() -> Damage? {
+		guard let itemDict 			= itemData[name] as? [String : Any],
+			let damageDict 			= itemDict["damage"] as? [String : Any]
+			else { print("damage data unavailable for \(name)"); return nil }
 
-		
+		return Damage(fromDict: damageDict)
+	}
 
-		var result = ""
+	enum ItemTag: String {
+		case ammunition, finesse, heavy, light, loading, thrown, twoHanded, versatile, ranged, reach, special
 
-
-		return result
+		func image() -> UIImage? {
+			switch self {
+			case .ammunition: 	return UIImage(named: "bow")
+			case .finesse: 		return UIImage(named: "rapier")
+			case .heavy:		return UIImage(named: "warhammer")
+			case .light: 		return UIImage(named: "dagger")
+			case .loading: 		return UIImage(named: "crossbow")
+			case .thrown: 		return UIImage(named: "handaxe")
+			case .twoHanded: 	return UIImage(named: "bow")
+			case .versatile: 	return UIImage(named: "staff")
+			case .ranged: 		return UIImage(named: "bow")
+			case .reach: 		return UIImage(named: "rapier")
+			case .special: 		return UIImage(named: "arcane focus")
+			}
+		}
 	}
 }

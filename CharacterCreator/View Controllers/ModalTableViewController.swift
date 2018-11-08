@@ -138,9 +138,6 @@ extension ModalTableViewController {
 
 
 		case .ItemSelectionMartial, .ItemSelectionSimple:
-			guard let weaponDict = itemData["weapons"] as? [String : Any]
-			else { print("Could not intialize weapon data for modal view"); return }
-
 			var dataSource: [String] {
 				switch dataType {
 				case .ItemSelectionMartial:	return MartialWeapons
