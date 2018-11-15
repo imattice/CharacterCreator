@@ -37,7 +37,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pt7-T0-7sL">
                     <rect key="frame" x="8" y="115" width="289" height="30"/>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="Select Weapon"/>
                     <connections>
                         <action selector="buttonSelected:" destination="iN0-l3-epB" eventType="touchUpInside" id="Iyq-J7-75q"/>
                     </connections>

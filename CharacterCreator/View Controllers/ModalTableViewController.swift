@@ -9,18 +9,20 @@
 //Used to display Spells and Class Features
 import UIKit
 
+protocol ItemSelectionDelegate {
+	
+}
+
 class ModalTableViewController: UITableViewController {
 	@IBOutlet weak var backButton: UIBarButtonItem!
 
 	var tableViewData = [TableViewData]()
-	var target: Class?			= Character.default.class  //nil
+	var target: Class?			= Character.current.class  //nil
 	var dataType: DataType?		= .ClassFeature				//nil
-
 	
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//		Character.default.class.spellCasting?.spells = [Spell(name: "Acid Splash")!, Spell(name: "Fire Bolt")!, Spell(name: "Charm Person")!, Spell(name: "Magic Missile")!, Spell(name: "Blur")!]
 
 		registerCells()
 		getTableData()
@@ -35,6 +37,10 @@ class ModalTableViewController: UITableViewController {
 	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
 		self.dismiss(animated: true, completion: nil)
 	}
+	@objc func confirmationButtonPressed(_ sender: UIBarButtonItem) {
+
+		self.dismiss(animated: true, completion: nil)
+	}
 
 	func configureNav() {
 		if let _ = navigationController,
@@ -42,6 +48,11 @@ class ModalTableViewController: UITableViewController {
 
 			let backButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(backButtonPressed(_:)))
 			navigationItem.leftBarButtonItem = backButton
+
+			if dataType == .ItemSelectionMartial || dataType == .ItemSelectionSimple {
+				let confirmButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: #selector(confirmationButtonPressed(_:)))
+				navigationItem.rightBarButtonItem = confirmButton
+			}
 
 			switch dataType {
 			case .ClassFeature: 		navigationItem.title 	= "\(target!.path.capitalized) Features"
@@ -123,8 +134,8 @@ extension ModalTableViewController {
 
 
 		case .Spellbook:
-			guard Character.default.class.castingAttributes != nil
-				else { print("no casting attributes available for \(Character.default.class.base)"); return }
+			guard Character.current.class.castingAttributes != nil
+				else { print("no casting attributes available for \(Character.current.class.base)"); return }
 			for level in 0...Spell.maxLevel {
 				var spells = [Spell]()
 				for spell in Character.current.spellBook {

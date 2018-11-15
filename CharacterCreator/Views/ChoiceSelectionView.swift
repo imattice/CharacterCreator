@@ -97,3 +97,35 @@ class ChoiceView: UIView {
 
 	}
 }
+
+struct Choice {
+	let subchoices: [Item]
+
+	func choices(for `class`: Class) -> [[Item]]? {
+		guard let classDict = classData[`class`.base] as? [String : Any],
+			let choices = classDict["equipment"] as? [Any]
+		else { return nil }
+
+		var result = [[Item]]()
+
+		for choice in choices {
+			if let choices = choice as? [String] {
+
+			}
+			else if let choice = choice as? String {
+
+			}
+		}
+
+
+
+		return result
+	}
+}
+
+
+
+//Can display the item data for any item
+//Can handle multiple subchoices
+//Can rewrite data with a specific weapon
+
