@@ -41,10 +41,11 @@ class ChoiceSelectionView: UIView {
 				selectionStack.axis 			= .vertical
 				selectionStack.distribution 	= .fillEqually
 				selectionStack.alignment		= .fill
-				selectionStack.spacing			= 10
+				selectionStack.spacing			= 5
 				selectionStack.translatesAutoresizingMaskIntoConstraints = false
 
-			guard let choiceView = Bundle.main.loadNibNamed(String(describing: SelectionView.self), owner: self, options: nil)?.first as? SelectionView
+			guard let choiceView = Bundle.main.loadNibNamed(String(describing: SelectionView.self), owner: self, options: nil)?.first as? SelectionView,
+				let choiceView2 = Bundle.main.loadNibNamed(String(describing: SelectionView.self), owner: self, options: nil)?.first as? SelectionView
 				else { print("Could not load nib for \(choice)"); continue }
 
 			//configure the choice view
@@ -62,6 +63,27 @@ class ChoiceSelectionView: UIView {
 							   constant: UIScreen.main.bounds.width).isActive = true
 
 
+			//add the configured choice view to the vertical stackView
+			selectionStack.addArrangedSubview(choiceView)
+
+			//configure the choice view
+			choiceView2.config(for: choice)
+			choiceView2.layer.borderColor = UIColor.blue.cgColor
+			choiceView2.layer.borderWidth = 5.0
+
+			choiceView2.translatesAutoresizingMaskIntoConstraints = false
+			NSLayoutConstraint(item: choiceView2,
+							   attribute: .width,
+							   relatedBy: .equal,
+							   toItem: nil,
+							   attribute: .notAnAttribute,
+							   multiplier: 1,
+							   constant: UIScreen.main.bounds.width).isActive = true
+
+
+			//add the configured choice view to the vertical stackView
+			selectionStack.addArrangedSubview(choiceView2)
+
 //			scrollView.addSubview(choiceView)
 
 //			choiceView.frame.size.width 	= self.bounds.size.width
@@ -73,8 +95,7 @@ class ChoiceSelectionView: UIView {
 //			selectionStack.frame.size.width 	= self.bounds.size.width
 //			selectionStack.frame.origin.x 		= CGFloat(index) * self.bounds.size.width
 
-//			selectionStack.addArrangedSubview(choiceView)
-			stackView.addArrangedSubview(choiceView)
+			stackView.addArrangedSubview(selectionStack)
 
 //			scrollView.addSubview(selectionStack)
 //

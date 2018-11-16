@@ -20,7 +20,7 @@ class InventorySelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		view.backgroundColor = .darkGray 
+		view.backgroundColor = .darkGray
 
 		loadChoiceData()
 		addSelectionViews()
@@ -71,13 +71,13 @@ class InventorySelectionViewController: UIViewController {
 							   attribute: .trailing,
 							   multiplier: 1,
 							   constant: 0).isActive = true
-			NSLayoutConstraint(item: selectionView,
-							   attribute: .height,
-							   relatedBy: .equal,
-							   toItem: nil,
-							   attribute: .notAnAttribute,
-							   multiplier: 1,
-							   constant: 200).isActive = true
+//			NSLayoutConstraint(item: selectionView,
+//							   attribute: .height,
+//							   relatedBy: .equal,
+//							   toItem: nil,
+//							   attribute: .notAnAttribute,
+//							   multiplier: 1,
+//							   constant: 200).isActive = true
 		}
 	}
 
