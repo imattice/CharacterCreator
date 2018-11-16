@@ -52,7 +52,7 @@
 		81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */; };
 		81DC8E4F211252AD002F6AE4 /* ChoiceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4E211252AD002F6AE4 /* ChoiceSelectionView.swift */; };
 		81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E502112548A002F6AE4 /* ChoiceSelectionView.xib */; };
-		81DC8E5521125637002F6AE4 /* ChoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E5421125637002F6AE4 /* ChoiceView.xib */; };
+		81DC8E5521125637002F6AE4 /* SelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DC8E5421125637002F6AE4 /* SelectionView.xib */; };
 		81DC8E57211256EC002F6AE4 /* InventorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E56211256EC002F6AE4 /* InventorySelectionViewController.swift */; };
 		81DF302C213C5D6A00C939CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302B213C5D6A00C939CE /* Item.swift */; };
 		81DF302E213C5F3200C939CE /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302D213C5F3200C939CE /* items.swift */; };
@@ -147,7 +147,7 @@
 		81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillSelectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		81DC8E4E211252AD002F6AE4 /* ChoiceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceSelectionView.swift; sourceTree = "<group>"; };
 		81DC8E502112548A002F6AE4 /* ChoiceSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceSelectionView.xib; sourceTree = "<group>"; };
-		81DC8E5421125637002F6AE4 /* ChoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceView.xib; sourceTree = "<group>"; };
+		81DC8E5421125637002F6AE4 /* SelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionView.xib; sourceTree = "<group>"; };
 		81DC8E56211256EC002F6AE4 /* InventorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventorySelectionViewController.swift; sourceTree = "<group>"; };
 		81DF302B213C5D6A00C939CE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		81DF302D213C5F3200C939CE /* items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 				819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */,
 				8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */,
 				81DC8E4E211252AD002F6AE4 /* ChoiceSelectionView.swift */,
-				81DC8E5421125637002F6AE4 /* ChoiceView.xib */,
+				81DC8E5421125637002F6AE4 /* SelectionView.xib */,
 				81DC8E502112548A002F6AE4 /* ChoiceSelectionView.xib */,
 				8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */,
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
@@ -506,7 +506,7 @@
 				8135B41B21649F170058E9D6 /* SpellSelectionHeaderView.xib in Resources */,
 				81F8496C218A9A6D00280D8C /* ItemSelectionTableViewCell.xib in Resources */,
 				81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */,
-				81DC8E5521125637002F6AE4 /* ChoiceView.xib in Resources */,
+				81DC8E5521125637002F6AE4 /* SelectionView.xib in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,

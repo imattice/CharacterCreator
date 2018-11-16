@@ -11,6 +11,7 @@ import UIKit
 class ChoiceSelectionView: UIView {
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var pageControl: UIPageControl!
+	@IBOutlet weak var stackView: UIStackView!
 
 	var choices = [Item]() {
 		didSet {
@@ -34,16 +35,86 @@ class ChoiceSelectionView: UIView {
 	}
 
 	private func addChoiceViews() {
+
 		for (index, choice) in choices.enumerated() {
-			guard let choiceView = Bundle.main.loadNibNamed("ChoiceView", owner: self, options: nil)?.first as? ChoiceView
+			let selectionStack = UIStackView()
+				selectionStack.axis 			= .vertical
+				selectionStack.distribution 	= .fillEqually
+				selectionStack.alignment		= .fill
+				selectionStack.spacing			= 10
+				selectionStack.translatesAutoresizingMaskIntoConstraints = false
+
+			guard let choiceView = Bundle.main.loadNibNamed(String(describing: SelectionView.self), owner: self, options: nil)?.first as? SelectionView
 				else { print("Could not load nib for \(choice)"); continue }
 
+			//configure the choice view
 			choiceView.config(for: choice)
+			choiceView.layer.borderColor = UIColor.blue.cgColor
+			choiceView.layer.borderWidth = 5.0
 
-			scrollView.addSubview(choiceView)
+			choiceView.translatesAutoresizingMaskIntoConstraints = false
+			NSLayoutConstraint(item: choiceView,
+							   attribute: .width,
+							   relatedBy: .equal,
+							   toItem: nil,
+							   attribute: .notAnAttribute,
+							   multiplier: 1,
+							   constant: UIScreen.main.bounds.width).isActive = true
 
-			choiceView.frame.size.width 	= self.bounds.size.width
-			choiceView.frame.origin.x 		= CGFloat(index) * self.bounds.size.width
+
+//			scrollView.addSubview(choiceView)
+
+//			choiceView.frame.size.width 	= self.bounds.size.width
+
+
+//			choiceView.frame.origin.x 		= CGFloat(index) * self.bounds.size.width
+
+			//add all selections to this choice view
+//			selectionStack.frame.size.width 	= self.bounds.size.width
+//			selectionStack.frame.origin.x 		= CGFloat(index) * self.bounds.size.width
+
+//			selectionStack.addArrangedSubview(choiceView)
+			stackView.addArrangedSubview(choiceView)
+
+//			scrollView.addSubview(selectionStack)
+//
+//			selectionStack.translatesAutoresizingMaskIntoConstraints = false
+//			NSLayoutConstraint(item: selectionStack,
+//							   attribute: .top,
+//							   relatedBy: .equal,
+//							   toItem: stackView,
+//							   attribute: .top,
+//							   multiplier: 1,
+//							   constant: 0).isActive = true
+//			NSLayoutConstraint(item: selectionStack,
+//							   attribute: .bottom,
+//							   relatedBy: .equal,
+//							   toItem: stackView,
+//							   attribute: .top,
+//							   multiplier: 1,
+//							   constant: 0).isActive = true
+//			NSLayoutConstraint(item: selectionStack,
+//							   attribute: .width,
+//							   relatedBy: .equal,
+//							   toItem: nil,
+//							   attribute: .notAnAttribute,
+//							   multiplier: 1,
+//							   constant: UIScreen.main.bounds.width).isActive = true
+//			NSLayoutConstraint(item: selectionStack,
+//							   attribute: .height,
+//							   relatedBy: .equal,
+//							   toItem: nil,
+//							   attribute: .notAnAttribute,
+//							   multiplier: 1,
+//							   constant: 400).isActive = true
+//			NSLayoutConstraint(item: selectionStack,
+//							   attribute: .leading,
+//							   relatedBy: .equal,
+//							   toItem: self,
+//							   attribute: .leading,
+//							   multiplier: 1,
+//							   constant: CGFloat(index) * self.bounds.size.width).isActive = true
+
 		}
 	}
 }
@@ -60,7 +131,7 @@ extension ChoiceSelectionView: UIScrollViewDelegate {
 }
 
 
-class ChoiceView: UIView {
+class SelectionView: UIView {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var imageView: UIImageView!
@@ -98,7 +169,7 @@ class ChoiceView: UIView {
 	}
 }
 
-struct Choice {
+struct Selection {
 	let title: String
 	let description: String
 	let damage: String?

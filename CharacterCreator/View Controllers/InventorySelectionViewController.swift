@@ -16,19 +16,20 @@ class InventorySelectionViewController: UIViewController {
 
 	var choiceData = [[Item]]()
 	var selections = [Item]()
-	var selectedChoiceView: ChoiceView?
+	var selectedChoiceView: SelectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		view.backgroundColor = .darkGray 
 
 		loadChoiceData()
-		createChoiceViews()
+		addSelectionViews()
 
 		selections = getSelections()
 	}
 
 	func loadChoiceData() {
-		guard let classDict = classData[Character.current.class.base] as? [String : Any],
+		guard let classDict = classData[Character.default.class.base] as? [String : Any],
 			let classChoices = classDict["equipment"] as? [[String]]  else { print("Could not initialize race equiptment data"); return }
 
 		var choiceOptions = [[Item]]()
@@ -45,12 +46,12 @@ class InventorySelectionViewController: UIViewController {
 		}
 		choiceData = choiceOptions
 	}
-	private func createChoiceViews() {
+	private func addSelectionViews() {
 		for choice in choiceData {
-			guard let selectionView = Bundle.main.loadNibNamed("ChoiceSelectionView", owner: self, options: nil)?.first as? ChoiceSelectionView
+			guard let selectionView = Bundle.main.loadNibNamed(String(describing: ChoiceSelectionView.self), owner: self, options: nil)?.first as? ChoiceSelectionView
 				else { print("Could not create selectionView"); continue }
 			selectionView.choices = choice
-			selectionView.backgroundColor = Character.current.class.color().base()
+			selectionView.backgroundColor = Character.default.class.color().base()
 
 			stackView.addArrangedSubview(selectionView)
 
@@ -70,6 +71,13 @@ class InventorySelectionViewController: UIViewController {
 							   attribute: .trailing,
 							   multiplier: 1,
 							   constant: 0).isActive = true
+			NSLayoutConstraint(item: selectionView,
+							   attribute: .height,
+							   relatedBy: .equal,
+							   toItem: nil,
+							   attribute: .notAnAttribute,
+							   multiplier: 1,
+							   constant: 200).isActive = true
 		}
 	}
 
@@ -90,6 +98,6 @@ class InventorySelectionViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let selectedItems = getSelections()
 
-		Character.current.items = selectedItems
+		Character.default.items = selectedItems
 	}
 }
