@@ -125,8 +125,10 @@ class SelectionView: UIView {
 
 struct Choice {
 	let selections: [Selection]
+
+	struct Selection {
+		let items: [Item]
+	}
 }
 
-struct Selection {
-	let items: [Item]
-}
+

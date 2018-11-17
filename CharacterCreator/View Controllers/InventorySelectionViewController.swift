@@ -29,27 +29,23 @@ class InventorySelectionViewController: UIViewController {
 	func loadChoiceData() {
 		guard let classDict = classData[Character.default.class.base] as? [String : Any],
 			let classChoices = classDict["equipment"] as? [Any]  else { print("Could not initialize class equiptment data"); return } //[Choice]
-		print("class choices: \(classChoices)")
 
 		var choices = [Choice]()
 		for availableChoice in classChoices {
-			print("available choices: \(availableChoice)")
 			guard let selectionDict = availableChoice as? [Any] else { print("choice data not stored properly"); return }
 
-			var selections = [Selection]()
+			var selections = [Choice.Selection]()
 			for availableSelection in selectionDict {
-				print("available selection: \(availableSelection)")
 				guard let itemDict = availableSelection as? [String] else { print("Item not contained within array."); return }
 
 				var items = [Item]()
 				for itemName in itemDict {
-					print("item: \(itemName)")
 
 					let item = Item(itemName)
 
 					items.append(item)
 				}
-				let selection = Selection(items: items)
+				let selection = Choice.Selection(items: items)
 
 				selections.append(selection)
 			}
