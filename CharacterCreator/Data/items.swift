@@ -6,6 +6,10 @@
 
 let itemData: [String : Any] = [
 //Simple Weapons
+	"simple weapon": [
+		"class": "simple",
+		"description": "A basic weapon, often made of a makeshift item",												],
+
 	"club":	[
 		"class": "simple",
 		"tags": ["light"],
@@ -33,7 +37,7 @@ let itemData: [String : Any] = [
 			"type": "bludgeoning",
 			"value": "8"],
 		"description": "A wooden chunk that is so heavy that it requires two hands to use effectively",				],
-	"handaxes":	[
+	"handaxe":	[
 		"class": "simple",
 		"tags": ["light", "thrown"],
 		"range": [
@@ -137,6 +141,10 @@ let itemData: [String : Any] = [
 		"description": 	"An elastic band that can be used to fling rocks accross a short distance",						],
 
 //Martial Weapons
+	"martial weapon": [
+		"class": "material",
+		"description": "A weapon that requires training to use correctly.",													],
+
 	"battleaxe": [
 		"class": "martial",
 		"tags": ["versatile"],
@@ -394,19 +402,21 @@ let itemData: [String : Any] = [
 		"type": "other",
 		"description": 		"A book containing great knowledge on how to cast arcane arts",								],
 
+
+
 	//odd starting item strings that might want to be generated from the above descriptions rather than on their own
-	"leather armor and a longbow": [
-		"type": "other",
-		"description": 		"A bow built for long range combat and light armor to protect when enemies get too close",	],
-	"two martial weapons": [
-		"type": "other",
-		"description": 		"Two martial weapons of your choice",														],
-	"martial weapon and a shield": [
-		"type": "other",
-		"description": 		"A martial weapon of your choice and a shield to block incoming blows.",					],
-	"a pair of handaxes": [
-		"type": "other",
-		"description": 		"A twin set of axes than can be thrown.",													],
+//	"leather armor and a longbow": [
+//		"type": "other",
+//		"description": 		"A bow built for long range combat and light armor to protect when enemies get too close",	],
+//	"two martial weapons": [
+//		"type": "other",
+//		"description": 		"Two martial weapons of your choice",														],
+//	"martial weapon and a shield": [
+//		"type": "other",
+//		"description": 		"A martial weapon of your choice and a shield to block incoming blows.",					],
+//	"a pair of handaxes": [
+//		"type": "other",
+//		"description": 		"A twin set of axes than can be thrown.",													],
 
 ]
 

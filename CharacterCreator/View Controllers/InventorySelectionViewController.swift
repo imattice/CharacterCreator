@@ -14,14 +14,12 @@ class InventorySelectionViewController: UIViewController {
 	@IBOutlet weak var stackView: UIStackView!
 	@IBOutlet weak var scrollView: UIScrollView!
 
-	var choiceData = [[Item]]()
+	var choiceData = [Choice]()
 	var selections = [Item]()
 	var selectedChoiceView: SelectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		view.backgroundColor = .darkGray
-
 		loadChoiceData()
 		addSelectionViews()
 
@@ -30,27 +28,40 @@ class InventorySelectionViewController: UIViewController {
 
 	func loadChoiceData() {
 		guard let classDict = classData[Character.default.class.base] as? [String : Any],
-			let classChoices = classDict["equipment"] as? [[String]]  else { print("Could not initialize race equiptment data"); return }
+			let classChoices = classDict["equipment"] as? [Any]  else { print("Could not initialize class equiptment data"); return } //[Choice]
 
-		var choiceOptions = [[Item]]()
+		var choices = [Choice]()
+		for availableChoice in classChoices {
+			guard let selectionDict = availableChoice as? [Any] else { print("choice data not stored properly"); return }
 
-		for options in classChoices {
-			var choices = [Item]()
+			var selections = [Choice.Selection]()
+			for availableSelection in selectionDict {
+				guard let itemDict = availableSelection as? [String] else { print("Item not contained within array."); return }
 
-			for choice in options {
-				let item = Item(choice)
-				choices.append(item)
+				var items = [Item]()
+				for itemName in itemDict {
+
+					let item = Item(itemName)
+
+					items.append(item)
+				}
+				let selection = Choice.Selection(items: items)
+
+				selections.append(selection)
 			}
 
-			choiceOptions.append(choices)
+			let choice = Choice(selections: selections)
+
+			choices.append(choice)
 		}
-		choiceData = choiceOptions
+
+		choiceData = choices
 	}
 	private func addSelectionViews() {
 		for choice in choiceData {
 			guard let selectionView = Bundle.main.loadNibNamed(String(describing: ChoiceSelectionView.self), owner: self, options: nil)?.first as? ChoiceSelectionView
 				else { print("Could not create selectionView"); continue }
-			selectionView.choices = choice
+			selectionView.choice = choice
 			selectionView.backgroundColor = Character.default.class.color().base()
 
 			stackView.addArrangedSubview(selectionView)
@@ -71,13 +82,6 @@ class InventorySelectionViewController: UIViewController {
 							   attribute: .trailing,
 							   multiplier: 1,
 							   constant: 0).isActive = true
-//			NSLayoutConstraint(item: selectionView,
-//							   attribute: .height,
-//							   relatedBy: .equal,
-//							   toItem: nil,
-//							   attribute: .notAnAttribute,
-//							   multiplier: 1,
-//							   constant: 200).isActive = true
 		}
 	}
 
@@ -85,11 +89,14 @@ class InventorySelectionViewController: UIViewController {
 		var result = [Item]()
 
 		for selectionView in stackView.arrangedSubviews {
-			guard let selectionView = selectionView as? ChoiceSelectionView else { print("could not cast to Choice Selection View when getting selections"); continue }
+			guard let selectionView = selectionView as? ChoiceSelectionView,
+				let selectionViewChoice = selectionView.choice else { print("could not cast to Choice Selection View when getting selections"); continue }
 			let optionIndex = selectionView.pageControl.currentPage
-			let item = selectionView.choices[optionIndex]
+			let selection = selectionViewChoice.selections[optionIndex]
 
-			result.append(item)
+			for item in selection.items {
+				result.append(item)
+			}
 		}
 
 		return result

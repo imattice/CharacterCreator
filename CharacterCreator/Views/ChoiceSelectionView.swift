@@ -13,7 +13,7 @@ class ChoiceSelectionView: UIView {
 	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet weak var stackView: UIStackView!
 
-	var choices = [Item]() {
+	var choice: Choice? {
 		didSet {
 			config()
 			addChoiceViews() } }
@@ -21,121 +21,54 @@ class ChoiceSelectionView: UIView {
 	var contentHeight: Int? 		= nil
 
 	private func config() {
+		guard let choice = choice else { print("choice not set for config"); return }
 		scrollView.delegate 						= self
 		scrollView.isPagingEnabled 					= true
-		scrollView.contentSize 						= CGSize(width: self.bounds.width * CGFloat(choices.count),
+		scrollView.contentSize 						= CGSize(width: self.bounds.width * CGFloat(choice.selections.count),
 																height: 250)
 		scrollView.showsHorizontalScrollIndicator 	= false
 		scrollView.alwaysBounceHorizontal 			= false
 		scrollView.isDirectionalLockEnabled 		= true
 		scrollView.bounces							= false
 
-		pageControl.numberOfPages 					= choices.count
+		pageControl.numberOfPages 					= choice.selections.count
 		pageControl.hidesForSinglePage				= true
 	}
 
 	private func addChoiceViews() {
+		guard let choice = choice else { print("choice not set when adding choice views"); return }
 
-		for (index, choice) in choices.enumerated() {
+		for selection in choice.selections {
 			let selectionStack = UIStackView()
 				selectionStack.axis 			= .vertical
 				selectionStack.distribution 	= .fillEqually
-				selectionStack.alignment		= .fill
+				selectionStack.alignment		= .center
 				selectionStack.spacing			= 5
 				selectionStack.translatesAutoresizingMaskIntoConstraints = false
 
-			guard let choiceView = Bundle.main.loadNibNamed(String(describing: SelectionView.self), owner: self, options: nil)?.first as? SelectionView,
-				let choiceView2 = Bundle.main.loadNibNamed(String(describing: SelectionView.self), owner: self, options: nil)?.first as? SelectionView
-				else { print("Could not load nib for \(choice)"); continue }
+			for item in selection.items {
+				guard let selectionView = Bundle.main.loadNibNamed(String(describing: SelectionView.self), owner: self, options: nil)?.first as? SelectionView
+					else { print("Could not load nib for \(choice)"); continue }
 
-			//configure the choice view
-			choiceView.config(for: choice)
-			choiceView.layer.borderColor = UIColor.blue.cgColor
-			choiceView.layer.borderWidth = 5.0
+				//configure the choice view
+				selectionView.config(for: item)
+				selectionView.layer.borderColor = UIColor.black.cgColor
+				selectionView.layer.borderWidth = 2.0
 
-			choiceView.translatesAutoresizingMaskIntoConstraints = false
-			NSLayoutConstraint(item: choiceView,
-							   attribute: .width,
-							   relatedBy: .equal,
-							   toItem: nil,
-							   attribute: .notAnAttribute,
-							   multiplier: 1,
-							   constant: UIScreen.main.bounds.width).isActive = true
+				selectionView.translatesAutoresizingMaskIntoConstraints = false
+				NSLayoutConstraint(item: selectionView,
+								   attribute: .width,
+								   relatedBy: .equal,
+								   toItem: nil,
+								   attribute: .notAnAttribute,
+								   multiplier: 1,
+								   constant: UIScreen.main.bounds.width).isActive = true
 
-
-			//add the configured choice view to the vertical stackView
-			selectionStack.addArrangedSubview(choiceView)
-
-			//configure the choice view
-			choiceView2.config(for: choice)
-			choiceView2.layer.borderColor = UIColor.blue.cgColor
-			choiceView2.layer.borderWidth = 5.0
-
-			choiceView2.translatesAutoresizingMaskIntoConstraints = false
-			NSLayoutConstraint(item: choiceView2,
-							   attribute: .width,
-							   relatedBy: .equal,
-							   toItem: nil,
-							   attribute: .notAnAttribute,
-							   multiplier: 1,
-							   constant: UIScreen.main.bounds.width).isActive = true
-
-
-			//add the configured choice view to the vertical stackView
-			selectionStack.addArrangedSubview(choiceView2)
-
-//			scrollView.addSubview(choiceView)
-
-//			choiceView.frame.size.width 	= self.bounds.size.width
-
-
-//			choiceView.frame.origin.x 		= CGFloat(index) * self.bounds.size.width
-
-			//add all selections to this choice view
-//			selectionStack.frame.size.width 	= self.bounds.size.width
-//			selectionStack.frame.origin.x 		= CGFloat(index) * self.bounds.size.width
+				//add the configured choice view to the vertical stackView
+				selectionStack.addArrangedSubview(selectionView)
+			}
 
 			stackView.addArrangedSubview(selectionStack)
-
-//			scrollView.addSubview(selectionStack)
-//
-//			selectionStack.translatesAutoresizingMaskIntoConstraints = false
-//			NSLayoutConstraint(item: selectionStack,
-//							   attribute: .top,
-//							   relatedBy: .equal,
-//							   toItem: stackView,
-//							   attribute: .top,
-//							   multiplier: 1,
-//							   constant: 0).isActive = true
-//			NSLayoutConstraint(item: selectionStack,
-//							   attribute: .bottom,
-//							   relatedBy: .equal,
-//							   toItem: stackView,
-//							   attribute: .top,
-//							   multiplier: 1,
-//							   constant: 0).isActive = true
-//			NSLayoutConstraint(item: selectionStack,
-//							   attribute: .width,
-//							   relatedBy: .equal,
-//							   toItem: nil,
-//							   attribute: .notAnAttribute,
-//							   multiplier: 1,
-//							   constant: UIScreen.main.bounds.width).isActive = true
-//			NSLayoutConstraint(item: selectionStack,
-//							   attribute: .height,
-//							   relatedBy: .equal,
-//							   toItem: nil,
-//							   attribute: .notAnAttribute,
-//							   multiplier: 1,
-//							   constant: 400).isActive = true
-//			NSLayoutConstraint(item: selectionStack,
-//							   attribute: .leading,
-//							   relatedBy: .equal,
-//							   toItem: self,
-//							   attribute: .leading,
-//							   multiplier: 1,
-//							   constant: CGFloat(index) * self.bounds.size.width).isActive = true
-
 		}
 	}
 }
@@ -190,21 +123,12 @@ class SelectionView: UIView {
 	}
 }
 
-struct Selection {
-	let title: String
-	let description: String
-	let damage: String?
+struct Choice {
+	let selections: [Selection]
 
-
-	func toItem() -> Item {
-
-		return Item("test")
+	struct Selection {
+		let items: [Item]
 	}
 }
 
-
-
-//Can display the item data for any item
-//Can handle multiple subchoices
-//Can rewrite data with a specific weapon
 
