@@ -33,7 +33,7 @@ let itemData: [String : Any] = [
 			"type": "bludgeoning",
 			"value": "8"],
 		"description": "A wooden chunk that is so heavy that it requires two hands to use effectively",				],
-	"handaxes":	[
+	"handaxe":	[
 		"class": "simple",
 		"tags": ["light", "thrown"],
 		"range": [
