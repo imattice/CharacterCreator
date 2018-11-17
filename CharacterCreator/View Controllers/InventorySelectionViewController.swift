@@ -14,39 +14,17 @@ class InventorySelectionViewController: UIViewController {
 	@IBOutlet weak var stackView: UIStackView!
 	@IBOutlet weak var scrollView: UIScrollView!
 
-//	var choiceData = [[Item]]()
 	var choiceData = [Choice]()
 	var selections = [Item]()
 	var selectedChoiceView: SelectionView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		view.backgroundColor = .darkGray
-
 		loadChoiceData()
 		addSelectionViews()
 
 		selections = getSelections()
 	}
-
-//	func loadChoiceData() {
-//		guard let classDict = classData[Character.default.class.base] as? [String : Any],
-//			let classChoices = classDict["equipment"] as? [[String]]  else { print("Could not initialize race equiptment data"); return }
-//
-//		var choiceOptions = [[Item]]()
-//
-//		for options in classChoices {
-//			var choices = [Item]()
-//
-//			for choice in options {
-//				let item = Item(choice)
-//				choices.append(item)
-//			}
-//
-//			choiceOptions.append(choices)
-//		}
-//		choiceData = choiceOptions
-//	}
 
 	func loadChoiceData() {
 		guard let classDict = classData[Character.default.class.base] as? [String : Any],

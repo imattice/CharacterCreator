@@ -42,7 +42,7 @@ class ChoiceSelectionView: UIView {
 			let selectionStack = UIStackView()
 				selectionStack.axis 			= .vertical
 				selectionStack.distribution 	= .fillEqually
-				selectionStack.alignment		= .fill
+				selectionStack.alignment		= .center
 				selectionStack.spacing			= 5
 				selectionStack.translatesAutoresizingMaskIntoConstraints = false
 
@@ -52,8 +52,8 @@ class ChoiceSelectionView: UIView {
 
 				//configure the choice view
 				selectionView.config(for: item)
-				selectionView.layer.borderColor = UIColor.blue.cgColor
-				selectionView.layer.borderWidth = 5.0
+				selectionView.layer.borderColor = UIColor.black.cgColor
+				selectionView.layer.borderWidth = 2.0
 
 				selectionView.translatesAutoresizingMaskIntoConstraints = false
 				NSLayoutConstraint(item: selectionView,
