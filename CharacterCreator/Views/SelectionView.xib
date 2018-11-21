@@ -30,13 +30,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdW-pR-x7B">
-                    <rect key="frame" x="16" y="52" width="281" height="59"/>
+                    <rect key="frame" x="16" y="52" width="281" height="47"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pt7-T0-7sL">
-                    <rect key="frame" x="8" y="115" width="289" height="30"/>
+                    <rect key="frame" x="8" y="107" width="289" height="30"/>
                     <state key="normal" title="Select Weapon"/>
                     <connections>
                         <action selector="buttonSelected:" destination="iN0-l3-epB" eventType="touchUpInside" id="Iyq-J7-75q"/>
@@ -46,7 +46,7 @@
             <constraints>
                 <constraint firstItem="9u6-q6-C7T" firstAttribute="leading" secondItem="YdW-pR-x7B" secondAttribute="trailing" constant="8" id="0pC-Yf-ov5"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YdW-pR-x7B" secondAttribute="bottom" constant="20" id="1nz-aV-hsf"/>
-                <constraint firstItem="Pt7-T0-7sL" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="3" id="I59-fG-buL"/>
+                <constraint firstItem="Pt7-T0-7sL" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-5" id="I59-fG-buL"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="9u6-q6-C7T" secondAttribute="bottom" constant="7" id="J1H-t1-7tp"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rDQ-o1-Bii" secondAttribute="trailing" constant="16" id="KUS-z0-5Cn"/>
                 <constraint firstItem="Pt7-T0-7sL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="MGR-js-1AZ"/>
@@ -54,7 +54,7 @@
                 <constraint firstItem="9u6-q6-C7T" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="UWe-vF-M27"/>
                 <constraint firstItem="rDQ-o1-Bii" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="XSu-hQ-7oq"/>
                 <constraint firstItem="YdW-pR-x7B" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="dgN-h4-rxm"/>
-                <constraint firstItem="Pt7-T0-7sL" firstAttribute="top" secondItem="YdW-pR-x7B" secondAttribute="bottom" constant="4" id="eYy-Jc-9im"/>
+                <constraint firstItem="Pt7-T0-7sL" firstAttribute="top" secondItem="YdW-pR-x7B" secondAttribute="bottom" constant="8" id="eYy-Jc-9im"/>
                 <constraint firstItem="9u6-q6-C7T" firstAttribute="leading" secondItem="Pt7-T0-7sL" secondAttribute="trailing" constant="8" id="fMJ-NV-jJQ"/>
                 <constraint firstItem="rDQ-o1-Bii" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="hkf-oC-YTW"/>
             </constraints>

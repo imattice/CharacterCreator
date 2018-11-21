@@ -99,7 +99,7 @@ class SelectionView: UIView {
 		imageView.image 			= choice.image()
 		backgroundColor				= UIColor.lightGray
 
-		if choice.name == "quarterstaff" {
+		if choice.name == "martial weapon" || choice.name == "simple weapon" {
 			configureButton(for: choice)					}
 		else {
 			button.removeFromSuperview()		}

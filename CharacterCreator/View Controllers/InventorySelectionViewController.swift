@@ -24,7 +24,7 @@ class InventorySelectionViewController: UIViewController {
 	}
 
 	func loadChoiceData() {
-		guard let classDict = classData[Character.current.class.base] as? [String : Any],
+		guard let classDict = classData[Character.default.class.base] as? [String : Any],
 			let classChoices = classDict["equipment"] as? [Any]  else { print("Could not initialize class equiptment data"); return } //[Choice]
 
 		var choices = [Choice]()
@@ -59,7 +59,7 @@ class InventorySelectionViewController: UIViewController {
 			guard let selectionView = Bundle.main.loadNibNamed(String(describing: ChoiceSelectionView.self), owner: self, options: nil)?.first as? ChoiceSelectionView
 				else { print("Could not create selectionView"); continue }
 			selectionView.choice = choice
-			selectionView.backgroundColor = Character.current.class.color().base()
+			selectionView.backgroundColor = Character.default.class.color().base()
 
 			stackView.addArrangedSubview(selectionView)
 
@@ -102,9 +102,9 @@ class InventorySelectionViewController: UIViewController {
 	private func addItemsToCharacter() {
 		let selectedItems = getSelections()
 
-		Character.current.items = selectedItems
+		Character.default.items = selectedItems
 
-		for item in Character.current.items {
+		for item in Character.default.items {
 			print("item added: \(item.name)")
 
 		}
