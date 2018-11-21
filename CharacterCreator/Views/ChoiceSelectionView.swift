@@ -104,9 +104,11 @@ class SelectionView: UIView {
 		else {
 			button.removeFromSuperview()		}
 
+		if imageView.image == nil {
+			imageView.removeFromSuperview()
+		}
+
 		descriptionLabel.sizeToFit()
-
-
 	}
 
 	private func configureButton(for choice: Item) {

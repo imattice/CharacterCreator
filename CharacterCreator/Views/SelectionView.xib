@@ -57,6 +57,7 @@
                 <constraint firstItem="Pt7-T0-7sL" firstAttribute="top" secondItem="YdW-pR-x7B" secondAttribute="bottom" constant="8" id="eYy-Jc-9im"/>
                 <constraint firstItem="9u6-q6-C7T" firstAttribute="leading" secondItem="Pt7-T0-7sL" secondAttribute="trailing" constant="8" id="fMJ-NV-jJQ"/>
                 <constraint firstItem="rDQ-o1-Bii" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="hkf-oC-YTW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YdW-pR-x7B" secondAttribute="trailing" constant="10" id="sZS-3X-duG"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
