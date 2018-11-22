@@ -19,6 +19,7 @@ class ChoiceSelectionView: UIView {
 			addChoiceViews() } }
 	var presentedChoice: String? 	= nil
 	var contentHeight: Int? 		= nil
+	var delegate: SelectionViewDelegate?
 
 	private func config() {
 		guard let choice = choice else { print("choice not set for config"); return }
@@ -52,6 +53,7 @@ class ChoiceSelectionView: UIView {
 
 				//configure the choice view
 				selectionView.config(for: item)
+				selectionView.delegate = delegate
 				selectionView.layer.borderColor = UIColor.black.cgColor
 				selectionView.layer.borderWidth = 2.0
 
@@ -84,12 +86,18 @@ extension ChoiceSelectionView: UIScrollViewDelegate {
 	}
 }
 
+protocol SelectionViewDelegate {
+	func buttonSelected(forType dataType: ModalTableViewController.DataType)
+}
 
 class SelectionView: UIView {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var button: UIButton!
+
+	var weaponType: WeaponType?
+	var delegate: SelectionViewDelegate?
 
 	func config(for choice: Item) {
 		self.layoutIfNeeded()
@@ -99,11 +107,21 @@ class SelectionView: UIView {
 		imageView.image 			= choice.image()
 		backgroundColor				= UIColor.lightGray
 
-		if choice.name == "martial weapon" || choice.name == "simple weapon" {
+		//determine if the item is a weapon and set its type
+		if choice.name == "martial weapon" 		{
+			weaponType = .martial				}
+		else if choice.name == "simple weapon" 	{
+			weaponType = .simple 				}
+		else 									{
+			weaponType = .none					}
+
+		//remove the buttoon unless there's a choice to be made
+		if weaponType == .simple || weaponType == .martial {
 			configureButton(for: choice)					}
 		else {
 			button.removeFromSuperview()		}
 
+		//remove image view if there isn't an image
 		if imageView.image == nil {
 			imageView.removeFromSuperview()
 		}
@@ -116,13 +134,31 @@ class SelectionView: UIView {
 
 		button.setTitle(buttonTitle, for: .normal)
 	}
-	@IBAction func buttonSelected(_ sender: UIButton) {
 
+	@IBAction func buttonSelected(_ sender: UIButton) {
+		guard let weaponType = weaponType else { print("weaponType not set"); return }
+
+		var dataType: ModalTableViewController.DataType? {
+			if weaponType == .simple {
+				return ModalTableViewController.DataType.ItemSelectionSimple	}
+			else if weaponType == .martial {
+				return ModalTableViewController.DataType.ItemSelectionMartial	}
+			else { return nil }
+		}
+
+		if let dataType = dataType {
+			print("got here")
+			print(delegate)
+			delegate?.buttonSelected(forType: dataType)
+		}
 	}
 
 	private func updateConfig(for item: Item) {
 
 	}
+
+	enum WeaponType {
+		case simple, martial, none }
 }
 
 struct Choice {

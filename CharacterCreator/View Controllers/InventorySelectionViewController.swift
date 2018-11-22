@@ -58,6 +58,7 @@ class InventorySelectionViewController: UIViewController {
 		for choice in choiceData {
 			guard let selectionView = Bundle.main.loadNibNamed(String(describing: ChoiceSelectionView.self), owner: self, options: nil)?.first as? ChoiceSelectionView
 				else { print("Could not create selectionView"); continue }
+			selectionView.delegate = self
 			selectionView.choice = choice
 			selectionView.backgroundColor = Character.default.class.color().base()
 
@@ -113,4 +114,16 @@ class InventorySelectionViewController: UIViewController {
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		addItemsToCharacter()
 	}
+}
+
+extension InventorySelectionViewController: SelectionViewDelegate {
+
+	func buttonSelected(forType dataType: ModalTableViewController.DataType) {
+		let vc = ModalTableViewController()
+		vc.dataType = dataType
+
+		let nav = UINavigationController(rootViewController: vc)
+		present(nav, animated: true)
+	}
+
 }

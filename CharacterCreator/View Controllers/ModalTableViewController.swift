@@ -49,10 +49,10 @@ class ModalTableViewController: UITableViewController {
 			let backButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(backButtonPressed(_:)))
 			navigationItem.leftBarButtonItem = backButton
 
-			if dataType == .ItemSelectionMartial || dataType == .ItemSelectionSimple {
-				let confirmButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: #selector(confirmationButtonPressed(_:)))
-				navigationItem.rightBarButtonItem = confirmButton
-			}
+//			if dataType == .ItemSelectionMartial || dataType == .ItemSelectionSimple {
+//				let confirmButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: #selector(confirmationButtonPressed(_:)))
+//				navigationItem.rightBarButtonItems = [confirmButton]
+//			}
 
 			switch dataType {
 			case .ClassFeature: 		navigationItem.title 	= "\(target!.path.capitalized) Features"
