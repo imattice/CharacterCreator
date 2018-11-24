@@ -18,21 +18,23 @@ class InventorySelectionViewController: UIViewController {
         super.viewDidLoad()
 		loadChoiceData()
 		addSelectionViews()
-
 	}
 
 	func loadChoiceData() {
 		guard let classDict = classData[Character.current.class.base] as? [String : Any],
 			let classChoices = classDict["equipment"] as? [Any]  else { print("Could not initialize class equiptment data"); return } //[Choice]
 
+		//add choices
 		var choices = [Choice]()
 		for availableChoice in classChoices {
 			guard let selectionDict = availableChoice as? [Any] else { print("choice data not stored properly"); return }
 
+			//add selections to the choice
 			var selections = [Choice.Selection]()
 			for availableSelection in selectionDict {
 				guard let itemDict = availableSelection as? [String] else { print("Item not contained within array."); return }
 
+				//add items to the selection
 				var items = [Item]()
 				for itemName in itemDict {
 
@@ -40,16 +42,16 @@ class InventorySelectionViewController: UIViewController {
 
 					items.append(item)
 				}
-				let selection = Choice.Selection(items: items)
 
+				let selection = Choice.Selection(items: items)
 				selections.append(selection)
 			}
 
 			let choice = Choice(selections: selections)
-
 			choices.append(choice)
 		}
 
+		//set the choice data to the
 		choiceData = choices
 	}
 	private func addSelectionViews() {
@@ -81,27 +83,28 @@ class InventorySelectionViewController: UIViewController {
 		}
 	}
 
-	func getSelections() -> [Item] {
+	private func getSelections() -> [Item] {
 		var result = [Item]()
 
 		for choiceView in stackView.arrangedSubviews {
-			guard let choiceView = choiceView as? ChoiceSelectionView,
-				let selectionViewChoice = choiceView.choice else { print("could not cast to Choice Selection View when getting selections"); continue }
+
+			guard let choiceView = choiceView as? ChoiceSelectionView
+				else { print("could not cast to Choice Selection View when getting selections"); continue }
+
 			let optionIndex = choiceView.pageControl.currentPage
-			let selection = selectionViewChoice.selections[optionIndex]
 
-				guard let stackView = choiceView.stackView.arrangedSubviews[optionIndex] as? UIStackView,
-					let selectionViews = stackView.arrangedSubviews as? [SelectionView]
-				else { print("wrong"); continue }
+			guard let stackView = choiceView.stackView.arrangedSubviews[optionIndex] as? UIStackView,
+				let selectionViews = stackView.arrangedSubviews as? [SelectionView]
+			else { print("Could not get selection views from Choice View"); continue }
 
 
-				for selectionView in selectionViews {
-					guard let text = selectionView.titleLabel.text else { print("title text unavailable"); continue}
+			for selectionView in selectionViews {
+				guard let text = selectionView.titleLabel.text else { print("title text unavailable"); continue}
 
-					let item = Item(text)
-					result.append(item)
-				}
+				let item = Item(text)
+				result.append(item)
 			}
+		}
 
 		return result
 	}
