@@ -55,17 +55,9 @@ class ModalTableViewController: UITableViewController, ItemSelectionDelegate {
 			let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backButtonPressed(_:)))
 			navigationItem.leftBarButtonItem = backButton
 
-			if dataType == .ItemSelectionMartial || dataType == .ItemSelectionSimple {
-				let confirmButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(confirmationButtonPressed(_:)))
-				confirmButton.title = "Select"
-				navigationItem.rightBarButtonItem = confirmButton
-			}
-
 			switch dataType {
 			case .ClassFeature: 		navigationItem.title 	= "\(target!.path.capitalized) Features"
 			case .Spellbook: 			navigationItem.title 	= "Spellbook"
-			case .ItemSelectionMartial: navigationItem.title 	= "Martial Weapons"
-			case .ItemSelectionSimple:	navigationItem.title	= "Simple Weapons"
 			}
 		}
 	}
@@ -73,14 +65,12 @@ class ModalTableViewController: UITableViewController, ItemSelectionDelegate {
 
 //MARK: TableView Methods
 extension ModalTableViewController {
-
-
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let dataType = dataType else { print("failed initialize with data type"); return UITableViewCell()}
 
 		switch dataType {
 		case .ClassFeature:
-			//TODO: We should dequeue the cells, but it's tricky to do this and get a .subtitle tableviewcell
+			//TODO: ISSUE #30 - We should dequeue the cells, but it's tricky to do this and get a .subtitle tableviewcell
 			let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "FeatureCell")
 			let cellData = tableViewData[indexPath.section].content[indexPath.row] as! ClassFeature
 
@@ -97,13 +87,6 @@ extension ModalTableViewController {
 			cell.configure(for: spell)
 
 			return cell
-		case .ItemSelectionMartial, .ItemSelectionSimple:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "ItemSelectionCell", for: indexPath) as! ItemSelectionTableViewCell
-			let item = tableViewData[indexPath.section].content[indexPath.row] as! Item
-
-			cell.configure(for: item)
-
-			return cell
 		}
 
 	}
@@ -113,7 +96,6 @@ extension ModalTableViewController {
 		switch dataType {
 		case .ClassFeature: 								return "Level \(tableViewData[section].level)"
 		case .Spellbook: 									return "Spell Level \(tableViewData[section].level)"
-		case .ItemSelectionMartial, .ItemSelectionSimple: 	return ""
 		}
 	}
 
@@ -153,24 +135,6 @@ extension ModalTableViewController {
 					tableViewData.append(data)
 				}
 			}
-
-
-		case .ItemSelectionMartial, .ItemSelectionSimple:
-			var dataSource: [String] {
-				switch dataType {
-				case .ItemSelectionMartial:	return MartialWeapons
-				case .ItemSelectionSimple: 	return SimpleWeapons
-
-				default:					return [String]()	} }
-
-			var result = [Item]()
-			for string in dataSource {
-				let item = Item(string)
-				result.append(item)
-			}
-
-			let data = TableViewData(level: 0, content: result)
-			tableViewData.append(data)
 		}
 
 		tableViewData.sort(by: { $0.level < $1.level })
@@ -182,8 +146,6 @@ extension ModalTableViewController {
 		switch dataType {
 		case .Spellbook:
 			tableView.register(UINib(nibName: String(describing: SpellTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "SpellCell")
-		case .ItemSelectionMartial, .ItemSelectionSimple:
-			tableView.register(UINib(nibName: String(describing: ItemSelectionTableViewCell.self),	 bundle: nil), forCellReuseIdentifier: "ItemSelectionCell")
 		default:	return
 		}
 	}
@@ -194,8 +156,6 @@ extension ModalTableViewController {
 		var content: [Any]
 	}
 	enum DataType {
-		case ClassFeature, Spellbook, ItemSelectionMartial, ItemSelectionSimple
+		case ClassFeature, Spellbook
 	}
-
-
 }
