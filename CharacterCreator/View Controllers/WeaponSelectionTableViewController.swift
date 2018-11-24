@@ -79,7 +79,7 @@ class WeaponSelectionTableViewController: UITableViewController {
 			let selectionView = selectionView {
 			let selectedItem = tableViewData[indexPath.row]
 
-			selectionView.config(for: selectedItem)
+			selectionView.update(withItem: selectedItem)
 
 			dismiss(animated: true, completion: nil)
 		}

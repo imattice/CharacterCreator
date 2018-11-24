@@ -119,7 +119,7 @@ class SelectionView: UIView {
 		if weaponType == .simple || weaponType == .martial {
 			configureButton(for: choice)					}
 		else {
-			button.removeFromSuperview()		}
+			button.setTitle("", for: .normal)				}
 
 		//remove image view if there isn't an image
 //		if imageView.image == nil {
@@ -127,6 +127,14 @@ class SelectionView: UIView {
 //		}
 
 		descriptionLabel.sizeToFit()
+	}
+
+	func update(withItem item: Item) {
+		titleLabel.text 			= item.name.capitalized
+		descriptionLabel.text 		= item.description()
+		imageView.image 			= item.image()
+
+		button.setTitle("Change Weapon", for: .normal)
 	}
 
 	private func configureButton(for choice: Item) {
