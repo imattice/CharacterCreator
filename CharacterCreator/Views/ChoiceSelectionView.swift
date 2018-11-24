@@ -47,12 +47,21 @@ class ChoiceSelectionView: UIView {
 				selectionStack.spacing			= 5
 				selectionStack.translatesAutoresizingMaskIntoConstraints = false
 
+			let selectionItems = selection.items
+
 			for item in selection.items {
 				guard let selectionView = Bundle.main.loadNibNamed(String(describing: SelectionView.self), owner: self, options: nil)?.first as? SelectionView
 					else { print("Could not load nib for \(choice)"); continue }
 
+				//check for multiple iterations of the same item
+				let itemFrequency = selectionItems.filter({ item.name == $0.name }).count
+
+				if itemFrequency > 1 {
+					selectionView.config(forMultiple: itemFrequency, items: item)		}
+				else {
+					selectionView.config(for: item)									}
+
 				//configure the choice view
-				selectionView.config(for: item)
 				selectionView.delegate = delegate
 				selectionView.layer.borderColor = UIColor.black.cgColor
 				selectionView.layer.borderWidth = 2.0
@@ -68,6 +77,9 @@ class ChoiceSelectionView: UIView {
 
 				//add the configured choice view to the vertical stackView
 				selectionStack.addArrangedSubview(selectionView)
+
+				//prevent further views added to this selection if multiple items were detected
+				if itemFrequency > 1 { break }
 			}
 
 			stackView.addArrangedSubview(selectionStack)
@@ -127,6 +139,11 @@ class SelectionView: UIView {
 //		}
 
 		descriptionLabel.sizeToFit()
+	}
+
+	func config(forMultiple count: Int, items item: Item) {
+		config(for: item)
+		titleLabel.text = "\(count) \(item.name)s".capitalized
 	}
 
 	func update(withItem item: Item) {

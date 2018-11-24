@@ -8,8 +8,6 @@
 
 import UIKit
 
-//TODO: Would be nice to include an item selection for matial and simple weapons, but I think that would require a data overhaul and a rethink of how this is currently designed.  We would need to display regular items alongside these chosen weapons, as well as the ability to change the labels to reflect he new chosen weapon.  Additionally, we may want to split weapons out from normal items.
-
 class InventorySelectionViewController: UIViewController {
 	@IBOutlet weak var stackView: UIStackView!
 	@IBOutlet weak var scrollView: UIScrollView!
