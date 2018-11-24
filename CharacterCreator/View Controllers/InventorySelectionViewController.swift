@@ -22,7 +22,7 @@ class InventorySelectionViewController: UIViewController {
 	}
 
 	func loadChoiceData() {
-		guard let classDict = classData[Character.default.class.base] as? [String : Any],
+		guard let classDict = classData[Character.current.class.base] as? [String : Any],
 			let classChoices = classDict["equipment"] as? [Any]  else { print("Could not initialize class equiptment data"); return } //[Choice]
 
 		var choices = [Choice]()
@@ -58,7 +58,7 @@ class InventorySelectionViewController: UIViewController {
 				else { print("Could not create selectionView"); continue }
 			selectionView.delegate = self
 			selectionView.choice = choice
-			selectionView.backgroundColor = Character.default.class.color().base()
+			selectionView.backgroundColor = Character.current.class.color().base()
 
 			stackView.addArrangedSubview(selectionView)
 
@@ -84,16 +84,24 @@ class InventorySelectionViewController: UIViewController {
 	func getSelections() -> [Item] {
 		var result = [Item]()
 
-		for selectionView in stackView.arrangedSubviews {
-			guard let selectionView = selectionView as? ChoiceSelectionView,
-				let selectionViewChoice = selectionView.choice else { print("could not cast to Choice Selection View when getting selections"); continue }
-			let optionIndex = selectionView.pageControl.currentPage
+		for choiceView in stackView.arrangedSubviews {
+			guard let choiceView = choiceView as? ChoiceSelectionView,
+				let selectionViewChoice = choiceView.choice else { print("could not cast to Choice Selection View when getting selections"); continue }
+			let optionIndex = choiceView.pageControl.currentPage
 			let selection = selectionViewChoice.selections[optionIndex]
 
-			for item in selection.items {
-				result.append(item)
+				guard let stackView = choiceView.stackView.arrangedSubviews[optionIndex] as? UIStackView,
+					let selectionViews = stackView.arrangedSubviews as? [SelectionView]
+				else { print("wrong"); continue }
+
+
+				for selectionView in selectionViews {
+					guard let text = selectionView.titleLabel.text else { print("title text unavailable"); continue}
+
+					let item = Item(text)
+					result.append(item)
+				}
 			}
-		}
 
 		return result
 	}
@@ -101,9 +109,9 @@ class InventorySelectionViewController: UIViewController {
 	private func addItemsToCharacter() {
 		let selectedItems = getSelections()
 
-		Character.default.items = selectedItems
+		Character.current.items = selectedItems
 
-		for item in Character.default.items {
+		for item in Character.current.items {
 			print("item added: \(item.name)")
 
 		}
