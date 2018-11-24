@@ -118,9 +118,13 @@ class InventorySelectionViewController: UIViewController {
 
 extension InventorySelectionViewController: SelectionViewDelegate {
 
-	func buttonSelected(forType dataType: ModalTableViewController.DataType) {
-		let vc = ModalTableViewController()
-		vc.dataType = dataType
+	func buttonSelected(forView view: SelectionView) {
+		guard let weaponType = view.weaponType else { print("weapon type not set when weapon selection button pressed"); return }
+		if weaponType == .none { return }
+
+		let vc = WeaponSelectionTableViewController()
+		vc.weaponType = weaponType
+		vc.selectionView = view
 
 		let nav = UINavigationController(rootViewController: vc)
 		present(nav, animated: true)

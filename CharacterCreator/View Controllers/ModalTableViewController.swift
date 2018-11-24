@@ -10,15 +10,16 @@
 import UIKit
 
 protocol ItemSelectionDelegate {
-	
+	var item: Item? { get set }
 }
 
-class ModalTableViewController: UITableViewController {
+class ModalTableViewController: UITableViewController, ItemSelectionDelegate {
 	@IBOutlet weak var backButton: UIBarButtonItem!
 
 	var tableViewData = [TableViewData]()
 	var target: Class?			= Character.current.class  //nil
 	var dataType: DataType?		= .ClassFeature				//nil
+	var item: Item?
 	
 
     override func viewDidLoad() {
@@ -38,6 +39,11 @@ class ModalTableViewController: UITableViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	@objc func confirmationButtonPressed(_ sender: UIBarButtonItem) {
+		if let indexPath = tableView.indexPathForSelectedRow,
+			let selectedItem = tableViewData[indexPath.section].content[indexPath.row] as? Item {
+
+			item = selectedItem
+		}
 
 		self.dismiss(animated: true, completion: nil)
 	}
@@ -46,13 +52,14 @@ class ModalTableViewController: UITableViewController {
 		if let _ = navigationController,
 			let dataType = dataType {
 
-			let backButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(backButtonPressed(_:)))
+			let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backButtonPressed(_:)))
 			navigationItem.leftBarButtonItem = backButton
 
-//			if dataType == .ItemSelectionMartial || dataType == .ItemSelectionSimple {
-//				let confirmButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: #selector(confirmationButtonPressed(_:)))
-//				navigationItem.rightBarButtonItems = [confirmButton]
-//			}
+			if dataType == .ItemSelectionMartial || dataType == .ItemSelectionSimple {
+				let confirmButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(confirmationButtonPressed(_:)))
+				confirmButton.title = "Select"
+				navigationItem.rightBarButtonItem = confirmButton
+			}
 
 			switch dataType {
 			case .ClassFeature: 		navigationItem.title 	= "\(target!.path.capitalized) Features"

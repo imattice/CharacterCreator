@@ -87,7 +87,7 @@ extension ChoiceSelectionView: UIScrollViewDelegate {
 }
 
 protocol SelectionViewDelegate {
-	func buttonSelected(forType dataType: ModalTableViewController.DataType)
+	func buttonSelected(forView view: SelectionView)
 }
 
 class SelectionView: UIView {
@@ -113,7 +113,7 @@ class SelectionView: UIView {
 		else if choice.name == "simple weapon" 	{
 			weaponType = .simple 				}
 		else 									{
-			weaponType = .none					}
+			weaponType = nil					}
 
 		//remove the buttoon unless there's a choice to be made
 		if weaponType == .simple || weaponType == .martial {
@@ -147,9 +147,7 @@ class SelectionView: UIView {
 		}
 
 		if let dataType = dataType {
-			print("got here")
-			print(delegate)
-			delegate?.buttonSelected(forType: dataType)
+			delegate?.buttonSelected(forView: self)
 		}
 	}
 
@@ -157,8 +155,7 @@ class SelectionView: UIView {
 
 	}
 
-	enum WeaponType {
-		case simple, martial, none }
+
 }
 
 struct Choice {
@@ -168,5 +165,7 @@ struct Choice {
 		let items: [Item]
 	}
 }
+enum WeaponType {
+	case simple, martial }
 
 
