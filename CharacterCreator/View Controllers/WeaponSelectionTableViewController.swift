@@ -37,13 +37,13 @@ class WeaponSelectionTableViewController: UITableViewController {
 			case .martial :	return MartialWeapons
 			case .simple: 	return SimpleWeapons		} }
 
-
 		for string in dataSource {
 			let item = Item(string)
 			result.append(item)
 		}
 
-	tableViewData.sort(by: { $0.name < $1.name })
+		tableViewData = result
+		tableViewData.sort(by: { $0.name < $1.name })
 	}
 
 	private func configureNav() {
