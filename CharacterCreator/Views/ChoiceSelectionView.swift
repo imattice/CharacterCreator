@@ -122,9 +122,9 @@ class SelectionView: UIView {
 			button.removeFromSuperview()		}
 
 		//remove image view if there isn't an image
-		if imageView.image == nil {
-			imageView.removeFromSuperview()
-		}
+//		if imageView.image == nil {
+//			imageView.removeFromSuperview()
+//		}
 
 		descriptionLabel.sizeToFit()
 	}

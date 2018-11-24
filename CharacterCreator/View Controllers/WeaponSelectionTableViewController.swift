@@ -75,8 +75,11 @@ class WeaponSelectionTableViewController: UITableViewController {
 	}
 
 	@objc private func confirmationButtonPressed(_ button: UIButton) {
-		if let indexPath = tableView.indexPathForSelectedRow {
+		if let indexPath = tableView.indexPathForSelectedRow,
+			let selectionView = selectionView {
 			let selectedItem = tableViewData[indexPath.row]
+
+			selectionView.config(for: selectedItem)
 
 			dismiss(animated: true, completion: nil)
 		}
