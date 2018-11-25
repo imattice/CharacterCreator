@@ -17,8 +17,6 @@ class ChoiceSelectionView: UIView {
 		didSet {
 			config()
 			addChoiceViews() } }
-	var presentedChoice: String? 	= nil
-	var contentHeight: Int? 		= nil
 	var delegate: SelectionViewDelegate?
 
 	private func config() {
@@ -133,11 +131,6 @@ class SelectionView: UIView {
 		else {
 			button.setTitle("", for: .normal)				}
 
-		//remove image view if there isn't an image
-//		if imageView.image == nil {
-//			imageView.removeFromSuperview()
-//		}
-
 		descriptionLabel.sizeToFit()
 	}
 
@@ -161,26 +154,11 @@ class SelectionView: UIView {
 	}
 
 	@IBAction func buttonSelected(_ sender: UIButton) {
-		guard let weaponType = weaponType else { print("weaponType not set"); return }
+		//ensure there is a weapon type.  The button shouldn't be available if there isn't, but it's probably good to check anyway
+		guard let _ = weaponType else { print("weaponType not set"); return }
 
-		var dataType: ModalTableViewController.DataType? {
-			if weaponType == .simple {
-				return ModalTableViewController.DataType.ItemSelectionSimple	}
-			else if weaponType == .martial {
-				return ModalTableViewController.DataType.ItemSelectionMartial	}
-			else { return nil }
-		}
-
-		if let dataType = dataType {
-			delegate?.buttonSelected(forView: self)
-		}
+		delegate?.buttonSelected(forView: self)
 	}
-
-	private func updateConfig(for item: Item) {
-
-	}
-
-
 }
 
 struct Choice {
