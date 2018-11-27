@@ -29,7 +29,6 @@
 		8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */; };
 		8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */; };
 		8152B3E720DC124D008B7A1A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3E620DC124D008B7A1A /* UIView.swift */; };
-		8152B3E920DC354B008B7A1A /* SpecSheet in Resources */ = {isa = PBXBuildFile; fileRef = 8152B3E820DC354B008B7A1A /* SpecSheet */; };
 		8152B3EB20DC3B48008B7A1A /* races.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3EA20DC3B48008B7A1A /* races.swift */; };
 		8152B41120DEDA8D008B7A1A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41020DEDA8D008B7A1A /* Int.swift */; };
 		8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */; };
@@ -58,7 +57,6 @@
 		81DF302E213C5F3200C939CE /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302D213C5F3200C939CE /* items.swift */; };
 		81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF302F213D8A4C00C939CE /* FlavorViewController.swift */; };
 		81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF3031214310AD00C939CE /* FlavorViews.swift */; };
-		81DF30342143369300C939CE /* AppearanceFlavorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DF30332143369300C939CE /* AppearanceFlavorView.swift */; };
 		81F8496B218A9A6D00280D8C /* ItemSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F84969218A9A6D00280D8C /* ItemSelectionTableViewCell.swift */; };
 		81F8496C218A9A6D00280D8C /* ItemSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81F8496A218A9A6D00280D8C /* ItemSelectionTableViewCell.xib */; };
 		81F8496E218B7FBD00280D8C /* Damage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F8496D218B7FBD00280D8C /* Damage.swift */; };
@@ -123,7 +121,6 @@
 		8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatStepperView.swift; sourceTree = "<group>"; };
 		8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatStepperView.xib; sourceTree = "<group>"; };
 		8152B3E620DC124D008B7A1A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		8152B3E820DC354B008B7A1A /* SpecSheet */ = {isa = PBXFileReference; lastKnownFileType = text; path = SpecSheet; sourceTree = "<group>"; };
 		8152B3EA20DC3B48008B7A1A /* races.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = races.swift; sourceTree = "<group>"; };
 		8152B41020DEDA8D008B7A1A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,7 +150,6 @@
 		81DF302D213C5F3200C939CE /* items.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
 		81DF302F213D8A4C00C939CE /* FlavorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorViewController.swift; sourceTree = "<group>"; };
 		81DF3031214310AD00C939CE /* FlavorViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorViews.swift; sourceTree = "<group>"; };
-		81DF30332143369300C939CE /* AppearanceFlavorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceFlavorView.swift; sourceTree = "<group>"; };
 		81F84969218A9A6D00280D8C /* ItemSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		81F8496A218A9A6D00280D8C /* ItemSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		81F8496D218B7FBD00280D8C /* Damage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Damage.swift; sourceTree = "<group>"; };
@@ -207,6 +203,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8112FA7121ACC01800EB61B8 /* Creation Path Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8152B3D020D9E097008B7A1A /* DropdownViewController.swift */,
+				8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */,
+				81FC7CF42106965E00BBDDD7 /* BackgroundSelectionViewController.swift */,
+				81DC8E45210BB993002F6AE4 /* AbilitySelectionViewController.swift */,
+				81DC8E56211256EC002F6AE4 /* InventorySelectionViewController.swift */,
+				81DF302F213D8A4C00C939CE /* FlavorViewController.swift */,
+				8152B3D220D9E0B5008B7A1A /* ReviewViewController.swift */,
+			);
+			path = "Creation Path Controllers";
+			sourceTree = "<group>";
+		};
+		8112FA7221ACC04600EB61B8 /* Supporting Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				819B065E20E7455300902D4E /* ModalTableViewController.swift */,
+				81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */,
+				8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */,
+			);
+			path = "Supporting Controllers";
+			sourceTree = "<group>";
+		};
 		8123670420CA44DA00F7AEFC = {
 			isa = PBXGroup;
 			children = (
@@ -243,7 +263,6 @@
 				8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */,
 				8123671F20CA44DD00F7AEFC /* Info.plist */,
 				8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */,
-				8152B3E820DC354B008B7A1A /* SpecSheet */,
 				819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */,
 			);
 			path = CharacterCreator;
@@ -298,16 +317,8 @@
 		8152B3CB20D9E004008B7A1A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8152B3D020D9E097008B7A1A /* DropdownViewController.swift */,
-				819B065E20E7455300902D4E /* ModalTableViewController.swift */,
-				8152B3CC20D9E01A008B7A1A /* StatDistributionViewController.swift */,
-				81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */,
-				81FC7CF42106965E00BBDDD7 /* BackgroundSelectionViewController.swift */,
-				81DC8E45210BB993002F6AE4 /* AbilitySelectionViewController.swift */,
-				81DC8E56211256EC002F6AE4 /* InventorySelectionViewController.swift */,
-				81DF302F213D8A4C00C939CE /* FlavorViewController.swift */,
-				8152B3D220D9E0B5008B7A1A /* ReviewViewController.swift */,
-				8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */,
+				8112FA7121ACC01800EB61B8 /* Creation Path Controllers */,
+				8112FA7221ACC04600EB61B8 /* Supporting Controllers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -326,6 +337,8 @@
 		8152B3D920D9FD65008B7A1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8152B41620DEE7F6008B7A1A /* TableViewCells */,
+				81DC8E49210BBF01002F6AE4 /* CollectionViewCells */,
 				819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */,
 				8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */,
 				81DC8E4E211252AD002F6AE4 /* ChoiceSelectionView.swift */,
@@ -333,10 +346,7 @@
 				81DC8E502112548A002F6AE4 /* ChoiceSelectionView.xib */,
 				8152B3DE20DAE9EE008B7A1A /* StatStepperView.swift */,
 				8152B3E020DAE9FB008B7A1A /* StatStepperView.xib */,
-				8152B41620DEE7F6008B7A1A /* TableViewCells */,
-				81DC8E49210BBF01002F6AE4 /* CollectionViewCells */,
 				81DF3031214310AD00C939CE /* FlavorViews.swift */,
-				81DF30332143369300C939CE /* AppearanceFlavorView.swift */,
 				8135B43E2169B2030058E9D6 /* SpellDetailView.swift */,
 				8135B4402169B22C0058E9D6 /* SpellDetailView.xib */,
 			);
@@ -512,7 +522,6 @@
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */,
 				8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */,
-				8152B3E920DC354B008B7A1A /* SpecSheet in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,7 +657,6 @@
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
-				81DF30342143369300C939CE /* AppearanceFlavorView.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
