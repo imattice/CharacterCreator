@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0BV-s2-vtb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1O3-su-Y9P">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -565,16 +565,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="appearanceFlavorView" destination="2bS-AJ-xvf" id="gUX-tI-Ji8"/>
-                        <outlet property="driveFlavorView" destination="14d-aj-Czz" id="yxd-Mf-t1E"/>
-                        <outlet property="historyFlavorView" destination="ZYy-FC-Fvw" id="vV0-IL-wpF"/>
-                        <outlet property="identityFlavorView" destination="20q-zG-VFF" id="6uH-te-buI"/>
                         <outlet property="pageControl" destination="1W3-Sz-9a5" id="Fzv-8s-fCJ"/>
                         <outlet property="scrollView" destination="DBF-Tk-bmc" id="MIy-9U-ruO"/>
-                        <outletCollection property="flavorViews" destination="20q-zG-VFF" collectionClass="NSMutableArray" id="OxA-9G-k1C"/>
-                        <outletCollection property="flavorViews" destination="2bS-AJ-xvf" collectionClass="NSMutableArray" id="JGT-fB-cWL"/>
-                        <outletCollection property="flavorViews" destination="14d-aj-Czz" collectionClass="NSMutableArray" id="ahN-NI-E1W"/>
-                        <outletCollection property="flavorViews" destination="ZYy-FC-Fvw" collectionClass="NSMutableArray" id="7yx-vB-M6f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIy-W5-pty" userLabel="First Responder" sceneMemberID="firstResponder"/>
