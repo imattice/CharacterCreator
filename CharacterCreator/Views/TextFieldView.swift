@@ -10,7 +10,9 @@ import UIKit
 
 //@IBDesignable
 class TextFieldView: UIView {
-	@IBInspectable var placeholder: String?
+	@IBInspectable var placeholder: String? {
+		didSet {
+			textField.placeholder = placeholder		}}
 	let textField 	= UITextField()
 
 	private let underline 	= UIView()
@@ -68,4 +70,19 @@ class TextFieldView: UIView {
 
 extension TextFieldView: UITextFieldDelegate {
 
+}
+
+class ImageSelectionView: UIView {
+	@IBInspectable let imageView = UIImageView()
+
+	private func layoutViews() {
+		let viewDict = ["imageView": imageView]
+
+		let H_imageView = NSLayoutConstraint.constraints(withVisualFormat: "", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+		let V_imageView = NSLayoutConstraint.constraints(withVisualFormat: "", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+
+		let constraints = H_imageView + V_imageView
+
+		self.addConstraints(constraints)
+	}
 }
