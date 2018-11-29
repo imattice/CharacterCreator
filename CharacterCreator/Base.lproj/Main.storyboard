@@ -579,7 +579,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="368" height="479"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Er-8rG" userLabel="Vertical Stack View">
-                                    <rect key="frame" x="0.0" y="0.0" width="368" height="110"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="368" height="220"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZC-Ke-hhV" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="368" height="50"/>
@@ -599,6 +599,16 @@
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Age"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNF-vb-QFl" customClass="ImageSelectionView" customModule="CharacterCreator" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="120" width="368" height="100"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="p50-K2-QFz"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="image" value="blank"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
@@ -1911,6 +1921,7 @@
     </scenes>
     <resources>
         <image name="acolyte" width="256" height="256"/>
+        <image name="blank" width="720" height="720"/>
         <image name="cleric" width="700" height="700"/>
         <image name="elf" width="700" height="700"/>
         <image name="sage" width="192" height="192"/>
