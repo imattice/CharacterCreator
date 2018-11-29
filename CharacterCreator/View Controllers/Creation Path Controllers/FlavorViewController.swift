@@ -18,6 +18,7 @@ import UIKit
 class FlavorViewController: UIViewController {
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var pageControl: UIPageControl!
+	@IBOutlet var flavorViews: [UIView]!
 
 	let imagePicker = UIImagePickerController()
 
@@ -25,14 +26,14 @@ class FlavorViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-//		addViews()
+		addViews()
 
 		configureScrollView()
 
-		let textFieldView = TextFieldView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-		textFieldView.config()
-		textFieldView.backgroundColor = .lightGray
-		scrollView.addSubview(textFieldView)
+//		let textFieldView = TextFieldView()
+//		textFieldView.config()
+//		textFieldView.backgroundColor = .lightGray
+//		scrollView.addSubview(textFieldView)
 
 //		imagePicker.delegate = self
     }
@@ -48,28 +49,29 @@ class FlavorViewController: UIViewController {
 		scrollView.bounces							= false
 
 
-		pageControl.numberOfPages 					= 4
+		pageControl.numberOfPages 					= flavorViews.count
 		pageControl.pageIndicatorTintColor 			= Character.default.class.color().lightColor()
 		pageControl.currentPageIndicatorTintColor 	= Character.default.class.color().base()
 
 	}
 	private func addViews() {
-//		for (index, flavorView) in flavorViews.enumerated() {
-//
-//
-//			flavorView.frame.size.width 	= self.view.frame.size.width
-//			flavorView.frame.size.height	= self.view.frame.size.height - 90 //subtracting the height of the safe area, the page control and its vertical constraints
+		for (index, flavorView) in flavorViews.enumerated() {
+
+			flavorView.frame.size.width 	= self.view.frame.size.width
+			flavorView.frame.size.height	= self.view.frame.size.height// - 90 //subtracting the height of the safe area, the page control and its vertical constraints
 //
 //			print("view size: \(flavorView.frame.size) /n screen size: \(self.view.frame.size)")
-//			flavorView.frame.origin.x		= CGFloat(index) * self.view.bounds.size.width
+			flavorView.frame.origin.x		= CGFloat(index) * self.view.bounds.size.width
 //
-//			flavorView.backgroundColor = colors[index]
-//			scrollView.addSubview(flavorView)
+			flavorView.backgroundColor = colors[index]
+			scrollView.addSubview(flavorView)
+
 //			flavorView.setNeedsDisplay()
 //
-//		}
+		}
 
 	}
+
 
 	@IBAction func selectImage(_ sender: UITapGestureRecognizer) {
 		imagePicker.allowsEditing = true
@@ -77,6 +79,8 @@ class FlavorViewController: UIViewController {
 
 		present(imagePicker, animated: true, completion: nil)
 	}
+
+
 
     
 

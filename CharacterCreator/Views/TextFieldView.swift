@@ -8,24 +8,39 @@
 
 import UIKit
 
+//@IBDesignable
 class TextFieldView: UIView {
-	var placeholder: String? = "name"
+	@IBInspectable var placeholder: String?
+	let textField 	= UITextField()
 
-	private let textField 	= UITextField()
 	private let underline 	= UIView()
+	private let defaultFrame = CGRect(x: 0, y: 0, width: 150, height: 30)
+
+	init(placeholder: String) {
+		self.placeholder = placeholder
+		super.init(frame: defaultFrame)
+
+		config()  //this might crash, due to the object not created at time setting delegate in config
+	}
+
+	convenience init() {
+		self.init(placeholder: "")
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+
+		config()
+	}
 
 	func config() {
 
-		textField.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 40)
 		textField.placeholder = placeholder
 		textField.delegate = self
 		textField.translatesAutoresizingMaskIntoConstraints = false
 
-
-//		underline.frame = CGRect(x: 0, y: 0, width: 0, height: )
-		underline.backgroundColor = .red
+		underline.backgroundColor = Character.default.class.color().darkColor()
 		underline.translatesAutoresizingMaskIntoConstraints	= false
-
 
 		addSubview(underline)
 		addSubview(textField)
@@ -34,15 +49,18 @@ class TextFieldView: UIView {
 	}
 
 	private func layoutViews() {
-		let underlineDict = ["underline": underline,
-							 "textField": textField]
-		let H_underline = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[underline]-10-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: underlineDict)
-		let V_underline = NSLayoutConstraint.constraints(withVisualFormat: "V:[textField][underline(3)]-4-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: underlineDict)
+		let viewDict = ["underline": 	underline,
+						"textField": 	textField,
+						"self":			self ]
+		let H_underline = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[underline]-10-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+		let V_underline = NSLayoutConstraint.constraints(withVisualFormat: "V:[textField][underline(3)]-4-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
 
-		let H_textField = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[textField]-10-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: underlineDict)
-		let V_textField = NSLayoutConstraint.constraints(withVisualFormat: "V:[textField(>=5)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: underlineDict)
+		let H_textField = NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[textField]-10-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+		let V_textField = NSLayoutConstraint.constraints(withVisualFormat: "V:[textField(>=5)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
 
-		let constraints = H_underline + V_underline + H_textField + V_textField
+		let H_self = NSLayoutConstraint.constraints(withVisualFormat: "V:[self(50)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+
+		let constraints = H_underline + V_underline + H_textField + V_textField + H_self
 
 		self.addConstraints(constraints)
 	}
