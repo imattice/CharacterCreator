@@ -123,7 +123,7 @@ class TextAreaView: UIView {
 
 	private func config() {
 
-		layoutViews()
+//		layoutViews()
 	}
 
 	private func layoutViews() {

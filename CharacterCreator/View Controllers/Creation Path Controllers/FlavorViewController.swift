@@ -59,7 +59,7 @@ class FlavorViewController: UIViewController {
 			print("flavorView width 1: \(flavorView.frame.size.width)")
 
 			flavorView.frame.size.width 	= self.view.frame.size.width
-			flavorView.frame.size.height	= self.view.frame.size.height// - 90 //subtracting the height of the safe area, the page control and its vertical constraints
+			flavorView.frame.size.height	= self.view.frame.size.height - 125 //subtracting the height of the safe area, the page control and its vertical constraints
 			flavorView.layer.borderColor = UIColor.black.cgColor
 			flavorView.layer.borderWidth = 3.0
 
