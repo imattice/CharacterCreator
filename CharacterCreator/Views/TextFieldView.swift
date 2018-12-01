@@ -98,10 +98,43 @@ class ImageSelectionView: UIView {
 						"self"			: self ]
 
 		imageView.translatesAutoresizingMaskIntoConstraints = false
-		let H_imageView = NSLayoutConstraint.constraints(withVisualFormat: "[imageView(<=75)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-		let V_imageView = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[imageView(<=75)]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+		let H_imageView = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[imageView(>=75)]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+		let V_imageView = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[imageView(>=75)]-0-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
 
 		let constraints = H_imageView + V_imageView
+
+		self.addConstraints(constraints)
+	}
+}
+
+class TextAreaView: UIView {
+	@IBInspectable var placeHolder: String? {
+		didSet {
+				}}
+	let textView = UITextView()
+	let titleLabel = UILabel()
+
+
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+
+		config()
+	}
+
+	private func config() {
+
+		layoutViews()
+	}
+
+	private func layoutViews() {
+		let viewDict = ["textView"		: textView,
+						"self"			: self		]
+
+		textView.translatesAutoresizingMaskIntoConstraints	= false
+		let H_textView = NSLayoutConstraint.constraints(withVisualFormat: "", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+		let V_textView = NSLayoutConstraint.constraints(withVisualFormat: "", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+
+		let constraints = H_textView + V_textView
 
 		self.addConstraints(constraints)
 	}

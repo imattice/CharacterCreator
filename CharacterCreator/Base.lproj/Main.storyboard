@@ -535,7 +535,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBF-Tk-bmc">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBF-Tk-bmc">
                                 <rect key="frame" x="0.0" y="44" width="375" height="687"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1W3-Sz-9a5">
@@ -548,6 +548,7 @@
                         <constraints>
                             <constraint firstItem="Mwb-1I-syB" firstAttribute="trailing" secondItem="DBF-Tk-bmc" secondAttribute="trailing" id="58d-Cj-21L"/>
                             <constraint firstItem="1W3-Sz-9a5" firstAttribute="centerX" secondItem="PIN-FD-Lk2" secondAttribute="centerX" id="TdI-oj-feb"/>
+                            <constraint firstItem="DBF-Tk-bmc" firstAttribute="width" secondItem="Mwb-1I-syB" secondAttribute="width" id="VgT-bY-GTV"/>
                             <constraint firstItem="DBF-Tk-bmc" firstAttribute="top" secondItem="Mwb-1I-syB" secondAttribute="top" id="aEq-Pr-gzk"/>
                             <constraint firstItem="Mwb-1I-syB" firstAttribute="bottom" secondItem="1W3-Sz-9a5" secondAttribute="bottom" constant="5" id="fgH-TO-W1M"/>
                             <constraint firstItem="1W3-Sz-9a5" firstAttribute="top" secondItem="DBF-Tk-bmc" secondAttribute="bottom" constant="5" id="sBa-aU-yos"/>
@@ -575,60 +576,58 @@
                     <rect key="frame" x="0.0" y="0.0" width="368" height="479"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jim-7Q-UWQ">
-                            <rect key="frame" x="0.0" y="0.0" width="368" height="479"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7n9-b3-stc" userLabel="Form Stack View">
+                            <rect key="frame" x="15" y="48" width="338" height="125"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Er-8rG" userLabel="Vertical Stack View">
-                                    <rect key="frame" x="0.0" y="0.0" width="368" height="220"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KLs-Rd-G8x" userLabel="Name and Image Stack View">
+                                    <rect key="frame" x="0.0" y="0.0" width="338" height="125"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZC-Ke-hhV" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="368" height="50"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="QLJ-1u-5pt"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkB-bY-Gpg" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="60" width="368" height="50"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="CfT-ER-E0u"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Age"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNF-vb-QFl" customClass="ImageSelectionView" customModule="CharacterCreator" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="120" width="368" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="p50-K2-QFz"/>
+                                                <constraint firstAttribute="height" constant="125" id="64D-4z-Fbe"/>
+                                                <constraint firstAttribute="width" secondItem="DNF-vb-QFl" secondAttribute="height" multiplier="1:1" id="s4D-pV-P1j"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="image" keyPath="image" value="blank"/>
                                             </userDefinedRuntimeAttributes>
                                         </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="700" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Er-8rG" userLabel="Text Entry Stack View">
+                                            <rect key="frame" x="133" y="0.0" width="205" height="125"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="710" translatesAutoresizingMaskIntoConstraints="NO" id="VZC-Ke-hhV" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="205" height="58.666666666666664"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" horizontalCompressionResistancePriority="710" translatesAutoresizingMaskIntoConstraints="NO" id="qkB-bY-Gpg" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="66.666666666666671" width="205" height="58.333333333333329"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Age"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VZC-Ke-hhV" firstAttribute="leading" secondItem="fyf-Er-8rG" secondAttribute="leading" id="XXc-JC-9kS"/>
+                                                <constraint firstAttribute="trailing" secondItem="VZC-Ke-hhV" secondAttribute="trailing" id="YHt-pg-WaM"/>
+                                                <constraint firstItem="qkB-bY-Gpg" firstAttribute="leading" secondItem="fyf-Er-8rG" secondAttribute="leading" id="lkq-qX-hTu"/>
+                                                <constraint firstAttribute="trailing" secondItem="qkB-bY-Gpg" secondAttribute="trailing" id="yZF-Gl-XYn"/>
+                                            </constraints>
+                                        </stackView>
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <constraints>
-                                <constraint firstItem="fyf-Er-8rG" firstAttribute="width" secondItem="jim-7Q-UWQ" secondAttribute="width" id="86H-jR-EnY"/>
-                                <constraint firstAttribute="bottom" secondItem="fyf-Er-8rG" secondAttribute="bottom" id="DGt-cX-a6z"/>
-                                <constraint firstAttribute="trailing" secondItem="fyf-Er-8rG" secondAttribute="trailing" id="JVT-yd-lDb"/>
-                                <constraint firstItem="fyf-Er-8rG" firstAttribute="leading" secondItem="jim-7Q-UWQ" secondAttribute="leading" id="Kz0-C1-cjw"/>
-                                <constraint firstItem="fyf-Er-8rG" firstAttribute="top" secondItem="jim-7Q-UWQ" secondAttribute="top" id="bv7-aN-txV"/>
-                            </constraints>
-                        </scrollView>
+                        </stackView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="jim-7Q-UWQ" firstAttribute="leading" secondItem="20q-zG-VFF" secondAttribute="leading" id="7GU-p1-8TF"/>
-                        <constraint firstItem="jim-7Q-UWQ" firstAttribute="top" secondItem="20q-zG-VFF" secondAttribute="top" id="Qba-0G-mLo"/>
-                        <constraint firstAttribute="trailing" secondItem="jim-7Q-UWQ" secondAttribute="trailing" id="czs-0G-dWv"/>
-                        <constraint firstAttribute="bottom" secondItem="jim-7Q-UWQ" secondAttribute="bottom" id="jrU-Ng-Nzd"/>
+                        <constraint firstItem="7n9-b3-stc" firstAttribute="leading" secondItem="Som-AC-RcT" secondAttribute="leading" constant="15" id="2NG-YW-64L"/>
+                        <constraint firstItem="Som-AC-RcT" firstAttribute="trailing" secondItem="7n9-b3-stc" secondAttribute="trailing" constant="15" id="fPb-4D-d0M"/>
+                        <constraint firstItem="7n9-b3-stc" firstAttribute="top" secondItem="Som-AC-RcT" secondAttribute="top" constant="4" id="yQa-P8-A6y"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="Som-AC-RcT"/>
                 </view>

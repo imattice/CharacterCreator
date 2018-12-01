@@ -56,19 +56,39 @@ class FlavorViewController: UIViewController {
 	}
 	private func addViews() {
 		for (index, flavorView) in flavorViews.enumerated() {
+			print("flavorView width 1: \(flavorView.frame.size.width)")
 
 			flavorView.frame.size.width 	= self.view.frame.size.width
 			flavorView.frame.size.height	= self.view.frame.size.height// - 90 //subtracting the height of the safe area, the page control and its vertical constraints
-//
-//			print("view size: \(flavorView.frame.size) /n screen size: \(self.view.frame.size)")
+			flavorView.layer.borderColor = UIColor.black.cgColor
+			flavorView.layer.borderWidth = 3.0
+
 			flavorView.frame.origin.x		= CGFloat(index) * self.view.bounds.size.width
 //
 			flavorView.backgroundColor = colors[index]
 			scrollView.addSubview(flavorView)
 
-//			flavorView.setNeedsDisplay()
-//
+			flavorView.setNeedsDisplay()
+
+			print("flavorView width: \(flavorView.frame.size.width)")
+			print("self width: \(view.frame.size.width)")
+
+
 		}
+
+//		for (index, flavorView) in flavorViews.enumerated() {
+//
+//			flavorView.frame.size.width 	= self.view.frame.size.width
+//			flavorView.frame.size.height	= self.view.frame.size.height// - 90 //subtracting the height of the safe area, the page control and its vertical constraints
+//			//
+//			//			print("view size: \(flavorView.frame.size) /n screen size: \(self.view.frame.size)")
+//			flavorView.frame.origin.x		= CGFloat(index) * self.view.bounds.size.width
+//			//
+//			flavorView.backgroundColor = colors[index + 1]
+//			scrollView.addSubview(flavorView)
+//
+//			flavorView.setNeedsDisplay()
+//		}
 
 	}
 
