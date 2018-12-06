@@ -8,12 +8,25 @@
 
 import UIKit
 
+//Taking a break on this app.  Here is where I'm leaving the project
+//added the delgates to this flavor container view, but I'm not sure if the ower should be the controller or the actual views.  Currently attempting to make the View Controller to be the delegate for all of these items.
+
+class FlavorContainerView: UIView {
+	@IBOutlet var textFieldDelegate: UITextViewDelegate?
+	@IBOutlet var textViewDelegate: UITextViewDelegate?
+	@IBOutlet var imagePickerDelegate: UIImagePickerControllerDelegate?
+}
+
 //@IBDesignable
 class TextFieldView: UIView {
+	let textField 	= UITextField()
+
+	var delegate: UITextFieldDelegate?
+
 	@IBInspectable var placeholder: String? {
 		didSet {
 			textField.placeholder = placeholder		}}
-	let textField 	= UITextField()
+
 
 	private let underline 	= UIView()
 	private let defaultFrame = CGRect(x: 0, y: 0, width: 150, height: 30)
@@ -74,6 +87,8 @@ extension TextFieldView: UITextFieldDelegate {
 class ImageSelectionView: UIView {
 	private let imageView = UIImageView()
 
+	var delegate: UIImagePickerControllerDelegate?
+
 	@IBInspectable var image: UIImage? {
 		didSet {
 			imageView.image = image		}}
@@ -108,12 +123,17 @@ class ImageSelectionView: UIView {
 }
 
 class TextAreaView: UIView {
-	@IBInspectable var placeHolder: String? {
-		didSet {
-				}}
 	let textView = UITextView()
 	let titleLabel = UILabel()
 
+	var delegate: UITextViewDelegate?
+
+	@IBInspectable var title: String? {
+		didSet {
+			titleLabel.text = title		}}
+	@IBInspectable var placeholder: String? {
+		didSet {
+			setPlaceholder()			}}
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
@@ -123,19 +143,68 @@ class TextAreaView: UIView {
 
 	private func config() {
 
-//		layoutViews()
+		textView.delegate = self
+
+		self.addSubview(titleLabel)
+		self.addSubview(textView)
+
+		layoutViews()
 	}
 
 	private func layoutViews() {
 		let viewDict = ["textView"		: textView,
+						"titleLabel"	: titleLabel,
 						"self"			: self		]
 
-		textView.translatesAutoresizingMaskIntoConstraints	= false
-		let H_textView = NSLayoutConstraint.constraints(withVisualFormat: "", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
-		let V_textView = NSLayoutConstraint.constraints(withVisualFormat: "", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+		titleLabel.translatesAutoresizingMaskIntoConstraints = false
+		let H_titleLabel = NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[titleLabel]-20-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+		let V_titleLabel = NSLayoutConstraint.constraints(withVisualFormat: "V:|-8-[titleLabel]-8-[textView(>=40)]-8-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
 
-		let constraints = H_textView + V_textView
+		textView.translatesAutoresizingMaskIntoConstraints	= false
+		let H_textView = NSLayoutConstraint.constraints(withVisualFormat: "H:|-8-[textView]-8-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+//		let V_textView = NSLayoutConstraint.constraints(withVisualFormat: "", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: viewDict)
+
+		let constraints = H_textView + H_titleLabel + V_titleLabel
 
 		self.addConstraints(constraints)
+	}
+}
+
+extension TextAreaView: UITextViewDelegate {
+
+	func textViewDidChangeSelection(_ textView: UITextView) {
+		if textView.textColor == UIColor.lightGray {
+			textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+		}
+	}
+
+	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+		let currentText:String = textView.text
+		let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
+
+		//if updated text view will be empty, add the placeholder
+		if updatedText.isEmpty {
+			setPlaceholder()
+		}
+
+		//remove the placeholder if the user is about to add text
+		else if textView.textColor == UIColor.lightGray && !text.isEmpty {
+			textView.textColor = UIColor.black
+			textView.text = text
+		}
+		// For every other case, the text should change with the usual behavior...
+		else {
+			return true		}
+
+		// ...otherwise return false since the updates have already been made
+		return false
+	}
+
+	//Placeholder Functions
+	func setPlaceholder() {
+		textView.text 		= placeholder
+		textView.textColor	= .lightGray
+
+		textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
 	}
 }

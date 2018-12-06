@@ -73,23 +73,13 @@ class FlavorViewController: UIViewController {
 			print("flavorView width: \(flavorView.frame.size.width)")
 			print("self width: \(view.frame.size.width)")
 
+			if let flavorView = flavorView as? FlavorContainerView {
+				flavorView.textViewDelegate 		= self
+				flavorView.textFieldDelegate 		= self
+				flavorView.imagePickerDelegate 		= self
+			}
 
 		}
-
-//		for (index, flavorView) in flavorViews.enumerated() {
-//
-//			flavorView.frame.size.width 	= self.view.frame.size.width
-//			flavorView.frame.size.height	= self.view.frame.size.height// - 90 //subtracting the height of the safe area, the page control and its vertical constraints
-//			//
-//			//			print("view size: \(flavorView.frame.size) /n screen size: \(self.view.frame.size)")
-//			flavorView.frame.origin.x		= CGFloat(index) * self.view.bounds.size.width
-//			//
-//			flavorView.backgroundColor = colors[index + 1]
-//			scrollView.addSubview(flavorView)
-//
-//			flavorView.setNeedsDisplay()
-//		}
-
 	}
 
 
@@ -126,10 +116,6 @@ class FlavorViewController: UIViewController {
 
 }
 
-extension FlavorViewController: UITextViewDelegate {
-
-}
-
 extension FlavorViewController: UIScrollViewDelegate {
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		//prevent vertical scrolls
@@ -141,7 +127,15 @@ extension FlavorViewController: UIScrollViewDelegate {
 	}
 }
 
-//extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension FlavorViewController: UITextFieldDelegate {
+
+}
+
+extension FlavorViewController: UITextViewDelegate {
+
+}
+
+extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 //
 //	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 //// Local variable inserted by Swift 4.2 migrator.
@@ -166,4 +160,4 @@ extension FlavorViewController: UIScrollViewDelegate {
 //// Helper function inserted by Swift 4.2 migrator.
 //fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
 //	return input.rawValue
-//}
+}

@@ -527,7 +527,7 @@
             </objects>
             <point key="canvasLocation" x="4725.6000000000004" y="767.73399014778329"/>
         </scene>
-        <!--FlavorDetail-->
+        <!--Image Picker Delegate-->
         <scene sceneID="r2v-bH-YGi">
             <objects>
                 <viewController title="FlavorDetail" id="1O3-su-Y9P" customClass="FlavorViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
@@ -572,7 +572,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIy-W5-pty" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="20q-zG-VFF" customClass="IdentityFlavorView" customModule="CharacterCreator" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="20q-zG-VFF" customClass="FlavorContainerView" customModule="CharacterCreator" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="368" height="479"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -626,11 +626,23 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uci-T5-4iL" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="338" height="120.66666666666667"/>
-                                            <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Appearance "/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder">
+                                                    <string key="value">What distinct physical features does your character have? What does it look like when your character uses spells? What types of clothing or armor does your character wear?</string>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttm-1s-JUW" userLabel="Text Area View" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="128.66666666666666" width="338" height="120.66666666666666"/>
-                                            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Backstory"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder">
+                                                    <string key="value">What brings your character into this adventure? Do they have family, a home, or a job? What milestones have shaped them into the person they are today?</string>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                 </stackView>
@@ -645,6 +657,11 @@
                         <constraint firstItem="7n9-b3-stc" firstAttribute="top" secondItem="Som-AC-RcT" secondAttribute="top" constant="15" id="yQa-P8-A6y"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="Som-AC-RcT"/>
+                    <connections>
+                        <outlet property="imagePickerDelegate" destination="1O3-su-Y9P" id="rwv-Lk-nlS"/>
+                        <outlet property="textFieldDelegate" destination="1O3-su-Y9P" id="7lC-0i-eTD"/>
+                        <outlet property="textViewDelegate" destination="1O3-su-Y9P" id="mox-tD-XPl"/>
+                    </connections>
                 </view>
                 <view contentMode="scaleToFill" id="2bS-AJ-xvf" customClass="AppearanceFlavorView" customModule="CharacterCreator" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="568"/>
