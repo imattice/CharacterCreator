@@ -21,7 +21,7 @@ class FlavorContainerView: UIView {
 class TextFieldView: UIView {
 	let textField 	= UITextField()
 
-	var delegate: UITextFieldDelegate?
+	@IBOutlet var delegate: UITextFieldDelegate?
 
 	@IBInspectable var placeholder: String? {
 		didSet {
@@ -51,7 +51,6 @@ class TextFieldView: UIView {
 	func config() {
 
 		textField.placeholder = placeholder
-		textField.delegate = self
 
 		underline.backgroundColor = Character.default.class.color().darkColor()
 
@@ -80,14 +79,10 @@ class TextFieldView: UIView {
 	}
 }
 
-extension TextFieldView: UITextFieldDelegate {
-
-}
-
 class ImageSelectionView: UIView {
 	private let imageView = UIImageView()
 
-	var delegate: UIImagePickerControllerDelegate?
+	@IBOutlet var delegate: UIImagePickerControllerDelegate?
 
 	@IBInspectable var image: UIImage? {
 		didSet {
@@ -126,7 +121,7 @@ class TextAreaView: UIView {
 	let textView = UITextView()
 	let titleLabel = UILabel()
 
-	var delegate: UITextViewDelegate?
+	@IBOutlet var delegate: UITextViewDelegate?
 
 	@IBInspectable var title: String? {
 		didSet {

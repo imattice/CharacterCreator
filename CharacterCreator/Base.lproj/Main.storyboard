@@ -572,7 +572,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIy-W5-pty" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="20q-zG-VFF" customClass="FlavorContainerView" customModule="CharacterCreator" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="20q-zG-VFF" userLabel="Flavor Container" customClass="FlavorContainerView" customModule="CharacterCreator" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="368" height="479"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -593,6 +593,9 @@
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="image" keyPath="image" value="blank"/>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="20q-zG-VFF" id="gdX-rQ-eVD"/>
+                                            </connections>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="700" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Er-8rG" userLabel="Text Entry Stack View">
                                             <rect key="frame" x="128.66666666666663" y="0.0" width="209.33333333333337" height="120.66666666666667"/>
@@ -603,6 +606,9 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="20q-zG-VFF" id="6y9-Ym-FvU"/>
+                                                    </connections>
                                                 </view>
                                                 <view contentMode="scaleToFill" horizontalCompressionResistancePriority="710" translatesAutoresizingMaskIntoConstraints="NO" id="qkB-bY-Gpg" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="64.666666666666671" width="209.33333333333334" height="56"/>
@@ -610,6 +616,9 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Age"/>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="20q-zG-VFF" id="MeU-Vc-x2w"/>
+                                                    </connections>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -633,6 +642,9 @@
                                                     <string key="value">What distinct physical features does your character have? What does it look like when your character uses spells? What types of clothing or armor does your character wear?</string>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="20q-zG-VFF" id="fex-SS-RTs"/>
+                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttm-1s-JUW" userLabel="Text Area View" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="128.66666666666666" width="338" height="120.66666666666666"/>
@@ -643,6 +655,9 @@
                                                     <string key="value">What brings your character into this adventure? Do they have family, a home, or a job? What milestones have shaped them into the person they are today?</string>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="20q-zG-VFF" id="fgh-CH-HMc"/>
+                                            </connections>
                                         </view>
                                     </subviews>
                                 </stackView>

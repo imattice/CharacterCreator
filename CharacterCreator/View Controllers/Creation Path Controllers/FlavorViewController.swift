@@ -60,12 +60,12 @@ class FlavorViewController: UIViewController {
 
 			flavorView.frame.size.width 	= self.view.frame.size.width
 			flavorView.frame.size.height	= self.view.frame.size.height - 125 //subtracting the height of the safe area, the page control and its vertical constraints
-			flavorView.layer.borderColor = UIColor.black.cgColor
-			flavorView.layer.borderWidth = 3.0
+			flavorView.layer.borderColor 	= UIColor.black.cgColor
+			flavorView.layer.borderWidth 	= 3.0
 
 			flavorView.frame.origin.x		= CGFloat(index) * self.view.bounds.size.width
 //
-			flavorView.backgroundColor = colors[index]
+			flavorView.backgroundColor 		= colors[index]
 			scrollView.addSubview(flavorView)
 
 			flavorView.setNeedsDisplay()
@@ -128,7 +128,15 @@ extension FlavorViewController: UIScrollViewDelegate {
 }
 
 extension FlavorViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		print("hi")
+		return true
+	}
 
+	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+		print("hi")
+		return true
+	}
 }
 
 extension FlavorViewController: UITextViewDelegate {
