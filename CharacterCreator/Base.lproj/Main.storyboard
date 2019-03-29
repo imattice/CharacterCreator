@@ -572,7 +572,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIy-W5-pty" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="20q-zG-VFF" userLabel="Flavor Container" customClass="FlavorContainerView" customModule="CharacterCreator" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="20q-zG-VFF" userLabel="Flavor Container" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="368" height="479"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>

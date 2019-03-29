@@ -9,7 +9,7 @@
 import UIKit
 
 //@IBDesignable
-class StatStepperView: UIView {
+class StatStepperView: XibView {
 	var view: UIView!
 
 	@IBOutlet weak var statTitleLabel: UILabel!
@@ -22,11 +22,11 @@ class StatStepperView: UIView {
 	var isFirstTap = true
 
 	//MARK: - View Lifecycle
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-
-		xibSetup()
-	}
+//	required init?(coder aDecoder: NSCoder) {
+//		super.init(coder: aDecoder)
+//
+//		xibSetup()
+//	}
 
 	override func awakeFromNib() {
 		statStepper.autorepeat 		= true

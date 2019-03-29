@@ -11,11 +11,7 @@ import UIKit
 //Taking a break on this app.  Here is where I'm leaving the project
 //added the delgates to this flavor container view, but I'm not sure if the ower should be the controller or the actual views.  Currently attempting to make the View Controller to be the delegate for all of these items.
 
-class FlavorContainerView: UIView {
-	@IBOutlet var textFieldDelegate: UITextViewDelegate?
-	@IBOutlet var textViewDelegate: UITextViewDelegate?
-	@IBOutlet var imagePickerDelegate: UIImagePickerControllerDelegate?
-}
+
 
 //@IBDesignable
 class TextFieldView: UIView {
@@ -30,17 +26,6 @@ class TextFieldView: UIView {
 
 	private let underline 	= UIView()
 	private let defaultFrame = CGRect(x: 0, y: 0, width: 150, height: 30)
-
-//	init(placeholder: String) {
-//		self.placeholder = placeholder
-//		super.init(frame: defaultFrame)
-//
-//		config()  //this might crash, due to the object not created at time setting delegate in config
-//	}
-//
-//	convenience init() {
-//		self.init(placeholder: "")
-//	}
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)

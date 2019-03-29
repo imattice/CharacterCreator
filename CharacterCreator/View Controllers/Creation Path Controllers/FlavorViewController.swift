@@ -73,7 +73,7 @@ class FlavorViewController: UIViewController {
 			print("flavorView width: \(flavorView.frame.size.width)")
 			print("self width: \(view.frame.size.width)")
 
-			if let flavorView = flavorView as? FlavorContainerView {
+			if let flavorView = flavorView as? BasicDetailView {
 				flavorView.textViewDelegate 		= self
 				flavorView.textFieldDelegate 		= self
 				flavorView.imagePickerDelegate 		= self
