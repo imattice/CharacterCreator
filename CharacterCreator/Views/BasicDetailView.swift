@@ -8,10 +8,16 @@
 
 import UIKit
 
-class BasicDetailView: UIView {
+class BasicDetailView: XibView {
 	@IBOutlet var textFieldDelegate: UITextViewDelegate?
 	@IBOutlet var textViewDelegate: UITextViewDelegate?
 	@IBOutlet var imagePickerDelegate: UIImagePickerControllerDelegate?
+	
+	@IBOutlet weak var imageSelectionView: ImageSelectionView!
+	@IBOutlet weak var nameTextFieldView: TextFieldView!
+	@IBOutlet weak var ageTextFieldView: TextFieldView!
+	@IBOutlet weak var appearanceTextAreaView: TextAreaView!
+	@IBOutlet weak var backstoryTextAreaView: TextAreaView!
 
 	func nextTextView() {
 
