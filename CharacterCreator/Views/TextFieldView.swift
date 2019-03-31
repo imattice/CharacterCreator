@@ -13,11 +13,14 @@ import UIKit
 
 
 
-//@IBDesignable
+@IBDesignable
 class TextFieldView: UIView {
 	let textField 	= UITextField()
 
-	@IBOutlet var delegate: UITextFieldDelegate?
+	@IBOutlet var delegate: UITextFieldDelegate? {
+		didSet {
+			textField.delegate = delegate
+		}}
 
 	@IBInspectable var placeholder: String? {
 		didSet {
@@ -32,6 +35,11 @@ class TextFieldView: UIView {
 
 		config()
 	}
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+
+		config()
+	}
 
 	func config() {
 
@@ -43,6 +51,12 @@ class TextFieldView: UIView {
 		addSubview(textField)
 
 		layoutViews()
+
+		let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
+		self.addGestureRecognizer(recognizer)
+	}
+	@objc func didTap() {
+		print("tapped")
 	}
 
 	private func layoutViews() {

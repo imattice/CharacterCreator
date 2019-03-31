@@ -9,10 +9,6 @@
 import UIKit
 
 class BasicDetailView: XibView {
-	@IBOutlet var textFieldDelegate: UITextViewDelegate?
-	@IBOutlet var textViewDelegate: UITextViewDelegate?
-	@IBOutlet var imagePickerDelegate: UIImagePickerControllerDelegate?
-	
 	@IBOutlet weak var imageSelectionView: ImageSelectionView!
 	@IBOutlet weak var nameTextFieldView: TextFieldView!
 	@IBOutlet weak var ageTextFieldView: TextFieldView!
@@ -21,5 +17,11 @@ class BasicDetailView: XibView {
 
 	func nextTextView() {
 
+	}
+}
+
+extension BasicDetailView: UITextFieldDelegate {
+	func textFieldDidBeginEditing(_ textField: UITextField) {
+		print("It works")
 	}
 }

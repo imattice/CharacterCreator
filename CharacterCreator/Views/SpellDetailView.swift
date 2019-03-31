@@ -13,7 +13,7 @@ protocol SpellDetailDelegate {
 	func didCancelSelection(of spell: Spell)
 }
 
-class SpellDetailView: UIView {
+class SpellDetailView: XibView {
 	@IBOutlet weak var backgroundView: UIView!
 	@IBOutlet weak var detailView: UIView!
 

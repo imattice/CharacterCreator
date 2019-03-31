@@ -26,7 +26,8 @@ class FlavorViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-		addViews()
+
+		configureViews()
 
 		configureScrollView()
 
@@ -39,24 +40,25 @@ class FlavorViewController: UIViewController {
     }
 
 	private func configureScrollView() {
+		//Scroll View
 		scrollView.delegate 						= self
 		scrollView.isPagingEnabled 					= true
-//		scrollView.contentSize 						= CGSize(width: view.frame.width * CGFloat(flavorViews.count),
-//																height: view.frame.height)
+		scrollView.contentSize 						= CGSize(width: view.frame.width * CGFloat(flavorViews.count),
+																height: view.frame.height)
 		scrollView.showsHorizontalScrollIndicator	= false
 		scrollView.alwaysBounceHorizontal 			= false
 		scrollView.isDirectionalLockEnabled 		= true
 		scrollView.bounces							= false
 
-
+		//Page Control
 		pageControl.numberOfPages 					= flavorViews.count
 		pageControl.pageIndicatorTintColor 			= Character.default.class.color().lightColor()
 		pageControl.currentPageIndicatorTintColor 	= Character.default.class.color().base()
 
 	}
-	private func addViews() {
+
+	private func configureViews() {
 		for (index, flavorView) in flavorViews.enumerated() {
-			print("flavorView width 1: \(flavorView.frame.size.width)")
 
 			flavorView.frame.size.width 	= self.view.frame.size.width
 			flavorView.frame.size.height	= self.view.frame.size.height - 125 //subtracting the height of the safe area, the page control and its vertical constraints
@@ -64,21 +66,22 @@ class FlavorViewController: UIViewController {
 			flavorView.layer.borderWidth 	= 3.0
 
 			flavorView.frame.origin.x		= CGFloat(index) * self.view.bounds.size.width
-//
+			flavorView.frame.origin.y		= self.view.frame.origin.y
+
 			flavorView.backgroundColor 		= colors[index]
 			scrollView.addSubview(flavorView)
 
 			flavorView.setNeedsDisplay()
-
-			print("flavorView width: \(flavorView.frame.size.width)")
-			print("self width: \(view.frame.size.width)")
-
-			if let flavorView = flavorView as? BasicDetailView {
-				flavorView.textViewDelegate 		= self
-				flavorView.textFieldDelegate 		= self
-				flavorView.imagePickerDelegate 		= self
-			}
-
+//
+//			print("flavorView width: \(flavorView.frame.size.width)")
+//			print("self width: \(view.frame.size.width)")
+//
+//			if let flavorView = flavorView as? BasicDetailView {
+//				flavorView.textViewDelegate 		= self
+//				flavorView.textFieldDelegate 		= self
+//				flavorView.imagePickerDelegate 		= self
+//			}
+//
 		}
 	}
 
@@ -127,45 +130,45 @@ extension FlavorViewController: UIScrollViewDelegate {
 	}
 }
 
-extension FlavorViewController: UITextFieldDelegate {
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		print("hi")
-		return true
-	}
-
-	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-		print("hi")
-		return true
-	}
-}
-
-extension FlavorViewController: UITextViewDelegate {
-
-}
-
-extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-//
-//	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//// Local variable inserted by Swift 4.2 migrator.
-//let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-//
-//		guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage else { print("could not create a proper image"); return }
-//		appearanceFlavorView.imageView.image = pickedImage
-//
-//		dismiss(animated: true, completion: nil)
+//extension FlavorViewController: UITextFieldDelegate {
+//	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//		print("hi")
+//		return true
 //	}
 //
-//	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//		dismiss(animated: true, completion: nil)
+//	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//		print("hi")
+//		return true
 //	}
 //}
 //
-//// Helper function inserted by Swift 4.2 migrator.
-//fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-//	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+//extension FlavorViewController: UITextViewDelegate {
+//
 //}
 //
-//// Helper function inserted by Swift 4.2 migrator.
-//fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-//	return input.rawValue
-}
+//extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+////
+////	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+////// Local variable inserted by Swift 4.2 migrator.
+////let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+////
+////		guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage else { print("could not create a proper image"); return }
+////		appearanceFlavorView.imageView.image = pickedImage
+////
+////		dismiss(animated: true, completion: nil)
+////	}
+////
+////	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+////		dismiss(animated: true, completion: nil)
+////	}
+////}
+////
+////// Helper function inserted by Swift 4.2 migrator.
+////fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+////	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+////}
+////
+////// Helper function inserted by Swift 4.2 migrator.
+////fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+////	return input.rawValue
+//}
