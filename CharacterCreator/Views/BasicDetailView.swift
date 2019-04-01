@@ -15,13 +15,40 @@ class BasicDetailView: XibView {
 	@IBOutlet weak var appearanceTextAreaView: TextAreaView!
 	@IBOutlet weak var backstoryTextAreaView: TextAreaView!
 
-	func nextTextView() {
+	func nextTextView(_ currentTextField: UITextField) {
+		switch currentTextField {
+		case nameTextFieldView.textField:
+			ageTextFieldView.textField.becomeFirstResponder()
+		case ageTextFieldView.textField:
+			nameTextFieldView.textField.becomeFirstResponder()
+		default:
+			print("didn't work")
+		}
+	}
 
+	func setCharacterDetail(_ textField: UITextField) {
+		switch textField {
+		case nameTextFieldView.textField:
+			guard let name = textField.text else { break }
+			Character.current.flavorText.name = name
+		case ageTextFieldView.textField:
+			guard let age = textField.text else { break }
+			Character.current.flavorText.age = age
+		default:
+			break
+		}
 	}
 }
 
 extension BasicDetailView: UITextFieldDelegate {
 	func textFieldDidBeginEditing(_ textField: UITextField) {
-		print("It works")
+	}
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		setCharacterDetail(textField)
+
+		resignFirstResponder()
+		nextTextView(textField)
+
+		return true
 	}
 }
