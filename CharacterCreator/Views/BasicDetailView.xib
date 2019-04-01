@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
             <connections>
                 <outlet property="ageTextFieldView" destination="EPZ-zb-bga" id="hKF-kS-Nfu"/>
+                <outlet property="imageSelectionView" destination="G47-LN-NnV" id="ySW-ni-38d"/>
                 <outlet property="nameTextFieldView" destination="BXg-Wz-nR5" id="2Bd-PI-iio"/>
             </connections>
         </placeholder>
@@ -30,6 +31,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G47-LN-NnV" customClass="ImageSelectionView" customModule="CharacterCreator" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="ADr-eB-jox"/>
                                         <constraint firstAttribute="width" secondItem="G47-LN-NnV" secondAttribute="height" multiplier="1:1" id="HTc-dY-reg"/>
@@ -38,6 +40,10 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="image" keyPath="image" value="blank"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="Gci-jE-lrQ"/>
+                                        <outletCollection property="gestureRecognizers" destination="met-6U-nHc" appends="YES" id="hjH-wM-nEn"/>
+                                    </connections>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="700" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r7b-9t-fuI" userLabel="Text Entry Stack View">
                                     <rect key="frame" x="138" y="0.0" width="221" height="130"/>
@@ -110,6 +116,11 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="138.40000000000001" y="185.75712143928038"/>
         </view>
+        <tapGestureRecognizer id="met-6U-nHc" userLabel="Image Selection View Tap Gesture Recognizer">
+            <connections>
+                <action selector="imageSelectionViewTapped:" destination="-1" id="vyC-Rh-qmc"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="blank" width="720" height="720"/>

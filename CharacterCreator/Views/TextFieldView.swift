@@ -51,12 +51,6 @@ class TextFieldView: UIView {
 		addSubview(textField)
 
 		layoutViews()
-
-		let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
-		self.addGestureRecognizer(recognizer)
-	}
-	@objc func didTap() {
-		print("tapped")
 	}
 
 	private func layoutViews() {
@@ -78,8 +72,13 @@ class TextFieldView: UIView {
 	}
 }
 
+protocol ImageSelectionDelegate {
+	func selectImage()
+}
+
+@IBDesignable
 class ImageSelectionView: UIView {
-	private let imageView = UIImageView()
+	let imageView = UIImageView()
 
 	@IBOutlet var delegate: UIImagePickerControllerDelegate?
 
@@ -92,13 +91,19 @@ class ImageSelectionView: UIView {
 
 		config()
 	}
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+
+		config()
+	}
 
 	private func config() {
-		backgroundColor = .brown
+		imageView.contentMode = .scaleAspectFit
 
 		addSubview(imageView)
 
 		layoutViews()
+
 	}
 
 	private func layoutViews() {
@@ -115,6 +120,8 @@ class ImageSelectionView: UIView {
 		self.addConstraints(constraints)
 	}
 }
+
+
 
 class TextAreaView: UIView {
 	let textView = UITextView()

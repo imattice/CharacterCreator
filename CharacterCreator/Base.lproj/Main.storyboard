@@ -543,11 +543,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.04677283753" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b0K-dH-DNa" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="266" width="367" height="177"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
                                 </subviews>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1W3-Sz-9a5">
@@ -578,9 +573,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="basicDetailView" destination="mMh-bg-H2X" id="bAA-kP-mPZ"/>
                         <outlet property="pageControl" destination="1W3-Sz-9a5" id="Fzv-8s-fCJ"/>
                         <outlet property="scrollView" destination="DBF-Tk-bmc" id="MIy-9U-ruO"/>
-                        <outletCollection property="flavorViews" destination="b0K-dH-DNa" collectionClass="NSMutableArray" id="2TH-d8-04X"/>
                         <outletCollection property="flavorViews" destination="mMh-bg-H2X" collectionClass="NSMutableArray" id="uXy-up-auQ"/>
                     </connections>
                 </viewController>

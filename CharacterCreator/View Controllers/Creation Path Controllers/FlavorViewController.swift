@@ -19,6 +19,7 @@ class FlavorViewController: UIViewController {
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet var flavorViews: [UIView]!
+	@IBOutlet weak var basicDetailView: BasicDetailView!
 
 	let imagePicker = UIImagePickerController()
 
@@ -30,6 +31,8 @@ class FlavorViewController: UIViewController {
 		configureViews()
 
 		configureScrollView()
+
+		basicDetailView.imageSelectionDelegate = self
 
 //		let textFieldView = TextFieldView()
 //		textFieldView.config()
@@ -72,6 +75,8 @@ class FlavorViewController: UIViewController {
 			scrollView.addSubview(flavorView)
 
 			flavorView.setNeedsDisplay()
+
+
 //
 //			print("flavorView width: \(flavorView.frame.size.width)")
 //			print("self width: \(view.frame.size.width)")
@@ -86,12 +91,7 @@ class FlavorViewController: UIViewController {
 	}
 
 
-	@IBAction func selectImage(_ sender: UITapGestureRecognizer) {
-		imagePicker.allowsEditing = true
-		imagePicker.sourceType = .photoLibrary
 
-		present(imagePicker, animated: true, completion: nil)
-	}
 
 
 
@@ -146,29 +146,39 @@ extension FlavorViewController: UIScrollViewDelegate {
 //
 //}
 //
-//extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-////
-////	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-////// Local variable inserted by Swift 4.2 migrator.
-////let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-////
-////		guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage else { print("could not create a proper image"); return }
-////		appearanceFlavorView.imageView.image = pickedImage
-////
-////		dismiss(animated: true, completion: nil)
-////	}
-////
-////	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-////		dismiss(animated: true, completion: nil)
-////	}
-////}
-////
-////// Helper function inserted by Swift 4.2 migrator.
-////fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-////	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
-////}
-////
-////// Helper function inserted by Swift 4.2 migrator.
-////fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-////	return input.rawValue
-//}
+extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageSelectionDelegate {
+
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+		// Local variable inserted by Swift 4.2 migrator.
+		let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+		guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage else { print("could not create a proper image"); return }
+		basicDetailView.imageSelectionView.imageView.image = pickedImage
+
+		dismiss(animated: true, completion: nil)
+	}
+
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+		dismiss(animated: true, completion: nil)
+	}
+
+	func selectImage() {
+		guard UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) else { return }
+
+		imagePicker.delegate = self
+		imagePicker.sourceType = .savedPhotosAlbum
+		imagePicker.allowsEditing = true
+
+		present(imagePicker, animated: true, completion: nil)
+	}
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}

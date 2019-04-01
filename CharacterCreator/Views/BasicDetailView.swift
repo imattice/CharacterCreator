@@ -15,6 +15,13 @@ class BasicDetailView: XibView {
 	@IBOutlet weak var appearanceTextAreaView: TextAreaView!
 	@IBOutlet weak var backstoryTextAreaView: TextAreaView!
 
+//	var imagePicker = UIImagePickerController()
+//	let imagePickerDelegate: UIImagePickerControllerDelegate? = nil
+
+	var imageSelectionDelegate: ImageSelectionDelegate? {
+		didSet{
+			print("image selection delegate was updated to \(imageSelectionDelegate)") }}
+
 	func nextTextView(_ currentTextField: UITextField) {
 		switch currentTextField {
 		case nameTextFieldView.textField:
@@ -38,6 +45,15 @@ class BasicDetailView: XibView {
 			break
 		}
 	}
+	@IBAction func imageSelectionViewTapped(_ sender: UITapGestureRecognizer) {
+		print("pretap")
+		print(imageSelectionDelegate)
+
+		guard let delegate = imageSelectionDelegate else { return }
+		print("tapped")
+
+		delegate.selectImage()
+	}
 }
 
 extension BasicDetailView: UITextFieldDelegate {
@@ -51,4 +67,8 @@ extension BasicDetailView: UITextFieldDelegate {
 
 		return true
 	}
+}
+
+extension BasicDetailView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
 }
