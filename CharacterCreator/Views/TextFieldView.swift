@@ -44,6 +44,7 @@ class TextFieldView: UIView {
 	func config() {
 
 		textField.placeholder = placeholder
+		textField.addToolbar()
 
 		underline.backgroundColor = Character.default.class.color().darkColor()
 
@@ -145,6 +146,7 @@ class TextAreaView: UIView {
 	}
 
 	private func config() {
+		textView.addToolbar()
 
 		self.addSubview(titleLabel)
 		self.addSubview(textView)
