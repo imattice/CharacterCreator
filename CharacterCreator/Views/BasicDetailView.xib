@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
             <connections>
                 <outlet property="ageTextFieldView" destination="EPZ-zb-bga" id="hKF-kS-Nfu"/>
+                <outlet property="appearanceTextAreaView" destination="JKF-my-hEr" id="8Th-UG-GNd"/>
+                <outlet property="backstoryTextAreaView" destination="idC-TG-NBg" id="Qb5-WD-tmU"/>
                 <outlet property="imageSelectionView" destination="G47-LN-NnV" id="ySW-ni-38d"/>
                 <outlet property="nameTextFieldView" destination="BXg-Wz-nR5" id="2Bd-PI-iio"/>
             </connections>
@@ -90,6 +92,9 @@
                                             <string key="value">What distinct physical features does your character have? What does it look like when your character uses spells? What types of clothing or armor does your character wear?</string>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="O36-Fh-n8l"/>
+                                    </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idC-TG-NBg" userLabel="Text Area View" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="214.5" width="359" height="206.5"/>
@@ -100,6 +105,9 @@
                                             <string key="value">What brings your character into this adventure? Do they have family, a home, or a job? What milestones have shaped them into the person they are today?</string>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="SfZ-pc-sMj"/>
+                                    </connections>
                                 </view>
                             </subviews>
                         </stackView>

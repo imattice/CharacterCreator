@@ -127,7 +127,9 @@ class TextAreaView: UIView {
 	let textView = UITextView()
 	let titleLabel = UILabel()
 
-	@IBOutlet var delegate: UITextViewDelegate?
+	@IBOutlet var delegate: UITextViewDelegate? {
+		didSet {
+			textView.delegate = delegate		}}
 
 	@IBInspectable var title: String? {
 		didSet {
@@ -143,8 +145,6 @@ class TextAreaView: UIView {
 	}
 
 	private func config() {
-
-		textView.delegate = self
 
 		self.addSubview(titleLabel)
 		self.addSubview(textView)
@@ -169,39 +169,6 @@ class TextAreaView: UIView {
 
 		self.addConstraints(constraints)
 	}
-}
-
-extension TextAreaView: UITextViewDelegate {
-
-	func textViewDidChangeSelection(_ textView: UITextView) {
-		if textView.textColor == UIColor.lightGray {
-			textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-		}
-	}
-
-	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-		let currentText:String = textView.text
-		let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
-
-		//if updated text view will be empty, add the placeholder
-		if updatedText.isEmpty {
-			setPlaceholder()
-		}
-
-		//remove the placeholder if the user is about to add text
-		else if textView.textColor == UIColor.lightGray && !text.isEmpty {
-			textView.textColor = UIColor.black
-			textView.text = text
-		}
-		// For every other case, the text should change with the usual behavior...
-		else {
-			return true		}
-
-		// ...otherwise return false since the updates have already been made
-		return false
-	}
-
-	//Placeholder Functions
 	func setPlaceholder() {
 		textView.text 		= placeholder
 		textView.textColor	= .lightGray

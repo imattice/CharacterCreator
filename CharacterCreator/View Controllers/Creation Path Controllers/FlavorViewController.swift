@@ -154,6 +154,7 @@ extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationCon
 
 		guard let pickedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage else { print("could not create a proper image"); return }
 		basicDetailView.imageSelectionView.imageView.image = pickedImage
+		Character.current.flavorText.image	= pickedImage
 
 		dismiss(animated: true, completion: nil)
 	}
