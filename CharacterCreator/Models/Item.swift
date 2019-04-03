@@ -29,7 +29,6 @@ struct Item {
 
 		}
 		else {
-			print("no data for \(name)")
 			self.tags = nil
 		}
 	}

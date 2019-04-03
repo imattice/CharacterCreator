@@ -145,7 +145,7 @@ extension Class {
 
 			guard let classDict = classData[base] as? [String: Any],
 				let spellcastingDict = classDict["spellcasting"] as? [String : Any]
-				else { print("no casting data for \(base)"); return nil }
+				else { return nil }
 			guard let castingAbilityData = spellcastingDict["casting_ability"] as? String,
 				let castingAbility = StatType(rawValue: castingAbilityData),
 				let spellCountData = spellcastingDict["initialSpellCount"] as? String,

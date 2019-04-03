@@ -15,10 +15,38 @@ class BasicDetailView: XibView {
 	@IBOutlet weak var appearanceTextAreaView: TextAreaView!
 	@IBOutlet weak var backstoryTextAreaView: TextAreaView!
 
-//	var imagePicker = UIImagePickerController()
-//	let imagePickerDelegate: UIImagePickerControllerDelegate? = nil
-
 	var imageSelectionDelegate: ImageSelectionDelegate?
+	var activeTextInput: Any? {
+		didSet {
+			print("active view just set: \(activeTextInput)")
+		}}
+
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+
+		config()
+	}
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+
+		config()
+	}
+
+	func config() {
+		addNotificationObservers()
+
+		backgroundColor = .red
+	}
+
+	func addNotificationObservers() {
+		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillShowNotification , object: nil)
+		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillHideNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+	}
+
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
 
 	func nextTextView(_ currentTextField: UITextField) {
 		switch currentTextField {
@@ -66,6 +94,29 @@ class BasicDetailView: XibView {
 			break
 		}
 	}
+
+	@objc func keyboardWillChange(_ notification: Notification) {
+		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+
+		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
+			print("keyboard will show for text input: \(activeTextInput)")
+			switch activeTextInput {
+			case nameTextFieldView.textField as UITextField:
+				self.frame.origin.y = 0
+			case ageTextFieldView.textField as UITextField:
+				self.frame.origin.y = 0
+			case appearanceTextAreaView.textView as UITextView:
+				self.frame.origin.y = -(nameTextFieldView.frame.height + ageTextFieldView.frame.height)
+			case backstoryTextAreaView.textView as UITextView:
+				self.frame.origin.y = -keyboardRect.height
+			default:
+				print("broke")
+				break
+			}
+		} else {
+			self.frame.origin.y = 0
+		}
+	}
 	@IBAction func imageSelectionViewTapped(_ sender: UITapGestureRecognizer) {
 		guard let delegate = imageSelectionDelegate else { return }
 
@@ -75,6 +126,7 @@ class BasicDetailView: XibView {
 
 extension BasicDetailView: UITextFieldDelegate {
 	func textFieldDidBeginEditing(_ textField: UITextField) {
+		activeTextInput = textField
 	}
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		setCharacterDetail(textField)
@@ -84,10 +136,15 @@ extension BasicDetailView: UITextFieldDelegate {
 
 		return true
 	}
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		activeTextInput = nil
+	}
 }
 
 extension BasicDetailView: UITextViewDelegate {
-
+	func textViewDidBeginEditing(_ textView: UITextView) {
+		activeTextInput = textView
+	}
 	func textViewDidChangeSelection(_ textView: UITextView) {
 		if textView.textColor == UIColor.lightGray {
 			textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
@@ -122,6 +179,13 @@ extension BasicDetailView: UITextViewDelegate {
 		// ...otherwise return false since the updates have already been made
 		return false
 	}
+	func textViewDidEndEditing(_ textView: UITextView) {
+		activeTextInput = nil
+	}
+}
 
+fileprivate extension Selector {
 
+	static let keyboardWillChange = #selector(BasicDetailView.keyboardWillChange(_:))
+	
 }
