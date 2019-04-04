@@ -16,10 +16,6 @@ class BasicDetailView: XibView {
 	@IBOutlet weak var backstoryTextAreaView: TextAreaView!
 
 	var imageSelectionDelegate: ImageSelectionDelegate?
-	var activeTextInput: Any? {
-		didSet {
-			print("active view just set: \(activeTextInput)")
-		}}
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
@@ -46,6 +42,24 @@ class BasicDetailView: XibView {
 
 	deinit {
 		NotificationCenter.default.removeObserver(self)
+	}
+
+	func getCurrentResponder() -> Any? {
+		if nameTextFieldView.textField.isFirstResponder {
+			return nameTextFieldView.textField as Any
+		}
+		else if ageTextFieldView.textField.isFirstResponder {
+			return nameTextFieldView.textField as Any
+		}
+		else if appearanceTextAreaView.textView.isFirstResponder {
+			return appearanceTextAreaView.textView as Any
+		}
+		else if backstoryTextAreaView.textView.isFirstResponder {
+			return backstoryTextAreaView.textView as Any
+		}
+		else {
+			return nil
+		}
 	}
 
 	func nextTextView(_ currentTextField: UITextField) {
@@ -96,19 +110,21 @@ class BasicDetailView: XibView {
 	}
 
 	@objc func keyboardWillChange(_ notification: Notification) {
+
+
 		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
 
 		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
-			print("keyboard will show for text input: \(activeTextInput)")
-			switch activeTextInput {
+			let currentResponder = getCurrentResponder()
+			switch currentResponder {
 			case nameTextFieldView.textField as UITextField:
 				self.frame.origin.y = 0
 			case ageTextFieldView.textField as UITextField:
 				self.frame.origin.y = 0
 			case appearanceTextAreaView.textView as UITextView:
-				self.frame.origin.y = -(nameTextFieldView.frame.height + ageTextFieldView.frame.height)
+				self.frame.origin.y = -(nameTextFieldView.frame.height + ageTextFieldView.frame.height)*0.5
 			case backstoryTextAreaView.textView as UITextView:
-				self.frame.origin.y = -keyboardRect.height
+				self.frame.origin.y = -(keyboardRect.height*0.5)
 			default:
 				print("broke")
 				break
@@ -126,7 +142,6 @@ class BasicDetailView: XibView {
 
 extension BasicDetailView: UITextFieldDelegate {
 	func textFieldDidBeginEditing(_ textField: UITextField) {
-		activeTextInput = textField
 	}
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		setCharacterDetail(textField)
@@ -137,13 +152,11 @@ extension BasicDetailView: UITextFieldDelegate {
 		return true
 	}
 	func textFieldDidEndEditing(_ textField: UITextField) {
-		activeTextInput = nil
 	}
 }
 
 extension BasicDetailView: UITextViewDelegate {
 	func textViewDidBeginEditing(_ textView: UITextView) {
-		activeTextInput = textView
 	}
 	func textViewDidChangeSelection(_ textView: UITextView) {
 		if textView.textColor == UIColor.lightGray {
@@ -180,7 +193,6 @@ extension BasicDetailView: UITextViewDelegate {
 		return false
 	}
 	func textViewDidEndEditing(_ textView: UITextView) {
-		activeTextInput = nil
 	}
 }
 
