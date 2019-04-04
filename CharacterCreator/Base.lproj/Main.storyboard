@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1O3-su-Y9P">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0BV-s2-vtb">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -539,7 +539,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="687"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMh-bg-H2X" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="22" width="367" height="236"/>
+                                        <rect key="frame" x="8" y="22" width="367" height="567"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.04677283753" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
@@ -565,7 +565,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Identity" id="LjK-Yo-WI0">
                         <barButtonItem key="backBarButtonItem" title="Back" id="C2f-18-zan"/>
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="Swb-kE-xjP" userLabel="Back"/>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="qCA-qw-PSg" userLabel="Review">
                             <connections>
                                 <segue destination="lob-Fu-BHi" kind="show" id="hMT-gr-ogb"/>

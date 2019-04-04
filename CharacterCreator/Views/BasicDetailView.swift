@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class BasicDetailView: XibView {
 	@IBOutlet weak var imageSelectionView: ImageSelectionView!
 	@IBOutlet weak var nameTextFieldView: TextFieldView!
@@ -31,7 +32,7 @@ class BasicDetailView: XibView {
 	func config() {
 		addNotificationObservers()
 
-		backgroundColor = .red
+		ageTextFieldView.textField.keyboardType	= .decimalPad
 	}
 
 	func addNotificationObservers() {
@@ -122,9 +123,9 @@ class BasicDetailView: XibView {
 			case ageTextFieldView.textField as UITextField:
 				self.frame.origin.y = 0
 			case appearanceTextAreaView.textView as UITextView:
-				self.frame.origin.y = -(nameTextFieldView.frame.height + ageTextFieldView.frame.height)*0.5
+				self.frame.origin.y = -(nameTextFieldView.frame.height + ageTextFieldView.frame.height)*0.75
 			case backstoryTextAreaView.textView as UITextView:
-				self.frame.origin.y = -(keyboardRect.height*0.5)
+				self.frame.origin.y = -(keyboardRect.height*0.75)
 			default:
 				print("broke")
 				break
@@ -152,6 +153,7 @@ extension BasicDetailView: UITextFieldDelegate {
 		return true
 	}
 	func textFieldDidEndEditing(_ textField: UITextField) {
+		setCharacterDetail(textField)
 	}
 }
 
@@ -193,6 +195,7 @@ extension BasicDetailView: UITextViewDelegate {
 		return false
 	}
 	func textViewDidEndEditing(_ textView: UITextView) {
+		setCharacterDetail(textView)
 	}
 }
 
