@@ -52,6 +52,9 @@ class TextFieldView: UIView {
 		addSubview(textField)
 
 		layoutViews()
+
+		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(TextFieldView.setResponder))
+		self.addGestureRecognizer(tapRecognizer)
 	}
 
 	private func layoutViews() {
@@ -70,6 +73,9 @@ class TextFieldView: UIView {
 		let constraints = H_underline + V_underline + H_textField + V_textField
 
 		self.addConstraints(constraints)
+	}
+	@objc private func setResponder() {
+		textField.becomeFirstResponder()
 	}
 }
 
@@ -152,6 +158,9 @@ class TextAreaView: UIView {
 		self.addSubview(textView)
 
 		layoutViews()
+
+		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(TextAreaView.setResponder))
+		self.addGestureRecognizer(tapRecognizer)
 	}
 
 	private func layoutViews() {
@@ -176,5 +185,8 @@ class TextAreaView: UIView {
 		textView.textColor	= .lightGray
 
 		textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+	}
+	@objc private func setResponder() {
+		textView.becomeFirstResponder()
 	}
 }

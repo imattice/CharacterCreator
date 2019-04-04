@@ -10,7 +10,7 @@
 		810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */; };
 		810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810900B2224EE40100FF8B17 /* BasicDetailView.xib */; };
 		8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */; };
-		8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA7321ACC37D00EB61B8 /* TextFieldView.swift */; };
+		8112FA7421ACC37D00EB61B8 /* Custom User Inputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA7321ACC37D00EB61B8 /* Custom User Inputs.swift */; };
 		8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123671020CA44DA00F7AEFC /* AppDelegate.swift */; };
 		8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671420CA44DA00F7AEFC /* Main.storyboard */; };
 		8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */; };
@@ -101,7 +101,7 @@
 		810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDetailView.swift; sourceTree = "<group>"; };
 		810900B2224EE40100FF8B17 /* BasicDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicDetailView.xib; sourceTree = "<group>"; };
 		8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectionTableViewController.swift; sourceTree = "<group>"; };
-		8112FA7321ACC37D00EB61B8 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		8112FA7321ACC37D00EB61B8 /* Custom User Inputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom User Inputs.swift"; sourceTree = "<group>"; };
 		8123670D20CA44DA00F7AEFC /* CharacterCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123671020CA44DA00F7AEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8123671520CA44DA00F7AEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -361,7 +361,7 @@
 				81DF3031214310AD00C939CE /* FlavorViews.swift */,
 				8135B43E2169B2030058E9D6 /* SpellDetailView.swift */,
 				8135B4402169B22C0058E9D6 /* SpellDetailView.xib */,
-				8112FA7321ACC37D00EB61B8 /* TextFieldView.swift */,
+				8112FA7321ACC37D00EB61B8 /* Custom User Inputs.swift */,
 				810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */,
 				810900B2224EE40100FF8B17 /* BasicDetailView.xib */,
 			);
@@ -668,7 +668,7 @@
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
-				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,
+				8112FA7421ACC37D00EB61B8 /* Custom User Inputs.swift in Sources */,
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
