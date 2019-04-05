@@ -16,23 +16,70 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="637"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LwJ-ia-3pE">
-                    <rect key="frame" x="67" y="179" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CeL-9d-qVN">
-                    <rect key="frame" x="67" y="30" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96E-M1-ffq">
-                    <rect key="frame" x="67" y="322" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="06z-GV-Lm8">
+                    <rect key="frame" x="8" y="28" width="359" height="601"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-oU-Lc1">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="323"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeL-9d-qVN" customClass="SelectionPickerView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="98.5"/>
+                                    <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Ideals"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LwJ-ia-3pE" customClass="SelectionPickerView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="112.5" width="359" height="98"/>
+                                    <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Bonds"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96E-M1-ffq" customClass="SelectionPickerView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="224.5" width="359" height="98.5"/>
+                                    <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Flaws"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="CeL-9d-qVN" secondAttribute="trailing" id="CGf-Mp-YQ1"/>
+                                <constraint firstItem="LwJ-ia-3pE" firstAttribute="leading" secondItem="Sdl-oU-Lc1" secondAttribute="leading" id="Mn6-Qj-RSK"/>
+                                <constraint firstItem="96E-M1-ffq" firstAttribute="leading" secondItem="Sdl-oU-Lc1" secondAttribute="leading" id="WA7-aB-Mxh"/>
+                                <constraint firstItem="CeL-9d-qVN" firstAttribute="leading" secondItem="Sdl-oU-Lc1" secondAttribute="leading" id="WrT-Ej-QOO"/>
+                                <constraint firstAttribute="trailing" secondItem="LwJ-ia-3pE" secondAttribute="trailing" id="YgP-jQ-k4q"/>
+                                <constraint firstAttribute="trailing" secondItem="96E-M1-ffq" secondAttribute="trailing" id="kmc-b6-yL8"/>
+                            </constraints>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cv0-ca-SOQ" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="343" width="359" height="258"/>
+                            <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Personality"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder">
+                                    <string key="value">What interesting personality traits are noticable in your character? How do they interact with others?  How might others percieve them?</string>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Sdl-oU-Lc1" secondAttribute="trailing" id="1Kk-Gv-7rm"/>
+                        <constraint firstAttribute="trailing" secondItem="cv0-ca-SOQ" secondAttribute="trailing" id="Cib-ci-26b"/>
+                        <constraint firstItem="Sdl-oU-Lc1" firstAttribute="height" secondItem="cv0-ca-SOQ" secondAttribute="height" multiplier="5:4" id="Ey9-H0-BMC"/>
+                        <constraint firstItem="cv0-ca-SOQ" firstAttribute="leading" secondItem="06z-GV-Lm8" secondAttribute="leading" id="HE0-SE-awx"/>
+                        <constraint firstItem="Sdl-oU-Lc1" firstAttribute="leading" secondItem="06z-GV-Lm8" secondAttribute="leading" id="itK-pK-5qp"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="06z-GV-Lm8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="7jp-j4-UW0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="06z-GV-Lm8" secondAttribute="bottom" constant="8" id="Q66-mN-okY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="06z-GV-Lm8" secondAttribute="trailing" constant="8" id="m2y-Sf-2NX"/>
+                <constraint firstItem="06z-GV-Lm8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="ygg-e6-aDf"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="53.600000000000001" y="61.619190404797607"/>
