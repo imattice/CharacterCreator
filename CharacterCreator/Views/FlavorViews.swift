@@ -36,3 +36,5 @@ class HistoryFlavorView: UIView {
 	@IBOutlet weak var relationshipsField: UITextView!
 	@IBOutlet weak var backstoryField: UITextView!
 }
+
+
