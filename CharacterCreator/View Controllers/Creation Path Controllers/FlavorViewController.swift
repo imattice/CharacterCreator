@@ -6,11 +6,8 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
-
-//Social - Name, Age, Alignment, Personality, Height, Build/Weight, Eye Color
-//Appearance - clothes, distint markings or features,
-//Purpose - Ideals, Bonds, Flaws
-//Histroy - Languages, Faction, Backstory
+//ideals, bonds and flaws, personality PersonalityDetailView
+//alignment, languages, relationships  SocialDetailView
 
 
 import UIKit
