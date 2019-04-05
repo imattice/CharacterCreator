@@ -54,11 +54,17 @@ class XibView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.xibSetup()
+
+		config()
 	}
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		self.xibSetup()
+
+		config()
 	}
+
+	func config() {	}
 
 	func xibSetup() {
 		let view = loadViewFromNib()

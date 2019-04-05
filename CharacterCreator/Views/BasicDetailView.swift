@@ -18,18 +18,9 @@ class BasicDetailView: XibView {
 
 	var imageSelectionDelegate: ImageSelectionDelegate?
 
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-
-		config()
-	}
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-
-		config()
-	}
-
-	func config() {
+	override func config() {
+		super.config()
+		
 		addNotificationObservers()
 
 		ageTextFieldView.textField.keyboardType	= .decimalPad
