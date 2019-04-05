@@ -10,7 +10,7 @@ import UIKit
 
 //TODO: We could move this xib file to the top of the view controller in the storyboard since we only need one instance of it!
 //@IBDesignable
-class SpellSelectionHeaderView: UIView {
+class SpellSelectionHeaderView: XibView {
 	var view: UIView!
 
 	@IBOutlet var levelViews: [UIView]!
@@ -26,7 +26,7 @@ class SpellSelectionHeaderView: UIView {
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		xibSetup()
+//		xibSetup()
 
 		configureSpellSlotLabels()
 		setUpSlider()

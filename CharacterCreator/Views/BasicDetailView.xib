@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
+            <connections>
+                <outlet property="ageTextFieldView" destination="EPZ-zb-bga" id="hKF-kS-Nfu"/>
+                <outlet property="appearanceTextAreaView" destination="JKF-my-hEr" id="8Th-UG-GNd"/>
+                <outlet property="backstoryTextAreaView" destination="idC-TG-NBg" id="Qb5-WD-tmU"/>
+                <outlet property="imageSelectionView" destination="G47-LN-NnV" id="ySW-ni-38d"/>
+                <outlet property="nameTextFieldView" destination="BXg-Wz-nR5" id="2Bd-PI-iio"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="595"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Q-kN-Xso" userLabel="Form Stack View">
+                    <rect key="frame" x="8" y="28" width="359" height="559"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jr6-1l-Cix" userLabel="Name and Image Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="130"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G47-LN-NnV" customClass="ImageSelectionView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="ADr-eB-jox"/>
+                                        <constraint firstAttribute="width" secondItem="G47-LN-NnV" secondAttribute="height" multiplier="1:1" id="HTc-dY-reg"/>
+                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="130" id="v70-LA-MS5"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="image" keyPath="image" value="blank"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="Gci-jE-lrQ"/>
+                                        <outletCollection property="gestureRecognizers" destination="met-6U-nHc" appends="YES" id="hjH-wM-nEn"/>
+                                    </connections>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="700" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r7b-9t-fuI" userLabel="Text Entry Stack View">
+                                    <rect key="frame" x="138" y="0.0" width="221" height="130"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="710" translatesAutoresizingMaskIntoConstraints="NO" id="BXg-Wz-nR5" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="221" height="61"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="e6r-rH-pNA"/>
+                                            </connections>
+                                        </view>
+                                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="710" translatesAutoresizingMaskIntoConstraints="NO" id="EPZ-zb-bga" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="69" width="221" height="61"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Age"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="ISh-sH-9IO"/>
+                                            </connections>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BXg-Wz-nR5" firstAttribute="leading" secondItem="r7b-9t-fuI" secondAttribute="leading" id="JKF-sg-93p"/>
+                                        <constraint firstItem="EPZ-zb-bga" firstAttribute="leading" secondItem="r7b-9t-fuI" secondAttribute="leading" id="M5T-2p-Edj"/>
+                                        <constraint firstAttribute="trailing" secondItem="BXg-Wz-nR5" secondAttribute="trailing" id="Xst-nr-A9O"/>
+                                        <constraint firstAttribute="trailing" secondItem="EPZ-zb-bga" secondAttribute="trailing" id="uKn-fy-nkg"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gPS-Ir-dYZ" userLabel="Text Fields Stack View">
+                            <rect key="frame" x="0.0" y="138" width="359" height="421"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKF-my-hEr" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="206.5"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Appearance "/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder">
+                                            <string key="value">What distinct physical features does your character have? What does it look like when your character uses spells? What types of clothing or armor does your character wear?</string>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="O36-Fh-n8l"/>
+                                    </connections>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idC-TG-NBg" userLabel="Text Area View" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="214.5" width="359" height="206.5"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Backstory"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder">
+                                            <string key="value">What brings your character into this adventure? Do they have family, a home, or a job? What milestones have shaped them into the person they are today?</string>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="SfZ-pc-sMj"/>
+                                    </connections>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Y5Q-kN-Xso" secondAttribute="trailing" constant="8" id="4Y6-hb-Ehh"/>
+                <constraint firstItem="Y5Q-kN-Xso" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="A05-Gf-Dgv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Y5Q-kN-Xso" secondAttribute="bottom" constant="8" id="a5T-eY-mid"/>
+                <constraint firstItem="Y5Q-kN-Xso" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="dl5-v6-yEw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="185.75712143928038"/>
+        </view>
+        <tapGestureRecognizer id="met-6U-nHc" userLabel="Image Selection View Tap Gesture Recognizer">
+            <connections>
+                <action selector="imageSelectionViewTapped:" destination="-1" id="vyC-Rh-qmc"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="blank" width="720" height="720"/>
+    </resources>
+</document>
