@@ -10,38 +10,57 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonalityDetailView" customModule="CharacterCreator" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonalityDetailView" customModule="CharacterCreator" customModuleProvider="target">
+            <connections>
+                <outlet property="bondsTextFieldView" destination="96E-M1-ffq" id="3Bq-GK-GnT"/>
+                <outlet property="flawsTextFieldView" destination="LwJ-ia-3pE" id="hOE-Gm-Wvk"/>
+                <outlet property="idealsTextFieldView" destination="CeL-9d-qVN" id="MjS-DY-fim"/>
+                <outlet property="personalityTextAreaView" destination="cv0-ca-SOQ" id="G9j-oZ-uyK"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="637"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="701"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="06z-GV-Lm8">
-                    <rect key="frame" x="8" y="28" width="359" height="601"/>
+                    <rect key="frame" x="8" y="28" width="359" height="665"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-oU-Lc1">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="323"/>
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="358.5"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeL-9d-qVN" customClass="SelectionPickerView" customModule="CharacterCreator" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="98.5"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeL-9d-qVN" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="110"/>
                                     <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Ideals"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Ideals are an idea that your character strongly believes in and drives them to action. "/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="dJp-XG-mAT"/>
+                                    </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LwJ-ia-3pE" customClass="SelectionPickerView" customModule="CharacterCreator" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="112.5" width="359" height="98"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LwJ-ia-3pE" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="124" width="359" height="110"/>
                                     <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Bonds"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Bonds represent a connection to the world, be that a strong relationship with someone or a coveted object."/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="X4h-kS-qZo"/>
+                                    </connections>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96E-M1-ffq" customClass="SelectionPickerView" customModule="CharacterCreator" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="224.5" width="359" height="98.5"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96E-M1-ffq" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="248" width="359" height="110.5"/>
                                     <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Flaws"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Flaws represent a unique weakness that can hold your character back or prevent them from reaching their goals"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="lyj-JG-AZQ"/>
+                                    </connections>
                                 </view>
                             </subviews>
                             <constraints>
@@ -54,7 +73,7 @@
                             </constraints>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cv0-ca-SOQ" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="343" width="359" height="258"/>
+                            <rect key="frame" x="0.0" y="378.5" width="359" height="286.5"/>
                             <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Personality"/>
@@ -62,6 +81,9 @@
                                     <string key="value">What interesting personality traits are noticable in your character? How do they interact with others?  How might others percieve them?</string>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Vgl-IP-Jiw"/>
+                            </connections>
                         </view>
                     </subviews>
                     <constraints>
@@ -82,7 +104,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="53.600000000000001" y="61.619190404797607"/>
+            <point key="canvasLocation" x="53.600000000000001" y="90.404797601199405"/>
         </view>
     </objects>
 </document>

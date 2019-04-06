@@ -586,9 +586,9 @@
                         <outlet property="basicDetailView" destination="mMh-bg-H2X" id="bAA-kP-mPZ"/>
                         <outlet property="pageControl" destination="1W3-Sz-9a5" id="Fzv-8s-fCJ"/>
                         <outlet property="scrollView" destination="DBF-Tk-bmc" id="MIy-9U-ruO"/>
-                        <outletCollection property="flavorViews" destination="GXT-68-MV3" collectionClass="NSMutableArray" id="AdE-dw-fQR"/>
-                        <outletCollection property="flavorViews" destination="QaK-Py-GS9" collectionClass="NSMutableArray" id="1CY-ku-cws"/>
-                        <outletCollection property="flavorViews" destination="mMh-bg-H2X" collectionClass="NSMutableArray" id="PPX-Fm-aJv"/>
+                        <outletCollection property="flavorViews" destination="GXT-68-MV3" collectionClass="NSMutableArray" id="38x-ua-MRw"/>
+                        <outletCollection property="flavorViews" destination="mMh-bg-H2X" collectionClass="NSMutableArray" id="i3z-eo-uxe"/>
+                        <outletCollection property="flavorViews" destination="QaK-Py-GS9" collectionClass="NSMutableArray" id="tvt-7V-Msy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIy-W5-pty" userLabel="First Responder" sceneMemberID="firstResponder"/>

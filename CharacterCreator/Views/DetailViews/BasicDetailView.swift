@@ -41,7 +41,7 @@ class BasicDetailView: XibView {
 			return nameTextFieldView.textField as Any
 		}
 		else if ageTextFieldView.textField.isFirstResponder {
-			return nameTextFieldView.textField as Any
+			return ageTextFieldView.textField as Any
 		}
 		else if appearanceTextAreaView.textView.isFirstResponder {
 			return appearanceTextAreaView.textView as Any
