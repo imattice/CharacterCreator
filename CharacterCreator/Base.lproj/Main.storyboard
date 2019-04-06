@@ -585,6 +585,7 @@
                     <connections>
                         <outlet property="basicDetailView" destination="mMh-bg-H2X" id="bAA-kP-mPZ"/>
                         <outlet property="pageControl" destination="1W3-Sz-9a5" id="Fzv-8s-fCJ"/>
+                        <outlet property="personalityDetailView" destination="GXT-68-MV3" id="FKg-82-wxg"/>
                         <outlet property="scrollView" destination="DBF-Tk-bmc" id="MIy-9U-ruO"/>
                         <outletCollection property="flavorViews" destination="GXT-68-MV3" collectionClass="NSMutableArray" id="38x-ua-MRw"/>
                         <outletCollection property="flavorViews" destination="mMh-bg-H2X" collectionClass="NSMutableArray" id="i3z-eo-uxe"/>

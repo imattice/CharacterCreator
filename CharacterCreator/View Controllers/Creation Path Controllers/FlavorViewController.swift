@@ -17,6 +17,7 @@ class FlavorViewController: UIViewController {
 	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet var flavorViews: [UIView]!
 	@IBOutlet weak var basicDetailView: BasicDetailView!
+	@IBOutlet weak var personalityDetailView: PersonalityDetailView!
 
 	let imagePicker = UIImagePickerController()
 
@@ -31,13 +32,12 @@ class FlavorViewController: UIViewController {
 
 		basicDetailView.imageSelectionDelegate = self
 
-//		let textFieldView = TextFieldView()
-//		textFieldView.config()
-//		textFieldView.backgroundColor = .lightGray
-//		scrollView.addSubview(textFieldView)
-
-//		imagePicker.delegate = self
+		addNotificationObservers()
     }
+
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
 
 	private func configureScrollView() {
 		//Scroll View
@@ -72,18 +72,78 @@ class FlavorViewController: UIViewController {
 			scrollView.addSubview(flavorView)
 
 			flavorView.setNeedsDisplay()
+		}
+	}
 
 
-//
-//			print("flavorView width: \(flavorView.frame.size.width)")
-//			print("self width: \(view.frame.size.width)")
-//
-//			if let flavorView = flavorView as? BasicDetailView {
-//				flavorView.textViewDelegate 		= self
-//				flavorView.textFieldDelegate 		= self
-//				flavorView.imagePickerDelegate 		= self
-//			}
-//
+	func addNotificationObservers() {
+		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillShowNotification , object: nil)
+		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillHideNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+	}
+
+
+
+	@objc func keyboardWillChange(_ notification: Notification) {
+		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+
+		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
+			let currentResponder = getCurrentResponder()
+			switch currentResponder {
+				//basicDetail
+			case basicDetailView.nameTextFieldView.textField as UITextField,
+				 basicDetailView.ageTextFieldView.textField as UITextField:
+				basicDetailView.frame.origin.y = 0
+			case basicDetailView.appearanceTextAreaView.textView as UITextView:
+				basicDetailView.frame.origin.y = -(basicDetailView.nameTextFieldView.frame.height + basicDetailView.ageTextFieldView.frame.height)*0.75
+			case basicDetailView.backstoryTextAreaView.textView as UITextView:
+				basicDetailView.frame.origin.y = -(keyboardRect.height*0.75)
+
+			//personalityDetailView positioning
+			case personalityDetailView.idealsTextFieldView.textView as UITextView,
+				 personalityDetailView.bondsTextFieldView.textView as UITextView,
+				 personalityDetailView.flawsTextFieldView.textView as UITextView:
+				personalityDetailView.frame.origin.y = 0
+			case personalityDetailView.personalityTextAreaView.textView	as UITextView:
+				personalityDetailView.frame.origin.y = -(keyboardRect.height*0.75)
+
+			default:
+				break
+			}
+		} else {
+			basicDetailView.frame.origin.y = 0
+			personalityDetailView.frame.origin.y = 0
+		}
+	}
+
+	func getCurrentResponder() -> Any? {
+		if basicDetailView.nameTextFieldView.textField.isFirstResponder {
+			return basicDetailView.nameTextFieldView.textField as Any
+		}
+		else if basicDetailView.ageTextFieldView.textField.isFirstResponder {
+			return basicDetailView.ageTextFieldView.textField as Any
+		}
+		else if basicDetailView.appearanceTextAreaView.textView.isFirstResponder {
+			return basicDetailView.appearanceTextAreaView.textView as Any
+		}
+		else if basicDetailView.backstoryTextAreaView.textView.isFirstResponder {
+			return basicDetailView.backstoryTextAreaView.textView as Any
+		}
+
+		else if personalityDetailView.idealsTextFieldView.textView.isFirstResponder {
+			return personalityDetailView.idealsTextFieldView.textView as Any
+		}
+		else if personalityDetailView.bondsTextFieldView.textView.isFirstResponder {
+			return personalityDetailView.bondsTextFieldView.textView as Any
+		}
+		else if personalityDetailView.flawsTextFieldView.textView.isFirstResponder {
+			return personalityDetailView.flawsTextFieldView.textView as Any
+		}
+		else if personalityDetailView.personalityTextAreaView.textView.isFirstResponder {
+			return personalityDetailView.personalityTextAreaView.textView as Any
+		}
+		else {
+			return nil
 		}
 	}
 
@@ -179,4 +239,9 @@ fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [U
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
 	return input.rawValue
+}
+
+fileprivate extension Selector {
+	static let keyboardWillChange = #selector(FlavorViewController.keyboardWillChange(_:))
+
 }
