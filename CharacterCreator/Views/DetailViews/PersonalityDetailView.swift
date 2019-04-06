@@ -103,8 +103,20 @@ extension PersonalityDetailView: UIPickerViewDataSource, UIPickerViewDelegate {
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		return pickerViewDataSource.count	}
 
-	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		return pickerViewDataSource[row]	}
+//	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//		return pickerViewDataSource[row]	}
+//	}
+	func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+		let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 20 , height: 44));
+		label.lineBreakMode = .byTruncatingTail;
+		label.numberOfLines = 4;
+		label.text = pickerViewDataSource[row]
+		label.sizeToFit()
+		return label;
+	}
+	func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+		return 80
+	}
 }
 
 extension PersonalityDetailView: UITextViewDelegate {
