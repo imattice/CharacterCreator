@@ -47,10 +47,18 @@ class PersonalityDetailView: XibView {
 		pickerView.dataSource 	= self
 		pickerView.delegate		= self
 
-		idealsTextFieldView.textView.inputView			= pickerView
-		flawsTextFieldView.textView.inputView			= pickerView
-		bondsTextFieldView.textView.inputView			= pickerView
-		
+		configureTextViews()
+	}
+
+	func configureTextViews() {
+		let views = [idealsTextFieldView, flawsTextFieldView, bondsTextFieldView]
+
+		for view in views {
+			guard let view = view else { continue }
+
+			view.textView.tintColor	= .clear
+			view.textView.inputView		= pickerView
+		}
 	}
 
 	func getCurrentResponderView() -> TextAreaView? {
@@ -123,6 +131,10 @@ extension PersonalityDetailView: UIPickerViewDataSource, UIPickerViewDelegate {
 		default:
 			view.textView.text = pickerViewDataSource[row]
 		}
+		if view.textView.text == view.placeholder {
+			view.textView.textColor = UIColor.lightGray		}
+		else {
+			view.textView.textColor = UIColor.black			}
 	}
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1	}
@@ -164,9 +176,9 @@ extension PersonalityDetailView: UITextViewDelegate {
 
 	}
 	func textViewDidChangeSelection(_ textView: UITextView) {
-		if textView.textColor == UIColor.lightGray {
-			textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-		}
+//		if textView.textColor == UIColor.lightGray {
+//			textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+//		}
 	}
 
 	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
