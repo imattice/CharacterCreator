@@ -80,7 +80,7 @@ class PersonalityDetailView: XibView {
 		dict.forEach {
 			pickerViewDataSource.append($0)
 		}
-		pickerViewDataSource.append("Custom")
+//		pickerViewDataSource.append("Custom")
 	}
 
 	func dataSource(forPersonalityDetail detail: PersonalityDetail) -> [String] {
@@ -93,7 +93,7 @@ class PersonalityDetailView: XibView {
 		dict.forEach {
 			result.append($0)
 		}
-		result.append("Custom")
+//		result.append("Custom")
 
 		return result
 	}
@@ -117,9 +117,9 @@ extension PersonalityDetailView: UIPickerViewDataSource, UIPickerViewDelegate {
 		switch row {
 		case 0:
 			view.textView.text = view.placeholder
-		case pickerViewDataSource.count - 1:
-			view.textView.text = customText(forView: view)
-			delegate?.presentAlertController(forPersonalityDetail: view)
+//		case pickerViewDataSource.count - 1:
+//			view.textView.text = customText(forView: view)
+//			delegate?.presentAlertController(forPersonalityDetail: view)
 		default:
 			view.textView.text = pickerViewDataSource[row]
 		}

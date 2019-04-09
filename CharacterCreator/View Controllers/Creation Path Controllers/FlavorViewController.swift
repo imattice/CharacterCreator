@@ -155,6 +155,7 @@ extension FlavorViewController: AlertPresentationDelegate {
 			//if not, fill the field with the user's previously entered custom text
 			let previousText = textAreaView.textView.text
 			if previousText != textAreaView.placeholder {
+				
 				textField.placeholder = textAreaView.textView.text
 			}
 		}
