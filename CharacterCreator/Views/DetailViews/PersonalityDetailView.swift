@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AlertPresentationDelegate {
+	func presentAlertController(forPersonalityDetail textAreaView: TextAreaView)
+}
+
 @IBDesignable
 class PersonalityDetailView: XibView {
 	@IBOutlet weak var idealsTextFieldView: TextAreaView!
@@ -17,8 +21,14 @@ class PersonalityDetailView: XibView {
 
 	let pickerView = UIPickerView()
 
+	var idealsCustomText 	= ""
+	var flawsCustomText 	= ""
+	var bondsCustomText		= ""
+
+	var delegate: AlertPresentationDelegate?
+
 	lazy var pickerViewDataSource: [String]	= {
-		guard let activeView = getCurrentResponder() else { return ["Decide Later"] }
+		guard let activeView = getCurrentResponderView() else { return ["Decide Later"] }
 
 		switch activeView {
 		case idealsTextFieldView.textView:
@@ -43,18 +53,18 @@ class PersonalityDetailView: XibView {
 		
 	}
 
-	func getCurrentResponder() -> UITextView? {
+	func getCurrentResponderView() -> TextAreaView? {
 		if idealsTextFieldView.textView.isFirstResponder {
-			return idealsTextFieldView.textView
+			return idealsTextFieldView
 		}
 		else if flawsTextFieldView.textView.isFirstResponder {
-			return flawsTextFieldView.textView
+			return flawsTextFieldView
 		}
 		else if bondsTextFieldView.textView.isFirstResponder {
-			return bondsTextFieldView.textView
+			return bondsTextFieldView
 		}
 		else if personalityTextAreaView.textView.isFirstResponder {
-			return personalityTextAreaView.textView
+			return personalityTextAreaView
 		}
 		else {
 			return nil
@@ -87,6 +97,14 @@ class PersonalityDetailView: XibView {
 
 		return result
 	}
+	func customText(forView view: TextAreaView) -> String? {
+		switch view {
+		case idealsTextFieldView: 	return idealsCustomText
+		case bondsTextFieldView: 	return bondsCustomText
+		case flawsTextFieldView:	return flawsCustomText
+		default:					return nil
+		}
+	}
 
 	enum PersonalityDetail: String {
 		case ideals, bonds, flaws
@@ -95,7 +113,16 @@ class PersonalityDetailView: XibView {
 
 extension PersonalityDetailView: UIPickerViewDataSource, UIPickerViewDelegate {
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
+		guard let view = getCurrentResponderView() else { print("could not get responder"); return }
+		switch row {
+		case 0:
+			view.textView.text = view.placeholder
+		case pickerViewDataSource.count - 1:
+			view.textView.text = customText(forView: view)
+			delegate?.presentAlertController(forPersonalityDetail: view)
+		default:
+			view.textView.text = pickerViewDataSource[row]
+		}
 	}
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1	}
@@ -103,9 +130,6 @@ extension PersonalityDetailView: UIPickerViewDataSource, UIPickerViewDelegate {
 	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
 		return pickerViewDataSource.count	}
 
-//	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//		return pickerViewDataSource[row]	}
-//	}
 	func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
 		let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 20 , height: 44));
 		label.lineBreakMode = .byTruncatingTail;
