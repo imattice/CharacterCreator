@@ -209,8 +209,20 @@ extension FlavorViewController: UIScrollViewDelegate {
 		if scrollView.contentOffset.y != 0 {
 			scrollView.contentOffset.y = 0 }
 
+		//update the page control
 		let pageIndex = scrollView.contentOffset.x / scrollView.frame.size.width
 		pageControl.currentPage = Int(pageIndex)
+
+		//hide keyboard if the page is switched while active
+		if let responder = getCurrentResponder() {
+			if let responder = responder as? UITextView {
+				responder.resignFirstResponder()
+			}
+
+			if let responder = responder as? UITextField  {
+				responder.resignFirstResponder()
+			}
+		}
 	}
 }
 

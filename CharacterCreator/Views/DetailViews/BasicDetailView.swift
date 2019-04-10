@@ -20,19 +20,38 @@ class BasicDetailView: XibView {
 
 	override func config() {
 		super.config()
-		
+
+		configureTextViews()
+	}
+
+	func configureTextViews() {
+		let textFieldViews = [nameTextFieldView, ageTextFieldView]
+
+		for view in textFieldViews {
+			guard let view = view else { continue }
+			view.textField.addToolbar(leftButton: nil, rightButton: (title: "Cancel", target: self, action: #selector(self.cancel)))
+		}
+
+		let textAreaViews = [appearanceTextAreaView, backstoryTextAreaView]
+
+		for view in textAreaViews {
+			guard let view = view else { continue }
+			view.textView.addToolbar(leftButton: nil, rightButton: (title: "Cancel", target: self, action: #selector(self.cancel)))
+		}
+
 		ageTextFieldView.textField.keyboardType	= .decimalPad
 	}
 
-//	func addNotificationObservers() {
-//		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillShowNotification , object: nil)
-//		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillHideNotification, object: nil)
-//		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-//	}
-//
-//	deinit {
-//		NotificationCenter.default.removeObserver(self)
-//	}
+	@objc func cancel() {
+		guard let responder = getCurrentResponder() else { return }
+
+		if let textView = responder as? UITextView {
+			textView.resignFirstResponder()
+		}
+		if let textField = responder as? UITextField {
+			textField.resignFirstResponder()
+		}
+	}
 
 	func getCurrentResponder() -> Any? {
 		if nameTextFieldView.textField.isFirstResponder {
@@ -99,28 +118,6 @@ class BasicDetailView: XibView {
 		}
 	}
 
-//	@objc func keyboardWillChange(_ notification: Notification) {
-//		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-//
-//		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
-//			let currentResponder = getCurrentResponder()
-//			switch currentResponder {
-//			case nameTextFieldView.textField as UITextField:
-//				self.frame.origin.y = 0
-//			case ageTextFieldView.textField as UITextField:
-//				self.frame.origin.y = 0
-//			case appearanceTextAreaView.textView as UITextView:
-//				self.frame.origin.y = -(nameTextFieldView.frame.height + ageTextFieldView.frame.height)*0.75
-//			case backstoryTextAreaView.textView as UITextView:
-//				self.frame.origin.y = -(keyboardRect.height*0.75)
-//			default:
-//				print("broke")
-//				break
-//			}
-//		} else {
-//			self.frame.origin.y = 0
-//		}
-//	}
 	@IBAction func imageSelectionViewTapped(_ sender: UITapGestureRecognizer) {
 		guard let delegate = imageSelectionDelegate else { return }
 

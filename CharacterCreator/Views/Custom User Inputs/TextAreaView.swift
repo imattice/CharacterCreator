@@ -36,7 +36,7 @@ class TextAreaView: UIView {
 	}
 
 	private func config() {
-		textView.addToolbar()
+		textView.textContainer.lineBreakMode	= .byTruncatingTail
 
 		self.addSubview(titleLabel)
 		self.addSubview(textView)
@@ -46,6 +46,10 @@ class TextAreaView: UIView {
 		let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(TextAreaView.setResponder))
 		self.addGestureRecognizer(tapRecognizer)
 	}
+	@objc func test() {
+		print("test")
+	}
+
 
 	private func layoutViews() {
 		let viewDict = ["textView"		: textView,

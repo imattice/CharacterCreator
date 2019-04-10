@@ -56,9 +56,21 @@ class PersonalityDetailView: XibView {
 		for view in views {
 			guard let view = view else { continue }
 
-			view.textView.tintColor	= .clear
+			view.textView.tintColor		= .clear
 			view.textView.inputView		= pickerView
+			view.textView.addToolbar(self, onOk: .okSelected, onCancel: .cancelSelected)
 		}
+	}
+
+	@objc func okButtonSelected() {
+		print("ok selected")
+		setCharacterDetail()
+
+		resignResponder()
+	}
+	@objc func cancelButtonSelected() {
+
+		resignResponder()
 	}
 
 	func getCurrentResponderView() -> TextAreaView? {
@@ -77,6 +89,11 @@ class PersonalityDetailView: XibView {
 		else {
 			return nil
 		}
+	}
+	func resignResponder() {
+		guard let responder = getCurrentResponderView() else {	return }
+
+		responder.textView.resignFirstResponder()
 	}
 
 	func updateDataSource(forPersonalityDetail detail: PersonalityDetail) {
@@ -111,6 +128,23 @@ class PersonalityDetailView: XibView {
 		case bondsTextFieldView: 	return bondsCustomText
 		case flawsTextFieldView:	return flawsCustomText
 		default:					return nil
+		}
+	}
+
+	func setCharacterDetail() {
+		guard let responder = getCurrentResponderView() else { return }
+
+		switch responder {
+		case idealsTextFieldView:
+			Character.current.flavorText.ideals 		= responder.textView.text
+		case bondsTextFieldView:
+			Character.current.flavorText.bonds 			= responder.textView.text
+		case flawsTextFieldView:
+			Character.current.flavorText.flaws 			= responder.textView.text
+		case personalityTextAreaView:
+			Character.current.flavorText.personality 	= responder.textView.text
+		default:
+			break
 		}
 	}
 
@@ -216,5 +250,11 @@ extension PersonalityDetailView: UITextViewDelegate {
 	func textViewDidEndEditing(_ textView: UITextView) {
 //		setCharacterDetail(textView)
 	}
+}
+
+fileprivate extension Selector {
+	static let okSelected 		= #selector(PersonalityDetailView.okButtonSelected)
+	static let cancelSelected	= #selector(PersonalityDetailView.cancelButtonSelected)
+
 }
 
