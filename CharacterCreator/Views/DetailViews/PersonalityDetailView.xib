@@ -78,7 +78,7 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Personality"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder">
-                                    <string key="value">What interesting personality traits are noticable in your character? How do they interact with others?  How might others percieve them?</string>
+                                    <string key="value">What interesting personality traits are noticable in your character? How do they interact with others?  How might others perceive them?</string>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>

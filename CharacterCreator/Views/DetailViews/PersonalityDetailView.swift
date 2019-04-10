@@ -60,15 +60,19 @@ class PersonalityDetailView: XibView {
 			view.textView.inputView		= pickerView
 			view.textView.addToolbar(self, onOk: .okSelected, onCancel: .cancelSelected)
 		}
+
+		personalityTextAreaView.textView.addToolbar(self, onOk: .okSelected, onCancel: .cancelSelected)
 	}
 
 	@objc func okButtonSelected() {
-		print("ok selected")
 		setCharacterDetail()
 
 		resignResponder()
 	}
 	@objc func cancelButtonSelected() {
+		if let responder = getCurrentResponderView() {
+			setPlaceholder(forView: responder)
+		}
 
 		resignResponder()
 	}
@@ -191,28 +195,34 @@ extension PersonalityDetailView: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension PersonalityDetailView: UITextViewDelegate {
 	func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-		switch textView {
-		case idealsTextFieldView.textView:
-			updateDataSource(forPersonalityDetail: .ideals)
-		case bondsTextFieldView.textView:
-			updateDataSource(forPersonalityDetail: .bonds)
-		case flawsTextFieldView.textView:
-			updateDataSource(forPersonalityDetail: .flaws)
-		default:
-			break
+		if textView != personalityTextAreaView.textView {
+			switch textView {
+			case idealsTextFieldView.textView:
+				updateDataSource(forPersonalityDetail: .ideals)
+			case bondsTextFieldView.textView:
+				updateDataSource(forPersonalityDetail: .bonds)
+			case flawsTextFieldView.textView:
+				updateDataSource(forPersonalityDetail: .flaws)
+			default:
+				break
+			}
+
+			if let index = pickerViewDataSource.index(of: textView.text) {
+				pickerView.selectRow(index, inComponent: 0, animated: false)	}
+			else {
+				pickerView.selectRow(0, inComponent: 0, animated: false)			}
+
+			pickerView.reloadAllComponents()
 		}
 
-		pickerView.reloadAllComponents()
 
 		return true
 	}
-	func textViewDidBeginEditing(_ textView: UITextView) {
 
-	}
-	func textViewDidChangeSelection(_ textView: UITextView) {
-//		if textView.textColor == UIColor.lightGray {
-//			textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-//		}
+	func textViewDidBeginEditing(_ textView: UITextView) {
+		if textView == personalityTextAreaView.textView && textView.text == personalityTextAreaView.placeholder	{
+			textView.text = ""
+		}
 	}
 
 	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -247,8 +257,36 @@ extension PersonalityDetailView: UITextViewDelegate {
 		// ...otherwise return false since the updates have already been made
 		return false
 	}
-	func textViewDidEndEditing(_ textView: UITextView) {
-//		setCharacterDetail(textView)
+	func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+		guard let responder = getCurrentResponderView() else { print("no responder "); return true }
+
+		//no change was made
+		if textView.text == responder.placeholder || textView.text == "" {
+			setPlaceholder(forView: responder)
+		}
+		//changes were made
+		else {
+
+		}
+
+		return true
+	}
+//	func textViewDidEndEditing(_ textView: UITextView) {
+//		guard let responder = getCurrentResponderView() else { print("no responder "); return }
+//
+//		//no change was made
+//		if textView.text == responder.placeholder || textView.text == "" {
+//			setPlaceholder(forView: responder)
+//		}
+//		//changes were made
+//		else {
+//
+//		}
+//	}
+
+	func setPlaceholder(forView view: TextAreaView) {
+		view.textView.text			= view.placeholder
+		view.textView.textColor		= .lightGray
 	}
 }
 
