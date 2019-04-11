@@ -31,7 +31,6 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeL-9d-qVN" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="359" height="110"/>
-                                    <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Ideals"/>
                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Ideals are an idea that your character strongly believes in and drives them to action. "/>
@@ -42,7 +41,6 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LwJ-ia-3pE" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="124" width="359" height="110"/>
-                                    <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Bonds"/>
                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Bonds represent a connection to the world, be that a strong relationship with someone or a coveted object."/>
@@ -53,7 +51,6 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96E-M1-ffq" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="248" width="359" height="110.5"/>
-                                    <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="title" value="Flaws"/>
                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Flaws represent a unique weakness that can hold your character back or prevent them from reaching their goals"/>
@@ -74,7 +71,6 @@
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cv0-ca-SOQ" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="378.5" width="359" height="286.5"/>
-                            <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Personality"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder">
@@ -95,7 +91,6 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="06z-GV-Lm8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="7jp-j4-UW0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="06z-GV-Lm8" secondAttribute="bottom" constant="8" id="Q66-mN-okY"/>

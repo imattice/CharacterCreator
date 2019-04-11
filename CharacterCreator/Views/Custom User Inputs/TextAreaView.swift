@@ -36,6 +36,8 @@ class TextAreaView: UIView {
 	}
 
 	private func config() {
+		backgroundColor = .white
+
 		textView.textContainer.lineBreakMode	= .byTruncatingTail
 
 		self.addSubview(titleLabel)
