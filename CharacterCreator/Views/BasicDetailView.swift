@@ -41,7 +41,7 @@ class BasicDetailView: XibView {
 			return nameTextFieldView.textField as Any
 		}
 		else if ageTextFieldView.textField.isFirstResponder {
-			return nameTextFieldView.textField as Any
+			return ageTextFieldView.textField as Any
 		}
 		else if appearanceTextAreaView.textView.isFirstResponder {
 			return appearanceTextAreaView.textView as Any
@@ -54,56 +54,99 @@ class BasicDetailView: XibView {
 		}
 	}
 
-	func nextTextView(_ currentTextField: UITextField) {
-		switch currentTextField {
-		case nameTextFieldView.textField:
+//	func nextTextView(_ currentTextField: UITextField) {
+//		switch currentTextField {
+//		case nameTextFieldView.textField:
+//			ageTextFieldView.textField.becomeFirstResponder()
+//		case ageTextFieldView.textField:
+//			appearanceTextAreaView.textView.becomeFirstResponder()
+//		default:
+//			break
+//		}
+//	}
+//	func nextTextView(_ currentTextView: UITextView) {
+//		switch currentTextView {
+//		case appearanceTextAreaView.textView:
+//			backstoryTextAreaView.textView.becomeFirstResponder()
+//		case backstoryTextAreaView.textView:
+//			backstoryTextAreaView.textView.resignFirstResponder()
+//		default:
+//			break
+//		}
+//	}
+
+	func nextTextView() {
+		guard let responder = getCurrentResponder() else { return }
+
+		switch responder {
+		case nameTextFieldView.textField as UITextField:
 			ageTextFieldView.textField.becomeFirstResponder()
-		case ageTextFieldView.textField:
+		case ageTextFieldView.textField as UITextField:
 			appearanceTextAreaView.textView.becomeFirstResponder()
-		default:
-			break
-		}
-	}
-	func nextTextView(_ currentTextView: UITextView) {
-		switch currentTextView {
-		case appearanceTextAreaView.textView:
+		case appearanceTextAreaView.textView as UITextView:
 			backstoryTextAreaView.textView.becomeFirstResponder()
-		case backstoryTextAreaView.textView:
+		case backstoryTextAreaView.textView as UITextView:
 			backstoryTextAreaView.textView.resignFirstResponder()
 		default:
 			break
 		}
 	}
 
-	func setCharacterDetail(_ textField: UITextField) {
-		switch textField {
-		case nameTextFieldView.textField:
-			guard let name = textField.text else { break }
+	func setCharacterDetail() {
+		guard let responder = getCurrentResponder() else { return }
+		print("responder: \(responder)")
+		switch responder {
+		case nameTextFieldView.textField as UITextField:
+			guard let textField = responder as? UITextField,
+				let name = textField.text else { break }
 			Character.current.flavorText.name = name
-		case ageTextFieldView.textField:
-			guard let age = textField.text else { break }
+		case ageTextFieldView.textField as UITextField:
+			guard let textField = responder as? UITextField,
+				let age = textField.text else { print("no age"); break }
 			Character.current.flavorText.age = age
-		default:
-			break
-		}
-	}
-
-	func setCharacterDetail(_ textView: UITextView) {
-		switch textView {
-		case appearanceTextAreaView.textView:
-			guard let appearance = textView.text else { break }
+			print("age set: \(Character.current.flavorText.age)")
+		case appearanceTextAreaView.textView as UITextView:
+			guard let textView = responder as? UITextView,
+				let appearance = textView.text else { break }
 			Character.current.flavorText.appearance = appearance
-		case backstoryTextAreaView.textView:
-			guard let backstory = textView.text else { break }
+		case backstoryTextAreaView.textView as UITextView:
+			guard let textView = responder as? UITextView,
+				let backstory = textView.text else { break }
 			Character.current.flavorText.backstory = backstory
 		default:
+			print("broke")
 			break
 		}
+		print("age: \(Character.current.flavorText.age) /name: \(Character.current.flavorText.name)")
 	}
 
+//	func setCharacterDetail(_ textField: UITextField) {
+//		switch textField {
+//		case nameTextFieldView.textField:
+//			guard let name = textField.text else { break }
+//			Character.current.flavorText.name = name
+//		case ageTextFieldView.textField:
+//			guard let age = textField.text else { break }
+//			Character.current.flavorText.age = age
+//		default:
+//			break
+//		}
+//	}
+//
+//	func setCharacterDetail(_ textView: UITextView) {
+//		switch textView {
+//		case appearanceTextAreaView.textView:
+//			guard let appearance = textView.text else { break }
+//			Character.current.flavorText.appearance = appearance
+//		case backstoryTextAreaView.textView:
+//			guard let backstory = textView.text else { break }
+//			Character.current.flavorText.backstory = backstory
+//		default:
+//			break
+//		}
+//	}
+
 	@objc func keyboardWillChange(_ notification: Notification) {
-
-
 		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
 
 		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
@@ -118,7 +161,6 @@ class BasicDetailView: XibView {
 			case backstoryTextAreaView.textView as UITextView:
 				self.frame.origin.y = -(keyboardRect.height*0.75)
 			default:
-				print("broke")
 				break
 			}
 		} else {
@@ -136,15 +178,18 @@ extension BasicDetailView: UITextFieldDelegate {
 	func textFieldDidBeginEditing(_ textField: UITextField) {
 	}
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		setCharacterDetail(textField)
+		setCharacterDetail()
 
 		resignFirstResponder()
-		nextTextView(textField)
+		nextTextView()
+//		nextTextView(textField)
 
 		return true
 	}
-	func textFieldDidEndEditing(_ textField: UITextField) {
-		setCharacterDetail(textField)
+	func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+		setCharacterDetail()
+
+		return true
 	}
 }
 
@@ -186,12 +231,10 @@ extension BasicDetailView: UITextViewDelegate {
 		return false
 	}
 	func textViewDidEndEditing(_ textView: UITextView) {
-		setCharacterDetail(textView)
+		setCharacterDetail()
 	}
 }
 
 fileprivate extension Selector {
-
 	static let keyboardWillChange = #selector(BasicDetailView.keyboardWillChange(_:))
-	
 }
