@@ -79,7 +79,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 
 		//remove the previous
 		if let previousValue = value.previous,
-			let indexOfPrevious = selectedStatValues.index(where: { $0 == previousValue }) {
+			let indexOfPrevious = selectedStatValues.firstIndex(where: { $0 == previousValue }) {
 			selectedStatValues.remove(at: indexOfPrevious)
 		}
 

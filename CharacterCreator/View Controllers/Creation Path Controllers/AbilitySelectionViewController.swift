@@ -110,7 +110,7 @@ extension AbilitySelectionViewController: UICollectionViewDelegate, UICollection
 	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 		let cell = collectionView.cellForItem(at: indexPath)! as! SkillSelectionCollectionViewCell
 
-		if let removeIndex = selectedProficiencies.index(of: collectionViewData[indexPath.row].name) {
+		if let removeIndex = selectedProficiencies.firstIndex(of: collectionViewData[indexPath.row].name) {
 			selectedProficiencies.remove(at: removeIndex)	}
 		else { print("could not remove skill from proficiency list")}
 
