@@ -1,11 +1,11 @@
 PODS:
-  - Hue (3.0.1)
-  - NewRelicAgent (6.4.1)
-  - Realm (3.12.0):
-    - Realm/Headers (= 3.12.0)
-  - Realm/Headers (3.12.0)
-  - RealmSwift (3.12.0):
-    - Realm (= 3.12.0)
+  - Hue (4.0.0)
+  - NewRelicAgent (6.6.0)
+  - Realm (3.14.1):
+    - Realm/Headers (= 3.14.1)
+  - Realm/Headers (3.14.1)
+  - RealmSwift (3.14.1):
+    - Realm (= 3.14.1)
 
 DEPENDENCIES:
   - Hue
@@ -20,12 +20,11 @@ SPEC REPOS:
     - RealmSwift
 
 SPEC CHECKSUMS:
-  Hue: 93e852fa6211ab35922ad8c293f51c43d6c79eb2
-  NewRelicAgent: 1af35e469381d9ad3c87c73faeb05a7e9a584245
-  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
-  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
+  Hue: afe18b4e819e2848e7d2d5b4b33f4d3f88dd921b
+  NewRelicAgent: 1d0d55a33f8c6498a8d98dc581c94ecf69484fc7
+  Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
+  RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
 
-
-PODFILE CHECKSUM: 50f17118900a8d1d25b011782b53f469437e0ee7
+PODFILE CHECKSUM: dfbaafd2ddc66b772a52aeecce2e8df08e475476
 
 COCOAPODS: 1.5.3

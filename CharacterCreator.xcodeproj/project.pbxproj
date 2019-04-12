@@ -516,7 +516,7 @@
 				TargetAttributes = {
 					8123670C20CA44DA00F7AEFC = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					8123672320CA44DD00F7AEFC = {
 						CreatedOnToolsVersion = 9.4;
@@ -924,7 +924,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -946,7 +946,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

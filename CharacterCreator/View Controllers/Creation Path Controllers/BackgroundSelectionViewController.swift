@@ -140,6 +140,6 @@ extension BackgroundSelectionViewController {
 		Character.current.background = background
 		guard let proficiencies = background.proficiencies() else { return }
 		Character.current.proficiencies.append(contentsOf: proficiencies)
-		print("Selected background: \(Character.current.background?.name)")
+//		print("Selected background: \(String(describing: Character.current.background?.name))")
 	}
 }
