@@ -82,9 +82,11 @@ extension ModalTableViewController {
 
 		case .Spellbook:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell", for: indexPath) as! SpellTableViewCell
-			let spell = tableViewData[indexPath.section].content[indexPath.row] as! Spell
+			let spellData = tableViewData[indexPath.section].content[indexPath.row] as! (expanded: Bool, spell: Spell)
 
-			cell.configure(for: spell)
+//			cell.configure(for: spell)
+			cell.configure(for: spellData)
+
 
 			return cell
 		}

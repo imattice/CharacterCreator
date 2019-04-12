@@ -56,9 +56,9 @@ struct Spell {
 
 		if let count = targetSpell["target"] as? String,
 			let targetCount = Target.TargetCount(rawValue: count)
-			{ print("works")
+			{ //print("works")
 			self.target = Target(count: targetCount)
-		} else { print("could not convert target data for \(name)")}
+		} //else { print("could not convert target data for \(name)")}
 
 
 		if let shapeDict  = targetSpell["shape"] as? [String : Any],
@@ -67,7 +67,7 @@ struct Spell {
 			let shapeStyle = Shape.ShapeStyle(rawValue: shape) {
 
 			self.shape		= Shape(size: size, shape: shapeStyle )
-		} else { print("could not convert shape data for \(name)")}
+		} //else { print("could not convert shape data for \(name)")}
 
 		
 		self.name 			= name

@@ -13,11 +13,11 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 	@IBOutlet weak var headerView: SpellSelectionHeaderView!
 	var tableViewData = [SpellTableData]()
 
-	var cantripSelectionCount: Int 	{ return Character.current.spellBook.filter( { $0.level == 0 } ).count }
-	var spellSelectionCount: Int 	{ return Character.current.spellBook.filter( { $0.level != 0 } ).count }
+	var cantripSelectionCount: Int 	{ return Character.default.spellBook.filter( { $0.level == 0 } ).count }
+	var spellSelectionCount: Int 	{ return Character.default.spellBook.filter( { $0.level != 0 } ).count }
 
-	let cantripCapacity 	= Character.current.numberOfCantripsKnown()
-	let spellbookCapacity	= Character.current.class.castingAttributes!.initialSpellCount
+	let cantripCapacity 	= Character.default.numberOfCantripsKnown()
+	let spellbookCapacity	= Character.default.class.castingAttributes!.initialSpellCount
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 		updateCantripLabel()
 		updateSpellLabel()
 
-		tableView.backgroundColor			= Character.current.class.color().darkColor()
+		tableView.backgroundColor			= Character.default.class.color().darkColor()
 
 		setSelectedSpells()
 	}
@@ -45,12 +45,12 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 
 	//sets any spells that are already in the spellbook as selected in the tableview
 	private func setSelectedSpells() {
-		for spell in Character.current.spellBook {
+		for spell in Character.default.spellBook {
 			//create an index path to select in table view
 			//get the level for the spell, which will also be the section
 			//also grab the index where the names match, which will also be the row
 			guard let spellLevelData = tableViewData.filter({ $0.level == spell.level }).first,
-				let row = spellLevelData.spells.firstIndex(where: { $0.name == spell.name })
+				let row = spellLevelData.spells.firstIndex(where: { $0.spell.name == spell.name })
 				else { print("Found spell not available in spell data: \(spell.name)"); continue }
 
 			tableView.selectRow(at: IndexPath(row: row, section: spell.level), animated: true, scrollPosition: .none)
@@ -61,11 +61,11 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 
 	func addToSpellbook(_ spell: Spell) {
 		//check if the spell is already in the book to avoid duplicates
-		guard !Character.current.spellBook.contains(where: { $0.name == spell.name })
+		guard !Character.default.spellBook.contains(where: { $0.name == spell.name })
 			else {print("Spellbook already contains \(spell.name)"); return}
 
 		//add the spell to the character spellbook
-		Character.current.spellBook.append(spell)
+		Character.default.spellBook.append(spell)
 
 		//update UI
 		if spell.level == 0 { updateCantripLabel() }
@@ -73,11 +73,11 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 	}
 	func removeFromSpellbook(_ spell: Spell) {
 		//ensure the spell is in the spellbook before removing it
-		guard let index = Character.current.spellBook.firstIndex(where: { $0.name == spell.name })
+		guard let index = Character.default.spellBook.index(where: { $0.name == spell.name })
 			else { print("\(spell.name) not in spellbook"); return }
 
 		//remove from character spellbook
-		Character.current.spellBook.remove(at: index)
+		Character.default.spellBook.remove(at: index)
 
 		//update UI
 		if spell.level == 0 { updateCantripLabel() }
@@ -93,14 +93,21 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 		guard let data = tableViewData.first(where: { $0.level == indexPath.section })
 			else { print("could not initialize spell for specified cell at indexPath: \(indexPath.section) \(indexPath.row)"); return nil }
 
-		return data.spells[indexPath.row]
+		return data.spells[indexPath.row].spell
 	}
 	func index(forSpell spell: Spell) -> IndexPath? {
 		guard let section = tableViewData.filter({ $0.level == spell.level }).first?.spells,
-			let row = section.firstIndex(where: { $0.name == spell.name })
+			let row = section.firstIndex(where: { $0.spell.name == spell.name })
 			else { return nil }
 
 		return IndexPath(row: row, section: spell.level)
+	}
+
+	func toggleExpansion(forCell cell: SpellTableViewCell, atIndexPath indexPath: IndexPath) {
+//		cell.expanded	= !cell.expanded
+
+		tableViewData[indexPath.section].spells[indexPath.row].expanded	= !tableViewData[indexPath.section].spells[indexPath.row].expanded
+		tableView.reloadRows(at: [indexPath], with: .automatic)
 	}
 }
 
@@ -109,12 +116,13 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if tableViewData[indexPath.section].spells.isEmpty { return UITableViewCell() }
 		let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell", for: indexPath) as! SpellTableViewCell
-		let spell = tableViewData[indexPath.section].spells[indexPath.row]
+		let spellData = tableViewData[indexPath.section].spells[indexPath.row]
 
-		cell.configure(for: spell)
+//		cell.configure(for: spell)
+		cell.configure(for: spellData)
 
 		let backgroundView = UIView()
-			backgroundView.backgroundColor 	= Character.current.class.color().base()
+			backgroundView.backgroundColor 	= Character.default.class.color().base()
 		cell.selectedBackgroundView = backgroundView
 
 		return cell
@@ -143,23 +151,30 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 
 	func tableView(_ tableView: UITableView,
 				   didSelectRowAt indexPath: IndexPath) {
-		guard let spell = spellForCell(at: indexPath)
+		guard //let spell = spellForCell(at: indexPath),
+			let cell = tableView.cellForRow(at: indexPath) as? SpellTableViewCell
 			else { print("no spell for cell at index path section \(indexPath.section) row \(indexPath.row)"); return }
 //		addToSpellbook(spell)
 
-		let spellDetailView = SpellDetailView.view(for: spell)
-		spellDetailView.alpha		= 0
-		spellDetailView.delegate 	= self
-		view.addSubview(spellDetailView)
-		spellDetailView.appear(true)
+//		let spellDetailView = SpellDetailView.view(for: spell)
+//		spellDetailView.alpha		= 0
+//		spellDetailView.delegate 	= self
+//		view.addSubview(spellDetailView)
+//		spellDetailView.appear(true)
+//		cell.open()
+		toggleExpansion(forCell: cell, atIndexPath: indexPath)
+//		print("selected: \(cell.expanded)")
 	}
 
 	func tableView(_ tableView: UITableView,
 				   didDeselectRowAt indexPath: IndexPath) {
-		guard let spell = spellForCell(at: indexPath)
+		guard let spell = spellForCell(at: indexPath),
+			let cell = tableView.cellForRow(at: indexPath) as? SpellTableViewCell
 			else { print("no spell for cell at index path section \(indexPath.section) row \(indexPath.row)"); return }
 
 		removeFromSpellbook(spell)
+
+		toggleExpansion(forCell: cell, atIndexPath: indexPath)
 	}
 
 
@@ -195,7 +210,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 
 		//configure the colors of the headerview
 		if let headerView = view as? UITableViewHeaderFooterView {
-			headerView.contentView.backgroundColor = Character.current.class.color().darkColor()
+			headerView.contentView.backgroundColor = Character.default.class.color().darkColor()
 			headerView.textLabel?.textColor = .lightGray
 		}
 		
@@ -228,25 +243,25 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 
 	struct SpellTableData {
 		let level: Int
-		var spells: [Spell]
+		var spells: [(expanded: Bool, spell: Spell)]
 
 		//this seems like a clumsy way to handle this.  :/
 		static func getSpellData() -> [SpellTableData] {
 			var result = [SpellTableData]()
-			guard let classDict = classData[Character.current.class.base] as? [String: Any],
+			guard let classDict = classData[Character.default.class.base] as? [String: Any],
 				let classSpells = classDict["spells"] as? [String]
 				else { return result }
 
-			var spellsByLevel = [  0: [Spell](),
-								   1: [Spell](),
-								   2: [Spell](),
-								   3: [Spell](),
-								   4: [Spell](),
-								   5: [Spell](),
-								   6: [Spell](),
-								   7: [Spell](),
-								   8: [Spell](),
-								   9: [Spell]()]
+			var spellsByLevel = [  0: [(expanded: Bool, spell: Spell)](),
+								   1: [(expanded: Bool, spell: Spell)](),
+								   2: [(expanded: Bool, spell: Spell)](),
+								   3: [(expanded: Bool, spell: Spell)](),
+								   4: [(expanded: Bool, spell: Spell)](),
+								   5: [(expanded: Bool, spell: Spell)](),
+								   6: [(expanded: Bool, spell: Spell)](),
+								   7: [(expanded: Bool, spell: Spell)](),
+								   8: [(expanded: Bool, spell: Spell)](),
+								   9: [(expanded: Bool, spell: Spell)]()]
 
 			for spellName in classSpells {
 				guard let spell = Spell(spellName) else { continue }
@@ -254,7 +269,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 				//add the spell to the correct index
 				guard var _ = spellsByLevel[spell.level] else { print("could not initialize array from \(spell.level) as a key"); continue }
 
-				spellsByLevel[spell.level]!.append(spell)
+				spellsByLevel[spell.level]!.append((expanded: false, spell: spell))
 			}
 
 			for spells in spellsByLevel {

@@ -61,7 +61,7 @@ class Character {
 	static let `default` = Character(default: "default")
 
 	private init(default: String) {
-		self.class 			= Class(fromString: "fighter", withPath: "champion")//Class(fromString: "wizard", withPath: "school of evocation")!
+		self.class 			= Class(fromString: "wizard", withPath: "school of evocation")!
 		self.race 			= Race(fromParent: "elf", withSubrace: "high")!
 		self.stats 			= StatBlock(   str: StatBlock.Stat(value: 8),
 										   con: StatBlock.Stat(value: 13),

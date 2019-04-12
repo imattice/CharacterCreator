@@ -9,7 +9,7 @@
 import UIKit
 
 //TODO: We could move this xib file to the top of the view controller in the storyboard since we only need one instance of it!
-//@IBDesignable
+@IBDesignable
 class SpellSelectionHeaderView: XibView {
 	var view: UIView!
 
@@ -23,18 +23,13 @@ class SpellSelectionHeaderView: XibView {
 	@IBOutlet var spellSlotLabels: [UILabel]!
 	@IBOutlet weak var sliderLeftConstraint: NSLayoutConstraint!
 
-
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-//		xibSetup()
-
+	override func config() {
 		configureSpellSlotLabels()
 		setUpSlider()
-
 	}
 
 	func shiftSlotSlider(toSection section: Int) {
-		let setColor = Character.current.class.gradient()
+		let setColor = Character.default.class.gradient()
 
 		sliderLeftConstraint.constant	= slotSlider.frame.width * CGFloat(section)
 
@@ -48,7 +43,7 @@ class SpellSelectionHeaderView: XibView {
 	}
 
 	func highlight(countView view: CountView) {
-		let enabledColor = Character.current.class.color().lightColor()
+		let enabledColor = Character.default.class.color().lightColor()
 		let disabledColor = UIColor.white
 		let cornerRadius = CGFloat(5.0)
 		var enabledView: UIView { switch view {
@@ -73,15 +68,15 @@ class SpellSelectionHeaderView: XibView {
 
 
 	private func setUpSlider() {
-		slotSlider.backgroundColor 	= Character.current.class.color().lightColor()
+		slotSlider.backgroundColor 	= Character.default.class.color().lightColor()
 		slotSlider.alpha			= 0.5
 		shiftSlotSlider(toSection: 0)
 
-//		countSlider.backgroundColor		= Character.current.class.color().lightColor()
+//		countSlider.backgroundColor		= Character.default.class.color().lightColor()
 //		countSlider.alpha				= 0.5
 	}
 	private func configureSpellSlotLabels() {
-		guard let castingAttributes = Character.current.class.castingAttributes else { print("could not label slots"); return }
+		guard let castingAttributes = Character.default.class.castingAttributes else { print("could not label slots"); return }
 
 		for (index, label) in spellSlotLabels.enumerated() {
 			let spellLevel = index + 1

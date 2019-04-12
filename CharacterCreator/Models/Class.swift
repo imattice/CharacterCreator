@@ -25,6 +25,7 @@ struct Class {
 		if let spellcastingAttributes = SpellCastingAttributes(for: base) {
 			self.castingAttributes = spellcastingAttributes						}
 		else {
+			print("failed to create casting attributes")
 			self.castingAttributes = nil 										}
 	}
 
@@ -172,18 +173,6 @@ extension Class {
 
 
 		}
-
-//		private func slotsForLevel() -> [(SpellLevel: Int, SlotCount: Int)]{
-//			var result = [(SpellLevel: Int, SlotCount: Int)]()
-//			for (level, slot) in slotsForLevel {
-//				guard let level = Int(level), let slot = Int(slot)
-//					else { print("could not create spell slot tuple"); return }
-//				result.append((SpellLevel: level, SlotCount: slot))
-//			}
-//
-//			return result
-//
-//		}
 	}
 }
 

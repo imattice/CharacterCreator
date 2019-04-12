@@ -71,26 +71,23 @@ class BasicDetailView: XibView {
 		}
 	}
 
-//	func nextTextView(_ currentTextField: UITextField) {
-//		switch currentTextField {
-//		case nameTextFieldView.textField:
-//			ageTextFieldView.textField.becomeFirstResponder()
-//		case ageTextFieldView.textField:
-//			appearanceTextAreaView.textView.becomeFirstResponder()
-//		default:
-//			break
-//		}
-//	}
-//	func nextTextView(_ currentTextView: UITextView) {
-//		switch currentTextView {
-//		case appearanceTextAreaView.textView:
-//			backstoryTextAreaView.textView.becomeFirstResponder()
-//		case backstoryTextAreaView.textView:
-//			backstoryTextAreaView.textView.resignFirstResponder()
-//		default:
-//			break
-//		}
-//	}
+	func currentResponderView() -> Any? {
+		if nameTextFieldView.textField.isFirstResponder {
+			return nameTextFieldView as Any
+		}
+		else if ageTextFieldView.textField.isFirstResponder {
+			return ageTextFieldView as Any
+		}
+		else if appearanceTextAreaView.textView.isFirstResponder {
+			return appearanceTextAreaView as Any
+		}
+		else if backstoryTextAreaView.textView.isFirstResponder {
+			return backstoryTextAreaView as Any
+		}
+		else {
+			return nil
+		}
+	}
 
 	func nextTextView() {
 		guard let responder = getCurrentResponder() else { return }
@@ -137,6 +134,7 @@ class BasicDetailView: XibView {
 		print("age: \(Character.current.flavorText.age) /name: \(Character.current.flavorText.name)")
 	}
 
+<<<<<<< HEAD:CharacterCreator/Views/DetailViews/BasicDetailView.swift
 //	func setCharacterDetail(_ textField: UITextField) {
 //		switch textField {
 //		case nameTextFieldView.textField:
@@ -164,6 +162,9 @@ class BasicDetailView: XibView {
 //	}
 
 @objc func keyboardWillChange(_ notification: Notification) {
+=======
+	@objc func keyboardWillChange(_ notification: Notification) {
+>>>>>>> add expanded value to the SpellTableViewData to trigger the cell expansion state when the cell is tapped:CharacterCreator/Views/BasicDetailView.swift
 		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
 
 		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
