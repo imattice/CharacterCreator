@@ -82,6 +82,7 @@ class XibView: UIView {
 	private func loadViewFromNib() -> UIView {
 
 		let bundle = Bundle(for: type(of: self))
+		print("loading nib for: \(String(describing: type(of: self)))")
 		let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
 		let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
 

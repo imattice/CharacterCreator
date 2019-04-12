@@ -6,11 +6,8 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
-
-//Social - Name, Age, Alignment, Personality, Height, Build/Weight, Eye Color
-//Appearance - clothes, distint markings or features,
-//Purpose - Ideals, Bonds, Flaws
-//Histroy - Languages, Faction, Backstory
+//ideals, bonds and flaws, personality PersonalityDetailView
+//alignment, languages, relationships  SocialDetailView
 
 
 import UIKit
@@ -20,6 +17,7 @@ class FlavorViewController: UIViewController {
 	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet var flavorViews: [UIView]!
 	@IBOutlet weak var basicDetailView: BasicDetailView!
+	@IBOutlet weak var personalityDetailView: PersonalityDetailView!
 
 	let imagePicker = UIImagePickerController()
 
@@ -32,15 +30,15 @@ class FlavorViewController: UIViewController {
 
 		configureScrollView()
 
-		basicDetailView.imageSelectionDelegate = self
+		basicDetailView.imageSelectionDelegate  = self
+		personalityDetailView.delegate			= self
 
-//		let textFieldView = TextFieldView()
-//		textFieldView.config()
-//		textFieldView.backgroundColor = .lightGray
-//		scrollView.addSubview(textFieldView)
-
-//		imagePicker.delegate = self
+		addNotificationObservers()
     }
+
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
 
 	private func configureScrollView() {
 		//Scroll View
@@ -75,48 +73,134 @@ class FlavorViewController: UIViewController {
 			scrollView.addSubview(flavorView)
 
 			flavorView.setNeedsDisplay()
-
-
-//
-//			print("flavorView width: \(flavorView.frame.size.width)")
-//			print("self width: \(view.frame.size.width)")
-//
-//			if let flavorView = flavorView as? BasicDetailView {
-//				flavorView.textViewDelegate 		= self
-//				flavorView.textFieldDelegate 		= self
-//				flavorView.imagePickerDelegate 		= self
-//			}
-//
 		}
 	}
 
 
+	func addNotificationObservers() {
+		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillShowNotification , object: nil)
+		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillHideNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+	}
 
+	@objc func keyboardWillChange(_ notification: Notification) {
+		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
 
+		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
+			let currentResponder = getCurrentResponder()
+			switch currentResponder {
+				//basicDetail
+			case basicDetailView.nameTextFieldView.textField as UITextField,
+				 basicDetailView.ageTextFieldView.textField as UITextField:
+				basicDetailView.frame.origin.y = 0
+			case basicDetailView.appearanceTextAreaView.textView as UITextView:
+				basicDetailView.frame.origin.y = -(basicDetailView.nameTextFieldView.frame.height + basicDetailView.ageTextFieldView.frame.height)*0.75
+			case basicDetailView.backstoryTextAreaView.textView as UITextView:
+				basicDetailView.frame.origin.y = -(keyboardRect.height*0.75)
 
+			//personalityDetailView positioning
+			case personalityDetailView.idealsTextFieldView.textView as UITextView,
+				 personalityDetailView.bondsTextFieldView.textView as UITextView,
+				 personalityDetailView.flawsTextFieldView.textView as UITextView:
+				personalityDetailView.frame.origin.y = 0
+			case personalityDetailView.personalityTextAreaView.textView	as UITextView:
+				personalityDetailView.frame.origin.y = -(keyboardRect.height*0.75)
 
-    
+			default:
+				break
+			}
+		} else {
+			basicDetailView.frame.origin.y = 0
+			personalityDetailView.frame.origin.y = 0
+		}
+	}
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//		if let nameText =  identityFlavorView.nameField.text { 					Character.default.flavorText.name 	= nameText }
-//		if let ageText = identityFlavorView.ageField.text { 					Character.default.flavorText.age 	= ageText }
-//		if let alignmentText = identityFlavorView.alignmentField.text { 		Character.default.flavorText.alignment 	= alignmentText }
-//		if let personalityText = identityFlavorView.personalityField.text { 	Character.default.flavorText.personality = personalityText}
-//
-//		if let clothingText = appearanceFlavorView.clothingField.text { 		Character.default.flavorText.clothing = clothingText }
-//		if let appearanceText = appearanceFlavorView.appearanceField.text { 	Character.default.flavorText.appearance = appearanceText }
-//		if let characterImage = appearanceFlavorView.imageView.image { 			Character.default.flavorText.image	= characterImage }
-//
-//		if let idealsText = driveFlavorView.idealsField.text { 					Character.default.flavorText.ideals = idealsText }
-//		if let bondsText = driveFlavorView.bondsField.text { 					Character.default.flavorText.bonds = bondsText }
-//		if let flawsText = driveFlavorView.flawsField.text { 					Character.default.flavorText.flaws = flawsText }
-//
-//		if let languagesText = historyFlavorView.languagesField.text { 			Character.default.languages = [languagesText] }
-//		if let relationshipsText = historyFlavorView.relationshipsField.text { 	Character.default.flavorText.relationships = relationshipsText }
-//		if let backstoryText = historyFlavorView.backstoryField.text { 			Character.default.flavorText.backstory = backstoryText }
-//    }
+	func getCurrentResponder() -> Any? {
+		if basicDetailView.nameTextFieldView.textField.isFirstResponder {
+			return basicDetailView.nameTextFieldView.textField as Any
+		}
+		else if basicDetailView.ageTextFieldView.textField.isFirstResponder {
+			return basicDetailView.ageTextFieldView.textField as Any
+		}
+		else if basicDetailView.appearanceTextAreaView.textView.isFirstResponder {
+			return basicDetailView.appearanceTextAreaView.textView as Any
+		}
+		else if basicDetailView.backstoryTextAreaView.textView.isFirstResponder {
+			return basicDetailView.backstoryTextAreaView.textView as Any
+		}
 
+		else if personalityDetailView.idealsTextFieldView.textView.isFirstResponder {
+			return personalityDetailView.idealsTextFieldView.textView as Any
+		}
+		else if personalityDetailView.bondsTextFieldView.textView.isFirstResponder {
+			return personalityDetailView.bondsTextFieldView.textView as Any
+		}
+		else if personalityDetailView.flawsTextFieldView.textView.isFirstResponder {
+			return personalityDetailView.flawsTextFieldView.textView as Any
+		}
+		else if personalityDetailView.personalityTextAreaView.textView.isFirstResponder {
+			return personalityDetailView.personalityTextAreaView.textView as Any
+		}
+		else {
+			return nil
+		}
+	}
+}
+extension FlavorViewController: AlertPresentationDelegate {
+	func presentAlertController(forPersonalityDetail textAreaView: TextAreaView) {
+		let alertController = UIAlertController(title: textAreaView.title, message: textAreaView.placeholder, preferredStyle: .alert)
+		alertController.addTextField { textField in
+
+			//check if the text that is currently in the view matches the default placeholder text
+			//if not, fill the field with the user's previously entered custom text
+			let previousText = textAreaView.textView.text
+			if previousText != textAreaView.placeholder {
+				
+				textField.placeholder = textAreaView.textView.text
+			}
+		}
+		//unwrap a reference to the text field for future use
+		guard let textFields = alertController.textFields,
+			let textField = textFields.first  else { return }
+
+		//SAVE ACTION
+		let saveAction = UIAlertAction(title: "OK", style: .default) { (action) in
+			guard let userInput = textField.text else { return }
+
+			textAreaView.textView.text = userInput
+
+			switch textAreaView.title?.lowercased() {
+			case "ideals":
+				Character.current.flavorText.ideals 		= userInput
+				self.personalityDetailView.idealsCustomText	= userInput
+			case "bonds":
+				Character.current.flavorText.bonds 			= userInput
+				self.personalityDetailView.idealsCustomText	= userInput
+			case "flaws":
+				Character.current.flavorText.flaws 			= userInput
+				self.personalityDetailView.idealsCustomText	= userInput
+			default:
+				break
+			}
+		}
+
+		//only allow the user to save if there is text in the field.
+		//watch the field with an observer and enable the button when there is text
+		saveAction.isEnabled = textField.text != ""
+
+		NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main) { notification in
+			saveAction.isEnabled = textField.text != ""
+		}
+
+		//CANCEL ACTION
+		let cancelAction = UIAlertAction.init(title: "Cancel", style: .default) { (action) in
+		}
+
+		alertController.addAction(saveAction)
+		alertController.addAction(cancelAction)
+
+		self.present(alertController, animated: true, completion: nil)
+	}
 }
 
 extension FlavorViewController: UIScrollViewDelegate {
@@ -125,27 +209,23 @@ extension FlavorViewController: UIScrollViewDelegate {
 		if scrollView.contentOffset.y != 0 {
 			scrollView.contentOffset.y = 0 }
 
+		//update the page control
 		let pageIndex = scrollView.contentOffset.x / scrollView.frame.size.width
 		pageControl.currentPage = Int(pageIndex)
+
+		//hide keyboard if the page is switched while active
+		if let responder = getCurrentResponder() {
+			if let responder = responder as? UITextView {
+				responder.resignFirstResponder()
+			}
+
+			if let responder = responder as? UITextField  {
+				responder.resignFirstResponder()
+			}
+		}
 	}
 }
 
-//extension FlavorViewController: UITextFieldDelegate {
-//	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//		print("hi")
-//		return true
-//	}
-//
-//	func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//		print("hi")
-//		return true
-//	}
-//}
-//
-//extension FlavorViewController: UITextViewDelegate {
-//
-//}
-//
 extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageSelectionDelegate {
 
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -182,4 +262,9 @@ fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [U
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
 	return input.rawValue
+}
+
+fileprivate extension Selector {
+	static let keyboardWillChange = #selector(FlavorViewController.keyboardWillChange(_:))
+
 }

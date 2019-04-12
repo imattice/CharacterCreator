@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0BV-s2-vtb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1O3-su-Y9P">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -532,21 +532,29 @@
             <objects>
                 <viewController title="FlavorDetail" id="1O3-su-Y9P" customClass="FlavorViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIN-FD-Lk2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1125" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBF-Tk-bmc">
-                                <rect key="frame" x="0.0" y="44" width="375" height="687"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBF-Tk-bmc">
+                                <rect key="frame" x="0.0" y="44" width="1125" height="687"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMh-bg-H2X" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="22" width="367" height="567"/>
+                                        <rect key="frame" x="375" y="0.0" width="375" height="687"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.04677283753" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXT-68-MV3" userLabel="Personality Detail View" customClass="PersonalityDetailView" customModule="CharacterCreator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaK-Py-GS9" userLabel="Social Detail View">
+                                        <rect key="frame" x="750" y="0.0" width="375" height="687"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1W3-Sz-9a5">
-                                <rect key="frame" x="168" y="736" width="39" height="37"/>
+                                <rect key="frame" x="543" y="736" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -571,16 +579,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <size key="freeformSize" width="1125" height="812"/>
                     <connections>
                         <outlet property="basicDetailView" destination="mMh-bg-H2X" id="bAA-kP-mPZ"/>
                         <outlet property="pageControl" destination="1W3-Sz-9a5" id="Fzv-8s-fCJ"/>
+                        <outlet property="personalityDetailView" destination="GXT-68-MV3" id="FKg-82-wxg"/>
                         <outlet property="scrollView" destination="DBF-Tk-bmc" id="MIy-9U-ruO"/>
-                        <outletCollection property="flavorViews" destination="mMh-bg-H2X" collectionClass="NSMutableArray" id="uXy-up-auQ"/>
+                        <outletCollection property="flavorViews" destination="GXT-68-MV3" collectionClass="NSMutableArray" id="38x-ua-MRw"/>
+                        <outletCollection property="flavorViews" destination="mMh-bg-H2X" collectionClass="NSMutableArray" id="i3z-eo-uxe"/>
+                        <outletCollection property="flavorViews" destination="QaK-Py-GS9" collectionClass="NSMutableArray" id="tvt-7V-Msy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIy-W5-pty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6472.8000000000002" y="767.73399014778329"/>
+            <point key="canvasLocation" x="7092" y="767.73399014778329"/>
         </scene>
         <!--Complete!-->
         <scene sceneID="WKn-wD-GuD">
@@ -1473,7 +1485,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="7461.6000000000004" y="911.08374384236458"/>
+            <point key="canvasLocation" x="8718" y="768"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oGI-4m-cLW">
@@ -1497,6 +1509,6 @@
     <resources>
         <image name="cleric" width="700" height="700"/>
         <image name="elf" width="700" height="700"/>
-        <image name="sage" width="192" height="192"/>
+        <image name="sage" width="256" height="256"/>
     </resources>
 </document>
