@@ -52,6 +52,8 @@
 		81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */; };
 		81BC72AF20F186C000B48195 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AE20F186C000B48195 /* Spell.swift */; };
 		81BC72B120F18DB500B48195 /* classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72B020F18DB500B48195 /* classes.swift */; };
+		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
+		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */; };
 		81DC8E4221080E9E002F6AE4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4121080E9E002F6AE4 /* String.swift */; };
 		81DC8E44210BA599002F6AE4 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E43210BA599002F6AE4 /* Background.swift */; };
@@ -155,6 +157,8 @@
 		81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionViewController.swift; sourceTree = "<group>"; };
 		81BC72AE20F186C000B48195 /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		81BC72B020F18DB500B48195 /* classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classes.swift; sourceTree = "<group>"; };
+		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
+		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgrounds.swift; sourceTree = "<group>"; };
 		81DC8E4121080E9E002F6AE4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		81DC8E43210BA599002F6AE4 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
@@ -409,6 +413,8 @@
 				810900B2224EE40100FF8B17 /* BasicDetailView.xib */,
 				819503792256DDAE00EE4469 /* PersonalityDetailView.swift */,
 				8195037D2256DDFB00EE4469 /* PersonalityDetailView.xib */,
+				81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */,
+				81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -569,6 +575,7 @@
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				8195037E2256DDFB00EE4469 /* PersonalityDetailView.xib in Resources */,
 				81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */,
+				81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */,
 				8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +707,7 @@
 				81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */,
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
+				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
 				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,

@@ -6,7 +6,6 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
-//ideals, bonds and flaws, personality PersonalityDetailView
 //alignment, languages, relationships  SocialDetailView
 
 
