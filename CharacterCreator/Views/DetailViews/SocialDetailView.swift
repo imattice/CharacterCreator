@@ -29,11 +29,14 @@ class SocialDetailView: XibView {
 	@objc func okSelected() {
 		setCharacterDetail()
 
-		alignmentTextFieldView.textField.resignFirstResponder()
+		UIResponder.current?.resignFirstResponder()
+//		alignmentTextFieldView.textField.resignFirstResponder()
 	}
 
 	@objc func cancelSelected() {
-		alignmentTextFieldView.textField.resignFirstResponder()
+		UIResponder.current?.resignFirstResponder()
+
+//		alignmentTextFieldView.textField.resignFirstResponder()
 	}
 
 	func setCharacterDetail() {
