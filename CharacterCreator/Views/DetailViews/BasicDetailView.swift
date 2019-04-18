@@ -134,37 +134,8 @@ class BasicDetailView: XibView {
 		print("age: \(Character.current.flavorText.age) /name: \(Character.current.flavorText.name)")
 	}
 
-<<<<<<< HEAD:CharacterCreator/Views/DetailViews/BasicDetailView.swift
-//	func setCharacterDetail(_ textField: UITextField) {
-//		switch textField {
-//		case nameTextFieldView.textField:
-//			guard let name = textField.text else { break }
-//			Character.current.flavorText.name = name
-//		case ageTextFieldView.textField:
-//			guard let age = textField.text else { break }
-//			Character.current.flavorText.age = age
-//		default:
-//			break
-//		}
-//	}
-//
-//	func setCharacterDetail(_ textView: UITextView) {
-//		switch textView {
-//		case appearanceTextAreaView.textView:
-//			guard let appearance = textView.text else { break }
-//			Character.current.flavorText.appearance = appearance
-//		case backstoryTextAreaView.textView:
-//			guard let backstory = textView.text else { break }
-//			Character.current.flavorText.backstory = backstory
-//		default:
-//			break
-//		}
-//	}
 
-@objc func keyboardWillChange(_ notification: Notification) {
-=======
 	@objc func keyboardWillChange(_ notification: Notification) {
->>>>>>> add expanded value to the SpellTableViewData to trigger the cell expansion state when the cell is tapped:CharacterCreator/Views/BasicDetailView.swift
 		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
 
 		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
@@ -184,7 +155,7 @@ class BasicDetailView: XibView {
 		} else {
 			self.frame.origin.y = 0
 		}
-}
+	}
 	@IBAction func imageSelectionViewTapped(_ sender: UITapGestureRecognizer) {
 		guard let delegate = imageSelectionDelegate else { return }
 
