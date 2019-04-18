@@ -75,7 +75,6 @@ class FlavorViewController: UIViewController {
 		}
 	}
 
-
 	func addNotificationObservers() {
 		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillShowNotification , object: nil)
 		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillHideNotification, object: nil)
