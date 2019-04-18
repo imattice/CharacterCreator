@@ -48,8 +48,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GW4-Od-Oxi">
-                                            <rect key="frame" x="368" y="80" width="22" height="22"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GW4-Od-Oxi">
+                                            <rect key="frame" x="368" y="81" width="22" height="22"/>
                                             <connections>
                                                 <action selector="addLaguage:" destination="-1" eventType="touchUpInside" id="KKP-Uz-UDw"/>
                                             </connections>
@@ -60,6 +60,7 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
+                                        <constraint firstItem="GW4-Od-Oxi" firstAttribute="centerY" secondItem="6Xj-um-DqL" secondAttribute="centerY" id="0Tf-eP-cCO"/>
                                         <constraint firstAttribute="trailing" secondItem="8UC-Jc-7d9" secondAttribute="trailing" constant="8" id="3tH-wF-mDD"/>
                                         <constraint firstItem="8UC-Jc-7d9" firstAttribute="top" secondItem="6Xj-um-DqL" secondAttribute="top" constant="8" id="7iK-E7-9oi"/>
                                         <constraint firstAttribute="trailing" secondItem="GW4-Od-Oxi" secondAttribute="trailing" constant="8" id="LE6-pa-ehx"/>
