@@ -30,13 +30,10 @@ class SocialDetailView: XibView {
 		setCharacterDetail()
 
 		UIResponder.current?.resignFirstResponder()
-//		alignmentTextFieldView.textField.resignFirstResponder()
 	}
 
 	@objc func cancelSelected() {
 		UIResponder.current?.resignFirstResponder()
-
-//		alignmentTextFieldView.textField.resignFirstResponder()
 	}
 
 	func setCharacterDetail() {
