@@ -169,19 +169,19 @@ extension FlavorViewController: AlertPresentationDelegate {
 
 			textAreaView.textView.text = userInput
 
-			switch textAreaView.title?.lowercased() {
-			case "ideals":
-				Character.current.flavorText.ideals 		= userInput
-				self.personalityDetailView.idealsCustomText	= userInput
-			case "bonds":
-				Character.current.flavorText.bonds 			= userInput
-				self.personalityDetailView.idealsCustomText	= userInput
-			case "flaws":
-				Character.current.flavorText.flaws 			= userInput
-				self.personalityDetailView.idealsCustomText	= userInput
-			default:
-				break
-			}
+//			switch textAreaView.title?.lowercased() {
+//			case "ideals":
+//				Character.current.flavorText.ideals 		= userInput
+//				self.personalityDetailView.idealsCustomText	= userInput
+//			case "bonds":
+//				Character.current.flavorText.bonds 			= userInput
+//				self.personalityDetailView.idealsCustomText	= userInput
+//			case "flaws":
+//				Character.current.flavorText.flaws 			= userInput
+//				self.personalityDetailView.idealsCustomText	= userInput
+//			default:
+//				break
+//			}
 		}
 
 		//only allow the user to save if there is text in the field.
