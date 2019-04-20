@@ -95,14 +95,12 @@ class FlavorViewController: UIViewController {
 			guard let currentResponder = UIResponder.current else { return }
 			switch currentResponder {
 
-			//pin to the top
-			case basicDetailView.nameTextFieldView.textField 		as UITextField,
-				 basicDetailView.ageTextFieldView.textField 		as UITextField,
-				 personalityDetailView.idealsTextFieldView.textView as UITextView,
-				 personalityDetailView.bondsTextFieldView.textView 	as UITextView,
-				 personalityDetailView.flawsTextFieldView.textView 	as UITextView,
-				 socialDetailView.alignmentTextFieldView.textField  as UITextField:
-				scrollContentView.frame.origin.y = 0
+//			case basicDetailView.nameTextFieldView.textField 		as UITextField,
+//				 basicDetailView.ageTextFieldView.textField 		as UITextField,
+//				 personalityDetailView.idealsTextFieldView.textView as UITextView,
+//				 personalityDetailView.bondsTextFieldView.textView 	as UITextView,
+//				 personalityDetailView.flawsTextFieldView.textView 	as UITextView,
+//				 socialDetailView.alignmentTextFieldView.textField  as UITextField:
 
 			//pin somewhere in the middle
 			case basicDetailView.appearanceTextAreaView.textView 	as UITextView:
@@ -114,10 +112,14 @@ class FlavorViewController: UIViewController {
 				personalityDetailView.personalityTextAreaView.textView	as UITextView:
 				scrollContentView.frame.origin.y = keyboardOffset
 
+			//pin to the top
 			default:
-				break
+				scrollContentView.frame.origin.y = 0
 			}
-		} else {
+		}
+			
+		//if the notification is to dismiss the keyboard, pin back to the top
+		else {
 			scrollContentView.frame.origin.y = 0
 		}
 	}
