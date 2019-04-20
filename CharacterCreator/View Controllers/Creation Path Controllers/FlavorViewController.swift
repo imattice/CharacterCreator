@@ -13,6 +13,7 @@ import UIKit
 
 class FlavorViewController: UIViewController {
 	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var scrollContentView: UIView!
 	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet var flavorViews: [UIView]!
 	@IBOutlet weak var basicDetailView: BasicDetailView!
@@ -26,6 +27,10 @@ class FlavorViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 
+		for view in flavorViews {
+		view.layer.borderColor 	= UIColor.black.cgColor
+		view.layer.borderWidth	= 3
+		}
 //		configureViews()
 
 		configureScrollView()
@@ -83,45 +88,37 @@ class FlavorViewController: UIViewController {
 
 	@objc func keyboardWillChange(_ notification: Notification) {
 		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-		let bufferHeight = view.frame.height - scrollView.frame.height
+		let pageControlSpace = pageControl.frame.height + 10 //10 is the top constraint + the bottom constraint
+		let keyboardOffset = -(keyboardRect.height - pageControlSpace)
 
-		print("keyboardHeight: \(keyboardRect.height)")
-		print("bufferHeight:\(bufferHeight)")
 		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
 			guard let currentResponder = UIResponder.current else { return }
 			switch currentResponder {
 
-			//basicDetail
+			//pin to the top
 			case basicDetailView.nameTextFieldView.textField 		as UITextField,
-				 basicDetailView.ageTextFieldView.textField 		as UITextField:
-				basicDetailView.frame.origin.y = 0
-			case basicDetailView.appearanceTextAreaView.textView 	as UITextView:
-				basicDetailView.frame.origin.y = -(basicDetailView.nameTextFieldView.frame.height + basicDetailView.ageTextFieldView.frame.height)*0.75
-			case basicDetailView.backstoryTextAreaView.textView 	as UITextView:
-				basicDetailView.frame.origin.y = -(keyboardRect.height*0.75)
-
-			//personalityDetailView positioning
-			case personalityDetailView.idealsTextFieldView.textView as UITextView,
+				 basicDetailView.ageTextFieldView.textField 		as UITextField,
+				 personalityDetailView.idealsTextFieldView.textView as UITextView,
 				 personalityDetailView.bondsTextFieldView.textView 	as UITextView,
-				 personalityDetailView.flawsTextFieldView.textView 	as UITextView:
-				personalityDetailView.frame.origin.y = 0
-			case personalityDetailView.personalityTextAreaView.textView	as UITextView:
-				personalityDetailView.frame.origin.y = -(keyboardRect.height - 100)//-(keyboardRect.height*0.75)
+				 personalityDetailView.flawsTextFieldView.textView 	as UITextView,
+				 socialDetailView.alignmentTextFieldView.textField  as UITextField:
+				scrollContentView.frame.origin.y = 0
 
-			//socialDetailView positioning
-			case socialDetailView.alignmentTextFieldView.textField  as UITextField:
-				socialDetailView.frame.origin.y = 0
-			case socialDetailView.relationshipsTextAreaView.textView as UITextView:
-				let height = keyboardRect.height + socialDetailView.frame.height
-				socialDetailView.frame.origin.y = -keyboardRect.height + bufferHeight //view.frame.height - height
+			//pin somewhere in the middle
+			case basicDetailView.appearanceTextAreaView.textView 	as UITextView:
+				scrollContentView.frame.origin.y = -(basicDetailView.nameTextFieldView.frame.height + basicDetailView.ageTextFieldView.frame.height)*0.75
+
+			//pin to the bottom of the last view
+			case basicDetailView.backstoryTextAreaView.textView 	as UITextView,
+				socialDetailView.relationshipsTextAreaView.textView as UITextView,
+				personalityDetailView.personalityTextAreaView.textView	as UITextView:
+				scrollContentView.frame.origin.y = keyboardOffset
 
 			default:
 				break
 			}
 		} else {
-			basicDetailView.frame.origin.y = 0
-			personalityDetailView.frame.origin.y = 0
-			socialDetailView.frame.origin.y = 0
+			scrollContentView.frame.origin.y = 0
 		}
 	}
 

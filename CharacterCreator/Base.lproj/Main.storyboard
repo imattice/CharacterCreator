@@ -625,6 +625,7 @@
                         <outlet property="basicDetailView" destination="v4c-U5-Otd" id="OLx-Yr-pBM"/>
                         <outlet property="pageControl" destination="1W3-Sz-9a5" id="Fzv-8s-fCJ"/>
                         <outlet property="personalityDetailView" destination="GXT-68-MV3" id="FKg-82-wxg"/>
+                        <outlet property="scrollContentView" destination="7vj-WH-Dpf" id="8YN-6n-peZ"/>
                         <outlet property="scrollView" destination="DBF-Tk-bmc" id="MIy-9U-ruO"/>
                         <outlet property="socialDetailView" destination="QaK-Py-GS9" id="1w6-xh-Pqs"/>
                         <outletCollection property="flavorViews" destination="v4c-U5-Otd" collectionClass="NSMutableArray" id="FKs-D2-HME"/>
