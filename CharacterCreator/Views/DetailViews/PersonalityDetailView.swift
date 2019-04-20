@@ -78,24 +78,7 @@ class PersonalityDetailView: XibView {
 
 		resignResponder()
 	}
-//
-//	func getCurrentResponderView() -> TextAreaView? {
-//		if idealsTextFieldView.textView.isFirstResponder {
-//			return idealsTextFieldView
-//		}
-//		else if flawsTextFieldView.textView.isFirstResponder {
-//			return flawsTextFieldView
-//		}
-//		else if bondsTextFieldView.textView.isFirstResponder {
-//			return bondsTextFieldView
-//		}
-//		else if personalityTextAreaView.textView.isFirstResponder {
-//			return personalityTextAreaView
-//		}
-//		else {
-//			return nil
-//		}
-//	}
+
 	func resignResponder() {
 		guard let responder = UIResponder.current else {	return }
 
