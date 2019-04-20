@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class SocialDetailView: XibView {
 	@IBOutlet weak var alignmentTextFieldView: TextFieldView!
 	@IBOutlet weak var languagesStackView: UIStackView!

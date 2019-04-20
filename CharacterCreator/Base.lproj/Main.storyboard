@@ -545,29 +545,55 @@
             <objects>
                 <viewController title="FlavorDetail" id="1O3-su-Y9P" customClass="FlavorViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PIN-FD-Lk2">
-                        <rect key="frame" x="0.0" y="0.0" width="1125" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBF-Tk-bmc">
-                                <rect key="frame" x="0.0" y="44" width="1125" height="687"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBF-Tk-bmc">
+                                <rect key="frame" x="0.0" y="44" width="375" height="684"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaK-Py-GS9" userLabel="Social Detail View" customClass="SocialDetailView" customModule="CharacterCreator" customModuleProvider="target">
-                                        <rect key="frame" x="750" y="0.0" width="375" height="687"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMh-bg-H2X" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
-                                        <rect key="frame" x="375" y="0.0" width="375" height="687"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXT-68-MV3" userLabel="Personality Detail View" customClass="PersonalityDetailView" customModule="CharacterCreator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vj-WH-Dpf" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="1125" height="684"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4c-U5-Otd" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="684"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXT-68-MV3" userLabel="Personality Detail View" customClass="PersonalityDetailView" customModule="CharacterCreator" customModuleProvider="target">
+                                                <rect key="frame" x="375" y="0.0" width="375" height="684"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaK-Py-GS9" userLabel="Social Detail View" customClass="SocialDetailView" customModule="CharacterCreator" customModuleProvider="target">
+                                                <rect key="frame" x="750" y="0.0" width="375" height="684"/>
+                                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="v4c-U5-Otd" firstAttribute="leading" secondItem="7vj-WH-Dpf" secondAttribute="leading" id="8lr-Fw-aBI"/>
+                                            <constraint firstItem="GXT-68-MV3" firstAttribute="leading" secondItem="v4c-U5-Otd" secondAttribute="trailing" id="CaU-C6-CGW"/>
+                                            <constraint firstAttribute="bottom" secondItem="GXT-68-MV3" secondAttribute="bottom" id="DBF-gR-5wX"/>
+                                            <constraint firstAttribute="bottom" secondItem="QaK-Py-GS9" secondAttribute="bottom" id="JPE-ZB-2hK"/>
+                                            <constraint firstItem="GXT-68-MV3" firstAttribute="top" secondItem="7vj-WH-Dpf" secondAttribute="top" id="PEb-D5-W5C"/>
+                                            <constraint firstItem="v4c-U5-Otd" firstAttribute="top" secondItem="7vj-WH-Dpf" secondAttribute="top" id="Pc9-lg-6Fn"/>
+                                            <constraint firstAttribute="trailing" secondItem="QaK-Py-GS9" secondAttribute="trailing" id="Qq9-4b-a7q"/>
+                                            <constraint firstItem="QaK-Py-GS9" firstAttribute="leading" secondItem="GXT-68-MV3" secondAttribute="trailing" id="avI-JS-8J1"/>
+                                            <constraint firstAttribute="bottom" secondItem="v4c-U5-Otd" secondAttribute="bottom" id="ayY-bO-SKi"/>
+                                            <constraint firstItem="QaK-Py-GS9" firstAttribute="top" secondItem="7vj-WH-Dpf" secondAttribute="top" id="stS-9f-mde"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="7vj-WH-Dpf" firstAttribute="top" secondItem="DBF-Tk-bmc" secondAttribute="top" id="91C-VG-Kmg"/>
+                                    <constraint firstAttribute="bottom" secondItem="7vj-WH-Dpf" secondAttribute="bottom" id="Bmu-0x-oD5"/>
+                                    <constraint firstItem="7vj-WH-Dpf" firstAttribute="height" secondItem="DBF-Tk-bmc" secondAttribute="height" id="Q18-Dh-44n"/>
+                                    <constraint firstItem="7vj-WH-Dpf" firstAttribute="leading" secondItem="DBF-Tk-bmc" secondAttribute="leading" id="V9l-yD-Xkk"/>
+                                    <constraint firstAttribute="trailing" secondItem="7vj-WH-Dpf" secondAttribute="trailing" id="WR7-9a-Hkr"/>
+                                    <constraint firstItem="7vj-WH-Dpf" firstAttribute="width" secondItem="DBF-Tk-bmc" secondAttribute="width" priority="250" id="k8h-Sp-eML"/>
+                                </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1W3-Sz-9a5">
-                                <rect key="frame" x="543" y="736" width="39" height="37"/>
+                                <rect key="frame" x="168" y="733" width="39" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NoI-1j-oQ3"/>
+                                </constraints>
                                 <color key="pageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
@@ -576,11 +602,13 @@
                         <constraints>
                             <constraint firstItem="Mwb-1I-syB" firstAttribute="trailing" secondItem="DBF-Tk-bmc" secondAttribute="trailing" id="58d-Cj-21L"/>
                             <constraint firstItem="1W3-Sz-9a5" firstAttribute="centerX" secondItem="PIN-FD-Lk2" secondAttribute="centerX" id="TdI-oj-feb"/>
-                            <constraint firstItem="DBF-Tk-bmc" firstAttribute="width" secondItem="Mwb-1I-syB" secondAttribute="width" id="VgT-bY-GTV"/>
+                            <constraint firstItem="QaK-Py-GS9" firstAttribute="width" secondItem="PIN-FD-Lk2" secondAttribute="width" id="ZnY-ky-NPr"/>
                             <constraint firstItem="DBF-Tk-bmc" firstAttribute="top" secondItem="Mwb-1I-syB" secondAttribute="top" id="aEq-Pr-gzk"/>
                             <constraint firstItem="Mwb-1I-syB" firstAttribute="bottom" secondItem="1W3-Sz-9a5" secondAttribute="bottom" constant="5" id="fgH-TO-W1M"/>
+                            <constraint firstItem="v4c-U5-Otd" firstAttribute="width" secondItem="PIN-FD-Lk2" secondAttribute="width" id="raw-NY-Fiz"/>
                             <constraint firstItem="1W3-Sz-9a5" firstAttribute="top" secondItem="DBF-Tk-bmc" secondAttribute="bottom" constant="5" id="sBa-aU-yos"/>
                             <constraint firstItem="DBF-Tk-bmc" firstAttribute="leading" secondItem="Mwb-1I-syB" secondAttribute="leading" id="wPg-ib-ouw"/>
+                            <constraint firstItem="GXT-68-MV3" firstAttribute="width" secondItem="PIN-FD-Lk2" secondAttribute="width" id="zHn-oz-aXh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mwb-1I-syB"/>
                     </view>
@@ -592,15 +620,16 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="1125" height="812"/>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="basicDetailView" destination="mMh-bg-H2X" id="bAA-kP-mPZ"/>
+                        <outlet property="basicDetailView" destination="v4c-U5-Otd" id="OLx-Yr-pBM"/>
                         <outlet property="pageControl" destination="1W3-Sz-9a5" id="Fzv-8s-fCJ"/>
                         <outlet property="personalityDetailView" destination="GXT-68-MV3" id="FKg-82-wxg"/>
                         <outlet property="scrollView" destination="DBF-Tk-bmc" id="MIy-9U-ruO"/>
-                        <outletCollection property="flavorViews" destination="GXT-68-MV3" collectionClass="NSMutableArray" id="38x-ua-MRw"/>
-                        <outletCollection property="flavorViews" destination="mMh-bg-H2X" collectionClass="NSMutableArray" id="i3z-eo-uxe"/>
-                        <outletCollection property="flavorViews" destination="QaK-Py-GS9" collectionClass="NSMutableArray" id="tvt-7V-Msy"/>
+                        <outlet property="socialDetailView" destination="QaK-Py-GS9" id="1w6-xh-Pqs"/>
+                        <outletCollection property="flavorViews" destination="v4c-U5-Otd" collectionClass="NSMutableArray" id="FKs-D2-HME"/>
+                        <outletCollection property="flavorViews" destination="QaK-Py-GS9" collectionClass="NSMutableArray" id="qNA-VG-bak"/>
+                        <outletCollection property="flavorViews" destination="GXT-68-MV3" collectionClass="NSMutableArray" id="bM5-On-8vo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIy-W5-pty" userLabel="First Responder" sceneMemberID="firstResponder"/>

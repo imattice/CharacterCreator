@@ -133,28 +133,27 @@ class BasicDetailView: XibView {
 		print("age: \(Character.current.flavorText.age) /name: \(Character.current.flavorText.name)")
 	}
 
-
-	@objc func keyboardWillChange(_ notification: Notification) {
-		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-
-		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
-			guard let responder = UIResponder.current else { return }
-			switch responder {
-			case nameTextFieldView.textField as UITextField:
-				self.frame.origin.y = 0
-			case ageTextFieldView.textField as UITextField:
-				self.frame.origin.y = 0
-			case appearanceTextAreaView.textView as UITextView:
-				self.frame.origin.y = -(nameTextFieldView.frame.height + ageTextFieldView.frame.height)*0.75
-			case backstoryTextAreaView.textView as UITextView:
-				self.frame.origin.y = -(keyboardRect.height*0.75)
-			default:
-				break
-			}
-		} else {
-			self.frame.origin.y = 0
-		}
-	}
+//	@objc func keyboardWillChange(_ notification: Notification) {
+//		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+//
+//		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
+//			guard let responder = UIResponder.current else { return }
+//			switch responder {
+//			case nameTextFieldView.textField as UITextField:
+//				self.frame.origin.y = 0
+//			case ageTextFieldView.textField as UITextField:
+//				self.frame.origin.y = 0
+//			case appearanceTextAreaView.textView as UITextView:
+//				self.frame.origin.y = -(nameTextFieldView.frame.height + ageTextFieldView.frame.height)*0.75
+//			case backstoryTextAreaView.textView as UITextView:
+//				self.frame.origin.y = -(keyboardRect.height*0.75)
+//			default:
+//				break
+//			}
+//		} else {
+//			self.frame.origin.y = 0
+//		}
+//	}
 	@IBAction func imageSelectionViewTapped(_ sender: UITapGestureRecognizer) {
 		guard let delegate = imageSelectionDelegate else { return }
 
@@ -222,6 +221,6 @@ extension BasicDetailView: UITextViewDelegate {
 	}
 }
 
-fileprivate extension Selector {
-	static let keyboardWillChange = #selector(BasicDetailView.keyboardWillChange(_:))
-}
+//fileprivate extension Selector {
+//	static let keyboardWillChange = #selector(BasicDetailView.keyboardWillChange(_:))
+//}
