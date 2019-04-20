@@ -21,14 +21,14 @@ class PersonalityDetailView: XibView {
 
 	let pickerView = UIPickerView()
 
-	var idealsCustomText 	= ""
-	var flawsCustomText 	= ""
-	var bondsCustomText		= ""
+//	var idealsCustomText 	= ""
+//	var flawsCustomText 	= ""
+//	var bondsCustomText		= ""
 
 	var delegate: AlertPresentationDelegate?
 
 	lazy var pickerViewDataSource: [String]	= {
-		guard let activeView = getCurrentResponderView() else { return ["Decide Later"] }
+		guard let activeView = UIResponder.current else { return ["Decide Later"] }
 
 		switch activeView {
 		case idealsTextFieldView.textView:
@@ -70,34 +70,36 @@ class PersonalityDetailView: XibView {
 		resignResponder()
 	}
 	@objc func cancelButtonSelected() {
-		if let responder = getCurrentResponderView() {
-			setPlaceholder(forView: responder)
+		if let responder = UIResponder.current as? UITextView,
+			let superview = responder.superview as? TextAreaView {
+
+			setPlaceholder(forView: superview)
 		}
 
 		resignResponder()
 	}
-
-	func getCurrentResponderView() -> TextAreaView? {
-		if idealsTextFieldView.textView.isFirstResponder {
-			return idealsTextFieldView
-		}
-		else if flawsTextFieldView.textView.isFirstResponder {
-			return flawsTextFieldView
-		}
-		else if bondsTextFieldView.textView.isFirstResponder {
-			return bondsTextFieldView
-		}
-		else if personalityTextAreaView.textView.isFirstResponder {
-			return personalityTextAreaView
-		}
-		else {
-			return nil
-		}
-	}
+//
+//	func getCurrentResponderView() -> TextAreaView? {
+//		if idealsTextFieldView.textView.isFirstResponder {
+//			return idealsTextFieldView
+//		}
+//		else if flawsTextFieldView.textView.isFirstResponder {
+//			return flawsTextFieldView
+//		}
+//		else if bondsTextFieldView.textView.isFirstResponder {
+//			return bondsTextFieldView
+//		}
+//		else if personalityTextAreaView.textView.isFirstResponder {
+//			return personalityTextAreaView
+//		}
+//		else {
+//			return nil
+//		}
+//	}
 	func resignResponder() {
-		guard let responder = getCurrentResponderView() else {	return }
+		guard let responder = UIResponder.current else {	return }
 
-		responder.textView.resignFirstResponder()
+		responder.resignFirstResponder()
 	}
 
 	func updateDataSource(forPersonalityDetail detail: PersonalityDetail) {
@@ -126,27 +128,27 @@ class PersonalityDetailView: XibView {
 
 		return result
 	}
-	func customText(forView view: TextAreaView) -> String? {
-		switch view {
-		case idealsTextFieldView: 	return idealsCustomText
-		case bondsTextFieldView: 	return bondsCustomText
-		case flawsTextFieldView:	return flawsCustomText
-		default:					return nil
-		}
-	}
+//	func customText(forView view: TextAreaView) -> String? {
+//		switch view {
+//		case idealsTextFieldView: 	return idealsCustomText
+//		case bondsTextFieldView: 	return bondsCustomText
+//		case flawsTextFieldView:	return flawsCustomText
+//		default:					return nil
+//		}
+//	}
 
 	func setCharacterDetail() {
-		guard let responder = getCurrentResponderView() else { return }
+		guard let responder = UIResponder.current as? UITextView else { return }
 
 		switch responder {
 		case idealsTextFieldView:
-			Character.current.flavorText.ideals 		= responder.textView.text
+			Character.current.flavorText.ideals 		= responder.text
 		case bondsTextFieldView:
-			Character.current.flavorText.bonds 			= responder.textView.text
+			Character.current.flavorText.bonds 			= responder.text
 		case flawsTextFieldView:
-			Character.current.flavorText.flaws 			= responder.textView.text
+			Character.current.flavorText.flaws 			= responder.text
 		case personalityTextAreaView:
-			Character.current.flavorText.personality 	= responder.textView.text
+			Character.current.flavorText.personality 	= responder.text
 		default:
 			break
 		}
@@ -159,20 +161,21 @@ class PersonalityDetailView: XibView {
 
 extension PersonalityDetailView: UIPickerViewDataSource, UIPickerViewDelegate {
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		guard let view = getCurrentResponderView() else { print("could not get responder"); return }
+		guard let textView = UIResponder.current as? UITextView,
+		let superview = textView.superview as? TextAreaView else { print("could not get responder"); return }
 		switch row {
 		case 0:
-			view.textView.text = view.placeholder
+			textView.text = superview.placeholder
 //		case pickerViewDataSource.count - 1:
 //			view.textView.text = customText(forView: view)
 //			delegate?.presentAlertController(forPersonalityDetail: view)
 		default:
-			view.textView.text = pickerViewDataSource[row]
+			textView.text = pickerViewDataSource[row]
 		}
-		if view.textView.text == view.placeholder {
-			view.textView.textColor = UIColor.lightGray		}
+		if textView.text == superview.placeholder {
+			textView.textColor = UIColor.lightGray		}
 		else {
-			view.textView.textColor = UIColor.black			}
+			textView.textColor = UIColor.black			}
 	}
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1	}
@@ -207,7 +210,7 @@ extension PersonalityDetailView: UITextViewDelegate {
 				break
 			}
 
-			if let index = pickerViewDataSource.index(of: textView.text) {
+			if let index = pickerViewDataSource.firstIndex(of: textView.text) {
 				pickerView.selectRow(index, inComponent: 0, animated: false)	}
 			else {
 				pickerView.selectRow(0, inComponent: 0, animated: false)			}
@@ -258,11 +261,12 @@ extension PersonalityDetailView: UITextViewDelegate {
 		return false
 	}
 	func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-		guard let responder = getCurrentResponderView() else { print("no responder "); return true }
+		guard let responder = UIResponder.current as? UITextView,
+		let superview = responder.superview as? TextAreaView else { print("no responder "); return true }
 
 		//no change was made
-		if textView.text == responder.placeholder || textView.text == "" {
-			setPlaceholder(forView: responder)
+		if textView.text == superview.placeholder || textView.text == "" {
+			setPlaceholder(forView: superview)
 		}
 		//changes were made
 		else {

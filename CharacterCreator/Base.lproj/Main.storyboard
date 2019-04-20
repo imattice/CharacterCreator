@@ -551,6 +551,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBF-Tk-bmc">
                                 <rect key="frame" x="0.0" y="44" width="1125" height="687"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaK-Py-GS9" userLabel="Social Detail View" customClass="SocialDetailView" customModule="CharacterCreator" customModuleProvider="target">
+                                        <rect key="frame" x="750" y="0.0" width="375" height="687"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mMh-bg-H2X" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="375" y="0.0" width="375" height="687"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -558,11 +563,6 @@
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXT-68-MV3" userLabel="Personality Detail View" customClass="PersonalityDetailView" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaK-Py-GS9" userLabel="Social Detail View">
-                                        <rect key="frame" x="750" y="0.0" width="375" height="687"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
                             </scrollView>

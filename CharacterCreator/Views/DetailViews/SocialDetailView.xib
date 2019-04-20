@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SocialDetailView" customModule="CharacterCreator" customModuleProvider="target">
+            <connections>
+                <outlet property="addLanguageBuggon" destination="GW4-Od-Oxi" id="lM7-sF-dRW"/>
+                <outlet property="alignmentTextFieldView" destination="EIG-yW-dm6" id="mDz-hw-CDg"/>
+                <outlet property="languagesStackView" destination="u3g-wr-1aV" id="CBY-PD-wYR"/>
+                <outlet property="relationshipsTextAreaView" destination="9t3-zA-uTP" id="chh-R2-VM9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="597"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Hh-hw-qnj">
+                    <rect key="frame" x="8" y="8" width="398" height="547"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kgf-lS-Ydk">
+                            <rect key="frame" x="0.0" y="0.0" width="398" height="263.5"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIG-yW-dm6" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="398" height="60"/>
+                                    <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="FGK-ld-QqX"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Alignment"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Xj-um-DqL">
+                                    <rect key="frame" x="0.0" y="80" width="398" height="183.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Languages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UC-Jc-7d9">
+                                            <rect key="frame" x="8" y="8" width="382" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GW4-Od-Oxi">
+                                            <rect key="frame" x="368" y="81" width="22" height="22"/>
+                                            <connections>
+                                                <action selector="addLaguage:" destination="-1" eventType="touchUpInside" id="KKP-Uz-UDw"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3g-wr-1aV">
+                                            <rect key="frame" x="8" y="36.5" width="352" height="139"/>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="GW4-Od-Oxi" firstAttribute="centerY" secondItem="6Xj-um-DqL" secondAttribute="centerY" id="0Tf-eP-cCO"/>
+                                        <constraint firstAttribute="trailing" secondItem="8UC-Jc-7d9" secondAttribute="trailing" constant="8" id="3tH-wF-mDD"/>
+                                        <constraint firstItem="8UC-Jc-7d9" firstAttribute="top" secondItem="6Xj-um-DqL" secondAttribute="top" constant="8" id="7iK-E7-9oi"/>
+                                        <constraint firstAttribute="trailing" secondItem="GW4-Od-Oxi" secondAttribute="trailing" constant="8" id="LE6-pa-ehx"/>
+                                        <constraint firstItem="u3g-wr-1aV" firstAttribute="leading" secondItem="6Xj-um-DqL" secondAttribute="leading" constant="8" id="W4V-lH-EI3"/>
+                                        <constraint firstItem="u3g-wr-1aV" firstAttribute="top" secondItem="8UC-Jc-7d9" secondAttribute="bottom" constant="8" id="Xf5-HY-Vnr"/>
+                                        <constraint firstItem="8UC-Jc-7d9" firstAttribute="leading" secondItem="6Xj-um-DqL" secondAttribute="leading" constant="8" id="m3X-mZ-TaJ"/>
+                                        <constraint firstAttribute="bottom" secondItem="u3g-wr-1aV" secondAttribute="bottom" constant="8" id="ufX-19-Khw"/>
+                                        <constraint firstItem="GW4-Od-Oxi" firstAttribute="leading" secondItem="u3g-wr-1aV" secondAttribute="trailing" constant="8" id="vJ2-RA-1bm"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9t3-zA-uTP" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="283.5" width="398" height="263.5"/>
+                            <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Relationships"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Who is most important to your character?  Do they have any friends, rivals, or family?"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="9t3-zA-uTP" secondAttribute="trailing" id="SNQ-S9-sb0"/>
+                        <constraint firstItem="kgf-lS-Ydk" firstAttribute="leading" secondItem="6Hh-hw-qnj" secondAttribute="leading" id="W9J-an-anX"/>
+                        <constraint firstItem="9t3-zA-uTP" firstAttribute="leading" secondItem="6Hh-hw-qnj" secondAttribute="leading" id="m68-u7-pMp"/>
+                        <constraint firstAttribute="trailing" secondItem="kgf-lS-Ydk" secondAttribute="trailing" id="yJ8-hN-d0U"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6Hh-hw-qnj" secondAttribute="bottom" constant="8" id="Cz4-Yf-n5g"/>
+                <constraint firstItem="6Hh-hw-qnj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Ffq-Aa-9DX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6Hh-hw-qnj" secondAttribute="trailing" constant="8" id="NjA-L5-zUd"/>
+                <constraint firstItem="6Hh-hw-qnj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="kCL-2g-cdL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="211.94196428571428"/>
+        </view>
+    </objects>
+</document>
