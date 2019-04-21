@@ -53,42 +53,6 @@ class BasicDetailView: XibView {
 		}
 	}
 
-//	func getCurrentResponder() -> Any? {
-//		if nameTextFieldView.textField.isFirstResponder {
-//			return nameTextFieldView.textField as Any
-//		}
-//		else if ageTextFieldView.textField.isFirstResponder {
-//			return ageTextFieldView.textField as Any
-//		}
-//		else if appearanceTextAreaView.textView.isFirstResponder {
-//			return appearanceTextAreaView.textView as Any
-//		}
-//		else if backstoryTextAreaView.textView.isFirstResponder {
-//			return backstoryTextAreaView.textView as Any
-//		}
-//		else {
-//			return nil
-//		}
-//	}
-//
-//	func currentResponderView() -> Any? {
-//		if nameTextFieldView.textField.isFirstResponder {
-//			return nameTextFieldView as Any
-//		}
-//		else if ageTextFieldView.textField.isFirstResponder {
-//			return ageTextFieldView as Any
-//		}
-//		else if appearanceTextAreaView.textView.isFirstResponder {
-//			return appearanceTextAreaView as Any
-//		}
-//		else if backstoryTextAreaView.textView.isFirstResponder {
-//			return backstoryTextAreaView as Any
-//		}
-//		else {
-//			return nil
-//		}
-//	}
-
 	func nextTextView() {
 		guard let responder = UIResponder.current else { return }
 

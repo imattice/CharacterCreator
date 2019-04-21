@@ -1,32 +1,12 @@
-## Build generated
-build/
-DerivedData/
 
-## Various settings
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
+# Ignore macOS Finder user-related files
+.DS_Store
+
+# Ignore Xcode user-related files
 xcuserdata/
 
-## Other
-*.moved-aside
-*.xccheckout
-*.xcscmblueprint
+# Ignore AppCode user-related files
+.idea/
 
-## Obj-C/Swift specific
-*.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
-
-## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
-
-
+# Ignore CocoaPods installed files
 Pods/
