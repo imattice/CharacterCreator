@@ -19,7 +19,7 @@ class SocialDetailView: XibView {
 	@IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
 	
 	let pickerView = UIPickerView()
-	let dataSource = ["Common", "Giant", "Abyssal", "Gnomish", "Celestial"]
+	var dataSource = ["Common", "Giant", "Abyssal", "Gnomish", "Celestial"]
 
 
 	override func config() {
@@ -80,6 +80,9 @@ class SocialDetailView: XibView {
 
 	@IBAction func addLaguage(_ sender: UIButton) {
 	}
+	func removeLanguage(atIndex index: Int) {
+		dataSource.remove(at: index)
+	}
 }
 
 extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -89,6 +92,11 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 
 			cell.titleLabel.sizeToFit()
 		return cell
+	}
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		removeLanguage(atIndex: indexPath.row)
+
+		collectionView.reloadData()
 	}
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -102,7 +110,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 		label.font = UIFont.systemFont(ofSize: 14)
 		label.sizeToFit()
 
-		return CGSize(width: label.frame.width + margins, height: 40)
+		return CGSize(width: label.frame.width + margins, height: 30)
 	}
 	private func registerCells() {
 		collectionView.register(UINib(nibName: String(describing: LanguageLabelCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue)
