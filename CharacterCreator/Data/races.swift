@@ -12,6 +12,9 @@ let raceData: [String: Any] = [
 		"description": "Stout and stubborn, a dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
 		"modifiers": [
 			"con"				: 2	],
+		"languages": [
+			"common",
+			"dwarvish"],
 		"subraces": [
 			"hill": [
 				"description": "Hill dwarves have left the mountianous caverns in favor of rolling hills.  In doing so, they've traded some of their natrual strenth for a broader world view and increased stamina.",
@@ -27,6 +30,9 @@ let raceData: [String: Any] = [
 		"description": "The elves posess grace unlike any other, seeming to move quickly through sunbeams without so much as a hint of disruption.  Learning new magicks come easily to them, as do many other works that marry art, craft and deep wisdom.",
 		"modifiers": [
 			"dex"				: 2 ],
+		"languages": [
+			"common",
+			"elven" ],
 		"subraces": [
 			"high": [
 				"description": "The high elves have renounced their woodland ancestry in favor of the acadamies, politics, and labratories of large cities.  They prefer the comforts of modern life while spending a great amount of time engaged in their work.",
@@ -41,6 +47,10 @@ let raceData: [String: Any] = [
 		"description": "A comfortable home and the happiness of friends are what most halflings desire.  They tend to avoid the adventuring life, though some are willing to ignore the expectation of the domestic life to see the world.",
 		"modifiers": [
 			"dex"				: 2	],
+		"languages": [
+			"common",
+			"halfling"
+		],
 		"subraces": [
 			"lightfoot": [
 				"description": "Lightfoot halflings use their tiny stature to their advantage, allowing them to hide in event the smallest of places.  They tend to be extremely friendly and easy to get along with.",
@@ -53,6 +63,8 @@ let raceData: [String: Any] = [
 
 	"human": [
 		"description": "Humankind has reached every corner of the world, giving them an advantage in numbers, and unmatched diversity in their abilities.  Wise scholars, brave fighters and famous performers have been humans.  Their great ambition and innovation is unlike any other race and has allowed them to make a significant impact in the state of the world.",
+		"languages": [
+			"common", "choice"],
 		"modifiers": [
 			"all_stats"			: 1	]]
 ]
