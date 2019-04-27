@@ -20,6 +20,7 @@ class SocialDetailView: XibView {
 	
 	let pickerView = UIPickerView()
 	var dataSource = ["Common", "Giant", "Abyssal", "Gnomish", "Celestial"]
+	var presentationDelegate: LanguagePresentationDelegate?
 
 
 	override func config() {
@@ -80,6 +81,7 @@ class SocialDetailView: XibView {
 
 	@IBAction func addLaguage(_ sender: UIButton) {
 	}
+
 	func removeLanguage(atIndex index: Int) {
 		dataSource.remove(at: index)
 	}
@@ -179,8 +181,9 @@ extension SocialDetailView: UIPickerViewDelegate, UIPickerViewDataSource {
 		return alignments.count	}
 }
 
-
-
+protocol LanguagePresentationDelegate {
+	func presentLanguageSelection()
+}
 fileprivate extension Selector {
 	static let okSelected = #selector(SocialDetailView.okSelected)
 	static let cancelSelected = #selector(SocialDetailView.cancelSelected)

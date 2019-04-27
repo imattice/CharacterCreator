@@ -263,6 +263,13 @@ extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationCon
 	}
 }
 
+extension FlavorViewController: LanguagePresentationDelegate {
+	func presentLanguageSelection() {
+		let tbViewController = UITableViewController()
+		
+	}
+}
+
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
 	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
