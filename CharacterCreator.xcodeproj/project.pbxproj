@@ -36,6 +36,8 @@
 		8152B41120DEDA8D008B7A1A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41020DEDA8D008B7A1A /* Int.swift */; };
 		8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */; };
 		8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* DropdownTableViewCell.xib */; };
+		81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */; };
+		81541A312273CD86002C7B72 /* LanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A2F2273CD86002C7B72 /* LanguageLabelCollectionViewCell.xib */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		81851D5F2254721E00260413 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D5E2254721E00260413 /* UITextView.swift */; };
 		81851D612254725C00260413 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D602254725C00260413 /* UITextField.swift */; };
@@ -141,6 +143,8 @@
 		8152B41020DEDA8D008B7A1A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTableViewCell.swift; sourceTree = "<group>"; };
 		8152B41320DEE659008B7A1A /* DropdownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownTableViewCell.xib; sourceTree = "<group>"; };
+		81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageLabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		81541A2F2273CD86002C7B72 /* LanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		81851D5E2254721E00260413 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		81851D602254725C00260413 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -438,6 +442,8 @@
 			children = (
 				81DC8E4A210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift */,
 				81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */,
+				81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */,
+				81541A2F2273CD86002C7B72 /* LanguageLabelCollectionViewCell.xib */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -566,6 +572,7 @@
 			files = (
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */,
+				81541A312273CD86002C7B72 /* LanguageLabelCollectionViewCell.xib in Resources */,
 				8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */,
 				81FC7CFB21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib in Resources */,
 				810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */,
@@ -707,6 +714,7 @@
 				8195AF8C225706BE00153B58 /* ImageSelectionView.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
 				810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */,
+				81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */,
 				81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */,
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,

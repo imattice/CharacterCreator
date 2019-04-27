@@ -11,11 +11,15 @@ import UIKit
 @IBDesignable
 class SocialDetailView: XibView {
 	@IBOutlet weak var alignmentTextFieldView: TextFieldView!
-	@IBOutlet weak var languagesStackView: UIStackView!
+//	@IBOutlet weak var languagesStackView: UIStackView!
 	@IBOutlet weak var addLanguageBuggon: UIButton!
 	@IBOutlet weak var relationshipsTextAreaView: TextAreaView!
-
+	@IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
+	
 	let pickerView = UIPickerView()
+	let dataSource = ["Common", "Giant", "Abyssal", "Gnomish", "Celestial"]
+
 
 	override func config() {
 		pickerView.delegate 	= self
@@ -27,6 +31,8 @@ class SocialDetailView: XibView {
 
 		alignmentTextFieldView.textField.addToolbar(self, onOk: .okSelected, onCancel: .cancelSelected)
 		relationshipsTextAreaView.textView.addToolbar(self, onOk: .okSelected, onCancel: .cancelSelected)
+
+		registerCells()
 	}
 
 	@objc func okSelected() {
@@ -68,6 +74,21 @@ class SocialDetailView: XibView {
 	}
 
 	@IBAction func addLaguage(_ sender: UIButton) {
+	}
+}
+
+extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue, for: indexPath) as! LanguageLabelCollectionViewCell
+			cell.titleLabel.text	= dataSource[indexPath.row]
+		return cell
+	}
+
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return dataSource.count
+	}
+	private func registerCells() {
+		collectionView.register(UINib(nibName: String(describing: LanguageLabelCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue)
 	}
 }
 
@@ -139,6 +160,10 @@ fileprivate extension Selector {
 	static let okSelected = #selector(SocialDetailView.okSelected)
 	static let cancelSelected = #selector(SocialDetailView.cancelSelected)
 
+}
+
+fileprivate enum CellIdentifier: String {
+	case LanguageLabelCell
 }
 
 fileprivate var alignments = [
