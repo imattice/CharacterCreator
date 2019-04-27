@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlignedCollectionViewFlowLayout
 
 @IBDesignable
 class SocialDetailView: XibView {
@@ -31,6 +32,10 @@ class SocialDetailView: XibView {
 
 		alignmentTextFieldView.textField.addToolbar(self, onOk: .okSelected, onCancel: .cancelSelected)
 		relationshipsTextAreaView.textView.addToolbar(self, onOk: .okSelected, onCancel: .cancelSelected)
+
+		let alignedLayout = collectionViewLayout as? AlignedCollectionViewFlowLayout
+		alignedLayout?.horizontalAlignment	= .left
+		alignedLayout?.verticalAlignment	= .top
 
 		registerCells()
 	}
@@ -90,10 +95,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 		return dataSource.count
 	}
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//		let cell = collectionView.cellForItem(at: indexPath) as! LanguageLabelCollectionViewCell
-		let margins = CGFloat(8*3) + 20  //constrant margins + width of x button
-//		let width = margins + cell.titleLabel.frame.width
-//		print("cell width: \(width)")
+		let margins = CGFloat(8*3) + 20  //constrant margins + width constraint of x button
 
 		let label = UILabel()
 		label.text = dataSource[indexPath.row]

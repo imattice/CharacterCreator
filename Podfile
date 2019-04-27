@@ -10,6 +10,7 @@ target 'CharacterCreator' do
 pod 'Hue'
 pod 'NewRelicAgent'
 pod 'RealmSwift'
+pod 'AlignedCollectionViewFlowLayout'
 
   target 'CharacterCreatorTests' do
     inherit! :search_paths
