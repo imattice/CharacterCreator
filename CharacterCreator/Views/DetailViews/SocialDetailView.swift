@@ -81,11 +81,26 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue, for: indexPath) as! LanguageLabelCollectionViewCell
 			cell.titleLabel.text	= dataSource[indexPath.row]
+
+			cell.titleLabel.sizeToFit()
 		return cell
 	}
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return dataSource.count
+	}
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//		let cell = collectionView.cellForItem(at: indexPath) as! LanguageLabelCollectionViewCell
+		let margins = CGFloat(8*3) + 20  //constrant margins + width of x button
+//		let width = margins + cell.titleLabel.frame.width
+//		print("cell width: \(width)")
+
+		let label = UILabel()
+		label.text = dataSource[indexPath.row]
+		label.font = UIFont.systemFont(ofSize: 14)
+		label.sizeToFit()
+
+		return CGSize(width: label.frame.width + margins, height: 40)
 	}
 	private func registerCells() {
 		collectionView.register(UINib(nibName: String(describing: LanguageLabelCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue)

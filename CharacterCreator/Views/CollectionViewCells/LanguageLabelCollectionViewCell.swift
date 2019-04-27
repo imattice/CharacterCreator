@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class LanguageLabelCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 
