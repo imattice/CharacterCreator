@@ -39,7 +39,7 @@
 		81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */; };
 		81541A312273CD86002C7B72 /* LanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A2F2273CD86002C7B72 /* LanguageLabelCollectionViewCell.xib */; };
 		81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */; };
-		81541A35227420C2002C7B72 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* Language.swift */; };
+		81541A35227420C2002C7B72 /* LanguageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* LanguageRecord.swift */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		81851D5F2254721E00260413 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D5E2254721E00260413 /* UITextView.swift */; };
 		81851D612254725C00260413 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D602254725C00260413 /* UITextField.swift */; };
@@ -148,7 +148,7 @@
 		81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageLabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		81541A2F2273CD86002C7B72 /* LanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewController.swift; sourceTree = "<group>"; };
-		81541A34227420C2002C7B72 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		81541A34227420C2002C7B72 /* LanguageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRecord.swift; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		81851D5E2254721E00260413 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		81851D602254725C00260413 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -345,7 +345,7 @@
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
 				81DF302B213C5D6A00C939CE /* Item.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
-				81541A34227420C2002C7B72 /* Language.swift */,
+				81541A34227420C2002C7B72 /* LanguageRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -733,7 +733,7 @@
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
-				81541A35227420C2002C7B72 /* Language.swift in Sources */,
+				81541A35227420C2002C7B72 /* LanguageRecord.swift in Sources */,
 				8195037A2256DDAE00EE4469 /* PersonalityDetailView.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,

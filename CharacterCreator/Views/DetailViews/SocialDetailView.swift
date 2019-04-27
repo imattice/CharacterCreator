@@ -117,6 +117,19 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 	private func registerCells() {
 		collectionView.register(UINib(nibName: String(describing: LanguageLabelCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue)
 	}
+
+	struct CollectionViewData {
+		let isRemovable: Bool
+		let source: String
+		let language: LanguageRecord
+
+		enum LanguageSource: String {
+			case race 	= "R",
+			background 	= "B",
+			`class`		= "C"
+		}
+
+	}
 }
 
 extension SocialDetailView: UITextViewDelegate {
