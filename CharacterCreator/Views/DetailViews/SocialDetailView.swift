@@ -101,17 +101,17 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 		cell.titleLabel.text	= data.name
 
 		if Character.default.languages.innate.contains(where: { $0.name == data.name }) {
-			cell.xButton.removeFromSuperview()
+			cell.xButton.isHidden = true
 		}
 
 			cell.titleLabel.sizeToFit()
 		return cell
 	}
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let removeIndex = Character.default.languages.innate.filter( { $0.name != "choice" }).count - indexPath.row
-
+		let removeIndex = indexPath.row - Character.default.languages.innate.filter( { $0.name != "choice" }).count
 		let data = dataSource[indexPath.row]
 		if !Character.default.languages.innate.contains { $0.name == data.name } {
+
 			removeLanguage(atIndex: removeIndex)
 		}
 

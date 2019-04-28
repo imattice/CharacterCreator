@@ -41,9 +41,6 @@ class LanguageSelectionTableViewController: UITableViewController {
 			navigationItem.rightBarButtonItem	= confirmButton
 
 			updateNav()
-//			switch dataType {
-//			case .ClassFeature: 		navigationItem.title 	= "\(target!.path.capitalized) Features"
-//			case .Spellbook: 			navigationItem.title 	= "Spellbook"
 	}
 	@objc func confirmSelection() {
 		delegate?.selectedLanguages = selectedLanguages
@@ -54,12 +51,9 @@ class LanguageSelectionTableViewController: UITableViewController {
 	}
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return dataSource.count
-    }
+        return dataSource.count		}
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return dataSource[section].languageData.count
-    }
+		return dataSource[section].languageData.count	}
 
 	struct LanguageSelectionData {
 		let isSelectable: Bool
