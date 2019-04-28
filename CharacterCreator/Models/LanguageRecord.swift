@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct Language {
+	let record: LanguageRecord
+	let source: String
+}
+
 
 struct LanguageRecord {
 	let name: String
