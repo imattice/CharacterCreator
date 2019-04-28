@@ -10,7 +10,7 @@ import UIKit
 import AlignedCollectionViewFlowLayout
 
 @IBDesignable
-class SocialDetailView: XibView {
+class SocialDetailView: XibView, LanguageSelectionDelegate {
 	@IBOutlet weak var alignmentTextFieldView: TextFieldView!
 //	@IBOutlet weak var languagesStackView: UIStackView!
 	@IBOutlet weak var addLanguageBuggon: UIButton!
@@ -19,10 +19,14 @@ class SocialDetailView: XibView {
 	@IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
 	
 	let pickerView = UIPickerView()
-	var dataSource = ["Common", "Giant", "Abyssal", "Gnomish", "Celestial"]
 	var presentationDelegate: LanguagePresentationDelegate?
 
 	let availableSelections = Character.default.languages.innate.filter( { $0.name == "choice" }).count
+	var selectedLanguages = [LanguageRecord]() {
+		didSet {
+			collectionView.reloadData()	}}
+	var dataSource: [LanguageRecord] {
+		return Character.default.languages.innate.filter( { $0.name != "choice" }) + selectedLanguages }
 
 
 
@@ -49,7 +53,6 @@ class SocialDetailView: XibView {
 
 		UIResponder.current?.resignFirstResponder()
 	}
-
 	@objc func cancelSelected() {
 		guard let responder = UIResponder.current else { return }
 
@@ -85,16 +88,15 @@ class SocialDetailView: XibView {
 	@IBAction func addLaguage(_ sender: UIButton) {
 		presentationDelegate?.presentLanguageSelection(withSelections: availableSelections)
 	}
-
 	func removeLanguage(atIndex index: Int) {
-		dataSource.remove(at: index)
+		selectedLanguages.remove(at: index)
 	}
 }
 
 extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue, for: indexPath) as! LanguageLabelCollectionViewCell
-			cell.titleLabel.text	= dataSource[indexPath.row]
+			cell.titleLabel.text	= dataSource[indexPath.row].name
 
 			cell.titleLabel.sizeToFit()
 		return cell
@@ -112,7 +114,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 		let margins = CGFloat(8*3) + 20  //constrant margins + width constraint of x button
 
 		let label = UILabel()
-		label.text = dataSource[indexPath.row]
+		label.text = dataSource[indexPath.row].name
 		label.font = UIFont.systemFont(ofSize: 14)
 		label.sizeToFit()
 
@@ -200,6 +202,9 @@ extension SocialDetailView: UIPickerViewDelegate, UIPickerViewDataSource {
 
 protocol LanguagePresentationDelegate {
 	func presentLanguageSelection(withSelections selections: Int)
+}
+protocol LanguageSelectionDelegate {
+	var selectedLanguages: [LanguageRecord] { get set }
 }
 fileprivate extension Selector {
 	static let okSelected = #selector(SocialDetailView.okSelected)

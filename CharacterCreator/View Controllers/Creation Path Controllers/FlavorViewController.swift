@@ -268,6 +268,7 @@ extension FlavorViewController: LanguagePresentationDelegate {
 	func presentLanguageSelection(withSelections selections: Int) {
 		let vc = LanguageSelectionTableViewController()
 			vc.selectionsRemaining = selections
+			vc.delegate = socialDetailView
 		let nav = UINavigationController(rootViewController: vc)
 
 		present(nav, animated: true, completion: nil)
