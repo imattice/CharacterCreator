@@ -22,10 +22,8 @@ class SocialDetailView: XibView {
 	var dataSource = ["Common", "Giant", "Abyssal", "Gnomish", "Celestial"]
 	var presentationDelegate: LanguagePresentationDelegate?
 
-	let availableSelections = Character.default.languages
-	lazy var languageSelectionsRemaining: Int = {
+	let availableSelections = Character.default.languages.innate.filter( { $0.name == "choice" }).count
 
-	}()
 
 
 	override func config() {
@@ -85,7 +83,7 @@ class SocialDetailView: XibView {
 	}
 
 	@IBAction func addLaguage(_ sender: UIButton) {
-		presentationDelegate?.presentLanguageSelection()
+		presentationDelegate?.presentLanguageSelection(withSelections: availableSelections)
 	}
 
 	func removeLanguage(atIndex index: Int) {
@@ -201,7 +199,7 @@ extension SocialDetailView: UIPickerViewDelegate, UIPickerViewDataSource {
 }
 
 protocol LanguagePresentationDelegate {
-	func presentLanguageSelection()
+	func presentLanguageSelection(withSelections selections: Int)
 }
 fileprivate extension Selector {
 	static let okSelected = #selector(SocialDetailView.okSelected)

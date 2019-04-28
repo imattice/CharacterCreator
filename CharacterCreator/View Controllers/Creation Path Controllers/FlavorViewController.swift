@@ -265,17 +265,13 @@ extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationCon
 }
 
 extension FlavorViewController: LanguagePresentationDelegate {
-	func presentLanguageSelection() {
+	func presentLanguageSelection(withSelections selections: Int) {
 		let vc = LanguageSelectionTableViewController()
+			vc.selectionsRemaining = selections
 		let nav = UINavigationController(rootViewController: vc)
-//		let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: .dismissLanguageSelection)
-//		nav.navigationItem.leftBarButtonItem = backButton
 
 		present(nav, animated: true, completion: nil)
 	}
-//	@objc func dismissLanguageSelection() {
-//		dismiss(animated: true, completion: nil)
-//	}
 }
 
 // Helper function inserted by Swift 4.2 migrator.

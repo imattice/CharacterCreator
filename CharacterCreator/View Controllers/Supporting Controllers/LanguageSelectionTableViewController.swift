@@ -38,6 +38,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 	}
 
 	private func updateNav() {
+		guard let selectionsRemaining = selectionsRemaining else { return }
 		navigationItem.title	= "Choose \(selectionsRemaining) more"
 	}
 	@objc func dismissLanguageSelection() {
@@ -155,7 +156,10 @@ class LanguageSelectionTableViewController: UITableViewController {
         return cell
     }
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+		guard selectionsRemaining != nil else { return }
+		if selectionsRemaining! > 0 {
+			selectionsRemaining! -= 1
+		}
 	}
 
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
