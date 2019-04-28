@@ -13,6 +13,14 @@ struct Race {
 	let subrace: String?
 	let modifiers: [Modifier]
 
+	static let HillDwarf 			= Race(fromParent: "dwarf", withSubrace: "hill")!
+	static let MountianDwarf		= Race(fromParent: "dwarf", withSubrace: "mountian")!
+	static let HighElf				= Race(fromParent: "elf", withSubrace: "high")!
+	static let WoodElf				= Race(fromParent: "elf", withSubrace: "wood")!
+	static let LightfootHalfling	= Race(fromParent: "halfling", withSubrace: "lightfoot")!
+	static let StoutHalfling		= Race(fromParent: "halfling", withSubrace: "stout")!
+	static let Human				= Race(fromParent: "human", withSubrace: nil)
+
 
 	init?(fromParent parentName: String, withSubrace subraceName: String?) {
 		guard let parentData = raceData[parentName] as? [String : Any]
@@ -88,4 +96,8 @@ struct Race {
 	func name() -> String {
 		return "\(subrace?.capitalized ?? "") \(parentRace.capitalized)".trimmingCharacters(in: .whitespaces)
 	}
+}
+
+struct RaceRecord {
+
 }
