@@ -11,7 +11,8 @@ import UIKit
 @IBDesignable
 class LanguageLabelCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
-
+	@IBOutlet weak var xButton: UILabel!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

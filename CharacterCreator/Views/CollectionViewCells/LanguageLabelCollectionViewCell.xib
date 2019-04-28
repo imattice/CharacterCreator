@@ -42,12 +42,14 @@
                 <constraint firstAttribute="trailing" secondItem="vlF-q8-Uml" secondAttribute="trailing" constant="8" id="d1M-FO-Jb5"/>
                 <constraint firstItem="vlF-q8-Uml" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="e8r-ao-yCt"/>
                 <constraint firstItem="vlF-q8-Uml" firstAttribute="leading" secondItem="0ld-IG-v0a" secondAttribute="trailing" constant="8" id="ftC-67-JKj"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0ld-IG-v0a" secondAttribute="trailing" constant="8" id="kwT-Q1-XXo"/>
                 <constraint firstItem="0ld-IG-v0a" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="yjU-xk-xoa"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="241" height="50"/>
             <connections>
                 <outlet property="titleLabel" destination="0ld-IG-v0a" id="FdF-br-U36"/>
+                <outlet property="xButton" destination="vlF-q8-Uml" id="TG0-JL-PCN"/>
             </connections>
             <point key="canvasLocation" x="274.63768115942031" y="134.59821428571428"/>
         </collectionViewCell>

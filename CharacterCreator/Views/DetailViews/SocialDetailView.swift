@@ -89,20 +89,31 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 		presentationDelegate?.presentLanguageSelection(withSelections: availableSelections)
 	}
 	func removeLanguage(atIndex index: Int) {
-		selectedLanguages.remove(at: index)
+		let removeIndex = Character.default.languages.innate.filter( { $0.name != "choice" }).count - index
+		selectedLanguages.remove(at: index )
 	}
 }
 
 extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue, for: indexPath) as! LanguageLabelCollectionViewCell
-			cell.titleLabel.text	= dataSource[indexPath.row].name
+		let data = dataSource[indexPath.row]
+		cell.titleLabel.text	= data.name
+
+		if Character.default.languages.innate.contains(where: { $0.name == data.name }) {
+			cell.xButton.removeFromSuperview()
+		}
 
 			cell.titleLabel.sizeToFit()
 		return cell
 	}
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		removeLanguage(atIndex: indexPath.row)
+		let removeIndex = Character.default.languages.innate.filter( { $0.name != "choice" }).count - indexPath.row
+
+		let data = dataSource[indexPath.row]
+		if !Character.default.languages.innate.contains { $0.name == data.name } {
+			removeLanguage(atIndex: removeIndex)
+		}
 
 		collectionView.reloadData()
 	}
@@ -111,10 +122,15 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 		return dataSource.count
 	}
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		let margins = CGFloat(8*3) + 20  //constrant margins + width constraint of x button
+		let data = dataSource[indexPath.row]
+		var margins = CGFloat(8*2)  //constrant margins
+		if !Character.default.languages.innate.contains(where: { $0.name == data.name }) {
+			//width constraint of x button + another margin
+			margins += 20 + 8
+		}
 
 		let label = UILabel()
-		label.text = dataSource[indexPath.row].name
+		label.text = data.name
 		label.font = UIFont.systemFont(ofSize: 14)
 		label.sizeToFit()
 
