@@ -34,6 +34,23 @@ struct LanguageRecord {
 	}
 }
 
+extension LanguageRecord {
+	static let Common 			= record(forName: "common")
+	static let Draconic 		= record(forName: "draconic")
+	static let Dwarvish 		= record(forName: "dwarvish")
+	static let Elven		 	= record(forName: "Elven")
+	static let Giant 			= record(forName: "giant")
+	static let Gnomish 			= record(forName: "gnomish")
+	static let Goblin			= record(forName: "goblin")
+	static let Halfling 		= record(forName: "halfling")
+	static let Abyssal 			= record(forName: "abyssal")
+	static let Celestial 		= record(forName: "celestial")
+	static let DeepSpeech 		= record(forName: "deep speech")
+	static let Infernal 		= record(forName: "infernal")
+	static let Orc				= record(forName: "orc")
+	static let Undercommon 		= record(forName: "undercommon")
+}
+
 let languageRecords = [
 	"common": [
 		LanguageRecord(name: "common", 		spokenBy: "Most humanoids", 							script: "Common"),
