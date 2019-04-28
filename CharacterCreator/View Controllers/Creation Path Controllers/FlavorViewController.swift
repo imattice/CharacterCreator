@@ -37,6 +37,7 @@ class FlavorViewController: UIViewController {
 
 		basicDetailView.imageSelectionDelegate  = self
 		personalityDetailView.delegate			= self
+		socialDetailView.presentationDelegate	= self
 
 		addNotificationObservers()
     }
@@ -265,9 +266,16 @@ extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationCon
 
 extension FlavorViewController: LanguagePresentationDelegate {
 	func presentLanguageSelection() {
-		let tbViewController = UITableViewController()
-		
+		let vc = LanguageSelectionTableViewController()
+		let nav = UINavigationController(rootViewController: vc)
+//		let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: .dismissLanguageSelection)
+//		nav.navigationItem.leftBarButtonItem = backButton
+
+		present(nav, animated: true, completion: nil)
 	}
+//	@objc func dismissLanguageSelection() {
+//		dismiss(animated: true, completion: nil)
+//	}
 }
 
 // Helper function inserted by Swift 4.2 migrator.
@@ -282,5 +290,6 @@ fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePicke
 
 fileprivate extension Selector {
 	static let keyboardWillChange = #selector(FlavorViewController.keyboardWillChange(_:))
+//	static let dismissLanguageSelection = #selector(FlavorViewController.dismissLanguageSelection)
 
 }

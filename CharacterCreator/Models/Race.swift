@@ -88,4 +88,16 @@ struct Race {
 	func name() -> String {
 		return "\(subrace?.capitalized ?? "") \(parentRace.capitalized)".trimmingCharacters(in: .whitespaces)
 	}
+
+	func languages() -> [LanguageRecord] {
+		guard let raceDict = raceData[parentRace] as? [String : Any],
+			let languages = raceDict["languages"] as? [String] else { return [LanguageRecord]()}
+
+		var result = [LanguageRecord]()
+		for language in languages {
+			if let record = LanguageRecord.record(forName: language) {
+				result.append( record )
+			}}
+		return result
+	}
 }

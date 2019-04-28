@@ -22,6 +22,11 @@ class SocialDetailView: XibView {
 	var dataSource = ["Common", "Giant", "Abyssal", "Gnomish", "Celestial"]
 	var presentationDelegate: LanguagePresentationDelegate?
 
+	let availableSelections = Character.default.languages
+	lazy var languageSelectionsRemaining: Int = {
+
+	}()
+
 
 	override func config() {
 		pickerView.delegate 	= self
@@ -80,6 +85,7 @@ class SocialDetailView: XibView {
 	}
 
 	@IBAction func addLaguage(_ sender: UIButton) {
+		presentationDelegate?.presentLanguageSelection()
 	}
 
 	func removeLanguage(atIndex index: Int) {

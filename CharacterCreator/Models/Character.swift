@@ -21,7 +21,8 @@ class Character {
 	var spellBook: [Spell]		= [Spell]()
 
 	var flavorText: FlavorText  = FlavorText()
-	var languages: [String] = [String]()
+//	var languages: [String] = [String]()
+	var languages = ( innate: [LanguageRecord](), selected: [LanguageRecord]())
 
 
 	func proficiencyChoiceCount() -> Int {
@@ -79,7 +80,8 @@ class Character {
 		self.proficiencies	= ["arcana", "history"]
 //		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
 //								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
-		self.languages		= ["Common", "Elvan"]
+		self.languages		= (innate: [LanguageRecord.record(forName: "common")!, LanguageRecord.record(forName: "elven")!],
+								 selected: [LanguageRecord]())
 	}
 
 	init(race: Race, class: Class) {

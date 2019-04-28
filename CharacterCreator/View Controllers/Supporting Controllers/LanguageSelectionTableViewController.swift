@@ -13,11 +13,36 @@ class LanguageSelectionTableViewController: UITableViewController {
 	var languages = [(sectionTitle: "common", 	languageData: [LanguageSelectionData]()),
 					 (sectionTitle: "rare",		languageData: [LanguageSelectionData]())]
 
+	var selectionsRemaining: Int? {
+		didSet {
+			updateNav()				}}
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		configureNav()
+
+		registerCells()
 		populateData()
     }
+
+	private func configureNav() {
+		guard let _ = navigationController  else { return }
+			let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: .dismissLanguageSelection)
+			navigationItem.rightBarButtonItem = backButton
+
+			updateNav()
+//			switch dataType {
+//			case .ClassFeature: 		navigationItem.title 	= "\(target!.path.capitalized) Features"
+//			case .Spellbook: 			navigationItem.title 	= "Spellbook"
+	}
+
+	private func updateNav() {
+		navigationItem.title	= "Choose \(selectionsRemaining) more"
+	}
+	@objc func dismissLanguageSelection() {
+		dismiss(animated: true, completion: nil)
+	}
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -53,6 +78,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 			return languages
 		}
 		let learnedLanguages = raceLearnedLanguages + backgroundLearnedLanguages
+		let selectedLanguages = Character.default.languages.selected
 		var selections: Int = learnedLanguages.filter{ $0 == "choice" }.count
 
 
@@ -65,6 +91,9 @@ class LanguageSelectionTableViewController: UITableViewController {
 					}
 					if backgroundLearnedLanguages.contains(where: { $0 == language.name }) {
 						return "background"
+					}
+					if selectedLanguages.contains(where: { $0.name == language.name}) {
+						return "selected"
 					}
 				}
 				return nil
@@ -99,7 +128,8 @@ class LanguageSelectionTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LanguageCell", for: indexPath)
-		let languageRecord = languages[indexPath.section].languageData[indexPath.row].language
+		let languageData = languages[indexPath.section].languageData[indexPath.row]
+		let languageRecord = languageData.language
 		let detailText: String = {
 			var result = "Often spoken by \(languageRecord.spokenBy.lowercased())"
 
@@ -108,14 +138,25 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			return result
 		}()
+		print(detailText)
+		cell.selectionStyle	= .default
 
 		cell.detailTextLabel?.numberOfLines	= 0
 
-		cell.textLabel?.text 		= languageRecord.name
+		cell.textLabel?.text 		= languageRecord.name.capitalized
 		cell.detailTextLabel?.text	= detailText
+
+		if !languageData.isSelectable {
+			cell.selectionStyle = .none
+			cell.textLabel?.textColor	= .lightGray
+			cell.backgroundColor		= .darkGray
+		}
 
         return cell
     }
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+	}
 
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableView.automaticDimension
@@ -132,6 +173,10 @@ class LanguageSelectionTableViewController: UITableViewController {
 		}
 	}
 
+	private func registerCells() {
+		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LanguageCell")
+	}
+
     /*
     // MARK: - Navigation
 
@@ -141,6 +186,11 @@ class LanguageSelectionTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+fileprivate extension Selector {
+	static let dismissLanguageSelection = #selector(LanguageSelectionTableViewController.dismissLanguageSelection)
+
 }
 
 //fileprivate enum LanguageDataKey: String {
