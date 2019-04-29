@@ -100,4 +100,21 @@ struct Race {
 			}}
 		return result
 	}
+
+	func description() -> String {
+		var result: String = ""
+		guard let raceDict = raceData[parentRace] as? [String : Any],
+			let raceDescription = raceDict["description"] as? String else { return result }
+
+		result = raceDescription
+
+		if let subrace = subrace,
+			let subraceDict = raceDict["subraces"] as? [String : Any ],
+			let subraceName = subraceDict[subrace] as? [String : Any ],
+			let subraceDescription = subraceName["description"] as? String
+		{
+			result += "\n\n\(subraceDescription)"
+		}
+		return result
+	}
 }

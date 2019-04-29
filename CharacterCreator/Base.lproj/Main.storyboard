@@ -702,37 +702,49 @@
                                             <outlet property="nameLabel" destination="PEw-fx-oTc" id="PLm-9G-dQQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RaceCell" textLabel="ZaH-Pd-660" detailTextLabel="TSD-Dh-uMr" imageView="WG4-zY-y2G" rowHeight="100" style="IBUITableViewCellStyleSubtitle" id="PGU-T2-LO6" customClass="RaceReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RaceCell" rowHeight="100" id="PGU-T2-LO6" customClass="RaceReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="128" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PGU-T2-LO6" id="jku-17-Azs">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Race Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZaH-Pd-660">
-                                                    <rect key="frame" x="130" y="30" width="87.666666666666671" height="20.333333333333332"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Race Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-Cm-PKT">
+                                                    <rect key="frame" x="96" y="19" width="256" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Race Details" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TSD-Dh-uMr">
-                                                    <rect key="frame" x="130" y="53.333333333333329" width="70.333333333333329" height="14.333333333333334"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Race Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTE-UP-yEg">
+                                                    <rect key="frame" x="96" y="48" width="256" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="elf" id="WG4-zY-y2G">
-                                                    <rect key="frame" x="15" y="0.0" width="100" height="99.666666666666671"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank" translatesAutoresizingMaskIntoConstraints="NO" id="qcm-en-dVL">
+                                                    <rect key="frame" x="8" y="8" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="aaO-2L-70U"/>
+                                                        <constraint firstAttribute="height" constant="80" id="eHO-Qe-udy"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fTE-UP-yEg" firstAttribute="top" secondItem="bmM-Cm-PKT" secondAttribute="bottom" constant="8" id="19P-nm-tQt"/>
+                                                <constraint firstItem="bmM-Cm-PKT" firstAttribute="top" secondItem="jku-17-Azs" secondAttribute="topMargin" constant="8" id="3Hp-Mg-oA6"/>
+                                                <constraint firstItem="qcm-en-dVL" firstAttribute="top" secondItem="jku-17-Azs" secondAttribute="top" constant="8" id="FEs-Pe-k12"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fTE-UP-yEg" secondAttribute="bottom" constant="8" id="MdK-KS-ZGu"/>
+                                                <constraint firstItem="fTE-UP-yEg" firstAttribute="leading" secondItem="qcm-en-dVL" secondAttribute="trailing" constant="8" id="NJQ-C1-N1A"/>
+                                                <constraint firstItem="qcm-en-dVL" firstAttribute="leading" secondItem="jku-17-Azs" secondAttribute="leading" constant="8" id="aCp-J6-eOf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bmM-Cm-PKT" secondAttribute="trailing" constant="8" id="h27-OR-HnL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fTE-UP-yEg" secondAttribute="trailing" constant="8" id="pPO-P3-Lg2"/>
+                                                <constraint firstItem="bmM-Cm-PKT" firstAttribute="leading" secondItem="qcm-en-dVL" secondAttribute="trailing" constant="8" id="ppY-Tt-x4t"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="detailLabel" destination="TSD-Dh-uMr" id="vhs-x3-uAe"/>
-                                            <outlet property="nameLabel" destination="ZaH-Pd-660" id="aFc-th-Hib"/>
-                                            <outlet property="raceImageView" destination="WG4-zY-y2G" id="Ped-jY-ebG"/>
+                                            <outlet property="detailLabel" destination="fTE-UP-yEg" id="85b-4H-kPq"/>
+                                            <outlet property="nameLabel" destination="bmM-Cm-PKT" id="4Hk-2Z-DUV"/>
+                                            <outlet property="raceImageView" destination="qcm-en-dVL" id="6DE-3l-ZwY"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassCell" rowHeight="111" id="JYg-md-qeW" customClass="ClassReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
@@ -1551,8 +1563,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="blank" width="720" height="720"/>
         <image name="cleric" width="700" height="700"/>
-        <image name="elf" width="700" height="700"/>
         <image name="sage" width="256" height="256"/>
     </resources>
 </document>

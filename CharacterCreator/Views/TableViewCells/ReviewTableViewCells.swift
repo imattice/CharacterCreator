@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IdentityReviewTableViewCell: UITableViewCell, Configurable {
+class IdentityReviewTableViewCell: UITableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var ageLabel: UILabel!
 	@IBOutlet weak var alignmentLabel: UILabel!
@@ -19,7 +19,7 @@ class IdentityReviewTableViewCell: UITableViewCell, Configurable {
 		alignmentLabel.text 	= Character.default.flavorText.alignment
 	}
 }
-class RaceReviewTableViewCell: UITableViewCell, Configurable {
+class RaceReviewTableViewCell: UITableViewCell {
 	@IBOutlet weak var raceImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var detailLabel: UILabel!
@@ -27,7 +27,7 @@ class RaceReviewTableViewCell: UITableViewCell, Configurable {
 	func config() {
 		raceImageView.image = UIImage(named: Character.default.race.parentRace)
 		nameLabel.text		= Character.default.race.name()
-		detailLabel.text	= Character.default.race.modifierString()
+		detailLabel.text	= Character.default.race.description()
 	}
 }
 class ClassReviewTableViewCell: UITableViewCell {
@@ -166,7 +166,7 @@ class SkillReviewTableViewCell: UITableViewCell {
 	}
 }
 
-class InventoryReviewTableViewCell: UITableViewCell, Configurable {
+class InventoryReviewTableViewCell: UITableViewCell {
 	@IBOutlet weak var leftColumnLabel: UILabel!
 	@IBOutlet weak var rightColumnLabel: UILabel!
 
@@ -187,9 +187,9 @@ class InventoryReviewTableViewCell: UITableViewCell, Configurable {
 	}
 }
 
-protocol Configurable {
-	func config()
-}
+//protocol Configurable {
+//	func config()
+//}
 
 //class IdentityTableViewCell: UITableViewCell {
 //
