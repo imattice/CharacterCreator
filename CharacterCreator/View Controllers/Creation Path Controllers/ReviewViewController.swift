@@ -86,15 +86,12 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		guard let cell = tableView.cellForRow(at: indexPath) as? RaceReviewTableViewCell else { return }//ReviewTableViewCell else { return }
+		guard let cell = tableView.cellForRow(at: indexPath) as? ReviewTableViewCell else { return }
 		let data = tableData[indexPath.row]
-		print("old number of lines: \(cell.detailLabel.numberOfLines)")
 
 		cell.tapped(data.isOpen)
 		tableData[indexPath.row].isOpen = !data.isOpen
 		tableView.reloadRows(at: [indexPath], with: .fade)
-
-		print("new number of lines: \(cell.detailLabel.numberOfLines)")
 
 //		tableView.reloadData()
 	}

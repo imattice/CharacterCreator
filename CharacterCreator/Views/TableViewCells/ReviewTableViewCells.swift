@@ -38,31 +38,35 @@ class RaceReviewTableViewCell: ReviewTableViewCell {
 
 	override func tapped(_ isOpen: Bool) {
 		print("is Open: \(isOpen)")
-//		print("old number of lines: \(detailLabel.numberOfLines)")
-
 		if isOpen == false {
 			detailLabel.numberOfLines = 0		}
 		else {
 			detailLabel.numberOfLines = 2		}
-
-//		print("new number of lines: \(detailLabel.numberOfLines)")
 	}
 }
-class ClassReviewTableViewCell: UITableViewCell {
+class ClassReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var classImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
-//	@IBOutlet weak var detailLabel: UILabel!
-	@IBOutlet weak var detailTextView: UITextView!
+	@IBOutlet weak var detailLabel: UILabel!
+//	@IBOutlet weak var detailTextView: UITextView!
 
 	func config() {
 		classImageView.image	= UIImage(named: Character.default.class.base)
 
-		let pathRect = CGRect(x: 0, y: 0, width: classImageView.frame.width + 5, height: classImageView.frame.height / 2 + 5)
-		let exclusionPath = UIBezierPath(rect: pathRect)
-		detailTextView.textContainer.exclusionPaths = [exclusionPath]
+//		let pathRect = CGRect(x: 0, y: 0, width: classImageView.frame.width + 5, height: classImageView.frame.height / 2 + 5)
+//		let exclusionPath = UIBezierPath(rect: pathRect)
+//		detailTextView.textContainer.exclusionPaths = [exclusionPath]
 
 		nameLabel.text			= Character.default.class.name()
-		detailTextView.text		= "\(Character.default.class.baseDescription())\n\n\(Character.default.class.pathDescription())"
+		detailLabel.text		= "\(Character.default.class.baseDescription())\n\n\(Character.default.class.pathDescription())"
+	}
+
+	override func tapped(_ isOpen: Bool) {
+		print("is Open: \(isOpen)")
+		if isOpen == false {
+			detailLabel.numberOfLines = 0		}
+		else {
+			detailLabel.numberOfLines = 2		}
 	}
 }
 class StatReviewTableViewCell: UITableViewCell {
