@@ -12,7 +12,7 @@ class ReviewViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 
 	var tableData = [TableData]()
-	
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,21 +24,15 @@ class ReviewViewController: UIViewController {
 
 	private func loadTableData() {
 
-		//name cell data
-		let identityData = TableData(cellType: "identity", title: Character.default.flavorText.name,
-									 attributes: ["age": Character.default.flavorText.age,
-												  "alignment": Character.default.flavorText.alignment])
-		tableData.append(identityData)
+		for _ in 0...7 {
+			let data = TableData(isOpen: false)
 
-
-
+			tableData.append(data)
+		}
 	}
 
-
 	struct TableData {
-		let cellType: String
-		let title: String
-		let attributes: [String : String]
+		var isOpen: Bool
 	}
 
 	@IBAction func printButtonTapped(_ sender: UITapGestureRecognizer) {
@@ -89,5 +83,19 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 		default:
 			return UITableViewCell()
 		}
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		guard let cell = tableView.cellForRow(at: indexPath) as? RaceReviewTableViewCell else { return }//ReviewTableViewCell else { return }
+		let data = tableData[indexPath.row]
+		print("old number of lines: \(cell.detailLabel.numberOfLines)")
+
+		cell.tapped(data.isOpen)
+		tableData[indexPath.row].isOpen = !data.isOpen
+		tableView.reloadRows(at: [indexPath], with: .fade)
+
+		print("new number of lines: \(cell.detailLabel.numberOfLines)")
+
+//		tableView.reloadData()
 	}
 }

@@ -8,6 +8,12 @@
 
 import UIKit
 
+class ReviewTableViewCell: UITableViewCell {
+	func tapped(_ isOpen: Bool) {
+
+	}
+}
+
 class IdentityReviewTableViewCell: UITableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var ageLabel: UILabel!
@@ -19,7 +25,7 @@ class IdentityReviewTableViewCell: UITableViewCell {
 		alignmentLabel.text 	= Character.default.flavorText.alignment
 	}
 }
-class RaceReviewTableViewCell: UITableViewCell {
+class RaceReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var raceImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var detailLabel: UILabel!
@@ -28,6 +34,18 @@ class RaceReviewTableViewCell: UITableViewCell {
 		raceImageView.image = UIImage(named: Character.default.race.parentRace)
 		nameLabel.text		= Character.default.race.name()
 		detailLabel.text	= Character.default.race.description()
+	}
+
+	override func tapped(_ isOpen: Bool) {
+		print("is Open: \(isOpen)")
+//		print("old number of lines: \(detailLabel.numberOfLines)")
+
+		if isOpen == false {
+			detailLabel.numberOfLines = 0		}
+		else {
+			detailLabel.numberOfLines = 2		}
+
+//		print("new number of lines: \(detailLabel.numberOfLines)")
 	}
 }
 class ClassReviewTableViewCell: UITableViewCell {
