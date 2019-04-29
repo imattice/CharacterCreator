@@ -24,6 +24,7 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 	let availableSelections = Character.default.languages.innate.filter( { $0.name == "choice" }).count
 	var selectedLanguages: [LanguageRecord] = [LanguageRecord]() {
 		didSet {
+			Character.default.languages.selected = selectedLanguages
 			updateButton()
 			collectionView.reloadData()	}}
 	var dataSource: [LanguageRecord] {
