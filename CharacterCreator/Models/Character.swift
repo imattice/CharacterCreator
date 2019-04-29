@@ -78,10 +78,23 @@ class Character {
 								 Item("spellbook"),
 								 Item("a bottle of black ink"), Item("a quill"), Item("a small knife"), Item("a inquisitive letter")]
 		self.proficiencies	= ["arcana", "history"]
-//		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
-//								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
+		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
+								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
 		self.languages		= (innate: (Race(fromParent: "elf", withSubrace: "high")!.languages() + Background("sage").languages()),
 								 selected: [LanguageRecord]())
+		self.flavorText		= FlavorText(name: "Alpheon the Chronicler",
+											age: "138",
+											alignment: "Lawful Good",
+											personality: "Alpheon is a nervous librarian from Mount Celestia, tasked with the job of following adventuerers and recording their heroic deeds for the history books.",
+											gender: "male",
+											clothing: "",
+											appearance: "Wearing scholar's robes and carrying a load of books and quills, Alpheon often looks a bit scattered as important pages often find their way to the floor around him",
+											ideals: "Knowledge: The path to power and self-improvement is through knowledge.",
+											bonds: "I work to preserve a library, university, scriptorium, or monastery.",
+											flaws: "Unlocking an ancient mystery is worth the price of a civilization.",
+											relationships: "Alpheon is believes in his work whole-heartedly and is very attached to the library he works at",
+											backstory: "Alpheon has studied for years at the Celestia library and is finally tasked with his first duty: locate a party that is due for an adventure and record their achievements and failures",
+											image: UIImage(named: "elf"))
 	}
 
 	init(race: Race, class: Class) {

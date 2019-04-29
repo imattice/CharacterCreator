@@ -411,9 +411,9 @@
 				81BC72A720F0813700B48195 /* SpellTableViewCell.xib */,
 				81FC7CF821078F9100BBDDD7 /* BackgroundSelectionTableViewCell.swift */,
 				81FC7CFA21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib */,
-				81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */,
 				81F84969218A9A6D00280D8C /* ItemSelectionTableViewCell.swift */,
 				81F8496A218A9A6D00280D8C /* ItemSelectionTableViewCell.xib */,
+				81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";

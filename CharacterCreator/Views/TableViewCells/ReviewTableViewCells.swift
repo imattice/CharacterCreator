@@ -14,8 +14,8 @@ class IdentityReviewTableViewCell: UITableViewCell, Configurable {
 	@IBOutlet weak var alignmentLabel: UILabel!
 
 	func config() {
-		nameLabel.text 			= Character.current.flavorText.name
-		ageLabel.text			= "\(Character.current.flavorText.age) years old"
+		nameLabel.text 			= Character.default.flavorText.name
+		ageLabel.text			= "\(Character.default.flavorText.age) years old"
 		alignmentLabel.text 	= Character.default.flavorText.alignment
 	}
 }
