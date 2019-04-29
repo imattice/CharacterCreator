@@ -22,7 +22,7 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 	var presentationDelegate: LanguagePresentationDelegate?
 
 	let availableSelections = Character.default.languages.innate.filter( { $0.name == "choice" }).count
-	var selectedLanguages = [LanguageRecord]() {
+	var selectedLanguages: [LanguageRecord] = [.Common, .Abyssal, .Gnomish] { //[LanguageRecord]() {
 		didSet {
 			collectionView.reloadData()	}}
 	var dataSource: [LanguageRecord] {
@@ -89,29 +89,32 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 		presentationDelegate?.presentLanguageSelection(withSelections: availableSelections)
 	}
 	func removeLanguage(atIndex index: Int) {
-		let removeIndex = Character.default.languages.innate.filter( { $0.name != "choice" }).count - index
+//		let removeIndex = Character.default.languages.innate.filter( { $0.name != "choice" }).count - index
 		selectedLanguages.remove(at: index )
 	}
 }
 
 extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue, for: indexPath) as! LanguageLabelCollectionViewCell
 		let data = dataSource[indexPath.row]
-		cell.titleLabel.text	= data.name
 
 		if Character.default.languages.innate.contains(where: { $0.name == data.name }) {
-			cell.xButton.isHidden = true
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.StaticLanguageLabel.rawValue, for: indexPath) as! StaticLanguageLabelCollectionViewCell
+				cell.titleLabel.text	= data.name
+				cell.titleLabel.sizeToFit()
+			return cell
 		}
-
-			cell.titleLabel.sizeToFit()
-		return cell
+		else {
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.RemoveableLanguageLabel.rawValue, for: indexPath) as! RemoveableLanguageLabelCollectionViewCell
+				cell.titleLabel.text	= data.name
+				cell.titleLabel.sizeToFit()
+			return cell
+		}
 	}
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let removeIndex = indexPath.row - Character.default.languages.innate.filter( { $0.name != "choice" }).count
 		let data = dataSource[indexPath.row]
 		if !Character.default.languages.innate.contains { $0.name == data.name } {
-
 			removeLanguage(atIndex: removeIndex)
 		}
 
@@ -137,7 +140,13 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 		return CGSize(width: label.frame.width + margins, height: 30)
 	}
 	private func registerCells() {
-		collectionView.register(UINib(nibName: String(describing: LanguageLabelCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: CellIdentifier.LanguageLabelCell.rawValue)
+		collectionView.register(UINib(nibName: String(describing: StaticLanguageLabelCollectionViewCell.self), bundle: nil),
+								forCellWithReuseIdentifier: CellIdentifier.StaticLanguageLabel.rawValue)
+		collectionView.register(UINib(nibName: String(describing: RemoveableLanguageLabelCollectionViewCell.self), bundle: nil),
+								forCellWithReuseIdentifier: CellIdentifier.RemoveableLanguageLabel.rawValue)
+//		collectionView.register(StaticLanguageLabelCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifier.StaticLanguageLabel.rawValue)
+//		collectionView.register(RemoveableLanguageLabelCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifier.RemoveableLanguageLabel.rawValue)
+
 	}
 
 	struct CollectionViewData {
@@ -229,7 +238,7 @@ fileprivate extension Selector {
 }
 
 fileprivate enum CellIdentifier: String {
-	case LanguageLabelCell
+	case LanguageLabelCell, StaticLanguageLabel, RemoveableLanguageLabel
 }
 
 fileprivate var alignments = [
