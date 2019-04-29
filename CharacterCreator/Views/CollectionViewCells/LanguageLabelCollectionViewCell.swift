@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class RemoveableLanguageLabelCollectionViewCell: UICollectionViewCell {
+class RemoveableLanguageLabelCollectionViewCell: LanguageLabelCollectioViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var xButton: UILabel!
 	
@@ -19,39 +19,38 @@ class RemoveableLanguageLabelCollectionViewCell: UICollectionViewCell {
     }
 }
 
-
-class StaticLanguageLabelCollectionViewCell: UICollectionViewCell {
+@IBDesignable
+class StaticLanguageLabelCollectionViewCell: LanguageLabelCollectioViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		// Initialization code
 	}
-//	override init(frame: CGRect) {
-//		super.init(frame: frame)
-//
-//		config()
-//	}
-//	required init?(coder aDecoder: NSCoder) {
-//		super.init(coder: aDecoder)
-//
-//		config()
-//	}
-//
-//	func config() {
-//		backgroundColor = .blue
-//
-//		layoutViews()
-//	}
-//
-//	func layoutViews() {
-//		contentView.addSubview(titleLabel)
-//
-//		titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//		let horizontal = NSLayoutConstraint.constraints(withVisualFormat: "H:|-8-[titleLabel]-8-|",
-//									   options: .alignAllCenterY, metrics: nil,
-//									   views: ["superview" : self, "titleLabel" : titleLabel])
-//
-//		addConstraints(horizontal)
-//	}
+}
+
+@IBDesignable
+class LanguageLabelCollectioViewCell: UICollectionViewCell {
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+
+		config()
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+
+		config()
+	}
+
+	func config() {
+		style()
+	}
+
+	func style() {
+		backgroundColor		= Character.default.class.color().lightColor()
+		layer.borderColor	= Character.default.class.color().darkColor().cgColor
+		layer.borderWidth	= 2
+		layer.cornerRadius	= 8
+	}
 }
