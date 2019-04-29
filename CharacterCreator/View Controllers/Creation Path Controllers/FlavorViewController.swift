@@ -28,8 +28,9 @@ class FlavorViewController: UIViewController {
         super.viewDidLoad()
 
 		for view in flavorViews {
-		view.layer.borderColor 	= UIColor.black.cgColor
-		view.layer.borderWidth	= 3
+			view.layer.borderColor 	= UIColor.black.cgColor
+			view.layer.borderWidth	= 3
+			view.backgroundColor	= .lightGray
 		}
 //		configureViews()
 

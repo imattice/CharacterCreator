@@ -151,13 +151,21 @@ class LanguageSelectionTableViewController: UITableViewController {
 		if !languageData.isSelectable {
 			cell.selectionStyle = .none
 			cell.textLabel?.textColor	= .lightGray
-			cell.backgroundColor		= .darkGray
+			cell.backgroundColor		= Character.default.class!.color().lightColor()
 		}
 
         return cell
     }
+	override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+		guard selectionsRemaining != nil else { return true }
+		if selectionsRemaining! <= 0 && !tableView.cellForRow(at: indexPath)!.isSelected { return false }
+		return true
+
+	}
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		guard selectionsRemaining != nil else { return }
+		if selectionsRemaining! <= 0 { return }
+
 		if selectionsRemaining! > 0 {
 			selectionsRemaining! -= 1
 		}
@@ -166,8 +174,10 @@ class LanguageSelectionTableViewController: UITableViewController {
 		selectedLanguages.append(data)
 //		Character.default.languages.selected.append(data)
 	}
+
 	override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 		guard selectionsRemaining != nil else { return }
+
 		if selectionsRemaining! < availableSelections {
 			selectionsRemaining! += 1
 		}
