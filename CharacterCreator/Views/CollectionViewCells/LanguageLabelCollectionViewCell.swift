@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class RemoveableLanguageLabelCollectionViewCell: LanguageLabelCollectioViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var xButton: UILabel!
@@ -19,7 +19,7 @@ class RemoveableLanguageLabelCollectionViewCell: LanguageLabelCollectioViewCell 
     }
 }
 
-@IBDesignable
+//@IBDesignable
 class StaticLanguageLabelCollectionViewCell: LanguageLabelCollectioViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 
@@ -29,7 +29,7 @@ class StaticLanguageLabelCollectionViewCell: LanguageLabelCollectioViewCell {
 	}
 }
 
-@IBDesignable
+//@IBDesignable
 class LanguageLabelCollectioViewCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)

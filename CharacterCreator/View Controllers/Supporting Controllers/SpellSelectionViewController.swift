@@ -73,7 +73,7 @@ class SpellSelectionViewController: UIViewController, SpellDetailDelegate {
 	}
 	func removeFromSpellbook(_ spell: Spell) {
 		//ensure the spell is in the spellbook before removing it
-		guard let index = Character.default.spellBook.index(where: { $0.name == spell.name })
+		guard let index = Character.default.spellBook.firstIndex(where: { $0.name == spell.name })
 			else { print("\(spell.name) not in spellbook"); return }
 
 		//remove from character spellbook

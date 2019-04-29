@@ -9,11 +9,11 @@
 import UIKit
 import AlignedCollectionViewFlowLayout
 
-@IBDesignable
+//@IBDesignable
 class SocialDetailView: XibView, LanguageSelectionDelegate {
 	@IBOutlet weak var alignmentTextFieldView: TextFieldView!
 //	@IBOutlet weak var languagesStackView: UIStackView!
-	@IBOutlet weak var addLanguageBuggon: UIButton!
+	@IBOutlet weak var addLanguageButton: UIButton!
 	@IBOutlet weak var relationshipsTextAreaView: TextAreaView!
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
@@ -28,7 +28,6 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 			collectionView.reloadData()	}}
 	var dataSource: [LanguageRecord] {
 		return Character.default.languages.innate.filter( { $0.name != "choice" }) + selectedLanguages }
-
 
 
 	override func config() {
@@ -96,12 +95,12 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 	func updateButton() {
 		if availableSelections <= selectedLanguages.count {
 			UIView.animate(withDuration: 0.25) {
-				self.addLanguageBuggon.transform	= CGAffineTransform(rotationAngle: 45°)
-				self.addLanguageBuggon.isEnabled = false		}}
+				self.addLanguageButton.transform	= CGAffineTransform(rotationAngle: 45°)
+				self.addLanguageButton.isEnabled = false		}}
 		else {
 			UIView.animate(withDuration: 0.25) {
-				self.addLanguageBuggon.transform	= CGAffineTransform(rotationAngle: 0°)
-				self.addLanguageBuggon.isEnabled = true		}}
+				self.addLanguageButton.transform	= CGAffineTransform(rotationAngle: 0°)
+				self.addLanguageButton.isEnabled = true		}}
 	}
 }
 

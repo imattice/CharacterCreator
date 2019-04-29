@@ -24,14 +24,14 @@ class DropdownTableViewCell: UITableViewCell {
 		titleLabel.constraints.filter({ $0.identifier == "leading" }).first?.isActive = false
 		descriptionLabel.constraints.filter({ $0.identifier == "leading" }).first?.isActive = false
 
-		NSLayoutConstraint(item: descriptionLabel,
+		NSLayoutConstraint(item: descriptionLabel as Any,
 						   attribute: .leading,
 						   relatedBy: .equal,
 						   toItem: contentView,
 						   attribute: .leading,
 						   multiplier: 1,
 						   constant: 80).isActive = true
-		NSLayoutConstraint(item: titleLabel,
+		NSLayoutConstraint(item: titleLabel as Any,
 						   attribute: .leading,
 						   relatedBy: .equal,
 						   toItem: contentView,

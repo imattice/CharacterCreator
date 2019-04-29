@@ -550,12 +550,12 @@
 					};
 					8123672320CA44DD00F7AEFC = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 8123670C20CA44DA00F7AEFC;
 					};
 					8123672E20CA44DD00F7AEFC = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 8123670C20CA44DA00F7AEFC;
 					};
 				};
@@ -1009,7 +1009,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CharacterCreator.app/CharacterCreator";
 			};
@@ -1031,7 +1031,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CharacterCreator.app/CharacterCreator";
 			};
@@ -1052,7 +1052,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CharacterCreator;
 			};
@@ -1073,7 +1073,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CharacterCreator;
 			};

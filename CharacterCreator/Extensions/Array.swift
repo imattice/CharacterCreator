@@ -25,16 +25,16 @@ extension Array where Element:Equatable {
 	}
 }
 
-extension Array where Element == String {
-	func columnList(_ columns: Int) -> String{
-		var result = ""
-		let columnLineCount = self.count / columns
-		var columnArray = [String]()
-
-		for index in 0...columns {
-
-		}
-
-		return result
-	}
-}
+//extension Array where Element == String {
+//	func columnList(_ columns: Int) -> String{
+//		var result = ""
+//		let columnLineCount = self.count / columns
+//		var columnArray = [String]()
+//
+//		for index in 0...columns {
+//
+//		}
+//
+//		return result
+//	}
+//}

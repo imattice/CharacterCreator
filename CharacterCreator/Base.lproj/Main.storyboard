@@ -540,34 +540,6 @@
             </objects>
             <point key="canvasLocation" x="4725.6000000000004" y="767.73399014778329"/>
         </scene>
-        <!--Language Selection Table View Controller-->
-        <scene sceneID="slk-Jj-OjT">
-            <objects>
-                <tableViewController id="LWd-Ad-5Cq" customClass="LanguageSelectionTableViewController" customModule="CharacterCreator" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pRF-CM-FYE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LanguageCell" id="roK-az-55B">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="roK-az-55B" id="gLd-en-ehF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="LWd-Ad-5Cq" id="trE-ta-MJk"/>
-                            <outlet property="delegate" destination="LWd-Ad-5Cq" id="z1c-7w-rWX"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vl9-hy-lmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6602" y="-169"/>
-        </scene>
         <!--FlavorDetail-->
         <scene sceneID="r2v-bH-YGi">
             <objects>
@@ -577,20 +549,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBF-Tk-bmc">
-                                <rect key="frame" x="0.0" y="44" width="375" height="684"/>
+                                <rect key="frame" x="0.0" y="44" width="0.0" height="684"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vj-WH-Dpf" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="1125" height="684"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="684"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4c-U5-Otd" customClass="BasicDetailView" customModule="CharacterCreator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="684"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="684"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="1125" id="LgM-ET-I9L"/>
+                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXT-68-MV3" userLabel="Personality Detail View" customClass="PersonalityDetailView" customModule="CharacterCreator" customModuleProvider="target">
-                                                <rect key="frame" x="375" y="0.0" width="375" height="684"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="684"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaK-Py-GS9" userLabel="Social Detail View" customClass="SocialDetailView" customModule="CharacterCreator" customModuleProvider="target">
-                                                <rect key="frame" x="750" y="0.0" width="375" height="684"/>
-                                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="684"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -618,7 +592,7 @@
                                 </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1W3-Sz-9a5">
-                                <rect key="frame" x="168" y="733" width="39" height="40"/>
+                                <rect key="frame" x="-19.666666666666629" y="733" width="39" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NoI-1j-oQ3"/>
                                 </constraints>
@@ -648,7 +622,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="basicDetailView" destination="v4c-U5-Otd" id="OLx-Yr-pBM"/>
                         <outlet property="pageControl" destination="1W3-Sz-9a5" id="Fzv-8s-fCJ"/>
@@ -663,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIy-W5-pty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6542" y="768"/>
+            <point key="canvasLocation" x="6554" y="768"/>
         </scene>
         <!--Complete!-->
         <scene sceneID="WKn-wD-GuD">

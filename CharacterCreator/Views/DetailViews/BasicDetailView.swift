@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class BasicDetailView: XibView {
 	@IBOutlet weak var imageSelectionView: ImageSelectionView!
 	@IBOutlet weak var nameTextFieldView: TextFieldView!
