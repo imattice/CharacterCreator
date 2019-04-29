@@ -183,7 +183,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 		}
 
 		let data = dataSource[indexPath.section].languageData[indexPath.row].language
-		guard let index = Character.default.languages.selected.firstIndex(where: { $0.name == data.name }) else { return }
+		guard let index = selectedLanguages.firstIndex(where: { $0.name == data.name }) else { return }
 		selectedLanguages.remove(at: index)
 //		Character.default.languages.selected.remove(at: index)
 	}

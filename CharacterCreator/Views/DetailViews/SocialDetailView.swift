@@ -22,8 +22,9 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 	var presentationDelegate: LanguagePresentationDelegate?
 
 	let availableSelections = Character.default.languages.innate.filter( { $0.name == "choice" }).count
-	var selectedLanguages: [LanguageRecord] = [.Common, .Abyssal, .Gnomish] { //[LanguageRecord]() {
+	var selectedLanguages: [LanguageRecord] = [LanguageRecord]() {
 		didSet {
+			updateButton()
 			collectionView.reloadData()	}}
 	var dataSource: [LanguageRecord] {
 		return Character.default.languages.innate.filter( { $0.name != "choice" }) + selectedLanguages }
@@ -91,6 +92,16 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 	func removeLanguage(atIndex index: Int) {
 //		let removeIndex = Character.default.languages.innate.filter( { $0.name != "choice" }).count - index
 		selectedLanguages.remove(at: index )
+	}
+	func updateButton() {
+		if availableSelections <= selectedLanguages.count {
+			UIView.animate(withDuration: 0.25) {
+				self.addLanguageBuggon.transform	= CGAffineTransform(rotationAngle: 45°)
+				self.addLanguageBuggon.isEnabled = false		}}
+		else {
+			UIView.animate(withDuration: 0.25) {
+				self.addLanguageBuggon.transform	= CGAffineTransform(rotationAngle: 0°)
+				self.addLanguageBuggon.isEnabled = true		}}
 	}
 }
 
