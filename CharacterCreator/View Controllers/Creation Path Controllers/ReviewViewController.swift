@@ -61,19 +61,19 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 			cell.config()
 			return cell
 		case 3:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "StatCell") as! StatReviewTableViewCell
-				cell.config()
-			return cell
-		case 4:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell") as! SpellReviewTableViewCell
-				cell.config()
-			return cell
-		case 5:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "BackgroundCell") as! BackgroundReviewTableViewCell
 			cell.config()
 			return cell
-		case 6:
+		case 4:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "StatCell") as! StatReviewTableViewCell
+				cell.config()
+			return cell
+		case 5:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell") as! SkillReviewTableViewCell
+			cell.config()
+			return cell
+		case 6:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell") as! SpellReviewTableViewCell
 			cell.config()
 			return cell
 		case 7:

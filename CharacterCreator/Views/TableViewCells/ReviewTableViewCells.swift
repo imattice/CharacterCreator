@@ -48,15 +48,9 @@ class ClassReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var classImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var detailLabel: UILabel!
-//	@IBOutlet weak var detailTextView: UITextView!
 
 	func config() {
 		classImageView.image	= UIImage(named: Character.default.class.base)
-
-//		let pathRect = CGRect(x: 0, y: 0, width: classImageView.frame.width + 5, height: classImageView.frame.height / 2 + 5)
-//		let exclusionPath = UIBezierPath(rect: pathRect)
-//		detailTextView.textContainer.exclusionPaths = [exclusionPath]
-
 		nameLabel.text			= Character.default.class.name()
 		detailLabel.text		= "\(Character.default.class.baseDescription())\n\n\(Character.default.class.pathDescription())"
 	}
@@ -69,21 +63,62 @@ class ClassReviewTableViewCell: ReviewTableViewCell {
 			detailLabel.numberOfLines = 2		}
 	}
 }
-class StatReviewTableViewCell: UITableViewCell {
-	@IBOutlet weak var strLabel: UILabel!
-	@IBOutlet weak var conLabel: UILabel!
-	@IBOutlet weak var dexLabel: UILabel!
-	@IBOutlet weak var chaLabel: UILabel!
-	@IBOutlet weak var wisLabel: UILabel!
-	@IBOutlet weak var intLabel: UILabel!
+
+class BackgroundReviewTableViewCell: ReviewTableViewCell {
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var detailLabel: UILabel!
+	@IBOutlet weak var backgroundImageView: UIImageView!
 
 	func config() {
-		strLabel.text = String(Character.default.stats.str.value)
-		conLabel.text = String(Character.default.stats.con.value)
-		dexLabel.text = String(Character.default.stats.dex.value)
-		chaLabel.text = String(Character.default.stats.cha.value)
-		wisLabel.text = String(Character.default.stats.wis.value)
-		intLabel.text = String(Character.default.stats.int.value)
+		titleLabel.text = "\(Character.default.background!.name.capitalized) Background"
+		detailLabel.text = Character.default.background?.description()
+		backgroundImageView.image = UIImage(named: Character.default.background!.name)
+	}
+	override func tapped(_ isOpen: Bool) {
+		print("is Open: \(isOpen)")
+		if isOpen == false {
+			detailLabel.numberOfLines = 0		}
+		else {
+			detailLabel.numberOfLines = 2		}
+	}
+}
+
+class StatReviewTableViewCell: UITableViewCell {
+	@IBOutlet var statStacks: [StatStack]!
+	//	@IBOutlet weak var strLabel: UILabel!
+//	@IBOutlet weak var conLabel: UILabel!
+//	@IBOutlet weak var dexLabel: UILabel!
+//	@IBOutlet weak var chaLabel: UILabel!
+//	@IBOutlet weak var wisLabel: UILabel!
+//	@IBOutlet weak var intLabel: UILabel!
+
+//	func config() {
+//		strLabel.text = String(Character.default.stats.str.value)
+//		conLabel.text = String(Character.default.stats.con.value)
+//		dexLabel.text = String(Character.default.stats.dex.value)
+//		chaLabel.text = String(Character.default.stats.cha.value)
+//		wisLabel.text = String(Character.default.stats.wis.value)
+//		intLabel.text = String(Character.default.stats.int.value)
+//	}
+	func config() {
+		for statStack in statStacks {
+			statStack.config()
+		}
+	}
+}
+
+class StatStack: UIStackView {
+	@IBOutlet weak var modifierLabel: UILabel!
+	@IBOutlet weak var statLabel: UILabel!
+	@IBOutlet weak var titleLabel: UILabel!
+
+	func config() {
+		guard let text = titleLabel.text,
+			let statName = StatType(rawValue: text.lowercased()),
+			let stat = Character.default.stat(forName: statName) else { print("didn't work"); return }
+
+		modifierLabel.text	= String(stat.modifier())
+		statLabel.text		= String(stat.value)
 	}
 }
 
@@ -112,17 +147,7 @@ class SpellReviewTableViewCell: UITableViewCell {
 	}
 }
 
-class BackgroundReviewTableViewCell: UITableViewCell {
-	@IBOutlet weak var titleLabel: UILabel!
-	@IBOutlet weak var descriptionLabel: UILabel!
-	@IBOutlet weak var backgroundImageView: UIImageView!
 
-	func config() {
-		titleLabel.text = Character.default.background?.name.capitalized
-		descriptionLabel.text = Character.default.background?.description()
-		backgroundImageView.image = UIImage(named: Character.default.background!.name)
-	}
-}
 
 class SkillReviewTableViewCell: UITableViewCell {
 	@IBOutlet weak var athleticsLabel: UILabel!

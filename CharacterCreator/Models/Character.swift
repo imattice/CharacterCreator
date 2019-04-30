@@ -11,7 +11,7 @@ class Character {
 	var level: Int				= 1
 	var race: Race!
 	var `class`: Class! 		{ didSet { setGlobalTint() }}
-	var stats: StatBlock		= StatBlock()
+	var stats: [Stat]		= [Stat]() //StatBlock()
 	var background: Background? = nil
 	var items: [Item]			= [Item]()
 
@@ -34,7 +34,8 @@ class Character {
 	}
 
 	func skillModifier(for skill: Skill) -> Int {
-		var result = stats.stat(from: skill.stat()).modifier()
+		guard let stat = stat(forName: skill.stat()) else { return 0 }
+		var result = stat.modifier()
 
 		//if proficient, add the modifier
 		if proficiencies.contains(skill.rawValue) {
@@ -64,12 +65,12 @@ class Character {
 	private init(default: String) {
 		self.class 			= Class(fromString: "wizard", withPath: "school of evocation")!
 		self.race 			= Race(fromParent: "elf", withSubrace: "high")!
-		self.stats 			= StatBlock(   str: StatBlock.Stat(value: 8),
-										   con: StatBlock.Stat(value: 13),
-										   dex: StatBlock.Stat(value: 10),
-										   cha: StatBlock.Stat(value: 12),
-										   wis: StatBlock.Stat(value: 14),
-										   int: StatBlock.Stat(value: 15))
+		self.stats 			= [Stat(name: .str, value: 8),
+								  Stat(name: .con, value: 13),
+								  Stat(name: .dex, value: 10),
+								  Stat(name: .cha, value: 12),
+								  Stat(name: .wis, value: 14),
+								  Stat(name: .int, value: 15)]
 		self.background 	= Background("sage")
 		self.items			= [Item("quarterstaff"),
 								 Item("component pouch"),
@@ -106,9 +107,10 @@ class Character {
 		return 3
 	}
 	func totalSpellsKnown() -> Int {
-		guard let castingAttributes = self.class.castingAttributes else { return 0 }
+		guard let castingAttributes = self.class.castingAttributes,
+			let stat = stat(forName: castingAttributes.castingAbility) else { return 0 }
 
-		let abilityModifier = stats.stat(from: castingAttributes.castingAbility).modifier()
+		let abilityModifier = stat.modifier()
 		var result = abilityModifier + level
 
 		if result < 1 { result = 1 }
@@ -125,39 +127,52 @@ class Character {
 		let result = spellBook.filter({ $0.level == level })
 		return result.count
 	}
-
-
+	func stat(forName name: StatType) -> Stat? {
+		return self.stats.first(where: {$0.name == name })
+	}
 }
 
 
 //Structs
 extension Character {
-	struct StatBlock {
-		var str: Stat		= Stat(value: 0)
-		var con: Stat		= Stat(value: 0)
-		var dex: Stat		= Stat(value: 0)
-		var cha: Stat		= Stat(value: 0)
-		var wis: Stat		= Stat(value: 0)
-		var int: Stat		= Stat(value: 0)
+//	struct StatBlock {
+//		var str: Stat		= Stat(name: "str", value: 0)
+//		var con: Stat		= Stat(name: "con", value: 0)
+//		var dex: Stat		= Stat(name: "dex", value: 0)
+//		var cha: Stat		= Stat(name: "cha", value: 0)
+//		var wis: Stat		= Stat(name: "wis", value: 0)
+//		var int: Stat		= Stat(name: "int", value: 0)
+//
+//		func stat(from stat: StatType) -> Stat{
+//			switch stat {
+//			case .str: 		return self.str
+//			case .con:		return self.con
+//			case .dex:		return self.dex
+//			case .cha:		return self.cha
+//			case .int:		return self.int
+//			case .wis:		return self.wis
+//			}
+//		}
+//
+//		struct Stat {
+//			let name: String
+//			let value: Int
+//
+//			func modifier() -> Int {
+//				return value / 2 - 5
+//			}
+//		}
+//	}
 
-		func stat(from stat: StatType) -> Stat{
-			switch stat {
-			case .str: 		return self.str
-			case .con:		return self.con
-			case .dex:		return self.dex
-			case .cha:		return self.cha
-			case .int:		return self.int
-			case .wis:		return self.wis
-			}
+	struct Stat {
+		let name: StatType
+		let value: Int
+
+		func modifier() -> Int {
+			return value / 2 - 5
 		}
 
-		struct Stat {
-			let value: Int
-
-			func modifier() -> Int {
-				return value / 2 - 5
-			}
-		}
+//		static let str = Character.default.stats.first(where: {$0.name == "str"})
 	}
 
 	struct FlavorText {
