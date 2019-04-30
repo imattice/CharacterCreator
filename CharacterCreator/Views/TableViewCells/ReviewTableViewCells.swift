@@ -38,7 +38,7 @@ class RaceReviewTableViewCell: ReviewTableViewCell {
 
 	override func tapped(_ isOpen: Bool) {
 		print("is Open: \(isOpen)")
-		if isOpen == false {
+		if !isOpen {
 			detailLabel.numberOfLines = 0		}
 		else {
 			detailLabel.numberOfLines = 2		}
@@ -57,7 +57,7 @@ class ClassReviewTableViewCell: ReviewTableViewCell {
 
 	override func tapped(_ isOpen: Bool) {
 		print("is Open: \(isOpen)")
-		if isOpen == false {
+		if !isOpen {
 			detailLabel.numberOfLines = 0		}
 		else {
 			detailLabel.numberOfLines = 2		}
@@ -83,27 +83,28 @@ class BackgroundReviewTableViewCell: ReviewTableViewCell {
 	}
 }
 
-class StatReviewTableViewCell: UITableViewCell {
+class StatReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet var statStacks: [StatStack]!
-	//	@IBOutlet weak var strLabel: UILabel!
-//	@IBOutlet weak var conLabel: UILabel!
-//	@IBOutlet weak var dexLabel: UILabel!
-//	@IBOutlet weak var chaLabel: UILabel!
-//	@IBOutlet weak var wisLabel: UILabel!
-//	@IBOutlet weak var intLabel: UILabel!
+	@IBOutlet weak var modifierLabelStack: UIStackView!
 
-//	func config() {
-//		strLabel.text = String(Character.default.stats.str.value)
-//		conLabel.text = String(Character.default.stats.con.value)
-//		dexLabel.text = String(Character.default.stats.dex.value)
-//		chaLabel.text = String(Character.default.stats.cha.value)
-//		wisLabel.text = String(Character.default.stats.wis.value)
-//		intLabel.text = String(Character.default.stats.int.value)
-//	}
 	func config() {
 		for statStack in statStacks {
 			statStack.config()
 		}
+//		modifierLabelStack.isHidden	= true
+	}
+
+	override func tapped(_ isOpen: Bool) {
+			for statStack in statStacks {
+				statStack.statLabel.isHidden		= isOpen ? true		: false
+
+				statStack.rawLabel.isHidden			= isOpen ? false 	: true
+				statStack.racialBonusLabel.isHidden	= isOpen ? false 	: true
+				statStack.otherBonusLabel.isHidden	= isOpen ? false 	: true
+				statStack.totalLabel.isHidden		= isOpen ? false 	: true
+			}
+
+			modifierLabelStack.isHidden				= isOpen ? false	: true
 	}
 }
 
@@ -111,14 +112,31 @@ class StatStack: UIStackView {
 	@IBOutlet weak var modifierLabel: UILabel!
 	@IBOutlet weak var statLabel: UILabel!
 	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var rawLabel: UILabel!
+	@IBOutlet weak var racialBonusLabel: UILabel!
+	@IBOutlet weak var otherBonusLabel: UILabel!
+	@IBOutlet weak var totalLabel: UILabel!
 
 	func config() {
 		guard let text = titleLabel.text,
 			let statName = StatType(rawValue: text.lowercased()),
-			let stat = Character.default.stat(forName: statName) else { print("didn't work"); return }
+			let stat = Character.default.stat(forName: statName)	else { print("didn't work"); return }
+
 
 		modifierLabel.text	= stat.modifier > 0 ? "+\(stat.modifier)" : String(stat.modifier)
 		statLabel.text		= String(stat.modifiedValue)
+
+		//expanded labels
+		rawLabel.text 		= String(stat.rawValue)
+		if let modifier = Character.default.race.modifiers.filter({ $0.type == .increaseStat && $0.attribute == text.lowercased() }).first {
+			racialBonusLabel.text	= "+\(modifier.value)"		}
+		else {
+			racialBonusLabel.text	= "-"						}
+		otherBonusLabel.text		= "-"
+		totalLabel.text			= String(stat.modifiedValue)
+
+
+
 	}
 }
 
