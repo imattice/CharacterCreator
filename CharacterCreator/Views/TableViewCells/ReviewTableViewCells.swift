@@ -96,15 +96,17 @@ class StatReviewTableViewCell: ReviewTableViewCell {
 
 	override func tapped(_ isOpen: Bool) {
 			for statStack in statStacks {
-				statStack.statLabel.isHidden		= isOpen ? true		: false
+				statStack.distribution				= isOpen ? .equalSpacing 	: .fillProportionally
 
-				statStack.rawLabel.isHidden			= isOpen ? false 	: true
-				statStack.racialBonusLabel.isHidden	= isOpen ? false 	: true
-				statStack.otherBonusLabel.isHidden	= isOpen ? false 	: true
-				statStack.totalLabel.isHidden		= isOpen ? false 	: true
+				statStack.statLabel.isHidden		= isOpen ? true				: false
+
+				statStack.rawLabel.isHidden			= isOpen ? false 			: true
+				statStack.racialBonusLabel.isHidden	= isOpen ? false 			: true
+				statStack.otherBonusLabel.isHidden	= isOpen ? false 			: true
+				statStack.totalLabel.isHidden		= isOpen ? false 			: true
 			}
 
-			modifierLabelStack.isHidden				= isOpen ? false	: true
+			modifierLabelStack.isHidden				= isOpen ? false			: true
 	}
 }
 
