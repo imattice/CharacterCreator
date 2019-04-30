@@ -9,6 +9,10 @@
 import UIKit
 
 class ReviewTableViewCell: UITableViewCell {
+	func config() {
+
+	}
+
 	func tapped(_ isOpen: Bool) {
 
 	}
@@ -30,10 +34,12 @@ class RaceReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var detailLabel: UILabel!
 
-	func config() {
+	override func config() {
 		raceImageView.image = UIImage(named: Character.default.race.parentRace)
 		nameLabel.text		= Character.default.race.name()
 		detailLabel.text	= Character.default.race.description()
+
+		super.config()
 	}
 
 	override func tapped(_ isOpen: Bool) {
@@ -49,10 +55,12 @@ class ClassReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var detailLabel: UILabel!
 
-	func config() {
+	override func config() {
 		classImageView.image	= UIImage(named: Character.default.class.base)
 		nameLabel.text			= Character.default.class.name()
 		detailLabel.text		= "\(Character.default.class.baseDescription())\n\n\(Character.default.class.pathDescription())"
+
+		super.config()
 	}
 
 	override func tapped(_ isOpen: Bool) {
@@ -69,10 +77,12 @@ class BackgroundReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var detailLabel: UILabel!
 	@IBOutlet weak var backgroundImageView: UIImageView!
 
-	func config() {
+	override func config() {
 		titleLabel.text = "\(Character.default.background!.name.capitalized) Background"
 		detailLabel.text = Character.default.background?.description()
 		backgroundImageView.image = UIImage(named: Character.default.background!.name)
+
+		super.config()
 	}
 	override func tapped(_ isOpen: Bool) {
 		print("is Open: \(isOpen)")
@@ -87,11 +97,13 @@ class StatReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet var statStacks: [StatStack]!
 	@IBOutlet weak var modifierLabelStack: UIStackView!
 
-	func config() {
+	override func config() {
 		for statStack in statStacks {
 			statStack.config()
 		}
 //		modifierLabelStack.isHidden	= true
+
+		super.config()
 	}
 
 	override func tapped(_ isOpen: Bool) {
@@ -142,6 +154,76 @@ class StatStack: UIStackView {
 	}
 }
 
+class SkillReviewTableViewCell: UITableViewCell {
+	@IBOutlet var skillStacks: [SkillStack]!
+
+//	@IBOutlet weak var athleticsLabel: UILabel!
+//	@IBOutlet weak var acrobaticsLabel: UILabel!
+//	@IBOutlet weak var slightOfHandLabel: UILabel!
+//	@IBOutlet weak var stealthLabel: UILabel!
+//	@IBOutlet weak var deceptionLabel: UILabel!
+//	@IBOutlet weak var intimidationLabel: UILabel!
+//	@IBOutlet weak var performanceLabel: UILabel!
+//	@IBOutlet weak var persuasionLabel: UILabel!
+//	@IBOutlet weak var arcanaLabel: UILabel!
+//	@IBOutlet weak var historyLabel: UILabel!
+//	@IBOutlet weak var investigationLabel: UILabel!
+//	@IBOutlet weak var natureLabel: UILabel!
+//	@IBOutlet weak var religionLabel: UILabel!
+//	@IBOutlet weak var animalHandlingLabel: UILabel!
+//	@IBOutlet weak var insightLabel: UILabel!
+//	@IBOutlet weak var medicineLabel: UILabel!
+//	@IBOutlet weak var perceptionLabel: UILabel!
+//	@IBOutlet weak var survivalLabel: UILabel!
+
+	func config() {
+
+		for skillStack in skillStacks {
+			guard let text = skillStack.titleLabel.text,
+				let skill = Skill(fromString: text.lowercased()) else { continue }
+			let modifier = Character.default.skillModifier(for: skill)
+
+			skillStack.modifierBonusLabel.text	= modifier >= 0 ? "+\(modifier)" : "-\(abs(modifier))"
+
+			skillStack.titleLabel.adjustsFontSizeToFitWidth = true
+		}
+	}
+
+//	private func label(forSkill skill: String) -> UILabel {
+//		switch skill {
+//		case "athletics" : 		return athleticsLabel
+//
+//		case "acrobatics" : 	return acrobaticsLabel
+//		case "slight of hand" : return slightOfHandLabel
+//		case "stealth" : 		return stealthLabel
+//
+//		case "deception" : 		return deceptionLabel
+//		case "intimidation" : 	return intimidationLabel
+//		case "performance" : 	return performanceLabel
+//		case "persuasion" : 	return persuasionLabel
+//
+//		case "arcana" : 		return arcanaLabel
+//		case "history" : 		return historyLabel
+//		case "investigation" : 	return investigationLabel
+//		case "nature" : 		return natureLabel
+//		case "religion" : 		return religionLabel
+//
+//		case "animal handling" : return animalHandlingLabel
+//		case "insight" : 		return insightLabel
+//		case "medicine" : 		return medicineLabel
+//		case "perception" : 	return perceptionLabel
+//		case "survival" : 		return survivalLabel
+//
+//		default: 				return UILabel()
+//		}
+//	}
+}
+
+class SkillStack: UIStackView {
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var modifierBonusLabel: UILabel!
+}
+
 class SpellReviewTableViewCell: UITableViewCell {
 	@IBOutlet weak var cantripSpellListLabel: UILabel!
 	@IBOutlet weak var firstLevelSpellListLabel: UILabel!
@@ -164,72 +246,6 @@ class SpellReviewTableViewCell: UITableViewCell {
 		}
 
 		return String(Substring(result).dropLast(5))
-	}
-}
-
-
-
-class SkillReviewTableViewCell: UITableViewCell {
-	@IBOutlet weak var athleticsLabel: UILabel!
-	@IBOutlet weak var acrobaticsLabel: UILabel!
-	@IBOutlet weak var slightOfHandLabel: UILabel!
-	@IBOutlet weak var stealthLabel: UILabel!
-	@IBOutlet weak var deceptionLabel: UILabel!
-	@IBOutlet weak var intimidationLabel: UILabel!
-	@IBOutlet weak var performanceLabel: UILabel!
-	@IBOutlet weak var persuasionLabel: UILabel!
-	@IBOutlet weak var arcanaLabel: UILabel!
-	@IBOutlet weak var historyLabel: UILabel!
-	@IBOutlet weak var investigationLabel: UILabel!
-	@IBOutlet weak var natureLabel: UILabel!
-	@IBOutlet weak var religionLabel: UILabel!
-	@IBOutlet weak var animalHandlingLabel: UILabel!
-	@IBOutlet weak var insightLabel: UILabel!
-	@IBOutlet weak var medicineLabel: UILabel!
-	@IBOutlet weak var perceptionLabel: UILabel!
-	@IBOutlet weak var survivalLabel: UILabel!
-
-	func config() {
-		for skillString in skills {
-			let skill = Skill(fromString: skillString)!
-			let modifier = Character.default.skillModifier(for: skill)
-			var text = ""
-
-			if modifier >= 0 { text = "+ \(modifier)" } else if modifier < 0 { text = "- \(abs(modifier))" }
-			text = ": \(text)"
-
-			label(forSkill: skillString).text = text
-		}
-
-	}
-
-	private func label(forSkill skill: String) -> UILabel {
-		switch skill {
-		case "athletics" : 		return athleticsLabel
-
-		case "acrobatics" : 	return acrobaticsLabel
-		case "slight of hand" : return slightOfHandLabel
-		case "stealth" : 		return stealthLabel
-
-		case "deception" : 		return deceptionLabel
-		case "intimidation" : 	return intimidationLabel
-		case "performance" : 	return performanceLabel
-		case "persuasion" : 	return persuasionLabel
-
-		case "arcana" : 		return arcanaLabel
-		case "history" : 		return historyLabel
-		case "investigation" : 	return investigationLabel
-		case "nature" : 		return natureLabel
-		case "religion" : 		return religionLabel
-
-		case "animal handling" : return animalHandlingLabel
-		case "insight" : 		return insightLabel
-		case "medicine" : 		return medicineLabel
-		case "perception" : 	return perceptionLabel
-		case "survival" : 		return survivalLabel
-
-		default: 				return UILabel()
-		}
 	}
 }
 

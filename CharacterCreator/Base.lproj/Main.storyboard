@@ -1272,7 +1272,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="X5a-6Q-cXs">
                                                             <rect key="frame" x="0.0" y="0.0" width="179" height="247"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lwh-IA-4f9" userLabel="Arcana">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lwh-IA-4f9" userLabel="Arcana" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="179" height="20.333333333333332"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arcana" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvB-iC-pKu">
@@ -1288,8 +1288,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="RIP-So-DUp" id="Lh7-nu-p2m"/>
+                                                                        <outlet property="titleLabel" destination="AvB-iC-pKu" id="0R8-Tg-7gB"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rek-MW-5Bk" userLabel="Acrobatics">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rek-MW-5Bk" userLabel="Acrobatics" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="28.333333333333329" width="179" height="20.333333333333329"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acrobatics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDn-4e-gPm">
@@ -1305,8 +1309,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="tEa-js-X9p" id="4su-b1-jpI"/>
+                                                                        <outlet property="titleLabel" destination="HDn-4e-gPm" id="81C-YE-06h"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aUo-YQ-J5o" userLabel="Athletics">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aUo-YQ-J5o" userLabel="Athletics" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="56.666666666666679" width="179" height="20.333333333333336"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Athletics" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-DV-G10">
@@ -1322,13 +1330,17 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="RkT-Rn-0dv" id="8in-cl-r9Z"/>
+                                                                        <outlet property="titleLabel" destination="dJL-DV-G10" id="Mac-EW-eDk"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7dH-jt-Cea" userLabel="Animal Handling">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7dH-jt-Cea" userLabel="Animal Handling" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="84.999999999999986" width="179" height="20.333333333333329"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal Handling" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGz-cD-8HG">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal Handling" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGz-cD-8HG">
                                                                             <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="20.333333333333332"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -1339,8 +1351,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="6BZ-V9-M05" id="CDj-hW-n2e"/>
+                                                                        <outlet property="titleLabel" destination="jGz-cD-8HG" id="oRa-6h-ucz"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jTh-n0-OVh" userLabel="Deception">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jTh-n0-OVh" userLabel="Deception" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="113.33333333333333" width="179" height="20.333333333333329"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deception" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya9-mC-dWR">
@@ -1356,8 +1372,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="dka-3R-16b" id="Nbk-uv-3SP"/>
+                                                                        <outlet property="titleLabel" destination="ya9-mC-dWR" id="SbF-I2-LJ7"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rhi-tQ-K2v" userLabel="History">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rhi-tQ-K2v" userLabel="History" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="141.66666666666669" width="179" height="20.333333333333343"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4se-Nh-4YU">
@@ -1373,8 +1393,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="KLa-Bk-FmO" id="6Yf-P5-cBu"/>
+                                                                        <outlet property="titleLabel" destination="4se-Nh-4YU" id="ZbH-pS-l7A"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aci-rc-hoT" userLabel="Intimidation">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aci-rc-hoT" userLabel="Intimidation" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="170" width="179" height="20.333333333333343"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intimidation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCL-lD-DDf">
@@ -1390,8 +1414,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="EWi-Gs-ye4" id="qEi-1e-ziW"/>
+                                                                        <outlet property="titleLabel" destination="dCL-lD-DDf" id="dcc-78-shx"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0C7-rw-olT" userLabel="Insight">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0C7-rw-olT" userLabel="Insight" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="198.33333333333331" width="179" height="20.333333333333343"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5i-fQ-yuJ">
@@ -1407,8 +1435,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="lIf-Uc-DLf" id="bpQ-vH-9Ku"/>
+                                                                        <outlet property="titleLabel" destination="O5i-fQ-yuJ" id="q1p-kK-vLB"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5XV-xm-L61" userLabel="Investigation">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5XV-xm-L61" userLabel="Investigation" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="226.66666666666663" width="179" height="20.333333333333343"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Investigation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p83-rg-VFs">
@@ -1424,6 +1456,10 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="dAW-Sz-RPS" id="Qps-Mj-93v"/>
+                                                                        <outlet property="titleLabel" destination="p83-rg-VFs" id="ZKe-3q-NkM"/>
+                                                                    </connections>
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
@@ -1450,7 +1486,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EeG-gp-tGw">
                                                             <rect key="frame" x="186" y="0.0" width="179" height="247"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="p35-2L-7bi" userLabel="Medicine">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="p35-2L-7bi" userLabel="Medicine" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="179" height="20.333333333333332"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medicine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zku-oY-g1F">
@@ -1466,8 +1502,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="zPZ-zZ-ASg" id="spR-iY-hxP"/>
+                                                                        <outlet property="titleLabel" destination="Zku-oY-g1F" id="Mdd-mb-k05"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qgd-p4-lzo" userLabel="Nature">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Qgd-p4-lzo" userLabel="Nature" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="28.333333333333329" width="179" height="20.333333333333329"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4g-fX-NpS">
@@ -1483,8 +1523,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="Whe-uu-h9a" id="DJV-xj-wrC"/>
+                                                                        <outlet property="titleLabel" destination="x4g-fX-NpS" id="ast-t9-6TH"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vxt-AI-IlY" userLabel="Religion">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vxt-AI-IlY" userLabel="Religion" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="56.666666666666679" width="179" height="20.333333333333336"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Religion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqi-90-3h2">
@@ -1500,13 +1544,17 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="EHg-nx-h9Z" id="nCO-dD-Rx3"/>
+                                                                        <outlet property="titleLabel" destination="Jqi-90-3h2" id="Ogc-nQ-OFN"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="usO-qx-NdY" userLabel="Slight of Hand">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="usO-qx-NdY" userLabel="Slight of Hand" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="84.999999999999986" width="179" height="20.333333333333329"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slight of Hand" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEz-7Y-ViQ">
                                                                             <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="20.333333333333332"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -1517,8 +1565,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="IY2-RE-hXc" id="agL-j6-Hos"/>
+                                                                        <outlet property="titleLabel" destination="wEz-7Y-ViQ" id="2wH-yD-6T8"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IuU-l2-EfL" userLabel="Stealth">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IuU-l2-EfL" userLabel="Stealth" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="113.33333333333333" width="179" height="20.333333333333329"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stealth" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWJ-gg-uio">
@@ -1534,8 +1586,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="pVB-BE-Ghg" id="MeX-QU-eXJ"/>
+                                                                        <outlet property="titleLabel" destination="hWJ-gg-uio" id="JMd-W5-O8L"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O4A-ZS-Cya" userLabel="Survival">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O4A-ZS-Cya" userLabel="Survival" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="141.66666666666669" width="179" height="20.333333333333343"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Survival" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP1-nX-cu5">
@@ -1551,8 +1607,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="ldg-JZ-IrG" id="Dic-Lb-Js9"/>
+                                                                        <outlet property="titleLabel" destination="vP1-nX-cu5" id="0Fp-Gt-Mp3"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ene-bT-eGf" userLabel="Persuasion">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ene-bT-eGf" userLabel="Persuasion" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="170" width="179" height="20.333333333333343"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Persuasion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a4-UI-BTo">
@@ -1568,8 +1628,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="fAb-dx-if8" id="RXb-2l-ywA"/>
+                                                                        <outlet property="titleLabel" destination="2a4-UI-BTo" id="FP1-bb-cOj"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D6j-Oe-r6O" userLabel="Performance">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D6j-Oe-r6O" userLabel="Performance" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="198.33333333333331" width="179" height="20.333333333333343"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Performance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKD-xA-DUt">
@@ -1585,8 +1649,12 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="FO2-uv-JG3" id="5RF-uQ-z7h"/>
+                                                                        <outlet property="titleLabel" destination="nKD-xA-DUt" id="tb5-1v-FMV"/>
+                                                                    </connections>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fqU-6E-zeo" userLabel="Perception">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fqU-6E-zeo" userLabel="Perception" customClass="SkillStack" customModule="CharacterCreator" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="226.66666666666663" width="179" height="20.333333333333343"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perception" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grY-nB-rLj">
@@ -1602,6 +1670,10 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="modifierBonusLabel" destination="OCs-b9-3ff" id="crf-Oh-NTC"/>
+                                                                        <outlet property="titleLabel" destination="grY-nB-rLj" id="Z1R-eN-mBc"/>
+                                                                    </connections>
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
@@ -1639,24 +1711,25 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="acrobaticsLabel" destination="tEa-js-X9p" id="tXS-qe-xv0"/>
-                                            <outlet property="animalHandlingLabel" destination="6BZ-V9-M05" id="xbW-bT-F7M"/>
-                                            <outlet property="arcanaLabel" destination="RIP-So-DUp" id="b1a-nX-qGc"/>
-                                            <outlet property="athleticsLabel" destination="RkT-Rn-0dv" id="QSj-vD-i5f"/>
-                                            <outlet property="deceptionLabel" destination="dka-3R-16b" id="HFy-ni-6y2"/>
-                                            <outlet property="historyLabel" destination="KLa-Bk-FmO" id="Zpe-vW-nmr"/>
-                                            <outlet property="insightLabel" destination="lIf-Uc-DLf" id="xKZ-1t-6UP"/>
-                                            <outlet property="intimidationLabel" destination="EWi-Gs-ye4" id="iCP-qK-0QF"/>
-                                            <outlet property="investigationLabel" destination="dAW-Sz-RPS" id="tG8-6t-xOo"/>
-                                            <outlet property="medicineLabel" destination="zPZ-zZ-ASg" id="X5K-uY-Gog"/>
-                                            <outlet property="natureLabel" destination="Whe-uu-h9a" id="ZsJ-MA-iE9"/>
-                                            <outlet property="perceptionLabel" destination="OCs-b9-3ff" id="fo0-h7-VUY"/>
-                                            <outlet property="performanceLabel" destination="FO2-uv-JG3" id="mLe-Cf-Gds"/>
-                                            <outlet property="persuasionLabel" destination="fAb-dx-if8" id="uuY-KC-ucP"/>
-                                            <outlet property="religionLabel" destination="EHg-nx-h9Z" id="0u7-Gm-cXW"/>
-                                            <outlet property="slightOfHandLabel" destination="IY2-RE-hXc" id="eX2-7q-XAL"/>
-                                            <outlet property="stealthLabel" destination="pVB-BE-Ghg" id="IJl-0e-0Vd"/>
-                                            <outlet property="survivalLabel" destination="ldg-JZ-IrG" id="Vh8-IE-OWw"/>
+                                            <outletCollection property="skillStacks" destination="lwh-IA-4f9" collectionClass="NSMutableArray" id="36H-aC-NZe"/>
+                                            <outletCollection property="skillStacks" destination="Rek-MW-5Bk" collectionClass="NSMutableArray" id="XHK-Gy-UCO"/>
+                                            <outletCollection property="skillStacks" destination="aUo-YQ-J5o" collectionClass="NSMutableArray" id="9a4-PC-y86"/>
+                                            <outletCollection property="skillStacks" destination="aUo-YQ-J5o" collectionClass="NSMutableArray" id="3tU-2N-XQ7"/>
+                                            <outletCollection property="skillStacks" destination="7dH-jt-Cea" collectionClass="NSMutableArray" id="b1c-Si-xMM"/>
+                                            <outletCollection property="skillStacks" destination="jTh-n0-OVh" collectionClass="NSMutableArray" id="nZh-M9-Khz"/>
+                                            <outletCollection property="skillStacks" destination="Rhi-tQ-K2v" collectionClass="NSMutableArray" id="iGq-4b-cH7"/>
+                                            <outletCollection property="skillStacks" destination="aci-rc-hoT" collectionClass="NSMutableArray" id="9r8-VL-nwa"/>
+                                            <outletCollection property="skillStacks" destination="0C7-rw-olT" collectionClass="NSMutableArray" id="FHp-4D-F8E"/>
+                                            <outletCollection property="skillStacks" destination="5XV-xm-L61" collectionClass="NSMutableArray" id="oTO-Cb-tPV"/>
+                                            <outletCollection property="skillStacks" destination="p35-2L-7bi" collectionClass="NSMutableArray" id="9MJ-Kf-pEk"/>
+                                            <outletCollection property="skillStacks" destination="Qgd-p4-lzo" collectionClass="NSMutableArray" id="Dln-He-Apo"/>
+                                            <outletCollection property="skillStacks" destination="vxt-AI-IlY" collectionClass="NSMutableArray" id="bj9-J2-gZa"/>
+                                            <outletCollection property="skillStacks" destination="usO-qx-NdY" collectionClass="NSMutableArray" id="lFP-ZL-R6f"/>
+                                            <outletCollection property="skillStacks" destination="IuU-l2-EfL" collectionClass="NSMutableArray" id="Sqo-mO-3ZF"/>
+                                            <outletCollection property="skillStacks" destination="O4A-ZS-Cya" collectionClass="NSMutableArray" id="0Bn-Nc-eFo"/>
+                                            <outletCollection property="skillStacks" destination="ene-bT-eGf" collectionClass="NSMutableArray" id="JbN-pv-p8X"/>
+                                            <outletCollection property="skillStacks" destination="D6j-Oe-r6O" collectionClass="NSMutableArray" id="FY9-qM-pS2"/>
+                                            <outletCollection property="skillStacks" destination="fqU-6E-zeo" collectionClass="NSMutableArray" id="7JB-Lr-4uI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpellCell" rowHeight="128" id="Db8-WF-vjD" customClass="SpellReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
@@ -1673,26 +1746,26 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Cantrip, Spell, List" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZm-C6-078">
-                                                    <rect key="frame" x="16" y="33.333333333333336" width="351" height="18"/>
+                                                    <rect key="frame" x="23" y="33.333333333333336" width="337" height="18"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Level Spells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPM-6H-jyq">
-                                                    <rect key="frame" x="8" y="73.333333333333329" width="359" height="25.333333333333329"/>
+                                                    <rect key="frame" x="15" y="73.333333333333329" width="345" height="22.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yU8-NY-9bY">
-                                                    <rect key="frame" x="18" y="61.333333333333336" width="339" height="2"/>
+                                                    <rect key="frame" x="25" y="61.333333333333336" width="325" height="2"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="uzx-Va-My9"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="First, Level, Spell, List" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogx-9B-LbB">
-                                                    <rect key="frame" x="16" y="106.66666666666667" width="351" height="18"/>
+                                                    <rect key="frame" x="23" y="104" width="337" height="18"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1731,7 +1804,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXr-53-C2r">
-                                                    <rect key="frame" x="8" y="8" width="359" height="30"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="HZo-Ik-ZkA"/>
                                                     </constraints>
@@ -1740,16 +1813,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="poq-V0-vsh">
-                                                    <rect key="frame" x="8" y="43.000000000000007" width="359" height="86.666666666666686"/>
+                                                    <rect key="frame" x="15" y="46" width="345" height="81"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Column" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alo-Uh-Tfb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="175.66666666666666" height="20.333333333333332"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="168.66666666666666" height="20.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Column" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duZ-Q9-uOV">
-                                                            <rect key="frame" x="183.66666666666663" y="0.0" width="175.33333333333337" height="20.333333333333332"/>
+                                                            <rect key="frame" x="176.66666666666663" y="0.0" width="168.33333333333337" height="20.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
