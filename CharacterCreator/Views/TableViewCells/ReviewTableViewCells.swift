@@ -117,8 +117,8 @@ class StatStack: UIStackView {
 			let statName = StatType(rawValue: text.lowercased()),
 			let stat = Character.default.stat(forName: statName) else { print("didn't work"); return }
 
-		modifierLabel.text	= String(stat.modifier())
-		statLabel.text		= String(stat.value)
+		modifierLabel.text	= stat.modifier > 0 ? "+\(stat.modifier)" : String(stat.modifier)
+		statLabel.text		= String(stat.modifiedValue)
 	}
 }
 

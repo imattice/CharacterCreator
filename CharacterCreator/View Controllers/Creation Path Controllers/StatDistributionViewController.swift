@@ -139,7 +139,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 				let value = Int(valueString),
 				let stat = StatType(fromLonghand: titleString) else { print("could not initilialize the stat data from the view."); continue }
 
-			Character.default.stats.append(Character.Stat(name: stat, value: value))
+			Character.default.stats.append(Character.Stat(name: stat, rawValue: value))
 //				switch stat {
 //				case .str: 		Character.current.stats.str = Character.StatBlock.Stat(name: "str", value: value)
 //				case .con:		Character.current.stats.con = Character.StatBlock.Stat(name: "con", value: value)

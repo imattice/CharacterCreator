@@ -32,7 +32,7 @@ struct Race {
 			//check for modifiers from the subrace
 			if let modifiers = subraceData["modifiers"] as? [String: Int] {
 				for modifierData in modifiers {
-					allModifiers.append(Modifier(type: modifierData.key, value: modifierData.value, origin: .subrace))			}}}
+					allModifiers.append(Modifier(type: .increaseStat, attribute: modifierData.key, value: modifierData.value, origin: .subrace))			}}}
 		else {
 			//set the name to just be the parent race if no subrace is available
 			self.subrace 	= nil
@@ -42,7 +42,7 @@ struct Race {
 		if let modifiers = parentData["modifiers"] as? [String : Int] {
 
 			for modifierData in modifiers {
-				allModifiers.append(Modifier(type: modifierData.key, value: modifierData.value, origin: .race))
+				allModifiers.append(Modifier(type: .increaseStat, attribute: modifierData.key, value: modifierData.value, origin: .race))
 			}
 		}
 

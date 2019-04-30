@@ -35,7 +35,7 @@ class Character {
 
 	func skillModifier(for skill: Skill) -> Int {
 		guard let stat = stat(forName: skill.stat()) else { return 0 }
-		var result = stat.modifier()
+		var result = stat.modifier
 
 		//if proficient, add the modifier
 		if proficiencies.contains(skill.rawValue) {
@@ -65,12 +65,12 @@ class Character {
 	private init(default: String) {
 		self.class 			= Class(fromString: "wizard", withPath: "school of evocation")!
 		self.race 			= Race(fromParent: "elf", withSubrace: "high")!
-		self.stats 			= [Stat(name: .str, value: 8),
-								  Stat(name: .con, value: 13),
-								  Stat(name: .dex, value: 10),
-								  Stat(name: .cha, value: 12),
-								  Stat(name: .wis, value: 14),
-								  Stat(name: .int, value: 15)]
+		self.stats 			= [Stat(name: .str, rawValue: 8),
+								  Stat(name: .con, rawValue: 13),
+								  Stat(name: .dex, rawValue: 10),
+								  Stat(name: .cha, rawValue: 12),
+								  Stat(name: .wis, rawValue: 14),
+								  Stat(name: .int, rawValue: 15)]
 		self.background 	= Background("sage")
 		self.items			= [Item("quarterstaff"),
 								 Item("component pouch"),
@@ -110,7 +110,7 @@ class Character {
 		guard let castingAttributes = self.class.castingAttributes,
 			let stat = stat(forName: castingAttributes.castingAbility) else { return 0 }
 
-		let abilityModifier = stat.modifier()
+		let abilityModifier = stat.modifier
 		var result = abilityModifier + level
 
 		if result < 1 { result = 1 }
@@ -130,6 +130,20 @@ class Character {
 	func stat(forName name: StatType) -> Stat? {
 		return self.stats.first(where: {$0.name == name })
 	}
+//	func modifiedStat(forStat stat: StatType) -> Stat? {
+//		guard let baseStat = self.stat(forName: stat),
+//			let race = race else { return nil }
+//		var resultValue = baseStat.rawValue
+//
+//		//look for modifiers that increase stats and are also for this particular stat
+//		let modifiers = race.modifiers.filter( { $0.type == .increaseStat && $0.attribute == baseStat.name.rawValue })
+//		if !modifiers.isEmpty {
+//			for modifier in modifiers {
+//				resultValue += modifier.value
+//			}
+//		}
+//		return Stat(name: stat, rawValue: resultValue)
+//	}
 }
 
 
@@ -166,14 +180,28 @@ extension Character {
 
 	struct Stat {
 		let name: StatType
-		let value: Int
+		let rawValue: Int
+		var modifiedValue: Int {
+			guard let race = Character.default.race else { return rawValue }
+			var resultValue = rawValue
 
-		func modifier() -> Int {
-			return value / 2 - 5
+			//look for modifiers that increase stats and are also for this particular stat
+			let modifiers = race.modifiers.filter( { $0.type == .increaseStat && $0.attribute == name.rawValue })
+			if !modifiers.isEmpty {
+				for modifier in modifiers {
+					resultValue += modifier.value
+				}
+			}
+			return resultValue
 		}
+		var modifier: Int {
+			return modifiedValue / 2 - 5 }
+//		func modifier() -> Int {
+//			return modifiedValue / 2 - 5
+//		}
+	}
 
 //		static let str = Character.default.stats.first(where: {$0.name == "str"})
-	}
 
 	struct FlavorText {
 		var name: String			= "Unknown"
@@ -192,6 +220,7 @@ extension Character {
 		var image: UIImage?			= UIImage(named: "elf")
 	}
 }
+
 
 enum StatType: String {
 	case str,

@@ -844,7 +844,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="d2t-4c-YjK">
                                                     <rect key="frame" x="8" y="8" width="359" height="99.666666666666671"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="HNy-fG-Rxz" userLabel="Stat Stack" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="HNy-fG-Rxz" userLabel="Str Stat Stack" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="99.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtP-yH-CRx" userLabel="+ 00">
@@ -867,12 +867,12 @@
                                                                 </label>
                                                             </subviews>
                                                             <connections>
-                                                                <outlet property="modifierLabel" destination="jtP-yH-CRx" id="cQ2-sb-szX"/>
-                                                                <outlet property="statLabel" destination="mI0-oP-jUM" id="oQU-AL-ag3"/>
-                                                                <outlet property="titleLabel" destination="We6-Sy-I8m" id="sUw-gj-6Ti"/>
+                                                                <outlet property="modifierLabel" destination="jtP-yH-CRx" id="LcW-tt-HaO"/>
+                                                                <outlet property="statLabel" destination="mI0-oP-jUM" id="U7A-vh-POM"/>
+                                                                <outlet property="titleLabel" destination="We6-Sy-I8m" id="Oby-Q1-tkn"/>
                                                             </connections>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lUm-Su-kvR" userLabel="Stat Stack" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lUm-Su-kvR" userLabel="Con Stat Stack" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
                                                             <rect key="frame" x="60" y="0.0" width="59.666666666666657" height="99.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAH-MB-g8t" userLabel="+ 00">
@@ -895,12 +895,12 @@
                                                                 </label>
                                                             </subviews>
                                                             <connections>
-                                                                <outlet property="modifierLabel" destination="R8u-e9-dJm" id="A2e-mM-uGI"/>
-                                                                <outlet property="statLabel" destination="R08-fU-Rob" id="HBs-BM-hGo"/>
-                                                                <outlet property="titleLabel" destination="aX3-ov-Zr4" id="81H-dk-QH6"/>
+                                                                <outlet property="modifierLabel" destination="yAH-MB-g8t" id="dBE-RG-ENw"/>
+                                                                <outlet property="statLabel" destination="Hf7-5E-oot" id="QZb-0R-s0C"/>
+                                                                <outlet property="titleLabel" destination="AAX-hd-MT7" id="55t-rz-Fxx"/>
                                                             </connections>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3pI-at-20O" userLabel="Stat Stack" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3pI-at-20O" userLabel="Dex Stat Stack" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
                                                             <rect key="frame" x="119.66666666666669" y="0.0" width="60" height="99.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8u-e9-dJm" userLabel="+ 00">
@@ -923,12 +923,12 @@
                                                                 </label>
                                                             </subviews>
                                                             <connections>
-                                                                <outlet property="modifierLabel" destination="yAH-MB-g8t" id="egh-SN-I2M"/>
-                                                                <outlet property="statLabel" destination="Hf7-5E-oot" id="VDs-FM-CzY"/>
-                                                                <outlet property="titleLabel" destination="AAX-hd-MT7" id="Pv2-3g-5uy"/>
+                                                                <outlet property="modifierLabel" destination="R8u-e9-dJm" id="AsH-PB-46c"/>
+                                                                <outlet property="statLabel" destination="5la-X5-N96" id="5eL-SA-mo9"/>
+                                                                <outlet property="titleLabel" destination="RxI-qK-kZ2" id="RTf-rR-MAX"/>
                                                             </connections>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ksf-rZ-amn" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ksf-rZ-amn" userLabel="Cha Stat Stack" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
                                                             <rect key="frame" x="179.66666666666666" y="0.0" width="59.666666666666657" height="99.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WwF-ls-GEy" userLabel="+ 00">
@@ -951,12 +951,12 @@
                                                                 </label>
                                                             </subviews>
                                                             <connections>
-                                                                <outlet property="modifierLabel" destination="WwF-ls-GEy" id="igj-w7-8Wz"/>
-                                                                <outlet property="statLabel" destination="5la-X5-N96" id="DeO-03-VOm"/>
-                                                                <outlet property="titleLabel" destination="RxI-qK-kZ2" id="fr8-1y-Zvc"/>
+                                                                <outlet property="modifierLabel" destination="WwF-ls-GEy" id="T86-6o-IFw"/>
+                                                                <outlet property="statLabel" destination="cFu-MT-IJl" id="Ssa-g4-tqZ"/>
+                                                                <outlet property="titleLabel" destination="tUe-fk-AoJ" id="WcO-4N-cSK"/>
                                                             </connections>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="JBh-w6-X1z" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="JBh-w6-X1z" userLabel="Wis Stack View" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
                                                             <rect key="frame" x="239.33333333333337" y="0.0" width="60" height="99.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa8-lt-3gp" userLabel="+ 00">
@@ -979,12 +979,12 @@
                                                                 </label>
                                                             </subviews>
                                                             <connections>
-                                                                <outlet property="modifierLabel" destination="Fa8-lt-3gp" id="vHq-ek-iat"/>
-                                                                <outlet property="statLabel" destination="cFu-MT-IJl" id="E4v-Db-Gva"/>
-                                                                <outlet property="titleLabel" destination="tUe-fk-AoJ" id="MVJ-ZR-p20"/>
+                                                                <outlet property="modifierLabel" destination="Fa8-lt-3gp" id="FYR-NX-fWM"/>
+                                                                <outlet property="statLabel" destination="0WQ-BN-g97" id="w2N-l6-Lbi"/>
+                                                                <outlet property="titleLabel" destination="LFr-yR-xlP" id="w5p-I2-jX9"/>
                                                             </connections>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="tYQ-bJ-cz7" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="tYQ-bJ-cz7" userLabel="Int Stack View" customClass="StatStack" customModule="CharacterCreator" customModuleProvider="target">
                                                             <rect key="frame" x="299.33333333333331" y="0.0" width="59.666666666666686" height="99.666666666666671"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeI-ez-47m" userLabel="+ 00">
@@ -1007,9 +1007,9 @@
                                                                 </label>
                                                             </subviews>
                                                             <connections>
-                                                                <outlet property="modifierLabel" destination="YeI-ez-47m" id="A7J-JN-Vlg"/>
-                                                                <outlet property="statLabel" destination="0WQ-BN-g97" id="8La-RW-uZx"/>
-                                                                <outlet property="titleLabel" destination="LFr-yR-xlP" id="Ss0-vk-zXC"/>
+                                                                <outlet property="modifierLabel" destination="YeI-ez-47m" id="pes-Gn-UuH"/>
+                                                                <outlet property="statLabel" destination="R08-fU-Rob" id="E3Q-4m-HL5"/>
+                                                                <outlet property="titleLabel" destination="aX3-ov-Zr4" id="kmU-6C-OU5"/>
                                                             </connections>
                                                         </stackView>
                                                     </subviews>
