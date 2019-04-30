@@ -148,75 +148,23 @@ class StatStack: UIStackView {
 			racialBonusLabel.text	= "-"						}
 		otherBonusLabel.text		= "-"
 		totalLabel.text			= String(stat.modifiedValue)
-
-
-
 	}
 }
 
 class SkillReviewTableViewCell: UITableViewCell {
 	@IBOutlet var skillStacks: [SkillStack]!
 
-//	@IBOutlet weak var athleticsLabel: UILabel!
-//	@IBOutlet weak var acrobaticsLabel: UILabel!
-//	@IBOutlet weak var slightOfHandLabel: UILabel!
-//	@IBOutlet weak var stealthLabel: UILabel!
-//	@IBOutlet weak var deceptionLabel: UILabel!
-//	@IBOutlet weak var intimidationLabel: UILabel!
-//	@IBOutlet weak var performanceLabel: UILabel!
-//	@IBOutlet weak var persuasionLabel: UILabel!
-//	@IBOutlet weak var arcanaLabel: UILabel!
-//	@IBOutlet weak var historyLabel: UILabel!
-//	@IBOutlet weak var investigationLabel: UILabel!
-//	@IBOutlet weak var natureLabel: UILabel!
-//	@IBOutlet weak var religionLabel: UILabel!
-//	@IBOutlet weak var animalHandlingLabel: UILabel!
-//	@IBOutlet weak var insightLabel: UILabel!
-//	@IBOutlet weak var medicineLabel: UILabel!
-//	@IBOutlet weak var perceptionLabel: UILabel!
-//	@IBOutlet weak var survivalLabel: UILabel!
-
 	func config() {
-
 		for skillStack in skillStacks {
 			guard let text = skillStack.titleLabel.text,
 				let skill = Skill(fromString: text.lowercased()) else { continue }
 			let modifier = Character.default.skillModifier(for: skill)
 
-			skillStack.modifierBonusLabel.text	= modifier >= 0 ? "+\(modifier)" : "-\(abs(modifier))"
+			skillStack.modifierBonusLabel.text	= modifier >= 0 ? ": +\(modifier)" : ": -\(abs(modifier))"
 
 			skillStack.titleLabel.adjustsFontSizeToFitWidth = true
 		}
 	}
-
-//	private func label(forSkill skill: String) -> UILabel {
-//		switch skill {
-//		case "athletics" : 		return athleticsLabel
-//
-//		case "acrobatics" : 	return acrobaticsLabel
-//		case "slight of hand" : return slightOfHandLabel
-//		case "stealth" : 		return stealthLabel
-//
-//		case "deception" : 		return deceptionLabel
-//		case "intimidation" : 	return intimidationLabel
-//		case "performance" : 	return performanceLabel
-//		case "persuasion" : 	return persuasionLabel
-//
-//		case "arcana" : 		return arcanaLabel
-//		case "history" : 		return historyLabel
-//		case "investigation" : 	return investigationLabel
-//		case "nature" : 		return natureLabel
-//		case "religion" : 		return religionLabel
-//
-//		case "animal handling" : return animalHandlingLabel
-//		case "insight" : 		return insightLabel
-//		case "medicine" : 		return medicineLabel
-//		case "perception" : 	return perceptionLabel
-//		case "survival" : 		return survivalLabel
-//
-//		default: 				return UILabel()
-//		}
-//	}
 }
 
 class SkillStack: UIStackView {
