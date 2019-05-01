@@ -43,7 +43,7 @@ class RaceReviewTableViewCell: ReviewTableViewCell {
 	}
 
 	override func tapped(_ isOpen: Bool) {
-		print("is Open: \(isOpen)")
+//		print("is Open: \(isOpen)")
 		if !isOpen {
 			detailLabel.numberOfLines = 0		}
 		else {
@@ -64,7 +64,7 @@ class ClassReviewTableViewCell: ReviewTableViewCell {
 	}
 
 	override func tapped(_ isOpen: Bool) {
-		print("is Open: \(isOpen)")
+//		print("is Open: \(isOpen)")
 		if !isOpen {
 			detailLabel.numberOfLines = 0		}
 		else {
@@ -85,8 +85,8 @@ class BackgroundReviewTableViewCell: ReviewTableViewCell {
 		super.config()
 	}
 	override func tapped(_ isOpen: Bool) {
-		print("is Open: \(isOpen)")
-		if isOpen == false {
+//		print("is Open: \(isOpen)")
+		if !isOpen {
 			detailLabel.numberOfLines = 0		}
 		else {
 			detailLabel.numberOfLines = 2		}
@@ -172,6 +172,41 @@ class SkillStack: UIStackView {
 	@IBOutlet weak var modifierBonusLabel: UILabel!
 }
 
+class InventoryReviewTableViewCell: UITableViewCell {
+	@IBOutlet weak var weaponStack: UIStackView!
+	@IBOutlet weak var leftColumnLabel: UILabel!
+	@IBOutlet weak var rightColumnLabel: UILabel!
+
+	func config() {
+
+
+		let items = Character.default.items
+		var rightText 	= ""
+		var leftText 	= ""
+
+		for index in 0...items.count-1 {
+			if index <= items.count/2 {
+				leftText += "• \(items[index].name.capitalized)\n"  }
+			else {
+				rightText += "• \(items[index].name.capitalized)\n" }
+		}
+
+		leftColumnLabel.text 	= leftText
+		rightColumnLabel.text 	= rightText
+	}
+
+	private func addWeapons() {
+		for weaponView in weaponStack.arrangedSubviews {
+			weaponStack.removeArrangedSubview(weaponView)
+		}
+//		let weapons = Character.default.items.filter({ $0.})
+//
+//		for weapon in weapons {
+//
+//		}
+	}
+}
+
 class SpellReviewTableViewCell: UITableViewCell {
 	@IBOutlet weak var cantripSpellListLabel: UILabel!
 	@IBOutlet weak var firstLevelSpellListLabel: UILabel!
@@ -194,27 +229,6 @@ class SpellReviewTableViewCell: UITableViewCell {
 		}
 
 		return String(Substring(result).dropLast(5))
-	}
-}
-
-class InventoryReviewTableViewCell: UITableViewCell {
-	@IBOutlet weak var leftColumnLabel: UILabel!
-	@IBOutlet weak var rightColumnLabel: UILabel!
-
-	func config() {
-		let items = Character.default.items
-		var rightText 	= ""
-		var leftText 	= ""
-
-		for index in 0...items.count-1 {
-			if index <= items.count/2 {
-				leftText += "• \(items[index].name.capitalized)\n"  }
-			else {
-				rightText += "• \(items[index].name.capitalized)\n" }
-		}
-
-		leftColumnLabel.text 	= leftText
-		rightColumnLabel.text 	= rightText
 	}
 }
 

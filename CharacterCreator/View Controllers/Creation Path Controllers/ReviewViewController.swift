@@ -73,13 +73,14 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 			cell.config()
 			return cell
 		case 6:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell") as! SpellReviewTableViewCell
-			cell.config()
-			return cell
-		case 7:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell") as! InventoryReviewTableViewCell
 			cell.config()
 			return cell
+		case 7:
+			let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell") as! SpellReviewTableViewCell
+			cell.config()
+			return cell
+
 		default:
 			return UITableViewCell()
 		}
@@ -89,7 +90,10 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 		guard let cell = tableView.cellForRow(at: indexPath) as? ReviewTableViewCell else { return }
 		let data = tableData[indexPath.row]
 
+		tableView.beginUpdates()
 		cell.tapped(data.isOpen)
+		tableView.endUpdates()
+
 		tableData[indexPath.row].isOpen = !data.isOpen
 		tableView.reloadRows(at: [indexPath], with: .fade)
 
