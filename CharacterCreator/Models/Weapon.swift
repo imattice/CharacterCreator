@@ -18,14 +18,30 @@ class Weapon: Item {
 		return tags.contains(.ranged) }()
 
 	override init(_ name: String) {
-		super.init(name)
+		let itemDict 			= itemData[name] as! [String : Any] //else { return }
 
-		if let itemDict 			= itemData[name] as? [String : Any],
-			let damageDict 			= itemDict["damage"] as? [String : Any],
+		if let damageDict 			= itemDict["damage"] as? [String : Any],
 			let damage = Damage(fromDict: damageDict) {
 
 			self.damage = damage
 		}
+		else { self.damage	= Damage(multiplier: 0, type: .force, value: 0)	}
+
+		var tags = [Tag]()
+		if let tagData = itemDict["tags"] as? [String] {
+			for tagRecord in tagData {
+				guard let tag = Tag(rawValue: tagRecord) else { print("could not create itemtag enum from \(tagRecord)"); continue }
+				tags.append(tag)
+			}
+		}
+		self.tags = tags
+
+		if let classData = itemDict["class"] as? String,
+			let weaponClass = WeaponClass(rawValue: classData) {
+			self.class	= weaponClass
+		} else { self.class = .simple }
+
+		super.init(name)
 	}
 
 

@@ -14,6 +14,12 @@ struct Damage {
 	let type: DamageType
 	let value: Int
 
+	init(multiplier: Int, type: DamageType, value: Int) {
+		self.multiplier	= multiplier
+		self.type		= type
+		self.value		= value 
+	}
+
 	init?(fromDict damageDict: [String : Any]) {
 		guard let valueString 		= damageDict["value"] as? String,
 			let value				= Int(valueString),

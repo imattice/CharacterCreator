@@ -113,11 +113,6 @@ class InventorySelectionViewController: UIViewController {
 		let selectedItems = getSelections()
 
 		Character.default.items = selectedItems
-
-		for item in Character.default.items {
-			print("item added: \(item.name)")
-
-		}
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

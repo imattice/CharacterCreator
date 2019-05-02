@@ -18,6 +18,11 @@ class ItemSelectionTableViewCell: UITableViewCell {
 		titleLabel.text 			= item.name.capitalized
 
 		descriptionLabel.text		= item.description()
+	}
+
+	func configure(for weapon: Weapon) {
+		titleLabel.text			= weapon.name.capitalized
+		descriptionLabel.text	= weapon.description()
 
 
 		if let damage = item.damage() {
