@@ -54,6 +54,9 @@ class ChoiceSelectionView: UIView {
 				//check for multiple iterations of the same item
 				let itemFrequency = selectionItems.filter({ item.name == $0.name }).count
 
+				if item as? Weapon {
+
+				}
 				if itemFrequency > 1 {
 					selectionView.config(forMultiple: itemFrequency, items: item)		}
 				else {
@@ -106,30 +109,36 @@ class SelectionView: UIView {
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var button: UIButton!
 
-	var weaponType: WeaponType?
+	var weaponType: Weapon.WeaponClass?
 	var delegate: SelectionViewDelegate?
 
-	func config(for choice: Item) {
-		self.layoutIfNeeded()
+	func config(for item: Item) {
+		setLabelText(for: item)
 
-		titleLabel.text 			= choice.name.capitalized
-		descriptionLabel.text 		= choice.description()
-		imageView.image 			= choice.image()
-		backgroundColor				= UIColor.lightGray
+		button.removeFromSuperview()
+	}
+
+	func config(for weapon: Weapon) {
+		setLabelText(for: weapon as Item)
 
 		//determine if the item is a weapon and set its type
-		if choice.name == "martial weapon" 		{
+		if weapon.class == .martial		 		{
 			weaponType = .martial				}
-		else if choice.name == "simple weapon" 	{
+		else if weapon.class == .simple		 	{
 			weaponType = .simple 				}
 		else 									{
 			weaponType = nil					}
 
-		//remove the buttoon unless there's a choice to be made
-		if weaponType == .simple || weaponType == .martial {
-			configureButton(for: choice)					}
-		else {
-			button.setTitle("", for: .normal)				}
+		configureButton(for: weapon)
+	}
+
+	func setLabelText(for item: Item) {
+		self.layoutIfNeeded()
+
+		titleLabel.text			= item.name.capitalized
+		descriptionLabel.text	= item.description()
+		imageView.image			= item.image()
+		backgroundColor			= UIColor.lightGray
 
 		descriptionLabel.sizeToFit()
 	}
@@ -168,7 +177,4 @@ struct Choice {
 		let items: [Item]
 	}
 }
-enum WeaponType {
-	case simple, martial }
-
 
