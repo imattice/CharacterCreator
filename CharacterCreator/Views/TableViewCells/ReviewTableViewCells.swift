@@ -199,10 +199,10 @@ class InventoryReviewTableViewCell: UITableViewCell {
 		for weaponView in weaponStack.arrangedSubviews {
 			weaponStack.removeArrangedSubview(weaponView)
 		}
-//		let weapons = Character.default.items.filter({ $0.})
+//		let weapons = Character.default.items.filter({ $0. })
 //
 //		for weapon in weapons {
-//
+//			
 //		}
 	}
 }

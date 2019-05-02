@@ -7,10 +7,11 @@
 let itemData: [String : Any] = [
 //Simple Weapons
 	"simple weapon": [
+		"type": "weapon",
 		"class": "simple",
 		"description": "A basic weapon, often made of a makeshift item",												],
-
 	"club":	[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["light"],
 		"damage": [
@@ -19,6 +20,7 @@ let itemData: [String : Any] = [
 			"value": "4"],
 		"description": "A blunt, thick piece of wood that can surprisingly painful when used as a weapon",				],
 	"dagger": [
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["finesse", "light", "thrown"],
 		"range": [
@@ -30,6 +32,7 @@ let itemData: [String : Any] = [
 			"value": "4"],
 		"description": 	"A small, quick blade that can be thrown or easily concealed",									],
 	"greatclub":	[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["twoHanded"],
 		"damage": [
@@ -38,6 +41,7 @@ let itemData: [String : Any] = [
 			"value": "8"],
 		"description": "A wooden chunk that is so heavy that it requires two hands to use effectively",				],
 	"handaxe":	[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["light", "thrown"],
 		"range": [
@@ -49,6 +53,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": 	"A light, throwable axe used for quick and powerful chopping blows", 							],
 	"javelin":	[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["thrown"],
 		"range": [
@@ -60,6 +65,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": 	"A throwable spear", 																				],
 	"mace":	[
+		"type": "weapon",
 		"class": "simple",
 		"damage": [
 			"multiplier": "1",
@@ -67,6 +73,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": "A spiked club used to inflict blugeoning damange",												],
 	"quarterstaff":	[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["versatile"],
 		"damage": [
@@ -76,6 +83,7 @@ let itemData: [String : Any] = [
 			"twoHanded": "8"],
 		"description": "A two-handed pole made of wood or metal",															],
 	"sickle":	[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["light"],
 		"damage": [
@@ -84,6 +92,7 @@ let itemData: [String : Any] = [
 			"value": "4"],
 		"description": 	"A short, curved blade used for harvesting grains", 												],
 	"spear":	[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["thrown", "versatile"],
 		"range": [
@@ -96,6 +105,7 @@ let itemData: [String : Any] = [
 			"twoHanded": "8"],
 		"description": 	"A long pole of wood or metal, ending in a sharpened point", 							],
 	"light crossbow":[
+		"type": "weapon",
 			"class": "simple",
 			"tags": ["ammunition", "ranged", "loading", "twoHanded"],
 			"range": [
@@ -107,6 +117,7 @@ let itemData: [String : Any] = [
 				"value": "8"],
 			"description": "A sping-loaded weapon that fires sharp bolts at high speeds at the press of the trigger",		],
 	"dart":[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["finesse", "thrown"],
 		"range": [
@@ -118,6 +129,7 @@ let itemData: [String : Any] = [
 			"value": "4"],
 		"description": "A sharpened needle-like stick designed to be thrown",		],
 	"shortbow":	[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["ammunition", "twoHanded"],
 		"range": [
@@ -129,6 +141,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": 	"A bow that excels at hitting close targets at range",											],
 	"sling":	[
+		"type": "weapon",
 		"class": "simple",
 		"tags": ["ammunition"],
 		"range": [
@@ -142,10 +155,12 @@ let itemData: [String : Any] = [
 
 //Martial Weapons
 	"martial weapon": [
+		"type": "weapon",
 		"class": "material",
 		"description": "A weapon that requires training to use correctly.",													],
 
 	"battleaxe": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["versatile"],
 		"damage": [
@@ -155,6 +170,7 @@ let itemData: [String : Any] = [
 			"twoHanded": "10"],
 		"description": "A heavy, two-handed axe used to cleave through foes", 												],
 	"flail": [
+		"type": "weapon",
 		"class": "martial",
 		"damage": [
 			"multiplier": "1",
@@ -162,6 +178,7 @@ let itemData: [String : Any] = [
 			"value": "8"],
 		"description": "A jointed pole, often having studs", 																],
 	"glaive": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["heavy", "reach", "twoHanded"],
 		"damage": [
@@ -170,6 +187,7 @@ let itemData: [String : Any] = [
 			"value": "10" ],
 		"description": "A long pole with a bladed edge at one end", 														],
 	"greataxe": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["heavy", "twoHanded"],
 		"damage": [
@@ -178,6 +196,7 @@ let itemData: [String : Any] = [
 			"value": "12"],
 		"description": "A huge, heavy axe, often with a double bladed head", 												],
 	"greatsword": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["heavy", "twoHanded"],
 		"damage": [
@@ -186,6 +205,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": "A huge, heavy sword, requireing two hands to wield", 												],
 	"halberd": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["heavy", "reach", "twoHanded"],
 		"damage": [
@@ -194,6 +214,7 @@ let itemData: [String : Any] = [
 			"value": "10"],
 		"description": "A long pole with an axe-shaped head attached to one end", 										],
 	"lance": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["reach", "special"],
 		"damage": [
@@ -203,6 +224,7 @@ let itemData: [String : Any] = [
 		"special": "You have disadvantage on a target within 5 feet of you when using the lance.  You must use two hands to wield this weapon while unmounted.",
 		"description": "A long pole made of metal with a sharpened point",	 										],
 	"longsword":	[
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["versatile"],
 		"damage": [
@@ -211,6 +233,7 @@ let itemData: [String : Any] = [
 			"value": "8"],
 		"description": "A long, sharp blade made of steel or iron",														],
 	"maul":	[
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["heavy", "twoHanded"],
 		"damage": [
@@ -219,6 +242,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": "A heavy, two-handed hammer",																		],
 	"morningstar":	[
+		"type": "weapon",
 		"class": "martial",
 		"damage": [
 			"multiplier": "1",
@@ -226,6 +250,7 @@ let itemData: [String : Any] = [
 			"value": "8"],
 		"description": "A one handed weapon ended in a spiked iron ball, which is either attached to the base directly or by a chain",																											],
 	"pike":	[
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["heavy", "reach", "twoHanded"],
 		"damage": [
@@ -234,6 +259,7 @@ let itemData: [String : Any] = [
 			"value": "10"],
 		"description": "A long pole made of metal with a sharpened point",												],
 	"rapier": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["finesse"],
 		"damage": [
@@ -242,6 +268,7 @@ let itemData: [String : Any] = [
 			"value": "8"],
 		"description": 	"A long, thin, agile sword best used for stabbing and riposte",									],
 	"scimitar": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["finesse", "light"],
 		"damage": [
@@ -250,6 +277,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": 	"A curved, wide blade",											],
 	"shortsword": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["finesse", "light"],
 		"damage": [
@@ -258,6 +286,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": 	"A basic sword, measuring no longer than 3 feet long",											],
 	"trident": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["thrown", "versatile"],
 		"range": [
@@ -269,6 +298,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": 	"A long pole ending in three sharp prongs",											],
 	"war pick": [
+		"type": "weapon",
 		"class": "martial",
 		"damage": [
 			"multiplier": "1",
@@ -276,6 +306,7 @@ let itemData: [String : Any] = [
 			"value": "8"],
 		"description": "I have no idea what a \"war pick\" is", 												],
 	"warhammer": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["versatile"],
 		"damage": [
@@ -285,6 +316,7 @@ let itemData: [String : Any] = [
 			"twoHanded": "10"],
 		"description": "A heavy, two-handed hammer", 												],
 	"whip": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["finesse", "reach"],
 		"damage": [
@@ -293,6 +325,7 @@ let itemData: [String : Any] = [
 			"value": "4"],
 		"description": "A long and flexible rope-like weapon", 												],
 	"blowgun": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["ammunition", "ranged", "loading"],
 		"range": [
@@ -303,6 +336,7 @@ let itemData: [String : Any] = [
 			"value": "1"],
 		"description": 	"A air-powered tube that can be used to propel darts at distant targets",						],
 	"hand crossbow": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["ammunition", "light", "loading"],
 		"range": [
@@ -314,6 +348,7 @@ let itemData: [String : Any] = [
 			"value": "6"],
 		"description": 	"A small crossbow that can be wielded in one hand",													],
 	"heavy crossbow": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["ammunition", "heavy", "loading", "twoHanded"],
 		"range": [
@@ -325,6 +360,7 @@ let itemData: [String : Any] = [
 			"value": "10"],
 		"description": 	"A military grade crossbow",													],
 	"longbow": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["ammunition", "ranged", "heavy", "twoHanded"],
 		"range": [
@@ -336,6 +372,7 @@ let itemData: [String : Any] = [
 			"value": "8"],
 		"description": 	"A bow that excels at hitting distant targets",													],
 	"net": [
+		"type": "weapon",
 		"class": "martial",
 		"tags": ["special", "thrown"],
 		"special": "A creature that is of size Large or smaller can be restrained by the net on a successful hit.  Creatures caught by the net must make a DC10 Strength check to break free.  They can also be freed by doing 5 slashing damage to the net, which in turn destroys the net.  Using a net prevents the use of multiple attacks on the turn the net is cast.",
@@ -422,12 +459,5 @@ let itemData: [String : Any] = [
 
 let SimpleWeapons = ["club", "dagger", "greatclub", "handaxe", "javelin", "light hammer", "mace", "quarterstaff", "sickle", "spear", "light crossbow", "dart", "shortbow", "sling"]
 let MartialWeapons = ["battleaxe", "flail", "glaive", "greataxe", "greatsword", "halberd", "lance", "longsword", "maul", "morningstar", "pike", "rapier", "scimitar", "trident", "war pick", "warhammer", "whip", "blowgun", "hand crossbow", "heavy crossbow", "longbow", "net"]
-
-enum ItemType: String {
-	case rangedWeapon, meleeWeapon, simple, martial, mixedWeapon, armor, shield, pack, other
-}
-enum ItemClass: String {
-	case martial, simple
-}
 
 
