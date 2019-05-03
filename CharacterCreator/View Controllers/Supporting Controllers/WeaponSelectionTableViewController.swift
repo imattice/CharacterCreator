@@ -12,7 +12,7 @@ class WeaponSelectionTableViewController: UITableViewController {
 	var tableViewData = [Item]()
 
 	var selectionView: SelectionView?
-	var weaponType: WeaponType?
+	var weaponType: Weapon.WeaponClass?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,11 @@ class WeaponSelectionTableViewController: UITableViewController {
 			case .simple: 	return SimpleWeapons		} }
 
 		for string in dataSource {
+			if let weapon = Weapon(weapon: string) {
+				result.append(weapon)
+				continue
+			}
+
 			let item = Item(string)
 			result.append(item)
 		}
@@ -89,7 +94,7 @@ class WeaponSelectionTableViewController: UITableViewController {
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "ItemSelectionCell", for: indexPath) as! ItemSelectionTableViewCell
-		let item = tableViewData[indexPath.row]
+		let item = tableViewData[indexPath.row] as! Weapon
 
 		cell.configure(for: item)
 

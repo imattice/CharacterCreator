@@ -17,8 +17,13 @@ class Weapon: Item {
 	lazy var isRanged: Bool = {
 		return tags.contains(.ranged) }()
 
-	override init(_ name: String) {
-		let itemDict 			= itemData[name] as! [String : Any] //else { return }
+	init?(weapon name: String) {
+		guard let itemDict 			= itemData[name] as? [String : Any] else { return nil }
+
+		if let classData = itemDict["class"] as? String,
+			let weaponClass = WeaponClass(rawValue: classData) {
+			self.class	= weaponClass
+		} else { return nil }
 
 		if let damageDict 			= itemDict["damage"] as? [String : Any],
 			let damage = Damage(fromDict: damageDict) {
@@ -35,11 +40,6 @@ class Weapon: Item {
 			}
 		}
 		self.tags = tags
-
-		if let classData = itemDict["class"] as? String,
-			let weaponClass = WeaponClass(rawValue: classData) {
-			self.class	= weaponClass
-		} else { self.class = .simple }
 
 		super.init(name)
 	}

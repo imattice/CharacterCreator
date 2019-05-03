@@ -54,13 +54,13 @@ class ChoiceSelectionView: UIView {
 				//check for multiple iterations of the same item
 				let itemFrequency = selectionItems.filter({ item.name == $0.name }).count
 
-				if item as? Weapon {
-
-				}
-				if itemFrequency > 1 {
-					selectionView.config(forMultiple: itemFrequency, items: item)		}
+				if let weapon = item as? Weapon {
+					selectionView.config(for: weapon)										}
 				else {
-					selectionView.config(for: item)									}
+					if itemFrequency > 1 {
+						selectionView.config(forMultiple: itemFrequency, items: item)		}
+					else {
+						selectionView.config(for: item)										}}
 
 				//configure the choice view
 				selectionView.delegate = delegate
