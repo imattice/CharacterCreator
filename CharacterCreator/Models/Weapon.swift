@@ -69,3 +69,20 @@ class Weapon: Item {
 		case martial, simple
 	}
 }
+
+class WeaponSelectionItem: Item {
+	let category: Category
+
+	override init(_ name: String) {
+		if name == "martial weapon" {
+			self.category 	= .martial	}
+		else {
+			self.category	= .simple	}
+
+		super.init(name)
+	}
+
+
+	enum Category {
+		case simple, martial	}
+}

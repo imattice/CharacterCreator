@@ -53,9 +53,10 @@ class ChoiceSelectionView: UIView {
 
 				//check for multiple iterations of the same item
 				let itemFrequency = selectionItems.filter({ item.name == $0.name }).count
-
-				if let weapon = item as? Weapon {
-					selectionView.config(for: weapon)										}
+				print(item)
+				if let selectionItem = item as? WeaponSelectionItem {
+					print("Creating selection view for weapon: \(selectionItem.name)")
+					selectionView.config(for: selectionItem)										}
 				else {
 					if itemFrequency > 1 {
 						selectionView.config(forMultiple: itemFrequency, items: item)		}
@@ -118,18 +119,25 @@ class SelectionView: UIView {
 		button.removeFromSuperview()
 	}
 
-	func config(for weapon: Weapon) {
-		setLabelText(for: weapon as Item)
+	func config(for selectionItem: WeaponSelectionItem) {
+		setLabelText(for: selectionItem)
 
 		//determine if the item is a weapon and set its type
-		if weapon.class == .martial		 		{
-			weaponType = .martial				}
-		else if weapon.class == .simple		 	{
-			weaponType = .simple 				}
-		else 									{
-			weaponType = nil					}
+//		if selectionItem.class == .martial		 		{
+//			weaponType = .martial				}
+//		else if selectionItem.class == .simple		 	{
+//			weaponType = .simple 				}
+//		else 									{
+//			weaponType = nil					}
 
-		configureButton(for: weapon)
+		switch selectionItem.category {
+		case .martial:
+			weaponType	= .martial
+		case .simple:
+			weaponType	= .simple
+		}
+
+		configureButton(for: selectionItem)
 	}
 
 	func setLabelText(for item: Item) {

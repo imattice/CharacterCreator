@@ -167,17 +167,12 @@ extension Class {
 			self.castingAbility 		= castingAbility
 			self.initialSpellCount 		= initialSpellCount
 			self.spellSlots				= result
-
-
-
-
-
 		}
 	}
 
 	static let EvocationWizard = Class(fromString: "wizard", withPath: "school of evocation")!
 	static let LifeCleric = Class(fromString: "cleric", withPath: "life domain")!
-	static let ChampionFighter = Class(fromString: "figher", withPath: "champion")!
+	static let ChampionFighter = Class(fromString: "fighter", withPath: "champion")!
 	static let RogueThief = Class(fromString: "rogue", withPath: "thief")!
 
 }

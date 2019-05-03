@@ -37,6 +37,16 @@ class InventorySelectionViewController: UIViewController {
 				//add items to the selection
 				var items = [Item]()
 				for itemName in itemDict {
+					if itemName == "simple weapon" || itemName == "martial weapon" {
+						items.append(WeaponSelectionItem(itemName))
+						continue
+					}
+
+					if let weapon = Weapon(weapon: itemName) {
+						items.append(weapon)
+
+						continue
+					}
 
 					let item = Item(itemName)
 

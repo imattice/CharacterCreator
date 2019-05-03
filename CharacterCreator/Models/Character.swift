@@ -63,7 +63,7 @@ class Character {
 	static let `default` = Character(default: "default")
 
 	private init(default: String) {
-		self.class 			= Class.EvocationWizard
+		self.class 			= Class.ChampionFighter
 		self.race 			= Race.ElfHigh
 		self.stats 			= [Stat(name: .str, rawValue: 8),
 								  Stat(name: .con, rawValue: 13),
