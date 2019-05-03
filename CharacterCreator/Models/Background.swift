@@ -41,4 +41,11 @@ struct Background {
 			}}
 		return result
 	}
+
+	static let Acolyte 	= Background("acolyte")
+	static let Criminal = Background("criminal")
+	static let FolkHero = Background("folk hero")
+	static let Noble 	= Background("noble")
+	static let Sage 	= Background("sage")
+	static let Soldier 	= Background("acolyte")
 }

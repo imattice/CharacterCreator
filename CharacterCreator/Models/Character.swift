@@ -63,15 +63,15 @@ class Character {
 	static let `default` = Character(default: "default")
 
 	private init(default: String) {
-		self.class 			= Class(fromString: "wizard", withPath: "school of evocation")!
-		self.race 			= Race(fromParent: "elf", withSubrace: "high")!
+		self.class 			= Class.EvocationWizard
+		self.race 			= Race.ElfHigh
 		self.stats 			= [Stat(name: .str, rawValue: 8),
 								  Stat(name: .con, rawValue: 13),
 								  Stat(name: .dex, rawValue: 10),
 								  Stat(name: .cha, rawValue: 12),
 								  Stat(name: .wis, rawValue: 14),
 								  Stat(name: .int, rawValue: 15)]
-		self.background 	= Background("sage")
+		self.background 	= Background.Sage
 		self.items			= [Item("quarterstaff"),
 								 Item("component pouch"),
 								 Item("arcane focus"),

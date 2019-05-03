@@ -117,4 +117,13 @@ struct Race {
 		}
 		return result
 	}
+
+	static let DwarfMountian = Race(fromParent: "dwarf", withSubrace: "mountian")!
+	static let DwarfHill = Race(fromParent: "dwarf", withSubrace: "hill")!
+	static let ElfHigh = Race(fromParent: "elf", withSubrace: "high")!
+	static let ElfWood = Race(fromParent: "elf", withSubrace: "wood")!
+	static let HalflingLightfoot = Race(fromParent: "halfling", withSubrace: "lightfoot")!
+	static let HalflingStout = Race(fromParent: "halfling", withSubrace: "stout")!
+	static let Human = Race(fromParent: "human", withSubrace: nil)!
+
 }
