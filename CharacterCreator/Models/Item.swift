@@ -14,11 +14,12 @@ class Item {
 //	let isMagical: Bool
 
 	init(_ name: String) {
-		self.name = name
+		self.name = name.lowercased()
 
-		if let itemDict = itemData[name] as? [String : Any],
+		if let itemDict = itemData[name.lowercased()] as? [String : Any],
 			let type = itemDict["type"] as? String,
-			let itemType = ItemType(rawValue: type) {
+			let itemType = ItemType(rawValue: type)
+		{
 
 			self.type	= itemType					}
 		else {
@@ -26,7 +27,7 @@ class Item {
 	}
 
 	func description() -> String {
-		guard let itemDict = itemData[name] as? [String : Any],
+		guard let itemDict = itemData[name.lowercased()] as? [String : Any],
 			let description = itemDict["description"] as? String
 		else { print("could not create itemDict for \(name) for item description"); return "" }
 

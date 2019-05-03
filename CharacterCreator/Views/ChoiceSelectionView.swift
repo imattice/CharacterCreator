@@ -55,7 +55,7 @@ class ChoiceSelectionView: UIView {
 				let itemFrequency = selectionItems.filter({ item.name == $0.name }).count
 				print(item)
 				if let selectionItem = item as? WeaponSelectionItem {
-					print("Creating selection view for weapon: \(selectionItem.name)")
+//					print("Creating selection view for weapon: \(selectionItem.name)")
 					selectionView.config(for: selectionItem)										}
 				else {
 					if itemFrequency > 1 {

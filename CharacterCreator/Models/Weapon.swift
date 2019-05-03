@@ -18,7 +18,7 @@ class Weapon: Item {
 		return tags.contains(.ranged) }()
 
 	init?(weapon name: String) {
-		guard let itemDict 			= itemData[name] as? [String : Any] else { return nil }
+		guard let itemDict 			= itemData[name.lowercased()] as? [String : Any] else { return nil }
 
 		if let classData = itemDict["class"] as? String,
 			let weaponClass = WeaponClass(rawValue: classData) {
@@ -41,7 +41,7 @@ class Weapon: Item {
 		}
 		self.tags = tags
 
-		super.init(name)
+		super.init(name.lowercased())
 	}
 
 

@@ -18,6 +18,8 @@ class InventorySelectionViewController: UIViewController {
         super.viewDidLoad()
 		loadChoiceData()
 		addSelectionViews()
+
+		addItemsToCharacter()
 	}
 
 	func loadChoiceData() {
@@ -97,19 +99,19 @@ class InventorySelectionViewController: UIViewController {
 		var result = [Item]()
 
 		for choiceView in stackView.arrangedSubviews {
-
 			guard let choiceView = choiceView as? ChoiceSelectionView
 				else { print("could not cast to Choice Selection View when getting selections"); continue }
-
-			let optionIndex = choiceView.pageControl.currentPage
-
-			guard let stackView = choiceView.stackView.arrangedSubviews[optionIndex] as? UIStackView,
+			guard let stackView = choiceView.stackView.arrangedSubviews[choiceView.pageControl.currentPage] as? UIStackView,
 				let selectionViews = stackView.arrangedSubviews as? [SelectionView]
-			else { print("Could not get selection views from Choice View"); continue }
-
+				else { print("Could not get selection views from Choice View"); continue }
 
 			for selectionView in selectionViews {
 				guard let text = selectionView.titleLabel.text else { print("title text unavailable"); continue}
+
+				if let weapon = Weapon(weapon: text) {
+					result.append(weapon)
+					continue
+				}
 
 				let item = Item(text)
 				result.append(item)
@@ -123,6 +125,11 @@ class InventorySelectionViewController: UIViewController {
 		let selectedItems = getSelections()
 
 		Character.default.items = selectedItems
+
+		print(Character.default.items)
+//		for item in (Character.default.items) {
+//			print("\(item.name) for type \(item.type)")
+//		}
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
