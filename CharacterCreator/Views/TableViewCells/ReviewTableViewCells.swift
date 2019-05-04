@@ -180,17 +180,9 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var armorLabel: UILabel!
 
 	override func config() {
-
-		let items = Character.default.items.filter({ type(of: $0) != Weapon.self || type(of: $0) != Armor.self })
-		var itemText 	= ""
-
-		for item in items {
-			itemText += "• \(item.name.capitalized)\n"  }
-
-		itemLabel.text 	= itemText
-
-		addArmorLabels()
 		fillStackView()
+		addArmorLabels()
+		addItemText()
 
 		setNeedsLayout()
 		layoutIfNeeded()
@@ -201,11 +193,10 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 	}
 
 	private func addWeapons() {
-
 		if let placeholder = weaponStack.viewWithTag(100) {
 			placeholder.removeFromSuperview()
 		}
-		let weapons = Character.default.items.filter({ type(of: $0) == Weapon.self })
+		let weapons = Character.default.items.filter({ $0.type == .weapon })
 		print(weapons.count)
 
 		for weapon in weapons {
@@ -229,14 +220,34 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 	private func addArmorLabels() {
 		var armorText = ""
 
+		print(Character.default.items)
+		
 		if let armor = Character.default.items.filter({ $0.type == .armor }).first {
-			armorText	= armor.name												}
+			armorText	= armor.name.capitalized									}
 
 		if Character.default.items.contains(where: { $0.type == .shield }) {
-			armorText	+= "\n+ shield"										}
+			armorText	+= "\n+ Shield"										}
 
 		acValueLabel.text	= String(Character.default.armorClass())
 		armorLabel.text		= armorText
+	}
+
+	private func addItemText() {
+		let items = Character.default.items.filter({ $0.type == .custom || $0.type == .other })
+		var itemText 	= ""
+
+		for item in items {
+		itemText += "• \(item.name.capitalized)\n"  }
+
+		if let pack = Character.default.items.filter( { $0.type == .pack }).first as? Pack {
+			itemText += "• A \(pack.name.capitalized)\n containing:"
+
+			for item in pack.contents {
+				itemText += "\n     • \(item)"
+			}
+		}
+
+		itemLabel.text 	= itemText
 	}
 }
 

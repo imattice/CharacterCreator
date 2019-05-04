@@ -22,6 +22,16 @@ class Pack: Item {
 	}
 }
 
+extension Pack {
+	static let Priest 		= Pack(pack: "priest's pack")!
+	static let Explorer 	= Pack(pack: "explorer's pack")!
+	static let Dungeoneer 	= Pack(pack: "dungeoneer's pack")!
+	static let Diplomat 	= Pack(pack: "diplomat's pack")!
+	static let Burgler 		= Pack(pack: "burglar's pack")!
+	static let Entertainer	= Pack(pack: "entertainer's pack")!
+	static let Scholar 		= Pack(pack: "scholar's pack")!
+}
+
 let packDict = [
 	"priest's pack": [
 		"contents":  ["A blanket",
@@ -82,8 +92,6 @@ let packDict = [
 					  "5 days of rations",
 					  "a waterskin",
 					  "a disguise kit.",						],],
-	"thieves's tools": [
-		"contents": ["empty"],																																],
 	"scholar's pack": [
 		"contents":  ["a book of lore",
 						"a bottle of ink",

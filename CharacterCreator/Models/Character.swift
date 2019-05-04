@@ -75,11 +75,11 @@ class Character {
 		self.items			= [ Weapon.Quarterstaff,
 								  Weapon.Dagger,
 								  Weapon.Dagger,
-								  Armor.plate,
-								  Armor.shield,
+								  Armor.ScaleMail,
+								  Armor.Shield,
 								  Item.ComponentPouch,
 								  Item.ArcaneFocus,
-								 Item("scholar's pack"),
+								 Pack.Scholar,
 								 Item("spellbook"),
 								 Item("a bottle of black ink"), Item("a quill"), Item("a small knife"), Item("a inquisitive letter")]
 		self.proficiencies	= ["arcana", "history"]

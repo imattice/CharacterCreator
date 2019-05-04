@@ -152,16 +152,16 @@ let itemData: [String : Any] = [
 		"description": "A set of armor meant to protect vital organs, including a breastplate, gaunlets and greaves"		],
 
 	"ring mail": [
-		"type": "heavy",
+		"type": "armor",
 		"description": "A jacket made of leather with rings of metal sown into it"											],
 	"chain mail": [
-		"type": "heavy",
+		"type": "armor",
 		"description": "A shirt made of interlocking rings of metal"														],
 	"splint": [
-		"type": "heavy",
+		"type": "armor",
 		"description": "Solid pieces of metal attached to a leather set of armor"											],
 	"plate": [
-		"type": "heavy",
+		"type": "armor",
 		"description": "A full suit of heavy metal armor covering all body parts"											],
 
 	"shield": [

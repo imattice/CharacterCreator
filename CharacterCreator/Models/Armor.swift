@@ -25,6 +25,8 @@ class Armor: Item {
 		self.class		= armorClass
 
 		super.init(armorName)
+
+
 	}
 
 	enum ArmorClass: String {
@@ -33,22 +35,22 @@ class Armor: Item {
 }
 
 extension Armor {
-	static let padded			= Armor(armor: "padded")!
-	static let leather			= Armor(armor: "leather")!
-	static let studdedLeather	= Armor(armor: "studded leather")!
+	static let Padded			= Armor(armor: "padded")!
+	static let Leather			= Armor(armor: "leather")!
+	static let StuddedLeather	= Armor(armor: "studded leather")!
 
-	static let hide				= Armor(armor: "hide")!
-	static let chainShirt		= Armor(armor: "chain shirt")!
-	static let scaleMail		= Armor(armor: "scale mail")!
-	static let breastplate		= Armor(armor: "breastplate")!
-	static let halfPlate		= Armor(armor: "half plate")!
+	static let Hide				= Armor(armor: "hide")!
+	static let ChainShirt		= Armor(armor: "chain shirt")!
+	static let ScaleMail		= Armor(armor: "scale mail")!
+	static let Breastplate		= Armor(armor: "breastplate")!
+	static let HalfPlate		= Armor(armor: "half plate")!
 
-	static let ringMail			= Armor(armor: "ring mail")!
-	static let chainMail		= Armor(armor: "chain mail")!
-	static let splint			= Armor(armor: "splint")!
-	static let plate			= Armor(armor: "plate")!
+	static let RingMail			= Armor(armor: "ring mail")!
+	static let ChainMail		= Armor(armor: "chain mail")!
+	static let Splint			= Armor(armor: "splint")!
+	static let Plate			= Armor(armor: "plate")!
 
-	static let shield			= Armor(armor: "shield")!
+	static let Shield			= Armor(armor: "shield")!
 }
 
 let armorData = [
