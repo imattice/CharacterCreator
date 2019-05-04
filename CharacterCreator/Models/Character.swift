@@ -75,6 +75,8 @@ class Character {
 		self.items			= [ Weapon.Quarterstaff,
 								  Weapon.Dagger,
 								  Weapon.Dagger,
+								  Armor.plate,
+								  Armor.shield,
 								  Item.ComponentPouch,
 								  Item.ArcaneFocus,
 								 Item("scholar's pack"),
@@ -131,6 +133,24 @@ class Character {
 	}
 	func stat(forName name: StatType) -> Stat? {
 		return self.stats.first(where: {$0.name == name })
+	}
+	func armorClass() -> Int {
+		var armorBonus 	= 0
+		var dexMod		= 0
+		var shieldBonus	= 0
+
+		if let armor = items.filter({ $0.type == .armor }).first as? Armor {
+			armorBonus = armor.acBonus
+		}
+
+		if let dex = stats.filter({ $0.name == .dex }).first {
+			dexMod = dex.modifier								}
+
+		if let shield = items.filter({ $0.type == .shield }).first as? Armor {
+			shieldBonus	= shield.acBonus
+		}
+
+		return 10 + armorBonus + dexMod + shieldBonus
 	}
 //	func modifiedStat(forStat stat: StatType) -> Stat? {
 //		guard let baseStat = self.stat(forName: stat),

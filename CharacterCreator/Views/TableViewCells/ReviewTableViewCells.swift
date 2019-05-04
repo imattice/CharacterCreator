@@ -174,26 +174,22 @@ class SkillStack: UIStackView {
 
 class InventoryReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var weaponStack: UIStackView!
-	@IBOutlet weak var leftColumnLabel: UILabel!
-	@IBOutlet weak var rightColumnLabel: UILabel!
+	@IBOutlet weak var itemLabel: UILabel!
+//	@IBOutlet weak var rightColumnLabel: UILabel!
+	@IBOutlet weak var acValueLabel: UILabel!
+	@IBOutlet weak var armorLabel: UILabel!
 
 	override func config() {
-		let items = Character.default.items
-		var rightText 	= ""
-		var leftText 	= ""
 
-		for index in 0...items.count-1 {
-			if index <= items.count/2 {
-				leftText += "• \(items[index].name.capitalized)\n"  }
-			else {
-				rightText += "• \(items[index].name.capitalized)\n" }
-		}
+		let items = Character.default.items.filter({ type(of: $0) != Weapon.self || type(of: $0) != Armor.self })
+		var itemText 	= ""
 
+		for item in items {
+			itemText += "• \(item.name.capitalized)\n"  }
 
+		itemLabel.text 	= itemText
 
-		leftColumnLabel.text 	= leftText
-		rightColumnLabel.text 	= rightText
-
+		addArmorLabels()
 		fillStackView()
 
 		setNeedsLayout()
@@ -202,10 +198,13 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 
 	func fillStackView() {
 		addWeapons()
-		addArmor()
 	}
 
 	private func addWeapons() {
+
+		if let placeholder = weaponStack.viewWithTag(100) {
+			placeholder.removeFromSuperview()
+		}
 		let weapons = Character.default.items.filter({ type(of: $0) == Weapon.self })
 		print(weapons.count)
 
@@ -227,8 +226,17 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 		print(title: "subview count", attribute: weaponStack.arrangedSubviews.count)
 	}
 
-	private func addArmor() {
+	private func addArmorLabels() {
+		var armorText = ""
 
+		if let armor = Character.default.items.filter({ $0.type == .armor }).first {
+			armorText	= armor.name												}
+
+		if Character.default.items.contains(where: { $0.type == .shield }) {
+			armorText	+= "\n+ shield"										}
+
+		acValueLabel.text	= String(Character.default.armorClass())
+		armorLabel.text		= armorText
 	}
 }
 
