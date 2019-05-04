@@ -13,7 +13,7 @@ class Pack: Item {
 	let contents: [String]
 
 	init?(pack name: String) {
-		guard let packDict = packDict[name],
+		guard let packDict = packDict[name.lowercased()],
 		let contents = packDict["contents"] else { return nil }
 
 		self.contents	= contents

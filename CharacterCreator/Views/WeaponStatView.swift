@@ -21,7 +21,7 @@ class WeaponStatView: XibView {
 
 	override func config() {
 		guard let weapon = weapon else { return }
-		nameLabel.text				= weapon.name
+		nameLabel.text				= weapon.name.capitalized
 		attackBonusLabel.text		= "+5"
 		damageRollLabel.text		= weapon.damage.rollString(withType: false)
 		damageTypeLabel.text		= weapon.damage.type.rawValue

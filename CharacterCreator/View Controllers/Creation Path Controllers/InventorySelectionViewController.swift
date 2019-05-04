@@ -49,9 +49,17 @@ class InventorySelectionViewController: UIViewController {
 
 						continue
 					}
+					if let armor = Armor(armor: itemName) {
+						items.append(armor)
+
+						continue
+					}
+					if let pack = Pack(pack: itemName) {
+						items.append(pack)
+						continue
+					}
 
 					let item = Item(itemName)
-
 					items.append(item)
 				}
 
@@ -65,6 +73,8 @@ class InventorySelectionViewController: UIViewController {
 
 		//set the choice data to the
 		choiceData = choices
+
+
 	}
 	private func addSelectionViews() {
 		for choice in choiceData {
@@ -110,8 +120,13 @@ class InventorySelectionViewController: UIViewController {
 
 				if let weapon = Weapon(weapon: text) {
 					result.append(weapon)
-					continue
-				}
+					continue						}
+				if let armor = Armor(armor: text) {
+					result.append(armor)
+					continue						}
+				if let pack = Pack(pack: text) {
+					result.append(pack)
+					continue					}
 
 				let item = Item(text)
 				result.append(item)
