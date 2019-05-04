@@ -194,17 +194,18 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 		leftColumnLabel.text 	= leftText
 		rightColumnLabel.text 	= rightText
 
-		addWeapons()
+		fillStackView()
 
 		setNeedsLayout()
 		layoutIfNeeded()
 	}
 
-	private func addWeapons() {
-		for weaponView in weaponStack.arrangedSubviews {
-			weaponStack.removeArrangedSubview(weaponView)
-		}
+	func fillStackView() {
+		addWeapons()
+		addArmor()
+	}
 
+	private func addWeapons() {
 		let weapons = Character.default.items.filter({ type(of: $0) == Weapon.self })
 		print(weapons.count)
 
@@ -224,6 +225,10 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 		}
 
 		print(title: "subview count", attribute: weaponStack.arrangedSubviews.count)
+	}
+
+	private func addArmor() {
+
 	}
 }
 

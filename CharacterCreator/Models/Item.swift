@@ -9,9 +9,7 @@ import UIKit
 
 class Item {
 	let name: String
-//	let tags: [ItemTag]?
 	let type: ItemType
-//	let isMagical: Bool
 
 	init(_ name: String) {
 		self.name = name.lowercased()
