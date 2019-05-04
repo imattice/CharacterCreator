@@ -14,14 +14,16 @@ class WeaponStatView: XibView {
 	@IBOutlet weak var attackBonusLabel: UILabel!
 	@IBOutlet weak var damageRollLabel: UILabel!
 	@IBOutlet weak var damageTypeLabel: UILabel!
-	
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+	var weapon: Weapon? {
+		didSet {
+			config()	}}
 
+	override func config() {
+		guard let weapon = weapon else { return }
+		nameLabel.text				= weapon.name
+		attackBonusLabel.text		= "+5"
+		damageRollLabel.text		= weapon.damage.rollString(withType: false)
+		damageTypeLabel.text		= weapon.damage.type.rawValue
+	}
 }

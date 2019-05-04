@@ -63,7 +63,7 @@ class Character {
 	static let `default` = Character(default: "default")
 
 	private init(default: String) {
-		self.class 			= Class.ChampionFighter
+		self.class 			= Class.EvocationWizard
 		self.race 			= Race.ElfHigh
 		self.stats 			= [Stat(name: .str, rawValue: 8),
 								  Stat(name: .con, rawValue: 13),
@@ -72,9 +72,11 @@ class Character {
 								  Stat(name: .wis, rawValue: 14),
 								  Stat(name: .int, rawValue: 15)]
 		self.background 	= Background.Sage
-		self.items			= [Item("quarterstaff"),
-								 Item("component pouch"),
-								 Item("arcane focus"),
+		self.items			= [ Weapon.Quarterstaff,
+								  Weapon.Dagger,
+								  Weapon.Dagger,
+								  Item.ComponentPouch,
+								  Item.ArcaneFocus,
 								 Item("scholar's pack"),
 								 Item("spellbook"),
 								 Item("a bottle of black ink"), Item("a quill"), Item("a small knife"), Item("a inquisitive letter")]

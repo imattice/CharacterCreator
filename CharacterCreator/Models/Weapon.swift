@@ -70,6 +70,13 @@ class Weapon: Item {
 	}
 }
 
+extension Weapon {
+	static let Quarterstaff = Weapon(weapon: "quarterstaff")!
+	static let Dagger		= Weapon(weapon: "dagger")!
+	static let Shortbow		= Weapon(weapon: "shortbow")!
+	static let Longbow		= Weapon(weapon: "longbow")!
+}
+
 class WeaponSelectionItem: Item {
 	let category: Category
 

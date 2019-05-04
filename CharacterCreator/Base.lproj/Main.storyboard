@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wea-iB-bAx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lob-Fu-BHi">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1732,33 +1732,43 @@
                                             <outletCollection property="skillStacks" destination="fqU-6E-zeo" collectionClass="NSMutableArray" id="7JB-Lr-4uI"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="138" id="TEg-Xg-hi0" customClass="InventoryReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1019" width="375" height="138"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="94" id="TEg-Xg-hi0" customClass="InventoryReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1019" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TEg-Xg-hi0" id="QAl-wg-Vfg">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="137.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IXR-OS-2rS">
-                                                    <rect key="frame" x="8" y="8" width="359" height="61"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="IXR-OS-2rS">
+                                                    <rect key="frame" x="8" y="8" width="359" height="77.666666666666671"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COY-X3-Uqo" customClass="WeaponStatView" customModule="CharacterCreator" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="61"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="262.66666666666669"/>
                                                         </view>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="COY-X3-Uqo" secondAttribute="trailing" id="dec-v3-pBi"/>
+                                                        <constraint firstItem="COY-X3-Uqo" firstAttribute="leading" secondItem="IXR-OS-2rS" secondAttribute="leading" id="tqK-ko-QiO"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="subviews">
+                                                            <exclude reference="COY-X3-Uqo"/>
+                                                        </mask>
+                                                    </variation>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="poq-V0-vsh">
-                                                    <rect key="frame" x="15" y="77" width="345" height="50"/>
+                                                    <rect key="frame" x="23" y="77" width="329" height="24"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Column" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Alo-Uh-Tfb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="168.66666666666666" height="20.333333333333332"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="160.66666666666666" height="20.333333333333332"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Column" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duZ-Q9-uOV">
-                                                            <rect key="frame" x="176.66666666666663" y="0.0" width="168.33333333333337" height="20.333333333333332"/>
+                                                            <rect key="frame" x="168.66666666666663" y="0.0" width="160.33333333333337" height="20.333333333333332"/>
+                                                            <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1767,14 +1777,24 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="poq-V0-vsh" secondAttribute="bottom" id="NsE-EX-O6u"/>
-                                                <constraint firstItem="IXR-OS-2rS" firstAttribute="top" secondItem="QAl-wg-Vfg" secondAttribute="top" constant="8" id="ShN-g3-dCw"/>
-                                                <constraint firstAttribute="trailing" secondItem="IXR-OS-2rS" secondAttribute="trailing" constant="8" id="Vfw-mI-B8r"/>
-                                                <constraint firstItem="poq-V0-vsh" firstAttribute="leading" secondItem="QAl-wg-Vfg" secondAttribute="leadingMargin" id="Vvk-9H-iny"/>
-                                                <constraint firstItem="poq-V0-vsh" firstAttribute="top" secondItem="IXR-OS-2rS" secondAttribute="bottom" constant="8" id="Vxx-Hq-2xR"/>
-                                                <constraint firstItem="IXR-OS-2rS" firstAttribute="leading" secondItem="QAl-wg-Vfg" secondAttribute="leading" constant="8" id="Ys8-D2-Bsw"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="poq-V0-vsh" secondAttribute="trailing" id="yP9-bP-0Sp"/>
+                                                <constraint firstItem="IXR-OS-2rS" firstAttribute="top" secondItem="QAl-wg-Vfg" secondAttribute="top" constant="8" id="9TD-d9-uqK"/>
+                                                <constraint firstItem="IXR-OS-2rS" firstAttribute="leading" secondItem="QAl-wg-Vfg" secondAttribute="leading" constant="8" id="DMP-u3-FH5"/>
+                                                <constraint firstItem="poq-V0-vsh" firstAttribute="leading" secondItem="QAl-wg-Vfg" secondAttribute="leadingMargin" constant="8" id="Nyv-nD-wtA"/>
+                                                <constraint firstAttribute="trailing" secondItem="IXR-OS-2rS" secondAttribute="trailing" constant="8" id="VoU-TJ-YoO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="poq-V0-vsh" secondAttribute="bottom" constant="8" id="bZS-eA-awk"/>
+                                                <constraint firstAttribute="bottom" secondItem="IXR-OS-2rS" secondAttribute="bottom" constant="8" id="kVn-hV-YOk"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="poq-V0-vsh" secondAttribute="trailing" constant="8" id="lGS-iP-wQH"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="poq-V0-vsh"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="Nyv-nD-wtA"/>
+                                                    <exclude reference="bZS-eA-awk"/>
+                                                    <exclude reference="lGS-iP-wQH"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="leftColumnLabel" destination="Alo-Uh-Tfb" id="HxP-EH-dDh"/>
@@ -1783,7 +1803,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpellCell" rowHeight="128" id="Db8-WF-vjD" customClass="SpellReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1157" width="375" height="128"/>
+                                        <rect key="frame" x="0.0" y="1113" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Db8-WF-vjD" id="tZd-zT-laP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="127.66666666666667"/>

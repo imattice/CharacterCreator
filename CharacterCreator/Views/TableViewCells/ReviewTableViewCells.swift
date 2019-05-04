@@ -172,14 +172,12 @@ class SkillStack: UIStackView {
 	@IBOutlet weak var modifierBonusLabel: UILabel!
 }
 
-class InventoryReviewTableViewCell: UITableViewCell {
+class InventoryReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var weaponStack: UIStackView!
 	@IBOutlet weak var leftColumnLabel: UILabel!
 	@IBOutlet weak var rightColumnLabel: UILabel!
 
-	func config() {
-
-
+	override func config() {
 		let items = Character.default.items
 		var rightText 	= ""
 		var leftText 	= ""
@@ -191,19 +189,41 @@ class InventoryReviewTableViewCell: UITableViewCell {
 				rightText += "• \(items[index].name.capitalized)\n" }
 		}
 
+
+
 		leftColumnLabel.text 	= leftText
 		rightColumnLabel.text 	= rightText
+
+		addWeapons()
+
+		setNeedsLayout()
+		layoutIfNeeded()
 	}
 
 	private func addWeapons() {
 		for weaponView in weaponStack.arrangedSubviews {
 			weaponStack.removeArrangedSubview(weaponView)
 		}
-//		let weapons = Character.default.items.filter({ $0. })
-//
-//		for weapon in weapons {
-//			
-//		}
+
+		let weapons = Character.default.items.filter({ type(of: $0) == Weapon.self })
+		print(weapons.count)
+
+		for weapon in weapons {
+			let weaponView = WeaponStatView()
+			weaponView.weapon = weapon as? Weapon
+
+			weaponView.translatesAutoresizingMaskIntoConstraints = false
+			NSLayoutConstraint(item: weaponView,
+							   attribute: .height,
+							   relatedBy: .equal,
+							   toItem: nil, attribute: .notAnAttribute,
+							   multiplier: 1,
+							   constant: 60).isActive = true
+
+			weaponStack.addArrangedSubview(weaponView)
+		}
+
+		print(title: "subview count", attribute: weaponStack.arrangedSubviews.count)
 	}
 }
 
@@ -218,11 +238,11 @@ class SpellReviewTableViewCell: UITableViewCell {
 
 	private func spellList(forSpellLevel level: Int) -> String {
 		guard Character.default.class.castingAttributes != nil
-			else { return "\(Character.current.class.name())'s are not able to cast spells."}
+			else { return "\(Character.default.class.name())'s are not able to cast spells."}
 		guard Character.current.spellBook.isEmpty else { return "\(Character.current.flavorText.name) does not know any spells." }
 
 		var result = ""
-		let spells = Character.current.spellBook.filter({ $0.level == level })
+		let spells = Character.default.spellBook.filter({ $0.level == level })
 
 		for spell in spells {
 			result += "\(spell.name)  |  "

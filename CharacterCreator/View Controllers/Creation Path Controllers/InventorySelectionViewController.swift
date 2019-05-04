@@ -127,9 +127,6 @@ class InventorySelectionViewController: UIViewController {
 		Character.default.items = selectedItems
 
 		print(Character.default.items)
-//		for item in (Character.default.items) {
-//			print("\(item.name) for type \(item.type)")
-//		}
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -138,7 +135,6 @@ class InventorySelectionViewController: UIViewController {
 }
 
 extension InventorySelectionViewController: SelectionViewDelegate {
-
 	func buttonSelected(forView view: SelectionView) {
 		guard let weaponType = view.weaponType else { print("weapon type not set when weapon selection button pressed"); return }
 		if weaponType == .none { return }
@@ -150,5 +146,4 @@ extension InventorySelectionViewController: SelectionViewDelegate {
 		let nav = UINavigationController(rootViewController: vc)
 		present(nav, animated: true)
 	}
-
 }

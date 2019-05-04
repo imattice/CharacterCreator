@@ -18,7 +18,7 @@ class ReviewViewController: UIViewController {
 
 		loadTableData()
 
-		tableView.estimatedRowHeight = 100.0
+		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
     }
 
@@ -52,7 +52,7 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "IdentityCell") as! IdentityReviewTableViewCell
 				cell.config()
 			return cell
-		case 1:
+		case 6:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell") as! RaceReviewTableViewCell
 				cell.config()
 			return cell
@@ -72,7 +72,7 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell") as! SkillReviewTableViewCell
 			cell.config()
 			return cell
-		case 6:
+		case 1:
 			let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell") as! InventoryReviewTableViewCell
 			cell.config()
 			return cell
@@ -97,6 +97,6 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 		tableData[indexPath.row].isOpen = !data.isOpen
 		tableView.reloadRows(at: [indexPath], with: .fade)
 
-//		tableView.reloadData()
+		tableView.reloadData()
 	}
 }

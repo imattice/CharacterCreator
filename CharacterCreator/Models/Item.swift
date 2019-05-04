@@ -72,3 +72,10 @@ class Item {
 	}
 
 }
+
+extension Item {
+	static let ComponentPouch 	= Item("component pouch")
+	static let ArcaneFocus		= Item("arcane focus")
+//	static let ScholarsPack		= Item("scholar's pack)
+	static let Spellbook		= Item("spellbook")
+}
