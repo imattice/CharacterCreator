@@ -9,6 +9,11 @@
 import UIKit
 
 class ReviewTableViewCell: UITableViewCell {
+
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		config()
+	}
 	func config() {
 
 	}
@@ -18,12 +23,12 @@ class ReviewTableViewCell: UITableViewCell {
 	}
 }
 
-class IdentityReviewTableViewCell: UITableViewCell {
+class IdentityReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var ageLabel: UILabel!
 	@IBOutlet weak var alignmentLabel: UILabel!
 
-	func config() {
+	override func config() {
 		nameLabel.text 			= Character.default.flavorText.name
 		ageLabel.text			= "\(Character.default.flavorText.age) years old"
 		alignmentLabel.text 	= Character.default.flavorText.alignment
@@ -151,10 +156,10 @@ class StatStack: UIStackView {
 	}
 }
 
-class SkillReviewTableViewCell: UITableViewCell {
+class SkillReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet var skillStacks: [SkillStack]!
 
-	func config() {
+	override func config() {
 		for skillStack in skillStacks {
 			guard let text = skillStack.titleLabel.text,
 				let skill = Skill(fromString: text.lowercased()) else { continue }
@@ -251,11 +256,11 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 	}
 }
 
-class SpellReviewTableViewCell: UITableViewCell {
+class SpellReviewTableViewCell: ReviewTableViewCell{
 	@IBOutlet weak var cantripSpellListLabel: UILabel!
 	@IBOutlet weak var firstLevelSpellListLabel: UILabel!
 
-	func config() {
+	override func config() {
 		cantripSpellListLabel.text 		= spellList(forSpellLevel: 0)
 		firstLevelSpellListLabel.text 	= spellList(forSpellLevel: 1)
 	}
@@ -275,13 +280,5 @@ class SpellReviewTableViewCell: UITableViewCell {
 		return String(Substring(result).dropLast(5))
 	}
 }
-
-//protocol Configurable {
-//	func config()
-//}
-
-//class IdentityTableViewCell: UITableViewCell {
-//
-//}
 
 

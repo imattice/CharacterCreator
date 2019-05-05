@@ -23,14 +23,12 @@ class ReviewViewController: UIViewController {
     }
 
 	private func loadTableData() {
-
 		for _ in 0...7 {
 			let data = TableData(isOpen: false)
 
 			tableData.append(data)
 		}
 	}
-
 	struct TableData {
 		var isOpen: Bool
 	}
@@ -48,38 +46,14 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 		switch indexPath.row {
-		case 0:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "IdentityCell") as! IdentityReviewTableViewCell
-				cell.config()
-			return cell
-		case 6:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell") as! RaceReviewTableViewCell
-				cell.config()
-			return cell
-		case 2:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "ClassCell") as! ClassReviewTableViewCell
-			cell.config()
-			return cell
-		case 3:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "BackgroundCell") as! BackgroundReviewTableViewCell
-			cell.config()
-			return cell
-		case 4:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "StatCell") as! StatReviewTableViewCell
-				cell.config()
-			return cell
-		case 5:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell") as! SkillReviewTableViewCell
-			cell.config()
-			return cell
-		case 1:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell") as! InventoryReviewTableViewCell
-			cell.config()
-			return cell
-		case 7:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell") as! SpellReviewTableViewCell
-			cell.config()
-			return cell
+		case 0: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.IdentityCell.rawValue) 		as! IdentityReviewTableViewCell
+		case 1: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.RaceCell.rawValue) 			as! RaceReviewTableViewCell
+		case 2: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.ClassCell.rawValue) 		as! ClassReviewTableViewCell
+		case 3: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.BackgroundCell.rawValue) 	as! BackgroundReviewTableViewCell
+		case 4: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.StatCell.rawValue) 			as! StatReviewTableViewCell
+		case 5: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SkillCell.rawValue) 		as! SkillReviewTableViewCell
+		case 6: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.InventoryCell.rawValue) 	as! InventoryReviewTableViewCell
+		case 7: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SpellCell.rawValue) 		as! SpellReviewTableViewCell
 
 		default:
 			return UITableViewCell()
@@ -97,6 +71,10 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 		tableData[indexPath.row].isOpen = !data.isOpen
 		tableView.reloadRows(at: [indexPath], with: .fade)
 
-		tableView.reloadData()
+//		tableView.reloadData()
+	}
+
+	enum CellIdentifier: String {
+		case IdentityCell, RaceCell, ClassCell, BackgroundCell, StatCell, SkillCell, InventoryCell, SpellCell
 	}
 }
