@@ -75,16 +75,14 @@ class Character {
 		self.items			= [ Weapon.Quarterstaff,
 								  Weapon.Dagger,
 								  Weapon.Dagger,
-								  Armor.ScaleMail,
-								  Armor.Shield,
 								  Item.ComponentPouch,
 								  Item.ArcaneFocus,
 								 Pack.Scholar,
 								 Item("spellbook"),
 								 Item("a bottle of black ink"), Item("a quill"), Item("a small knife"), Item("a inquisitive letter")]
 		self.proficiencies	= ["arcana", "history"]
-		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
-								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
+//		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
+//								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
 		self.languages		= (innate: (Race(fromParent: "elf", withSubrace: "high")!.languages() + Background("sage").languages()),
 								 selected: [LanguageRecord]())
 		self.flavorText		= FlavorText(name: "Alpheon the Chronicler",

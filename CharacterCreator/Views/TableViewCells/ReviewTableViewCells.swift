@@ -9,18 +9,12 @@
 import UIKit
 
 class ReviewTableViewCell: UITableViewCell {
-
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		config()
 	}
-	func config() {
-
-	}
-
-	func tapped(_ isOpen: Bool) {
-
-	}
+	func config() {	}
+	func tapped(_ isOpen: Bool) {	}
 }
 
 class IdentityReviewTableViewCell: ReviewTableViewCell {
@@ -180,7 +174,6 @@ class SkillStack: UIStackView {
 class InventoryReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var weaponStack: UIStackView!
 	@IBOutlet weak var itemLabel: UILabel!
-//	@IBOutlet weak var rightColumnLabel: UILabel!
 	@IBOutlet weak var acValueLabel: UILabel!
 	@IBOutlet weak var armorLabel: UILabel!
 
@@ -198,11 +191,13 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 	}
 
 	private func addWeapons() {
+		//remove the placeholder view from the storyboard
 		if let placeholder = weaponStack.viewWithTag(100) {
 			placeholder.removeFromSuperview()
 		}
-		let weapons = Character.default.items.filter({ $0.type == .weapon })
-		print(weapons.count)
+
+		//get an array of items that are weapons and no duplicates
+		let weapons = Character.default.items.filter({ $0.type == .weapon }).duplicatesRemoved()
 
 		for weapon in weapons {
 			let weaponView = WeaponStatView()
@@ -218,15 +213,10 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 
 			weaponStack.addArrangedSubview(weaponView)
 		}
-
-		print(title: "subview count", attribute: weaponStack.arrangedSubviews.count)
 	}
 
 	private func addArmorLabels() {
-		var armorText = ""
-
-		print(Character.default.items)
-		
+		var armorText = ""		
 		if let armor = Character.default.items.filter({ $0.type == .armor }).first {
 			armorText	= armor.name.capitalized									}
 

@@ -45,25 +45,7 @@ class Item {
 
 		else {
 			return nil											}
-
-//		//if there's a icon for the tag
-//		if let tags = self.tags,
-//			let tag = tags.first {
-//			return tag.image()									}
-//
-//		else {
-//			print("no image available for \(name)")
-//			return nil											}
 	}
-
-//	func damage() -> Damage? {
-//		guard let itemDict 			= itemData[name] as? [String : Any],
-//			let damageDict 			= itemDict["damage"] as? [String : Any]
-//			else { print("damage data unavailable for \(name)"); return nil }
-//
-//		return Damage(fromDict: damageDict)
-//	}
-
 
 	enum ItemType: String {
 		case weapon, armor, shield, pack, other, custom
@@ -71,9 +53,14 @@ class Item {
 
 }
 
+extension Item: Equatable {
+	static func == (lhs: Item, rhs: Item) -> Bool {
+		return lhs.name == rhs.name
+	}
+}
+
 extension Item {
 	static let ComponentPouch 	= Item("component pouch")
 	static let ArcaneFocus		= Item("arcane focus")
-//	static let ScholarsPack		= Item("scholar's pack)
 	static let Spellbook		= Item("spellbook")
 }
