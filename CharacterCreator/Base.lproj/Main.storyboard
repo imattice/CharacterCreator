@@ -647,7 +647,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="1462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IdentityCell" editingAccessoryType="disclosureIndicator" rowHeight="100" id="1Ic-Pr-LB7" customClass="IdentityReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="IdentityCell" editingAccessoryType="disclosureIndicator" rowHeight="100" id="1Ic-Pr-LB7" customClass="IdentityReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ic-Pr-LB7" id="qLn-er-uCO">
@@ -699,7 +699,7 @@
                                             <outlet property="nameLabel" destination="PEw-fx-oTc" id="PLm-9G-dQQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RaceCell" rowHeight="100" id="PGU-T2-LO6" customClass="RaceReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RaceCell" rowHeight="100" id="PGU-T2-LO6" customClass="RaceReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="128" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PGU-T2-LO6" id="jku-17-Azs">
@@ -744,7 +744,7 @@
                                             <outlet property="raceImageView" destination="qcm-en-dVL" id="6DE-3l-ZwY"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClassCell" rowHeight="111" id="JYg-md-qeW" customClass="ClassReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ClassCell" rowHeight="111" id="JYg-md-qeW" customClass="ClassReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="375" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JYg-md-qeW" id="ev5-Im-S8k">
@@ -789,7 +789,7 @@
                                             <outlet property="nameLabel" destination="6ma-cO-5e0" id="U0g-gx-1JF"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BackgroundCell" rowHeight="105" id="0uv-fe-2DP" customClass="BackgroundReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BackgroundCell" rowHeight="105" id="0uv-fe-2DP" customClass="BackgroundReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="339" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0uv-fe-2DP" id="P0l-nG-KDw">
@@ -834,7 +834,7 @@
                                             <outlet property="titleLabel" destination="hVD-Av-eYF" id="y9r-Oa-o1V"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StatCell" rowHeight="250" id="x9D-MK-viV" customClass="StatReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="StatCell" rowHeight="250" id="x9D-MK-viV" customClass="StatReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="444" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x9D-MK-viV" id="jXN-1v-27z">
@@ -1250,7 +1250,7 @@
                                             <outletCollection property="statStacks" destination="1ny-Pc-QnU" collectionClass="NSMutableArray" id="vrj-mQ-q8y"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="325" id="HkR-3z-leT" customClass="SkillReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="325" id="HkR-3z-leT" customClass="SkillReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="694" width="375" height="325"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HkR-3z-leT" id="4pJ-G0-erX">
@@ -1732,7 +1732,7 @@
                                             <outletCollection property="skillStacks" destination="fqU-6E-zeo" collectionClass="NSMutableArray" id="7JB-Lr-4uI"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="197" id="TEg-Xg-hi0" customClass="InventoryReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InventoryCell" rowHeight="197" id="TEg-Xg-hi0" customClass="InventoryReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1019" width="375" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TEg-Xg-hi0" id="QAl-wg-Vfg">
@@ -1824,7 +1824,7 @@
                                             <outlet property="weaponStack" destination="IXR-OS-2rS" id="dP6-GC-dLd"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpellCell" rowHeight="128" id="Db8-WF-vjD" customClass="SpellReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SpellCell" rowHeight="128" id="Db8-WF-vjD" customClass="SpellReviewTableViewCell" customModule="CharacterCreator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1216" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Db8-WF-vjD" id="tZd-zT-laP">

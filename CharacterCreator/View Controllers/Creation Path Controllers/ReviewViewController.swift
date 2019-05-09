@@ -70,10 +70,9 @@ extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 		cell.tapped(data.isOpen)
 		tableView.endUpdates()
 
-		tableData[indexPath.row].isOpen = !data.isOpen
-		tableView.reloadRows(at: [indexPath], with: .fade)
+		tableData[indexPath.row].isOpen = !tableData[indexPath.row].isOpen
 
-//		tableView.reloadData()
+//		tableView.reloadRows(at: [indexPath], with: .fade)
 	}
 
 	enum CellIdentifier: String {
