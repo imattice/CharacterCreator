@@ -7,360 +7,166 @@
 let itemData: [String : Any] = [
 //Simple Weapons
 	"simple weapon": [
-		"class": "simple",
+		"type": "weapon",
 		"description": "A basic weapon, often made of a makeshift item",												],
-
 	"club":	[
-		"class": "simple",
-		"tags": ["light"],
-		"damage": [
-			"multiplier": "1",
-			"type": "bludgeoning",
-			"value": "4"],
+		"type": "weapon",
 		"description": "A blunt, thick piece of wood that can surprisingly painful when used as a weapon",				],
 	"dagger": [
-		"class": "simple",
-		"tags": ["finesse", "light", "thrown"],
-		"range": [
-			"normal": "20",
-			"extended": "60"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "4"],
+		"type": "weapon",
 		"description": 	"A small, quick blade that can be thrown or easily concealed",									],
 	"greatclub":	[
-		"class": "simple",
-		"tags": ["twoHanded"],
-		"damage": [
-			"multiplier": "1",
-			"type": "bludgeoning",
-			"value": "8"],
+		"type": "weapon",
 		"description": "A wooden chunk that is so heavy that it requires two hands to use effectively",				],
 	"handaxe":	[
-		"class": "simple",
-		"tags": ["light", "thrown"],
-		"range": [
-			"normal": "20",
-			"extended": "60"],
-		"damage": [
-			"multiplier": "1",
-			"type": "slashing",
-			"value": "6"],
+		"type": "weapon",
 		"description": 	"A light, throwable axe used for quick and powerful chopping blows", 							],
 	"javelin":	[
-		"class": "simple",
-		"tags": ["thrown"],
-		"range": [
-			"normal": "30",
-			"extended": "120"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "6"],
+		"type": "weapon",
 		"description": 	"A throwable spear", 																				],
 	"mace":	[
-		"class": "simple",
-		"damage": [
-			"multiplier": "1",
-			"type": "bludgeoning",
-			"value": "6"],
+		"type": "weapon",
 		"description": "A spiked club used to inflict blugeoning damange",												],
 	"quarterstaff":	[
-		"class": "simple",
-		"tags": ["versatile"],
-		"damage": [
-			"multiplier": "1",
-			"type": "bludgeoning",
-			"value": "6",
-			"twoHanded": "8"],
+		"type": "weapon",
 		"description": "A two-handed pole made of wood or metal",															],
 	"sickle":	[
-		"class": "simple",
-		"tags": ["light"],
-		"damage": [
-			"multiplier": "1",
-			"type": "slashing",
-			"value": "4"],
+		"type": "weapon",
 		"description": 	"A short, curved blade used for harvesting grains", 												],
 	"spear":	[
-		"class": "simple",
-		"tags": ["thrown", "versatile"],
-		"range": [
-			"normal": "20",
-			"extended": "60"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "6",
-			"twoHanded": "8"],
+		"type": "weapon",
 		"description": 	"A long pole of wood or metal, ending in a sharpened point", 							],
 	"light crossbow":[
-			"class": "simple",
-			"tags": ["ammunition", "ranged", "loading", "twoHanded"],
-			"range": [
-				"normal": "80",
-				"extended": "320"],
-			"damage": [
-				"multiplier": "1",
-				"type": "piercing",
-				"value": "8"],
-			"description": "A sping-loaded weapon that fires sharp bolts at high speeds at the press of the trigger",		],
+		"type": "weapon",
+		"description": "A sping-loaded weapon that fires sharp bolts at high speeds at the press of the trigger",		],
 	"dart":[
-		"class": "simple",
-		"tags": ["finesse", "thrown"],
-		"range": [
-			"normal": "20",
-			"extended": "60"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "4"],
+		"type": "weapon",
 		"description": "A sharpened needle-like stick designed to be thrown",		],
 	"shortbow":	[
-		"class": "simple",
-		"tags": ["ammunition", "twoHanded"],
-		"range": [
-			"normal": "80",
-			"extended": "320"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "6"],
+		"type": "weapon",
 		"description": 	"A bow that excels at hitting close targets at range",											],
 	"sling":	[
-		"class": "simple",
-		"tags": ["ammunition"],
-		"range": [
-			"normal": "30",
-			"extended": "120"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "4"],
+		"type": "weapon",
 		"description": 	"An elastic band that can be used to fling rocks accross a short distance",						],
 
 //Martial Weapons
 	"martial weapon": [
-		"class": "material",
+		"type": "weapon",
 		"description": "A weapon that requires training to use correctly.",													],
 
 	"battleaxe": [
-		"class": "martial",
-		"tags": ["versatile"],
-		"damage": [
-			"multiplier": "1",
-			"type": "slashing",
-			"value": "8",
-			"twoHanded": "10"],
+		"type": "weapon",
 		"description": "A heavy, two-handed axe used to cleave through foes", 												],
 	"flail": [
-		"class": "martial",
-		"damage": [
-			"multiplier": "1",
-			"type": "bludgeoning",
-			"value": "8"],
+		"type": "weapon",
 		"description": "A jointed pole, often having studs", 																],
 	"glaive": [
-		"class": "martial",
-		"tags": ["heavy", "reach", "twoHanded"],
-		"damage": [
-			"multiplier": "1",
-			"type": "bludgeoning",
-			"value": "10" ],
+		"type": "weapon",
 		"description": "A long pole with a bladed edge at one end", 														],
 	"greataxe": [
-		"class": "martial",
-		"tags": ["heavy", "twoHanded"],
-		"damage": [
-			"multiplier": "1",
-			"type": "slashing",
-			"value": "12"],
+		"type": "weapon",
 		"description": "A huge, heavy axe, often with a double bladed head", 												],
 	"greatsword": [
-		"class": "martial",
-		"tags": ["heavy", "twoHanded"],
-		"damage": [
-			"multiplier": "2",
-			"type": "slashing",
-			"value": "6"],
+		"type": "weapon",
 		"description": "A huge, heavy sword, requireing two hands to wield", 												],
 	"halberd": [
-		"class": "martial",
-		"tags": ["heavy", "reach", "twoHanded"],
-		"damage": [
-			"multiplier": "1",
-			"type": "slashing",
-			"value": "10"],
+		"type": "weapon",
 		"description": "A long pole with an axe-shaped head attached to one end", 										],
 	"lance": [
-		"class": "martial",
-		"tags": ["reach", "special"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "12"],
-		"special": "You have disadvantage on a target within 5 feet of you when using the lance.  You must use two hands to wield this weapon while unmounted.",
+		"type": "weapon",
 		"description": "A long pole made of metal with a sharpened point",	 										],
 	"longsword":	[
-		"class": "martial",
-		"tags": ["versatile"],
-		"damage": [
-			"multiplier": "1",
-			"type": "slashing",
-			"value": "8"],
+		"type": "weapon",
 		"description": "A long, sharp blade made of steel or iron",														],
 	"maul":	[
-		"class": "martial",
-		"tags": ["heavy", "twoHanded"],
-		"damage": [
-			"multiplier": "2",
-			"type": "bludgeoning",
-			"value": "6"],
+		"type": "weapon",
 		"description": "A heavy, two-handed hammer",																		],
 	"morningstar":	[
-		"class": "martial",
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "8"],
+		"type": "weapon",
 		"description": "A one handed weapon ended in a spiked iron ball, which is either attached to the base directly or by a chain",																											],
 	"pike":	[
-		"class": "martial",
-		"tags": ["heavy", "reach", "twoHanded"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "10"],
+		"type": "weapon",
 		"description": "A long pole made of metal with a sharpened point",												],
 	"rapier": [
-		"class": "martial",
-		"tags": ["finesse"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "8"],
+		"type": "weapon",
 		"description": 	"A long, thin, agile sword best used for stabbing and riposte",									],
 	"scimitar": [
-		"class": "martial",
-		"tags": ["finesse", "light"],
-		"damage": [
-			"multiplier": "1",
-			"type": "slashing",
-			"value": "6"],
+		"type": "weapon",
 		"description": 	"A curved, wide blade",											],
 	"shortsword": [
-		"class": "martial",
-		"tags": ["finesse", "light"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "6"],
+		"type": "weapon",
 		"description": 	"A basic sword, measuring no longer than 3 feet long",											],
 	"trident": [
-		"class": "martial",
-		"tags": ["thrown", "versatile"],
-		"range": [
-			"normal": "20",
-			"extended": "60"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "6"],
+		"type": "weapon",
 		"description": 	"A long pole ending in three sharp prongs",											],
 	"war pick": [
-		"class": "martial",
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "8"],
+		"type": "weapon",
 		"description": "I have no idea what a \"war pick\" is", 												],
 	"warhammer": [
-		"class": "martial",
-		"tags": ["versatile"],
-		"damage": [
-			"multiplier": "1",
-			"type": "bludgeoning",
-			"value": "8",
-			"twoHanded": "10"],
+		"type": "weapon",
 		"description": "A heavy, two-handed hammer", 												],
 	"whip": [
-		"class": "martial",
-		"tags": ["finesse", "reach"],
-		"damage": [
-			"multiplier": "1",
-			"type": "slashing",
-			"value": "4"],
+		"type": "weapon",
 		"description": "A long and flexible rope-like weapon", 												],
 	"blowgun": [
-		"class": "martial",
-		"tags": ["ammunition", "ranged", "loading"],
-		"range": [
-			"normal": "25",
-			"extended": "100"],
-		"damage": [
-			"type": "piercing",
-			"value": "1"],
+		"type": "weapon",
 		"description": 	"A air-powered tube that can be used to propel darts at distant targets",						],
 	"hand crossbow": [
-		"class": "martial",
-		"tags": ["ammunition", "light", "loading"],
-		"range": [
-			"normal": "30",
-			"extended": "120"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "6"],
+		"type": "weapon",
 		"description": 	"A small crossbow that can be wielded in one hand",													],
 	"heavy crossbow": [
-		"class": "martial",
-		"tags": ["ammunition", "heavy", "loading", "twoHanded"],
-		"range": [
-			"normal": "100",
-			"extended": "400"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "10"],
+		"type": "weapon",
 		"description": 	"A military grade crossbow",													],
 	"longbow": [
-		"class": "martial",
-		"tags": ["ammunition", "ranged", "heavy", "twoHanded"],
-		"range": [
-			"normal": "150",
-			"extended": "600"],
-		"damage": [
-			"multiplier": "1",
-			"type": "piercing",
-			"value": "8"],
+		"type": "weapon",
 		"description": 	"A bow that excels at hitting distant targets",													],
 	"net": [
-		"class": "martial",
-		"tags": ["special", "thrown"],
-		"special": "A creature that is of size Large or smaller can be restrained by the net on a successful hit.  Creatures caught by the net must make a DC10 Strength check to break free.  They can also be freed by doing 5 slashing damage to the net, which in turn destroys the net.  Using a net prevents the use of multiple attacks on the turn the net is cast.",
-		"range": [
-			"normal": "5",
-			"extended": "15"],
+		"type": "weapon",
 		"description": 	"A woven collection of rope used to entagle an opponent",										],
 
-//	"armor": [
-		//armor
-		"scale mail": 		[
-			"type": "armor",
-			"description": 	"A type of medium armor made of interlocking shards of metal",									],
-		"leather armor":	[
-			"type": "armor",
-			"description": 	"Armor made from tanned animal hide",															],
-		"chain mail":	[
-			"type": "armor",
-			"description": 	"A shirt made from linked metal rings",															],
-//],
 
-	//shields
-	"shield":		[
+	"padded": [
+		"type": "armor",
+		"description": "A long jacket quilted with protective padding"														],
+	"leather": [
+		"type": "armor",
+		"description": "Close-fitting armor made of hardened animal leather."												],
+	"studded leather": [
+		"type": "armor",
+		"description": "Armor made of animal leather, reinforced with metal rivets."										],
+
+	"hide": [
+		"type": "armor",
+		"description": "Crudely assembled armor made of animal furs."														],
+	"chain shirt": [
+		"type": "armor",
+		"description": "A shirt made from linked metal rings"																],
+	"scale mail": [
+		"type": "armor",
+		"description": "A set of mail made of overlapping scales made of metal"												],
+	"breastplate": [
+		"type": "armor",
+		"description": "A solid piece of plate that covers the chest"														],
+	"half plate": [
+		"type": "armor",
+		"description": "A set of armor meant to protect vital organs, including a breastplate, gaunlets and greaves"		],
+
+	"ring mail": [
+		"type": "armor",
+		"description": "A jacket made of leather with rings of metal sown into it"											],
+	"chain mail": [
+		"type": "armor",
+		"description": "A shirt made of interlocking rings of metal"														],
+	"splint": [
+		"type": "armor",
+		"description": "Solid pieces of metal attached to a leather set of armor"											],
+	"plate": [
+		"type": "armor",
+		"description": "A full suit of heavy metal armor covering all body parts"											],
+
+	"shield": [
 		"type": "shield",
-		"description": 	"A flat piece of metal or wood that is straped to the arm and helps block attacks",				],
+		"description": "A flat piece of metal or wood that is straped to the arm and helps block attacks"					],
 
 	//packs
 	"priest's pack": [
@@ -401,33 +207,7 @@ let itemData: [String : Any] = [
 	"spellbook": [
 		"type": "other",
 		"description": 		"A book containing great knowledge on how to cast arcane arts",								],
-
-
-
-	//odd starting item strings that might want to be generated from the above descriptions rather than on their own
-//	"leather armor and a longbow": [
-//		"type": "other",
-//		"description": 		"A bow built for long range combat and light armor to protect when enemies get too close",	],
-//	"two martial weapons": [
-//		"type": "other",
-//		"description": 		"Two martial weapons of your choice",														],
-//	"martial weapon and a shield": [
-//		"type": "other",
-//		"description": 		"A martial weapon of your choice and a shield to block incoming blows.",					],
-//	"a pair of handaxes": [
-//		"type": "other",
-//		"description": 		"A twin set of axes than can be thrown.",													],
-
 ]
 
-let SimpleWeapons = ["club", "dagger", "greatclub", "handaxe", "javelin", "light hammer", "mace", "quarterstaff", "sickle", "spear", "light crossbow", "dart", "shortbow", "sling"]
-let MartialWeapons = ["battleaxe", "flail", "glaive", "greataxe", "greatsword", "halberd", "lance", "longsword", "maul", "morningstar", "pike", "rapier", "scimitar", "trident", "war pick", "warhammer", "whip", "blowgun", "hand crossbow", "heavy crossbow", "longbow", "net"]
-
-enum ItemType: String {
-	case rangedWeapon, meleeWeapon, simple, martial, mixedWeapon, armor, shield, pack, other
-}
-enum ItemClass: String {
-	case martial, simple
-}
 
 

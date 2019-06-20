@@ -183,6 +183,8 @@ extension DropdownViewController {
 
 			Character.current.race	= selectedRace
 			Character.current.class	= selectedClass
+
+			Character.current.languages.innate = selectedRace.languages()
 		}
 	}
 

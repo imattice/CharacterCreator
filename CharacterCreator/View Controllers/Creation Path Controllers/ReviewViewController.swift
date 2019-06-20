@@ -12,43 +12,25 @@ class ReviewViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 
 	var tableData = [TableData]()
-	
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		loadTableData()
 
-		tableView.estimatedRowHeight = 100.0
+		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
     }
 
 	private func loadTableData() {
+		for _ in 0...7 {
+			let data = TableData(isOpen: false)
 
-		//name cell data
-		let identityData = TableData(cellType: "identity", title: Character.default.flavorText.name,
-									 attributes: ["age": Character.default.flavorText.age,
-												  "alignment": Character.default.flavorText.alignment])
-		tableData.append(identityData)
-
-
-
+			tableData.append(data)
+		}
 	}
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 	struct TableData {
-		let cellType: String
-		let title: String
-		let attributes: [String : String]
+		var isOpen: Bool
 	}
 
 	@IBAction func printButtonTapped(_ sender: UITapGestureRecognizer) {
@@ -58,46 +40,42 @@ class ReviewViewController: UIViewController {
 
 extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 8
+		if Character.default.spellBook.count > 0 {
+			return 8								}
+		return 7
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 		switch indexPath.row {
-		case 0:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "IdentityCell") as! IdentityReviewTableViewCell
-				cell.config()
-			return cell
-		case 1:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "RaceCell") as! RaceReviewTableViewCell
-				cell.config()
-			return cell
-		case 2:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "ClassCell") as! ClassReviewTableViewCell
-			cell.config()
-			return cell
-		case 3:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "StatCell") as! StatReviewTableViewCell
-				cell.config()
-			return cell
-		case 4:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "SpellCell") as! SpellReviewTableViewCell
-				cell.config()
-			return cell
-		case 5:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "BackgroundCell") as! BackgroundReviewTableViewCell
-			cell.config()
-			return cell
-		case 6:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "SkillCell") as! SkillReviewTableViewCell
-			cell.config()
-			return cell
-		case 7:
-			let cell = tableView.dequeueReusableCell(withIdentifier: "InventoryCell") as! InventoryReviewTableViewCell
-			cell.config()
-			return cell
+		case 0: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.IdentityCell.rawValue) 		as! IdentityReviewTableViewCell
+		case 1: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.RaceCell.rawValue) 			as! RaceReviewTableViewCell
+		case 2: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.ClassCell.rawValue) 		as! ClassReviewTableViewCell
+		case 3: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.BackgroundCell.rawValue) 	as! BackgroundReviewTableViewCell
+		case 4: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.StatCell.rawValue) 			as! StatReviewTableViewCell
+		case 5: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SkillCell.rawValue) 		as! SkillReviewTableViewCell
+		case 6: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.InventoryCell.rawValue) 	as! InventoryReviewTableViewCell
+		case 7: return tableView.dequeueReusableCell(withIdentifier: CellIdentifier.SpellCell.rawValue) 		as! SpellReviewTableViewCell
+
 		default:
 			return UITableViewCell()
 		}
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		guard let cell = tableView.cellForRow(at: indexPath) as? ReviewTableViewCell else { return }
+		let data = tableData[indexPath.row]
+
+		tableView.beginUpdates()
+		cell.tapped(data.isOpen)
+		tableView.endUpdates()
+
+		tableData[indexPath.row].isOpen = !tableData[indexPath.row].isOpen
+
+//		tableView.reloadRows(at: [indexPath], with: .fade)
+	}
+
+	enum CellIdentifier: String {
+		case IdentityCell, RaceCell, ClassCell, BackgroundCell, StatCell, SkillCell, InventoryCell, SpellCell
 	}
 }

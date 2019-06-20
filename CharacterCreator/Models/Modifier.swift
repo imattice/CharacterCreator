@@ -7,7 +7,8 @@
 //
 
 struct Modifier {
-	let type: String
+	let type: ModifierType
+	let attribute: String
 	let value: Int
 	let origin: ModifierOrigin
 

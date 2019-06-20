@@ -13,10 +13,12 @@ import UIKit
 
 class FlavorViewController: UIViewController {
 	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var scrollContentView: UIView!
 	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet var flavorViews: [UIView]!
 	@IBOutlet weak var basicDetailView: BasicDetailView!
 	@IBOutlet weak var personalityDetailView: PersonalityDetailView!
+	@IBOutlet weak var socialDetailView: SocialDetailView!
 
 	let imagePicker = UIImagePickerController()
 
@@ -25,26 +27,31 @@ class FlavorViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-		configureViews()
+		for view in flavorViews {
+			view.layer.borderColor 	= UIColor.black.cgColor
+			view.layer.borderWidth	= 3
+			view.backgroundColor	= .lightGray
+		}
+//		configureViews()
 
 		configureScrollView()
 
 		basicDetailView.imageSelectionDelegate  = self
 		personalityDetailView.delegate			= self
+		socialDetailView.presentationDelegate	= self
 
 		addNotificationObservers()
     }
 
 	deinit {
-		NotificationCenter.default.removeObserver(self)
-	}
+		NotificationCenter.default.removeObserver(self)		}
 
 	private func configureScrollView() {
 		//Scroll View
 		scrollView.delegate 						= self
 		scrollView.isPagingEnabled 					= true
-		scrollView.contentSize 						= CGSize(width: view.frame.width * CGFloat(flavorViews.count),
-																height: view.frame.height)
+//		scrollView.contentSize	 					= CGSize(width: view.frame.width * CGFloat(flavorViews.count),
+//																height: view.frame.height)
 		scrollView.showsHorizontalScrollIndicator	= false
 		scrollView.alwaysBounceHorizontal 			= false
 		scrollView.isDirectionalLockEnabled 		= true
@@ -57,23 +64,23 @@ class FlavorViewController: UIViewController {
 
 	}
 
-	private func configureViews() {
-		for (index, flavorView) in flavorViews.enumerated() {
-
-			flavorView.frame.size.width 	= self.view.frame.size.width
-			flavorView.frame.size.height	= self.view.frame.size.height - 125 //subtracting the height of the safe area, the page control and its vertical constraints
-			flavorView.layer.borderColor 	= UIColor.black.cgColor
-			flavorView.layer.borderWidth 	= 3.0
-
-			flavorView.frame.origin.x		= CGFloat(index) * self.view.bounds.size.width
-			flavorView.frame.origin.y		= self.view.frame.origin.y
-
-			flavorView.backgroundColor 		= colors[index]
-			scrollView.addSubview(flavorView)
-
-			flavorView.setNeedsDisplay()
-		}
-	}
+//	private func configureViews() {
+//		for (index, flavorView) in flavorViews.enumerated() {
+//
+//			flavorView.frame.size.width 	= self.view.frame.size.width
+//			flavorView.frame.size.height	= self.view.frame.size.height - 125 //subtracting the height of the safe area, the page control and its vertical constraints
+//			flavorView.layer.borderColor 	= UIColor.black.cgColor
+//			flavorView.layer.borderWidth 	= 3.0
+//
+//			flavorView.frame.origin.x		= CGFloat(index) * self.view.bounds.size.width
+//			flavorView.frame.origin.y		= self.view.frame.origin.y
+//
+//			flavorView.backgroundColor 		= colors[index]
+////			scrollView.addSubview(flavorView)
+//
+//			flavorView.setNeedsDisplay()
+//		}
+//	}
 
 	func addNotificationObservers() {
 		NotificationCenter.default.addObserver(self, selector: .keyboardWillChange, name: UIResponder.keyboardWillShowNotification , object: nil)
@@ -83,66 +90,72 @@ class FlavorViewController: UIViewController {
 
 	@objc func keyboardWillChange(_ notification: Notification) {
 		guard let keyboardRect  = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+		let pageControlSpace = pageControl.frame.height + 10 //10 is the top constraint + the bottom constraint
+		let keyboardOffset = -(keyboardRect.height - pageControlSpace)
 
 		if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
-			let currentResponder = getCurrentResponder()
+			guard let currentResponder = UIResponder.current else { return }
 			switch currentResponder {
-				//basicDetail
-			case basicDetailView.nameTextFieldView.textField as UITextField,
-				 basicDetailView.ageTextFieldView.textField as UITextField:
-				basicDetailView.frame.origin.y = 0
-			case basicDetailView.appearanceTextAreaView.textView as UITextView:
-				basicDetailView.frame.origin.y = -(basicDetailView.nameTextFieldView.frame.height + basicDetailView.ageTextFieldView.frame.height)*0.75
-			case basicDetailView.backstoryTextAreaView.textView as UITextView:
-				basicDetailView.frame.origin.y = -(keyboardRect.height*0.75)
 
-			//personalityDetailView positioning
-			case personalityDetailView.idealsTextFieldView.textView as UITextView,
-				 personalityDetailView.bondsTextFieldView.textView as UITextView,
-				 personalityDetailView.flawsTextFieldView.textView as UITextView:
-				personalityDetailView.frame.origin.y = 0
-			case personalityDetailView.personalityTextAreaView.textView	as UITextView:
-				personalityDetailView.frame.origin.y = -(keyboardRect.height*0.75)
+//			case basicDetailView.nameTextFieldView.textField 		as UITextField,
+//				 basicDetailView.ageTextFieldView.textField 		as UITextField,
+//				 personalityDetailView.idealsTextFieldView.textView as UITextView,
+//				 personalityDetailView.bondsTextFieldView.textView 	as UITextView,
+//				 personalityDetailView.flawsTextFieldView.textView 	as UITextView,
+//				 socialDetailView.alignmentTextFieldView.textField  as UITextField:
 
+			//pin somewhere in the middle
+			case basicDetailView.appearanceTextAreaView.textView 	as UITextView:
+				scrollContentView.frame.origin.y = -(basicDetailView.nameTextFieldView.frame.height + basicDetailView.ageTextFieldView.frame.height)*0.75
+
+			//pin to the bottom of the last view
+			case basicDetailView.backstoryTextAreaView.textView 	as UITextView,
+				socialDetailView.relationshipsTextAreaView.textView as UITextView,
+				personalityDetailView.personalityTextAreaView.textView	as UITextView:
+				scrollContentView.frame.origin.y = keyboardOffset
+
+			//pin to the top
 			default:
-				break
+				scrollContentView.frame.origin.y = 0
 			}
-		} else {
-			basicDetailView.frame.origin.y = 0
-			personalityDetailView.frame.origin.y = 0
 		}
-	}
-
-	func getCurrentResponder() -> Any? {
-		if basicDetailView.nameTextFieldView.textField.isFirstResponder {
-			return basicDetailView.nameTextFieldView.textField as Any
-		}
-		else if basicDetailView.ageTextFieldView.textField.isFirstResponder {
-			return basicDetailView.ageTextFieldView.textField as Any
-		}
-		else if basicDetailView.appearanceTextAreaView.textView.isFirstResponder {
-			return basicDetailView.appearanceTextAreaView.textView as Any
-		}
-		else if basicDetailView.backstoryTextAreaView.textView.isFirstResponder {
-			return basicDetailView.backstoryTextAreaView.textView as Any
-		}
-
-		else if personalityDetailView.idealsTextFieldView.textView.isFirstResponder {
-			return personalityDetailView.idealsTextFieldView.textView as Any
-		}
-		else if personalityDetailView.bondsTextFieldView.textView.isFirstResponder {
-			return personalityDetailView.bondsTextFieldView.textView as Any
-		}
-		else if personalityDetailView.flawsTextFieldView.textView.isFirstResponder {
-			return personalityDetailView.flawsTextFieldView.textView as Any
-		}
-		else if personalityDetailView.personalityTextAreaView.textView.isFirstResponder {
-			return personalityDetailView.personalityTextAreaView.textView as Any
-		}
+			
+		//if the notification is to dismiss the keyboard, pin back to the top
 		else {
-			return nil
+			scrollContentView.frame.origin.y = 0
 		}
 	}
+
+//	func getCurrentResponder() -> Any? {
+//		if basicDetailView.nameTextFieldView.textField.isFirstResponder {
+//			return basicDetailView.nameTextFieldView.textField as Any
+//		}
+//		else if basicDetailView.ageTextFieldView.textField.isFirstResponder {
+//			return basicDetailView.ageTextFieldView.textField as Any
+//		}
+//		else if basicDetailView.appearanceTextAreaView.textView.isFirstResponder {
+//			return basicDetailView.appearanceTextAreaView.textView as Any
+//		}
+//		else if basicDetailView.backstoryTextAreaView.textView.isFirstResponder {
+//			return basicDetailView.backstoryTextAreaView.textView as Any
+//		}
+//
+//		else if personalityDetailView.idealsTextFieldView.textView.isFirstResponder {
+//			return personalityDetailView.idealsTextFieldView.textView as Any
+//		}
+//		else if personalityDetailView.bondsTextFieldView.textView.isFirstResponder {
+//			return personalityDetailView.bondsTextFieldView.textView as Any
+//		}
+//		else if personalityDetailView.flawsTextFieldView.textView.isFirstResponder {
+//			return personalityDetailView.flawsTextFieldView.textView as Any
+//		}
+//		else if personalityDetailView.personalityTextAreaView.textView.isFirstResponder {
+//			return personalityDetailView.personalityTextAreaView.textView as Any
+//		}
+//		else {
+//			return nil
+//		}
+//	}
 }
 extension FlavorViewController: AlertPresentationDelegate {
 	func presentAlertController(forPersonalityDetail textAreaView: TextAreaView) {
@@ -212,14 +225,14 @@ extension FlavorViewController: UIScrollViewDelegate {
 		pageControl.currentPage = Int(pageIndex)
 
 		//hide keyboard if the page is switched while active
-		if let responder = getCurrentResponder() {
-			if let responder = responder as? UITextView {
+		if let responder = UIResponder.current {
+//			if let responder = responder as? UITextView {
 				responder.resignFirstResponder()
-			}
+//			}
 
-			if let responder = responder as? UITextField  {
-				responder.resignFirstResponder()
-			}
+//			if let responder = responder as? UITextField  {
+//				responder.resignFirstResponder()
+//			}
 		}
 	}
 }
@@ -252,6 +265,17 @@ extension FlavorViewController: UIImagePickerControllerDelegate, UINavigationCon
 	}
 }
 
+extension FlavorViewController: LanguagePresentationDelegate {
+	func presentLanguageSelection(withSelections selections: Int) {
+		let vc = LanguageSelectionTableViewController()
+			vc.selectionsRemaining = selections
+			vc.delegate = socialDetailView
+		let nav = UINavigationController(rootViewController: vc)
+
+		present(nav, animated: true, completion: nil)
+	}
+}
+
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
 	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
@@ -264,5 +288,6 @@ fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePicke
 
 fileprivate extension Selector {
 	static let keyboardWillChange = #selector(FlavorViewController.keyboardWillChange(_:))
+//	static let dismissLanguageSelection = #selector(FlavorViewController.dismissLanguageSelection)
 
 }

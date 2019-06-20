@@ -12,7 +12,7 @@ protocol AlertPresentationDelegate {
 	func presentAlertController(forPersonalityDetail textAreaView: TextAreaView)
 }
 
-@IBDesignable
+//@IBDesignable
 class PersonalityDetailView: XibView {
 	@IBOutlet weak var idealsTextFieldView: TextAreaView!
 	@IBOutlet weak var flawsTextFieldView: TextAreaView!

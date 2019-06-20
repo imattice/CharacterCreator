@@ -18,6 +18,9 @@
 		8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */; };
 		8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */; };
 		8123673420CA44DD00F7AEFC /* CharacterCreatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */; };
+		81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E542279EFE0003A9DA8 /* WeaponStatView.swift */; };
+		81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81243E562279F022003A9DA8 /* WeaponStatView.xib */; };
+		81243E59227A3562003A9DA8 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E58227A3562003A9DA8 /* Weapon.swift */; };
 		8135B41B21649F170058E9D6 /* SpellSelectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */; };
 		8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135B43E2169B2030058E9D6 /* SpellDetailView.swift */; };
 		8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B4402169B22C0058E9D6 /* SpellDetailView.xib */; };
@@ -36,6 +39,13 @@
 		8152B41120DEDA8D008B7A1A /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41020DEDA8D008B7A1A /* Int.swift */; };
 		8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */; };
 		8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8152B41320DEE659008B7A1A /* DropdownTableViewCell.xib */; };
+		81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */; };
+		81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */; };
+		81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */; };
+		81541A35227420C2002C7B72 /* LanguageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* LanguageRecord.swift */; };
+		81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3622754A52002C7B72 /* RaceClassTests.swift */; };
+		81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */; };
+		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		81851D5F2254721E00260413 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D5E2254721E00260413 /* UITextView.swift */; };
 		81851D612254725C00260413 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D602254725C00260413 /* UITextField.swift */; };
@@ -47,6 +57,8 @@
 		819621E62268F33300A4DD3D /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819621E52268F33300A4DD3D /* UIResponder.swift */; };
 		819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ModalTableViewController.swift */; };
 		819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */; };
+		81A8D251227D21770015E116 /* Armor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D250227D21770015E116 /* Armor.swift */; };
+		81A8D253227D45280015E116 /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D252227D45280015E116 /* Pack.swift */; };
 		81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A620F0813700B48195 /* SpellTableViewCell.swift */; };
 		81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BC72A720F0813700B48195 /* SpellTableViewCell.xib */; };
 		81BC72AB20F17F2500B48195 /* spells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AA20F17F2500B48195 /* spells.swift */; };
@@ -123,6 +135,9 @@
 		8123672F20CA44DD00F7AEFC /* CharacterCreatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorUITests.swift; sourceTree = "<group>"; };
 		8123673520CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81243E542279EFE0003A9DA8 /* WeaponStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponStatView.swift; sourceTree = "<group>"; };
+		81243E562279F022003A9DA8 /* WeaponStatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeaponStatView.xib; sourceTree = "<group>"; };
+		81243E58227A3562003A9DA8 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpellSelectionHeaderView.xib; sourceTree = "<group>"; };
 		8135B43E2169B2030058E9D6 /* SpellDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetailView.swift; sourceTree = "<group>"; };
 		8135B4402169B22C0058E9D6 /* SpellDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellDetailView.xib; sourceTree = "<group>"; };
@@ -141,6 +156,13 @@
 		8152B41020DEDA8D008B7A1A /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8152B41220DEE659008B7A1A /* DropdownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownTableViewCell.swift; sourceTree = "<group>"; };
 		8152B41320DEE659008B7A1A /* DropdownTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownTableViewCell.xib; sourceTree = "<group>"; };
+		81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageLabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveableLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
+		81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewController.swift; sourceTree = "<group>"; };
+		81541A34227420C2002C7B72 /* LanguageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRecord.swift; sourceTree = "<group>"; };
+		81541A3622754A52002C7B72 /* RaceClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceClassTests.swift; sourceTree = "<group>"; };
+		81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClassTests.swift; sourceTree = "<group>"; };
+		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		81851D5E2254721E00260413 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		81851D602254725C00260413 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -153,6 +175,8 @@
 		819B065E20E7455300902D4E /* ModalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionHeaderView.swift; sourceTree = "<group>"; };
 		819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
+		81A8D250227D21770015E116 /* Armor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Armor.swift; sourceTree = "<group>"; };
+		81A8D252227D45280015E116 /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
 		81BC72A620F0813700B48195 /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
 		81BC72A720F0813700B48195 /* SpellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellTableViewCell.xib; sourceTree = "<group>"; };
 		81BC72AA20F17F2500B48195 /* spells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spells.swift; sourceTree = "<group>"; };
@@ -249,6 +273,7 @@
 				819B065E20E7455300902D4E /* ModalTableViewController.swift */,
 				81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */,
 				8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */,
+				81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */,
 			);
 			path = "Supporting Controllers";
 			sourceTree = "<group>";
@@ -298,7 +323,9 @@
 			isa = PBXGroup;
 			children = (
 				8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */,
+				81541A3622754A52002C7B72 /* RaceClassTests.swift */,
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
+				81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";
@@ -335,7 +362,11 @@
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
 				81DF302B213C5D6A00C939CE /* Item.swift */,
+				81A8D252227D45280015E116 /* Pack.swift */,
+				81A8D250227D21770015E116 /* Armor.swift */,
+				81243E58227A3562003A9DA8 /* Weapon.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
+				81541A34227420C2002C7B72 /* LanguageRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -380,6 +411,8 @@
 				8135B4402169B22C0058E9D6 /* SpellDetailView.xib */,
 				8195037B2256DDB700EE4469 /* DetailViews */,
 				8195AF91225706F900153B58 /* Custom User Inputs */,
+				81243E542279EFE0003A9DA8 /* WeaponStatView.swift */,
+				81243E562279F022003A9DA8 /* WeaponStatView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,9 +426,9 @@
 				81BC72A720F0813700B48195 /* SpellTableViewCell.xib */,
 				81FC7CF821078F9100BBDDD7 /* BackgroundSelectionTableViewCell.swift */,
 				81FC7CFA21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib */,
-				81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */,
 				81F84969218A9A6D00280D8C /* ItemSelectionTableViewCell.swift */,
 				81F8496A218A9A6D00280D8C /* ItemSelectionTableViewCell.xib */,
+				81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -438,6 +471,9 @@
 			children = (
 				81DC8E4A210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift */,
 				81DC8E4B210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib */,
+				81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */,
+				81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */,
+				81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -529,12 +565,12 @@
 					};
 					8123672320CA44DD00F7AEFC = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 8123670C20CA44DA00F7AEFC;
 					};
 					8123672E20CA44DD00F7AEFC = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = 8123670C20CA44DA00F7AEFC;
 					};
 				};
@@ -566,8 +602,10 @@
 			files = (
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */,
+				81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */,
 				8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */,
 				81FC7CFB21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib in Resources */,
+				81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */,
 				810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */,
 				8135B41B21649F170058E9D6 /* SpellSelectionHeaderView.xib in Resources */,
 				81F8496C218A9A6D00280D8C /* ItemSelectionTableViewCell.xib in Resources */,
@@ -576,6 +614,7 @@
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
+				81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */,
 				8195037E2256DDFB00EE4469 /* PersonalityDetailView.xib in Resources */,
 				81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */,
 				81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */,
@@ -625,12 +664,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CharacterCreator/Pods-CharacterCreator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AlignedCollectionViewFlowLayout/AlignedCollectionViewFlowLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlignedCollectionViewFlowLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -702,27 +743,33 @@
 				81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */,
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
+				81A8D253227D45280015E116 /* Pack.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */,
 				8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */,
 				8195AF8C225706BE00153B58 /* ImageSelectionView.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
 				810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */,
+				81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */,
 				81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */,
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
+				81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */,
 				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,
 				819621E62268F33300A4DD3D /* UIResponder.swift in Sources */,
+				81A8D251227D21770015E116 /* Armor.swift in Sources */,
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
+				81541A35227420C2002C7B72 /* LanguageRecord.swift in Sources */,
 				8195037A2256DDAE00EE4469 /* PersonalityDetailView.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				8195AF8E225706D200153B58 /* TextAreaView.swift in Sources */,
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
+				81243E59227A3562003A9DA8 /* Weapon.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81851D5F2254721E00260413 /* UITextView.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
@@ -748,6 +795,7 @@
 				81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */,
 				8152B41120DEDA8D008B7A1A /* Int.swift in Sources */,
 				8152B3C320D9D32F008B7A1A /* Character.swift in Sources */,
+				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -757,6 +805,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */,
+				81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */,
+				81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,7 +1029,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CharacterCreator.app/CharacterCreator";
 			};
@@ -1001,7 +1051,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CharacterCreator.app/CharacterCreator";
 			};
@@ -1022,7 +1072,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CharacterCreator;
 			};
@@ -1043,7 +1093,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreatorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CharacterCreator;
 			};

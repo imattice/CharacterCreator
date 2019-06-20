@@ -29,6 +29,13 @@ func delay(seconds: Double, completion: @escaping ()-> Void) {
 	DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: completion)
 }
 
-func sayHi(_ message: String = "hi") {
-	print(message)
+func print(title: String, attribute: Any) {
+	print("\(title): \(attribute)")
+}
+func print(title: String, attributes: [Any]) {
+	print("-\(title)-")
+	for attribute in attributes {
+		print(attribute)
+	}
+	print("---")
 }

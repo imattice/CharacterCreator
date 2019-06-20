@@ -23,18 +23,27 @@ extension Array where Element:Equatable {
 	func hasDuplicate(_ element: Element) -> Bool {
 		return self.filter( { $0 == element }).count > 1
 	}
-}
 
-extension Array where Element == String {
-	func columnList(_ columns: Int) -> String{
-		var result = ""
-		let columnLineCount = self.count / columns
-		var columnArray = [String]()
+	func duplicates() -> [Element] {
+		var result: [Element] = [Element]()
 
-		for index in 0...columns {
-
+		for item in self {
+			let filtered = self.filter({ $0 == item })
+			if filtered.count > 1 && !result.contains(item) {
+				result.append(filtered.first!)
+			}
 		}
 
 		return result
 	}
+
+	func duplicatesRemoved() -> [Element] {
+		var result: [Element] = [Element]()
+
+		for item in self {
+			if result.contains(item) { continue }
+			else { result.append(item)			}
+		}
+
+		return result	}
 }

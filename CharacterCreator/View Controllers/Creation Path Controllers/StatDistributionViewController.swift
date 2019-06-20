@@ -131,20 +131,23 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 	}
 
 	private func setCharacterStats() {
+		Character.default.stats = [Character.Stat]()
+
 		for view in statViewCollection {
 			guard let valueString = view.statValueLabel.text,
 				let titleString = view.statTitleLabel.text,
 				let value = Int(valueString),
 				let stat = StatType(fromLonghand: titleString) else { print("could not initilialize the stat data from the view."); continue }
 
-				switch stat {
-				case .str: 		Character.current.stats.str = Character.StatBlock.Stat(value: value)
-				case .con:		Character.current.stats.con = Character.StatBlock.Stat(value: value)
-				case .cha:		Character.current.stats.cha = Character.StatBlock.Stat(value: value)
-				case .dex:		Character.current.stats.dex = Character.StatBlock.Stat(value: value)
-				case .wis:		Character.current.stats.wis = Character.StatBlock.Stat(value: value)
-				case .int:		Character.current.stats.int = Character.StatBlock.Stat(value: value)
-				}
+			Character.default.stats.append(Character.Stat(name: stat, rawValue: value))
+//				switch stat {
+//				case .str: 		Character.current.stats.str = Character.StatBlock.Stat(name: "str", value: value)
+//				case .con:		Character.current.stats.con = Character.StatBlock.Stat(name: "con", value: value)
+//				case .cha:		Character.current.stats.cha = Character.StatBlock.Stat(name: "cha", value: value)
+//				case .dex:		Character.current.stats.dex = Character.StatBlock.Stat(name: "dex", value: value)
+//				case .wis:		Character.current.stats.wis = Character.StatBlock.Stat(name: "wis", value: value)
+//				case .int:		Character.current.stats.int = Character.StatBlock.Stat(name: "int", value: value)
+//				}
 		}
 	}
 

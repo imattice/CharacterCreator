@@ -11,4 +11,4 @@ Navigate to the project folder in the terminal.
 Run `pod install` to install any Cocoapods files.
 
 
-Project Management can be found at https://tree.taiga.io/project/imattice-character-kit/backlog
+Project Management can be found in the Projects tab on this github.

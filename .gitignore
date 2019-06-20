@@ -1,11 +1,43 @@
-# Ignore macOS Finder user-related files
-.DS_Store
+## Build generated
+build/
+DerivedData/
 
-# Ignore Xcode user-related files
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
 xcuserdata/
 
-# Ignore AppCode user-related files
-.idea/
+## Other
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
 
-# Ignore CocoaPods installed files
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+.build/
+
+# CocoaPods
 Pods/
+
+# Add this line if you want to avoid checking in source code from the Xcode workspace
+# *.xcworkspace
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output

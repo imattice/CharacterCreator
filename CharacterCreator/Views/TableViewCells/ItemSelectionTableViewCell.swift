@@ -14,25 +14,24 @@ class ItemSelectionTableViewCell: UITableViewCell {
 	@IBOutlet weak var damageLabel: UILabel!
 	@IBOutlet weak var tagLabel: UILabel!
 
-	func configure(for item: Item) {
-		titleLabel.text 			= item.name.capitalized
+//	func configure(for item: Item) {
+//		titleLabel.text 			= item.name.capitalized
+//
+//		descriptionLabel.text		= item.description()
+//	}
 
-		descriptionLabel.text		= item.description()
+	func configure(for weapon: Weapon) {
+		titleLabel.text			= weapon.name.capitalized
+		descriptionLabel.text	= weapon.description()
 
-
-		if let damage = item.damage() {
-			damageLabel.text			= damage.rollString(withType: true)		}
-		else {
-			damageLabel.text			= "-" 											}
+		damageLabel.text			= weapon.damage.rollString(withType: true)
 
 		var tagString = ""
-
-		if let tags = item.tags {
-			for tag in tags {
-				tagString += "• \(tag.rawValue) "
-			}
-			tagString += "•"
+		for tag in weapon.tags {
+			tagString += "• \(tag.rawValue) "
 		}
+
+		tagString += "•"
 		tagLabel.text				= tagString
 	}
     

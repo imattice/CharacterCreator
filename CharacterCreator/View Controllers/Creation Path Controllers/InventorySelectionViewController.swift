@@ -18,6 +18,8 @@ class InventorySelectionViewController: UIViewController {
         super.viewDidLoad()
 		loadChoiceData()
 		addSelectionViews()
+
+		addItemsToCharacter()
 	}
 
 	func loadChoiceData() {
@@ -37,9 +39,27 @@ class InventorySelectionViewController: UIViewController {
 				//add items to the selection
 				var items = [Item]()
 				for itemName in itemDict {
+					if itemName == "simple weapon" || itemName == "martial weapon" {
+						items.append(WeaponSelectionItem(itemName))
+						continue
+					}
+
+					if let weapon = Weapon(weapon: itemName) {
+						items.append(weapon)
+
+						continue
+					}
+					if let armor = Armor(armor: itemName) {
+						items.append(armor)
+
+						continue
+					}
+					if let pack = Pack(pack: itemName) {
+						items.append(pack)
+						continue
+					}
 
 					let item = Item(itemName)
-
 					items.append(item)
 				}
 
@@ -53,6 +73,8 @@ class InventorySelectionViewController: UIViewController {
 
 		//set the choice data to the
 		choiceData = choices
+
+
 	}
 	private func addSelectionViews() {
 		for choice in choiceData {
@@ -87,19 +109,24 @@ class InventorySelectionViewController: UIViewController {
 		var result = [Item]()
 
 		for choiceView in stackView.arrangedSubviews {
-
 			guard let choiceView = choiceView as? ChoiceSelectionView
 				else { print("could not cast to Choice Selection View when getting selections"); continue }
-
-			let optionIndex = choiceView.pageControl.currentPage
-
-			guard let stackView = choiceView.stackView.arrangedSubviews[optionIndex] as? UIStackView,
+			guard let stackView = choiceView.stackView.arrangedSubviews[choiceView.pageControl.currentPage] as? UIStackView,
 				let selectionViews = stackView.arrangedSubviews as? [SelectionView]
-			else { print("Could not get selection views from Choice View"); continue }
-
+				else { print("Could not get selection views from Choice View"); continue }
 
 			for selectionView in selectionViews {
 				guard let text = selectionView.titleLabel.text else { print("title text unavailable"); continue}
+
+				if let weapon = Weapon(weapon: text) {
+					result.append(weapon)
+					continue						}
+				if let armor = Armor(armor: text) {
+					result.append(armor)
+					continue						}
+				if let pack = Pack(pack: text) {
+					result.append(pack)
+					continue					}
 
 				let item = Item(text)
 				result.append(item)
@@ -114,10 +141,7 @@ class InventorySelectionViewController: UIViewController {
 
 		Character.default.items = selectedItems
 
-		for item in Character.default.items {
-			print("item added: \(item.name)")
-
-		}
+		print(Character.default.items)
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -126,7 +150,6 @@ class InventorySelectionViewController: UIViewController {
 }
 
 extension InventorySelectionViewController: SelectionViewDelegate {
-
 	func buttonSelected(forView view: SelectionView) {
 		guard let weaponType = view.weaponType else { print("weapon type not set when weapon selection button pressed"); return }
 		if weaponType == .none { return }
@@ -138,5 +161,4 @@ extension InventorySelectionViewController: SelectionViewDelegate {
 		let nav = UINavigationController(rootViewController: vc)
 		present(nav, animated: true)
 	}
-
 }

@@ -12,9 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SocialDetailView" customModule="CharacterCreator" customModuleProvider="target">
             <connections>
-                <outlet property="addLanguageBuggon" destination="GW4-Od-Oxi" id="lM7-sF-dRW"/>
+                <outlet property="addLanguageButton" destination="GW4-Od-Oxi" id="lM7-sF-dRW"/>
                 <outlet property="alignmentTextFieldView" destination="EIG-yW-dm6" id="mDz-hw-CDg"/>
-                <outlet property="languagesStackView" destination="u3g-wr-1aV" id="CBY-PD-wYR"/>
+                <outlet property="collectionView" destination="AbQ-Wg-iH9" id="Y28-04-cBI"/>
+                <outlet property="collectionViewLayout" destination="Z0B-fH-NXk" id="6TJ-z5-Vew"/>
                 <outlet property="relationshipsTextAreaView" destination="9t3-zA-uTP" id="chh-R2-VM9"/>
             </connections>
         </placeholder>
@@ -31,7 +32,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIG-yW-dm6" customClass="TextFieldView" customModule="CharacterCreator" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="398" height="60"/>
-                                    <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60" id="FGK-ld-QqX"/>
                                     </constraints>
@@ -54,43 +55,48 @@
                                                 <action selector="addLaguage:" destination="-1" eventType="touchUpInside" id="KKP-Uz-UDw"/>
                                             </connections>
                                         </button>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3g-wr-1aV">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AbQ-Wg-iH9">
                                             <rect key="frame" x="8" y="36.5" width="352" height="139"/>
-                                        </stackView>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z0B-fH-NXk" customClass="AlignedCollectionViewFlowLayout" customModule="AlignedCollectionViewFlowLayout">
+                                                <size key="itemSize" width="50" height="50"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                            </collectionViewFlowLayout>
+                                            <connections>
+                                                <outlet property="dataSource" destination="-1" id="XkV-oh-KCd"/>
+                                                <outlet property="delegate" destination="-1" id="Koa-p8-jOu"/>
+                                            </connections>
+                                        </collectionView>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="GW4-Od-Oxi" firstAttribute="centerY" secondItem="6Xj-um-DqL" secondAttribute="centerY" id="0Tf-eP-cCO"/>
                                         <constraint firstAttribute="trailing" secondItem="8UC-Jc-7d9" secondAttribute="trailing" constant="8" id="3tH-wF-mDD"/>
                                         <constraint firstItem="8UC-Jc-7d9" firstAttribute="top" secondItem="6Xj-um-DqL" secondAttribute="top" constant="8" id="7iK-E7-9oi"/>
                                         <constraint firstAttribute="trailing" secondItem="GW4-Od-Oxi" secondAttribute="trailing" constant="8" id="LE6-pa-ehx"/>
-                                        <constraint firstItem="u3g-wr-1aV" firstAttribute="leading" secondItem="6Xj-um-DqL" secondAttribute="leading" constant="8" id="W4V-lH-EI3"/>
-                                        <constraint firstItem="u3g-wr-1aV" firstAttribute="top" secondItem="8UC-Jc-7d9" secondAttribute="bottom" constant="8" id="Xf5-HY-Vnr"/>
+                                        <constraint firstItem="AbQ-Wg-iH9" firstAttribute="top" secondItem="8UC-Jc-7d9" secondAttribute="bottom" constant="8" id="QQo-m6-WdM"/>
+                                        <constraint firstItem="GW4-Od-Oxi" firstAttribute="leading" secondItem="AbQ-Wg-iH9" secondAttribute="trailing" constant="8" id="Rdo-3z-m3j"/>
+                                        <constraint firstItem="AbQ-Wg-iH9" firstAttribute="leading" secondItem="6Xj-um-DqL" secondAttribute="leading" constant="8" id="bqY-dL-eIa"/>
+                                        <constraint firstAttribute="bottom" secondItem="AbQ-Wg-iH9" secondAttribute="bottom" constant="8" id="j13-iO-LKI"/>
                                         <constraint firstItem="8UC-Jc-7d9" firstAttribute="leading" secondItem="6Xj-um-DqL" secondAttribute="leading" constant="8" id="m3X-mZ-TaJ"/>
-                                        <constraint firstAttribute="bottom" secondItem="u3g-wr-1aV" secondAttribute="bottom" constant="8" id="ufX-19-Khw"/>
-                                        <constraint firstItem="GW4-Od-Oxi" firstAttribute="leading" secondItem="u3g-wr-1aV" secondAttribute="trailing" constant="8" id="vJ2-RA-1bm"/>
                                     </constraints>
                                 </view>
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9t3-zA-uTP" customClass="TextAreaView" customModule="CharacterCreator" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="283.5" width="398" height="263.5"/>
-                            <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="title" value="Relationships"/>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Who is most important to your character?  Do they have any friends, rivals, or family?"/>
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="9t3-zA-uTP" secondAttribute="trailing" id="SNQ-S9-sb0"/>
-                        <constraint firstItem="kgf-lS-Ydk" firstAttribute="leading" secondItem="6Hh-hw-qnj" secondAttribute="leading" id="W9J-an-anX"/>
-                        <constraint firstItem="9t3-zA-uTP" firstAttribute="leading" secondItem="6Hh-hw-qnj" secondAttribute="leading" id="m68-u7-pMp"/>
-                        <constraint firstAttribute="trailing" secondItem="kgf-lS-Ydk" secondAttribute="trailing" id="yJ8-hN-d0U"/>
-                    </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6Hh-hw-qnj" secondAttribute="bottom" constant="8" id="Cz4-Yf-n5g"/>
                 <constraint firstItem="6Hh-hw-qnj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Ffq-Aa-9DX"/>
