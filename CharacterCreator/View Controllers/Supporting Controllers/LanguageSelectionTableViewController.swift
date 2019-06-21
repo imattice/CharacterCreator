@@ -15,7 +15,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 	var selectionsRemaining: Int? {
 		didSet {
 			updateNav()				}}
-	var selectedLanguages = [LanguageRecord]()
+	var selectedLanguages = [Language]()
 	var delegate: LanguageSelectionDelegate?
 
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 	struct LanguageSelectionData {
 		let isSelectable: Bool
 		let source: String?
-		let language: LanguageRecord
+		let language: Language
 	}
 
 	func populateData() {

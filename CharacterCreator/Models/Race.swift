@@ -13,15 +13,6 @@ struct Race {
 	let subrace: String?
 	let modifiers: [Modifier]
 
-	static let HillDwarf 			= Race(fromParent: "dwarf", withSubrace: "hill")!
-	static let MountianDwarf		= Race(fromParent: "dwarf", withSubrace: "mountian")!
-	static let HighElf				= Race(fromParent: "elf", withSubrace: "high")!
-	static let WoodElf				= Race(fromParent: "elf", withSubrace: "wood")!
-	static let LightfootHalfling	= Race(fromParent: "halfling", withSubrace: "lightfoot")!
-	static let StoutHalfling		= Race(fromParent: "halfling", withSubrace: "stout")!
-	static let Human				= Race(fromParent: "human", withSubrace: nil)
-
-
 	init?(fromParent parentName: String, withSubrace subraceName: String?) {
 		guard let parentData = raceData[parentName] as? [String : Any]
 			else { print("invalid value \(parentName)"); return nil }
@@ -97,13 +88,13 @@ struct Race {
 		return "\(subrace?.capitalized ?? "") \(parentRace.capitalized)".trimmingCharacters(in: .whitespaces)
 	}
 
-	func languages() -> [LanguageRecord] {
+	func languages() -> [Language] {
 		guard let raceDict = raceData[parentRace] as? [String : Any],
-			let languages = raceDict["languages"] as? [String] else { return [LanguageRecord]()}
+			let languages = raceDict["languages"] as? [String] else { return [Language]()}
 
-		var result = [LanguageRecord]()
+		var result = [Language]()
 		for language in languages {
-			if let record = LanguageRecord.record(forName: language) {
+			if let record = Language.record(forName: language) {
 				result.append( record )
 			}}
 		return result
@@ -126,14 +117,13 @@ struct Race {
 		return result
 	}
 
-	static let DwarfMountian = Race(fromParent: "dwarf", withSubrace: "mountian")!
-	static let DwarfHill = Race(fromParent: "dwarf", withSubrace: "hill")!
-	static let ElfHigh = Race(fromParent: "elf", withSubrace: "high")!
-	static let ElfWood = Race(fromParent: "elf", withSubrace: "wood")!
-	static let HalflingLightfoot = Race(fromParent: "halfling", withSubrace: "lightfoot")!
-	static let HalflingStout = Race(fromParent: "halfling", withSubrace: "stout")!
-	static let Human = Race(fromParent: "human", withSubrace: nil)!
-
+	static let HillDwarf 			= Race(fromParent: "dwarf", withSubrace: "hill")!
+	static let MountianDwarf		= Race(fromParent: "dwarf", withSubrace: "mountian")!
+	static let HighElf				= Race(fromParent: "elf", withSubrace: "high")!
+	static let WoodElf				= Race(fromParent: "elf", withSubrace: "wood")!
+	static let LightfootHalfling	= Race(fromParent: "halfling", withSubrace: "lightfoot")!
+	static let StoutHalfling		= Race(fromParent: "halfling", withSubrace: "stout")!
+	static let Human				= Race(fromParent: "human", withSubrace: nil)
 }
 
 struct RaceRecord {

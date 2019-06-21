@@ -22,7 +22,7 @@ class Character {
 
 	var flavorText: FlavorText  = FlavorText()
 //	var languages: [String] = [String]()
-	var languages = ( innate: [LanguageRecord](), selected: [LanguageRecord]())
+	var languages = ( innate: [Language](), selected: [Language]())
 
 
 	func proficiencyChoiceCount() -> Int {
@@ -84,7 +84,7 @@ class Character {
 //		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
 //								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
 		self.languages		= (innate: (Race(fromParent: "elf", withSubrace: "high")!.languages() + Background("sage").languages()),
-								 selected: [LanguageRecord]())
+								 selected: [Language]())
 		self.flavorText		= FlavorText(name: "Alpheon the Chronicler",
 											age: "138",
 											alignment: "Lawful Good",

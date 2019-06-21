@@ -42,7 +42,7 @@
 		81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */; };
 		81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */; };
 		81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */; };
-		81541A35227420C2002C7B72 /* LanguageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* LanguageRecord.swift */; };
+		81541A35227420C2002C7B72 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* Language.swift */; };
 		81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3622754A52002C7B72 /* RaceClassTests.swift */; };
 		81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */; };
 		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
@@ -67,6 +67,7 @@
 		81BC72B120F18DB500B48195 /* classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72B020F18DB500B48195 /* classes.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
+		81D599DD22BC92B7005EE768 /* languageRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81D599DC22BC92B7005EE768 /* languageRecords.realm */; };
 		81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */; };
 		81DC8E4221080E9E002F6AE4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4121080E9E002F6AE4 /* String.swift */; };
 		81DC8E44210BA599002F6AE4 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E43210BA599002F6AE4 /* Background.swift */; };
@@ -159,7 +160,7 @@
 		81541A2E2273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageLabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveableLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewController.swift; sourceTree = "<group>"; };
-		81541A34227420C2002C7B72 /* LanguageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageRecord.swift; sourceTree = "<group>"; };
+		81541A34227420C2002C7B72 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		81541A3622754A52002C7B72 /* RaceClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceClassTests.swift; sourceTree = "<group>"; };
 		81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClassTests.swift; sourceTree = "<group>"; };
 		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -185,6 +186,7 @@
 		81BC72B020F18DB500B48195 /* classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classes.swift; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
+		81D599DC22BC92B7005EE768 /* languageRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = languageRecords.realm; sourceTree = "<group>"; };
 		81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgrounds.swift; sourceTree = "<group>"; };
 		81DC8E4121080E9E002F6AE4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		81DC8E43210BA599002F6AE4 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 		8123674120CA44EE00F7AEFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				81D599DC22BC92B7005EE768 /* languageRecords.realm */,
 				81DF302D213C5F3200C939CE /* items.swift */,
 				8152B3EA20DC3B48008B7A1A /* races.swift */,
 				81BC72B020F18DB500B48195 /* classes.swift */,
@@ -366,7 +369,7 @@
 				81A8D250227D21770015E116 /* Armor.swift */,
 				81243E58227A3562003A9DA8 /* Weapon.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
-				81541A34227420C2002C7B72 /* LanguageRecord.swift */,
+				81541A34227420C2002C7B72 /* Language.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 			files = (
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */,
+				81D599DD22BC92B7005EE768 /* languageRecords.realm in Resources */,
 				81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */,
 				8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */,
 				81FC7CFB21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib in Resources */,
@@ -762,7 +766,7 @@
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
-				81541A35227420C2002C7B72 /* LanguageRecord.swift in Sources */,
+				81541A35227420C2002C7B72 /* Language.swift in Sources */,
 				8195037A2256DDAE00EE4469 /* PersonalityDetailView.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,

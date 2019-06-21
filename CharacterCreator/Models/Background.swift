@@ -30,13 +30,13 @@ struct Background {
 
 		return description
 	}
-	func languages() -> [LanguageRecord] {
+	func languages() -> [Language] {
 		guard let backgroundDict = backgroundData[name] as? [String : Any],
-			let languages = backgroundDict["languages"] as? [String] else { return [LanguageRecord]()}
+			let languages = backgroundDict["languages"] as? [String] else { return [Language]()}
 
-		var result = [LanguageRecord]()
+		var result = [Language]()
 		for language in languages {
-			if let record = LanguageRecord.record(forName: language) {
+			if let record = Language.record(forName: language) {
 				result.append( record )
 			}}
 		return result

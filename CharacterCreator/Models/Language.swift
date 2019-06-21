@@ -7,21 +7,45 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Language {
-	let record: LanguageRecord
-	let source: String
+//struct Language {
+//	let record: Language
+//	let source: String
+//}
+
+@objcMembers
+class LanguageRecord : Object {
+	dynamic var id: String? = UUID().uuidString
+	dynamic var name: String?
+	dynamic var spokenBy: String?
+	dynamic var script: String?
+
+	override static func primaryKey() -> String? {
+		return "id"
+	}
 }
 
+enum Script: String {
+	case common, draconic, dwarvish, elvish, infernal, celestial, druidic
+}
 
-struct LanguageRecord {
+//class Language {
+//
+//}
+//class LanguageChoice: Language {
+//
+//}
+
+
+struct Language {
 	let name: String
 	let spokenBy: String
 	let script: String
 
-	static func record(forName name: String) -> LanguageRecord? {
+	static func record(forName name: String) -> Language? {
 		if name == "choice" {
-			return LanguageRecord(name: "choice", spokenBy: "", script: "")
+			return Language(name: "choice", spokenBy: "", script: "")
 		}
 
 		guard let common = languageRecords["common"],
@@ -34,7 +58,7 @@ struct LanguageRecord {
 	}
 }
 
-extension LanguageRecord {
+extension Language {
 	static let Common 			= record(forName: "common")!
 	static let Draconic 		= record(forName: "draconic")!
 	static let Dwarvish 		= record(forName: "dwarvish")!
@@ -53,32 +77,32 @@ extension LanguageRecord {
 
 let languageRecords = [
 	"common": [
-		LanguageRecord(name: "common", 			spokenBy: "Most humanoids", 							script: "Common"),
-		LanguageRecord(name: "draconic", 		spokenBy: "Kobolds, Lizardfolk, Dragons, Dragonborn", 	script: "Draconic"),
-		LanguageRecord(name: "dwarvish", 		spokenBy: "Dwarves", 									script: "Dwarvish"),
-		LanguageRecord(name: "elven", 			spokenBy: "Elves", 										script: "Elvish"),
-		LanguageRecord(name: "giant", 			spokenBy: "Giants", 									script: "Dwarvish"),
-		LanguageRecord(name: "gnomish", 		spokenBy: "Gnomes", 									script: "Dwarvish"),
-		LanguageRecord(name: "goblin", 			spokenBy: "Goblinoids, hobgoblins, bugbears", 			script: "Dwarvish"),
-		LanguageRecord(name: "halfling", 		spokenBy: "Halflings", 									script: "Common"),
+		Language(name: "common", 			spokenBy: "Most humanoids", 							script: "Common"),
+		Language(name: "draconic", 		spokenBy: "Kobolds, Lizardfolk, Dragons, Dragonborn", 	script: "Draconic"),
+		Language(name: "dwarvish", 		spokenBy: "Dwarves", 									script: "Dwarvish"),
+		Language(name: "elven", 			spokenBy: "Elves", 										script: "Elvish"),
+		Language(name: "giant", 			spokenBy: "Giants", 									script: "Dwarvish"),
+		Language(name: "gnomish", 		spokenBy: "Gnomes", 									script: "Dwarvish"),
+		Language(name: "goblin", 			spokenBy: "Goblinoids, hobgoblins, bugbears", 			script: "Dwarvish"),
+		Language(name: "halfling", 		spokenBy: "Halflings", 									script: "Common"),
 
 
 
 	],
 	"rare": [
-		LanguageRecord(name: "abyssal", 		spokenBy: "Demons", 									script: "Infernal"),
+		Language(name: "abyssal", 		spokenBy: "Demons", 									script: "Infernal"),
 //		LanguageRecord(name: "aquan", 			spokenBy: "Air-based creatures", 						script: "Elvan"),
 //		LanguageRecord(name: "auran", 			spokenBy: "Air-based creatures", 						script: "Draconic"),
-		LanguageRecord(name: "celestial", 		spokenBy: "Angels", 									script: "Celestial"),
-		LanguageRecord(name: "deep speech", 	spokenBy: "Mind Flayers, Beholders", 					script: "-"),
+		Language(name: "celestial", 		spokenBy: "Angels", 									script: "Celestial"),
+		Language(name: "deep speech", 	spokenBy: "Mind Flayers, Beholders", 					script: "-"),
 //		LanguageRecord(name: "druidic", 		spokenBy: "Druids", 									script: "Druidic"),
 //		LanguageRecord(name: "gnoll", 			spokenBy: "Gnolls", 									script: "Common"),
 //		LanguageRecord(name: "ignan", 			spokenBy: "Fire-based creatures", 						script: "Draconic"),
-		LanguageRecord(name: "infernal", 		spokenBy: "Devils, Tieflings", 							script: "Infernal"),
-		LanguageRecord(name: "orc", 			spokenBy: "Orcs", 										script: "Dwarvish"),
+		Language(name: "infernal", 		spokenBy: "Devils, Tieflings", 							script: "Infernal"),
+		Language(name: "orc", 			spokenBy: "Orcs", 										script: "Dwarvish"),
 //		LanguageRecord(name: "primordial", 		spokenBy: "Elementals", 								script: "Dwarvish"),
 //		LanguageRecord(name: "sylvan", 			spokenBy: "Fey creatures", 								script: "Elvish"),
 //		LanguageRecord(name: "terran", 			spokenBy: "Earth-based creatures", 						script: "Dwarven"),
-		LanguageRecord(name: "undercommon", 	spokenBy: "Drow, Underdark traders", 					script: "Elvish")
+		Language(name: "undercommon", 	spokenBy: "Drow, Underdark traders", 					script: "Elvish")
 	],
 ]

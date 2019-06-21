@@ -22,12 +22,12 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 	var presentationDelegate: LanguagePresentationDelegate?
 
 	let availableSelections = Character.default.languages.innate.filter( { $0.name == "choice" }).count
-	var selectedLanguages: [LanguageRecord] = [LanguageRecord]() {
+	var selectedLanguages: [Language] = [Language]() {
 		didSet {
 			Character.default.languages.selected = selectedLanguages
 			updateButton()
 			collectionView.reloadData()	}}
-	var dataSource: [LanguageRecord] {
+	var dataSource: [Language] {
 		return Character.default.languages.innate.filter( { $0.name != "choice" }) + selectedLanguages }
 
 
@@ -163,7 +163,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 	struct CollectionViewData {
 		let isRemovable: Bool
 		let source: String
-		let language: LanguageRecord
+		let language: Language
 
 		enum LanguageSource: String {
 			case race 	= "R",
@@ -240,7 +240,7 @@ protocol LanguagePresentationDelegate {
 	func presentLanguageSelection(withSelections selections: Int)
 }
 protocol LanguageSelectionDelegate {
-	var selectedLanguages: [LanguageRecord] { get set }
+	var selectedLanguages: [Language] { get set }
 }
 fileprivate extension Selector {
 	static let okSelected = #selector(SocialDetailView.okSelected)
