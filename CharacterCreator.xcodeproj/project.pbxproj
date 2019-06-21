@@ -311,6 +311,7 @@
 				8152B3BF20D9D2F5008B7A1A /* Models */,
 				8152B3D820D9F891008B7A1A /* Extensions */,
 				8178317420F7F99800BF9B03 /* Design */,
+				81D599DC22BC92B7005EE768 /* languageRecords.realm */,
 				8123674120CA44EE00F7AEFC /* Data */,
 				8123671420CA44DA00F7AEFC /* Main.storyboard */,
 				8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */,
@@ -344,7 +345,6 @@
 		8123674120CA44EE00F7AEFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				81D599DC22BC92B7005EE768 /* languageRecords.realm */,
 				81DF302D213C5F3200C939CE /* items.swift */,
 				8152B3EA20DC3B48008B7A1A /* races.swift */,
 				81BC72B020F18DB500B48195 /* classes.swift */,
