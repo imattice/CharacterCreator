@@ -67,8 +67,8 @@
 		81BC72B120F18DB500B48195 /* classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72B020F18DB500B48195 /* classes.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
-		81D599DD22BC92B7005EE768 /* languageRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81D599DC22BC92B7005EE768 /* languageRecords.realm */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
+		81D599EE22BDD85B005EE768 /* LanguageRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81D599ED22BDD85B005EE768 /* LanguageRecords.realm */; };
 		81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */; };
 		81DC8E4221080E9E002F6AE4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E4121080E9E002F6AE4 /* String.swift */; };
 		81DC8E44210BA599002F6AE4 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DC8E43210BA599002F6AE4 /* Background.swift */; };
@@ -187,8 +187,8 @@
 		81BC72B020F18DB500B48195 /* classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classes.swift; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
-		81D599DC22BC92B7005EE768 /* languageRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = languageRecords.realm; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
+		81D599ED22BDD85B005EE768 /* LanguageRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = LanguageRecords.realm; sourceTree = "<group>"; };
 		81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgrounds.swift; sourceTree = "<group>"; };
 		81DC8E4121080E9E002F6AE4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		81DC8E43210BA599002F6AE4 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
@@ -313,7 +313,6 @@
 				8152B3BF20D9D2F5008B7A1A /* Models */,
 				8152B3D820D9F891008B7A1A /* Extensions */,
 				8178317420F7F99800BF9B03 /* Design */,
-				81D599DC22BC92B7005EE768 /* languageRecords.realm */,
 				8123674120CA44EE00F7AEFC /* Data */,
 				8123671420CA44DA00F7AEFC /* Main.storyboard */,
 				8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */,
@@ -347,13 +346,14 @@
 		8123674120CA44EE00F7AEFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				81D599DE22BC935F005EE768 /* RealmProvider.swift */,
+				81D599E222BD8344005EE768 /* Realms */,
 				81DF302D213C5F3200C939CE /* items.swift */,
 				8152B3EA20DC3B48008B7A1A /* races.swift */,
 				81BC72B020F18DB500B48195 /* classes.swift */,
 				81BC72AA20F17F2500B48195 /* spells.swift */,
 				81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */,
 				81DC8E47210BBA64002F6AE4 /* skills.swift */,
-				81D599DE22BC935F005EE768 /* RealmProvider.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -470,6 +470,14 @@
 				8195AF8B225706BE00153B58 /* ImageSelectionView.swift */,
 			);
 			path = "Custom User Inputs";
+			sourceTree = "<group>";
+		};
+		81D599E222BD8344005EE768 /* Realms */ = {
+			isa = PBXGroup;
+			children = (
+				81D599ED22BDD85B005EE768 /* LanguageRecords.realm */,
+			);
+			path = Realms;
 			sourceTree = "<group>";
 		};
 		81DC8E49210BBF01002F6AE4 /* CollectionViewCells */ = {
@@ -608,7 +616,6 @@
 			files = (
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */,
-				81D599DD22BC92B7005EE768 /* languageRecords.realm in Resources */,
 				81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */,
 				8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */,
 				81FC7CFB21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib in Resources */,
@@ -621,6 +628,7 @@
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
+				81D599EE22BDD85B005EE768 /* LanguageRecords.realm in Resources */,
 				81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */,
 				8195037E2256DDFB00EE4469 /* PersonalityDetailView.xib in Resources */,
 				81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */,

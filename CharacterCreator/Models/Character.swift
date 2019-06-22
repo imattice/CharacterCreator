@@ -64,7 +64,7 @@ class Character {
 
 	private init(default: String) {
 		self.class 			= Class.EvocationWizard
-		self.race 			= Race.ElfHigh
+		self.race 			= Race.HighElf
 		self.stats 			= [Stat(name: .str, rawValue: 8),
 								  Stat(name: .con, rawValue: 13),
 								  Stat(name: .dex, rawValue: 10),

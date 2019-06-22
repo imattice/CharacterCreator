@@ -16,13 +16,13 @@ import RealmSwift
 
 @objcMembers
 class LanguageRecord : Object {
-	dynamic var id: String? = UUID().uuidString
-	dynamic var name: String?
-	dynamic var spokenBy: String?
-	dynamic var script: String?
+	dynamic var id: String 			= UUID().uuidString
+	dynamic var name: String		= ""
+	dynamic var spokenBy: String	= ""
+	dynamic var script: String		= ""
 
-	override static func primaryKey() -> String? {
-		return "id"
+	static func all(in realm: Realm = RealmProvider.languageRecords.realm) -> Results<LanguageRecord> {
+		return realm.objects(LanguageRecord.self).sorted(byKeyPath: "name")
 	}
 }
 
@@ -63,6 +63,7 @@ extension Language {
 	static let Draconic 		= record(forName: "draconic")!
 	static let Dwarvish 		= record(forName: "dwarvish")!
 	static let Elven		 	= record(forName: "Elven")!
+
 	static let Giant 			= record(forName: "giant")!
 	static let Gnomish 			= record(forName: "gnomish")!
 	static let Goblin			= record(forName: "goblin")!
