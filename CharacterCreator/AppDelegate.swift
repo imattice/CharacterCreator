@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		NewRelic.start(withApplicationToken:"AAc5cd5fead1df73542320108549cfe7ac5f75a1cc")
 
-		print(LanguageRecord.all())
+//		let realm = try? Realm()
+//		let placeholder 			= LanguageRecord()
+//			placeholder.name 		= "common"
+//			placeholder.id			= UUID().uuidString
+//			placeholder.spokenBy 	= "most humanoids"
+//			placeholder.script		= "common"
+//
+//		try! realm?.write {
+//			realm?.add(placeholder)
+//		}
+//
+//		print("count: \(realm?.objects(LanguageRecord.self).count)")
+//		print("schema: \(realm?.configuration.schemaVersion)")
+		print("other schema: \(RealmProvider.languageRecords.configuration.schemaVersion)")
+
+//		print(LanguageRecord.allRecords()())
 
 		return true
 	}

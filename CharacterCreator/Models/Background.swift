@@ -36,8 +36,8 @@ struct Background {
 
 		var result = [Language]()
 		for language in languages {
-			if let record = Language.record(forName: language) {
-				result.append( record )
+			if let record = LanguageRecord.record(for: language) {
+				result.append( record.language() )
 			}}
 		return result
 	}
