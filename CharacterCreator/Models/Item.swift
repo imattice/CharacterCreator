@@ -7,6 +7,12 @@
 //
 import UIKit
 
+@objcMembers
+class ItemRecord: Object {
+	dynamic var id: String			= UUID().uuidString
+	dynamic var name: String		= ""
+}
+
 class Item {
 	let name: String
 	let type: ItemType

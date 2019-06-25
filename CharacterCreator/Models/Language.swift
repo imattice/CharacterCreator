@@ -29,14 +29,6 @@ struct Language {
 	}
 }
 
-//struct LanguageChoice: Selectable {
-//	var selected: Language
-//}
-//protocol Selectable {
-//	associatedtype Language
-//	var selected: Language { get set }
-//}
-
 extension Language {
 	static let Common 			= LanguageRecord.record(for: "common")!.language()
 	static let Draconic 		= LanguageRecord.record(for: "draconic")!.language()
@@ -75,35 +67,3 @@ class LanguageRecord : Object {
 		return Language(name: name, spokenBy: spokenBy, script: script, isRare: isRare)
 	}
 }
-
-//let languageRecords = [
-//	"common": [
-//		Language(name: "common", 			spokenBy: "Most humanoids", 							script: "Common"),
-//		Language(name: "draconic", 		spokenBy: "Kobolds, Lizardfolk, Dragons, Dragonborn", 	script: "Draconic"),
-//		Language(name: "dwarvish", 		spokenBy: "Dwarves", 									script: "Dwarvish"),
-//		Language(name: "elven", 			spokenBy: "Elves", 										script: "Elvish"),
-//		Language(name: "giant", 			spokenBy: "Giants", 									script: "Dwarvish"),
-//		Language(name: "gnomish", 		spokenBy: "Gnomes", 									script: "Dwarvish"),
-//		Language(name: "goblin", 			spokenBy: "Goblinoids, hobgoblins, bugbears", 			script: "Dwarvish"),
-//		Language(name: "halfling", 		spokenBy: "Halflings", 									script: "Common"),
-//
-//
-//
-//	],
-//	"rare": [
-//		Language(name: "abyssal", 		spokenBy: "Demons", 									script: "Infernal"),
-////		LanguageRecord(name: "aquan", 			spokenBy: "Air-based creatures", 						script: "Elvan"),
-////		LanguageRecord(name: "auran", 			spokenBy: "Air-based creatures", 						script: "Draconic"),
-//		Language(name: "celestial", 		spokenBy: "Angels", 									script: "Celestial"),
-//		Language(name: "deep speech", 	spokenBy: "Mind Flayers, Beholders", 					script: "-"),
-////		LanguageRecord(name: "druidic", 		spokenBy: "Druids", 									script: "Druidic"),
-////		LanguageRecord(name: "gnoll", 			spokenBy: "Gnolls", 									script: "Common"),
-////		LanguageRecord(name: "ignan", 			spokenBy: "Fire-based creatures", 						script: "Draconic"),
-//		Language(name: "infernal", 		spokenBy: "Devils, Tieflings", 							script: "Infernal"),
-//		Language(name: "orc", 			spokenBy: "Orcs", 										script: "Dwarvish"),
-////		LanguageRecord(name: "primordial", 		spokenBy: "Elementals", 								script: "Dwarvish"),
-////		LanguageRecord(name: "sylvan", 			spokenBy: "Fey creatures", 								script: "Elvish"),
-////		LanguageRecord(name: "terran", 			spokenBy: "Earth-based creatures", 						script: "Dwarven"),
-//		Language(name: "undercommon", 	spokenBy: "Drow, Underdark traders", 					script: "Elvish")
-//	],
-//]

@@ -7,7 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
+@objcMembers
+class PackRecord: Object {
+	dynamic var id: String			= UUID().uuidString
+	dynamic var name: String		= ""
+	dynamic var contents: [String] 	= [String]()
+}
 
 class Pack: Item {
 	let contents: [String]
