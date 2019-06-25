@@ -10,29 +10,31 @@ import UIKit
 import RealmSwift
 
 
-//@objcMembers
-//class WeaponRecord: Object {
-//	dynamic var id: String					= UUID().uuidString
-//	dynamic var name: String				= ""
-//	dynamic var tags: [String]				= [String]()
-//	dynamic var range: [String : String]	= [String : String]()
-//	dynamic var damage: [String : String]	= [String : String]()
-//	dynamic var special: String				= ""
-//	dynamic var isSimple: Bool 				= true
+@objcMembers
+class WeaponRecord: Object {
+	dynamic var id: String					= UUID().uuidString
+	dynamic var name: String				= ""
+	dynamic var tags: List<String>			= List<String>()
+	dynamic var damage: String				= "0d0 piercing"
+	dynamic var range: String?				= "(000 : 000)"
+	dynamic var isSimple: Bool 				= true
+	dynamic var specialMechanic: String?	= nil
 
-//static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<WeaponRecord> {
-//	return realm.objects(WeaponRecord.self).sorted(byKeyPath: "name")
-//}
-//
-//static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> WeaponRecord? {
-//	return allRecords().filter({ $0.name == name }).first
-//}
-//}
+
+	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<WeaponRecord> {
+		return realm.objects(WeaponRecord.self).sorted(byKeyPath: "name")
+	}
+
+	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> WeaponRecord? {
+		return allRecords().filter({ $0.name == name }).first
+	}
+}
 
 class Weapon: Item {
 	let tags: [Tag]
 	let damage: Damage
 	let `class`: WeaponClass
+//	let range: (normal: Int, extended: Int)?
 
 	lazy var isRanged: Bool = {
 		return tags.contains(.ranged) }()
@@ -87,6 +89,10 @@ class Weapon: Item {
 	enum WeaponClass: String {
 		case martial, simple
 	}
+
+//	private func range(from string: String) -> String {
+//
+//	}
 }
 
 extension Weapon {

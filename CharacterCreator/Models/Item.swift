@@ -8,19 +8,20 @@
 import UIKit
 import RealmSwift
 
-//@objcMembers
-//class ItemRecord: Object {
-//	dynamic var id: String			= UUID().uuidString
-//	dynamic var name: String		= ""
+@objcMembers
+class ItemRecord: Object {
+	dynamic var id: String			= UUID().uuidString
+	dynamic var name: String		= ""
+//	dynamic var detail: String		= ""
 
-//static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<ItemRecord> {
-//	return realm.objects(ItemRecord.self).sorted(byKeyPath: "name")
-//}
-//
-//static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> ItemRecord? {
-//	return allRecords().filter({ $0.name == name }).first
-//}
-//}
+	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<ItemRecord> {
+		return realm.objects(ItemRecord.self).sorted(byKeyPath: "name")
+	}
+
+	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> ItemRecord? {
+		return allRecords().filter({ $0.name == name }).first
+	}
+}
 
 class Item {
 	let name: String

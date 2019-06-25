@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //		print("schema: \(realm?.configuration.schemaVersion)")
 //		print("other schema: \(RealmProvider.languageRecords.configuration.schemaVersion)")
 
-		print(ArmorRecord.allRecords())
+		print(WeaponRecord.allRecords())
 
 		return true
 	}

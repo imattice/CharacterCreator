@@ -36,6 +36,9 @@ struct Damage {
 		self.type		= type
 		self.value		= value
 	}
+//	static func fromString(_ string: String) -> Damage {
+//		
+//	}
 
 	func rollString(withType: Bool) -> String {
 		var result = ""
