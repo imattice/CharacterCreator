@@ -14,15 +14,28 @@ struct Language {
 	let spokenBy: String
 	let script: String
 	let isRare: Bool
+	var isSelectable: Bool
 
 	enum Script: String {
 		case common, draconic, dwarvish, elvish, infernal, celestial, druidic
 	}
+
+	init(name: String, spokenBy: String, script: String, isRare: Bool) {
+		self.name 			= name
+		self.spokenBy 		= spokenBy
+		self.script 		= script
+		self.isRare			= isRare
+		self.isSelectable 	= false
+	}
 }
 
-struct LanguageChoice {
-	var selected: Language
-}
+//struct LanguageChoice: Selectable {
+//	var selected: Language
+//}
+//protocol Selectable {
+//	associatedtype Language
+//	var selected: Language { get set }
+//}
 
 extension Language {
 	static let Common 			= LanguageRecord.record(for: "common")!.language()

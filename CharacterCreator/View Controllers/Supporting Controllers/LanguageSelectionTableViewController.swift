@@ -11,7 +11,7 @@ import UIKit
 class LanguageSelectionTableViewController: UITableViewController {
 	var dataSource = [(sectionTitle: "common", 	languageData: [LanguageSelectionData]()),
 					 (sectionTitle: "rare",		languageData: [LanguageSelectionData]())]
-	let availableSelections = Character.default.languages.innate.filter( { $0.name == "choice" }).count
+	let availableSelections = Character.default.languages.innate.filter( { $0.isSelectable == true } ).count
 	var selectionsRemaining: Int? {
 		didSet {
 			updateNav()				}}
@@ -82,6 +82,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 		let learnedLanguages = raceLearnedLanguages + backgroundLearnedLanguages
 		let selectedLanguages = Character.default.languages.selected
 		var selections: Int = learnedLanguages.filter{ $0 == "choice" }.count
+		print(learnedLanguages)
 
 
 		for record in commonLanguages {
@@ -140,7 +141,6 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			return result
 		}()
-		print(detailText)
 		cell.selectionStyle	= .default
 
 		cell.detailTextLabel?.numberOfLines	= 0
