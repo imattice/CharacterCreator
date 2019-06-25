@@ -11,12 +11,20 @@ import RealmSwift
 
 @objcMembers
 class ArmorRecord: Object {
-	dynamic var id: String					= UUID().uuidString
-	dynamic var name: String				= ""
-	dynamic var acBonus: Int				= 0
-	dynamic var armorClass: String			= ""
-	dynamic var stealthDisadvantage: Bool	= false
-	dynamic var strengthRequired: Int		= 0
+	dynamic var id: String							= UUID().uuidString
+	dynamic var name: String						= ""
+	dynamic var acBonus: Int						= 0
+	dynamic var type: String						= ""
+	dynamic var imposesStealthDisadvantage: Bool	= false
+	dynamic var strengthRequired: Int				= 0
+
+	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<ArmorRecord> {
+		return realm.objects(ArmorRecord.self).sorted(byKeyPath: "name")
+	}
+
+	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> ArmorRecord? {
+		return allRecords().filter({ $0.name == name }).first
+	}
 }
 
 class Armor: Item {
