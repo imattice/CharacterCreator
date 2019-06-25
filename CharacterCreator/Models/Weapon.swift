@@ -10,16 +10,16 @@ import UIKit
 import RealmSwift
 
 
-@objcMembers
-class WeaponRecord: Object {
-	dynamic var id: String					= UUID().uuidString
-	dynamic var name: String				= ""
-	dynamic var tags: [String]				= [String]()
-	dynamic var range: [String : String]	= [String : String]()
-	dynamic var damage: [String : String]	= [String : String]()
-	dynamic var special: String				= ""
-	dynamic var isSimple: Bool 				= true
-}
+//@objcMembers
+//class WeaponRecord: Object {
+//	dynamic var id: String					= UUID().uuidString
+//	dynamic var name: String				= ""
+//	dynamic var tags: [String]				= [String]()
+//	dynamic var range: [String : String]	= [String : String]()
+//	dynamic var damage: [String : String]	= [String : String]()
+//	dynamic var special: String				= ""
+//	dynamic var isSimple: Bool 				= true
+//}
 
 class Weapon: Item {
 	let tags: [Tag]

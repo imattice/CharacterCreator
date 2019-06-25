@@ -60,6 +60,7 @@
 		81A5E14B22C0277400A838CD /* LanguageDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E14A22C0277400A838CD /* LanguageDataTest.swift */; };
 		81A8D251227D21770015E116 /* Armor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D250227D21770015E116 /* Armor.swift */; };
 		81A8D253227D45280015E116 /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D252227D45280015E116 /* Pack.swift */; };
+		81ACFD9722C2B2B80014597D /* ItemRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81ACFD9622C2B2B80014597D /* ItemRecords.realm */; };
 		81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A620F0813700B48195 /* SpellTableViewCell.swift */; };
 		81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BC72A720F0813700B48195 /* SpellTableViewCell.xib */; };
 		81BC72AB20F17F2500B48195 /* spells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AA20F17F2500B48195 /* spells.swift */; };
@@ -181,6 +182,7 @@
 		81A5E14A22C0277400A838CD /* LanguageDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDataTest.swift; sourceTree = "<group>"; };
 		81A8D250227D21770015E116 /* Armor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Armor.swift; sourceTree = "<group>"; };
 		81A8D252227D45280015E116 /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
+		81ACFD9622C2B2B80014597D /* ItemRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItemRecords.realm; sourceTree = "<group>"; };
 		81BC72A620F0813700B48195 /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
 		81BC72A720F0813700B48195 /* SpellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellTableViewCell.xib; sourceTree = "<group>"; };
 		81BC72AA20F17F2500B48195 /* spells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spells.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 		81D599E222BD8344005EE768 /* Realms */ = {
 			isa = PBXGroup;
 			children = (
+				81ACFD9622C2B2B80014597D /* ItemRecords.realm */,
 				81D599ED22BDD85B005EE768 /* LanguageRecords.realm */,
 			);
 			path = Realms;
@@ -623,6 +626,7 @@
 				8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */,
 				81FC7CFB21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib in Resources */,
 				81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */,
+				81ACFD9722C2B2B80014597D /* ItemRecords.realm in Resources */,
 				810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */,
 				8135B41B21649F170058E9D6 /* SpellSelectionHeaderView.xib in Resources */,
 				81F8496C218A9A6D00280D8C /* ItemSelectionTableViewCell.xib in Resources */,

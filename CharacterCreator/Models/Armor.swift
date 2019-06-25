@@ -9,11 +9,12 @@
 import Foundation
 import RealmSwift
 
+@objcMembers
 class ArmorRecord: Object {
 	dynamic var id: String					= UUID().uuidString
 	dynamic var name: String				= ""
 	dynamic var acBonus: Int				= 0
-	dynamic var `class`: String				= ""
+	dynamic var armorClass: String			= ""
 	dynamic var stealthDisadvantage: Bool	= false
 	dynamic var strengthRequired: Int		= 0
 }

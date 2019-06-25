@@ -82,7 +82,6 @@ class LanguageSelectionTableViewController: UITableViewController {
 		let learnedLanguages = raceLearnedLanguages + backgroundLearnedLanguages
 		let selectedLanguages = Character.default.languages.selected
 		var selections: Int = learnedLanguages.filter{ $0 == "choice" }.count
-		print(learnedLanguages)
 
 
 		for record in commonLanguages {

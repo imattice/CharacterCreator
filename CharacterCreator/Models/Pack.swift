@@ -11,9 +11,21 @@ import RealmSwift
 
 @objcMembers
 class PackRecord: Object {
-	dynamic var id: String			= UUID().uuidString
-	dynamic var name: String		= ""
-	dynamic var contents: [String] 	= [String]()
+	dynamic var id: String				= UUID().uuidString
+	dynamic var name: String			= ""
+	let contents: List<String> 			= List<String>()
+
+	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<PackRecord> {
+		return realm.objects(PackRecord.self).sorted(byKeyPath: "name")
+	}
+
+	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> PackRecord? {
+		return allRecords().filter({ $0.name == name }).first
+	}
+
+//	func pack() -> Pack {
+//		return Language(name: name, spokenBy: spokenBy, script: script, isRare: isRare)
+//	}
 }
 
 class Pack: Item {

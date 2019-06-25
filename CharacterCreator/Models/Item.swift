@@ -6,12 +6,13 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 import UIKit
+import RealmSwift
 
-@objcMembers
-class ItemRecord: Object {
-	dynamic var id: String			= UUID().uuidString
-	dynamic var name: String		= ""
-}
+//@objcMembers
+//class ItemRecord: Object {
+//	dynamic var id: String			= UUID().uuidString
+//	dynamic var name: String		= ""
+//}
 
 class Item {
 	let name: String

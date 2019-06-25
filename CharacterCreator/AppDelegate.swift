@@ -20,11 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		NewRelic.start(withApplicationToken:"AAc5cd5fead1df73542320108549cfe7ac5f75a1cc")
 
 //		let realm = try? Realm()
-//		let placeholder 			= LanguageRecord()
-//			placeholder.name 		= "common"
-//			placeholder.id			= UUID().uuidString
-//			placeholder.spokenBy 	= "most humanoids"
-//			placeholder.script		= "common"
+//		let placeholder 						= PackRecord()
+//			placeholder.id						= UUID().uuidString
+//			placeholder.name 					= "test Pack"
+//			placeholder.contents.append(objectsIn: ["these", "are", "contents"])
 //
 //		try! realm?.write {
 //			realm?.add(placeholder)
@@ -32,9 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //		print("count: \(realm?.objects(LanguageRecord.self).count)")
 //		print("schema: \(realm?.configuration.schemaVersion)")
-		print("other schema: \(RealmProvider.languageRecords.configuration.schemaVersion)")
+//		print("other schema: \(RealmProvider.languageRecords.configuration.schemaVersion)")
 
-//		print(LanguageRecord.allRecords()())
+		print(PackRecord.allRecords())
 
 		return true
 	}

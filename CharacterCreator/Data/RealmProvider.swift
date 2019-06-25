@@ -22,4 +22,12 @@ struct RealmProvider {
 															readOnly: true,
 															schemaVersion: 1,
 															objectTypes: [LanguageRecord.self])
+	//Items
+	public static var itemRecords: RealmProvider = {
+		return RealmProvider(configuration: itemConfig)	}()
+	private static let itemConfig = Realm.Configuration(fileURL: Bundle.main.url(forResource: "ItemRecords", withExtension: "realm" ),
+														readOnly: true,
+														schemaVersion: 3,
+														objectTypes: [//ItemRecord.self, WeaponRecord.self, ArmorRecord.self,
+																	  PackRecord.self])
 }
