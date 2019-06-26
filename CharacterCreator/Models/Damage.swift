@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Damage {
+struct Damage: Equatable {
 	let multiplier: Int?
 	let type: DamageType
 	let value: Int
@@ -36,9 +36,24 @@ struct Damage {
 		self.type		= type
 		self.value		= value
 	}
-//	static func fromString(_ string: String) -> Damage {
-//		
-//	}
+	static func fromString(_ string: String) -> Damage? {
+		let newString  = string.trimmingCharacters(in: .whitespacesAndNewlines)
+
+		//ideal string format: "1d6 fire"
+		guard newString.matches("^[0-9]+d[0-9]+ (acid|fire|cold|thunder|poison|necrotic|radient|force|bludgeoning|piercing|slashing)")
+			else { print("Damage string does not match pattern 00d00 damageType: '\(string)'"); return nil }
+		guard
+			let damageDieString		= newString.components(separatedBy: " ").first,
+			let damageTypeString 	= newString.components(separatedBy: " ").last,
+			let multiplierString 	= damageDieString.components(separatedBy: "d").first,
+			let valueString			= damageDieString.components(separatedBy: "d").last,
+			let multiplier			= Int(multiplierString),
+			let value				= Int(valueString),
+			let type				= DamageType(rawValue: damageTypeString)
+			else { print("Incorrect format for Damage string: \(string)"); return nil }
+
+		return Damage(multiplier: multiplier, type: type, value: value)
+	}
 
 	func rollString(withType: Bool) -> String {
 		var result = ""
@@ -56,4 +71,5 @@ struct Damage {
 		case acid, fire, cold, thunder, poison, necrotic, radient, force, bludgeoning, piercing, slashing
 	}
 }
+
 
