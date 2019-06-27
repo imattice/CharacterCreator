@@ -54,7 +54,7 @@ class InventorySelectionViewController: UIViewController {
 
 						continue
 					}
-					if let pack = Pack(pack: itemName) {
+					if let pack = PackRecord.record(for: itemName)?.pack() {
 						items.append(pack)
 						continue
 					}
@@ -124,7 +124,7 @@ class InventorySelectionViewController: UIViewController {
 				if let armor = Armor(armor: text) {
 					result.append(armor)
 					continue						}
-				if let pack = Pack(pack: text) {
+				if let pack = PackRecord.record(for: text)?.pack() {
 					result.append(pack)
 					continue					}
 

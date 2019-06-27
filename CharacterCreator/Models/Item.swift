@@ -23,6 +23,8 @@ class ItemRecord: Object {
 	}
 }
 
+
+
 class Item {
 	let name: String
 	let type: ItemType
@@ -38,6 +40,11 @@ class Item {
 			self.type	= itemType					}
 		else {
 			self.type	= .custom					}
+	}
+
+	init(_ name: String, type: ItemType) {
+		self.name	= name
+		self.type	= type
 	}
 
 	func description() -> String {
