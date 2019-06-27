@@ -38,7 +38,7 @@ class WeaponSelectionTableViewController: UITableViewController {
 			case .simple: 	return SimpleWeapons		} }
 
 		for string in dataSource {
-			if let weapon = Weapon(weapon: string) {
+			if let weapon = WeaponRecord.record(for: string)?.weapon() {
 				result.append(weapon)
 				continue
 			}

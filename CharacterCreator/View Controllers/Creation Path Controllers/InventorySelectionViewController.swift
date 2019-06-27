@@ -44,12 +44,12 @@ class InventorySelectionViewController: UIViewController {
 						continue
 					}
 
-					if let weapon = Weapon(weapon: itemName) {
+					if let weapon = WeaponRecord.record(for: itemName)?.weapon() {
 						items.append(weapon)
 
 						continue
 					}
-					if let armor = Armor(armor: itemName) {
+					if let armor = ArmorRecord.record(for: itemName)?.armor() {
 						items.append(armor)
 
 						continue
@@ -118,10 +118,10 @@ class InventorySelectionViewController: UIViewController {
 			for selectionView in selectionViews {
 				guard let text = selectionView.titleLabel.text else { print("title text unavailable"); continue}
 
-				if let weapon = Weapon(weapon: text) {
+				if let weapon = WeaponRecord.record(for: text)?.weapon() {
 					result.append(weapon)
 					continue						}
-				if let armor = Armor(armor: text) {
+				if let armor = ArmorRecord.record(for: text)?.armor() {
 					result.append(armor)
 					continue						}
 				if let pack = PackRecord.record(for: text)?.pack() {
