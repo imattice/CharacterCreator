@@ -21,6 +21,10 @@ class ItemRecord: Object {
 	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> ItemRecord? {
 		return allRecords().filter({ $0.name == name }).first
 	}
+
+	func item() -> Item {
+		return Item(name, type: .other)
+	}
 }
 
 
@@ -29,37 +33,18 @@ class Item {
 	let name: String
 	let type: ItemType
 
-	init(_ name: String) {
-		self.name = name.lowercased()
-
-		if let itemDict = itemData[name.lowercased()] as? [String : Any],
-			let type = itemDict["type"] as? String,
-			let itemType = ItemType(rawValue: type)
-		{
-
-			self.type	= itemType					}
-		else {
-			self.type	= .custom					}
-	}
-
 	init(_ name: String, type: ItemType) {
 		self.name	= name
 		self.type	= type
 	}
 
-	func description() -> String {
+	lazy var detail: String = {
 		guard let itemDict = itemData[name.lowercased()] as? [String : Any],
 			let description = itemDict["description"] as? String
 		else { print("could not create itemDict for \(name) for item description"); return "" }
 
-//		if let tags = tags,
-//			tags.contains(.special),
-//			let specialText = itemDict["special"] as? String {
-//			description += "\n\n*\(specialText)"
-//		}
-
 		return description
-	}
+	}()
 
 	func image() -> UIImage? {
 		//if there's an icon for the specific name
@@ -83,7 +68,7 @@ extension Item: Equatable {
 }
 
 extension Item {
-	static let ComponentPouch 	= Item("component pouch")
-	static let ArcaneFocus		= Item("arcane focus")
-	static let Spellbook		= Item("spellbook")
+	static let ComponentPouch 	= ItemRecord.record(for: "component pouch")!.item()
+	static let ArcaneFocus		= ItemRecord.record(for: "arcane focus")!.item()
+	static let Spellbook		= ItemRecord.record(for: "spellbook")!.item()
 }

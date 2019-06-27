@@ -102,13 +102,13 @@ extension Weapon {
 class WeaponSelectionItem: Item {
 	let category: Weapon.Category
 
-	override init(_ name: String) {
+	override init(_ name: String, type: Item.ItemType) {
 		if name == "martial weapon" {
 			self.category 	= .martial	}
 		else {
 			self.category	= .simple	}
 
-		super.init(name)
+		super.init(name, type: type)
 	}
 }
 

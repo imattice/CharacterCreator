@@ -41,26 +41,23 @@ class InventorySelectionViewController: UIViewController {
 				for itemName in itemDict {
 					if itemName == "simple weapon" || itemName == "martial weapon" {
 						items.append(WeaponSelectionItem(itemName))
-						continue
-					}
-
+						continue													}
 					if let weapon = WeaponRecord.record(for: itemName)?.weapon() {
 						items.append(weapon)
-
-						continue
-					}
+						continue													}
 					if let armor = ArmorRecord.record(for: itemName)?.armor() {
 						items.append(armor)
-
-						continue
-					}
+						continue													}
 					if let pack = PackRecord.record(for: itemName)?.pack() {
 						items.append(pack)
-						continue
-					}
+						continue													}
 
-					let item = Item(itemName)
-					items.append(item)
+					 if let item = ItemRecord.record(for: itemName)?.item() {
+						items.append(item)
+						continue													}
+					else {
+						items.append(Item(itemName, type: .other))
+					}
 				}
 
 				let selection = Choice.Selection(items: items)
@@ -120,16 +117,19 @@ class InventorySelectionViewController: UIViewController {
 
 				if let weapon = WeaponRecord.record(for: text)?.weapon() {
 					result.append(weapon)
-					continue						}
+					continue												}
 				if let armor = ArmorRecord.record(for: text)?.armor() {
 					result.append(armor)
-					continue						}
+					continue												}
 				if let pack = PackRecord.record(for: text)?.pack() {
 					result.append(pack)
-					continue					}
-
-				let item = Item(text)
-				result.append(item)
+					continue												}
+				if let item = ItemRecord.record(for: text)?.item() {
+					result.append(item)
+					continue												}
+				else {
+					let item = Item(text, type: .other)
+					result.append(item)										}
 			}
 		}
 

@@ -43,7 +43,7 @@ class WeaponSelectionTableViewController: UITableViewController {
 				continue
 			}
 
-			let item = Item(string)
+			let item = Item(string, type: .other)
 			result.append(item)
 		}
 
