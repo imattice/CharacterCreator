@@ -34,7 +34,7 @@ extension Pack {
 class PackRecord: Object {
 	dynamic var id: String				= UUID().uuidString
 	dynamic var name: String			= ""
-	let contents: List<String> 			= List<String>()
+	dynamic let contents: List<String> 	= List<String>()
 
 	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<PackRecord> {
 		return realm.objects(PackRecord.self).sorted(byKeyPath: "name")

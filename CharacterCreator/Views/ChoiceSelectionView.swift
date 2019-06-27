@@ -110,7 +110,7 @@ class SelectionView: UIView {
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var button: UIButton!
 
-	var weaponType: Weapon.WeaponClass?
+	var weaponType: Weapon.Category?
 	var delegate: SelectionViewDelegate?
 
 	func config(for item: Item) {

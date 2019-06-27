@@ -28,13 +28,16 @@ class WeaponRecord: Object {
 	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> WeaponRecord? {
 		return allRecords().filter({ $0.name == name }).first
 	}
+//	func weapon() -> Weapon {
+//
+//	}
 }
 
 class Weapon: Item {
 	let tags: [Tag]
 	let damage: Damage
-	let `class`: WeaponClass
-//	let range: (normal: Int, extended: Int)?
+	let category: Category
+	let range: (normal: Int, extended: Int)?
 
 	lazy var isRanged: Bool = {
 		return tags.contains(.ranged) }()
@@ -42,9 +45,9 @@ class Weapon: Item {
 	init?(weapon name: String) {
 		guard let weaponDict 			= weaponDict[name.lowercased()] 				else { return nil }
 		guard let classData 			= weaponDict["class"] as? String,
-			let weaponClass 			= WeaponClass(rawValue: classData)			 	else { return nil }
+			let weaponClass 			= Category(rawValue: classData)			 	else { return nil }
 
-		self.class	= weaponClass
+		self.category	= weaponClass
 
 		if let damageDict 			= weaponDict["damage"] as? [String : Any],
 			let damage = Damage(fromDict: damageDict) {
@@ -61,6 +64,7 @@ class Weapon: Item {
 			}
 		}
 		self.tags = tags
+		self.range = nil
 
 		super.init(name.lowercased())
 	}
@@ -86,7 +90,7 @@ class Weapon: Item {
 		}
 	}
 
-	enum WeaponClass: String {
+	enum Category: String {
 		case martial, simple
 	}
 

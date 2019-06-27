@@ -12,7 +12,7 @@ class WeaponSelectionTableViewController: UITableViewController {
 	var tableViewData = [Item]()
 
 	var selectionView: SelectionView?
-	var weaponType: Weapon.WeaponClass?
+	var weaponType: Weapon.Category?
 
     override func viewDidLoad() {
         super.viewDidLoad()
