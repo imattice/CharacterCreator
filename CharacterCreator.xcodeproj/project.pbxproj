@@ -374,10 +374,7 @@
 				8152B3C420D9D337008B7A1A /* Class.swift */,
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
-				81DF302B213C5D6A00C939CE /* Item.swift */,
-				81243E58227A3562003A9DA8 /* Weapon.swift */,
-				81A8D250227D21770015E116 /* Armor.swift */,
-				81A8D252227D45280015E116 /* Pack.swift */,
+				81ACFDB022C6C1F10014597D /* Item Objects */,
 				81541A34227420C2002C7B72 /* Language.swift */,
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
@@ -478,6 +475,17 @@
 				8195AF8B225706BE00153B58 /* ImageSelectionView.swift */,
 			);
 			path = "Custom User Inputs";
+			sourceTree = "<group>";
+		};
+		81ACFDB022C6C1F10014597D /* Item Objects */ = {
+			isa = PBXGroup;
+			children = (
+				81DF302B213C5D6A00C939CE /* Item.swift */,
+				81243E58227A3562003A9DA8 /* Weapon.swift */,
+				81A8D250227D21770015E116 /* Armor.swift */,
+				81A8D252227D45280015E116 /* Pack.swift */,
+			);
+			path = "Item Objects";
 			sourceTree = "<group>";
 		};
 		81D599E222BD8344005EE768 /* Realms */ = {

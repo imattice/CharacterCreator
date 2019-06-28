@@ -136,17 +136,16 @@ class WeaponRecord: Object {
 		let weaponTags: [Weapon.Tag] = {
 			var result = [Weapon.Tag]()
 			for tag in self.tags {
-				guard let weaponTag = Weapon.Tag(rawValue: tag) else { print("could not initialize tag: \(tag) for item: \(name)"); continue }
+				guard let weaponTag = Weapon.Tag(rawValue: tag)
+					else { print("could not initialize tag: \(tag) for item: \(name)"); continue }
 				result.append(weaponTag)
-			}
+				}
 			return result
 		}()
-		let weaponDamage = Damage.fromString(damage)!
-
 
 		return Weapon(name: name,
 					  tags: weaponTags,
-					  damage: weaponDamage,
+					  damage: Damage.fromString(damage)!,
 					  category: isSimple ? .simple : .martial,
 					  range: rangeFromString(range),
 					  detail: detail)
