@@ -12,10 +12,10 @@ import RealmSwift
 class Pack: Item {
 	let contents: [String]
 
-	init(name: String, contents: [String]) {
+	init(name: String, contents: [String], detail: String) {
 		self.contents	= contents
 
-		super.init(name, type: .pack)
+		super.init(name, type: .pack, detail: detail)
 	}
 }
 
@@ -35,6 +35,7 @@ class PackRecord: Object {
 	dynamic var id: String				= UUID().uuidString
 	dynamic var name: String			= ""
 	dynamic let contents: List<String> 	= List<String>()
+	dynamic var detail: String			= "A detailed description"
 
 	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<PackRecord> {
 		return realm.objects(PackRecord.self).sorted(byKeyPath: "name")
@@ -45,7 +46,7 @@ class PackRecord: Object {
 	}
 
 	func pack() -> Pack {
-		return Pack(name: name, contents: Array(contents))
+		return Pack(name: name, contents: Array(contents), detail: detail)
 	}
 }
 

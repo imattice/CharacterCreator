@@ -18,23 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		NewRelic.start(withApplicationToken:"AAc5cd5fead1df73542320108549cfe7ac5f75a1cc")
-
-//		let realm = try? Realm()
-//		let placeholder 						= PackRecord()
-//			placeholder.id						= UUID().uuidString
-//			placeholder.name 					= "test Pack"
-//			placeholder.contents.append(objectsIn: ["these", "are", "contents"])
-//
-//		try! realm?.write {
-//			realm?.add(placeholder)
-//		}
-//
-//		print("count: \(realm?.objects(LanguageRecord.self).count)")
-//		print("schema: \(realm?.configuration.schemaVersion)")
-//		print("other schema: \(RealmProvider.languageRecords.configuration.schemaVersion)")
-
-		print(WeaponRecord.allRecords())
-
 		return true
 	}
 }

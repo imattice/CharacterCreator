@@ -27,7 +27,7 @@ struct RealmProvider {
 		return RealmProvider(configuration: itemConfig)	}()
 	private static let itemConfig = Realm.Configuration(fileURL: Bundle.main.url(forResource: "ItemRecords", withExtension: "realm" ),
 														readOnly: true,
-														schemaVersion: 21,
+														schemaVersion: 25,
 														objectTypes: [ItemRecord.self,
 																	  WeaponRecord.self,
 																	  ArmorRecord.self,

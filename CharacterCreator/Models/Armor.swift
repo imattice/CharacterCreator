@@ -15,13 +15,13 @@ class Armor: Item {
 	let stealthDisadvantage: Bool
 	let strRequired: Int
 
-	init(name: String, acBonus: Int, category: Category, stealthDisadvantage: Bool, strengthRequired: Int) {
+	init(name: String, acBonus: Int, category: Category, stealthDisadvantage: Bool, strengthRequired: Int, detail: String) {
 		self.acBonus				= acBonus
 		self.category				= category
 		self.stealthDisadvantage	= stealthDisadvantage
 		self.strRequired			= strengthRequired
 
-		super.init(name, type: .armor)
+		super.init(name, type: .armor, detail: detail)
 	}
 
 	enum Category: String {
@@ -54,9 +54,10 @@ class ArmorRecord: Object {
 	dynamic var id: String							= UUID().uuidString
 	dynamic var name: String						= ""
 	dynamic var acBonus: Int						= 0
-	dynamic var type: String						= ""
+	dynamic var type: String						= "unarmored"
 	dynamic var imposesStealthDisadvantage: Bool	= false
 	dynamic var strengthRequired: Int				= 0
+	dynamic var detail: String						= "A detailed description"
 
 	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<ArmorRecord> {
 		return realm.objects(ArmorRecord.self).sorted(byKeyPath: "name")
@@ -71,7 +72,8 @@ class ArmorRecord: Object {
 					 acBonus: 				acBonus,
 					 category: 				Armor.Category(rawValue: type)!,
 					 stealthDisadvantage: 	imposesStealthDisadvantage,
-					 strengthRequired: 		strengthRequired)
+					 strengthRequired: 		strengthRequired,
+					 detail:				detail)
 	}
 }
 

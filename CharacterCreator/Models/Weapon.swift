@@ -23,13 +23,13 @@ class Weapon: Item {
 		return tags.contains(.versatile) ?
 			Damage(multiplier: damage.multiplier!, type: damage.type, value: damage.value + 2) : nil	}()
 
-	init(name: String, tags: [Tag], damage: Damage, category: Category, range: (normal: Int, extended: Int)?) {
+	init(name: String, tags: [Tag], damage: Damage, category: Category, range: (normal: Int, extended: Int)?, detail: String) {
 		self.tags		= tags
 		self.damage 	= damage
 		self.category	= category
 		self.range		= range
 
-		super.init(name, type: .weapon)
+		super.init(name, type: .weapon, detail: detail)
 	}
 
 	enum Tag: String {
@@ -102,13 +102,13 @@ extension Weapon {
 class WeaponSelectionItem: Item {
 	let category: Weapon.Category
 
-	override init(_ name: String, type: Item.ItemType) {
+	override init(_ name: String, type: Item.ItemType = .weapon , detail: String = "") {
 		if name == "martial weapon" {
 			self.category 	= .martial	}
 		else {
 			self.category	= .simple	}
 
-		super.init(name, type: type)
+		super.init(name, type: type, detail: detail)
 	}
 }
 
@@ -122,6 +122,7 @@ class WeaponRecord: Object {
 	dynamic var range: String?				= "000:000"
 	dynamic var isSimple: Bool 				= true
 	dynamic var specialMechanic: String?	= nil
+	dynamic var detail: String				= ""
 
 
 	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<WeaponRecord> {
@@ -147,7 +148,8 @@ class WeaponRecord: Object {
 					  tags: weaponTags,
 					  damage: weaponDamage,
 					  category: isSimple ? .simple : .martial,
-					  range: rangeFromString(range))
+					  range: rangeFromString(range),
+					  detail: detail)
 	}
 	private func rangeFromString(_ string: String?) -> (normal: Int, extended: Int)? {
 		guard let newString = string?.trimmingCharacters(in: .whitespacesAndNewlines)

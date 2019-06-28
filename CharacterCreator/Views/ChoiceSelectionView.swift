@@ -144,8 +144,8 @@ class SelectionView: UIView {
 		self.layoutIfNeeded()
 
 		titleLabel.text			= item.name.capitalized
-		descriptionLabel.text	= item.description()
-		imageView.image			= item.image()
+		descriptionLabel.text	= item.detail
+		imageView.image			= item.image
 		backgroundColor			= UIColor.lightGray
 
 		descriptionLabel.sizeToFit()
@@ -158,8 +158,8 @@ class SelectionView: UIView {
 
 	func update(withItem item: Item) {
 		titleLabel.text 			= item.name.capitalized
-		descriptionLabel.text 		= item.description()
-		imageView.image 			= item.image()
+		descriptionLabel.text 		= item.detail
+		imageView.image 			= item.image
 
 		button.setTitle("Change Weapon", for: .normal)
 	}
