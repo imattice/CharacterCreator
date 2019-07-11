@@ -7,121 +7,122 @@
 //
 
 import Foundation
-
+import RealmSwift
 
 struct Spell {
 	let level: Int
 	let name: String
-	let school: String
-	let range: String
-	let castTime: String
-	let duration: String
-	let components: String
+	let detail: String
+	let school: School
+	let maxRange: Int
+	let castTime: (value: Int, metric: String)
+	let duration: (value: Int, metric: String)
+	let components: [Component]
 	let materials: String?
-	var damage: String? 		= nil
-	var target: Target?			= nil
-	var shape: Shape?			= nil
+	let spellSave: StatType?
+	let damage: Damage?
+	let shape: Shape?
 
-
-
-	init?(_ name: String) {
-		//get the spell info
-		guard let targetSpell = spellData[name] as? [String: Any],
-		let levelString = targetSpell["level"] 			as? String,
-		let level 		= Int(levelString),
-		let school 		= targetSpell["school"] 		as? String,
-		let castTime 	= targetSpell["cast"] 			as? String,
-		let range		= targetSpell["range"] 			as? String,
-		let duration	= targetSpell["duration"] 		as? String,
-		let components  = targetSpell["components"]		as? String
-		else { print("could not find data for \(name)"); return nil }
-
-
-		if components.contains("m") {
-				self.materials	= targetSpell["material"] as? String		}
-		else { 	self.materials = nil 										}
-
-
-		if let damage = targetSpell["damage"] as? [String: Any],
-			let value = damage["value"] as? String {
-				var multiplierText = "1"
-
-				if let multiplier = damage["multiplier"] as? String {
-					multiplierText = multiplier
-				}
-
-				self.damage = "\(multiplierText)d\(value)"
-		}
-
-
-		if let count = targetSpell["target"] as? String,
-			let targetCount = Target.TargetCount(rawValue: count)
-			{ //print("works")
-			self.target = Target(count: targetCount)
-		} //else { print("could not convert target data for \(name)")}
-
-
-		if let shapeDict  = targetSpell["shape"] as? [String : Any],
-			let size = shapeDict["size"] as? String,
-			let shape = shapeDict["shape"] as? String,
-			let shapeStyle = Shape.ShapeStyle(rawValue: shape) {
-
-			self.shape		= Shape(size: size, shape: shapeStyle )
-		} //else { print("could not convert shape data for \(name)")}
-
-		
-		self.name 			= name
-		self.level			= level
-		self.school 		= school
-		self.range 			= range
-		self.castTime 		= castTime
-		self.duration 		= duration
-		self.components 	= components
-	}
-
-
-//	func damageForCantrip() -> String {
-//		guard let damage = damage else { print("no damage value"); return ""}
-//
-//		let level 		= Character.current.level
-//
-//		if self.level != "0" { print("Invalid Spell level: \(level) \(name)"); return damage}
-//
-//
-//		if 		level >= 5  && level <= 10 	{ return "2d\(damage)" }
-//		else if level >= 11 && level <= 16 	{ return "3d\(damage)" }
-//		else if level >= 17 				{ return "4d\(damage)" }
-//		else 								{ return "1d\(damage)" }
-//	}
-	func description() -> String? {
-		guard let spellData = spellData[name] as? [String:Any],
-			let description = spellData["description"] as? String else { print("description unavailable for \(name)"); return nil }
-		return description
-	}
-
-	func isCantrip() -> Bool {
+	var isCantrip: Bool {
 		return level == 0 ? true :  false }
 
-
-
 	static let maxLevel = 9
+
+	func damageForCantrip() -> Damage? {
+		guard let damage = damage else { print("no damage value"); return nil}
+		if level != 0 { print("Invalid Spell level: \(level) \(name)"); return damage}
+
+		let characterLevel 		= Character.current.level
+		var multiplier			= 1
+
+		if 		characterLevel >= 5  && characterLevel <= 10 	{ multiplier = 2 }
+		else if characterLevel >= 11 && characterLevel <= 16 	{ multiplier = 3 }
+		else if characterLevel >= 17 							{ multiplier = 4 }
+
+		return Damage(multiplier: multiplier, type: damage.type, value: damage.value)
+	}
+
+	enum School: String {
+		case abjuration, conjuration, divination, enchantment, illusion, evocation, necromancy, transmutation
+	}
+	enum Component: String {
+		case verbal, somatic, material
+	}
 }
 
 extension Spell {
-	struct Target {
-		let count: TargetCount
+	struct Shape {
+		let size: Int
+		let style: Style
 
-		enum TargetCount: String {
-			case one, two, three, all
-		}
-	}
-
-	struct Shape{
-		let size: String
-		let shape: ShapeStyle
-
-		enum ShapeStyle: String  {
+		enum Style: String  {
 			case sphere, cylindar, cube, line, cone, point
 		}
+		static func fromString(_ string: String) -> Shape? {
+			let newString  = string.trimmingCharacters(in: .whitespacesAndNewlines)
+			//ideal format "00 shapeStyle"
+			guard newString.matches("^[0-9]+ .*") else { return nil }
+
+			guard
+				let sizeString		= newString.components(separatedBy: " ").first,
+				let shapeString		= newString.components(separatedBy: " ").last,
+				let size			= Int(sizeString),
+				let style			= Spell.Shape.Style(rawValue: shapeString)
+				else { print("Invalid spell shape format for string: \(string)"); return nil }
+
+			return Shape(size: size, style: style)
+		}
+	}
+}
+
+@objcMembers
+class SpellRecord: Object, Record {
+	dynamic var id: String					= UUID().uuidString
+	dynamic var name: String				= "Spell Name"
+	dynamic var detail: String				= "Spell Description"
+	dynamic var higherLevelDetail: String	= "Effect of spells cast at higher levels"
+	dynamic var availability: List<String>	= List<String>()
+	dynamic var level: Int					= 0
+	dynamic var school: String				= "SpellSchool"
+	dynamic var components: String			= "VSM"
+	dynamic var maxRange: Int				= 0
+	dynamic var castTime: String			= "0 CastTime"
+	dynamic var duration: String			= "0 SpellDuration"
+	dynamic var concentration: Bool			= false
+	dynamic var shape: String?				= "00 shapeStyle"
+	dynamic var materials: String?  		= "Materials"
+	dynamic var spellSave: String?			= "Stat Save"
+	dynamic var damage: String?				= "0d0 damageType"
+
+	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<SpellRecord> {
+		return realm.objects(SpellRecord.self).sorted(byKeyPath: "name")
+	}
+
+	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> SpellRecord? {
+		return allRecords().filter({ $0.name == name }).first
+	}
+
+	func spell() -> Spell {
+		return Spell(level: level, name: name, detail: detail, school: Spell.School(rawValue: school)!, maxRange: maxRange, castTime: tuple(forString: castTime), duration: tuple(forString: duration), components: components(from: components), materials: materials, spellSave: spellSave == nil ? nil : StatType(rawValue: spellSave!), damage: damage == nil ? nil : Damage.fromString(damage!), shape: shape == nil ? nil : Spell.Shape.fromString(shape!))
+	}
+	private func tuple(forString string: String) -> (value: Int, metric: String) {
+		let newString  = string.trimmingCharacters(in: .whitespacesAndNewlines)
+		guard
+			let valueString		= newString.components(separatedBy: " ").first,
+			let metric		 	= newString.components(separatedBy: " ").last,
+			let value			= Int(valueString)
+			else { print("Invalid format in \(name.capitalized) for string: \(string)"); return (value: 0, metric: string) }
+
+		return (value:  value, metric: metric)
+	}
+	private func components(from string: String) -> [Spell.Component] {
+		var result = [Spell.Component]()
+		let modifiedString = string.lowercased()
+		if modifiedString == "" || !modifiedString.matches("^(v|s|m)+") { return result }
+		if modifiedString.contains("v") { result.append(.verbal)   	}
+		if modifiedString.contains("m") { result.append(.material) 	}
+		if modifiedString.contains("s") { result.append(.somatic)	}
+
+		return result
 	}
 }

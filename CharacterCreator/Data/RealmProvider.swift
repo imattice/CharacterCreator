@@ -9,6 +9,18 @@
 import Foundation
 import RealmSwift
 
+protocol Record {
+	var id: String { get set }
+	var name: String { get set }
+	var detail: String { get set }
+//
+//	static func allRecords(in realm: Realm) -> Results<Object>
+//	static func record(for name: String, in realm: Realm) -> Object?
+}
+
+
+
+
 struct RealmProvider {
 	let configuration: Realm.Configuration
 	var realm: Realm {
@@ -32,4 +44,11 @@ struct RealmProvider {
 																	  WeaponRecord.self,
 																	  ArmorRecord.self,
 																	  PackRecord.self])
+	//Spells
+	public static var spellRecords: RealmProvider = {
+		return RealmProvider(configuration: spellConfig)	}()
+	private static let spellConfig = Realm.Configuration(fileURL: Bundle.main.url(forResource: "SpellRecords", withExtension: "realm" ),
+														readOnly: true,
+														schemaVersion: 10,
+														objectTypes: [SpellRecord.self])
 }

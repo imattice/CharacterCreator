@@ -32,10 +32,15 @@ class SpellTableViewCell: UITableViewCell {
 		let expanded 	= spellData.expanded
 
 		titleLabel.text 			= spell.name
-		descriptionLabel.text		= spell.description()
-		iconView.image				= UIImage(named: spell.school)
+		descriptionLabel.text		= spell.detail
+		iconView.image				= UIImage(named: spell.school.rawValue)
 
-		componentLabel.text			= expanded ? spell.components			: ""
+		var componentString = ""
+		for component in spell.components {
+			componentString.append(component.rawValue)
+		}
+
+		componentLabel.text			= componentString
 
 		self.spell = spell
 	}

@@ -51,43 +51,44 @@ class SpellDetailView: XibView {
 	private func configure() {
 		guard let spell = spell else { return }
 		titleLabel.text 			= spell.name.capitalized
-		levelLabel.text				= { spell.isCantrip() ? "Cantrip" : "Level \(spell.level)" }()
-		descriptionLabel.text		= spell.description()
+		levelLabel.text				= { spell.isCantrip ? "Cantrip" : "Level \(spell.level)" }()
+		descriptionLabel.text		= spell.detail	
 
-		rangeLabel.text				= spell.range.capitalized
-		castTimeLabel.text			= spell.castTime.capitalized
-		durationLabel.text			= spell.duration.capitalized
+		rangeLabel.text				= "\(spell.maxRange)ft"
+		castTimeLabel.text			= "\(spell.castTime.value) \(spell.castTime.metric.capitalized)"
+		durationLabel.text			= "\(spell.duration.value) \(spell.duration.metric.capitalized)"
 
 		if let damage = spell.damage {
-			damageLabel.text			= damage 	}
+			damageLabel.text			= damage.rollString(withType: true) 	}
 		else { damageLabel.text			= "-"			}
 
 		var componentString = ""
-		if spell.components.contains("v") { componentString += "• Verbal "				}
-		if spell.components.contains("s") { componentString += "• Somatic "				}
-		if spell.components.contains("m") { componentString += "• Material "
-											componentString += "•\n(\(spell.materials!.capitalized))"	}
-		else {								componentString += "•"						}
+		if spell.components.contains(.verbal) 	{ componentString += "• Verbal "				}
+		if spell.components.contains(.somatic) 	{ componentString += "• Somatic "				}
+		if spell.components.contains(.material) { componentString += "• Material "
+												  componentString += "•\n(\(spell.materials!.capitalized))"	}
+		else {									  componentString += "•"						}
 		componentLabel.text			= componentString
 
 		if let shape = spell.shape {
-			shapeImageView.image		= UIImage(named: shape.shape.rawValue)
-			shapeLabel.text				= shape.size	}
+			shapeImageView.image		= UIImage(named: shape.style.rawValue)
+			shapeLabel.text				= "\(shape.size)ft \(shape.style.rawValue.capitalized)"	}
 		else { shapeView.removeFromSuperview() }
-
-		if let target = spell.target {
-			var text = ""
-			if target.count == .all {
-				text = "all objects in area"			}
-			else {
-				text = "up to \(target.count) target"
-				if target.count != .one {
-					text.append("s")	}
-			}
-
-			targetImageView.image		= UIImage(named: target.count.rawValue)
-			targetLabel.text			= text
-		} else { targetView.removeFromSuperview() }
+//
+//		if let target = spell.target {
+//			var text = ""
+//			if target.count == .all {
+//				text = "all objects in area"			}
+//			else {
+//				text = "up to \(target.count) target"
+//				if target.count != .one {
+//					text.append("s")	}
+//			}
+//
+//			targetImageView.image		= UIImage(named: target.count.rawValue)
+//			targetLabel.text			= text
+//		} else { targetView.removeFromSuperview() }
+		targetView.removeFromSuperview()
 
 	}
 

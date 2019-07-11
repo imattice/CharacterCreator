@@ -142,7 +142,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 			let spell = spellForCell(at: indexPath)
 			else { print("issue creating cell from selected index path"); return true }
 
-		if spell.isCantrip() && !cell.isSelected {
+		if spell.isCantrip && !cell.isSelected {
 			guard cantripSelectionCount + 1 <= cantripCapacity else { print("cantrip at limit"); return false }}
 		else {
 			guard spellSelectionCount + 1 <= spellbookCapacity else { print("spellbook at limit"); return false }}
@@ -264,7 +264,7 @@ extension SpellSelectionViewController: UITableViewDelegate, UITableViewDataSour
 								   9: [(expanded: Bool, spell: Spell)]()]
 
 			for spellName in classSpells {
-				guard let spell = Spell(spellName) else { continue }
+				guard let spell = SpellRecord.record(for: spellName)?.spell() else { continue }
 
 				//add the spell to the correct index
 				guard var _ = spellsByLevel[spell.level] else { print("could not initialize array from \(spell.level) as a key"); continue }
