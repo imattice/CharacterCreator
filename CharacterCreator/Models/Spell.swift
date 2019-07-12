@@ -6,6 +6,10 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
+
+//could use additional damage rolls, such as acid arrow, which does 4d4, and then 2d4 next turn
+//targets might be nice, like aid targets 3 specific characters, or acid splash targets 2 creatures within 5 feet of each other
+//add an effect, such as a damage roll, an ac bonus or stat alteration, heal
 import Foundation
 import RealmSwift
 
@@ -14,7 +18,7 @@ struct Spell {
 	let name: String
 	let detail: String
 	let school: School
-	let maxRange: Int
+	let maxRange: String
 	let castTime: (value: Int, metric: String)
 	let duration: (value: Int, metric: String)
 	let components: [Component]
@@ -80,19 +84,20 @@ class SpellRecord: Object, Record {
 	dynamic var id: String					= UUID().uuidString
 	dynamic var name: String				= "Spell Name"
 	dynamic var detail: String				= "Spell Description"
-	dynamic var higherLevelDetail: String	= "Effect of spells cast at higher levels"
+	dynamic var higherLevelDetail: String?	= "Effect of spells cast at higher levels"
 	dynamic var availability: List<String>	= List<String>()
 	dynamic var level: Int					= 0
 	dynamic var school: String				= "SpellSchool"
 	dynamic var components: String			= "VSM"
-	dynamic var maxRange: Int				= 0
+	dynamic var maxRange: String			= "000 feet"
 	dynamic var castTime: String			= "0 CastTime"
 	dynamic var duration: String			= "0 SpellDuration"
-	dynamic var concentration: Bool			= false
+	dynamic var concentration: Bool			= false  //change to requiresConcentration
 	dynamic var shape: String?				= "00 shapeStyle"
 	dynamic var materials: String?  		= "Materials"
 	dynamic var spellSave: String?			= "Stat Save"
 	dynamic var damage: String?				= "0d0 damageType"
+	dynamic var isRitual: Bool				= false
 
 	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<SpellRecord> {
 		return realm.objects(SpellRecord.self).sorted(byKeyPath: "name")
