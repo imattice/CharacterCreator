@@ -7,7 +7,35 @@
 //
 
 import Foundation
+import RealmSwift
 
+@objcMembers
+class BackgroundRecord: Object, Record {
+	dynamic var id: String					= ""
+	dynamic	var name: String				= ""
+	dynamic var detail: String				= ""
+	dynamic var proficiencies: List<String>	= List<String>()
+	dynamic var languages: List<String>		= List<String>()
+	dynamic var equipment: String			= ""
+	dynamic var gold: Int					= 0
+	dynamic var features: String			= ""
+	dynamic var traits: List<String>		= List<String>()
+	dynamic var ideals: List<String>		= List<String>()
+	dynamic var bonds: List<String> 		= List<String>()
+	dynamic var flaws: List<String>			= List<String>()
+
+	static func allRecords(in realm: Realm = RealmProvider.backgroundRecords.realm) -> Results<BackgroundRecord> {
+		return realm.objects(BackgroundRecord.self).sorted(byKeyPath: "name")
+	}
+
+	static func record(for name: String, in realm: Realm = RealmProvider.backgroundRecords.realm) -> BackgroundRecord? {
+		return allRecords().filter({ $0.name == name }).first
+	}
+
+	func background() -> Background {
+		return Background(name)
+	}
+}
 
 struct Background {
 	let name: String
