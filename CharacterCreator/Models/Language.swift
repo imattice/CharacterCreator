@@ -11,21 +11,28 @@ import RealmSwift
 
 struct Language {
 	let name: String
-	let spokenBy: String
-	let script: String
-	let isRare: Bool
+//	let spokenBy: String
+//	let script: String
+//	let isRare: Bool
 	var isSelectable: Bool
+
+	var spokenBy: String {
+		guard let record = LanguageRecord.record(for: name) else { return "" }
+		return record.spokenBy	}
+	var script: String {
+		guard let record = LanguageRecord.record(for: name) else { return "" }
+		return record.script	}
+	var isRare: Bool {
+		guard let record = LanguageRecord.record(for: name) else { return true }
+		return record.isRare	}
+
+	init(name: String, isSelectable: Bool = false) { //}, spokenBy: String, script: String, isRare: Bool) {
+		self.name 			= name
+		self.isSelectable 	= isSelectable
+	}
 
 	enum Script: String {
 		case common, draconic, dwarvish, elvish, infernal, celestial, druidic
-	}
-
-	init(name: String, spokenBy: String, script: String, isRare: Bool) {
-		self.name 			= name
-		self.spokenBy 		= spokenBy
-		self.script 		= script
-		self.isRare			= isRare
-		self.isSelectable 	= false
 	}
 }
 
@@ -64,6 +71,6 @@ class LanguageRecord : Object {
 	}
 
 	func language() -> Language {
-		return Language(name: name, spokenBy: spokenBy, script: script, isRare: isRare)
+		return Language(name: name)
 	}
 }
