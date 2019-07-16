@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+//a container for describing how much damage an attack or spell would do
 struct Damage: Equatable {
 	let multiplier: Int?
 	let type: DamageType

@@ -63,6 +63,8 @@
 		81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDA022C2F62F0014597D /* DamageTests.swift */; };
 		81ACFDAF22C572BB0014597D /* ItemRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81ACFDAE22C572BB0014597D /* ItemRecords.realm */; };
 		81B038CC22DC0B750059AFC1 /* BackgroundRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */; };
+		81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B038CD22DD14AF0059AFC1 /* Effect.swift */; };
+		81B038D122DD14E00059AFC1 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B038D022DD14E00059AFC1 /* Calculation.swift */; };
 		81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A620F0813700B48195 /* SpellTableViewCell.swift */; };
 		81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BC72A720F0813700B48195 /* SpellTableViewCell.xib */; };
 		81BC72AB20F17F2500B48195 /* spells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AA20F17F2500B48195 /* spells.swift */; };
@@ -187,6 +189,8 @@
 		81ACFDA022C2F62F0014597D /* DamageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTests.swift; sourceTree = "<group>"; };
 		81ACFDAE22C572BB0014597D /* ItemRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItemRecords.realm; sourceTree = "<group>"; };
 		81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundRecords.realm; sourceTree = "<group>"; };
+		81B038CD22DD14AF0059AFC1 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
+		81B038D022DD14E00059AFC1 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		81BC72A620F0813700B48195 /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
 		81BC72A720F0813700B48195 /* SpellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellTableViewCell.xib; sourceTree = "<group>"; };
 		81BC72AA20F17F2500B48195 /* spells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spells.swift; sourceTree = "<group>"; };
@@ -378,8 +382,7 @@
 				81BC72AE20F186C000B48195 /* Spell.swift */,
 				81ACFDB022C6C1F10014597D /* Item Objects */,
 				81541A34227420C2002C7B72 /* Language.swift */,
-				8152B3C020D9D320008B7A1A /* Modifier.swift */,
-				81F8496D218B7FBD00280D8C /* Damage.swift */,
+				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -488,6 +491,17 @@
 				81A8D252227D45280015E116 /* Pack.swift */,
 			);
 			path = "Item Objects";
+			sourceTree = "<group>";
+		};
+		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
+			isa = PBXGroup;
+			children = (
+				8152B3C020D9D320008B7A1A /* Modifier.swift */,
+				81F8496D218B7FBD00280D8C /* Damage.swift */,
+				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
+				81B038D022DD14E00059AFC1 /* Calculation.swift */,
+			);
+			path = "Gameplay Objects";
 			sourceTree = "<group>";
 		};
 		81D599E222BD8344005EE768 /* Realms */ = {
@@ -784,6 +798,7 @@
 				8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */,
 				8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */,
 				8195AF8C225706BE00153B58 /* ImageSelectionView.swift in Sources */,
+				81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
 				810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */,
 				81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */,
@@ -791,6 +806,7 @@
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
+				81B038D122DD14E00059AFC1 /* Calculation.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
 				81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */,
 				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
+//defines a method that changes a value or calculation for any object, such as stats, damage, or AC
 struct Modifier {
 	let type: ModifierType
 	let attribute: String

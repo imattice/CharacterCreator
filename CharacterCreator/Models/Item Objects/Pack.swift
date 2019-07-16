@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+//defines an item that contains an assortment of tools and small items that come grouped together
 class Pack: Item {
 	let contents: [String]
 

@@ -9,12 +9,10 @@
 import Foundation
 import RealmSwift
 
+//defines a flexible object to describe a language that can be learned by the character
 struct Language {
 	let name: String
-//	let spokenBy: String
-//	let script: String
-//	let isRare: Bool
-	var isSelectable: Bool
+	let isSelectable: Bool
 
 	var spokenBy: String {
 		guard let record = LanguageRecord.record(for: name) else { return "" }

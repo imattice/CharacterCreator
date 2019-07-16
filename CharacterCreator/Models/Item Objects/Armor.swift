@@ -9,6 +9,7 @@
 import Foundation
 import RealmSwift
 
+//defines an Item used to increase the armor class of a character
 class Armor: Item {
 	let acBonus: Int
 	let category: Category

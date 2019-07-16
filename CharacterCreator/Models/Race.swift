@@ -98,7 +98,7 @@ struct Race {
 				result.append( record.language() )
 			}
 			if language == "choice" {
-				var languageChoice = Language(name: "choice", spokenBy: "-", script: "-", isRare: false)
+				var languageChoice = Language(name: "choice", isSelectable: true)
 					languageChoice.isSelectable	= true
 				result.append(languageChoice)
 			}}

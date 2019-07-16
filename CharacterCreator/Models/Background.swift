@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-
+//a representation of the background with flexible proficiencies
 struct Background {
 	let name: String
 	var proficiencies: [String]
