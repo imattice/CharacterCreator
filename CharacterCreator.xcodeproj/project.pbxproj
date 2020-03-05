@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,7 +63,6 @@
 		81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDA022C2F62F0014597D /* DamageTests.swift */; };
 		81ACFDAF22C572BB0014597D /* ItemRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81ACFDAE22C572BB0014597D /* ItemRecords.realm */; };
 		81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDB122CD7DB70014597D /* SpellTests.swift */; };
-		81ADE0942410BDD100934F0B /* AncestrySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ADE0932410BDD100934F0B /* AncestrySelection.swift */; };
 		81B038C822D81A170059AFC1 /* SpellRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81B038C722D81A170059AFC1 /* SpellRecords.realm */; };
 		81B038CC22DC0B750059AFC1 /* BackgroundRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */; };
 		81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B038CD22DD14AF0059AFC1 /* Effect.swift */; };
@@ -192,7 +191,6 @@
 		81ACFDA022C2F62F0014597D /* DamageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTests.swift; sourceTree = "<group>"; };
 		81ACFDAE22C572BB0014597D /* ItemRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItemRecords.realm; sourceTree = "<group>"; };
 		81ACFDB122CD7DB70014597D /* SpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTests.swift; sourceTree = "<group>"; };
-		81ADE0932410BDD100934F0B /* AncestrySelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AncestrySelection.swift; sourceTree = "<group>"; };
 		81B038C722D81A170059AFC1 /* SpellRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpellRecords.realm; sourceTree = "<group>"; };
 		81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundRecords.realm; sourceTree = "<group>"; };
 		81B038CD22DD14AF0059AFC1 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
@@ -436,7 +434,6 @@
 				8195AF91225706F900153B58 /* Custom User Inputs */,
 				81243E542279EFE0003A9DA8 /* WeaponStatView.swift */,
 				81243E562279F022003A9DA8 /* WeaponStatView.xib */,
-				81ADE0952410BDD600934F0B /* SwiftUI */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -499,14 +496,6 @@
 				81A8D252227D45280015E116 /* Pack.swift */,
 			);
 			path = "Item Objects";
-			sourceTree = "<group>";
-		};
-		81ADE0952410BDD600934F0B /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				81ADE0932410BDD100934F0B /* AncestrySelection.swift */,
-			);
-			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
@@ -832,7 +821,6 @@
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				8195AF8E225706D200153B58 /* TextAreaView.swift in Sources */,
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
-				81ADE0942410BDD100934F0B /* AncestrySelection.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				81243E59227A3562003A9DA8 /* Weapon.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
