@@ -59,6 +59,8 @@
 		819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */; };
 		81A8D251227D21770015E116 /* Armor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D250227D21770015E116 /* Armor.swift */; };
 		81A8D253227D45280015E116 /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D252227D45280015E116 /* Pack.swift */; };
+		81ADE08924107B0F00934F0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ADE08824107B0F00934F0B /* SceneDelegate.swift */; };
+		81ADE08B24107B5A00934F0B /* AncestrySelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ADE08A24107B5A00934F0B /* AncestrySelection.swift */; };
 		81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A620F0813700B48195 /* SpellTableViewCell.swift */; };
 		81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BC72A720F0813700B48195 /* SpellTableViewCell.xib */; };
 		81BC72AB20F17F2500B48195 /* spells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AA20F17F2500B48195 /* spells.swift */; };
@@ -177,6 +179,8 @@
 		819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
 		81A8D250227D21770015E116 /* Armor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Armor.swift; sourceTree = "<group>"; };
 		81A8D252227D45280015E116 /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
+		81ADE08824107B0F00934F0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		81ADE08A24107B5A00934F0B /* AncestrySelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AncestrySelection.swift; sourceTree = "<group>"; };
 		81BC72A620F0813700B48195 /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
 		81BC72A720F0813700B48195 /* SpellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellTableViewCell.xib; sourceTree = "<group>"; };
 		81BC72AA20F17F2500B48195 /* spells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spells.swift; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
+				81ADE08824107B0F00934F0B /* SceneDelegate.swift */,
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
@@ -397,6 +402,7 @@
 		8152B3D920D9FD65008B7A1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				81ADE08C24107B6200934F0B /* SwiftUI */,
 				8152B41620DEE7F6008B7A1A /* TableViewCells */,
 				81DC8E49210BBF01002F6AE4 /* CollectionViewCells */,
 				819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */,
@@ -464,6 +470,14 @@
 				8195AF8B225706BE00153B58 /* ImageSelectionView.swift */,
 			);
 			path = "Custom User Inputs";
+			sourceTree = "<group>";
+		};
+		81ADE08C24107B6200934F0B /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				81ADE08A24107B5A00934F0B /* AncestrySelection.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		81DC8E49210BBF01002F6AE4 /* CollectionViewCells */ = {
@@ -773,7 +787,9 @@
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81851D5F2254721E00260413 /* UITextView.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
+				81ADE08924107B0F00934F0B /* SceneDelegate.swift in Sources */,
 				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
+				81ADE08B24107B5A00934F0B /* AncestrySelection.swift in Sources */,
 				81851D612254725C00260413 /* UITextField.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
@@ -978,6 +994,7 @@
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CharacterCreator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1001,6 +1018,7 @@
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = CharacterCreator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
