@@ -51,4 +51,17 @@ struct RealmProvider {
 														readOnly: true,
 														schemaVersion: 10,
 														objectTypes: [SpellRecord.self])
+	//Backgrounds
+	public static var backgroundRecords: RealmProvider = {
+		return RealmProvider(configuration: backgroundConfig)	}()
+	private static let backgroundConfig = Realm.Configuration(fileURL: Bundle.main.url(forResource: "BackgroundRecords", withExtension: "realm" ),
+														readOnly: true,
+														schemaVersion: 5,
+														objectTypes: [BackgroundRecord.self])
+}
+
+protocol Record {
+	var id: String { get set }
+	var name: String { get set }
+	var detail: String { get set }
 }

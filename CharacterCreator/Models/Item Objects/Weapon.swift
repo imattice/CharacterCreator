@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+//defines an Item that is used to inflict damage
 class Weapon: Item {
 	let tags: [Tag]
 	let damage: Damage

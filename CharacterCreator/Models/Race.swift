@@ -5,6 +5,7 @@
 //  Created by Ike Mattice on 6/19/18.
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
+import RealmSwift
 
 typealias Subrace = Race
 
@@ -98,7 +99,7 @@ struct Race {
 				result.append( record.language() )
 			}
 			if language == "choice" {
-				var languageChoice = Language(name: "choice", spokenBy: "-", script: "-", isRare: false)
+				var languageChoice = Language(name: "choice", isSelectable: true)
 					languageChoice.isSelectable	= true
 				result.append(languageChoice)
 			}}
@@ -122,6 +123,7 @@ struct Race {
 		return result
 	}
 
+
 	static let HillDwarf 			= Race(fromParent: "dwarf", withSubrace: "hill")!
 	static let MountianDwarf		= Race(fromParent: "dwarf", withSubrace: "mountian")!
 	static let HighElf				= Race(fromParent: "elf", withSubrace: "high")!
@@ -131,6 +133,33 @@ struct Race {
 	static let Human				= Race(fromParent: "human", withSubrace: nil)
 }
 
-struct RaceRecord {
+@objcMembers
+class RaceRecord: Object {
+	enum Property: String {
+		case id, name, detail, modifiers, subrace }
 
+	dynamic var id: String				= UUID().uuidString
+	dynamic var name: String			= ""
+	dynamic var summary: String			= ""
+	dynamic var modifiers: [Modifier]	= [Modifier]()
+	dynamic var subrace: [Subrace]		= [Subrace]()
+//	dynamic var languages: 
+
+	override static func primaryKey() -> String? {
+		return RaceRecord.Property.id.rawValue
+	}
+}
+@objcMembers
+class SubraceRecord: Object {
+	enum Property: String {
+		case id, name, detail, modifiers, subrace }
+
+	dynamic var id: String				= UUID().uuidString
+	dynamic var name: String			= ""
+	dynamic var summary: String			= ""
+	dynamic var modifiers: [Modifier]	= [Modifier]()
+
+	override static func primaryKey() -> String? {
+		return SubraceRecord.Property.id.rawValue
+	}
 }

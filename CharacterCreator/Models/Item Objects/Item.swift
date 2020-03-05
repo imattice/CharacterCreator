@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 
+//defines an object that can be collected, disposed and used by a character
 class Item {
 	let name: String
 	let type: ItemType
