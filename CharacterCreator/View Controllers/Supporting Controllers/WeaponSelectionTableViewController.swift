@@ -12,7 +12,7 @@ class WeaponSelectionTableViewController: UITableViewController {
 	var tableViewData = [Item]()
 
 	var selectionView: SelectionView?
-	var weaponType: Weapon.WeaponClass?
+	var weaponType: Weapon.Category?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +38,12 @@ class WeaponSelectionTableViewController: UITableViewController {
 			case .simple: 	return SimpleWeapons		} }
 
 		for string in dataSource {
-			if let weapon = Weapon(weapon: string) {
+			if let weapon = WeaponRecord.record(for: string)?.weapon() {
 				result.append(weapon)
 				continue
 			}
 
-			let item = Item(string)
+			let item = Item(string, type: .other)
 			result.append(item)
 		}
 

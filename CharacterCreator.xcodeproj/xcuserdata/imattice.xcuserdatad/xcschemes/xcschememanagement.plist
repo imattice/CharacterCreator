@@ -19,7 +19,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>10</integer>
 		</dict>
 		<key>CharacterCreatorUITests.xcscheme_^#shared#^_</key>
 		<dict>
@@ -42,11 +42,6 @@
 			<true/>
 		</dict>
 		<key>8123672320CA44DD00F7AEFC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8123672E20CA44DD00F7AEFC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

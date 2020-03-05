@@ -11,11 +11,11 @@ import UIKit
 class LanguageSelectionTableViewController: UITableViewController {
 	var dataSource = [(sectionTitle: "common", 	languageData: [LanguageSelectionData]()),
 					 (sectionTitle: "rare",		languageData: [LanguageSelectionData]())]
-	let availableSelections = Character.default.languages.innate.filter( { $0.name == "choice" }).count
+	let availableSelections = Character.default.languages.innate.filter( { $0.isSelectable == true } ).count
 	var selectionsRemaining: Int? {
 		didSet {
 			updateNav()				}}
-	var selectedLanguages = [LanguageRecord]()
+	var selectedLanguages = [Language]()
 	var delegate: LanguageSelectionDelegate?
 
     override func viewDidLoad() {
@@ -58,12 +58,12 @@ class LanguageSelectionTableViewController: UITableViewController {
 	struct LanguageSelectionData {
 		let isSelectable: Bool
 		let source: String?
-		let language: LanguageRecord
+		let language: Language
 	}
 
 	func populateData() {
-		guard let commonLanguages = languageRecords["common"],
-			let rareLanguages = languageRecords["rare"] else { return }
+			let commonLanguages = LanguageRecord.allRecords().filter({ $0.isRare == false })
+			let rareLanguages = LanguageRecord.allRecords().filter({ $0.isRare == true })
 
 		var raceLearnedLanguages: [String] {
 			guard let raceDict = raceData[Character.default.race.parentRace] as? [String : Any],
@@ -84,17 +84,17 @@ class LanguageSelectionTableViewController: UITableViewController {
 		var selections: Int = learnedLanguages.filter{ $0 == "choice" }.count
 
 
-		for language in commonLanguages {
-			let isLearned = learnedLanguages.contains(language.name) ? true : false
+		for record in commonLanguages {
+			let isLearned = learnedLanguages.contains(record.name) ? true : false
 			var source: String? {
 				if isLearned {
-					if raceLearnedLanguages.contains(where: { $0 == language.name }) {
+					if raceLearnedLanguages.contains(where: { $0 == record.name }) {
 						return "race"
 					}
-					if backgroundLearnedLanguages.contains(where: { $0 == language.name }) {
+					if backgroundLearnedLanguages.contains(where: { $0 == record.name }) {
 						return "background"
 					}
-					if selectedLanguages.contains(where: { $0.name == language.name}) {
+					if selectedLanguages.contains(where: { $0.name == record.name}) {
 						return "selected"
 					}
 				}
@@ -103,17 +103,17 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			let selectionData = LanguageSelectionData(isSelectable: !isLearned,
 													  source: source,
-													  language: language)
+													  language: record.language())
 			dataSource[0].languageData.append(selectionData)
 		}
-		for language in rareLanguages {
-			let isLearned = learnedLanguages.contains(language.name) ? true : false
+		for record in rareLanguages {
+			let isLearned = learnedLanguages.contains(record.name) ? true : false
 			var source: String? {
 				if isLearned {
-					if raceLearnedLanguages.contains(where: { $0 == language.name }) {
+					if raceLearnedLanguages.contains(where: { $0 == record.name }) {
 						return "race"
 					}
-					if backgroundLearnedLanguages.contains(where: { $0 == language.name }) {
+					if backgroundLearnedLanguages.contains(where: { $0 == record.name }) {
 						return "background"
 					}
 				}
@@ -122,7 +122,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			let selectionData = LanguageSelectionData(isSelectable: !isLearned,
 													  source: source,
-													  language: language)
+													  language: record.language())
 			dataSource[1].languageData.append(selectionData)
 		}
 
@@ -140,7 +140,6 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			return result
 		}()
-		print(detailText)
 		cell.selectionStyle	= .default
 
 		cell.detailTextLabel?.numberOfLines	= 0

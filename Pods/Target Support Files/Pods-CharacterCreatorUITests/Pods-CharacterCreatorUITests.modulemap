@@ -1,6 +1,0 @@
-framework module Pods_CharacterCreatorUITests {
-  umbrella header "Pods-CharacterCreatorUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

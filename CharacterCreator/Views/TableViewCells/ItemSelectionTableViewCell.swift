@@ -22,7 +22,7 @@ class ItemSelectionTableViewCell: UITableViewCell {
 
 	func configure(for weapon: Weapon) {
 		titleLabel.text			= weapon.name.capitalized
-		descriptionLabel.text	= weapon.description()
+		descriptionLabel.text	= weapon.detail
 
 		damageLabel.text			= weapon.damage.rollString(withType: true)
 

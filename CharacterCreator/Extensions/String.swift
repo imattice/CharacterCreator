@@ -26,4 +26,10 @@ extension String {
 		}
 		return self
 	}
+	
+	//check if a string matches a specific regex pattern
+	func matches(_ regex: String) -> Bool {
+		return self.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
+	}
+
 }

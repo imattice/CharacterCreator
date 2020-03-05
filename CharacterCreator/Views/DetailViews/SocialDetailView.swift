@@ -21,14 +21,14 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 	let pickerView = UIPickerView()
 	var presentationDelegate: LanguagePresentationDelegate?
 
-	let availableSelections = Character.default.languages.innate.filter( { $0.name == "choice" }).count
-	var selectedLanguages: [LanguageRecord] = [LanguageRecord]() {
+	let availableSelections = Character.default.languages.innate.filter( { $0.isSelectable == true }).count
+	var selectedLanguages: [Language] = [Language]() {
 		didSet {
 			Character.default.languages.selected = selectedLanguages
 			updateButton()
 			collectionView.reloadData()	}}
-	var dataSource: [LanguageRecord] {
-		return Character.default.languages.innate.filter( { $0.name != "choice" }) + selectedLanguages }
+	var dataSource: [Language] {
+		return Character.default.languages.innate.filter( { $0.isSelectable == false }) + selectedLanguages }
 
 
 	override func config() {
@@ -90,7 +90,6 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 		presentationDelegate?.presentLanguageSelection(withSelections: availableSelections)
 	}
 	func removeLanguage(atIndex index: Int) {
-//		let removeIndex = Character.default.languages.innate.filter( { $0.name != "choice" }).count - index
 		selectedLanguages.remove(at: index )
 	}
 	func updateButton() {
@@ -111,7 +110,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 
 		if Character.default.languages.innate.contains(where: { $0.name == data.name }) {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.StaticLanguageLabel.rawValue, for: indexPath) as! StaticLanguageLabelCollectionViewCell
-				cell.titleLabel.text	= data.name
+				cell.titleLabel.text	= data.name.capitalized
 				cell.titleLabel.sizeToFit()
 			return cell
 		}
@@ -123,7 +122,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 		}
 	}
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let removeIndex = indexPath.row - Character.default.languages.innate.filter( { $0.name != "choice" }).count
+		let removeIndex = indexPath.row - Character.default.languages.innate.filter( { $0.isSelectable == false }).count
 		let data = dataSource[indexPath.row]
 		if !Character.default.languages.innate.contains { $0.name == data.name } {
 			removeLanguage(atIndex: removeIndex)
@@ -163,7 +162,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 	struct CollectionViewData {
 		let isRemovable: Bool
 		let source: String
-		let language: LanguageRecord
+		let language: Language
 
 		enum LanguageSource: String {
 			case race 	= "R",
@@ -240,7 +239,7 @@ protocol LanguagePresentationDelegate {
 	func presentLanguageSelection(withSelections selections: Int)
 }
 protocol LanguageSelectionDelegate {
-	var selectedLanguages: [LanguageRecord] { get set }
+	var selectedLanguages: [Language] { get set }
 }
 fileprivate extension Selector {
 	static let okSelected = #selector(SocialDetailView.okSelected)
