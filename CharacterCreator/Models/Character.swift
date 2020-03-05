@@ -262,6 +262,18 @@ enum StatType: String {
 		default: print("could not create StatType from \(string)"); return nil
 		}
 	}
+	init?(fromShorthand string: String) {
+		switch string.lowercased() {
+		case "str":		self.init(rawValue: "str")
+		case "con":		self.init(rawValue: "con")
+		case "dex":		self.init(rawValue: "dex")
+		case "cha":		self.init(rawValue: "cha")
+		case "wis":		self.init(rawValue: "wis")
+		case "int":		self.init(rawValue: "int")
+
+		default: print("could not create StatType from \(string)"); return nil
+		}
+	}
 
 	func label() -> String {
 		switch self {
