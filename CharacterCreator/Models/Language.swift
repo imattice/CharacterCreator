@@ -28,6 +28,10 @@ struct Language {
 		self.name 			= name
 		self.isSelectable 	= isSelectable
 	}
+    
+    static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {
+        return LanguageRecord.allRecords().filter({ $0.name == name }).first
+    }
 
 	enum Script: String {
 		case common, draconic, dwarvish, elvish, infernal, celestial, druidic

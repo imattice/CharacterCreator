@@ -149,11 +149,9 @@ extension AbilitySelectionViewController: UICollectionViewDelegate, UICollection
 				else { print("could not create skill enum from \(skillName) when creating SkillData"); continue }
 			let modifier = Character.current.skillModifier(for: skill)
 
-			if let background = Character.current.background,
-				let backgroundProficiencies = background.proficiencies() {
-
+            if let background = Character.current.background {
 				//if the proficiency is granted by the background already, prevent it from being selected
-				if backgroundProficiencies.contains(skillName) {
+                if background.proficiencies.contains(skillName) {
 					let data = CollectionViewData(name: skillName,
 													source: .background,
 													value: modifier,

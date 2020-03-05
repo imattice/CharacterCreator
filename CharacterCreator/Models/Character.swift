@@ -71,7 +71,7 @@ class Character {
 								  Stat(name: .cha, rawValue: 12),
 								  Stat(name: .wis, rawValue: 14),
 								  Stat(name: .int, rawValue: 15)]
-		self.background 	= Background.Sage
+        self.background 	= Background("sage", proficiencies: [String]())
 		self.items			= [ Weapon.Quarterstaff,
 								  Weapon.Dagger,
 								  Weapon.Dagger,
@@ -83,8 +83,7 @@ class Character {
 		self.proficiencies	= ["arcana", "history"]
 //		self.spellBook		= [Spell("Dancing Lights")!, Spell("Fire Bolt")!, Spell("Prestidigitation")!,
 //								 Spell("Charm Person")!, Spell("Identify")!, Spell("Sleep")!, Spell("Magic Missile")!, Spell("Thunderwave")!, Spell("Burning Hands")!]
-		self.languages		= (innate: (Race(fromParent: "elf", withSubrace: "high")!.languages() + Background("sage").languages()),
-								 selected: [Language]())
+        self.languages		= (innate: [Language](), selected: [Language]())
 		self.flavorText		= FlavorText(name: "Alpheon the Chronicler",
 											age: "138",
 											alignment: "Lawful Good",

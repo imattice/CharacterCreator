@@ -15,7 +15,7 @@ DEPENDENCIES:
   - RealmSwift
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AlignedCollectionViewFlowLayout
     - Hue
     - NewRelicAgent
@@ -31,4 +31,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8c1dd12655da7db038e09ef73c14edd3f21df79d
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.0
