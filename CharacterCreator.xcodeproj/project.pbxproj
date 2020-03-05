@@ -326,10 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
-<<<<<<< HEAD
 				81ADE0912410BC7C00934F0B /* SceneDelegate.swift */,
-=======
->>>>>>> master
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
@@ -440,6 +437,7 @@
 				8195AF91225706F900153B58 /* Custom User Inputs */,
 				81243E542279EFE0003A9DA8 /* WeaponStatView.swift */,
 				81243E562279F022003A9DA8 /* WeaponStatView.xib */,
+				81ADE0962410DC0600934F0B /* SwiftUI */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -502,6 +500,13 @@
 				81A8D252227D45280015E116 /* Pack.swift */,
 			);
 			path = "Item Objects";
+			sourceTree = "<group>";
+		};
+		81ADE0962410DC0600934F0B /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
