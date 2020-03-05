@@ -100,7 +100,6 @@ struct Race {
 			}
 			if language == "choice" {
 				var languageChoice = Language(name: "choice", isSelectable: true)
-					languageChoice.isSelectable	= true
 				result.append(languageChoice)
 			}}
 		return result

@@ -18,6 +18,11 @@ struct Background {
 		self.name = name
 		self.proficiencies = proficiencies
 	}
+    
+    static func record(for name: String, in realm: Realm = RealmProvider.backgroundRecords.realm) -> BackgroundRecord? {
+        return BackgroundRecord.allRecords().filter({ $0.name == name }).first
+    }
+
 //	init(_ name: String) {
 //		self.name	= name
 //		self.proficiencies = Array(BackgroundRecord.record(for: name)?.proficiencies)
@@ -54,7 +59,7 @@ struct Background {
 }
 
 @objcMembers
-class BackgroundRecord: Object, Record {
+class BackgroundRecord: Object {
 	dynamic var id: String					= ""
 	dynamic	var name: String				= ""
 	dynamic var detail: String				= ""

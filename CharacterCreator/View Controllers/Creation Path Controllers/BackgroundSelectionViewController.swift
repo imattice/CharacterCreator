@@ -135,12 +135,13 @@ extension BackgroundSelectionViewController {
 
 		guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
 		let data = tableViewData[selectedIndexPath.row]
-		let background = Background(data.title)
+        let background = Background(data.title, proficiencies: [String]())
 
+        let backgroundRecord = Background.record(for: background.name)
 		Character.current.background = background
-		Character.current.languages.innate.append(contentsOf: background.languages())
-		guard let proficiencies = background.proficiencies() else { return }
-		Character.current.proficiencies.append(contentsOf: proficiencies)
+//        Character.current.languages.innate.append(backgroundRecord?.languages)
+//		guard let proficiencies = background.proficiencies() else { return }
+//		Character.current.proficiencies.append(contentsOf: proficiencies)
 //		print("Selected background: \(String(describing: Character.current.background?.name))")
 	}
 }

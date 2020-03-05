@@ -326,7 +326,10 @@
 			isa = PBXGroup;
 			children = (
 				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
+<<<<<<< HEAD
 				81ADE0912410BC7C00934F0B /* SceneDelegate.swift */,
+=======
+>>>>>>> master
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
@@ -388,8 +391,8 @@
 				8152B3C420D9D337008B7A1A /* Class.swift */,
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
-				81ACFDB022C6C1F10014597D /* Item Objects */,
 				81541A34227420C2002C7B72 /* Language.swift */,
+				81ACFDB022C6C1F10014597D /* Item Objects */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
 			);
 			path = Models;

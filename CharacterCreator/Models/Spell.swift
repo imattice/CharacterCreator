@@ -80,7 +80,7 @@ extension Spell {
 }
 
 @objcMembers
-class SpellRecord: Object, Record {
+class SpellRecord: Object {
 	dynamic var id: String					= UUID().uuidString
 	dynamic var name: String				= "Spell Name"
 	dynamic var detail: String				= "Spell Description"

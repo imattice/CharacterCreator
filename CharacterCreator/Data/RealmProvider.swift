@@ -59,9 +59,3 @@ struct RealmProvider {
 														schemaVersion: 5,
 														objectTypes: [BackgroundRecord.self])
 }
-
-protocol Record {
-	var id: String { get set }
-	var name: String { get set }
-	var detail: String { get set }
-}
