@@ -1,0 +1,64 @@
+{
+	"dwarf": {
+		"description": "Stout and stubborn, a dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
+		"asi": {
+			"con": 2
+		},
+		"characteristics": {
+			"age": ["50", "350"],
+			"height": "4-5",
+			"weight": "150"
+		},
+		"size": "medium",
+		"speed": "25",
+		"darkvision": "60",
+		"features": {
+			"dwarvan resilience": {
+				"bulleted": [
+					"advantage on saving throws against poison",
+					"resistance to poison damage"
+				]
+			},
+			"dwarvan combat training": {
+				"detail": "proficiency with:",
+				"bulleted": [
+					"battleaxe",
+					"handaxe",
+					"light hammer",
+					"warhammer"
+				]
+			},
+			"tool proficiency": {
+				"detail": "proficiency with one of the following artisan tools:",
+				"choice": [
+					"smith's tools",
+					"brewer's supplies",
+					"mason's tools"
+				]
+			},
+			"stonecunning": {
+				"detail": "expertise in History regarding the origin of stonework"
+			}
+		},
+		"languages": [
+			"common",
+			"dwarvish"
+		],
+		"subraces": {
+			"hill": {
+				"description": "Hill dwarves have left the mountianous caverns in favor of rolling hills.  In doing so, they've traded some of their natrual strenth for a broader world view and increased stamina.",
+				"asi": {
+					"wis": 1
+				},
+				"features": {
+					"dwarven toughness": {
+						"bulleted": [
+							"hit point maximum increases by 1",
+							"gain 1 additional hit point every level"
+						]
+					}
+				}
+			}
+		}
+	}
+}

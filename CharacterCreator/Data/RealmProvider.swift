@@ -25,8 +25,7 @@ struct RealmProvider {
 	let configuration: Realm.Configuration
 	var realm: Realm {
 		return try! Realm(configuration: configuration)	}
-
-
+    
 	//Languages
 	public static var languageRecords: RealmProvider = {
 		return RealmProvider(configuration: languageConfig)	}()
