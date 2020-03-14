@@ -140,10 +140,10 @@ class StatStack: UIStackView {
 
 		//expanded labels
 		rawLabel.text 		= String(stat.rawValue)
-		if let modifier = Character.default.race.modifiers.filter({ $0.type == .increaseStat && $0.attribute == text.lowercased() }).first {
-			racialBonusLabel.text	= "+\(modifier.value)"		}
-		else {
-			racialBonusLabel.text	= "-"						}
+//		if let modifier = Character.default.race.modifiers.filter({ $0.type == .increaseStat && $0.attribute == text.lowercased() }).first {
+//			racialBonusLabel.text	= "+\(modifier.value)"		}
+//		else {
+//			racialBonusLabel.text	= "-"
 		otherBonusLabel.text		= "-"
 		totalLabel.text			= String(stat.modifiedValue)
 	}

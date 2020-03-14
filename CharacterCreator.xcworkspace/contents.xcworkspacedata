@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/imattice/Desktop/CharacterCreater Playground.playground">
+   </FileRef>
+   <FileRef
       location = "group:CharacterCreator.xcodeproj">
    </FileRef>
    <FileRef

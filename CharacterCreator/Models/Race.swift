@@ -32,7 +32,7 @@ struct Race {
 			//check for modifiers from the subrace
 			if let modifiers = subraceData["modifiers"] as? [String: Int] {
 				for modifierData in modifiers {
-					allModifiers.append(Modifier(type: .increaseStat, attribute: modifierData.key, value: modifierData.value, origin: .subrace))			}}}
+                    allModifiers.append( StatModifier(effect: .increase, stat: StatModifier.Stat(rawValue: modifierData.key)!, value: modifierData.value, source: .race)) }}}
 		else {
 			//set the name to just be the parent race if no subrace is available
 			self.subrace 	= nil
@@ -42,7 +42,7 @@ struct Race {
 		if let modifiers = parentData["modifiers"] as? [String : Int] {
 
 			for modifierData in modifiers {
-				allModifiers.append(Modifier(type: .increaseStat, attribute: modifierData.key, value: modifierData.value, origin: .race))
+                allModifiers.append( StatModifier(effect: .increase, stat: StatModifier.Stat(rawValue: modifierData.key)!, value: modifierData.value, source: .race))
 			}
 		}
 
@@ -78,9 +78,9 @@ struct Race {
 	func modifierString() -> String {
 		var result = ""
 
-		for modifier in modifiers {
-			result += "+ \(modifier.value) \(modifier.type)\n"
-		}
+//		for modifier in modifiers {
+//            result += "+ \(modifier.value) \(modifier.type)\n"
+//		}
 
 		return result.trimmingCharacters(in: .whitespacesAndNewlines)
 	}
@@ -132,33 +132,86 @@ struct Race {
 	static let Human				= Race(fromParent: "human", withSubrace: nil)
 }
 
-@objcMembers
-class RaceRecord: Object {
-	enum Property: String {
-		case id, name, detail, modifiers, subrace }
+//@objcMembers
+//class RaceRecord: Object {
+//	enum Property: String {
+//		case id, name, detail, modifiers, subrace }
+//
+//	dynamic var id: String				= UUID().uuidString
+//	dynamic var name: String			= ""
+//	dynamic var summary: String			= ""
+//	dynamic var modifiers: [Modifier]	= [Modifier]()
+//	dynamic var subrace: [Subrace]		= [Subrace]()
+////	dynamic var languages:
+//
+//	override static func primaryKey() -> String? {
+//		return RaceRecord.Property.id.rawValue
+//	}
+//}
+//@objcMembers
+//class SubraceRecord: Object {
+//	enum Property: String {
+//		case id, name, detail, modifiers, subrace }
+//
+//	dynamic var id: String				= UUID().uuidString
+//	dynamic var name: String			= ""
+//	dynamic var summary: String			= ""
+//	dynamic var modifiers: [Modifier]	= [Modifier]()
+//
+//	override static func primaryKey() -> String? {
+//		return SubraceRecord.Property.id.rawValue
+//	}
+//}
 
-	dynamic var id: String				= UUID().uuidString
-	dynamic var name: String			= ""
-	dynamic var summary: String			= ""
-	dynamic var modifiers: [Modifier]	= [Modifier]()
-	dynamic var subrace: [Subrace]		= [Subrace]()
-//	dynamic var languages: 
+struct RaceRecord {
+    var name: String
+    var detail: String
+    var statModifier: StatModifier
+//    var features: [FeatureRecord]
+//    var subrace: [SubraceRecord]
 
-	override static func primaryKey() -> String? {
-		return RaceRecord.Property.id.rawValue
-	}
+    static func all() throws -> [RaceRecord]? {
+        guard let url = Bundle.main.url(forResource: "race",
+                                        withExtension: "json")
+            else { print("resource not found");
+                throw ParsingError.fileNotFound(filepath: Bundle.main.url(forResource: "race", withExtension: "json")!)}
+        do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let jsonData = try decoder.decode([RaceRecord].self,
+                                                  from: data)
+                return jsonData
+            } catch {
+                print("error:\(error)")
+                throw error
+            }
+    }
 }
-@objcMembers
-class SubraceRecord: Object {
-	enum Property: String {
-		case id, name, detail, modifiers, subrace }
 
-	dynamic var id: String				= UUID().uuidString
-	dynamic var name: String			= ""
-	dynamic var summary: String			= ""
-	dynamic var modifiers: [Modifier]	= [Modifier]()
+extension RaceRecord: Codable {
+//    init(name: String, detail: String, statModifier: StatModifier) {
+//        self.name = name
+//        self.detail = detail
+//        self.statModifier = statModifier
+//    }
 
-	override static func primaryKey() -> String? {
-		return SubraceRecord.Property.id.rawValue
-	}
+    init(from decoder: Decoder) throws {
+        do {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            let name = try container.decode(String.self, forKey: .name)
+            let detail = try container.decode(String.self, forKey: .detail)
+            let modifier = try container.decode(StatModifier.self, forKey: .statModifier)
+            
+            self.init(name: name, detail: detail, statModifier: modifier)
+        } catch {
+            print("error:\(error)")
+            throw error
+        }
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case name, detail
+        case statModifier = "asi"
+        
+    }
 }

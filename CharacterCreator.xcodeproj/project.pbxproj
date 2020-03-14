@@ -11,6 +11,8 @@
 		810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810900B2224EE40100FF8B17 /* BasicDetailView.xib */; };
 		8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */; };
 		8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA7321ACC37D00EB61B8 /* TextFieldView.swift */; };
+		81174FC9241C54AC00857B08 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81174FC8241C54AC00857B08 /* Modifier.swift */; };
+		81174FCB241C558900857B08 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81174FCA241C558900857B08 /* Errors.swift */; };
 		8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123671020CA44DA00F7AEFC /* AppDelegate.swift */; };
 		8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671420CA44DA00F7AEFC /* Main.storyboard */; };
 		8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */; };
@@ -25,7 +27,6 @@
 		8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135B43E2169B2030058E9D6 /* SpellDetailView.swift */; };
 		8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B4402169B22C0058E9D6 /* SpellDetailView.xib */; };
 		81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */; };
-		8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C020D9D320008B7A1A /* Modifier.swift */; };
 		8152B3C320D9D32F008B7A1A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C220D9D32F008B7A1A /* Character.swift */; };
 		8152B3C520D9D337008B7A1A /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C420D9D337008B7A1A /* Class.swift */; };
 		8152B3C720D9D340008B7A1A /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C620D9D340008B7A1A /* Race.swift */; };
@@ -133,6 +134,8 @@
 		810900B2224EE40100FF8B17 /* BasicDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicDetailView.xib; sourceTree = "<group>"; };
 		8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectionTableViewController.swift; sourceTree = "<group>"; };
 		8112FA7321ACC37D00EB61B8 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		81174FC8241C54AC00857B08 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Modifier.swift; path = ../Modifier.swift; sourceTree = "<group>"; };
+		81174FCA241C558900857B08 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		8123670D20CA44DA00F7AEFC /* CharacterCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123671020CA44DA00F7AEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8123671520CA44DA00F7AEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,7 +156,6 @@
 		8135B43E2169B2030058E9D6 /* SpellDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetailView.swift; sourceTree = "<group>"; };
 		8135B4402169B22C0058E9D6 /* SpellDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellDetailView.xib; sourceTree = "<group>"; };
 		81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCells.swift; sourceTree = "<group>"; };
-		8152B3C020D9D320008B7A1A /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		8152B3C220D9D32F008B7A1A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8152B3C420D9D337008B7A1A /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		8152B3C620D9D340008B7A1A /* Race.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				8123671F20CA44DD00F7AEFC /* Info.plist */,
 				8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */,
 				819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */,
+				81174FCA241C558900857B08 /* Errors.swift */,
 			);
 			path = CharacterCreator;
 			sourceTree = "<group>";
@@ -504,7 +507,7 @@
 		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
 			isa = PBXGroup;
 			children = (
-				8152B3C020D9D320008B7A1A /* Modifier.swift */,
+				81174FC8241C54AC00857B08 /* Modifier.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
 				81B038D022DD14E00059AFC1 /* Calculation.swift */,
@@ -827,13 +830,13 @@
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				81243E59227A3562003A9DA8 /* Weapon.swift in Sources */,
+				81174FCB241C558900857B08 /* Errors.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81851D5F2254721E00260413 /* UITextView.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
 				81851D612254725C00260413 /* UITextField.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
-				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				81FC7CF52106965E00BBDDD7 /* BackgroundSelectionViewController.swift in Sources */,
 				81F8496B218A9A6D00280D8C /* ItemSelectionTableViewCell.swift in Sources */,
 				81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */,
@@ -855,6 +858,7 @@
 				8152B3C320D9D32F008B7A1A /* Character.swift in Sources */,
 				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,
+				81174FC9241C54AC00857B08 /* Modifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
