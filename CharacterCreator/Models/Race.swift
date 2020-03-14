@@ -173,7 +173,7 @@ struct RaceRecord: Codable {
     let alignment: Alignment
     let languages: [Language]
     let features: [FeatureRecord]
-//    var subrace: [SubraceRecord]
+    var subraces: [SubraceRecord]
     
     init(from decoder: Decoder) throws {
         do {
@@ -182,10 +182,10 @@ struct RaceRecord: Codable {
             let detail = try container.decode(String.self, forKey: .detail)
            
             let modifierContainer = try container.nestedContainer(keyedBy: StatModifier.CodingKeys.self, forKey: .statModifier)
+            let effect = try modifierContainer.decode(StatModifier.Effect.self, forKey: .effect)
             let stat = try modifierContainer.decode(StatModifier.Stat.self, forKey: StatModifier.CodingKeys.stat)
             let value = try modifierContainer.decode(Int.self, forKey: StatModifier.CodingKeys.value)
-           
-            let modifier = StatModifier(effect: .increase, stat: stat, value: value, source: .race)
+            let modifier = StatModifier(effect: effect, stat: stat, value: value, source: .race)
             
             let physicalAttributes = try container.decode(PhysicalAttributes.self, forKey: .physicalAttributes)
 
@@ -195,15 +195,17 @@ struct RaceRecord: Codable {
             let languages = try container.decode([Language].self, forKey: .languages)
             
             let features = try container.decode([FeatureRecord].self, forKey: .features)
+            
+            let subraces = try container.decode([SubraceRecord].self, forKey: .subraces)
 
-            self.init(name: name, detail: detail, statModifier: modifier, physicalAttributes: physicalAttributes, speed: speed, hasDarkvision: hasDarkvision, alignment: alignment, languages: languages, features: features)
+            self.init(name: name, detail: detail, statModifier: modifier, physicalAttributes: physicalAttributes, speed: speed, hasDarkvision: hasDarkvision, alignment: alignment, languages: languages, features: features, subraces: subraces)
         } catch {
             print("error:\(error)")
             throw error
         }
     }
     
-    init(name: String, detail: String, statModifier: StatModifier, physicalAttributes: PhysicalAttributes, speed: Int, hasDarkvision: Bool, alignment: Alignment, languages: [Language], features: [FeatureRecord]) {
+    init(name: String, detail: String, statModifier: StatModifier, physicalAttributes: PhysicalAttributes, speed: Int, hasDarkvision: Bool, alignment: Alignment, languages: [Language], features: [FeatureRecord], subraces: [SubraceRecord]) {
         self.name = name
         self.detail = detail
         self.statModifier = statModifier
@@ -213,6 +215,7 @@ struct RaceRecord: Codable {
         self.alignment = alignment
         self.languages = languages
         self.features   = features
+        self.subraces   = subraces
     }
     
     struct PhysicalAttributes: Codable {
@@ -265,7 +268,7 @@ struct RaceRecord: Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case name, detail, physicalAttributes, statModifier = "asi", speed, hasDarkvision, alignment, languages, features
+        case name, detail, physicalAttributes, statModifier, speed, hasDarkvision, alignment, languages, features, subraces
         
     }
 
@@ -290,3 +293,38 @@ struct RaceRecord: Codable {
             }
     }
 }
+
+struct SubraceRecord: Codable {
+    let name: String
+    let detail: String
+    let statModifier: StatModifier
+    let features: [FeatureRecord]
+    
+    init(from decoder: Decoder) throws {
+        do {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            let name = try container.decode(String.self, forKey: .name)
+            let detail = try container.decode(String.self, forKey: .detail)
+            let features = try container.decode([FeatureRecord].self, forKey: .features)
+
+            let modifierContainer = try container.nestedContainer(keyedBy: StatModifier.CodingKeys.self, forKey: .statModifier)
+            let effect = try modifierContainer.decode(StatModifier.Effect.self, forKey: .effect)
+            let stat = try modifierContainer.decode(StatModifier.Stat.self, forKey: StatModifier.CodingKeys.stat)
+            let value = try modifierContainer.decode(Int.self, forKey: StatModifier.CodingKeys.value)
+            let modifier = StatModifier(effect: effect, stat: stat, value: value, source: .race)
+           
+            self.init(name: name, detail: detail, statModifier: modifier, features: features)
+        } catch {
+            print("error:\(error)")
+            throw error
+        }
+    }
+    
+    init(name: String, detail: String, statModifier: StatModifier, features: [FeatureRecord]) {
+        self.name = name
+        self.detail = detail
+        self.statModifier = statModifier
+        self.features   = features
+    }
+} 
