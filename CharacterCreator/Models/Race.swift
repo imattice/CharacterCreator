@@ -163,12 +163,115 @@ struct Race {
 //	}
 //}
 
-struct RaceRecord {
-    var name: String
-    var detail: String
-    var statModifier: StatModifier
-//    var features: [FeatureRecord]
+struct RaceRecord: Codable {
+    let name: String
+    let detail: String
+    let statModifier: StatModifier
+    let physicalAttributes: PhysicalAttributes
+    let speed: Int
+    let hasDarkvision: Bool
+    let alignment: Alignment
+    let languages: [Language]
+    let features: [FeatureRecord]
 //    var subrace: [SubraceRecord]
+    
+    init(from decoder: Decoder) throws {
+        do {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            let name = try container.decode(String.self, forKey: .name)
+            let detail = try container.decode(String.self, forKey: .detail)
+           
+            let modifierContainer = try container.nestedContainer(keyedBy: StatModifier.CodingKeys.self, forKey: .statModifier)
+            let stat = try modifierContainer.decode(StatModifier.Stat.self, forKey: StatModifier.CodingKeys.stat)
+            let value = try modifierContainer.decode(Int.self, forKey: StatModifier.CodingKeys.value)
+           
+            let modifier = StatModifier(effect: .increase, stat: stat, value: value, source: .race)
+            
+            let physicalAttributes = try container.decode(PhysicalAttributes.self, forKey: .physicalAttributes)
+
+            let speed = try container.decode(Int.self, forKey: .speed)
+            let hasDarkvision = try container.decode(Bool.self, forKey: .hasDarkvision)
+            let alignment = try container.decode(Alignment.self, forKey: .alignment)
+            let languages = try container.decode([Language].self, forKey: .languages)
+            
+            let features = try container.decode([FeatureRecord].self, forKey: .features)
+
+            self.init(name: name, detail: detail, statModifier: modifier, physicalAttributes: physicalAttributes, speed: speed, hasDarkvision: hasDarkvision, alignment: alignment, languages: languages, features: features)
+        } catch {
+            print("error:\(error)")
+            throw error
+        }
+    }
+    
+    init(name: String, detail: String, statModifier: StatModifier, physicalAttributes: PhysicalAttributes, speed: Int, hasDarkvision: Bool, alignment: Alignment, languages: [Language], features: [FeatureRecord]) {
+        self.name = name
+        self.detail = detail
+        self.statModifier = statModifier
+        self.physicalAttributes = physicalAttributes
+        self.speed = speed
+        self.hasDarkvision = hasDarkvision
+        self.alignment = alignment
+        self.languages = languages
+        self.features   = features
+    }
+    
+    struct PhysicalAttributes: Codable {
+        let age: Age
+        let height: String
+        let weight: String
+        let size: Size
+        
+        init(from decoder: Decoder) throws {
+            do {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                let ageArray = try container.decode([String].self, forKey: .age)
+                let height = try container.decode(String.self, forKey: .height)
+                let weight = try container.decode(String.self, forKey: .weight)
+                let maturity = Int(ageArray.first!)!
+                let expectancy = Int(ageArray.last!)!
+                let size = try container.decode(Size.self, forKey: .size)
+                
+                self.init(age: Age(maturity: maturity, expectancy: expectancy), height: height, weight: weight, size: size)
+            } catch {
+                print("error:\(error)")
+                throw error
+            }
+        }
+        init(age: Age, height: String, weight: String, size: Size) {
+            self.age    = age
+            self.height   = height
+            self.weight = weight
+            self.size   = size
+        }
+        
+        struct Age: Codable {
+            let maturity: Int
+            let expectancy: Int
+        }
+        enum Size: String, Codable {
+            case tiny, small, medium, large, huge, gigantic
+        }
+
+        enum CodingKeys: String, CodingKey {
+            case age, height, weight, size
+        }
+    }
+    
+    enum Alignment: String, Codable {
+        case lawfulGood, lawfulNeutral, lawfulEvil, neutralGood, neutral, neutralEvil, chaoticGood, chaoticNeutral, chaoticEvil
+    }
+    enum Language: String, Codable {
+        case common, dwarvish, elven, draconic, halfling, gnomish
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case name, detail, physicalAttributes, statModifier = "asi", speed, hasDarkvision, alignment, languages, features
+        
+    }
+
+    static func recordFor(_ race: String) -> RaceRecord? {
+        return try! RaceRecord.all()?.filter { $0.name == race }.first
+    }
 
     static func all() throws -> [RaceRecord]? {
         guard let url = Bundle.main.url(forResource: "race",
@@ -185,33 +288,5 @@ struct RaceRecord {
                 print("error:\(error)")
                 throw error
             }
-    }
-}
-
-extension RaceRecord: Codable {
-//    init(name: String, detail: String, statModifier: StatModifier) {
-//        self.name = name
-//        self.detail = detail
-//        self.statModifier = statModifier
-//    }
-
-    init(from decoder: Decoder) throws {
-        do {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            let name = try container.decode(String.self, forKey: .name)
-            let detail = try container.decode(String.self, forKey: .detail)
-            let modifier = try container.decode(StatModifier.self, forKey: .statModifier)
-            
-            self.init(name: name, detail: detail, statModifier: modifier)
-        } catch {
-            print("error:\(error)")
-            throw error
-        }
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case name, detail
-        case statModifier = "asi"
-        
     }
 }

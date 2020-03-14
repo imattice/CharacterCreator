@@ -48,6 +48,7 @@
 		81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */; };
 		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
 		8159C159241B64ED00361C14 /* race.json in Resources */ = {isa = PBXBuildFile; fileRef = 8159C158241B64ED00361C14 /* race.json */; };
+		817216A3241C8A7700E1E498 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817216A2241C8A7700E1E498 /* Feature.swift */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		81851D5F2254721E00260413 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D5E2254721E00260413 /* UITextView.swift */; };
 		81851D612254725C00260413 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D602254725C00260413 /* UITextField.swift */; };
@@ -177,6 +178,7 @@
 		81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClassTests.swift; sourceTree = "<group>"; };
 		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		8159C158241B64ED00361C14 /* race.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = race.json; sourceTree = "<group>"; };
+		817216A2241C8A7700E1E498 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		81851D5E2254721E00260413 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		81851D602254725C00260413 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
 				81B038D022DD14E00059AFC1 /* Calculation.swift */,
+				817216A2241C8A7700E1E498 /* Feature.swift */,
 			);
 			path = "Gameplay Objects";
 			sourceTree = "<group>";
@@ -848,6 +851,7 @@
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
 				81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */,
 				81DF302E213C5F3200C939CE /* items.swift in Sources */,
+				817216A3241C8A7700E1E498 /* Feature.swift in Sources */,
 				8195AF90225706E000153B58 /* SelectionPickerView.swift in Sources */,
 				81FC7CF921078F9100BBDDD7 /* BackgroundSelectionTableViewCell.swift in Sources */,
 				81BC72B120F18DB500B48195 /* classes.swift in Sources */,

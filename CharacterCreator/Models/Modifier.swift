@@ -55,7 +55,7 @@ class StatModifier: Modifier {
         case str, con, dex, cha, wis, int
     }
     
-    private enum CodingKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case effect, value, stat
     }
 }
