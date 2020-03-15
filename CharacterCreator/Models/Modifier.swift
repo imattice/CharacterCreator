@@ -6,59 +6,63 @@
 //  Copyright © 2020 Ike Mattice. All rights reserved.
 //
 
-class Modifier: Codable {
+///A struct that holds an effect as well as its source
+struct Modifier: Codable {
+    let effect: Effect
     let source: Source
 
     enum Source: String, Codable {
         case race, subrace
     }
 
-    init(_ source: Source) {
+    init(_ effect: Effect, from source: Source) {
         self.source = source
-    }
-}
-
-class StatModifier: Modifier {
-    let effect: Effect
-    let stat: Stat
-    let value: Int
-    
-    
-    init(effect: Effect, stat: Stat, value: Int, source: Modifier.Source) {
         self.effect = effect
-        self.stat = stat
-        self.value = value
-        
-        super.init(source)
-    }
-    
-    
-    required convenience init(from decoder: Decoder) throws {
-        do {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            let effect = try container.decode(Effect.self, forKey: .effect)
-            let stat = try container.decode(Stat.self, forKey: .stat)
-            let value = try container.decode(Int.self, forKey: .value)
-            let source = try container.decode(Source.self, forKey: .source)
-
-            self.init(effect: effect, stat: stat, value: value, source: source)
-        } catch {
-            print(error)
-            throw error
-        }
-    }
-    
-    enum Effect: String, Codable {
-        case increase
-    }
-    enum Stat: String, Codable {
-        case str, con, dex, cha, wis, int
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case effect, value, stat, source
     }
 }
+
+
+//class StatModifier: Modifier {
+//    let effect: Effect
+//    let stat: Stat
+//    let value: Int
+//
+//
+//    init(effect: Effect, stat: Stat, value: Int, source: Modifier.Source) {
+//        self.effect = effect
+//        self.stat = stat
+//        self.value = value
+//
+//        super.init(source)
+//    }
+//
+//
+//    required convenience init(from decoder: Decoder) throws {
+//        do {
+//            let container = try decoder.container(keyedBy: CodingKeys.self)
+//            let effect = try container.decode(Effect.self, forKey: .effect)
+//            let stat = try container.decode(Stat.self, forKey: .stat)
+//            let value = try container.decode(Int.self, forKey: .value)
+//            let source = try container.decode(Source.self, forKey: .source)
+//
+//            self.init(effect: effect, stat: stat, value: value, source: source)
+//        } catch {
+//            print(error)
+//            throw error
+//        }
+//    }
+//
+//    enum Effect: String, Codable {
+//        case increase
+//    }
+//    enum Stat: String, Codable {
+//        case str, con, dex, cha, wis, int
+//    }
+//
+//    enum CodingKeys: String, CodingKey {
+//        case effect, value, stat, source
+//    }
+//}
 
 //defines a method that changes a value or calculation for any object, such as stats, damage, or AC
 //struct Modifier {

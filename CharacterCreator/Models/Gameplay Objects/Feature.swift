@@ -15,7 +15,7 @@ struct FeatureRecord: Codable {
     let bullets: [String]?
     let choice: [String]?
     
-    enum CodingKeys: CodingKey {
-        case title, detail, bullets, choice
-    }
+//    enum CodingKeys: CodingKey {
+//        case title, detail, bullets, choice
+//    }
 }
