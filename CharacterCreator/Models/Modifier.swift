@@ -7,10 +7,10 @@
 //
 
 class Modifier: Codable {
-    var source: Source?
+    let source: Source
 
     enum Source: String, Codable {
-        case race
+        case race, subrace
     }
 
     init(_ source: Source) {
@@ -18,11 +18,10 @@ class Modifier: Codable {
     }
 }
 
-
 class StatModifier: Modifier {
-    var effect: Effect
-    var stat: Stat
-    var value: Int
+    let effect: Effect
+    let stat: Stat
+    let value: Int
     
     
     init(effect: Effect, stat: Stat, value: Int, source: Modifier.Source) {
@@ -40,8 +39,9 @@ class StatModifier: Modifier {
             let effect = try container.decode(Effect.self, forKey: .effect)
             let stat = try container.decode(Stat.self, forKey: .stat)
             let value = try container.decode(Int.self, forKey: .value)
-         
-            self.init(effect: effect, stat: stat, value: value, source: .race)
+            let source = try container.decode(Source.self, forKey: .source)
+
+            self.init(effect: effect, stat: stat, value: value, source: source)
         } catch {
             print(error)
             throw error
@@ -56,10 +56,9 @@ class StatModifier: Modifier {
     }
     
     enum CodingKeys: String, CodingKey {
-        case effect, value, stat
+        case effect, value, stat, source
     }
 }
-
 
 //defines a method that changes a value or calculation for any object, such as stats, damage, or AC
 //struct Modifier {

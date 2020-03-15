@@ -1,479 +1,483 @@
-[
+[{
+        "name": "dwarf",
+        "detail": "Stout and stubborn.",
+        "statModifiers": [{
+            "stat": "con",
+            "effect": "increase",
+            "value": 2,
+            "source": "race"
+        }],
+        "physicalAttributes": {
+            "age": ["50", "350"],
+            "height": "4-5",
+            "weight": "150",
+            "size": "medium"
+        },
+
+        "alignment": "lawfulNeutral",
+        "speed": 25,
+        "hasDarkvision": true,
+        "languages": [
+            "common",
+            "dwarvish"
+        ],
+        "features": [{
+                "title": "dwarvan resilience",
+                "bullets": [
+                    "advantage on saving throws against poison",
+                    "resistance to poison damage"
+                ]
+            },
+            {
+                "title": "dwarvan combat training",
+                "detail": "proficiency with:",
+                "bullets": [
+                    "battleaxe",
+                    "handaxe",
+                    "light hammer",
+                    "warhammer"
+                ]
+            },
+            {
+                "title": "tool proficiency",
+                "detail": "proficiency with one of the following artisan tools:",
+                "choice": [
+                    "smith's tools",
+                    "brewer's supplies",
+                    "mason's tools"
+                ]
+            },
+            {
+                "title": "stonecunning",
+                "detail": "expertise in History regarding the origin of stonework"
+            }
+        ],
+        "subraces": [{
+            "name": "hill",
+            "detail": "keen senses, deep intuition, and remarkable resilience.",
+            "statModifiers": [{
+                "stat": "wis",
+                "effect": "increase",
+                "value": 1,
+                "source": "subrace"
+            }],
+            "features": [{
+                "title": "dwarvan toughness",
+                "bullets": [
+                    "hit point maxium is increased by 1",
+                    "gain an additional 1 hit point each level"
+                ]
+            }]
+        }]
+    },
+
+
     {
-        "name": "dwarf",
-        "detail": "Stout and stubborn. A dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "statModifier": {
-            "stat": "con",
-            "value": 2
-        },
-        "physicalAttributes": {
-            "age": ["50", "350"],
-            "height": "4-5",
-            "weight": "150",
-            "size": "medium"
-        },
-
-        "alignment": "lawfulNeutral",
-        "speed": 25,
-        "hasDarkvision": true,
-        "languages": [
-            "common",
-            "dwarvish"
-        ],
-        "features": [{
-                "title": "dwarvan resilience",
-                "bulleted": [
-                    "advantage on saving throws against poison",
-                    "resistance to poison damage"
-                ]
-            },
-            {
-                "title": "dwarvan combat training",
-                "detail": "proficiency with:",
-                "bulleted": [
-                    "battleaxe",
-                    "handaxe",
-                    "light hammer",
-                    "warhammer"
-                ]
-            },
-            {
-                "title": "tool proficiency",
-                "detail": "proficiency with one of the following artisan tools:",
-                "choice": [
-                    "smith's tools",
-                    "brewer's supplies",
-                    "mason's tools"
-                ]
-            },
-            {
-                "title": "stonecunning",
-                "detail": "expertise in History regarding the origin of stonework"
-            }
-        ]
-},
-{
         "name": "elf",
-        "detail": "Grace and tradition. A dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "asi": {
-            "stat": "con",
-            "value": 2
-        },
+        "detail": "Grace and tradition.",
+        "statModifiers": [{
+            "stat": "dex",
+            "effect": "increase",
+            "value": 2,
+            "source": "race"
+        }],
         "physicalAttributes": {
-            "age": ["50", "350"],
-            "height": "4-5",
+            "age": ["100", "750"],
+            "height": "5-7",
             "weight": "150",
             "size": "medium"
         },
+        "alignment": "chaoticGood",
+        "speed": 30,
+        "hasDarkvision": true,
+        "languages": [
+            "common",
+            "elvish"
+        ],
+        "features": [{
+            "title": "keen senses",
+            "detail": "proficient in Perception skill"
+        }, {
+            "title": "fey ancestry",
+            "bullets": [
+                "advantage on saving throws against being charmed",
+                "immune to magical sleep"
+            ]
+        }, {
+            "title": "trance",
+            "detail": "meditate for 4 hours each day instead of sleeping"
+        }],
 
-        "alignment": "lawfulNeutral",
+        "subraces": [{
+            "name": "high",
+            "detail": "keen mind and a mastery of the basics of magic",
+            "statModifiers": [{
+                "stat": "int",
+                "effect": "increase",
+                "value": 1,
+                "source": "subrace"
+            }],
+            "features": [{
+                "title": "elf weapon training",
+                "detail": "proficiency with:",
+                "bullets": [
+                    "longsword",
+                    "shortsword",
+                    "shortbow",
+                    "longbow"
+                ]
+            }, {
+                "title": "cantrip",
+                "choice": [
+                    "Acid Splash",
+                    "Chill Touch",
+                    "Dancing Lights",
+                    "Fire Bolt",
+                    "Light",
+                    "Mage Hand",
+                    "Mending",
+                    "Message",
+                    "Minor Illusion",
+                    "Poison Spray",
+                    "Prestidigitation",
+                    "Ray of Frost",
+                    "Shocking Grasp",
+                    "True Strike"
+                ]
+            }, {
+                "title": "extra language",
+                "choice": [
+                    "common",
+                    "dwarvish",
+                    "elvish",
+                    "giant",
+                    "gnomish",
+                    "halfling",
+                    "orc"
+                ]
+            }]
+        }]
+    }, {
+
+
+        "name": "halfling",
+        "detail": "Small but brave",
+        "statModifiers": [{
+            "stat": "dex",
+            "effect": "increase",
+            "value": 2,
+            "source": "race"
+        }],
+        "physicalAttributes": {
+            "age": ["20", "250"],
+            "height": "3",
+            "weight": "40",
+            "size": "small"
+        },
+        "alignment": "lawfulGood",
+        "speed": 25,
+        "hasDarkvision": false,
+        "languages": [
+            "common",
+            "halfling"
+        ],
+        "features": [{
+            "title": "lucky",
+            "detail": "reroll the first 1 on attack rolls, ability checks, or saving throws"
+        }, {
+            "title": "brave",
+            "detail": "advantage on saving throws against being frightened"
+        }, {
+            "title": "halfling nimbleness",
+            "detail": "move through the space of any creature that is of a larger size"
+        }],
+
+        "subraces": [{
+            "name": "lightfoot",
+            "detail": "sneaky and nomadic",
+            "statModifiers": [{
+                "stat": "cha",
+                "effect": "increase",
+                "value": 1,
+                "source": "subrace"
+            }],
+            "features": [{
+                "title": "naturally stealthy",
+                "detail": "hide behind a creature that is of a larger size"
+            }]
+        }]
+    },
+
+    {
+        "name": "human",
+        "detail": "populous and unique",
+        "statModifiers": [{
+                "stat": "str",
+                "effect": "increase",
+                "value": 1,
+                "source": "race"
+            },
+            {
+                "stat": "con",
+                "effect": "increase",
+                "value": 1,
+                "source": "race"
+            },
+            {
+                "stat": "dex",
+                "effect": "increase",
+                "value": 1,
+                "source": "race"
+            },
+            {
+                "stat": "cha",
+                "effect": "increase",
+                "value": 1,
+                "source": "race"
+            },
+            {
+                "stat": "wis",
+                "effect": "increase",
+                "value": 1,
+                "source": "race"
+            },
+            {
+                "stat": "int",
+                "effect": "increase",
+                "value": 1,
+                "source": "race"
+            }
+        ],
+        "physicalAttributes": {
+            "age": ["18", "80"],
+            "height": "5-6",
+            "weight": "180",
+            "size": "medium"
+        },
+        "alignment": "neutral",
+        "speed": 30,
+        "hasDarkvision": false,
+        "languages": [
+            "common",
+            "choice"
+        ],
+        "features": []
+    }, {
+
+
+        "name": "dragonborn",
+        "detail": "an ancient bloodline",
+        "statModifiers": [{
+            "stat": "str",
+            "effect": "increase",
+            "value": 2,
+            "source": "race"
+        }, {
+            "stat": "cha",
+            "effect": "increase",
+            "value": 1,
+            "source": "race"
+        }],
+        "physicalAttributes": {
+            "age": ["15", "80"],
+            "height": "6",
+            "weight": "250",
+            "size": "medium"
+        },
+        "alignment": "neutralGood",
+        "speed": 30,
+        "hasDarkvision": false,
+        "languages": [
+            "common",
+            "draconic"
+        ],
+        "features": [{
+            "title": "draconic ancestry",
+            "detail": "draconic blood reflects in the color of skin as well as elemental breath weapon and elemental damage resistance",
+            "choice": [
+                "black",
+                "blue",
+                "brass",
+                "bronze",
+                "copper",
+                "gold",
+                "green",
+                "red",
+                "silver",
+                "white"
+            ]
+        }, {
+            "title": "breath weapon",
+            "detail": "exhale destructive energy based on draconic lineage"
+        }, {
+            "title": "damage resistance",
+            "detail": "grants resistance to element associated with bloodline"
+        }]
+    }, {
+
+
+        "name": "gnome",
+        "detail": "tiny tinkerer",
+        "statModifiers": [{
+            "stat": "int",
+            "effect": "increase",
+            "value": 2,
+            "source": "race"
+        }],
+        "physicalAttributes": {
+            "age": ["40", "400"],
+            "height": "3-4",
+            "weight": "40",
+            "size": "small"
+        },
+        "alignment": "neutralGood",
         "speed": 25,
         "hasDarkvision": true,
         "languages": [
             "common",
-            "dwarvish"
+            "gnomish"
         ],
         "features": [{
-                "title": "dwarvan resilience",
-                "bulleted": [
-                    "advantage on saving throws against poison",
-                    "resistance to poison damage"
-                ]
-            },
-            {
-                "title": "dwarvan combat training",
-                "detail": "proficiency with:",
-                "bulleted": [
-                    "battleaxe",
-                    "handaxe",
-                    "light hammer",
-                    "warhammer"
-                ]
-            },
-            {
-                "title": "tool proficiency",
-                "detail": "proficiency with one of the following artisan tools:",
-                "choice": [
-                    "smith's tools",
-                    "brewer's supplies",
-                    "mason's tools"
-                ]
-            },
-            {
-                "title": "stonecunning",
-                "detail": "expertise in History regarding the origin of stonework"
-            }
-        ]
-},
-{
-        "name": "dwarf",
-        "detail": "Stout and stubborn. A dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "asi": {
-            "stat": "con",
-            "value": 2
-        },
+            "title": "gnome cunning",
+            "detail": "advantage on all Intellegence, Wisdom and Charisma saving throws against magic"
+        }],
+
+        "subraces": [{
+            "name": "rock",
+            "detail": "inventive and hardy",
+            "statModifiers": [{
+                "stat": "con",
+                "effect": "increase",
+                "value": 1,
+                "source": "subrace"
+            }],
+            "features": [{
+                "title": "tinker",
+                "detail": "proficiency in tinker's tools.  Spend 1 hour and 10 gold to create a tiny clockwork (AC 5, 1HP)",
+                "bullets": ["clockwork toy", "fire starter", "music box"]
+            }, {
+                "title": "artificer's lore",
+                "detail": "expertise in History checks related to magic items, alchemical objects, or technological devices"
+            }]
+        }]
+    }, {
+
+
+        "name": "half-elf",
+        "detail": "caught between worlds",
+        "statModifiers": [{
+            "stat": "cha",
+            "effect": "increase",
+            "value": 2,
+            "source": "race"
+        }],
         "physicalAttributes": {
-            "age": ["50", "350"],
-            "height": "4-5",
-            "weight": "150",
+            "age": ["20", "180"],
+            "height": "5-6",
+            "weight": "180",
             "size": "medium"
         },
-
-        "alignment": "lawfulNeutral",
+        "alignment": "chaoticNeutral",
         "speed": 25,
         "hasDarkvision": true,
         "languages": [
             "common",
-            "dwarvish"
+            "gnomish"
         ],
         "features": [{
-                "title": "dwarvan resilience",
-                "bulleted": [
-                    "advantage on saving throws against poison",
-                    "resistance to poison damage"
-                ]
+            "title": "flexible talent",
+            "detail": "one ability score is increased by 1",
+            "choice": ["str", "con", "dex", "cha", "int", "wis"]
+        }, {
+            "title": "fey ancestry",
+            "bullets": [
+                "advantage on saving throws against being charmed",
+                "immune to magical sleep"
+            ]
+        }, {
+            "title": "skill versatility",
+            "detail": "gain proficiency in two skils of your choice",
+            "choice": ["Athletics", "Acrobatics", "Sleight of Hand", "Stealth", "Arcana", "History", "Investigation", "Nature", "Religion", "Animal Handling", "Insight", "Medicine", "Perception", "Survival", "Deception", "Intimidation", "Performance", "Persuasion"]
+        }]
+    }, {
+
+
+        "name": "half-orc",
+        "detail": "frightening brute",
+        "statModifiers": [{
+                "stat": "str",
+                "effect": "increase",
+                "value": 2,
+                "source": "race"
             },
             {
-                "title": "dwarvan combat training",
-                "detail": "proficiency with:",
-                "bulleted": [
-                    "battleaxe",
-                    "handaxe",
-                    "light hammer",
-                    "warhammer"
-                ]
-            },
-            {
-                "title": "tool proficiency",
-                "detail": "proficiency with one of the following artisan tools:",
-                "choice": [
-                    "smith's tools",
-                    "brewer's supplies",
-                    "mason's tools"
-                ]
-            },
-            {
-                "title": "stonecunning",
-                "detail": "expertise in History regarding the origin of stonework"
+                "stat": "con",
+                "effect": "increase",
+                "value": 1,
+                "source": "race"
             }
-        ]
-},
-{
-        "name": "dwarf",
-        "detail": "Stout and stubborn. A dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "asi": {
-            "stat": "con",
-            "value": 2
-        },
+        ],
         "physicalAttributes": {
-            "age": ["50", "350"],
-            "height": "4-5",
-            "weight": "150",
+            "age": ["14", "75"],
+            "height": "5-6",
+            "weight": "200",
             "size": "medium"
         },
-
-        "alignment": "lawfulNeutral",
-        "speed": 25,
+        "alignment": "chaoticEvil",
+        "speed": 30,
         "hasDarkvision": true,
         "languages": [
             "common",
-            "dwarvish"
+            "orc"
         ],
         "features": [{
-                "title": "dwarvan resilience",
-                "bulleted": [
-                    "advantage on saving throws against poison",
-                    "resistance to poison damage"
-                ]
+            "title": "menacing",
+            "detail": "proficiency in Intimidation skill"
+        }, {
+            "title": "relentless endurance",
+            "detail": "once per long rest, when reduced to 0 HP, you drop to 1HP instead"
+        }, {
+            "title": "savage attacks",
+            "detail": "add an addtional damage die to critical hits"
+        }]
+    }, {
+
+
+        "name": "tiefling",
+        "detail": "infernal blood",
+        "statModifiers": [{
+                "stat": "int",
+                "effect": "increase",
+                "value": 1,
+                "source": "race"
             },
             {
-                "title": "dwarvan combat training",
-                "detail": "proficiency with:",
-                "bulleted": [
-                    "battleaxe",
-                    "handaxe",
-                    "light hammer",
-                    "warhammer"
-                ]
-            },
-            {
-                "title": "tool proficiency",
-                "detail": "proficiency with one of the following artisan tools:",
-                "choice": [
-                    "smith's tools",
-                    "brewer's supplies",
-                    "mason's tools"
-                ]
-            },
-            {
-                "title": "stonecunning",
-                "detail": "expertise in History regarding the origin of stonework"
+                "stat": "cha",
+                "effect": "increase",
+                "value": 2,
+                "source": "race"
             }
-        ]
-},
-{
-        "name": "dwarf",
-        "detail": "Stout and stubborn. A dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "asi": {
-            "stat": "con",
-            "value": 2
-        },
+        ],
         "physicalAttributes": {
-            "age": ["50", "350"],
-            "height": "4-5",
-            "weight": "150",
+            "age": ["18", "90"],
+            "height": "5-6",
+            "weight": "180",
             "size": "medium"
         },
-
-        "alignment": "lawfulNeutral",
-        "speed": 25,
+        "alignment": "neutralEvil",
+        "speed": 30,
         "hasDarkvision": true,
         "languages": [
             "common",
-            "dwarvish"
+            "infernal"
         ],
         "features": [{
-                "title": "dwarvan resilience",
-                "bulleted": [
-                    "advantage on saving throws against poison",
-                    "resistance to poison damage"
-                ]
-            },
-            {
-                "title": "dwarvan combat training",
-                "detail": "proficiency with:",
-                "bulleted": [
-                    "battleaxe",
-                    "handaxe",
-                    "light hammer",
-                    "warhammer"
-                ]
-            },
-            {
-                "title": "tool proficiency",
-                "detail": "proficiency with one of the following artisan tools:",
-                "choice": [
-                    "smith's tools",
-                    "brewer's supplies",
-                    "mason's tools"
-                ]
-            },
-            {
-                "title": "stonecunning",
-                "detail": "expertise in History regarding the origin of stonework"
-            }
-        ]
-},
-{
-        "name": "dwarf",
-        "detail": "Stout and stubborn. A dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "asi": {
-            "stat": "con",
-            "value": 2
-        },
-        "physicalAttributes": {
-            "age": ["50", "350"],
-            "height": "4-5",
-            "weight": "150",
-            "size": "medium"
-        },
-
-        "alignment": "lawfulNeutral",
-        "speed": 25,
-        "hasDarkvision": true,
-        "languages": [
-            "common",
-            "dwarvish"
-        ],
-        "features": [{
-                "title": "dwarvan resilience",
-                "bulleted": [
-                    "advantage on saving throws against poison",
-                    "resistance to poison damage"
-                ]
-            },
-            {
-                "title": "dwarvan combat training",
-                "detail": "proficiency with:",
-                "bulleted": [
-                    "battleaxe",
-                    "handaxe",
-                    "light hammer",
-                    "warhammer"
-                ]
-            },
-            {
-                "title": "tool proficiency",
-                "detail": "proficiency with one of the following artisan tools:",
-                "choice": [
-                    "smith's tools",
-                    "brewer's supplies",
-                    "mason's tools"
-                ]
-            },
-            {
-                "title": "stonecunning",
-                "detail": "expertise in History regarding the origin of stonework"
-            }
-        ]
-},
-{
-        "name": "dwarf",
-        "detail": "Stout and stubborn. A dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "asi": {
-            "stat": "con",
-            "value": 2
-        },
-        "physicalAttributes": {
-            "age": ["50", "350"],
-            "height": "4-5",
-            "weight": "150",
-            "size": "medium"
-        },
-
-        "alignment": "lawfulNeutral",
-        "speed": 25,
-        "hasDarkvision": true,
-        "languages": [
-            "common",
-            "dwarvish"
-        ],
-        "features": [{
-                "title": "dwarvan resilience",
-                "bulleted": [
-                    "advantage on saving throws against poison",
-                    "resistance to poison damage"
-                ]
-            },
-            {
-                "title": "dwarvan combat training",
-                "detail": "proficiency with:",
-                "bulleted": [
-                    "battleaxe",
-                    "handaxe",
-                    "light hammer",
-                    "warhammer"
-                ]
-            },
-            {
-                "title": "tool proficiency",
-                "detail": "proficiency with one of the following artisan tools:",
-                "choice": [
-                    "smith's tools",
-                    "brewer's supplies",
-                    "mason's tools"
-                ]
-            },
-            {
-                "title": "stonecunning",
-                "detail": "expertise in History regarding the origin of stonework"
-            }
-        ]
-},
-{
-        "name": "dwarf",
-        "detail": "Stout and stubborn. A dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "asi": {
-            "stat": "con",
-            "value": 2
-        },
-        "physicalAttributes": {
-            "age": ["50", "350"],
-            "height": "4-5",
-            "weight": "150",
-            "size": "medium"
-        },
-
-        "alignment": "lawfulNeutral",
-        "speed": 25,
-        "hasDarkvision": true,
-        "languages": [
-            "common",
-            "dwarvish"
-        ],
-        "features": [{
-                "title": "dwarvan resilience",
-                "bulleted": [
-                    "advantage on saving throws against poison",
-                    "resistance to poison damage"
-                ]
-            },
-            {
-                "title": "dwarvan combat training",
-                "detail": "proficiency with:",
-                "bulleted": [
-                    "battleaxe",
-                    "handaxe",
-                    "light hammer",
-                    "warhammer"
-                ]
-            },
-            {
-                "title": "tool proficiency",
-                "detail": "proficiency with one of the following artisan tools:",
-                "choice": [
-                    "smith's tools",
-                    "brewer's supplies",
-                    "mason's tools"
-                ]
-            },
-            {
-                "title": "stonecunning",
-                "detail": "expertise in History regarding the origin of stonework"
-            }
-        ]
-},
-{
-        "name": "dwarf",
-        "detail": "Stout and stubborn. A dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "asi": {
-            "stat": "con",
-            "value": 2
-        },
-        "physicalAttributes": {
-            "age": ["50", "350"],
-            "height": "4-5",
-            "weight": "150",
-            "size": "medium"
-        },
-
-        "alignment": "lawfulNeutral",
-        "speed": 25,
-        "hasDarkvision": true,
-        "languages": [
-            "common",
-            "dwarvish"
-        ],
-        "features": [{
-                "title": "dwarvan resilience",
-                "bulleted": [
-                    "advantage on saving throws against poison",
-                    "resistance to poison damage"
-                ]
-            },
-            {
-                "title": "dwarvan combat training",
-                "detail": "proficiency with:",
-                "bulleted": [
-                    "battleaxe",
-                    "handaxe",
-                    "light hammer",
-                    "warhammer"
-                ]
-            },
-            {
-                "title": "tool proficiency",
-                "detail": "proficiency with one of the following artisan tools:",
-                "choice": [
-                    "smith's tools",
-                    "brewer's supplies",
-                    "mason's tools"
-                ]
-            },
-            {
-                "title": "stonecunning",
-                "detail": "expertise in History regarding the origin of stonework"
-            }
-        ]
-},
+            "title": "hellish resistance",
+            "detail": "resistance to fire damage"
+        }, {
+            "title": "infernal legacy",
+            "detail": "innately cast the following spells using Charisma once per long rest",
+            "bullets": ["thaumaturgy", "hellish rebuke", "darkness"]
+        }]
+    }
 ]
