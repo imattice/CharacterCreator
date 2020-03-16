@@ -1,12 +1,9 @@
 [{
         "name": "dwarf",
         "detail": "Stout and stubborn.",
-        "statModifiers": [{
-            "stat": "con",
-            "effect": "increase",
-            "value": 2,
-            "source": "race"
-        }],
+        "statModifiers": {
+            "con": 2
+        },
         "physicalAttributes": {
             "age": ["50", "350"],
             "height": "4-5",
@@ -55,12 +52,9 @@
         "subraces": [{
             "name": "hill",
             "detail": "keen senses, deep intuition, and remarkable resilience.",
-            "statModifiers": [{
-                "stat": "wis",
-                "effect": "increase",
-                "value": 1,
-                "source": "subrace"
-            }],
+            "statModifiers": {
+                "wis": 1
+            },
             "features": [{
                 "title": "dwarvan toughness",
                 "bullets": [
@@ -75,12 +69,9 @@
     {
         "name": "elf",
         "detail": "Grace and tradition.",
-        "statModifiers": [{
-            "stat": "dex",
-            "effect": "increase",
-            "value": 2,
-            "source": "race"
-        }],
+        "statModifiers": {
+            "dex": 2
+        },
         "physicalAttributes": {
             "age": ["100", "750"],
             "height": "5-7",
@@ -111,12 +102,9 @@
         "subraces": [{
             "name": "high",
             "detail": "keen mind and a mastery of the basics of magic",
-            "statModifiers": [{
-                "stat": "int",
-                "effect": "increase",
-                "value": 1,
-                "source": "subrace"
-            }],
+            "statModifiers": {
+                "int": 1
+            },
             "features": [{
                 "title": "elf weapon training",
                 "detail": "proficiency with:",
@@ -162,12 +150,9 @@
 
         "name": "halfling",
         "detail": "Small but brave",
-        "statModifiers": [{
-            "stat": "dex",
-            "effect": "increase",
-            "value": 2,
-            "source": "race"
-        }],
+        "statModifiers": {
+            "dex": 2
+        },
         "physicalAttributes": {
             "age": ["20", "250"],
             "height": "3",
@@ -195,12 +180,9 @@
         "subraces": [{
             "name": "lightfoot",
             "detail": "sneaky and nomadic",
-            "statModifiers": [{
-                "stat": "cha",
-                "effect": "increase",
-                "value": 1,
-                "source": "subrace"
-            }],
+            "statModifiers": {
+                "cha": 1
+            },
             "features": [{
                 "title": "naturally stealthy",
                 "detail": "hide behind a creature that is of a larger size"
@@ -211,43 +193,14 @@
     {
         "name": "human",
         "detail": "populous and unique",
-        "statModifiers": [{
-                "stat": "str",
-                "effect": "increase",
-                "value": 1,
-                "source": "race"
-            },
-            {
-                "stat": "con",
-                "effect": "increase",
-                "value": 1,
-                "source": "race"
-            },
-            {
-                "stat": "dex",
-                "effect": "increase",
-                "value": 1,
-                "source": "race"
-            },
-            {
-                "stat": "cha",
-                "effect": "increase",
-                "value": 1,
-                "source": "race"
-            },
-            {
-                "stat": "wis",
-                "effect": "increase",
-                "value": 1,
-                "source": "race"
-            },
-            {
-                "stat": "int",
-                "effect": "increase",
-                "value": 1,
-                "source": "race"
-            }
-        ],
+        "statModifiers": {
+            "str": 1,
+            "con": 1,
+            "dex": 1,
+            "cha": 1,
+            "wis": 1,
+            "int": 1
+        },
         "physicalAttributes": {
             "age": ["18", "80"],
             "height": "5-6",
@@ -267,17 +220,10 @@
 
         "name": "dragonborn",
         "detail": "an ancient bloodline",
-        "statModifiers": [{
-            "stat": "str",
-            "effect": "increase",
-            "value": 2,
-            "source": "race"
-        }, {
-            "stat": "cha",
-            "effect": "increase",
-            "value": 1,
-            "source": "race"
-        }],
+        "statModifiers": {
+            "str": 2,
+            "cha": 1
+        },
         "physicalAttributes": {
             "age": ["15", "80"],
             "height": "6",
@@ -318,12 +264,9 @@
 
         "name": "gnome",
         "detail": "tiny tinkerer",
-        "statModifiers": [{
-            "stat": "int",
-            "effect": "increase",
-            "value": 2,
-            "source": "race"
-        }],
+        "statModifiers": {
+            "int": 2
+        },
         "physicalAttributes": {
             "age": ["40", "400"],
             "height": "3-4",
@@ -345,12 +288,9 @@
         "subraces": [{
             "name": "rock",
             "detail": "inventive and hardy",
-            "statModifiers": [{
-                "stat": "con",
-                "effect": "increase",
-                "value": 1,
-                "source": "subrace"
-            }],
+            "statModifiers": {
+                "con": 1
+            },
             "features": [{
                 "title": "tinker",
                 "detail": "proficiency in tinker's tools.  Spend 1 hour and 10 gold to create a tiny clockwork (AC 5, 1HP)",
@@ -365,12 +305,9 @@
 
         "name": "half-elf",
         "detail": "caught between worlds",
-        "statModifiers": [{
-            "stat": "cha",
-            "effect": "increase",
-            "value": 2,
-            "source": "race"
-        }],
+        "statModifiers": {
+            "cha": 2
+        },
         "physicalAttributes": {
             "age": ["20", "180"],
             "height": "5-6",
@@ -404,19 +341,10 @@
 
         "name": "half-orc",
         "detail": "frightening brute",
-        "statModifiers": [{
-                "stat": "str",
-                "effect": "increase",
-                "value": 2,
-                "source": "race"
-            },
-            {
-                "stat": "con",
-                "effect": "increase",
-                "value": 1,
-                "source": "race"
-            }
-        ],
+        "statModifiers": {
+            "str": 2,
+            "con": 1
+        },
         "physicalAttributes": {
             "age": ["14", "75"],
             "height": "5-6",
@@ -445,19 +373,11 @@
 
         "name": "tiefling",
         "detail": "infernal blood",
-        "statModifiers": [{
-                "stat": "int",
-                "effect": "increase",
-                "value": 1,
-                "source": "race"
-            },
-            {
-                "stat": "cha",
-                "effect": "increase",
-                "value": 2,
-                "source": "race"
-            }
-        ],
+        "statModifiers": {
+            "cha": 2,
+            "int": 1
+
+        },
         "physicalAttributes": {
             "age": ["18", "90"],
             "height": "5-6",
