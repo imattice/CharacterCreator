@@ -18,7 +18,6 @@
 		8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */; };
 		8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8123671A20CA44DD00F7AEFC /* Assets.xcassets */; };
 		8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */; };
-		8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */; };
 		8123673420CA44DD00F7AEFC /* CharacterCreatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */; };
 		81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E542279EFE0003A9DA8 /* WeaponStatView.swift */; };
 		81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81243E562279F022003A9DA8 /* WeaponStatView.xib */; };
@@ -44,8 +43,6 @@
 		81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */; };
 		81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */; };
 		81541A35227420C2002C7B72 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* Language.swift */; };
-		81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3622754A52002C7B72 /* RaceClassTests.swift */; };
-		81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */; };
 		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
 		8159C159241B64ED00361C14 /* race.json in Resources */ = {isa = PBXBuildFile; fileRef = 8159C158241B64ED00361C14 /* race.json */; };
 		817216A3241C8A7700E1E498 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817216A2241C8A7700E1E498 /* Feature.swift */; };
@@ -60,12 +57,10 @@
 		819621E62268F33300A4DD3D /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819621E52268F33300A4DD3D /* UIResponder.swift */; };
 		819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ModalTableViewController.swift */; };
 		819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */; };
-		81A5E14B22C0277400A838CD /* LanguageDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E14A22C0277400A838CD /* LanguageDataTest.swift */; };
 		81A8D251227D21770015E116 /* Armor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D250227D21770015E116 /* Armor.swift */; };
 		81A8D253227D45280015E116 /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D252227D45280015E116 /* Pack.swift */; };
 		81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDA022C2F62F0014597D /* DamageTests.swift */; };
 		81ACFDAF22C572BB0014597D /* ItemRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81ACFDAE22C572BB0014597D /* ItemRecords.realm */; };
-		81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDB122CD7DB70014597D /* SpellTests.swift */; };
 		81B038C822D81A170059AFC1 /* SpellRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81B038C722D81A170059AFC1 /* SpellRecords.realm */; };
 		81B038CC22DC0B750059AFC1 /* BackgroundRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */; };
 		81B038CE22DD14AF0059AFC1 /* Global Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B038CD22DD14AF0059AFC1 /* Global Enums.swift */; };
@@ -98,6 +93,7 @@
 		81F8496B218A9A6D00280D8C /* ItemSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F84969218A9A6D00280D8C /* ItemSelectionTableViewCell.swift */; };
 		81F8496C218A9A6D00280D8C /* ItemSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81F8496A218A9A6D00280D8C /* ItemSelectionTableViewCell.xib */; };
 		81F8496E218B7FBD00280D8C /* Damage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F8496D218B7FBD00280D8C /* Damage.swift */; };
+		81FA5F38241EFCBF00FC26C0 /* RaceRecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FA5F37241EFCBF00FC26C0 /* RaceRecordTests.swift */; };
 		81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF0210556F800BBDDD7 /* Array.swift */; };
 		81FC7CF52106965E00BBDDD7 /* BackgroundSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF42106965E00BBDDD7 /* BackgroundSelectionViewController.swift */; };
 		81FC7CF921078F9100BBDDD7 /* BackgroundSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF821078F9100BBDDD7 /* BackgroundSelectionTableViewCell.swift */; };
@@ -145,7 +141,6 @@
 		8123671D20CA44DD00F7AEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8123671F20CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8123672420CA44DD00F7AEFC /* CharacterCreatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorTests.swift; sourceTree = "<group>"; };
 		8123672A20CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8123672F20CA44DD00F7AEFC /* CharacterCreatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorUITests.swift; sourceTree = "<group>"; };
@@ -174,8 +169,6 @@
 		81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveableLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewController.swift; sourceTree = "<group>"; };
 		81541A34227420C2002C7B72 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		81541A3622754A52002C7B72 /* RaceClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceClassTests.swift; sourceTree = "<group>"; };
-		81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClassTests.swift; sourceTree = "<group>"; };
 		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		8159C158241B64ED00361C14 /* race.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = race.json; sourceTree = "<group>"; };
 		817216A2241C8A7700E1E498 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
@@ -191,12 +184,10 @@
 		819B065E20E7455300902D4E /* ModalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionHeaderView.swift; sourceTree = "<group>"; };
 		819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
-		81A5E14A22C0277400A838CD /* LanguageDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDataTest.swift; sourceTree = "<group>"; };
 		81A8D250227D21770015E116 /* Armor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Armor.swift; sourceTree = "<group>"; };
 		81A8D252227D45280015E116 /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
 		81ACFDA022C2F62F0014597D /* DamageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTests.swift; sourceTree = "<group>"; };
 		81ACFDAE22C572BB0014597D /* ItemRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItemRecords.realm; sourceTree = "<group>"; };
-		81ACFDB122CD7DB70014597D /* SpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTests.swift; sourceTree = "<group>"; };
 		81B038C722D81A170059AFC1 /* SpellRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpellRecords.realm; sourceTree = "<group>"; };
 		81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundRecords.realm; sourceTree = "<group>"; };
 		81B038CD22DD14AF0059AFC1 /* Global Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Global Enums.swift"; sourceTree = "<group>"; };
@@ -229,6 +220,7 @@
 		81F84969218A9A6D00280D8C /* ItemSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		81F8496A218A9A6D00280D8C /* ItemSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		81F8496D218B7FBD00280D8C /* Damage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Damage.swift; sourceTree = "<group>"; };
+		81FA5F37241EFCBF00FC26C0 /* RaceRecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceRecordTests.swift; sourceTree = "<group>"; };
 		81FC7CF0210556F800BBDDD7 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		81FC7CF42106965E00BBDDD7 /* BackgroundSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSelectionViewController.swift; sourceTree = "<group>"; };
 		81FC7CF821078F9100BBDDD7 /* BackgroundSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundSelectionTableViewCell.swift; sourceTree = "<group>"; };
@@ -349,12 +341,8 @@
 		8123672720CA44DD00F7AEFC /* CharacterCreatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */,
-				81541A3622754A52002C7B72 /* RaceClassTests.swift */,
-				81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */,
-				81A5E14A22C0277400A838CD /* LanguageDataTest.swift */,
+				81FA5F37241EFCBF00FC26C0 /* RaceRecordTests.swift */,
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
-				81ACFDB122CD7DB70014597D /* SpellTests.swift */,
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
 			);
 			path = CharacterCreatorTests;
@@ -879,11 +867,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
-				8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */,
-				81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */,
-				81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */,
-				81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */,
-				81A5E14B22C0277400A838CD /* LanguageDataTest.swift in Sources */,
+				81FA5F38241EFCBF00FC26C0 /* RaceRecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1101,6 +1085,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1123,6 +1108,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

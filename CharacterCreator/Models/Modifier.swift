@@ -21,6 +21,12 @@ struct Modifier: Codable {
     }
 }
 
+extension Modifier: Equatable {
+    static func == (lhs: Modifier, rhs: Modifier) -> Bool {
+        return lhs.effect == rhs.effect && lhs.source == rhs.source
+    }
+}
+
 
 //class StatModifier: Modifier {
 //    let effect: Effect

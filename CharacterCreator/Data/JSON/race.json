@@ -65,7 +65,6 @@
         }]
     },
 
-
     {
         "name": "elf",
         "detail": "Grace and tradition.",
@@ -212,9 +211,19 @@
         "hasDarkvision": false,
         "languages": [
             "common",
-            "choice"
         ],
-        "features": []
+        "features": [{
+            "title": "extra language",
+            "choice": [
+                "common",
+                "dwarvish",
+                "elvish",
+                "giant",
+                "gnomish",
+                "halfling",
+                "orc"
+            ]
+        }]
     }, {
 
 

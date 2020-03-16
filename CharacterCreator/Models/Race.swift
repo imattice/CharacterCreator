@@ -172,8 +172,8 @@ struct RaceRecord {
     let hasDarkvision: Bool
     let alignment: Alignment
     let languages: [LanguageChoices]
-    let features: [FeatureRecord]
-    let subraces: [SubraceRecord]
+    let features: [FeatureRecord]?
+    let subraces: [SubraceRecord]?
     
     struct PhysicalAttributes: Codable {
         let age: Age
@@ -230,6 +230,18 @@ struct RaceRecord {
                 throw error
             }
     }
+    
+    struct Default {
+        static let dwarf        = RaceRecord.recordFor("dwarf")!
+        static let elf          = RaceRecord.recordFor("elf")!
+        static let human        = RaceRecord.recordFor("human")!
+        static let halfling     = RaceRecord.recordFor("halfling")!
+        static let dragonborn   = RaceRecord.recordFor("dragonborn")!
+        static let gnome        = RaceRecord.recordFor("gnome")!
+        static let halfElf      = RaceRecord.recordFor("half-elf")!
+        static let halfOrc      = RaceRecord.recordFor("half-orc")!
+        static let tiefling     = RaceRecord.recordFor("tiefling")!
+    }
 }
 
 struct SubraceRecord {
@@ -237,6 +249,13 @@ struct SubraceRecord {
     let detail: String
     let statModifiers: [Modifier]
     let features: [FeatureRecord]
+    
+//    init(name: String, detail: String, statModifiers: [Modifier], features: [FeatureRecord]) {
+//        self.name = name
+//        self.detail = detail
+//        self.statModifiers = statModifiers
+//        self.features   = features
+//    }
 }
 
 extension RaceRecord: Codable {
@@ -261,9 +280,9 @@ extension RaceRecord: Codable {
             let alignment = try container.decode(Alignment.self, forKey: .alignment)
             let languages = try container.decode([LanguageChoices].self, forKey: .languages)
             
-            let features = try container.decode([FeatureRecord].self, forKey: .features)
+            let features = try container.decodeIfPresent([FeatureRecord].self, forKey: .features)
             
-            let subraces = try container.decode([SubraceRecord].self, forKey: .subraces)
+            let subraces = try container.decodeIfPresent([SubraceRecord].self, forKey: .subraces)
 
             self.init(name: name, detail: detail, statModifiers: modifiers, physicalAttributes: physicalAttributes, speed: speed, hasDarkvision: hasDarkvision, alignment: alignment, languages: languages, features: features, subraces: subraces)
         } catch {
@@ -278,28 +297,35 @@ extension RaceRecord: Codable {
 }
 
 extension SubraceRecord: Codable {
-        init(from decoder: Decoder) throws {
-            do {
-                let container = try decoder.container(keyedBy: CodingKeys.self)
-                
-                let name = try container.decode(String.self, forKey: .name)
-                let detail = try container.decode(String.self, forKey: .detail)
-                let features = try container.decode([FeatureRecord].self, forKey: .features)
-
-                let modifiers = try container.decode([Modifier].self, forKey: .statModifiers)
-
-    //            let modifierContainer = try container.nestedContainer(keyedBy: StatModifier.CodingKeys.self, forKey: .statModifier)
-    //            let effect = try modifierContainer.decode(StatModifier.Effect.self, forKey: .effect)
-    //            let stat = try modifierContainer.decode(StatModifier.Stat.self, forKey: StatModifier.CodingKeys.stat)
-    //            let value = try modifierContainer.decode(Int.self, forKey: StatModifier.CodingKeys.value)
-    //            let modifier = StatModifier(effect: effect, stat: stat, value: value, source: .race)
-               
-                self.init(name: name, detail: detail, statModifiers: modifiers, features: features)
-            } catch {
-                print("error:\(error)")
-                throw error
+    init(from decoder: Decoder) throws {
+        do {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            let name = try container.decode(String.self, forKey: .name)
+            let detail = try container.decode(String.self, forKey: .detail)
+            let features = try container.decode([FeatureRecord].self, forKey: .features)
+            
+            var modifiers = [Modifier]()
+            let modifierData = try container.nestedContainer(keyedBy: Stat.self, forKey: .statModifiers)
+            for key in modifierData.allKeys {
+                let value = try modifierData.decode(Int.self, forKey: key)
+                let effect: Effect = value >= 0 ? .increaseStat(stat: key, value: value) : .decreaseStat(stat: key, value: value)
+                modifiers.append(Modifier(effect, from: .subrace))
             }
+           
+            self.init(name: name, detail: detail, statModifiers: modifiers, features: features)
+        } catch {
+            print("error:\(error)")
+            throw error
         }
+    }
 }
 
+extension SubraceRecord: Equatable {
+    static func == (lhs: SubraceRecord, rhs: SubraceRecord) -> Bool {
+        return lhs.name == rhs.name && lhs.detail == rhs.detail && lhs.statModifiers.last == rhs.statModifiers.last && lhs.features.last == rhs.features.last
+    }
+    
+    
+}
 

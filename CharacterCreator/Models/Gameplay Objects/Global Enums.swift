@@ -20,6 +20,11 @@ enum Effect {
     //grantProficiency(String), grantExpertise(String), addAction(String), addResistance(String), addImmunity(String), atLevelUp(String), increaseAbility(String, value: Int), decreaseAbility(String, value: Int), addSpell(String)
 }
 
+extension Effect: Equatable {
+    
+}
+
+
 ///An enum of the 9 primary alignment combinations
 enum Alignment: String, Codable {
     case lawfulGood, lawfulNeutral, lawfulEvil, neutralGood, neutral, neutralEvil, chaoticGood, chaoticNeutral, chaoticEvil
@@ -27,13 +32,16 @@ enum Alignment: String, Codable {
 
 ///An enum of the default languages available to the player
 enum LanguageChoices: String, Codable {
-    case common, dwarvish, elvish, draconic, halfling, gnomish, orc, giant
-    
-    ///An enum with default exotic languages that may be available to the player
-    enum Exotic: String, Codable {
-        case abyssal, celestial, draconic, deepSpeech, infernal, primordial, sylvan, undercommon
-    }
+    case common, dwarvish, elvish, draconic, halfling, gnomish, orc, giant, infernal
 }
+//enum LanguageChoices: String, Codable {
+//    case common, dwarvish, elvish, draconic, halfling, gnomish, orc, giant
+//
+//    ///An enum with default exotic languages that may be available to the player
+//    enum Exotic: String, Codable {
+//        case abyssal, celestial, draconic, deepSpeech, infernal, primordial, sylvan, undercommon
+//    }
+//}
 
 ///An enum with the primary size groupings
 enum Size: String, Codable {

@@ -19,3 +19,7 @@ struct FeatureRecord: Codable {
 //        case title, detail, bullets, choice
 //    }
 }
+
+extension FeatureRecord: Equatable {
+    
+}
