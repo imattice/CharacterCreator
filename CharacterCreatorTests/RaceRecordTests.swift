@@ -30,17 +30,16 @@ class RaceRecordTests: XCTestCase {
     }
     
     func testJSONDecodeModifier() {
-        guard let modifier = RaceRecord.Default.halfling.statModifiers.first else { print("no modifier in racial modifiers"); XCTFail(); return}
-        
-        switch modifier.effect {
-        case .increaseStat(let stat, let value):
-            XCTAssertEqual(value, 2)
-            XCTAssertEqual(stat, Stat.dex)
+        guard let modifier = RaceRecord.Default.halfling.statModifiers.first as? StatModifier else { print("no modifier in racial modifiers"); XCTFail(); return}
+//        switch modifier.effect {
+//        case .increaseStat(let stat, let value):
+        XCTAssertEqual(modifier.value, 2)
+        XCTAssertEqual(modifier.stat, Stat.dex)
 
-        default:
-            print("incorrect effect")
-            XCTFail()
-        }
+//        default:
+//            print("incorrect effect")
+//            XCTFail()
+//        }
     }
     
     func testJSONDecodePhysicalAttributes() {
@@ -96,7 +95,7 @@ class RaceRecordTests: XCTestCase {
     func testJSONDecodeSubraces() {
         guard let subraces = RaceRecord.Default.halfling.subraces else { print("nil features"); XCTFail(); return }
         
-        XCTAssertEqual(subraces[0], SubraceRecord(name: "lightfoot", detail: "sneaky and nomadic", statModifiers: [Modifier(.increaseStat(stat: .cha, value: 1), from: .subrace)], features: [FeatureRecord(title: "naturally stealthy", detail: "hide behind a creature that is of a larger size", bullets: nil, choice: nil)]))
+        XCTAssertEqual(subraces[0], SubraceRecord(name: "lightfoot", detail: "sneaky and nomadic", statModifiers: [StatModifier(stat: .cha, value: 1, source: .subrace)], features: [FeatureRecord(title: "naturally stealthy", detail: "hide behind a creature that is of a larger size", bullets: nil, choice: nil)]))
     }
     
 }

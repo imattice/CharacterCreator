@@ -32,7 +32,7 @@ struct Race {
 			//check for modifiers from the subrace
 			if let modifiers = subraceData["modifiers"] as? [String: Int] {
 				for modifierData in modifiers {
-                    allModifiers.append( Modifier(.increaseStat(stat: Stat(rawValue: modifierData.key)!, value: modifierData.value), from: .race)) }}}
+                    allModifiers.append( StatModifier(stat: Stat(rawValue: modifierData.key)!, value: modifierData.value, source: .race)) }}}
 		else {
 			//set the name to just be the parent race if no subrace is available
 			self.subrace 	= nil
@@ -42,7 +42,7 @@ struct Race {
 		if let modifiers = parentData["modifiers"] as? [String : Int] {
 
 			for modifierData in modifiers {
-                allModifiers.append( Modifier(.increaseStat(stat: Stat(rawValue: modifierData.key)!, value: modifierData.value), from: .race))
+                allModifiers.append( StatModifier(stat: Stat(rawValue: modifierData.key)!, value: modifierData.value, source: .race))
 			}
 		}
 
@@ -269,8 +269,8 @@ extension RaceRecord: Codable {
             let modifierData = try container.nestedContainer(keyedBy: Stat.self, forKey: .statModifiers)
             for key in modifierData.allKeys {
                 let value = try modifierData.decode(Int.self, forKey: key)
-                let effect: Effect = value >= 0 ? .increaseStat(stat: key, value: value) : .decreaseStat(stat: key, value: value)
-                modifiers.append(Modifier(effect, from: .race))
+                //let effect: Effect = value >= 0 ? .increaseStat(stat: key, value: value) : .decreaseStat(stat: key, value: value)
+                modifiers.append(StatModifier(stat: key, value: value, source: .race))
             }
             
             let physicalAttributes = try container.decode(PhysicalAttributes.self, forKey: .physicalAttributes)
@@ -309,8 +309,8 @@ extension SubraceRecord: Codable {
             let modifierData = try container.nestedContainer(keyedBy: Stat.self, forKey: .statModifiers)
             for key in modifierData.allKeys {
                 let value = try modifierData.decode(Int.self, forKey: key)
-                let effect: Effect = value >= 0 ? .increaseStat(stat: key, value: value) : .decreaseStat(stat: key, value: value)
-                modifiers.append(Modifier(effect, from: .subrace))
+                //let effect: Effect = value >= 0 ? .increaseStat(stat: key, value: value) : .decreaseStat(stat: key, value: value)
+                modifiers.append(StatModifier(stat: key, value: value, source: .subrace))
             }
            
             self.init(name: name, detail: detail, statModifiers: modifiers, features: features)
