@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlignedCollectionViewFlowLayout
+//import AlignedCollectionViewFlowLayout
 
 //@IBDesignable
 class SocialDetailView: XibView, LanguageSelectionDelegate {
@@ -42,9 +42,9 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 		alignmentTextFieldView.textField.addToolbar(self, onOk: .okSelected, onCancel: .cancelSelected)
 		relationshipsTextAreaView.textView.addToolbar(self, onOk: .okSelected, onCancel: .cancelSelected)
 
-		let alignedLayout = collectionViewLayout as? AlignedCollectionViewFlowLayout
-		alignedLayout?.horizontalAlignment	= .left
-		alignedLayout?.verticalAlignment	= .top
+//		let alignedLayout = collectionViewLayout as? AlignedCollectionViewFlowLayout
+//		alignedLayout?.horizontalAlignment	= .left
+//		alignedLayout?.verticalAlignment	= .top
 
 		registerCells()
 	}

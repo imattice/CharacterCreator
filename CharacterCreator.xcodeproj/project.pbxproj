@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -99,9 +99,9 @@
 		81FC7CF52106965E00BBDDD7 /* BackgroundSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF42106965E00BBDDD7 /* BackgroundSelectionViewController.swift */; };
 		81FC7CF921078F9100BBDDD7 /* BackgroundSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC7CF821078F9100BBDDD7 /* BackgroundSelectionTableViewCell.swift */; };
 		81FC7CFB21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81FC7CFA21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib */; };
-		CC1F493675FF25B9E4DEAB06 /* Pods_CharacterCreatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED2703BE5306DD2AFE0554E /* Pods_CharacterCreatorTests.framework */; };
-		CD67F86C0FD12DE972D64430 /* Pods_CharacterCreator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B00BB9E155699B25486A18 /* Pods_CharacterCreator.framework */; };
-		DD2AC61F7A5A4CAAB2043AD2 /* Pods_CharacterCreatorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D60020B1D87D63B1BB2DBA /* Pods_CharacterCreatorUITests.framework */; };
+		9471930892DFA0E9369B5460 /* libPods-CharacterCreatorUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 621D62B0BA9DFB37D9CF7AD1 /* libPods-CharacterCreatorUITests.a */; };
+		DBEEADE1A5A4FBF5017D6677 /* libPods-CharacterCreator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4BCF7797E542B608D4C086 /* libPods-CharacterCreator.a */; };
+		F14612289966620E42DACFE5 /* libPods-CharacterCreatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5F093F49FBCC682213FFFF /* libPods-CharacterCreatorTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,9 +124,10 @@
 /* Begin PBXFileReference section */
 		007963E6627C41295E01FA38 /* Pods-CharacterCreatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreatorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreatorUITests/Pods-CharacterCreatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36B00BB9E155699B25486A18 /* Pods_CharacterCreator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterCreator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3ED2703BE5306DD2AFE0554E /* Pods_CharacterCreatorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterCreatorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E4BCF7797E542B608D4C086 /* libPods-CharacterCreator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CharacterCreator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		415DEC37BB35A776F2A04D97 /* Pods-CharacterCreatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreatorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreatorUITests/Pods-CharacterCreatorUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4BC4CEFA3FE758D3DE242E04 /* Pods-CharacterCreator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreator.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreator/Pods-CharacterCreator.release.xcconfig"; sourceTree = "<group>"; };
+		621D62B0BA9DFB37D9CF7AD1 /* libPods-CharacterCreatorUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CharacterCreatorUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8B1F22B17F9F2E99331D0B /* Pods-CharacterCreatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreatorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreatorTests/Pods-CharacterCreatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDetailView.swift; sourceTree = "<group>"; };
 		810900B2224EE40100FF8B17 /* BasicDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicDetailView.xib; sourceTree = "<group>"; };
@@ -229,7 +230,7 @@
 		81FC7CFA21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		83618B6881998D87BABA9F69 /* Pods-CharacterCreatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreatorTests/Pods-CharacterCreatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F4B5632BB96D2AF90E107BC /* Pods-CharacterCreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreator/Pods-CharacterCreator.debug.xcconfig"; sourceTree = "<group>"; };
-		B4D60020B1D87D63B1BB2DBA /* Pods_CharacterCreatorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterCreatorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB5F093F49FBCC682213FFFF /* libPods-CharacterCreatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CharacterCreatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,7 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD67F86C0FD12DE972D64430 /* Pods_CharacterCreator.framework in Frameworks */,
+				DBEEADE1A5A4FBF5017D6677 /* libPods-CharacterCreator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC1F493675FF25B9E4DEAB06 /* Pods_CharacterCreatorTests.framework in Frameworks */,
+				F14612289966620E42DACFE5 /* libPods-CharacterCreatorTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD2AC61F7A5A4CAAB2043AD2 /* Pods_CharacterCreatorUITests.framework in Frameworks */,
+				9471930892DFA0E9369B5460 /* libPods-CharacterCreatorUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +308,7 @@
 				8123670E20CA44DA00F7AEFC /* Products */,
 				025FEA17FCFE62592420AF36 /* Pods */,
 				F507586D6438197C47D19E29 /* Frameworks */,
+				818592102462133B001001A0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -463,6 +465,14 @@
 			path = Design;
 			sourceTree = "<group>";
 		};
+		818592102462133B001001A0 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				36B00BB9E155699B25486A18 /* Pods_CharacterCreator.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		8195037B2256DDB700EE4469 /* DetailViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -535,9 +545,9 @@
 		F507586D6438197C47D19E29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				36B00BB9E155699B25486A18 /* Pods_CharacterCreator.framework */,
-				3ED2703BE5306DD2AFE0554E /* Pods_CharacterCreatorTests.framework */,
-				B4D60020B1D87D63B1BB2DBA /* Pods_CharacterCreatorUITests.framework */,
+				3E4BCF7797E542B608D4C086 /* libPods-CharacterCreator.a */,
+				CB5F093F49FBCC682213FFFF /* libPods-CharacterCreatorTests.a */,
+				621D62B0BA9DFB37D9CF7AD1 /* libPods-CharacterCreatorUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -554,7 +564,6 @@
 				8123670A20CA44DA00F7AEFC /* Frameworks */,
 				8123670B20CA44DA00F7AEFC /* Resources */,
 				819D371B20FACEC900986AFB /* New Relic dSYM Upload */,
-				7CF607D7134DE3298FAAAF42 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -713,23 +722,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7CF607D7134DE3298FAAAF42 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharacterCreator/Pods-CharacterCreator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CharacterCreator/Pods-CharacterCreator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CharacterCreator/Pods-CharacterCreator-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		819D371B20FACEC900986AFB /* New Relic dSYM Upload */ = {
