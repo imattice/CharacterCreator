@@ -35,10 +35,10 @@ extension Item: Equatable {
 }
 
 extension Item {
-	static let ComponentPouch 	= ItemRecord.record(for: "component pouch")!.item()
-	static let ArcaneFocus		= ItemRecord.record(for: "arcane focus")!.item()
-	static let Spellbook		= ItemRecord.record(for: "spellbook")!.item()
-	static let HolySymbol		= ItemRecord.record(for: "holy symbol")!.item()
+//	static let ComponentPouch 	= ItemRecord.record(for: "component pouch")!.item()
+//	static let ArcaneFocus		= ItemRecord.record(for: "arcane focus")!.item()
+//	static let Spellbook		= ItemRecord.record(for: "spellbook")!.item()
+//	static let HolySymbol		= ItemRecord.record(for: "holy symbol")!.item()
 }
 
 
@@ -50,7 +50,7 @@ class ItemRecord: Object {
 	dynamic var detail: String		= ""
 
 	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<ItemRecord> {
-		return realm.objects(ItemRecord.self).sorted(byKeyPath: "name")
+		return realm.objects(ItemRecord.self)//.sorted(byKeyPath: "name")
 	}
 
 	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> ItemRecord? {

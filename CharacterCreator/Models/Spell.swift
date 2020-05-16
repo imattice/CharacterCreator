@@ -100,7 +100,7 @@ class SpellRecord: Object {
 	dynamic var isRitual: Bool				= false
 
 	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<SpellRecord> {
-		return realm.objects(SpellRecord.self).sorted(byKeyPath: "name")
+		return realm.objects(SpellRecord.self)//.sorted(byKeyPath: "name")
 	}
 
 	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> SpellRecord? {

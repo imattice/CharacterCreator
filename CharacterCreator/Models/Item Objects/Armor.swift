@@ -61,7 +61,7 @@ class ArmorRecord: Object {
 	dynamic var detail: String						= "A detailed description"
 
 	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<ArmorRecord> {
-		return realm.objects(ArmorRecord.self).sorted(byKeyPath: "name")
+		return realm.objects(ArmorRecord.self)//.sorted(byKeyPath: "name")
 	}
 
 	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> ArmorRecord? {

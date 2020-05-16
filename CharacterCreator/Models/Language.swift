@@ -65,7 +65,7 @@ class LanguageRecord : Object {
 	dynamic var isRare: Bool		= false
 
 	static func allRecords(in realm: Realm = RealmProvider.languageRecords.realm) -> Results<LanguageRecord> {
-		return realm.objects(LanguageRecord.self).sorted(byKeyPath: "name")
+		return realm.objects(LanguageRecord.self)//.sorted(byKeyPath: "name")
 	}
 
 	static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {

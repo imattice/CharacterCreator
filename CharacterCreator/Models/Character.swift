@@ -72,12 +72,12 @@ class Character {
 								  Stat(name: .wis, rawValue: 14),
 								  Stat(name: .int, rawValue: 15)]
         self.background 	= Background("sage", proficiencies: [String]())
-		self.items			= [ Weapon.Quarterstaff,
-								  Weapon.Dagger,
-								  Weapon.Dagger,
-								  Item.ComponentPouch,
-								  Item.ArcaneFocus,
-								 Pack.Scholar,
+		self.items			= [ //Weapon.Quarterstaff,
+								  //Weapon.Dagger,
+								  //Weapon.Dagger,
+//								  Item.ComponentPouch,
+//								  Item.ArcaneFocus,
+								 //Pack.Scholar,
 								 Item("spellbook"),
 								 Item("a bottle of black ink"), Item("a quill"), Item("a small knife"), Item("a inquisitive letter")]
 		self.proficiencies	= ["arcana", "history"]

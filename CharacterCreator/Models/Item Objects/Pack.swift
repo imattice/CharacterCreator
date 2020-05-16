@@ -21,13 +21,13 @@ class Pack: Item {
 }
 
 extension Pack {
-	static let Priest 		= PackRecord.record(for: "priest's pack")!.pack()
-	static let Explorer 	= PackRecord.record(for: "explorer's pack")!.pack()
-	static let Dungeoneer 	= PackRecord.record(for: "dungeoneer's pack")!.pack()
-	static let Diplomat 	= PackRecord.record(for: "diplomat's pack")!.pack()
-	static let Burgler 		= PackRecord.record(for: "burglar's pack")!.pack()
-	static let Entertainer	= PackRecord.record(for: "entertainer's pack")!.pack()
-	static let Scholar 		= PackRecord.record(for: "scholar's pack")!.pack()
+//	static let Priest 		= PackRecord.record(for: "priest's pack")!.pack()
+//	static let Explorer 	= PackRecord.record(for: "explorer's pack")!.pack()
+//	static let Dungeoneer 	= PackRecord.record(for: "dungeoneer's pack")!.pack()
+//	static let Diplomat 	= PackRecord.record(for: "diplomat's pack")!.pack()
+//	static let Burgler 		= PackRecord.record(for: "burglar's pack")!.pack()
+//	static let Entertainer	= PackRecord.record(for: "entertainer's pack")!.pack()
+//	static let Scholar 		= PackRecord.record(for: "scholar's pack")!.pack()
 }
 
 
@@ -39,7 +39,7 @@ class PackRecord: Object {
 	dynamic var detail: String			= "A detailed description"
 
 	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<PackRecord> {
-		return realm.objects(PackRecord.self).sorted(byKeyPath: "name")
+		return realm.objects(PackRecord.self)//.sorted(byKeyPath: "name")
 	}
 
 	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> PackRecord? {

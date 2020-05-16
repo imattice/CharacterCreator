@@ -74,7 +74,7 @@ class BackgroundRecord: Object {
 	dynamic var flaws: List<String>			= List<String>()
 
 	static func allRecords(in realm: Realm = RealmProvider.backgroundRecords.realm) -> Results<BackgroundRecord> {
-		return realm.objects(BackgroundRecord.self).sorted(byKeyPath: "name")
+		return realm.objects(BackgroundRecord.self)//.sorted(byKeyPath: "name")
 	}
 
 	static func record(for name: String, in realm: Realm = RealmProvider.backgroundRecords.realm) -> BackgroundRecord? {

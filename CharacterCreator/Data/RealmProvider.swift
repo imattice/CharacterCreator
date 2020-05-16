@@ -56,6 +56,6 @@ struct RealmProvider {
 		return RealmProvider(configuration: backgroundConfig)	}()
 	private static let backgroundConfig = Realm.Configuration(fileURL: Bundle.main.url(forResource: "BackgroundRecords", withExtension: "realm" ),
 														readOnly: true,
-														schemaVersion: 5,
+														schemaVersion: 12,
 														objectTypes: [BackgroundRecord.self])
 }
