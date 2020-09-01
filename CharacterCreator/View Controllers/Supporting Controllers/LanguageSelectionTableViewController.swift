@@ -11,7 +11,7 @@ import UIKit
 class LanguageSelectionTableViewController: UITableViewController {
 	var dataSource = [(sectionTitle: "common", 	languageData: [LanguageSelectionData]()),
 					 (sectionTitle: "rare",		languageData: [LanguageSelectionData]())]
-	let availableSelections = Character.default.languages.innate.filter( { $0.isSelectable == true } ).count
+	let availableSelections = Character.current.languages.innate.filter( { $0.isSelectable == true } ).count
 	var selectionsRemaining: Int? {
 		didSet {
 			updateNav()				}}
@@ -66,14 +66,14 @@ class LanguageSelectionTableViewController: UITableViewController {
 			let rareLanguages = LanguageRecord.allRecords().filter({ $0.isRare == true })
 
 		var raceLearnedLanguages: [String] {
-			guard let raceDict = raceData[Character.default.race.parentRace] as? [String : Any],
+			guard let raceDict = raceData[Character.current.race.parentRace] as? [String : Any],
 				let languages = raceDict["languages"] as? [String]
 			else { print("could not generate race languages"); return [String]() }
 
 			return languages
 		}
 		var backgroundLearnedLanguages: [String] {
-			guard let backgroundDict = backgroundData[Character.default.background!.name] as? [String : Any],
+			guard let backgroundDict = backgroundData[Character.current.background!.name] as? [String : Any],
 				let languages = backgroundDict["languages"] as? [String]
 				else { print("could not generate background languages"); return [String]() }
 
@@ -150,7 +150,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 		if !languageData.isSelectable {
 			cell.selectionStyle = .none
 			cell.textLabel?.textColor	= .lightGray
-			cell.backgroundColor		= Character.default.class!.color().lightColor()
+			cell.backgroundColor		= Character.current.class!.color().lightColor()
 		}
 
         return cell

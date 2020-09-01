@@ -23,9 +23,9 @@ class IdentityReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var alignmentLabel: UILabel!
 
 	override func config() {
-		nameLabel.text 			= Character.default.flavorText.name
-		ageLabel.text			= "\(Character.default.flavorText.age) years old"
-		alignmentLabel.text 	= Character.default.flavorText.alignment
+		nameLabel.text 			= Character.current.flavorText.name
+		ageLabel.text			= "\(Character.current.flavorText.age) years old"
+		alignmentLabel.text 	= Character.current.flavorText.alignment
 	}
 }
 class RaceReviewTableViewCell: ReviewTableViewCell {
@@ -34,9 +34,9 @@ class RaceReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var detailLabel: UILabel!
 
 	override func config() {
-		raceImageView.image = UIImage(named: Character.default.race.parentRace)
-		nameLabel.text		= Character.default.race.name()
-		detailLabel.text	= Character.default.race.description()
+		raceImageView.image = UIImage(named: Character.current.race.parentRace)
+		nameLabel.text		= Character.current.race.name()
+		detailLabel.text	= Character.current.race.description()
 
 		super.config()
 	}
@@ -55,9 +55,9 @@ class ClassReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var detailLabel: UILabel!
 
 	override func config() {
-		classImageView.image	= UIImage(named: Character.default.class.base)
-		nameLabel.text			= Character.default.class.name()
-		detailLabel.text		= "\(Character.default.class.baseDescription())\n\n\(Character.default.class.pathDescription())"
+		classImageView.image	= UIImage(named: Character.current.class.base)
+		nameLabel.text			= Character.current.class.name()
+		detailLabel.text		= "\(Character.current.class.baseDescription())\n\n\(Character.current.class.pathDescription())"
 
 		super.config()
 	}
@@ -77,9 +77,9 @@ class BackgroundReviewTableViewCell: ReviewTableViewCell {
 	@IBOutlet weak var backgroundImageView: UIImageView!
 
 	override func config() {
-		titleLabel.text = "\(Character.default.background!.name.capitalized) Background"
-		detailLabel.text = Character.default.background?.description()
-		backgroundImageView.image = UIImage(named: Character.default.background!.name)
+		titleLabel.text = "\(Character.current.background!.name.capitalized) Background"
+		detailLabel.text = Character.current.background?.description()
+		backgroundImageView.image = UIImage(named: Character.current.background!.name)
 
 		super.config()
 	}
@@ -130,9 +130,9 @@ class StatStack: UIStackView {
 	@IBOutlet weak var totalLabel: UILabel!
 
 	func config() {
-		guard let text = titleLabel.text,
-			let statName = StatType(rawValue: text.lowercased()),
-			let stat = Character.default.stat(forName: statName)	else { print("didn't work"); return }
+        guard let text = titleLabel.text,
+            let statName = StatType(rawValue: text.lowercased()) else { print("enum issue"); return }
+        guard let stat = Character.current.stat(forName: statName)	else { print("didn't work"); return }
 
 
 		modifierLabel.text	= stat.modifier > 0 ? "+\(stat.modifier)" : String(stat.modifier)
@@ -140,7 +140,7 @@ class StatStack: UIStackView {
 
 		//expanded labels
 		rawLabel.text 		= String(stat.rawValue)
-		if let modifier = Character.default.race.modifiers.filter({ $0.type == .increaseStat && $0.attribute == text.lowercased() }).first {
+		if let modifier = Character.current.race.modifiers.filter({ $0.type == .increaseStat && $0.attribute == text.lowercased() }).first {
 			racialBonusLabel.text	= "+\(modifier.value)"		}
 		else {
 			racialBonusLabel.text	= "-"						}
@@ -156,7 +156,7 @@ class SkillReviewTableViewCell: ReviewTableViewCell {
 		for skillStack in skillStacks {
 			guard let text = skillStack.titleLabel.text,
 				let skill = Skill(fromString: text.lowercased()) else { continue }
-			let modifier = Character.default.skillModifier(for: skill)
+			let modifier = Character.current.skillModifier(for: skill)
 
 			skillStack.modifierBonusLabel.text	= modifier >= 0 ? ": +\(modifier)" : ": -\(abs(modifier))"
 
@@ -196,7 +196,7 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 		}
 
 		//get an array of items that are weapons and no duplicates
-		let weapons = Character.default.items.filter({ $0.type == .weapon }).duplicatesRemoved()
+		let weapons = Character.current.items.filter({ $0.type == .weapon }).duplicatesRemoved()
 
 		for weapon in weapons {
 			let weaponView = WeaponStatView()
@@ -216,24 +216,24 @@ class InventoryReviewTableViewCell: ReviewTableViewCell {
 
 	private func addArmorLabels() {
 		var armorText = ""		
-		if let armor = Character.default.items.filter({ $0.type == .armor }).first {
+		if let armor = Character.current.items.filter({ $0.type == .armor }).first {
 			armorText	= armor.name.capitalized									}
 
-		if Character.default.items.contains(where: { $0.type == .shield }) {
+		if Character.current.items.contains(where: { $0.type == .shield }) {
 			armorText	+= "\n+ Shield"										}
 
-		acValueLabel.text	= String(Character.default.armorClass())
+		acValueLabel.text	= String(Character.current.armorClass())
 		armorLabel.text		= armorText
 	}
 
 	private func addItemText() {
-		let items = Character.default.items.filter({ $0.type == .custom || $0.type == .other })
+		let items = Character.current.items.filter({ $0.type == .custom || $0.type == .other })
 		var itemText 	= ""
 
 		for item in items {
 		itemText += "• \(item.name.capitalized)\n"  }
 
-		if let pack = Character.default.items.filter( { $0.type == .pack }).first as? Pack {
+		if let pack = Character.current.items.filter( { $0.type == .pack }).first as? Pack {
 			itemText += "• A \(pack.name.capitalized)\n containing:"
 
 			for item in pack.contents {
@@ -255,12 +255,12 @@ class SpellReviewTableViewCell: ReviewTableViewCell{
 	}
 
 	private func spellList(forSpellLevel level: Int) -> String {
-		guard Character.default.class.castingAttributes != nil
-			else { return "\(Character.default.class.name())'s are not able to cast spells."}
+		guard Character.current.class.castingAttributes != nil
+			else { return "\(Character.current.class.name())'s are not able to cast spells."}
 		guard Character.current.spellBook.isEmpty else { return "\(Character.current.flavorText.name) does not know any spells." }
 
 		var result = ""
-		let spells = Character.default.spellBook.filter({ $0.level == level })
+		let spells = Character.current.spellBook.filter({ $0.level == level })
 
 		for spell in spells {
 			result += "\(spell.name)  |  "

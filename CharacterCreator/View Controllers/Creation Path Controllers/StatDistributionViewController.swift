@@ -117,21 +117,21 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 
 
 			//if the caster is a spellcaster, push to the Spell Selection Controller
-			if characterClass.castingAttributes != nil {
-				let vc = storyboard.instantiateViewController(withIdentifier: "SpellSelection")
-				vc.title = "\(characterClass.base.capitalized) Spells"
-
-				navigationController.pushViewController(vc, animated: true)						}
+//			if characterClass.castingAttributes != nil {
+//				let vc = storyboard.instantiateViewController(withIdentifier: "SpellSelection")
+//				vc.title = "\(characterClass.base.capitalized) Spells"
+//
+//				navigationController.pushViewController(vc, animated: true)						}
 
 			//otherwise move to the inventory selection controller
-			else {
+			//else {
 				let vc = storyboard.instantiateViewController(withIdentifier: "Background")
-				navigationController.pushViewController(vc, animated: true)						}
+				navigationController.pushViewController(vc, animated: true)						//}
 		}
 	}
 
 	private func setCharacterStats() {
-		Character.default.stats = [Character.Stat]()
+		Character.current.stats = [Character.Stat]()
 
 		for view in statViewCollection {
 			guard let valueString = view.statValueLabel.text,
@@ -139,7 +139,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 				let value = Int(valueString),
 				let stat = StatType(fromLonghand: titleString) else { print("could not initilialize the stat data from the view."); continue }
 
-			Character.default.stats.append(Character.Stat(name: stat, rawValue: value))
+			Character.current.stats.append(Character.Stat(name: stat, rawValue: value))
 //				switch stat {
 //				case .str: 		Character.current.stats.str = Character.StatBlock.Stat(name: "str", value: value)
 //				case .con:		Character.current.stats.con = Character.StatBlock.Stat(name: "con", value: value)

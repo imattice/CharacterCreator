@@ -48,8 +48,8 @@ class LanguageLabelCollectioViewCell: UICollectionViewCell {
 	}
 
 	func style() {
-		backgroundColor		= Character.default.class.color().lightColor()
-		layer.borderColor	= Character.default.class.color().darkColor().cgColor
+		backgroundColor		= Character.current.class.color().lightColor()
+		layer.borderColor	= Character.current.class.color().darkColor().cgColor
 		layer.borderWidth	= 2
 		layer.cornerRadius	= 8
 	}

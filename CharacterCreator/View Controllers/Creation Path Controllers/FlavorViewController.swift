@@ -59,8 +59,8 @@ class FlavorViewController: UIViewController {
 
 		//Page Control
 		pageControl.numberOfPages 					= flavorViews.count
-		pageControl.pageIndicatorTintColor 			= Character.default.class.color().lightColor()
-		pageControl.currentPageIndicatorTintColor 	= Character.default.class.color().base()
+		pageControl.pageIndicatorTintColor 			= Character.current.class.color().lightColor()
+		pageControl.currentPageIndicatorTintColor 	= Character.current.class.color().base()
 
 	}
 

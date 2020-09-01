@@ -40,7 +40,7 @@ class ReviewViewController: UIViewController {
 
 extension ReviewViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if Character.default.spellBook.count > 0 {
+		if Character.current.spellBook.count > 0 {
 			return 8								}
 		return 7
 	}

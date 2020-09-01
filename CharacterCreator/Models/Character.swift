@@ -201,7 +201,7 @@ extension Character {
 		let name: StatType
 		let rawValue: Int
 		var modifiedValue: Int {
-			guard let race = Character.default.race else { return rawValue }
+			guard let race = Character.current.race else { return rawValue }
 			var resultValue = rawValue
 
 			//look for modifiers that increase stats and are also for this particular stat

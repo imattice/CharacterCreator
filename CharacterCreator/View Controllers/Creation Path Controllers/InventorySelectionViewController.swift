@@ -23,7 +23,7 @@ class InventorySelectionViewController: UIViewController {
 	}
 
 	func loadChoiceData() {
-		guard let classDict = classData[Character.default.class.base] as? [String : Any],
+		guard let classDict = classData[Character.current.class.base] as? [String : Any],
 			let classChoices = classDict["equipment"] as? [Any]  else { print("Could not initialize class equiptment data"); return } //[Choice]
 
 		//add choices
@@ -79,7 +79,7 @@ class InventorySelectionViewController: UIViewController {
 				else { print("Could not create selectionView"); continue }
 			selectionView.delegate = self
 			selectionView.choice = choice
-			selectionView.backgroundColor = Character.default.class.color().base()
+			selectionView.backgroundColor = Character.current.class.color().base()
 
 			stackView.addArrangedSubview(selectionView)
 
@@ -139,9 +139,9 @@ class InventorySelectionViewController: UIViewController {
 	private func addItemsToCharacter() {
 		let selectedItems = getSelections()
 
-		Character.default.items = selectedItems
+		Character.current.items = selectedItems
 
-		print(Character.default.items)
+		print(Character.current.items)
 	}
 
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -21,14 +21,14 @@ class SocialDetailView: XibView, LanguageSelectionDelegate {
 	let pickerView = UIPickerView()
 	var presentationDelegate: LanguagePresentationDelegate?
 
-	let availableSelections = Character.default.languages.innate.filter( { $0.isSelectable == true }).count
+	let availableSelections = Character.current.languages.innate.filter( { $0.isSelectable == true }).count
 	var selectedLanguages: [Language] = [Language]() {
 		didSet {
-			Character.default.languages.selected = selectedLanguages
+			Character.current.languages.selected = selectedLanguages
 			updateButton()
 			collectionView.reloadData()	}}
 	var dataSource: [Language] {
-		return Character.default.languages.innate.filter( { $0.isSelectable == false }) + selectedLanguages }
+		return Character.current.languages.innate.filter( { $0.isSelectable == false }) + selectedLanguages }
 
 
 	override func config() {
@@ -108,7 +108,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let data = dataSource[indexPath.row]
 
-		if Character.default.languages.innate.contains(where: { $0.name == data.name }) {
+		if Character.current.languages.innate.contains(where: { $0.name == data.name }) {
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.StaticLanguageLabel.rawValue, for: indexPath) as! StaticLanguageLabelCollectionViewCell
 				cell.titleLabel.text	= data.name.capitalized
 				cell.titleLabel.sizeToFit()
@@ -122,9 +122,9 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 		}
 	}
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let removeIndex = indexPath.row - Character.default.languages.innate.filter( { $0.isSelectable == false }).count
+		let removeIndex = indexPath.row - Character.current.languages.innate.filter( { $0.isSelectable == false }).count
 		let data = dataSource[indexPath.row]
-		if !Character.default.languages.innate.contains { $0.name == data.name } {
+		if !Character.current.languages.innate.contains { $0.name == data.name } {
 			removeLanguage(atIndex: removeIndex)
 		}
 
@@ -137,7 +137,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let data = dataSource[indexPath.row]
 		var margins = CGFloat(8*2)  //constrant margins
-		if !Character.default.languages.innate.contains(where: { $0.name == data.name }) {
+		if !Character.current.languages.innate.contains(where: { $0.name == data.name }) {
 			//width constraint of x button + another margin
 			margins += 20 + 8
 		}

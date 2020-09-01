@@ -86,7 +86,7 @@ class PersonalityDetailView: XibView {
 	}
 
 	func updateDataSource(forPersonalityDetail detail: PersonalityDetail) {
-		guard let background = Character.default.background,
+		guard let background = Character.current.background,
 			let backgroundData = backgroundData[background.name.lowercased()] as? [String: Any],
 			let dict = backgroundData[detail.rawValue.lowercased()] as? [String] else { print("something broke here"); return }
 
@@ -100,7 +100,7 @@ class PersonalityDetailView: XibView {
 	func dataSource(forPersonalityDetail detail: PersonalityDetail) -> [String] {
 		var result = ["Decide Later"]
 
-		guard let background = Character.default.background,
+		guard let background = Character.current.background,
 			let backgroundData = backgroundData[background.name.lowercased()] as? [String: Any],
 			let dict = backgroundData[detail.rawValue.lowercased()] as? [String] else { print("something broke here"); return result }
 

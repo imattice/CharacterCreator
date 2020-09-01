@@ -41,7 +41,7 @@ class TextFieldView: UIView {
 		textField.placeholder = placeholder
 		textField.addToolbar()
 
-		underline.backgroundColor = Character.default.class.color().darkColor()
+		underline.backgroundColor = Character.current.class.color().darkColor()
 
 		addSubview(underline)
 		addSubview(textField)
