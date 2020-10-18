@@ -138,7 +138,7 @@ struct RaceRecord: Codable {
     let description: String
     let modifiers: [Modifier]
     let subraces: [SubraceRecord]
-    let baseLangauges: [Language]
+    let baseLangauges: [LanguageRecord]
 }
 
 struct SubraceRecord: Codable {

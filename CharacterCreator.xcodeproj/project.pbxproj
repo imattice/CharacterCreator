@@ -43,7 +43,6 @@
 		81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */; };
 		81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */; };
 		81541A35227420C2002C7B72 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* Language.swift */; };
-		81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3622754A52002C7B72 /* RaceClassTests.swift */; };
 		81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */; };
 		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
@@ -75,6 +74,7 @@
 		81BC72B120F18DB500B48195 /* classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72B020F18DB500B48195 /* classes.swift */; };
 		81C8B7DB253CD62B0086F6C8 /* RaceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */; };
 		81C8B7E7253CD74C0086F6C8 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 81C8B7E6253CD74C0086F6C8 /* races.json */; };
+		81C8B7F5253CFA6B0086F6C8 /* Race+SubraceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B7F4253CFA6B0086F6C8 /* Race+SubraceTests.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
@@ -173,7 +173,6 @@
 		81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveableLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewController.swift; sourceTree = "<group>"; };
 		81541A34227420C2002C7B72 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		81541A3622754A52002C7B72 /* RaceClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceClassTests.swift; sourceTree = "<group>"; };
 		81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClassTests.swift; sourceTree = "<group>"; };
 		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -206,6 +205,7 @@
 		81BC72B020F18DB500B48195 /* classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classes.swift; sourceTree = "<group>"; };
 		81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSelectionView.swift; sourceTree = "<group>"; };
 		81C8B7E6253CD74C0086F6C8 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
+		81C8B7F4253CFA6B0086F6C8 /* Race+SubraceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Race+SubraceTests.swift"; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -349,8 +349,8 @@
 		8123672720CA44DD00F7AEFC /* CharacterCreatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				81C8B7F4253CFA6B0086F6C8 /* Race+SubraceTests.swift */,
 				8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */,
-				81541A3622754A52002C7B72 /* RaceClassTests.swift */,
 				81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */,
 				81A5E14A22C0277400A838CD /* LanguageDataTest.swift */,
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
@@ -868,8 +868,8 @@
 			files = (
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
 				8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */,
+				81C8B7F5253CFA6B0086F6C8 /* Race+SubraceTests.swift in Sources */,
 				81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */,
-				81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */,
 				81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */,
 				81A5E14B22C0277400A838CD /* LanguageDataTest.swift in Sources */,
 			);

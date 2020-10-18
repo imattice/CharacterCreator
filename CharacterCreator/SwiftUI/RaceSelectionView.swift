@@ -10,11 +10,12 @@ import SwiftUI
 
 struct RaceSelectionView: View {
     var body: some View {
-        VStack {
-            List {
-                ForEach()
-            }
-        }
+        Text("Hello World")
+//        VStack {
+//            List {
+//                ForEach()
+//            }
+//        }
     }
 }
 

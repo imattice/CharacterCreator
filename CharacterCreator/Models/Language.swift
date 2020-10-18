@@ -76,3 +76,9 @@ class LanguageRecord : Object {
 		return Language(name: name)
 	}
 }
+
+//struct LanguageRecord: Codable {
+//    let id: String
+//    let name: String
+//    let spokenBy: String
+//}
