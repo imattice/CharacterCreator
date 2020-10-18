@@ -132,33 +132,49 @@ struct Race {
 	static let Human				= Race(fromParent: "human", withSubrace: nil)
 }
 
-@objcMembers
-class RaceRecord: Object {
-	enum Property: String {
-		case id, name, detail, modifiers, subrace }
-
-	dynamic var id: String				= UUID().uuidString
-	dynamic var name: String			= ""
-	dynamic var summary: String			= ""
-	dynamic var modifiers: [Modifier]	= [Modifier]()
-	dynamic var subrace: [Subrace]		= [Subrace]()
-//	dynamic var languages: 
-
-	override static func primaryKey() -> String? {
-		return RaceRecord.Property.id.rawValue
-	}
+struct RaceRecord: Codable {
+    let id: String
+    let name: String
+    let description: String
+    let modifiers: [Modifier]
+    let subraces: [SubraceRecord]
+    let baseLangauges: [Language]
 }
-@objcMembers
-class SubraceRecord: Object {
-	enum Property: String {
-		case id, name, detail, modifiers, subrace }
 
-	dynamic var id: String				= UUID().uuidString
-	dynamic var name: String			= ""
-	dynamic var summary: String			= ""
-	dynamic var modifiers: [Modifier]	= [Modifier]()
-
-	override static func primaryKey() -> String? {
-		return SubraceRecord.Property.id.rawValue
-	}
+struct SubraceRecord: Codable {
+    let id: String
+    let name: String
+    let description: String
+    let modifiers: [Modifier]
 }
+
+//@objcMembers
+//class RaceRecord: Object {
+//	enum Property: String {
+//		case id, name, detail, modifiers, subrace }
+//
+//	dynamic var id: String				= UUID().uuidString
+//	dynamic var name: String			= ""
+//	dynamic var summary: String			= ""
+//	dynamic var modifiers: [Modifier]	= [Modifier]()
+//	dynamic var subrace: [Subrace]		= [Subrace]()
+////	dynamic var languages:
+//
+//	override static func primaryKey() -> String? {
+//		return RaceRecord.Property.id.rawValue
+//	}
+//}
+//@objcMembers
+//class SubraceRecord: Object {
+//	enum Property: String {
+//		case id, name, detail, modifiers, subrace }
+//
+//	dynamic var id: String				= UUID().uuidString
+//	dynamic var name: String			= ""
+//	dynamic var summary: String			= ""
+//	dynamic var modifiers: [Modifier]	= [Modifier]()
+//
+//	override static func primaryKey() -> String? {
+//		return SubraceRecord.Property.id.rawValue
+//	}
+//}

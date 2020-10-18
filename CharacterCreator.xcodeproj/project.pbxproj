@@ -73,6 +73,8 @@
 		81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */; };
 		81BC72AF20F186C000B48195 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AE20F186C000B48195 /* Spell.swift */; };
 		81BC72B120F18DB500B48195 /* classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72B020F18DB500B48195 /* classes.swift */; };
+		81C8B7DB253CD62B0086F6C8 /* RaceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */; };
+		81C8B7E7253CD74C0086F6C8 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 81C8B7E6253CD74C0086F6C8 /* races.json */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
@@ -202,6 +204,8 @@
 		81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionViewController.swift; sourceTree = "<group>"; };
 		81BC72AE20F186C000B48195 /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		81BC72B020F18DB500B48195 /* classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classes.swift; sourceTree = "<group>"; };
+		81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSelectionView.swift; sourceTree = "<group>"; };
+		81C8B7E6253CD74C0086F6C8 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -326,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
+				81C8B7DF253CD62F0086F6C8 /* SwiftUI */,
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
@@ -369,8 +374,9 @@
 			children = (
 				81D599DE22BC935F005EE768 /* RealmProvider.swift */,
 				81D599E222BD8344005EE768 /* Realms */,
-				81DF302D213C5F3200C939CE /* items.swift */,
 				8152B3EA20DC3B48008B7A1A /* races.swift */,
+				81C8B7E6253CD74C0086F6C8 /* races.json */,
+				81DF302D213C5F3200C939CE /* items.swift */,
 				81BC72B020F18DB500B48195 /* classes.swift */,
 				81BC72AA20F17F2500B48195 /* spells.swift */,
 				81DC8E3F2107F2F9002F6AE4 /* backgrounds.swift */,
@@ -517,6 +523,14 @@
 				81B038D022DD14E00059AFC1 /* Calculation.swift */,
 			);
 			path = "Gameplay Objects";
+			sourceTree = "<group>";
+		};
+		81C8B7DF253CD62F0086F6C8 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		81D599E222BD8344005EE768 /* Realms */ = {
@@ -679,6 +693,7 @@
 				81DC8E5521125637002F6AE4 /* SelectionView.xib in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
+				81C8B7E7253CD74C0086F6C8 /* races.json in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				81D599EE22BDD85B005EE768 /* LanguageRecords.realm in Resources */,
 				81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */,
@@ -842,6 +857,7 @@
 				8152B41120DEDA8D008B7A1A /* Int.swift in Sources */,
 				8152B3C320D9D32F008B7A1A /* Character.swift in Sources */,
 				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
+				81C8B7DB253CD62B0086F6C8 /* RaceSelectionView.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
