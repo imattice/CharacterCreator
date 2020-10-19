@@ -1,0 +1,108 @@
+[
+    {
+        "name": "common",
+        "spokenBy": "humans",
+        "script": "common",
+    },
+    {
+        "name": "dwarvish",
+        "spokenBy": "dwarves",
+        "script": "dwarvish",
+    },
+    {
+        "name": "elvish",
+        "spokenBy": "elves",
+        "script": "elvish",
+    },
+    {
+        "name": "giant",
+        "spokenBy": "orgres and giants",
+        "script": "dwarvish",
+    },
+    {
+        "name": "gnomish",
+        "spokenBy": "gnomes",
+        "script": "dwarvish",
+    },
+    {
+        "name": "goblin",
+        "spokenBy": "goblinoids",
+        "script": "dwarvish",
+    },
+    {
+        "name": "halfling",
+        "spokenBy": "halflings",
+        "script": "common",
+    },
+    {
+        "name": "orc",
+        "spokenBy": "orcs",
+        "script": "dwarvish",
+    },
+    
+    {
+        "name": "abyssal",
+        "spokenBy": "demons",
+        "script": "infernal",
+        "isExotic": true,
+    },
+    {
+        "name": "celestial",
+        "spokenBy": "celestials",
+        "script": "celestial",
+        "isExotic": true,
+    },
+    {
+        "name": "draconic",
+        "spokenBy": "dragons and dragonborn",
+        "script": "draconic",
+        "isExotic": true,
+    },
+    {
+        "name": "deep speech",
+        "spokenBy": "aboleths and cloakers",
+        "script": "none",
+        "isExotic": true,
+    },
+    {
+        "name": "infernal",
+        "spokenBy": "devils",
+        "script": "infernal",
+        "isExotic": true,
+    },
+    {
+        "name": "primordial",
+        "spokenBy": "elementals",
+        "script": "dwarvish",
+        "isExotic": true,
+    },
+    {
+        "name": "sylvan",
+        "spokenBy": "fey creatures",
+        "script": "elvish",
+        "isExotic": true,
+    },
+    {
+        "name": "undercommon",
+        "spokenBy": "underworld traders",
+        "script": "elvish",
+        "isExotic": true,
+    },
+    
+    {
+        "name": "thieves' cant",
+        "spokenBy": "thieves",
+        "script": "symbolic",
+        "isSecret": true,
+    },
+    {
+        "name": "tongue of the druids",
+        "spokenBy": "druids",
+        "script": "symbolic",
+        "isSecret": true,
+    },
+
+
+
+
+]

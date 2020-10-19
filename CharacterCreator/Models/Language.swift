@@ -77,8 +77,54 @@ class LanguageRecord : Object {
 	}
 }
 
-//struct LanguageRecord: Codable {
-//    let id: String
-//    let name: String
-//    let spokenBy: String
-//}
+struct TEMPLanguageRecord: Codable {
+    let id: String
+    ///the name of the language
+    let name: String
+    ///who commonly speaks this language
+    let spokenBy: String
+    ///which script the writing of this language is based off of
+    let script: String
+    ///if the language is rare
+    let isExotic: Bool
+    ///if the language is secret
+    let isSecret: Bool
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = UUID().uuidString
+        self.name = try container.decode(String.self, forKey: .name)
+        self.spokenBy = try container.decode(String.self, forKey: .spokenBy)
+        self.script = try container.decode(String.self, forKey: .script)
+        self.isExotic = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
+        self.isSecret = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
+    }
+    
+    ///returns an array of LanguageRecord if successfuly decoded from JSON or an empty array if failed
+    static
+    func all() -> [TEMPLanguageRecord] {
+        let result = try? parseAllFromJSON()
+        return result ?? [TEMPLanguageRecord]()
+    }
+    
+    ///decodes JSON from file
+    static
+    private func parseAllFromJSON() throws -> [TEMPLanguageRecord] {
+        guard let path = Bundle.main.path(forResource: "languages", ofType: "json")
+        else { print("file not found"); throw JSONError.fileNotFound }
+        
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: [])
+            return try JSONDecoder().decode([TEMPLanguageRecord].self, from: data)
+        }
+        catch {
+            throw JSONError.parsingError
+        }
+    }
+}
+
+enum JSONError: Error {
+    case fileNotFound,
+         parsingError
+}

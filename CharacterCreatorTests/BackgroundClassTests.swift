@@ -42,8 +42,8 @@ class BackgroundClassTests: XCTestCase {
 	override func setUp() {
 		super.setUp()
 
-		criminal 	= Background("criminal")
-		acolyte		= Background("acolyte")
+        criminal 	= Background("criminal", proficiencies: [""])
+        acolyte		= Background("acolyte", proficiencies: [""])
 	}
 	override func tearDown() {
 		super.tearDown()

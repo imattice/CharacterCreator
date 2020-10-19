@@ -75,6 +75,9 @@
 		81C8B7DB253CD62B0086F6C8 /* RaceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */; };
 		81C8B7E7253CD74C0086F6C8 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 81C8B7E6253CD74C0086F6C8 /* races.json */; };
 		81C8B7F5253CFA6B0086F6C8 /* Race+SubraceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B7F4253CFA6B0086F6C8 /* Race+SubraceTests.swift */; };
+		81C8B7FE253D0AF60086F6C8 /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 81C8B7FD253D0AF60086F6C8 /* languages.json */; };
+		81C8B806253D0B120086F6C8 /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B805253D0B120086F6C8 /* LanguageTests.swift */; };
+		81C8B80E253D10CE0086F6C8 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B80D253D10CE0086F6C8 /* Errors.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
@@ -206,6 +209,9 @@
 		81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSelectionView.swift; sourceTree = "<group>"; };
 		81C8B7E6253CD74C0086F6C8 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		81C8B7F4253CFA6B0086F6C8 /* Race+SubraceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Race+SubraceTests.swift"; sourceTree = "<group>"; };
+		81C8B7FD253D0AF60086F6C8 /* languages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = languages.json; sourceTree = "<group>"; };
+		81C8B805253D0B120086F6C8 /* LanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
+		81C8B80D253D10CE0086F6C8 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -330,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
+				81C8B80D253D10CE0086F6C8 /* Errors.swift */,
 				81C8B7DF253CD62F0086F6C8 /* SwiftUI */,
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
@@ -350,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				81C8B7F4253CFA6B0086F6C8 /* Race+SubraceTests.swift */,
+				81C8B805253D0B120086F6C8 /* LanguageTests.swift */,
 				8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */,
 				81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */,
 				81A5E14A22C0277400A838CD /* LanguageDataTest.swift */,
@@ -374,8 +382,8 @@
 			children = (
 				81D599DE22BC935F005EE768 /* RealmProvider.swift */,
 				81D599E222BD8344005EE768 /* Realms */,
+				81C8B7FC253D0AB10086F6C8 /* JSON */,
 				8152B3EA20DC3B48008B7A1A /* races.swift */,
-				81C8B7E6253CD74C0086F6C8 /* races.json */,
 				81DF302D213C5F3200C939CE /* items.swift */,
 				81BC72B020F18DB500B48195 /* classes.swift */,
 				81BC72AA20F17F2500B48195 /* spells.swift */,
@@ -533,6 +541,15 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
+		81C8B7FC253D0AB10086F6C8 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				81C8B7E6253CD74C0086F6C8 /* races.json */,
+				81C8B7FD253D0AF60086F6C8 /* languages.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		81D599E222BD8344005EE768 /* Realms */ = {
 			isa = PBXGroup;
 			children = (
@@ -683,6 +700,7 @@
 				81B038C822D81A170059AFC1 /* SpellRecords.realm in Resources */,
 				8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */,
 				81ACFDAF22C572BB0014597D /* ItemRecords.realm in Resources */,
+				81C8B7FE253D0AF60086F6C8 /* languages.json in Resources */,
 				81FC7CFB21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib in Resources */,
 				81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */,
 				810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */,
@@ -832,6 +850,7 @@
 				81243E59227A3562003A9DA8 /* Weapon.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81851D5F2254721E00260413 /* UITextView.swift in Sources */,
+				81C8B80E253D10CE0086F6C8 /* Errors.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
 				81851D612254725C00260413 /* UITextField.swift in Sources */,
@@ -867,6 +886,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
+				81C8B806253D0B120086F6C8 /* LanguageTests.swift in Sources */,
 				8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */,
 				81C8B7F5253CFA6B0086F6C8 /* Race+SubraceTests.swift in Sources */,
 				81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */,
@@ -1043,7 +1063,7 @@
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CharacterCreator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1067,7 +1087,7 @@
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = CharacterCreator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1089,6 +1109,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1111,6 +1132,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1132,6 +1154,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1153,6 +1176,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				INFOPLIST_FILE = CharacterCreatorUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

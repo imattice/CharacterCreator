@@ -132,21 +132,21 @@ struct Race {
 	static let Human				= Race(fromParent: "human", withSubrace: nil)
 }
 
-struct RaceRecord: Codable {
-    let id: String
-    let name: String
-    let description: String
-    let modifiers: [Modifier]
-    let subraces: [SubraceRecord]
-    let baseLangauges: [LanguageRecord]
-}
+//struct RaceRecord: Codable {
+//    let id: String
+//    let name: String
+//    let description: String
+//    let modifiers: [Modifier]
+//    let subraces: [SubraceRecord]
+//    let baseLangauges: [LanguageRecord]
+//}
 
-struct SubraceRecord: Codable {
-    let id: String
-    let name: String
-    let description: String
-    let modifiers: [Modifier]
-}
+//struct SubraceRecord: Codable {
+//    let id: String
+//    let name: String
+//    let description: String
+//    let modifiers: [Modifier]
+//}
 
 //@objcMembers
 //class RaceRecord: Object {
