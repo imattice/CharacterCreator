@@ -38,7 +38,7 @@ struct Language {
 	}
 }
 
-struct LanguageRecord: Codable {
+class LanguageRecord: Record, Codable {
     let id: String
     ///the name of the language
     let name: String
@@ -51,6 +51,7 @@ struct LanguageRecord: Codable {
     ///if the language is secret
     let isSecret: Bool
     
+    required
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -65,23 +66,8 @@ struct LanguageRecord: Codable {
     ///returns an array of LanguageRecord if successfuly decoded from JSON or an empty array if failed
     static
     func all() -> [LanguageRecord] {
-        let result = try? parseAllFromJSON()
+        let result: [LanguageRecord]? = try? parseAllFromJSON()
         return result ?? [LanguageRecord]()
-    }
-    
-    ///decodes JSON from file
-    static
-    private func parseAllFromJSON() throws -> [LanguageRecord] {
-        guard let path = Bundle.main.path(forResource: "languages", ofType: "json")
-        else { print("file not found"); throw JSONError.fileNotFound }
-        
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: [])
-            return try JSONDecoder().decode([LanguageRecord].self, from: data)
-        }
-        catch {
-            throw JSONError.parsingError
-        }
     }
     
     ///returns the record for the specified language
@@ -91,10 +77,7 @@ struct LanguageRecord: Codable {
     }
 }
 
-enum JSONError: Error {
-    case fileNotFound,
-         parsingError
-}
+
 
 
 //extension Language {

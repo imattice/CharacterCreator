@@ -9,14 +9,14 @@
 import Foundation
 import RealmSwift
 
-protocol Record {
-	var id: String { get set }
-	var name: String { get set }
-	var detail: String { get set }
-//
-//	static func allRecords(in realm: Realm) -> Results<Object>
-//	static func record(for name: String, in realm: Realm) -> Object?
-}
+//protocol Record {
+//	var id: String { get set }
+//	var name: String { get set }
+//	var detail: String { get set }
+////
+////	static func allRecords(in realm: Realm) -> Results<Object>
+////	static func record(for name: String, in realm: Realm) -> Object?
+//}
 
 
 

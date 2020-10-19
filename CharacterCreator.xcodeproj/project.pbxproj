@@ -78,6 +78,7 @@
 		81C8B7FE253D0AF60086F6C8 /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 81C8B7FD253D0AF60086F6C8 /* languages.json */; };
 		81C8B806253D0B120086F6C8 /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B805253D0B120086F6C8 /* LanguageTests.swift */; };
 		81C8B80E253D10CE0086F6C8 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B80D253D10CE0086F6C8 /* Errors.swift */; };
+		81C8B89F253E08450086F6C8 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B89E253E08450086F6C8 /* Record.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
@@ -212,6 +213,7 @@
 		81C8B7FD253D0AF60086F6C8 /* languages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = languages.json; sourceTree = "<group>"; };
 		81C8B805253D0B120086F6C8 /* LanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
 		81C8B80D253D10CE0086F6C8 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		81C8B89E253E08450086F6C8 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				81D599DE22BC935F005EE768 /* RealmProvider.swift */,
+				81C8B89E253E08450086F6C8 /* Record.swift */,
 				81D599E222BD8344005EE768 /* Realms */,
 				81C8B7FC253D0AB10086F6C8 /* JSON */,
 				8152B3EA20DC3B48008B7A1A /* races.swift */,
@@ -821,6 +824,7 @@
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
 				81A8D253227D45280015E116 /* Pack.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */,
+				81C8B89F253E08450086F6C8 /* Record.swift in Sources */,
 				8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */,
 				8195AF8C225706BE00153B58 /* ImageSelectionView.swift in Sources */,
 				81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */,
