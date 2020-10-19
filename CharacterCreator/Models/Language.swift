@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import CoreData
 
 ///defines a flexible object to describe a language that can be learned by a character
 struct Language {
@@ -38,18 +39,18 @@ struct Language {
 	}
 }
 
-class LanguageRecord: Record, Codable {
-    let id: String
-    ///the name of the language
-    let name: String
-    ///who commonly speaks this language
-    let spokenBy: String
-    ///which script the writing of this language is based off of
-    let script: String
-    ///if the language is rare
-    let isExotic: Bool
-    ///if the language is secret
-    let isSecret: Bool
+extension LanguageRecord: Record, Codable {
+//    let id: String
+//    ///the name of the language
+//    let name: String
+//    ///who commonly speaks this language
+//    let spokenBy: String
+//    ///which script the writing of this language is based off of
+//    let script: String
+//    ///if the language is rare
+//    let isExotic: Bool
+//    ///if the language is secret
+//    let isSecret: Bool
     
     required
     init(from decoder: Decoder) throws {
@@ -74,6 +75,11 @@ class LanguageRecord: Record, Codable {
     static
     func record(for name: String) -> LanguageRecord? {
         return all().filter({ $0.name == name }).first
+    }
+    
+    static
+    func loadDataIfNeeded() {
+        
     }
 }
 

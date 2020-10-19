@@ -66,6 +66,6 @@ class CoreDataStack {
     }
     
     func loadAllDataIfNeeded() {
-        
+        LanguageRecord.loadDataIfNeeded()
     }
 }

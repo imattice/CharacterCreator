@@ -41,6 +41,19 @@ class Record {
             throw JSONError.parsingError
         }
     }
+    
+    @discardableResult static
+    func loadDataIfNeeded<T: Codable>() -> [T] {
+        let context = CoreDataStack.recordsManager.managedContext
+        let entityName = String(describing: T.self)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+
+        guard let count = try? context.count(for: request), count == 0
+        else { print("data for \(entityName) is present"); return [T]() }
+
+        let data: [T] = try? parseAllFromJSON()
+        
+    }
 }
 
 enum JSONError: Error {
