@@ -20,7 +20,7 @@ class LanguageTests: XCTestCase {
     }
 
     func testJSONParsing() throws {
-        let languages = TEMPLanguageRecord.all()
+        let languages = LanguageRecord.all()
         XCTAssertTrue(!languages.isEmpty)
         XCTAssertTrue(languages.contains { $0.name == "common" })
         XCTAssertTrue(languages.contains { $0.name == "elvish" })

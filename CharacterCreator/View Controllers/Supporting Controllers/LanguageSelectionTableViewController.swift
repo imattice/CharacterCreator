@@ -62,8 +62,8 @@ class LanguageSelectionTableViewController: UITableViewController {
 	}
 
 	func populateData() {
-			let commonLanguages = LanguageRecord.allRecords().filter({ $0.isRare == false })
-			let rareLanguages = LanguageRecord.allRecords().filter({ $0.isRare == true })
+			let commonLanguages = LanguageRecord.all().filter({ $0.isExotic == false })
+			let rareLanguages = LanguageRecord.all().filter({ $0.isExotic == true })
 
 		var raceLearnedLanguages: [String] {
 			guard let raceDict = raceData[Character.current.race.parentRace] as? [String : Any],
@@ -103,7 +103,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			let selectionData = LanguageSelectionData(isSelectable: !isLearned,
 													  source: source,
-													  language: record.language())
+                                                      language: Language(name: record.name))
 			dataSource[0].languageData.append(selectionData)
 		}
 		for record in rareLanguages {
@@ -122,7 +122,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			let selectionData = LanguageSelectionData(isSelectable: !isLearned,
 													  source: source,
-													  language: record.language())
+                                                      language: Language(name: record.name))
 			dataSource[1].languageData.append(selectionData)
 		}
 

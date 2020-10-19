@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-//defines a flexible object to describe a language that can be learned by the character
+///defines a flexible object to describe a language that can be learned by a character
 struct Language {
 	let name: String
 	let isSelectable: Bool
@@ -20,64 +20,25 @@ struct Language {
 	var script: String {
 		guard let record = LanguageRecord.record(for: name) else { return "" }
 		return record.script	}
-	var isRare: Bool {
+	var isExotic: Bool {
 		guard let record = LanguageRecord.record(for: name) else { return true }
-		return record.isRare	}
+		return record.isExotic	}
 
 	init(name: String, isSelectable: Bool = false) { //}, spokenBy: String, script: String, isRare: Bool) {
 		self.name 			= name
 		self.isSelectable 	= isSelectable
 	}
     
-    static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {
-        return LanguageRecord.allRecords().filter({ $0.name == name }).first
-    }
+//    static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {
+//        return LanguageRecord.all().filter({ $0.name == name }).first
+//    }
 
 	enum Script: String {
 		case common, draconic, dwarvish, elvish, infernal, celestial, druidic
 	}
 }
 
-extension Language {
-	static let Common 			= LanguageRecord.record(for: "common")!.language()
-	static let Draconic 		= LanguageRecord.record(for: "draconic")!.language()
-	static let Dwarvish 		= LanguageRecord.record(for: "dwarvish")!.language()
-	static let Elven		 	= LanguageRecord.record(for: "elven")!.language()
-
-	static let Giant 			= LanguageRecord.record(for: "giant")!.language()
-	static let Gnomish 			= LanguageRecord.record(for: "gnomish")!.language()
-	static let Goblin			= LanguageRecord.record(for: "goblin")!.language()
-	static let Halfling 		= LanguageRecord.record(for: "halfling")!.language()
-	static let Abyssal 			= LanguageRecord.record(for: "abyssal")!.language()
-	static let Celestial 		= LanguageRecord.record(for: "celestial")!.language()
-	static let DeepSpeech 		= LanguageRecord.record(for: "deep speech")!.language()
-	static let Infernal 		= LanguageRecord.record(for: "infernal")!.language()
-	static let Orc				= LanguageRecord.record(for: "orc")!.language()
-	static let Undercommon 		= LanguageRecord.record(for: "undercommon")!.language()
-}
-
-@objcMembers
-class LanguageRecord : Object {
-	dynamic var id: String 			= UUID().uuidString
-	dynamic var name: String		= ""
-	dynamic var spokenBy: String	= ""
-	dynamic var script: String		= ""
-	dynamic var isRare: Bool		= false
-
-	static func allRecords(in realm: Realm = RealmProvider.languageRecords.realm) -> Results<LanguageRecord> {
-		return realm.objects(LanguageRecord.self)//.sorted(byKeyPath: "name")
-	}
-
-	static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {
-		return allRecords().filter({ $0.name == name }).first
-	}
-
-	func language() -> Language {
-		return Language(name: name)
-	}
-}
-
-struct TEMPLanguageRecord: Codable {
+struct LanguageRecord: Codable {
     let id: String
     ///the name of the language
     let name: String
@@ -103,24 +64,30 @@ struct TEMPLanguageRecord: Codable {
     
     ///returns an array of LanguageRecord if successfuly decoded from JSON or an empty array if failed
     static
-    func all() -> [TEMPLanguageRecord] {
+    func all() -> [LanguageRecord] {
         let result = try? parseAllFromJSON()
-        return result ?? [TEMPLanguageRecord]()
+        return result ?? [LanguageRecord]()
     }
     
     ///decodes JSON from file
     static
-    private func parseAllFromJSON() throws -> [TEMPLanguageRecord] {
+    private func parseAllFromJSON() throws -> [LanguageRecord] {
         guard let path = Bundle.main.path(forResource: "languages", ofType: "json")
         else { print("file not found"); throw JSONError.fileNotFound }
         
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: [])
-            return try JSONDecoder().decode([TEMPLanguageRecord].self, from: data)
+            return try JSONDecoder().decode([LanguageRecord].self, from: data)
         }
         catch {
             throw JSONError.parsingError
         }
+    }
+    
+    ///returns the record for the specified language
+    static
+    func record(for name: String) -> LanguageRecord? {
+        return all().filter({ $0.name == name }).first
     }
 }
 
@@ -128,3 +95,43 @@ enum JSONError: Error {
     case fileNotFound,
          parsingError
 }
+
+
+//extension Language {
+//    static let Common             = LanguageRecord.record(for: "common")!.language()
+//    static let Draconic         = LanguageRecord.record(for: "draconic")!.language()
+//    static let Dwarvish         = LanguageRecord.record(for: "dwarvish")!.language()
+//    static let Elven             = LanguageRecord.record(for: "elven")!.language()
+//
+//    static let Giant             = LanguageRecord.record(for: "giant")!.language()
+//    static let Gnomish             = LanguageRecord.record(for: "gnomish")!.language()
+//    static let Goblin            = LanguageRecord.record(for: "goblin")!.language()
+//    static let Halfling         = LanguageRecord.record(for: "halfling")!.language()
+//    static let Abyssal             = LanguageRecord.record(for: "abyssal")!.language()
+//    static let Celestial         = LanguageRecord.record(for: "celestial")!.language()
+//    static let DeepSpeech         = LanguageRecord.record(for: "deep speech")!.language()
+//    static let Infernal         = LanguageRecord.record(for: "infernal")!.language()
+//    static let Orc                = LanguageRecord.record(for: "orc")!.language()
+//    static let Undercommon         = LanguageRecord.record(for: "undercommon")!.language()
+//}
+
+//@objcMembers
+//class LanguageRecord : Object {
+//    dynamic var id: String             = UUID().uuidString
+//    dynamic var name: String        = ""
+//    dynamic var spokenBy: String    = ""
+//    dynamic var script: String        = ""
+//    dynamic var isRare: Bool        = false
+//
+//    static func allRecords(in realm: Realm = RealmProvider.languageRecords.realm) -> Results<LanguageRecord> {
+//        return realm.objects(LanguageRecord.self)//.sorted(byKeyPath: "name")
+//    }
+//
+//    static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {
+//        return allRecords().filter({ $0.name == name }).first
+//    }
+//
+//    func language() -> Language {
+//        return Language(name: name)
+//    }
+//}

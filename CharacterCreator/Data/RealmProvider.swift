@@ -28,12 +28,12 @@ struct RealmProvider {
 
 
 	//Languages
-	public static var languageRecords: RealmProvider = {
-		return RealmProvider(configuration: languageConfig)	}()
-	private static let languageConfig = Realm.Configuration(fileURL: Bundle.main.url(forResource: "LanguageRecords", withExtension: "realm" ),
-															readOnly: true,
-															schemaVersion: 1,
-															objectTypes: [LanguageRecord.self])
+//	public static var languageRecords: RealmProvider = {
+//		return RealmProvider(configuration: languageConfig)	}()
+//	private static let languageConfig = Realm.Configuration(fileURL: Bundle.main.url(forResource: "LanguageRecords", withExtension: "realm" ),
+//															readOnly: true,
+//															schemaVersion: 1,
+//															objectTypes: [LanguageRecord.self])
 	//Items
 	public static var itemRecords: RealmProvider = {
 		return RealmProvider(configuration: itemConfig)	}()
