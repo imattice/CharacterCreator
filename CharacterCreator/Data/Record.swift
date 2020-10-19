@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class Record {
     ///returns an array of RaceRecord if successfuly decoded from JSON or an empty array if failed

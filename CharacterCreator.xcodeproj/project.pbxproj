@@ -16,7 +16,6 @@
 		8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */; };
 		8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8123671A20CA44DD00F7AEFC /* Assets.xcassets */; };
 		8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */; };
-		8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */; };
 		8123673420CA44DD00F7AEFC /* CharacterCreatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */; };
 		81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E542279EFE0003A9DA8 /* WeaponStatView.swift */; };
 		81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81243E562279F022003A9DA8 /* WeaponStatView.xib */; };
@@ -43,7 +42,6 @@
 		81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */; };
 		81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */; };
 		81541A35227420C2002C7B72 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* Language.swift */; };
-		81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */; };
 		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		81851D5F2254721E00260413 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D5E2254721E00260413 /* UITextView.swift */; };
@@ -56,12 +54,10 @@
 		819621E62268F33300A4DD3D /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819621E52268F33300A4DD3D /* UIResponder.swift */; };
 		819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ModalTableViewController.swift */; };
 		819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */; };
-		81A5E14B22C0277400A838CD /* LanguageDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E14A22C0277400A838CD /* LanguageDataTest.swift */; };
 		81A8D251227D21770015E116 /* Armor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D250227D21770015E116 /* Armor.swift */; };
 		81A8D253227D45280015E116 /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8D252227D45280015E116 /* Pack.swift */; };
 		81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDA022C2F62F0014597D /* DamageTests.swift */; };
 		81ACFDAF22C572BB0014597D /* ItemRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81ACFDAE22C572BB0014597D /* ItemRecords.realm */; };
-		81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDB122CD7DB70014597D /* SpellTests.swift */; };
 		81B038C822D81A170059AFC1 /* SpellRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81B038C722D81A170059AFC1 /* SpellRecords.realm */; };
 		81B038CC22DC0B750059AFC1 /* BackgroundRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */; };
 		81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B038CD22DD14AF0059AFC1 /* Effect.swift */; };
@@ -79,6 +75,10 @@
 		81C8B806253D0B120086F6C8 /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B805253D0B120086F6C8 /* LanguageTests.swift */; };
 		81C8B80E253D10CE0086F6C8 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B80D253D10CE0086F6C8 /* Errors.swift */; };
 		81C8B89F253E08450086F6C8 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B89E253E08450086F6C8 /* Record.swift */; };
+		81C8B8B2253E196F0086F6C8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8B1253E196F0086F6C8 /* CoreDataStack.swift */; };
+		81C8B8E2253E211D0086F6C8 /* Records.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8E0253E211D0086F6C8 /* Records.xcdatamodeld */; };
+		81C8B8E7253E21E10086F6C8 /* RecordCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */; };
+		81C8B8EF253E22800086F6C8 /* TestableCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
@@ -147,7 +147,6 @@
 		8123671D20CA44DD00F7AEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8123671F20CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8123672420CA44DD00F7AEFC /* CharacterCreatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorTests.swift; sourceTree = "<group>"; };
 		8123672A20CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8123672F20CA44DD00F7AEFC /* CharacterCreatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorUITests.swift; sourceTree = "<group>"; };
@@ -177,7 +176,6 @@
 		81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveableLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewController.swift; sourceTree = "<group>"; };
 		81541A34227420C2002C7B72 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClassTests.swift; sourceTree = "<group>"; };
 		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		81851D5E2254721E00260413 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
@@ -191,12 +189,10 @@
 		819B065E20E7455300902D4E /* ModalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionHeaderView.swift; sourceTree = "<group>"; };
 		819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
-		81A5E14A22C0277400A838CD /* LanguageDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDataTest.swift; sourceTree = "<group>"; };
 		81A8D250227D21770015E116 /* Armor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Armor.swift; sourceTree = "<group>"; };
 		81A8D252227D45280015E116 /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
 		81ACFDA022C2F62F0014597D /* DamageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTests.swift; sourceTree = "<group>"; };
 		81ACFDAE22C572BB0014597D /* ItemRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItemRecords.realm; sourceTree = "<group>"; };
-		81ACFDB122CD7DB70014597D /* SpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTests.swift; sourceTree = "<group>"; };
 		81B038C722D81A170059AFC1 /* SpellRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpellRecords.realm; sourceTree = "<group>"; };
 		81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundRecords.realm; sourceTree = "<group>"; };
 		81B038CD22DD14AF0059AFC1 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
@@ -214,6 +210,10 @@
 		81C8B805253D0B120086F6C8 /* LanguageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
 		81C8B80D253D10CE0086F6C8 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		81C8B89E253E08450086F6C8 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		81C8B8B1253E196F0086F6C8 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		81C8B8E1253E211D0086F6C8 /* Records.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Records.xcdatamodel; sourceTree = "<group>"; };
+		81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoreDataTests.swift; sourceTree = "<group>"; };
+		81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCoreDataStack.swift; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -359,12 +359,10 @@
 			isa = PBXGroup;
 			children = (
 				81C8B7F4253CFA6B0086F6C8 /* Race+SubraceTests.swift */,
+				81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */,
+				81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */,
 				81C8B805253D0B120086F6C8 /* LanguageTests.swift */,
-				8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */,
-				81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */,
-				81A5E14A22C0277400A838CD /* LanguageDataTest.swift */,
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
-				81ACFDB122CD7DB70014597D /* SpellTests.swift */,
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
 			);
 			path = CharacterCreatorTests;
@@ -383,7 +381,9 @@
 			isa = PBXGroup;
 			children = (
 				81D599DE22BC935F005EE768 /* RealmProvider.swift */,
+				81C8B8B1253E196F0086F6C8 /* CoreDataStack.swift */,
 				81C8B89E253E08450086F6C8 /* Record.swift */,
+				81C8B8E0253E211D0086F6C8 /* Records.xcdatamodeld */,
 				81D599E222BD8344005EE768 /* Realms */,
 				81C8B7FC253D0AB10086F6C8 /* JSON */,
 				8152B3EA20DC3B48008B7A1A /* races.swift */,
@@ -826,6 +826,7 @@
 				8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */,
 				81C8B89F253E08450086F6C8 /* Record.swift in Sources */,
 				8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */,
+				81C8B8E2253E211D0086F6C8 /* Records.xcdatamodeld in Sources */,
 				8195AF8C225706BE00153B58 /* ImageSelectionView.swift in Sources */,
 				81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
@@ -856,6 +857,7 @@
 				81851D5F2254721E00260413 /* UITextView.swift in Sources */,
 				81C8B80E253D10CE0086F6C8 /* Errors.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
+				81C8B8B2253E196F0086F6C8 /* CoreDataStack.swift in Sources */,
 				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
 				81851D612254725C00260413 /* UITextField.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
@@ -890,12 +892,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
+				81C8B8E7253E21E10086F6C8 /* RecordCoreDataTests.swift in Sources */,
+				81C8B8EF253E22800086F6C8 /* TestableCoreDataStack.swift in Sources */,
 				81C8B806253D0B120086F6C8 /* LanguageTests.swift in Sources */,
-				8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */,
 				81C8B7F5253CFA6B0086F6C8 /* Race+SubraceTests.swift in Sources */,
-				81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */,
-				81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */,
-				81A5E14B22C0277400A838CD /* LanguageDataTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1243,6 +1243,16 @@
 			);
 			currentVersion = 8123671820CA44DA00F7AEFC /* CharacterCreator.xcdatamodel */;
 			path = CharacterCreator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		81C8B8E0253E211D0086F6C8 /* Records.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81C8B8E1253E211D0086F6C8 /* Records.xcdatamodel */,
+			);
+			currentVersion = 81C8B8E1253E211D0086F6C8 /* Records.xcdatamodel */;
+			path = Records.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
