@@ -79,6 +79,7 @@
 		81C8B8E2253E211D0086F6C8 /* Records.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8E0253E211D0086F6C8 /* Records.xcdatamodeld */; };
 		81C8B8E7253E21E10086F6C8 /* RecordCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */; };
 		81C8B8EF253E22800086F6C8 /* TestableCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */; };
+		81C8B93B253F707D0086F6C8 /* CodingUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B93A253F707D0086F6C8 /* CodingUserInfoKey.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
@@ -214,6 +215,7 @@
 		81C8B8E1253E211D0086F6C8 /* Records.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Records.xcdatamodel; sourceTree = "<group>"; };
 		81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoreDataTests.swift; sourceTree = "<group>"; };
 		81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCoreDataStack.swift; sourceTree = "<group>"; };
+		81C8B93A253F707D0086F6C8 /* CodingUserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKey.swift; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				81851D5E2254721E00260413 /* UITextView.swift */,
 				81851D602254725C00260413 /* UITextField.swift */,
 				819621E52268F33300A4DD3D /* UIResponder.swift */,
+				81C8B93A253F707D0086F6C8 /* CodingUserInfoKey.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				81C8B8B2253E196F0086F6C8 /* CoreDataStack.swift in Sources */,
 				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
+				81C8B93B253F707D0086F6C8 /* CodingUserInfoKey.swift in Sources */,
 				81851D612254725C00260413 /* UITextField.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,

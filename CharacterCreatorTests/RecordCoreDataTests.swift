@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import CharacterCreator
 
 class RecordCoreDataTests: XCTestCase {
     var dataStack: TestableRecordsDataStack!
@@ -20,17 +21,18 @@ class RecordCoreDataTests: XCTestCase {
         super.tearDown()
         dataStack = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testLanguageRecordLoadData() {
+        TestableRecordsDataStack.recordsManager.loadAllRecordDataIfNeeded()
+        
+    
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    func testLanguageRecordSave()  {
 
+    }
+    
+    func testLanguageRecordRead() {
+        
+    }
 }

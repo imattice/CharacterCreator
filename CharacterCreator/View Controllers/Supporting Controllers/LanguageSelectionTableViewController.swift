@@ -85,7 +85,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 
 		for record in commonLanguages {
-			let isLearned = learnedLanguages.contains(record.name) ? true : false
+			let isLearned = learnedLanguages.contains(record.name!) ? true : false
 			var source: String? {
 				if isLearned {
 					if raceLearnedLanguages.contains(where: { $0 == record.name }) {
@@ -103,11 +103,11 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			let selectionData = LanguageSelectionData(isSelectable: !isLearned,
 													  source: source,
-                                                      language: Language(name: record.name))
+                                                      language: Language(name: record.name!))
 			dataSource[0].languageData.append(selectionData)
 		}
 		for record in rareLanguages {
-			let isLearned = learnedLanguages.contains(record.name) ? true : false
+			let isLearned = learnedLanguages.contains(record.name!) ? true : false
 			var source: String? {
 				if isLearned {
 					if raceLearnedLanguages.contains(where: { $0 == record.name }) {
@@ -122,7 +122,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			let selectionData = LanguageSelectionData(isSelectable: !isLearned,
 													  source: source,
-                                                      language: Language(name: record.name))
+                                                      language: Language(name: record.name!))
 			dataSource[1].languageData.append(selectionData)
 		}
 

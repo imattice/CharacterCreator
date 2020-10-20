@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XCTest
 import CoreData
 @testable import CharacterCreator
 
@@ -37,4 +38,34 @@ class TestableRecordsDataStack: CoreDataStack {
         ///initialize
         super.init(name: modelName, container: container)
   }
+}
+
+class TestableDataStackTest: XCTestCase {
+    var dataStack: TestableRecordsDataStack!
+
+    override func setUpWithError() throws {
+        super.setUp()
+        dataStack = TestableRecordsDataStack()
+    }
+
+    override func tearDownWithError() throws {
+        super.tearDown()
+        dataStack = nil
+    }
+    
+    func testInMemoryDataStore() {
+        print(dataStack.modelName)
+
+        let record = LanguageRecord(context: dataStack.managedContext)
+        record.name = "english"
+        
+        let request = NSFetchRequest<LanguageRecord>(entityName: "LanguageRecord")
+        dataStack.saveContext()
+        
+        let fetchedResults = try? dataStack.managedContext.fetch(request)
+        
+        XCTAssertNotNil(fetchedResults)
+        XCTAssertNotNil(fetchedResults?.first)
+        XCTAssertTrue(fetchedResults!.first!.name == "english")
+    }
 }

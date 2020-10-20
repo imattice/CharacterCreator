@@ -17,10 +17,10 @@ struct Language {
 
 	var spokenBy: String {
 		guard let record = LanguageRecord.record(for: name) else { return "" }
-		return record.spokenBy	}
+		return record.spokenBy!	}
 	var script: String {
 		guard let record = LanguageRecord.record(for: name) else { return "" }
-		return record.script	}
+		return record.script!	}
 	var isExotic: Bool {
 		guard let record = LanguageRecord.record(for: name) else { return true }
 		return record.isExotic	}
@@ -39,21 +39,27 @@ struct Language {
 	}
 }
 
-struct LanguageRecord: Record, Codable {
-    
-    let id: String
-    ///the name of the language
-    let name: String
-    ///who commonly speaks this language
-    let spokenBy: String
-    ///which script the writing of this language is based off of
-    let script: String
-    ///if the language is rare
-    let isExotic: Bool
-    ///if the language is secret
-    let isSecret: Bool
-    
+///followed this blog post to conform this object to both NSManagedObject and Codable
+///https://www.donnywals.com/using-codable-with-core-data-and-nsmanagedobject/
+class LanguageRecord: NSManagedObject, Record {
+//    let id: String
+//    ///the name of the language
+//    let name: String
+//    ///who commonly speaks this language
+//    let spokenBy: String
+//    ///which script the writing of this language is based off of
+//    let script: String
+//    ///if the language is rare
+//    let isExotic: Bool
+//    ///if the language is secret
+//    let isSecret: Bool
+    required convenience
     init(from decoder: Decoder) throws {
+        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
+          throw JSONError.missingManagedObjectContextForDecoder }
+        
+        self.init(context: context)
+        
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.id = UUID().uuidString
@@ -63,7 +69,7 @@ struct LanguageRecord: Record, Codable {
         self.isExotic = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
         self.isSecret = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
     }
-    
+
     ///returns an array of LanguageRecord if successfuly decoded from JSON or an empty array if failed
     static
     func all() -> [LanguageRecord] {
@@ -86,6 +92,23 @@ struct LanguageRecord: Record, Codable {
 //    func parseAllFromJSON<T>() -> [T]  {
 //
 //    }
+}
+
+extension LanguageRecord: Codable {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(spokenBy, forKey: .spokenBy)
+        try container.encode(script, forKey: .script)
+        try container.encode(isExotic, forKey: .isExotic)
+        try container.encode(isSecret, forKey: .isSecret)
+    }
+    
+    enum CodingKeys: CodingKey {
+        case id, isExotic, isSecret, name, script, spokenBy
+    }
 }
 
 

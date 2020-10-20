@@ -9,3 +9,9 @@
 import Foundation
 
 
+enum JSONError: Error {
+    case fileNotFound,
+         parsingError,
+         missingManagedObjectContextForDecoder
+
+}

@@ -77,7 +77,4 @@ extension Record where Self: Codable {
     }
 }
 
-enum JSONError: Error {
-    case fileNotFound,
-         parsingError
-}
+
