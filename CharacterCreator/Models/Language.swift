@@ -83,10 +83,10 @@ class LanguageRecord: NSManagedObject, Record {
         return all().filter({ $0.name == name }).first
     }
     
-    static
-    func loadDataIfNeeded() {
-        
-    }
+//    static
+//    func loadDataIfNeeded() {
+//        
+//    }
     
 //    static
 //    func parseAllFromJSON<T>() -> [T]  {

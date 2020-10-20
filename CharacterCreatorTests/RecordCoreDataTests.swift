@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CoreData
 @testable import CharacterCreator
 
 class RecordCoreDataTests: XCTestCase {
@@ -23,9 +24,13 @@ class RecordCoreDataTests: XCTestCase {
     }
     
     func testLanguageRecordLoadData() {
-        TestableRecordsDataStack.recordsManager.loadAllRecordDataIfNeeded()
+        LanguageRecord.loadDataIfNeeded()
+
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "LanguageRecord")
+        let fetch = try? RecordDataManager.shared.managedContext.fetch(request)
         
-    
+        XCTAssertFalse(fetch!.isEmpty)
+        XCTAssert(fetch?.count == 18)
     }
 
     func testLanguageRecordSave()  {

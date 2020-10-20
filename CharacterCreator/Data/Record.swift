@@ -24,8 +24,8 @@ protocol Record {
     static
     func parseAllFromJSON<T: Codable>() throws -> [T]
     
-    static
-    func loadDataIfNeeded()
+    @discardableResult static
+    func loadDataIfNeeded<T: Codable>() -> [T]
 }
 
 extension Record where Self: Codable {
@@ -44,7 +44,10 @@ extension Record where Self: Codable {
 
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: [])
-            return try JSONDecoder().decode([T].self, from: data)
+            let decoder = JSONDecoder()
+            decoder.userInfo[CodingUserInfoKey.managedObjectContext] = RecordDataManager.shared.managedContext
+
+            return try decoder.decode([T].self, from: data)
         }
         catch {
             print("error while parsing JSON for file \(filename).json")
@@ -57,7 +60,7 @@ extension Record where Self: Codable {
     ///if not, load the data from the JSON file
     @discardableResult static
     func loadDataIfNeeded<T: Codable>() -> [T] {
-        let context = CoreDataStack.recordsManager.managedContext
+        let context = RecordDataManager.shared.managedContext
         let entityName = String(describing: T.self)
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
 
@@ -72,9 +75,29 @@ extension Record where Self: Codable {
             context.insert(record as! NSManagedObject)
         }
         
-        CoreDataStack.recordsManager.saveContext()
+        RecordDataManager.shared.saveContext()
         return records
     }
+    
+    static
+    func loadDataIfNeeded() {
+        let context = RecordDataManager.shared.managedContext
+        let entityName = String(describing: Self.self)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+
+        guard let count = try? context.count(for: request), count == 0
+        else { print("data for \(entityName) is present"); return }
+
+        let data: [Self]? = try? parseAllFromJSON()
+
+        guard let records = data else { return  }
+        for record in records {
+            context.insert(record as! NSManagedObject)
+        }
+
+        RecordDataManager.shared.saveContext()
+    }
+
 }
 
 

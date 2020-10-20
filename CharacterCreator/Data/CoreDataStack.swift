@@ -11,11 +11,8 @@ import CoreData
 
 class CoreDataStack {
     ///The name of the core data model file that contains the entities
+    private
     let modelName: String
-    
-    ///A singleton Data Stack to be used throughout the app to access Record data
-    static
-    let recordsManager = CoreDataStack(name: "Records")
     
     ///managed context for accessing records data
     lazy
@@ -32,7 +29,7 @@ class CoreDataStack {
     ///store container for records data
     lazy private
     var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "records")
+        let container = NSPersistentContainer(name: modelName)
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
                 print("Unresolved error \(error), \(error.userInfo)")
@@ -55,17 +52,22 @@ class CoreDataStack {
     
     ///save the records context with any changes that have been made
     func saveContext() {
-        //ensure that there were changes made
+        ///ensure that there were changes made
         guard managedContext.hasChanges else { print("no changes to context"); return }
         
         do {
             try managedContext.save()
-        } catch let nserror as NSError {
-            print("Unresolved error \(nserror), \(nserror.userInfo)")
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
         }
     }
+}
+
+class RecordDataManager: CoreDataStack {
+    static
+    let shared = RecordDataManager(name: "Records")
     
-    
+    static
     func loadAllRecordDataIfNeeded() {
         LanguageRecord.loadDataIfNeeded()
     }
