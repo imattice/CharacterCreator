@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Record {
+protocol Record {
     ///returns an array of RaceRecord if successfuly decoded from JSON or an empty array if failed
     ///Implementing a generic all() function here causes issues with not recognizing type
     ///this will likely be replaced by a core data fetch request in the future
@@ -20,6 +20,14 @@ class Record {
 //        return result ?? [T]()
 //    }
     
+    static
+    func parseAllFromJSON<T: Codable>() throws -> [T]
+    
+//    static
+//    func loadDataIfNeeded()
+}
+
+extension Record where Self: Codable {
   ///decodes JSON from file
     static
     func parseAllFromJSON<T: Codable>() throws -> [T] {
@@ -42,18 +50,18 @@ class Record {
         }
     }
     
-    @discardableResult static
-    func loadDataIfNeeded<T: Codable>() -> [T] {
-        let context = CoreDataStack.recordsManager.managedContext
-        let entityName = String(describing: T.self)
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-
-        guard let count = try? context.count(for: request), count == 0
-        else { print("data for \(entityName) is present"); return [T]() }
-
-        let data: [T] = try? parseAllFromJSON()
-        
-    }
+//    @discardableResult static
+//    func loadDataIfNeeded<T: Codable>() -> [T] {
+//        let context = CoreDataStack.recordsManager.managedContext
+//        let entityName = String(describing: T.self)
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+//
+//        guard let count = try? context.count(for: request), count == 0
+//        else { print("data for \(entityName) is present"); return [T]() }
+//
+//        let data: [T] = try? parseAllFromJSON()
+//
+//    }
 }
 
 enum JSONError: Error {

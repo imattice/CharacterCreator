@@ -79,8 +79,6 @@
 		81C8B8E2253E211D0086F6C8 /* Records.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8E0253E211D0086F6C8 /* Records.xcdatamodeld */; };
 		81C8B8E7253E21E10086F6C8 /* RecordCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */; };
 		81C8B8EF253E22800086F6C8 /* TestableCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */; };
-		81C8B909253E4E230086F6C8 /* LanguageRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B907253E4E230086F6C8 /* LanguageRecord+CoreDataClass.swift */; };
-		81C8B90A253E4E230086F6C8 /* LanguageRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B908253E4E230086F6C8 /* LanguageRecord+CoreDataProperties.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
@@ -216,8 +214,6 @@
 		81C8B8E1253E211D0086F6C8 /* Records.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Records.xcdatamodel; sourceTree = "<group>"; };
 		81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoreDataTests.swift; sourceTree = "<group>"; };
 		81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCoreDataStack.swift; sourceTree = "<group>"; };
-		81C8B907253E4E230086F6C8 /* LanguageRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
-		81C8B908253E4E230086F6C8 /* LanguageRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -561,8 +557,6 @@
 		81C8B906253E4DEA0086F6C8 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
-				81C8B907253E4E230086F6C8 /* LanguageRecord+CoreDataClass.swift */,
-				81C8B908253E4E230086F6C8 /* LanguageRecord+CoreDataProperties.swift */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -867,7 +861,6 @@
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				81243E59227A3562003A9DA8 /* Weapon.swift in Sources */,
-				81C8B909253E4E230086F6C8 /* LanguageRecord+CoreDataClass.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81851D5F2254721E00260413 /* UITextView.swift in Sources */,
 				81C8B80E253D10CE0086F6C8 /* Errors.swift in Sources */,
@@ -896,7 +889,6 @@
 				81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */,
 				8152B41120DEDA8D008B7A1A /* Int.swift in Sources */,
 				8152B3C320D9D32F008B7A1A /* Character.swift in Sources */,
-				81C8B90A253E4E230086F6C8 /* LanguageRecord+CoreDataProperties.swift in Sources */,
 				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
 				81C8B7DB253CD62B0086F6C8 /* RaceSelectionView.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,

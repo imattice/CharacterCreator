@@ -39,20 +39,20 @@ struct Language {
 	}
 }
 
-extension LanguageRecord: Record, Codable {
-//    let id: String
-//    ///the name of the language
-//    let name: String
-//    ///who commonly speaks this language
-//    let spokenBy: String
-//    ///which script the writing of this language is based off of
-//    let script: String
-//    ///if the language is rare
-//    let isExotic: Bool
-//    ///if the language is secret
-//    let isSecret: Bool
+struct LanguageRecord: Record, Codable {
     
-    required
+    let id: String
+    ///the name of the language
+    let name: String
+    ///who commonly speaks this language
+    let spokenBy: String
+    ///which script the writing of this language is based off of
+    let script: String
+    ///if the language is rare
+    let isExotic: Bool
+    ///if the language is secret
+    let isSecret: Bool
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -81,6 +81,11 @@ extension LanguageRecord: Record, Codable {
     func loadDataIfNeeded() {
         
     }
+    
+//    static
+//    func parseAllFromJSON<T>() -> [T]  {
+//
+//    }
 }
 
 
