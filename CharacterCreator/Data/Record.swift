@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 protocol Record {
+    //associatedtype RecordType: Codable, NSManagedObject
     ///returns an array of RaceRecord if successfuly decoded from JSON or an empty array if failed
     ///Implementing a generic all() function here causes issues with not recognizing type
     ///this will likely be replaced by a core data fetch request in the future
@@ -23,8 +24,8 @@ protocol Record {
     static
     func parseAllFromJSON<T: Codable>() throws -> [T]
     
-//    static
-//    func loadDataIfNeeded()
+    static
+    func loadDataIfNeeded()
 }
 
 extension Record where Self: Codable {
@@ -46,22 +47,34 @@ extension Record where Self: Codable {
             return try JSONDecoder().decode([T].self, from: data)
         }
         catch {
+            print("error while parsing JSON for file \(filename).json")
+            print(error)
             throw JSONError.parsingError
         }
     }
     
-//    @discardableResult static
-//    func loadDataIfNeeded<T: Codable>() -> [T] {
-//        let context = CoreDataStack.recordsManager.managedContext
-//        let entityName = String(describing: T.self)
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-//
-//        guard let count = try? context.count(for: request), count == 0
-//        else { print("data for \(entityName) is present"); return [T]() }
-//
-//        let data: [T] = try? parseAllFromJSON()
-//
-//    }
+    ///determines if there is data in the Records store
+    ///if not, load the data from the JSON file
+    @discardableResult static
+    func loadDataIfNeeded<T: Codable>() -> [T] {
+        let context = CoreDataStack.recordsManager.managedContext
+        let entityName = String(describing: T.self)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+
+        guard let count = try? context.count(for: request), count == 0
+        else { print("data for \(entityName) is present"); return [T]() }
+
+        let data: [T]? = try? parseAllFromJSON()
+
+        guard let records = data else { return [T]() }
+        
+        for record in records {
+            context.insert(record as! NSManagedObject)
+        }
+        
+        CoreDataStack.recordsManager.saveContext()
+        return records
+    }
 }
 
 enum JSONError: Error {
