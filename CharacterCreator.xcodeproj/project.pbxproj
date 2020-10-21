@@ -80,6 +80,8 @@
 		81C8B8E7253E21E10086F6C8 /* RecordCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */; };
 		81C8B8EF253E22800086F6C8 /* TestableCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */; };
 		81C8B93B253F707D0086F6C8 /* CodingUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B93A253F707D0086F6C8 /* CodingUserInfoKey.swift */; };
+		81C8B940253FD2220086F6C8 /* subraces.json in Resources */ = {isa = PBXBuildFile; fileRef = 81C8B93F253FD2210086F6C8 /* subraces.json */; };
+		81C8B945253FE9B90086F6C8 /* AbilityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B944253FE9B90086F6C8 /* AbilityScore.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
@@ -216,6 +218,8 @@
 		81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCoreDataTests.swift; sourceTree = "<group>"; };
 		81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCoreDataStack.swift; sourceTree = "<group>"; };
 		81C8B93A253F707D0086F6C8 /* CodingUserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKey.swift; sourceTree = "<group>"; };
+		81C8B93F253FD2210086F6C8 /* subraces.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = subraces.json; sourceTree = "<group>"; };
+		81C8B944253FE9B90086F6C8 /* AbilityScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityScore.swift; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -532,6 +536,7 @@
 		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
 			isa = PBXGroup;
 			children = (
+				81C8B944253FE9B90086F6C8 /* AbilityScore.swift */,
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
@@ -552,6 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				81C8B7E6253CD74C0086F6C8 /* races.json */,
+				81C8B93F253FD2210086F6C8 /* subraces.json */,
 				81C8B7FD253D0AF60086F6C8 /* languages.json */,
 			);
 			path = JSON;
@@ -723,6 +729,7 @@
 				81B038CC22DC0B750059AFC1 /* BackgroundRecords.realm in Resources */,
 				81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */,
 				81DC8E5521125637002F6AE4 /* SelectionView.xib in Resources */,
+				81C8B940253FD2220086F6C8 /* subraces.json in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
 				81C8B7E7253CD74C0086F6C8 /* races.json in Resources */,
@@ -876,6 +883,7 @@
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				81FC7CF52106965E00BBDDD7 /* BackgroundSelectionViewController.swift in Sources */,
 				81F8496B218A9A6D00280D8C /* ItemSelectionTableViewCell.swift in Sources */,
+				81C8B945253FE9B90086F6C8 /* AbilityScore.swift in Sources */,
 				81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */,
 				8152B3EB20DC3B48008B7A1A /* races.swift in Sources */,
 				8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */,

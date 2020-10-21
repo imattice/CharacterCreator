@@ -7,7 +7,7 @@
 //
 
 //defines a method that changes a value or calculation for any object, such as stats, damage, or AC
-struct Modifier: Codable {
+class Modifier: Codable {
 	let type: ModifierType
 	let attribute: String
 	let value: Int
@@ -28,4 +28,9 @@ struct Modifier: Codable {
 		increaseHP,
 		decreaseHP
 	}
+}
+
+class AbilityScoreModifier: Modifier {
+    let abilityScore: AbilityScore.Name
+    
 }
