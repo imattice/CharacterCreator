@@ -58,20 +58,6 @@ class LanguageRecord: NSManagedObject, Record, Decodable {
         self.isExotic = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
         self.isSecret = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
     }
-}
-
-extension LanguageRecord  {
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//
-//        try container.encode(id, forKey: .id)
-//        try container.encode(name, forKey: .name)
-//        try container.encode(spokenBy, forKey: .spokenBy)
-//        try container.encode(script, forKey: .script)
-//        try container.encode(isExotic, forKey: .isExotic)
-//        try container.encode(isSecret, forKey: .isSecret)
-//    }
-    
     enum CodingKeys: CodingKey {
         case id, isExotic, isSecret, name, script, spokenBy
     }
