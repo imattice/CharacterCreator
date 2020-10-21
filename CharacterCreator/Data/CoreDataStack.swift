@@ -14,7 +14,7 @@ class CoreDataStack {
     private
     let modelName: String
     
-    ///managed context for accessing records data
+    ///managed context for accessing data
     lazy
     var managedContext: NSManagedObjectContext = {
         return self.persistentContainer.viewContext      }()
@@ -64,9 +64,12 @@ class CoreDataStack {
 }
 
 class RecordDataManager: CoreDataStack {
+    ///shared instance where all record data is stored
     static
     let shared = RecordDataManager(name: "Records")
     
+    ///loads all JSON records into the core data model
+    ///if data already exists, no additional data is loaded
     static
     func loadAllRecordDataIfNeeded() {
         LanguageRecord.loadDataIfNeeded()

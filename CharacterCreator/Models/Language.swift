@@ -39,20 +39,9 @@ struct Language {
 	}
 }
 
-///followed this blog post to conform this object to both NSManagedObject and Codable
-///https://www.donnywals.com/using-codable-with-core-data-and-nsmanagedobject/
-class LanguageRecord: NSManagedObject, Record {
-//    let id: String
-//    ///the name of the language
-//    let name: String
-//    ///who commonly speaks this language
-//    let spokenBy: String
-//    ///which script the writing of this language is based off of
-//    let script: String
-//    ///if the language is rare
-//    let isExotic: Bool
-//    ///if the language is secret
-//    let isSecret: Bool
+
+final
+class LanguageRecord: NSManagedObject, Record {    
     required convenience
     init(from decoder: Decoder) throws {
         guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
@@ -69,29 +58,6 @@ class LanguageRecord: NSManagedObject, Record {
         self.isExotic = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
         self.isSecret = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
     }
-
-    ///returns an array of LanguageRecord if successfuly decoded from JSON or an empty array if failed
-    static
-    func all() -> [LanguageRecord] {
-        let result: [LanguageRecord]? = try? parseAllFromJSON()
-        return result ?? [LanguageRecord]()
-    }
-    
-    ///returns the record for the specified language
-    static
-    func record(for name: String) -> LanguageRecord? {
-        return all().filter({ $0.name == name }).first
-    }
-    
-//    static
-//    func loadDataIfNeeded() {
-//        
-//    }
-    
-//    static
-//    func parseAllFromJSON<T>() -> [T]  {
-//
-//    }
 }
 
 extension LanguageRecord: Codable {
@@ -110,45 +76,3 @@ extension LanguageRecord: Codable {
         case id, isExotic, isSecret, name, script, spokenBy
     }
 }
-
-
-
-
-//extension Language {
-//    static let Common             = LanguageRecord.record(for: "common")!.language()
-//    static let Draconic         = LanguageRecord.record(for: "draconic")!.language()
-//    static let Dwarvish         = LanguageRecord.record(for: "dwarvish")!.language()
-//    static let Elven             = LanguageRecord.record(for: "elven")!.language()
-//
-//    static let Giant             = LanguageRecord.record(for: "giant")!.language()
-//    static let Gnomish             = LanguageRecord.record(for: "gnomish")!.language()
-//    static let Goblin            = LanguageRecord.record(for: "goblin")!.language()
-//    static let Halfling         = LanguageRecord.record(for: "halfling")!.language()
-//    static let Abyssal             = LanguageRecord.record(for: "abyssal")!.language()
-//    static let Celestial         = LanguageRecord.record(for: "celestial")!.language()
-//    static let DeepSpeech         = LanguageRecord.record(for: "deep speech")!.language()
-//    static let Infernal         = LanguageRecord.record(for: "infernal")!.language()
-//    static let Orc                = LanguageRecord.record(for: "orc")!.language()
-//    static let Undercommon         = LanguageRecord.record(for: "undercommon")!.language()
-//}
-
-//@objcMembers
-//class LanguageRecord : Object {
-//    dynamic var id: String             = UUID().uuidString
-//    dynamic var name: String        = ""
-//    dynamic var spokenBy: String    = ""
-//    dynamic var script: String        = ""
-//    dynamic var isRare: Bool        = false
-//
-//    static func allRecords(in realm: Realm = RealmProvider.languageRecords.realm) -> Results<LanguageRecord> {
-//        return realm.objects(LanguageRecord.self)//.sorted(byKeyPath: "name")
-//    }
-//
-//    static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {
-//        return allRecords().filter({ $0.name == name }).first
-//    }
-//
-//    func language() -> Language {
-//        return Language(name: name)
-//    }
-//}

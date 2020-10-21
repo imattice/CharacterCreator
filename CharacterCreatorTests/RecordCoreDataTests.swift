@@ -32,12 +32,30 @@ class RecordCoreDataTests: XCTestCase {
         XCTAssertFalse(fetch!.isEmpty)
         XCTAssert(fetch?.count == 18)
     }
-
+    
+    func testLangaugeRecordAll() {
+        let all = LanguageRecord.all()
+        
+        XCTAssert(all.count == 18)
+    }
+    
     func testLanguageRecordSave()  {
 
     }
     
     func testLanguageRecordRead() {
+        LanguageRecord.loadDataIfNeeded()
         
+        let common = LanguageRecord.record(for: "common")
+        
+        XCTAssertNotNil(common)
+        XCTAssertTrue(common!.name == "common")
+        
+        let matches = LanguageRecord.records(matching: "common")
+        
+        XCTAssertNotNil(matches)
+        XCTAssertTrue(matches.count == 2)
+        XCTAssertTrue(matches.contains { $0.name == "common" })
+        XCTAssertTrue(matches.contains { $0.name == "undercommon" })
     }
 }

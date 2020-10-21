@@ -9,33 +9,75 @@
 import Foundation
 import CoreData
 
+
+///followed this blog post to conform objects to both NSManagedObject and Codable
+///https://www.donnywals.com/using-codable-with-core-data-and-nsmanagedobject/
+
 protocol Record {
-    //associatedtype RecordType: Codable, NSManagedObject
-    ///returns an array of RaceRecord if successfuly decoded from JSON or an empty array if failed
-    ///Implementing a generic all() function here causes issues with not recognizing type
-    ///this will likely be replaced by a core data fetch request in the future
-    ///for now, implement this method in the subclasses individually
-//    static
-//    func all<T: Codable>() -> [T] {
-//        let result: [T]? = try? parseAllFromJSON()
-//        return result ?? [T]()
-//    }
+    var name: String? { set get }
     
     static
-    func parseAllFromJSON<T: Codable>() throws -> [T]
+    func all() -> [Self]
     
-    @discardableResult static
-    func loadDataIfNeeded<T: Codable>() -> [T]
+    static
+    func record(for name: String) -> Self?
+    
+    static
+    func records(matching name: String) -> [Self]
+    
+    static
+    func parseAllFromJSON() throws -> [Self]
+    
+    static
+    func loadDataIfNeeded()
 }
 
-extension Record where Self: Codable {
-  ///decodes JSON from file
+extension Record where Self: Codable, Self: NSManagedObject {
+//MARK: - Core Data fetch methods
+    ///fetches all records of this type from the RecordDataManager shared instance
     static
-    func parseAllFromJSON<T: Codable>() throws -> [T] {
+    func all() -> [Self] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: Self.self))
+        guard let fetch = try? RecordDataManager.shared.managedContext.fetch(request) as? [Self]
+        else {
+            print("failed to fetch all for \(String(describing: Self.self))");
+            return [Self]() }
+           
+        return fetch
+    }
+    
+    ///fetches a specific record of the given name
+    static
+    func record(for name: String) -> Self? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: Self.self))
+        request.predicate = NSPredicate(format: "name == %@", name)
+       
+        guard let fetchedResult = try? RecordDataManager.shared.managedContext.fetch(request).first as? Self
+        else { return nil }
+
+        return fetchedResult
+    }
+    
+    ///fetches all records that match a given partial name
+    static
+    func records(matching name: String) -> [Self] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: Self.self))
+        request.predicate = NSPredicate(format: "name CONTAINS[c] %@", name)
+       
+        guard let fetchedResult = try? RecordDataManager.shared.managedContext.fetch(request) as? [Self]
+        else { return [Self]() }
+
+        return fetchedResult
+    }
+
+//MARK: - JSON to Core Data methods
+    ///decodes JSON from file
+    static
+    func parseAllFromJSON() throws -> [Self] {
         ///a very simplistic pluralizer to transform the class record name into the json file name
         ///i.e. this should return languages.json from LanguageRecord and classes.json from ClassRecord
         let filename: String = {
-            let name = String(describing: T.self).dropLast(6).lowercased()
+            let name = String(describing: Self.self).dropLast(6).lowercased()
             return name.last == "s" ? name + "es" : name + "s"
         }()
 
@@ -47,7 +89,7 @@ extension Record where Self: Codable {
             let decoder = JSONDecoder()
             decoder.userInfo[CodingUserInfoKey.managedObjectContext] = RecordDataManager.shared.managedContext
 
-            return try decoder.decode([T].self, from: data)
+            return try decoder.decode([Self].self, from: data)
         }
         catch {
             print("error while parsing JSON for file \(filename).json")
@@ -55,30 +97,9 @@ extension Record where Self: Codable {
             throw JSONError.parsingError
         }
     }
-    
-    ///determines if there is data in the Records store
-    ///if not, load the data from the JSON file
-    @discardableResult static
-    func loadDataIfNeeded<T: Codable>() -> [T] {
-        let context = RecordDataManager.shared.managedContext
-        let entityName = String(describing: T.self)
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-
-        guard let count = try? context.count(for: request), count == 0
-        else { print("data for \(entityName) is present"); return [T]() }
-
-        let data: [T]? = try? parseAllFromJSON()
-
-        guard let records = data else { return [T]() }
         
-        for record in records {
-            context.insert(record as! NSManagedObject)
-        }
-        
-        RecordDataManager.shared.saveContext()
-        return records
-    }
-    
+    ///loads data from JSON file to the Core Data Model
+    ///if the data model already contains data, do nothing
     static
     func loadDataIfNeeded() {
         let context = RecordDataManager.shared.managedContext
@@ -92,7 +113,7 @@ extension Record where Self: Codable {
 
         guard let records = data else { return  }
         for record in records {
-            context.insert(record as! NSManagedObject)
+            context.insert(record)
         }
 
         RecordDataManager.shared.saveContext()
