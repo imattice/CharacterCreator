@@ -41,7 +41,7 @@ struct Language {
 
 
 final
-class LanguageRecord: NSManagedObject, Record {    
+class LanguageRecord: NSManagedObject, Record, Decodable {
     required convenience
     init(from decoder: Decoder) throws {
         guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
@@ -60,17 +60,17 @@ class LanguageRecord: NSManagedObject, Record {
     }
 }
 
-extension LanguageRecord: Codable {
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        
-        try container.encode(id, forKey: .id)
-        try container.encode(name, forKey: .name)
-        try container.encode(spokenBy, forKey: .spokenBy)
-        try container.encode(script, forKey: .script)
-        try container.encode(isExotic, forKey: .isExotic)
-        try container.encode(isSecret, forKey: .isSecret)
-    }
+extension LanguageRecord  {
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//
+//        try container.encode(id, forKey: .id)
+//        try container.encode(name, forKey: .name)
+//        try container.encode(spokenBy, forKey: .spokenBy)
+//        try container.encode(script, forKey: .script)
+//        try container.encode(isExotic, forKey: .isExotic)
+//        try container.encode(isSecret, forKey: .isSecret)
+//    }
     
     enum CodingKeys: CodingKey {
         case id, isExotic, isSecret, name, script, spokenBy

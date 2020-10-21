@@ -32,7 +32,36 @@ protocol Record {
     func loadDataIfNeeded()
 }
 
-extension Record where Self: Codable, Self: NSManagedObject {
+extension Record where Self: Decodable {
+    ///decodes JSON from file
+    static
+    func parseAllFromJSON() throws -> [Self] {
+        ///a very simplistic pluralizer to transform the class record name into the json file name
+        ///i.e. this should return languages.json from LanguageRecord and classes.json from ClassRecord
+        let filename: String = {
+            let name = String(describing: Self.self).dropLast(6).lowercased()
+            return name.last == "s" ? name + "es" : name + "s"
+        }()
+
+        guard let path = Bundle.main.path(forResource: filename, ofType: "json")
+        else { print("file not found for \(filename).json"); throw JSONError.fileNotFound }
+
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: [])
+            let decoder = JSONDecoder()
+            decoder.userInfo[CodingUserInfoKey.managedObjectContext] = RecordDataManager.shared.managedContext
+
+            return try decoder.decode([Self].self, from: data)
+        }
+        catch {
+            print("error while parsing JSON for file \(filename).json")
+            print(error)
+            throw JSONError.parsingError
+        }
+    }
+}
+
+extension Record where Self: Decodable, Self: NSManagedObject {
 //MARK: - Core Data fetch methods
     ///fetches all records of this type from the RecordDataManager shared instance
     static
@@ -71,33 +100,6 @@ extension Record where Self: Codable, Self: NSManagedObject {
     }
 
 //MARK: - JSON to Core Data methods
-    ///decodes JSON from file
-    static
-    func parseAllFromJSON() throws -> [Self] {
-        ///a very simplistic pluralizer to transform the class record name into the json file name
-        ///i.e. this should return languages.json from LanguageRecord and classes.json from ClassRecord
-        let filename: String = {
-            let name = String(describing: Self.self).dropLast(6).lowercased()
-            return name.last == "s" ? name + "es" : name + "s"
-        }()
-
-        guard let path = Bundle.main.path(forResource: filename, ofType: "json")
-        else { print("file not found for \(filename).json"); throw JSONError.fileNotFound }
-
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: [])
-            let decoder = JSONDecoder()
-            decoder.userInfo[CodingUserInfoKey.managedObjectContext] = RecordDataManager.shared.managedContext
-
-            return try decoder.decode([Self].self, from: data)
-        }
-        catch {
-            print("error while parsing JSON for file \(filename).json")
-            print(error)
-            throw JSONError.parsingError
-        }
-    }
-        
     ///loads data from JSON file to the Core Data Model
     ///if the data model already contains data, do nothing
     static

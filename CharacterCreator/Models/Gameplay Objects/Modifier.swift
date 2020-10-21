@@ -6,30 +6,7 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
-//defines a method that changes a value or calculation for any object, such as stats, damage, or AC
-//class Modifier: Codable {
-//	let type: ModifierType
-//	let attribute: String
-//	let value: Int
-//	let origin: ModifierOrigin
-//
-//    enum ModifierOrigin: String, Codable {
-//        case race,
-//             subrace,
-//             `class`
-//    }
-//    enum ModifierType: String, Codable	{
-//		case onAdvantage,
-//		grantAdvantage,
-//		onDisadvantage,
-//		imposeDisadvantage,
-//		increaseStat,
-//		decreaseStat,
-//		increaseHP,
-//		decreaseHP
-//	}
-//}
-
+///holds attributes that affect other character attributes
 class Modifier {
     let origin: Origin
     
@@ -44,17 +21,21 @@ class Modifier {
     }
 }
 
-
+///holds attributes that affect ability scores
 class AbilityScoreModifier: Modifier {
+    ///the score to be adjusted
     let abilityScore: AbilityScore.Name
+    ///how much the score should be affected
     let value: Int
+    ///if the score should increase or decrease
     let adjustment: Adjustment
+    ///if this adjustement can be removed at a later time
     let isTemporary: Bool
     
     enum Adjustment {
         case increase, decrease }
     
-    init(name: AbilityScore.Name, value: Int, adjustment: Adjustment = .increase, isTemp: Bool = true, origin: Origin) {
+    init(name: AbilityScore.Name, value: Int, adjustment: Adjustment = .increase, isTemp: Bool = false, origin: Origin) {
         self.abilityScore    = name
         self.value           = value
         self.adjustment      = adjustment
@@ -64,8 +45,11 @@ class AbilityScoreModifier: Modifier {
     }
 }
 
+///holds attributes that affect raw HP values
 class HPModifier: Modifier {
+    ///how much the HP should be affected
     let value: Int
+    ///if this adjustement can be removed at a later time
     let isTemporary: Bool
     
     init(value: Int, isTemp: Bool, origin: Origin) {

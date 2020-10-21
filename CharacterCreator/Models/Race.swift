@@ -6,6 +6,7 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 import RealmSwift
+import CoreData
 
 typealias Subrace = Race
 
@@ -141,14 +142,129 @@ struct Race {
 	static let Human				= Race(fromParent: "human", withSubrace: nil)
 }
 
-//struct RaceRecord: Codable {
-//    let id: String
-//    let name: String
-//    let description: String
-//    let modifiers: [Modifier]
-//    let subraces: [SubraceRecord]
-//    let baseLangauges: [LanguageRecord]
-//}
+final
+class RaceRecord: Record, Decodable {
+    static func loadDataIfNeeded() {
+        
+    }
+    
+    
+    static func all() -> [RaceRecord] {
+        return [RaceRecord]()
+    }
+    
+    static func record(for name: String) -> RaceRecord? {
+        return nil
+    }
+    
+    static func records(matching name: String) -> [RaceRecord] {
+        return [RaceRecord]()
+    }
+    
+    let id: String
+    var name: String?
+    let description: String
+    let descriptive: Descriptive
+    let size: CreatureSize
+    let hasDarkvision: Bool
+    let modifiers: [Modifier]
+    let features: [Feature]
+    let baseLanguages: [String]
+
+
+    ///holds descriptive references of average attributes for this race
+    struct Descriptive {
+        let age: String
+        let alignment: String
+        let physique: String
+    }
+    
+    required //convenience
+    init(from decoder: Decoder) throws {
+//        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
+//          throw JSONError.missingManagedObjectContextForDecoder }
+        
+//        self.init(context: context)
+        
+        let container       = try decoder.container(keyedBy: CodingKeys.self)
+        self.id             = UUID().uuidString
+        self.name           = try container.decode(String.self, forKey: .name)
+        self.description    = try container.decode(String.self, forKey: .description)
+
+        let age             = try container.decode(String.self, forKey: .age)
+        let alignment       = try container.decode(String.self, forKey: .alignment)
+        let physique        = try container.decode(String.self, forKey: .physique)
+        self.descriptive    = Descriptive(age: age, alignment: alignment, physique: physique)
+
+        self.size           = CreatureSize(rawValue: try container.decode(String.self, forKey: .size))!
+        self.hasDarkvision  = try container.decodeIfPresent(Bool.self, forKey: .hasDarkvision) ?? false
+        
+        var modifiers = [Modifier]()
+        let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
+        for key in AbilityScore.Name.allCases {
+            print(key)
+            guard let value = try statModifierContainer.decodeIfPresent(Int.self, forKey: key)
+            else { continue }
+            modifiers.append(AbilityScoreModifier(name: key, value: value, origin: .race))
+        }
+        self.modifiers = modifiers
+
+        var features = [Feature]()
+        var featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
+        while !featureContainer.isAtEnd {
+            let feature = try featureContainer.nestedContainer(keyedBy: FeatureCodingKeys.self)
+            let title = try feature.decode(String.self, forKey: .title)
+            let description = try feature.decode(String.self, forKey: .description)
+            features.append(Feature(title: title, description: description))
+        }
+        self.features = features
+
+        var languages = [String]()
+        var languageContainer = try container.nestedUnkeyedContainer(forKey: .baseLanguages)
+        while !languageContainer.isAtEnd {
+            let language = try languageContainer.decode(String.self)
+            languages.append(language)
+        }
+        self.baseLanguages = languages
+    }
+}
+
+extension RaceRecord {
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.container(keyedBy: CodingKeys.self)
+//
+//        try container.encode(id, forKey: .id)
+//        try container.encode(name, forKey: .name)
+//        try container.encode(spokenBy, forKey: .spokenBy)
+//        try container.encode(script, forKey: .script)
+//        try container.encode(isExotic, forKey: .isExotic)
+//        try container.encode(isSecret, forKey: .isSecret)
+//    }
+
+    enum CodingKeys: CodingKey {
+        case id, name, description, age, alignment, physique, modifiers, size, hasDarkvision, features, baseLanguages, statIncrease
+    }
+    enum FeatureCodingKeys: CodingKey {
+        case title, description
+    }
+}
+
+///describtes ways the character can gain information about the world
+struct Sense {
+    let name: String
+    let range: Int
+    let detail: String
+}
+
+///descrbes unique attribtue for a specific race or class
+struct Feature {
+    let title: String
+    let description: String
+}
+
+enum CreatureSize: String {
+    case tiny, small, medium, large, huge, gargantuan
+}
 //
 //struct SubraceRecord: Codable {
 //    let id: String
