@@ -30,7 +30,7 @@ struct AbilityScore {
         value = rawValue
     }
     ///contains all valid options for Ability Scores
-    enum Name: String {
+    enum Name: String, CaseIterable {
         case str = "strength",
              con = "constitution",
              dex = "dexterity",

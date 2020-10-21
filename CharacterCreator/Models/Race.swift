@@ -32,7 +32,11 @@ struct Race {
 			//check for modifiers from the subrace
 			if let modifiers = subraceData["modifiers"] as? [String: Int] {
 				for modifierData in modifiers {
-					allModifiers.append(Modifier(type: .increaseStat, attribute: modifierData.key, value: modifierData.value, origin: .subrace))			}}}
+                    allModifiers.append(  AbilityScoreModifier(name: AbilityScore.Name(rawValue: modifierData.key)!,
+                                                               value: modifierData.value,
+                                                               adjustment: .increase,
+                                                               isTemp: false,
+                                                               origin: .subrace))			}}}
 		else {
 			//set the name to just be the parent race if no subrace is available
 			self.subrace 	= nil
@@ -42,7 +46,11 @@ struct Race {
 		if let modifiers = parentData["modifiers"] as? [String : Int] {
 
 			for modifierData in modifiers {
-				allModifiers.append(Modifier(type: .increaseStat, attribute: modifierData.key, value: modifierData.value, origin: .race))
+				allModifiers.append( AbilityScoreModifier(name: AbilityScore.Name(rawValue: modifierData.key)!,
+                                                          value: modifierData.value,
+                                                          adjustment: .increase,
+                                                          isTemp: false,
+                                                          origin: .race))
 			}
 		}
 
@@ -77,9 +85,10 @@ struct Race {
 
 	func modifierString() -> String {
 		var result = ""
+        let statModifiers = modifiers.filter { $0 is AbilityScoreModifier }
 
-		for modifier in modifiers {
-			result += "+ \(modifier.value) \(modifier.type)\n"
+		for modifier in statModifiers as! [AbilityScoreModifier] {
+			result += "+ \(modifier.value) \(modifier.abilityScore)\n"
 		}
 
 		return result.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -132,21 +141,21 @@ struct Race {
 	static let Human				= Race(fromParent: "human", withSubrace: nil)
 }
 
-struct RaceRecord: Codable {
-    let id: String
-    let name: String
-    let description: String
-    let modifiers: [Modifier]
-    let subraces: [SubraceRecord]
-    let baseLangauges: [LanguageRecord]
-}
-
-struct SubraceRecord: Codable {
-    let id: String
-    let name: String
-    let description: String
-    let modifiers: [Modifier]
-}
+//struct RaceRecord: Codable {
+//    let id: String
+//    let name: String
+//    let description: String
+//    let modifiers: [Modifier]
+//    let subraces: [SubraceRecord]
+//    let baseLangauges: [LanguageRecord]
+//}
+//
+//struct SubraceRecord: Codable {
+//    let id: String
+//    let name: String
+//    let description: String
+//    let modifiers: [Modifier]
+//}
 
 //@objcMembers
 //class RaceRecord: Object {

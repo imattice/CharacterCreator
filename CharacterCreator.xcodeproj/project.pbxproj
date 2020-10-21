@@ -82,6 +82,7 @@
 		81C8B93B253F707D0086F6C8 /* CodingUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B93A253F707D0086F6C8 /* CodingUserInfoKey.swift */; };
 		81C8B940253FD2220086F6C8 /* subraces.json in Resources */ = {isa = PBXBuildFile; fileRef = 81C8B93F253FD2210086F6C8 /* subraces.json */; };
 		81C8B945253FE9B90086F6C8 /* AbilityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B944253FE9B90086F6C8 /* AbilityScore.swift */; };
+		81C8B950254092270086F6C8 /* ModifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C8B94F254092260086F6C8 /* ModifierTests.swift */; };
 		81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */; };
 		81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */; };
 		81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D599DE22BC935F005EE768 /* RealmProvider.swift */; };
@@ -220,6 +221,7 @@
 		81C8B93A253F707D0086F6C8 /* CodingUserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKey.swift; sourceTree = "<group>"; };
 		81C8B93F253FD2210086F6C8 /* subraces.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = subraces.json; sourceTree = "<group>"; };
 		81C8B944253FE9B90086F6C8 /* AbilityScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbilityScore.swift; sourceTree = "<group>"; };
+		81C8B94F254092260086F6C8 /* ModifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierTests.swift; sourceTree = "<group>"; };
 		81CC0DE2226544C400FDC0AD /* SocialDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDetailView.swift; sourceTree = "<group>"; };
 		81CC0DE4226544D400FDC0AD /* SocialDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialDetailView.xib; sourceTree = "<group>"; };
 		81D599DE22BC935F005EE768 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				81C8B805253D0B120086F6C8 /* LanguageTests.swift */,
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
+				81C8B94F254092260086F6C8 /* ModifierTests.swift */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";
@@ -913,6 +916,7 @@
 			files = (
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
 				81C8B8E7253E21E10086F6C8 /* RecordCoreDataTests.swift in Sources */,
+				81C8B950254092270086F6C8 /* ModifierTests.swift in Sources */,
 				81C8B8EF253E22800086F6C8 /* TestableCoreDataStack.swift in Sources */,
 				81C8B806253D0B120086F6C8 /* LanguageTests.swift in Sources */,
 				81C8B7F5253CFA6B0086F6C8 /* Race+SubraceTests.swift in Sources */,

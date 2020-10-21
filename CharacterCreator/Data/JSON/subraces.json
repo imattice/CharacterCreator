@@ -1,0 +1,15 @@
+[
+    {
+    "parent": "dwarf",
+    "subraces": [{
+        "name": "hill",
+        "description": "Hill dwarves have left the mountianous caverns in favor of rolling hills.  In doing so, they've traded some of their natrual strenth for a broader world view and increased stamina.",
+        "statIncrease": [{
+            "wis": 1,
+            "hp": 1     }],
+        "features": [{
+            "title": "Dwarven Toughness",
+            "description": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level." }]
+        }]
+    }
+]

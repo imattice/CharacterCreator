@@ -205,7 +205,8 @@ extension Character {
 			var resultValue = rawValue
 
 			//look for modifiers that increase stats and are also for this particular stat
-			let modifiers = race.modifiers.filter( { $0.type == .increaseStat && $0.attribute == name.rawValue })
+            let statModifiers = race.modifiers.filter { $0 is AbilityScoreModifier } as! [AbilityScoreModifier]
+            let modifiers = statModifiers.filter( { $0.adjustment == .increase && $0.abilityScore.rawValue == name.rawValue })
 			if !modifiers.isEmpty {
 				for modifier in modifiers {
 					resultValue += modifier.value

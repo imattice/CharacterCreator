@@ -2,38 +2,34 @@
     {
         "name": "dwarf",
         "description": "Stout and stubborn, a dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
-        "statModifiers":[
-            {
-            "modifierType": "increaseStat",
-            "origin": "race",
+        "age": "Dwarves mature at the same rate as humans, but they’re considered young until they reach the age of 50. On average, they live about 350 years.",
+        "alignment": "Most dwarves are lawful, believing firmly in the benefits of a well-­‐‑ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order.",
+        "physique": "Dwarves stand between 4 and 5 feet tall and average about 150 pounds.",
+        "size": "medium",
+        "senses": [{
+            "name": "dark",
+            "range": 60
+            "description": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."}],
+        "features": [{
+                "title": "Dwarven Resilience",
+                "description": "You have advantage on saving throws against poison, and you have resistance against poison damage.",
+            },{
+                "title": "Dwarven Combat Training",
+                "description": "You have proficiency with the battleaxe, handaxe, light hammer, and warhammer.",
+            }, {
+                "title": "Tool Proficiency",
+                "description": "You gain proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools."
+            }, {
+                "title": "Stonecunning",
+                "description": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
+            }
             
-            "con": 2        },
-        ]
+        ],
+        
+        "statIncrease":[{
+            "con": 2    }],
         "baseLanguages": [
             "common",
             "dwarvish"      ],
-    }, {
-        "name": "elf",
-        "description": "The elves posess grace unlike any other, seeming to move quickly through sunbeams without so much as a hint of disruption.  Learning new magicks come easily to them, as do many other works that marry art, craft and deep wisdom.",
-            "statModifiers": {
-                "dex" : 2       },
-            "baseLanguages": [
-                "common",
-                "elven"         ]
-    }, {
-        "name": "halfling",
-        "description": "A comfortable home and the happiness of friends are what most halflings desire.  They tend to avoid the adventuring life, though some are willing to ignore the expectation of the domestic life to see the world.",
-        "modifiers": {
-            "dex" : 2    },
-        "languages": [
-            "common",
-            "halfling"   ],
-    }, {
-        "name": "human",
-        "description": "Humankind has reached every corner of the world, giving them an advantage in numbers, and unmatched diversity in their abilities.  Wise scholars, brave fighters and famous performers have been humans.  Their great ambition and innovation is unlike any other race and has allowed them to make a significant impact in the state of the world.",
-        "languages": [
-            "common", "choice"],
-        "modifiers": {
-            "all_stats" : 1    }
-        }
+    }
 ]
