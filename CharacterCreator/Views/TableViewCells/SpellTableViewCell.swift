@@ -29,7 +29,7 @@ class SpellTableViewCell: UITableViewCell {
 
 	func configure(for spellData: (expanded: Bool, spell: Spell)) {
 		let spell 		= spellData.spell
-		let expanded 	= spellData.expanded
+		let _ 	= spellData.expanded
 
 		titleLabel.text 			= spell.name
 		descriptionLabel.text		= spell.detail

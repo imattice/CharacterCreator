@@ -49,7 +49,6 @@ class AbilityScoreModifier: Modifier {
         var modifiers = [AbilityScoreModifier]()
 //        let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
         for key in AbilityScore.Name.allCases {
-            print(key)
             guard let value = try? container.decodeIfPresent(Int.self, forKey: key)
             else { continue }
             modifiers.append(AbilityScoreModifier(name: key, value: value, origin: .race))

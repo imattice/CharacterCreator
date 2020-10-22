@@ -43,7 +43,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 	}
 
 	func SETSTATSFORTESTING() {
-		var statArray = ["8", "10", "12", "13", "14", "15"]
+		let statArray = ["8", "10", "12", "13", "14", "15"]
 		selectedStatValues = [8, 10, 12, 13, 14, 15]
 		navigationItem.rightBarButtonItem?.isEnabled = true 
 
@@ -113,7 +113,7 @@ class StatDistributionViewController: UIViewController, StatViewDelegate {
 
 		if let navigationController = navigationController,
 			let storyboard = storyboard,
-			let characterClass = Character.current.class {
+			let _ = Character.current.class {
 
 
 			//if the caster is a spellcaster, push to the Spell Selection Controller

@@ -109,7 +109,7 @@ struct Race {
                 result.append( Language(name: record.name!) )
 			}
 			if language == "choice" {
-				var languageChoice = Language(name: "choice", isSelectable: true)
+				let languageChoice = Language(name: "choice", isSelectable: true)
 				result.append(languageChoice)
 			}}
 		return result
@@ -142,18 +142,12 @@ struct Race {
 	static let Human				= Race(fromParent: "human", withSubrace: nil)
 }
 
-final
-class RaceRecord: Record, Decodable {
-    static func loadDataIfNeeded() {
-        
-    }
-    
-    
+final class RaceRecord: Record, Decodable {
     static func all() -> [RaceRecord] {
         return [RaceRecord]()
     }
     
-    static func record(for name: String) -> RaceRecord? {
+    static func record(for name: String) -> Self? {
         return nil
     }
     
@@ -161,35 +155,36 @@ class RaceRecord: Record, Decodable {
         return [RaceRecord]()
     }
     
-    let id: String
+    static func loadDataIfNeeded() {
+        
+    }
+    
+    var id: String?
     var name: String?
-    let description: String
-    let descriptive: Descriptive
-    let size: CreatureSize
-    let hasDarkvision: Bool
-    let modifiers: [Modifier]
-    let features: [Feature]
-    let baseLanguages: [String]
-
-
-    ///holds descriptive references of average attributes for this race
-    struct Descriptive {
-        let age: String
-        let alignment: String
-        let physique: String
+    var detail: String?
+    var hasDarkvision: Bool?
+    var descriptive: Descriptive?
+    private var sizeString: String?
+    var modifiers: [Modifier]?
+    var features: [Feature]?
+    var baseLanguages: [String]?
+    
+    var size: CreatureSize {
+        get { return CreatureSize(rawValue: sizeString!) ?? .medium }
+        set { sizeString = newValue.rawValue }
     }
     
     required //convenience
     init(from decoder: Decoder) throws {
 //        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
 //          throw JSONError.missingManagedObjectContextForDecoder }
-        
+//
 //        self.init(context: context)
         
         let container       = try decoder.container(keyedBy: CodingKeys.self)
         self.id             = UUID().uuidString
         self.name           = try container.decode(String.self, forKey: .name)
-        self.description    = try container.decode(String.self, forKey: .description)
+        self.detail         = try container.decode(String.self, forKey: .description)
 
         let age             = try container.decode(String.self, forKey: .age)
         let alignment       = try container.decode(String.self, forKey: .alignment)
@@ -214,15 +209,34 @@ class RaceRecord: Record, Decodable {
         self.baseLanguages = languages
     }
     
+    
+    ///holds descriptive references of average attributes for this race
+    class Descriptive {
+        let age: String
+        let alignment: String
+        let physique: String
+        
+        init(age: String, alignment: String, physique: String) {
+            self.age = age
+            self.alignment = alignment
+            self.physique = physique
+        }
+    }
+    
     enum CodingKeys: CodingKey {
         case id, name, description, age, alignment, physique, modifiers, size, hasDarkvision, features, baseLanguages, statIncrease
     }
 }
 
 ///descrbes unique attribtue for a specific race or class
-struct Feature {
+class Feature: NSObject {
     let title: String
-    let description: String
+    let detail: String
+    
+    init(title: String, detail: String) {
+        self.title = title
+        self.detail  = detail
+    }
     
     static
     func decoded(from container: UnkeyedDecodingContainer) throws -> [Feature] {
@@ -233,13 +247,14 @@ struct Feature {
                 let feature = try mutableContainer.nestedContainer(keyedBy: FeatureCodingKeys.self)
                 let title = try feature.decode(String.self, forKey: .title)
                 let description = try feature.decode(String.self, forKey: .description)
-                features.append(Feature(title: title, description: description))
+                features.append(Feature(title: title, detail: description))
             } catch {
                 throw error
             }
         }
         return features
     }
+
     
     enum FeatureCodingKeys: CodingKey {
         case title, description

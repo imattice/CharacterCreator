@@ -137,7 +137,7 @@ extension BackgroundSelectionViewController {
 		let data = tableViewData[selectedIndexPath.row]
         let background = Background(data.title, proficiencies: [String]())
 
-        let backgroundRecord = Background.record(for: background.name)
+        let _ = Background.record(for: background.name)
 		Character.current.background = background
 //        Character.current.languages.innate.append(backgroundRecord?.languages)
 //		guard let proficiencies = background.proficiencies() else { return }
