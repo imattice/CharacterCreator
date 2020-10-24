@@ -41,6 +41,8 @@ class CoreDataStack {
     ///init using the default persistent container
     init(name: String) {
         self.modelName = name
+        
+//        registerTransformers()
     }
     
     ///specifiy a container, such as a temporary store, to initialize the data stack
@@ -61,6 +63,10 @@ class CoreDataStack {
             print("Unresolved error \(error), \(error.userInfo)")
         }
     }
+    
+//    func registerTransformers() {
+//        RaceDescriptiveTransformer.register()
+//    }
 }
 
 class RecordDataManager: CoreDataStack {

@@ -11,8 +11,9 @@ import XCTest
 
 class Race_SubraceTests: XCTestCase {
 
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
 
     override func tearDownWithError() throws {
@@ -48,9 +49,8 @@ class Race_SubraceTests: XCTestCase {
         XCTAssert(dwarf.baseLanguages!.contains { $0 == "dwarvish"})
     }
     
-    func testWriteRaceToCoreData() {
+    func testLoadRaceRecordFromCoreData() {
         RaceRecord.loadDataIfNeeded()
-        
         
         let dwarf = RaceRecord.record(for: "dwarf")!
         
@@ -58,7 +58,12 @@ class Race_SubraceTests: XCTestCase {
         
         XCTAssertTrue(dwarf.name! == "dwarf")
         XCTAssertTrue(dwarf.detail!.starts(with: "Stout and stubborn, a dwarf is"))
-
+        
+        dump(dwarf.descriptive)
+        let descriptive = dwarf.descriptive
+        XCTAssertTrue(descriptive!.age.starts(with: "Dwarves mature at the same"))
+        XCTAssertTrue(descriptive!.alignment.starts(with: "Most dwarves are lawful"))
+        XCTAssertTrue(descriptive!.physique.starts(with: "Dwarves stand between 4 and 5 feet"))
         
 
     }

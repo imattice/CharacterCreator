@@ -142,28 +142,13 @@ struct Race {
 	static let Human				= Race(fromParent: "human", withSubrace: nil)
 }
 
-final class RaceRecord: Record, Decodable {
-    static func all() -> [RaceRecord] {
-        return [RaceRecord]()
-    }
-    
-    static func record(for name: String) -> Self? {
-        return nil
-    }
-    
-    static func records(matching name: String) -> [RaceRecord] {
-        return [RaceRecord]()
-    }
-    
-    static func loadDataIfNeeded() {
-        
-    }
-    
-    var id: String?
-    var name: String?
-    var detail: String?
-    var hasDarkvision: Bool?
-    var descriptive: Descriptive?
+final
+class RaceRecord: NSManagedObject, Record, Decodable {
+//    var id: String?
+   // var name: String?
+//    var detail: String?
+//    var hasDarkvision: Bool?
+    //var descriptive: Descriptive?
     private var sizeString: String?
     var modifiers: [Modifier]?
     var features: [Feature]?
@@ -174,12 +159,12 @@ final class RaceRecord: Record, Decodable {
         set { sizeString = newValue.rawValue }
     }
     
-    required //convenience
+    required convenience
     init(from decoder: Decoder) throws {
-//        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
-//          throw JSONError.missingManagedObjectContextForDecoder }
-//
-//        self.init(context: context)
+        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
+          throw JSONError.missingManagedObjectContextForDecoder }
+
+        self.init(context: context)
         
         let container       = try decoder.container(keyedBy: CodingKeys.self)
         self.id             = UUID().uuidString
@@ -209,14 +194,34 @@ final class RaceRecord: Record, Decodable {
         self.baseLanguages = languages
     }
     
-    
     ///holds descriptive references of average attributes for this race
-    class Descriptive {
+    @objc(RaceRecordDescriptive)
+    class Descriptive: NSObject, NSSecureCoding {
         let age: String
         let alignment: String
         let physique: String
         
         init(age: String, alignment: String, physique: String) {
+            self.age = age
+            self.alignment = alignment
+            self.physique = physique
+        }
+        
+        static var supportsSecureCoding: Bool = true
+        
+        func encode(with coder: NSCoder) {
+            coder.encode(age, forKey: "age")
+            coder.encode(alignment, forKey: "alignment")
+            coder.encode(physique, forKey: "physique")
+        }
+        
+        required init?(coder: NSCoder) {
+            guard
+                let age = coder.decodeObject(of: [NSString.self], forKey: "age") as? String,
+                let alignment = coder.decodeObject(of: [NSString.self], forKey: "alignment") as? String,
+                let physique = coder.decodeObject(of: [NSString.self], forKey: "physique") as? String
+            else {  return nil  }
+            
             self.age = age
             self.alignment = alignment
             self.physique = physique
@@ -227,6 +232,9 @@ final class RaceRecord: Record, Decodable {
         case id, name, description, age, alignment, physique, modifiers, size, hasDarkvision, features, baseLanguages, statIncrease
     }
 }
+
+
+
 
 ///descrbes unique attribtue for a specific race or class
 class Feature: NSObject {
