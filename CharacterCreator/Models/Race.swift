@@ -144,20 +144,28 @@ struct Race {
 
 final
 class RaceRecord: NSManagedObject, Record, Decodable {
-//    var id: String?
-   // var name: String?
-//    var detail: String?
-//    var hasDarkvision: Bool?
-    //var descriptive: Descriptive?
-    private var sizeString: String?
+    @NSManaged public var id: String?
+    @NSManaged public var name: String?
+    @NSManaged public var detail: String?
+    @NSManaged public var hasDarkvision: Bool
+    @NSManaged public var descriptive: Descriptive?
+    @NSManaged private var sizeString: String?
+    @NSManaged public var baseLanguages: [String]?
+    @NSManaged public var features: [Feature]?
+
+
+    //https://medium.com/@rezafarahani/store-array-of-custom-object-in-coredata-bea77b9eb629
     var modifiers: [Modifier]?
-    var features: [Feature]?
-    var baseLanguages: [String]?
     
-    var size: CreatureSize {
-        get { return CreatureSize(rawValue: sizeString!) ?? .medium }
+    var size: CreatureSize  {
+        get { return CreatureSize(rawValue: sizeString!) ?? .tiny }
         set { sizeString = newValue.rawValue }
     }
+    
+//    var baseLanguages: [String] {
+//        get { return languagesString!.split(separator: ",") }
+//        set { sizeString = newValue.rawValue }
+//    }
     
     required convenience
     init(from decoder: Decoder) throws {
@@ -176,7 +184,8 @@ class RaceRecord: NSManagedObject, Record, Decodable {
         let physique        = try container.decode(String.self, forKey: .physique)
         self.descriptive    = Descriptive(age: age, alignment: alignment, physique: physique)
 
-        self.size           = CreatureSize(rawValue: try container.decode(String.self, forKey: .size))!
+        self.sizeString     =  try container.decode(String.self, forKey: .size)
+//CreatureSize(rawValue: try container.decode(String.self, forKey: .size))!
         self.hasDarkvision  = try container.decodeIfPresent(Bool.self, forKey: .hasDarkvision) ?? false
         
         let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
@@ -209,12 +218,6 @@ class RaceRecord: NSManagedObject, Record, Decodable {
         
         static var supportsSecureCoding: Bool = true
         
-        func encode(with coder: NSCoder) {
-            coder.encode(age, forKey: "age")
-            coder.encode(alignment, forKey: "alignment")
-            coder.encode(physique, forKey: "physique")
-        }
-        
         required init?(coder: NSCoder) {
             guard
                 let age = coder.decodeObject(of: [NSString.self], forKey: "age") as? String,
@@ -226,14 +229,22 @@ class RaceRecord: NSManagedObject, Record, Decodable {
             self.alignment = alignment
             self.physique = physique
         }
+        
+        func encode(with coder: NSCoder) {
+            coder.encode(age, forKey: "age")
+            coder.encode(alignment, forKey: "alignment")
+            coder.encode(physique, forKey: "physique")
+        }
+    }
+    
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<RaceRecord> {
+        return NSFetchRequest<RaceRecord>(entityName: "RaceRecord")
     }
     
     enum CodingKeys: CodingKey {
         case id, name, description, age, alignment, physique, modifiers, size, hasDarkvision, features, baseLanguages, statIncrease
     }
 }
-
-
 
 
 ///descrbes unique attribtue for a specific race or class

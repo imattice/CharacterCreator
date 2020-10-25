@@ -53,18 +53,20 @@ class Race_SubraceTests: XCTestCase {
         RaceRecord.loadDataIfNeeded()
         
         let dwarf = RaceRecord.record(for: "dwarf")!
-        
-        print(dwarf)
-        
+                
         XCTAssertTrue(dwarf.name! == "dwarf")
         XCTAssertTrue(dwarf.detail!.starts(with: "Stout and stubborn, a dwarf is"))
         
-        dump(dwarf.descriptive)
+        dump(dwarf)
         let descriptive = dwarf.descriptive
         XCTAssertTrue(descriptive!.age.starts(with: "Dwarves mature at the same"))
         XCTAssertTrue(descriptive!.alignment.starts(with: "Most dwarves are lawful"))
         XCTAssertTrue(descriptive!.physique.starts(with: "Dwarves stand between 4 and 5 feet"))
         
+        XCTAssertTrue(dwarf.size == .medium)
+        XCTAssertTrue(dwarf.baseLanguages!.contains("common"))
+        XCTAssertTrue(dwarf.baseLanguages!.contains("dwarvish"))
+
 
     }
     

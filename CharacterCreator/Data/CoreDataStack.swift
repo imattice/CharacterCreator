@@ -42,7 +42,7 @@ class CoreDataStack {
     init(name: String) {
         self.modelName = name
         
-//        registerTransformers()
+        registerTransformers()
     }
     
     ///specifiy a container, such as a temporary store, to initialize the data stack
@@ -64,9 +64,9 @@ class CoreDataStack {
         }
     }
     
-//    func registerTransformers() {
-//        RaceDescriptiveTransformer.register()
-//    }
+    func registerTransformers() {
+        RaceDescriptiveTransformer.register()
+    }
 }
 
 class RecordDataManager: CoreDataStack {

@@ -8,15 +8,17 @@
         <attribute name="script" attributeType="String"/>
         <attribute name="spokenBy" attributeType="String"/>
     </entity>
-    <entity name="RaceRecord" representedClassName=".RaceRecord" syncable="YES" codeGenerationType="category">
-        <attribute name="descriptive" optional="YES" attributeType="Transformable" valueTransformerName="" customClassName="Descriptive"/>
+    <entity name="RaceRecord" representedClassName=".RaceRecord" syncable="YES">
+        <attribute name="baseLanguages" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="Array&lt;String&gt;"/>
+        <attribute name="descriptive" optional="YES" attributeType="Transformable" valueTransformerName="RaceDescriptiveTransformer" customClassName="Descriptive"/>
         <attribute name="detail" optional="YES" attributeType="String"/>
         <attribute name="hasDarkvision" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sizeString" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="LanguageRecord" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="RaceRecord" positionX="-36" positionY="54" width="128" height="28"/>
+        <element name="RaceRecord" positionX="-36" positionY="54" width="128" height="148"/>
     </elements>
 </model>
