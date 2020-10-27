@@ -40,25 +40,28 @@ struct Language {
 }
 
 
-final
-class LanguageRecord: NSManagedObject, Record, Decodable {
-    required convenience
-    init(from decoder: Decoder) throws {
-        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
-          throw JSONError.missingManagedObjectContextForDecoder }
-        
-        self.init(context: context)
-        
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.id = UUID().uuidString
-        self.name = try container.decode(String.self, forKey: .name)
-        self.spokenBy = try container.decode(String.self, forKey: .spokenBy)
-        self.script = try container.decode(String.self, forKey: .script)
-        self.isExotic = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
-        self.isSecret = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
-    }
-    enum CodingKeys: CodingKey {
-        case id, isExotic, isSecret, name, script, spokenBy
-    }
-}
+
+
+//MARK: -Old Core Data Implementation
+//final
+//class LanguageRecord: NSManagedObject, Record, Decodable {
+//    required convenience
+//    init(from decoder: Decoder) throws {
+//        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
+//          throw JSONError.missingManagedObjectContextForDecoder }
+//
+//        self.init(context: context)
+//
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//
+//        self.id = UUID().uuidString
+//        self.name = try container.decode(String.self, forKey: .name)
+//        self.spokenBy = try container.decode(String.self, forKey: .spokenBy)
+//        self.script = try container.decode(String.self, forKey: .script)
+//        self.isExotic = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
+//        self.isSecret = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
+//    }
+//    enum CodingKeys: CodingKey {
+//        case id, isExotic, isSecret, name, script, spokenBy
+//    }
+//}
