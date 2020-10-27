@@ -17,10 +17,10 @@ struct Language {
 
 	var spokenBy: String {
 		guard let record = LanguageRecord.record(for: name) else { return "" }
-		return record.spokenBy!	}
+		return record.spokenBy	}
 	var script: String {
 		guard let record = LanguageRecord.record(for: name) else { return "" }
-		return record.script!	}
+		return record.script	}
 	var isExotic: Bool {
 		guard let record = LanguageRecord.record(for: name) else { return true }
 		return record.isExotic	}
@@ -39,6 +39,28 @@ struct Language {
 	}
 }
 
+
+final
+class LanguageRecord: Record, Codable {
+    let id: String = UUID().uuidString
+    var name: String
+    let spokenBy: String
+    let script: String
+    let isExotic: Bool
+    let isSecret: Bool
+        
+    required //convenience
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        self.id = UUID().uuidString
+        self.name = try container.decode(String.self, forKey: .name)
+        self.spokenBy = try container.decode(String.self, forKey: .spokenBy)
+        self.script = try container.decode(String.self, forKey: .script)
+        self.isExotic = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
+        self.isSecret = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
+    }
+}
 
 
 

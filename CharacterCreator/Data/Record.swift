@@ -15,38 +15,37 @@ import CoreData
 
 
 protocol Record {
-    var name: String? { get set }
+    ///name of the record
+    var name: String { get }
     
-    ///holds all records
-    //This will be replaced by an actual persistant store once I decide which one to use
+    ///return all records parsed from JSON
     static
-    var all: [Self]? { get set }
+    func all() -> [Self]
     
+    ///return a specific record that matches the input string
     static
     func record(for name: String) -> Self?
     
-    static
-    func records(matching name: String) -> [Self]
-    
+    ///converts JSON file data to Objects
     static
     func parseAllFromJSON() throws -> [Self]
-    
-    static
-    func loadDataIfNeeded()
 }
 
 extension Record where Self: Codable {
+    static
+    func all() -> [Self] {
+        do {
+            return try parseAllFromJSON()
+        } catch {
+            print(error)
+            return [Self]()
+        }
+    }
+    
     ///fetches a specific record of the given name
     static
     func record(for name: String) -> Self? {
-        return all?.filter { $0.name == name }.first
-    }
-    
-    ///fetches all records that match a given partial name
-    static
-    func records(matching name: String) -> [Self] {
-        guard let all = all else { return [Self]() }
-        return all.filter { $0.name == name }
+        return all().filter { $0.name == name }.first
     }
     
     ///decodes JSON from file
@@ -72,20 +71,6 @@ extension Record where Self: Codable {
             throw JSONError.parsingError
         }
     }
-    
-    ///loads data from JSON file and adds it to the all singleton
-    ///if the data model already contains data, do nothing
-    static
-    func loadDataIfNeeded() {
-        guard all != nil else { return }
-        
-        do {
-            all = try parseAllFromJSON()
-        } catch {
-            print(error)
-        }
-    }
-
 }
 
 
