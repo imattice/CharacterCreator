@@ -169,6 +169,8 @@ class RaceRecord: Record, Codable {
         self.size     =  CreatureSize(rawValue: try container.decode(String.self, forKey: .size))!
         self.hasDarkvision  = try container.decodeIfPresent(Bool.self, forKey: .hasDarkvision) ?? false
         
+        self.speed           = try container.decode(Int.self, forKey: .speed)
+        
         let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
         self.modifiers = AbilityScoreModifier.decoded(from: statModifierContainer)
         
@@ -184,7 +186,7 @@ class RaceRecord: Record, Codable {
         self.baseLanguages = languages
     }
     
-    public func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(name, forKey: .name)
         try container.encode(description, forKey: .description)
@@ -206,49 +208,47 @@ class RaceRecord: Record, Codable {
     }
     
     enum CodingKeys: CodingKey {
-        case id, name, description, age, alignment, physique, modifiers, size, hasDarkvision, features, baseLanguages, statIncrease
+        case id, name, description, age, alignment, physique, modifiers, size, speed, hasDarkvision, features, baseLanguages, statIncrease
     }
 }
 
 
-///descrbes unique attribtue for a specific race or class
-struct Feature: Codable {
-    let title: String
-    let detail: String
+
+final
+class SubraceRecord: Record, Codable {
+    let id: String = UUID().uuidString
+    let parent: String
+    var name: String
+    let description: String
+    let modifiers: [Modifier]
+    let features: [Feature]
     
-    static
-    func decoded(from container: UnkeyedDecodingContainer) -> [Feature] {
-        var mutableContainer = container
-        var features = [Feature]()
-        while !mutableContainer.isAtEnd {
-            do {
-                let feature = try mutableContainer.nestedContainer(keyedBy: FeatureCodingKeys.self)
-                let title = try feature.decode(String.self, forKey: .title)
-                let description = try feature.decode(String.self, forKey: .description)
-                features.append(Feature(title: title, detail: description))
-            } catch {
-                print(error)
-            }
-        }
-        return features
-    }
+    required
+    init(from decoder: Decoder) throws {
+        let container       = try decoder.container(keyedBy: CodingKeys.self)
+        self.parent         = try container.decode(String.self, forKey: .parent)
+        self.name           = try container.decode(String.self, forKey: .name)
+        self.description    = try container.decode(String.self, forKey: .description)
+       
+        let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
+        self.modifiers = AbilityScoreModifier.decoded(from: statModifierContainer)
 
-    enum FeatureCodingKeys: CodingKey {
-        case title, description
+        let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
+        self.features     = Feature.decoded(from: featureContainer)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(description, forKey: .description)
+        try container.encode(features, forKey: .features)
+        try container.encode(modifiers, forKey: .modifiers)
+    }
+    
+    enum CodingKeys: CodingKey {
+        case parent, name, description, statIncrease, features, modifiers
     }
 }
-
-enum CreatureSize: String {
-    case tiny, small, medium, large, huge, gargantuan
-}
-
-//
-//struct SubraceRecord: Codable {
-//    let id: String
-//    let name: String
-//    let description: String
-//    let modifiers: [Modifier]
-//}
 
 //@objcMembers
 //class RaceRecord: Object {

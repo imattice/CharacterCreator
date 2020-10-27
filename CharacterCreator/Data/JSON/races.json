@@ -42,6 +42,7 @@
       "physique":"Elves range from under 5 to over 6 feet tall and have slender builds. ",
       "size":"medium",
       "hasDarkvision":true,
+      "speed": 30,
       "features":[
          {
             "title":"Keen Senses",

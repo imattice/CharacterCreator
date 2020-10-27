@@ -42,6 +42,8 @@
 		81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */; };
 		81541A35227420C2002C7B72 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* Language.swift */; };
 		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
+		8169358A2548787400711E67 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816935892548787400711E67 /* Feature.swift */; };
+		8169358F2548788E00711E67 /* CreatureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169358E2548788E00711E67 /* CreatureSize.swift */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		81851D5F2254721E00260413 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D5E2254721E00260413 /* UITextView.swift */; };
 		81851D612254725C00260413 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D602254725C00260413 /* UITextField.swift */; };
@@ -180,6 +182,8 @@
 		81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewController.swift; sourceTree = "<group>"; };
 		81541A34227420C2002C7B72 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
+		816935892548787400711E67 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Feature.swift; path = CharacterCreator/Models/Feature.swift; sourceTree = SOURCE_ROOT; };
+		8169358E2548788E00711E67 /* CreatureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSize.swift; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		81851D5E2254721E00260413 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		81851D602254725C00260413 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -539,6 +543,8 @@
 		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
 			isa = PBXGroup;
 			children = (
+				816935892548787400711E67 /* Feature.swift */,
+				8169358E2548788E00711E67 /* CreatureSize.swift */,
 				81C8B944253FE9B90086F6C8 /* AbilityScore.swift */,
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
@@ -860,6 +866,7 @@
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
+				8169358A2548787400711E67 /* Feature.swift in Sources */,
 				81B038D122DD14E00059AFC1 /* Calculation.swift in Sources */,
 				81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */,
 				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,
@@ -875,6 +882,7 @@
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
 				81243E59227A3562003A9DA8 /* Weapon.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
+				8169358F2548788E00711E67 /* CreatureSize.swift in Sources */,
 				81851D5F2254721E00260413 /* UITextView.swift in Sources */,
 				81C8B80E253D10CE0086F6C8 /* Errors.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,

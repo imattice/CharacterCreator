@@ -12,7 +12,7 @@ import XCTest
 class Race_SubraceTests: XCTestCase {
     func testRaceJSONParsing() throws {
         let races = try RaceRecord.parseAllFromJSON()
-        XCTAssertTrue(!races.isEmpty)
+        XCTAssertFalse(races.isEmpty)
         
         guard let dwarf = races.filter({ $0.name == "dwarf" }).first else { XCTFail(); return }
 
@@ -37,6 +37,23 @@ class Race_SubraceTests: XCTestCase {
         XCTAssertTrue(dwarf.features.count == 4)
         XCTAssert(dwarf.baseLanguages.contains { $0 == "common"})
         XCTAssert(dwarf.baseLanguages.contains { $0 == "dwarvish"})
+    }
+    
+    func testSubraceJSONParsing() throws {
+        let subraces = try SubraceRecord.parseAllFromJSON()
+        XCTAssertFalse(subraces.isEmpty)
+        
+        guard let lightFoot = subraces.filter({ $0.name == "lightfoot" }).first else { XCTFail(); return }
+        
+        XCTAssertTrue(lightFoot.description.starts(with: "As a lightfoot halfling, you can easily hide from notice"))
+        XCTAssertTrue(lightFoot.parent == "halfling")
+        XCTAssertTrue(lightFoot.modifiers.count == 1)
+        guard let statModifier = lightFoot.modifiers.first as? AbilityScoreModifier else { XCTFail(); return }
+        
+        XCTAssertTrue(statModifier.value == 1)
+        XCTAssertTrue(statModifier.abilityScore == .cha)
+
+        XCTAssertTrue(lightFoot.features.count == 1)
     }
     
 //    func testLoadRaceRecordFromCoreData() {
