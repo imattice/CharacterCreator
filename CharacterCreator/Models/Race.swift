@@ -150,6 +150,7 @@ class RaceRecord: Record, Codable {
     let hasDarkvision: Bool
     let descriptive: Descriptive
     let size: CreatureSize
+    let speed: Int
     let baseLanguages: [String]
     let features: [Feature]
     let modifiers: [Modifier]
