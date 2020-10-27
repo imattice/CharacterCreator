@@ -11,12 +11,6 @@ class Modifier: Codable {
     ///the source of the modifier
     let origin: Origin
     
-    enum Origin: String, Codable {
-        case race,
-             subrace,
-             `class`
-    }
-    
     init(origin: Origin) {
         self.origin = origin
     }
@@ -35,7 +29,8 @@ class AbilityScoreModifier: Modifier {
     ///if this adjustement can be removed at a later time
     let isTemporary: Bool
     
-    required init(from decoder: Decoder) throws {
+    required
+    init(from decoder: Decoder) throws {
         let container       = try decoder.container(keyedBy: CodingKeys.self)
         self.abilityScore   = AbilityScore.Name(rawValue: try container.decode(String.self, forKey: .abilityScore))!
         self.value          = try container.decode(Int.self, forKey: .value)
@@ -54,6 +49,7 @@ class AbilityScoreModifier: Modifier {
         super.init(origin: origin)
     }
     
+    ///decodes an Unkeyed JSON decoding container into an array of AbilityScoreModifiers
     static
     func decoded(from container: KeyedDecodingContainer<AbilityScore.Name>) -> [AbilityScoreModifier] {
         var modifiers = [AbilityScoreModifier]()
@@ -65,6 +61,7 @@ class AbilityScoreModifier: Modifier {
         
         return modifiers
     }
+    
     enum Adjustment: String {
         case increase, decrease }
     enum CodingKeys: CodingKey {
@@ -86,7 +83,8 @@ class HPModifier: Modifier {
         super.init(origin: origin)
     }
     
-    required init(from decoder: Decoder) throws {
+    required
+    init(from decoder: Decoder) throws {
         let container       = try decoder.container(keyedBy: CodingKeys.self)
         self.value   = try container.decode(Int.self, forKey: .value)
         self.isTemporary    = try container.decode(Bool.self, forKey: .isTemporary)

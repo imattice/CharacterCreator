@@ -30,10 +30,6 @@ struct Language {
 		self.isSelectable 	= isSelectable
 	}
     
-//    static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {
-//        return LanguageRecord.all().filter({ $0.name == name }).first
-//    }
-
 	enum Script: String {
 		case common, draconic, dwarvish, elvish, infernal, celestial, druidic
 	}
@@ -42,21 +38,30 @@ struct Language {
 
 final
 class LanguageRecord: Record, Codable {
+    ///used to identify the record
     let id: String = UUID().uuidString
+    ///the name of the language
     var name: String
+    ///a  paragraph containing descriptive details about the language
+    let description: String
+    ///describes who typically speaks this language
     let spokenBy: String
+    ///the script that is used to write this language
     let script: String
+    ///determines if the language is rare
     let isExotic: Bool
+    ///determines if the language is only know by specific groups
     let isSecret: Bool
         
     required //convenience
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.spokenBy = try container.decode(String.self, forKey: .spokenBy)
-        self.script = try container.decode(String.self, forKey: .script)
-        self.isExotic = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
-        self.isSecret = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
+        let container       = try decoder.container(keyedBy: CodingKeys.self)
+        self.name           = try container.decode(String.self, forKey: .name)
+        self.description    = try container.decode(String.self, forKey: .description)
+        self.spokenBy       = try container.decode(String.self, forKey: .spokenBy)
+        self.script         = try container.decode(String.self, forKey: .script)
+        self.isExotic       = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
+        self.isSecret       = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
     }
 }
 

@@ -8,13 +8,18 @@
 
 import Foundation
 
-///descrbes unique attribtue for a specific race or class
+///descrbes unique feature that will affect gameplay
 struct Feature: Codable {
+    ///the title of the feature
     let title: String
-    let detail: String
+    ///a paragraph describing the feature's effects
+    let description: String
+    ///the source of the feature
+    let origin: Origin
     
+    ///decodes an Unkeyed JSON decoding container into an array of Features
     static
-    func decoded(from container: UnkeyedDecodingContainer) -> [Feature] {
+    func decoded(from container: UnkeyedDecodingContainer, source: Origin) -> [Feature] {
         var mutableContainer = container
         var features = [Feature]()
         while !mutableContainer.isAtEnd {
@@ -22,7 +27,7 @@ struct Feature: Codable {
                 let feature = try mutableContainer.nestedContainer(keyedBy: FeatureCodingKeys.self)
                 let title = try feature.decode(String.self, forKey: .title)
                 let description = try feature.decode(String.self, forKey: .description)
-                features.append(Feature(title: title, detail: description))
+                features.append(Feature(title: title, description: description, origin: source))
             } catch {
                 print(error)
             }

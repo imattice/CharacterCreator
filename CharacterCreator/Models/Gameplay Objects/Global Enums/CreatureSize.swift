@@ -8,6 +8,7 @@
 
 import Foundation
 
+///all options for sizes of creatures
 enum CreatureSize: String {
     case tiny, small, medium, large, huge, gargantuan
 }

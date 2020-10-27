@@ -24,35 +24,33 @@ struct AbilityScore {
         self.rawValue = value
     }
     
-    ///reset the value to the raw value
+    ///reset the modified value to the raw value
     mutating
     func resetValue() {
         value = rawValue
     }
+    
     ///contains all valid options for Ability Scores
     enum Name: String, CaseIterable, CodingKey {
         case str, con, dex, cha, wis, int
-//        case str = "strength",
-//             con = "constitution",
-//             dex = "dexterity",
-//             cha = "charisma",
-//             wis = "wisdom",
-//             int = "intelligence"
-//
-//        ///returns a lowercased string for the name of the Ability Score
-//        func label(_ length: Length = .short) -> String {
-//            switch length {
-//            case .short: return String(describing: Self.self)
-//            case .long: return self.rawValue
-//            }
-//        }
-//        ///used to determine if the label name of the Ability Score should be long or short
-//        enum Length {
-//            case short, long
-//        }
+        
+        ///returns a lowercased string for the name of the Ability Score
+        func label(_ length: Length = .short) -> String {
+            switch length {
+            case .short: return self.rawValue
+            case .long:
+                switch self {
+                case .str: return "strength"
+                case .con: return "constitution"
+                case .dex: return "dexterity"
+                case .cha: return "charisma"
+                case .wis: return "wisdom"
+                case .int: return "intelligence"                }
+            }
+        }
+        ///used to determine if the label name of the Ability Score should be long or short
+        enum Length {
+            case short, long
+        }
     }
 }
-
-//enum AbilityScoreCodingKeys: CodingKey, CaseIterable {
-//    case str, con, dex, cha, wis, int
-//}

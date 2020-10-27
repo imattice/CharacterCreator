@@ -44,6 +44,7 @@
 		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
 		8169358A2548787400711E67 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816935892548787400711E67 /* Feature.swift */; };
 		8169358F2548788E00711E67 /* CreatureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169358E2548788E00711E67 /* CreatureSize.swift */; };
+		816935942548944700711E67 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816935932548944700711E67 /* Origin.swift */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		81851D5F2254721E00260413 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D5E2254721E00260413 /* UITextView.swift */; };
 		81851D612254725C00260413 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D602254725C00260413 /* UITextField.swift */; };
@@ -184,6 +185,7 @@
 		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		816935892548787400711E67 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Feature.swift; path = CharacterCreator/Models/Feature.swift; sourceTree = SOURCE_ROOT; };
 		8169358E2548788E00711E67 /* CreatureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSize.swift; sourceTree = "<group>"; };
+		816935932548944700711E67 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		81851D5E2254721E00260413 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		81851D602254725C00260413 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -488,6 +490,15 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		816935982548947500711E67 /* Global Enums */ = {
+			isa = PBXGroup;
+			children = (
+				8169358E2548788E00711E67 /* CreatureSize.swift */,
+				816935932548944700711E67 /* Origin.swift */,
+			);
+			path = "Global Enums";
+			sourceTree = "<group>";
+		};
 		8178317420F7F99800BF9B03 /* Design */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,12 +555,12 @@
 			isa = PBXGroup;
 			children = (
 				816935892548787400711E67 /* Feature.swift */,
-				8169358E2548788E00711E67 /* CreatureSize.swift */,
 				81C8B944253FE9B90086F6C8 /* AbilityScore.swift */,
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
 				81B038D022DD14E00059AFC1 /* Calculation.swift */,
+				816935982548947500711E67 /* Global Enums */,
 			);
 			path = "Gameplay Objects";
 			sourceTree = "<group>";
@@ -867,6 +878,7 @@
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
 				8169358A2548787400711E67 /* Feature.swift in Sources */,
+				816935942548944700711E67 /* Origin.swift in Sources */,
 				81B038D122DD14E00059AFC1 /* Calculation.swift in Sources */,
 				81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */,
 				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,
