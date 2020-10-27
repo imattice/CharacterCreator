@@ -14,7 +14,9 @@ import CoreData
 ///https://www.donnywals.com/using-codable-with-core-data-and-nsmanagedobject/
 
 
-protocol Record {
+protocol Record: Identifiable, Codable {
+    var id: String { get }
+    
     ///name of the record
     var name: String { get }
     

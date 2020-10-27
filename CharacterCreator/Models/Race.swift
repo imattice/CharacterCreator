@@ -106,7 +106,7 @@ struct Race {
 		var result = [Language]()
 		for language in languages {
 			if let record = LanguageRecord.record(for: language) {
-                result.append( Language(name: record.name!) )
+                result.append( Language(name: record.name) )
 			}
 			if language == "choice" {
 				let languageChoice = Language(name: "choice", isSelectable: true)
@@ -143,73 +143,36 @@ struct Race {
 }
 
 final
-class RaceRecord: NSManagedObject, Record, Decodable {
-    @NSManaged public var id: String?
-    @NSManaged public var name: String?
-    @NSManaged public var detail: String?
-    @NSManaged public var hasDarkvision: Bool
-    @NSManaged public var descriptive: Descriptive?
-    @NSManaged private var sizeString: String?
-    @NSManaged public var baseLanguages: [String]?
-    @NSManaged public var features: Set<Feature>?
+class RaceRecord: Record, Codable {
+    let id: String = UUID().uuidString
+    var name: String
+    let description: String
+    let hasDarkvision: Bool
+    let descriptive: Descriptive
+    let size: CreatureSize
+    let baseLanguages: [String]
+    let features: [Feature]
+    let modifiers: [Modifier]
     
-    
-    //var features: [Feature] { return Array(arrayLiteral: cdFeatures) as! [Feature] }
-    //https://medium.com/@rezafarahani/store-array-of-custom-object-in-coredata-bea77b9eb629
-    var modifiers: [Modifier]?
-    
-    var size: CreatureSize  {
-        get { return CreatureSize(rawValue: sizeString!) ?? .tiny }
-        set { sizeString = newValue.rawValue }
-    }
-    
-//    var baseLanguages: [String] {
-//        get { return languagesString!.split(separator: ",") }
-//        set { sizeString = newValue.rawValue }
-//    }
-    
-    required convenience
+    required
     init(from decoder: Decoder) throws {
-        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
-          throw JSONError.missingManagedObjectContextForDecoder }
-
-        self.init(context: context)
-        
         let container       = try decoder.container(keyedBy: CodingKeys.self)
-        self.id             = UUID().uuidString
         self.name           = try container.decode(String.self, forKey: .name)
-        self.detail         = try container.decode(String.self, forKey: .description)
+        self.description    = try container.decode(String.self, forKey: .description)
 
         let age             = try container.decode(String.self, forKey: .age)
         let alignment       = try container.decode(String.self, forKey: .alignment)
         let physique        = try container.decode(String.self, forKey: .physique)
         self.descriptive    = Descriptive(age: age, alignment: alignment, physique: physique)
 
-        self.sizeString     =  try container.decode(String.self, forKey: .size)
-//CreatureSize(rawValue: try container.decode(String.self, forKey: .size))!
+        self.size     =  CreatureSize(rawValue: try container.decode(String.self, forKey: .size))!
         self.hasDarkvision  = try container.decodeIfPresent(Bool.self, forKey: .hasDarkvision) ?? false
         
         let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
         self.modifiers = AbilityScoreModifier.decoded(from: statModifierContainer)
         
-        var featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
-        var featureSet = Set<Feature>()
-        while featureContainer.isAtEnd {
-            do {
-                let featureContainer = try featureContainer.nestedContainer(keyedBy: Feature.FeatureCodingKeys.self)
-                let title = try featureContainer.decode(String.self, forKey: .title)
-                let description = try featureContainer.decode(String.self, forKey: .description)
-                let feature = Feature(context: context)
-                feature.title = title
-                feature.detail = description
-                feature.race = self
-                
-                featureSet.insert(feature)
-            } catch {
-                throw error
-            }
-        }
-        self.features     = featureSet
+        let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
+        self.features     = Feature.decoded(from: featureContainer)
 
         var languages = [String]()
         var languageContainer = try container.nestedUnkeyedContainer(forKey: .baseLanguages)
@@ -218,46 +181,27 @@ class RaceRecord: NSManagedObject, Record, Decodable {
             languages.append(language)
         }
         self.baseLanguages = languages
-        
-//        context.save()
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(description, forKey: .description)
+        try container.encode(hasDarkvision, forKey: .hasDarkvision)
+        try container.encode(descriptive.age, forKey: .age)
+        try container.encode(descriptive.alignment, forKey: .alignment)
+        try container.encode(descriptive.physique, forKey: .physique)
+        try container.encode(size.rawValue, forKey: .size)
+        try container.encode(baseLanguages, forKey: .baseLanguages)
+        try container.encode(features, forKey: .features)
+        try container.encode(modifiers, forKey: .modifiers)
     }
     
     ///holds descriptive references of average attributes for this race
-    @objc(RaceRecordDescriptive)
-    class Descriptive: NSObject, NSSecureCoding {
+    struct Descriptive: Codable {
         let age: String
         let alignment: String
         let physique: String
-        
-        init(age: String, alignment: String, physique: String) {
-            self.age = age
-            self.alignment = alignment
-            self.physique = physique
-        }
-        
-        static var supportsSecureCoding: Bool = true
-        
-        required init?(coder: NSCoder) {
-            guard
-                let age = coder.decodeObject(of: [NSString.self], forKey: "age") as? String,
-                let alignment = coder.decodeObject(of: [NSString.self], forKey: "alignment") as? String,
-                let physique = coder.decodeObject(of: [NSString.self], forKey: "physique") as? String
-            else {  return nil  }
-            
-            self.age = age
-            self.alignment = alignment
-            self.physique = physique
-        }
-        
-        func encode(with coder: NSCoder) {
-            coder.encode(age, forKey: "age")
-            coder.encode(alignment, forKey: "alignment")
-            coder.encode(physique, forKey: "physique")
-        }
-    }
-    
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<RaceRecord> {
-        return NSFetchRequest<RaceRecord>(entityName: "RaceRecord")
     }
     
     enum CodingKeys: CodingKey {
@@ -267,23 +211,12 @@ class RaceRecord: NSManagedObject, Record, Decodable {
 
 
 ///descrbes unique attribtue for a specific race or class
-class Feature: NSManagedObject {
-    @NSManaged public var title: String?
-    @NSManaged public var detail: String?
-    @NSManaged public var race: RaceRecord?
-    
-    convenience
-    init(title: String, detail: String, context: NSManagedObjectContext = RecordDataManager.shared.managedContext) {
-        self.init(context: context)
-        
-        self.title = title
-        self.detail  = detail
-        
-        try? context.save()
-    }
+struct Feature: Codable {
+    let title: String
+    let detail: String
     
     static
-    func decoded(from container: UnkeyedDecodingContainer) throws -> [Feature] {
+    func decoded(from container: UnkeyedDecodingContainer) -> [Feature] {
         var mutableContainer = container
         var features = [Feature]()
         while !mutableContainer.isAtEnd {
@@ -293,26 +226,7 @@ class Feature: NSManagedObject {
                 let description = try feature.decode(String.self, forKey: .description)
                 features.append(Feature(title: title, detail: description))
             } catch {
-                throw error
-            }
-        }
-        return features
-    }
-    
-    static
-    func decoded(from container: UnkeyedDecodingContainer) throws -> Set<Feature> {
-        var mutableContainer = container
-        var features = Set<Feature>()
-        while !mutableContainer.isAtEnd {
-            do {
-                let feature = try mutableContainer.nestedContainer(keyedBy: FeatureCodingKeys.self)
-                let title = try feature.decode(String.self, forKey: .title)
-                let description = try feature.decode(String.self, forKey: .description)
-//                features.adding(Feature(title: title, detail: description))
-                features.insert(Feature(title: title, detail: description))
-//                features.append(Feature(title: title, detail: description))
-            } catch {
-                throw error
+                print(error)
             }
         }
         return features
@@ -326,6 +240,7 @@ class Feature: NSManagedObject {
 enum CreatureSize: String {
     case tiny, small, medium, large, huge, gargantuan
 }
+
 //
 //struct SubraceRecord: Codable {
 //    let id: String

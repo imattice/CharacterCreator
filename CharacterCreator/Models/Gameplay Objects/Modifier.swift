@@ -7,7 +7,8 @@
 //
 
 ///holds attributes that affect other character attributes
-class Modifier {
+class Modifier: Codable {
+    ///the source of the modifier
     let origin: Origin
     
     enum Origin: String, Codable {
@@ -21,6 +22,8 @@ class Modifier {
     }
 }
 
+
+//MARK: - Ability Score Modifier
 ///holds attributes that affect ability scores
 class AbilityScoreModifier: Modifier {
     ///the score to be adjusted
@@ -32,8 +35,15 @@ class AbilityScoreModifier: Modifier {
     ///if this adjustement can be removed at a later time
     let isTemporary: Bool
     
-    enum Adjustment {
-        case increase, decrease }
+    required init(from decoder: Decoder) throws {
+        let container       = try decoder.container(keyedBy: CodingKeys.self)
+        self.abilityScore   = AbilityScore.Name(rawValue: try container.decode(String.self, forKey: .abilityScore))!
+        self.value          = try container.decode(Int.self, forKey: .value)
+        self.adjustment     = Adjustment(rawValue: try (container.decodeIfPresent(String.self, forKey: CodingKeys.adjustment) ?? "increase"))!
+        self.isTemporary    = try container.decode(Bool.self, forKey: CodingKeys.adjustment)
+        
+        try super.init(from: decoder)
+    }
     
     init(name: AbilityScore.Name, value: Int, adjustment: Adjustment = .increase, isTemp: Bool = false, origin: Origin) {
         self.abilityScore    = name
@@ -47,7 +57,6 @@ class AbilityScoreModifier: Modifier {
     static
     func decoded(from container: KeyedDecodingContainer<AbilityScore.Name>) -> [AbilityScoreModifier] {
         var modifiers = [AbilityScoreModifier]()
-//        let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
         for key in AbilityScore.Name.allCases {
             guard let value = try? container.decodeIfPresent(Int.self, forKey: key)
             else { continue }
@@ -56,8 +65,13 @@ class AbilityScoreModifier: Modifier {
         
         return modifiers
     }
+    enum Adjustment: String {
+        case increase, decrease }
+    enum CodingKeys: CodingKey {
+        case abilityScore, value, adjustment, isTemporary       }
 }
 
+//MARK: - HP Modifier
 ///holds attributes that affect raw HP values
 class HPModifier: Modifier {
     ///how much the HP should be affected
@@ -70,5 +84,16 @@ class HPModifier: Modifier {
         self.isTemporary    = isTemp
         
         super.init(origin: origin)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container       = try decoder.container(keyedBy: CodingKeys.self)
+        self.value   = try container.decode(Int.self, forKey: .value)
+        self.isTemporary    = try container.decode(Bool.self, forKey: .isTemporary)
+        try super.init(from: decoder)
+    }
+    
+    enum CodingKeys: CodingKey {
+        case value, isTemporary
     }
 }

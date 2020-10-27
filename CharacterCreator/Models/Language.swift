@@ -52,8 +52,6 @@ class LanguageRecord: Record, Codable {
     required //convenience
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-
-        self.id = UUID().uuidString
         self.name = try container.decode(String.self, forKey: .name)
         self.spokenBy = try container.decode(String.self, forKey: .spokenBy)
         self.script = try container.decode(String.self, forKey: .script)
