@@ -57,7 +57,7 @@ class Race_SubraceTests: XCTestCase {
         XCTAssertTrue(dwarf.name! == "dwarf")
         XCTAssertTrue(dwarf.detail!.starts(with: "Stout and stubborn, a dwarf is"))
         
-        dump(dwarf)
+        dump(dwarf.features)
         let descriptive = dwarf.descriptive
         XCTAssertTrue(descriptive!.age.starts(with: "Dwarves mature at the same"))
         XCTAssertTrue(descriptive!.alignment.starts(with: "Most dwarves are lawful"))
@@ -66,18 +66,7 @@ class Race_SubraceTests: XCTestCase {
         XCTAssertTrue(dwarf.size == .medium)
         XCTAssertTrue(dwarf.baseLanguages!.contains("common"))
         XCTAssertTrue(dwarf.baseLanguages!.contains("dwarvish"))
-
-
+        
+        XCTAssertTrue(dwarf.features!.count == 4)
     }
-    
-    func testSubraceJSONInitialization() throws {
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

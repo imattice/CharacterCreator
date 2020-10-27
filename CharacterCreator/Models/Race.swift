@@ -151,9 +151,10 @@ class RaceRecord: NSManagedObject, Record, Decodable {
     @NSManaged public var descriptive: Descriptive?
     @NSManaged private var sizeString: String?
     @NSManaged public var baseLanguages: [String]?
-    @NSManaged public var features: [Feature]?
-
-
+    @NSManaged public var features: Set<Feature>?
+    
+    
+    //var features: [Feature] { return Array(arrayLiteral: cdFeatures) as! [Feature] }
     //https://medium.com/@rezafarahani/store-array-of-custom-object-in-coredata-bea77b9eb629
     var modifiers: [Modifier]?
     
@@ -191,8 +192,24 @@ class RaceRecord: NSManagedObject, Record, Decodable {
         let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
         self.modifiers = AbilityScoreModifier.decoded(from: statModifierContainer)
         
-        let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
-        self.features = try Feature.decoded(from: featureContainer)
+        var featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
+        var featureSet = Set<Feature>()
+        while featureContainer.isAtEnd {
+            do {
+                let featureContainer = try featureContainer.nestedContainer(keyedBy: Feature.FeatureCodingKeys.self)
+                let title = try featureContainer.decode(String.self, forKey: .title)
+                let description = try featureContainer.decode(String.self, forKey: .description)
+                let feature = Feature(context: context)
+                feature.title = title
+                feature.detail = description
+                feature.race = self
+                
+                featureSet.insert(feature)
+            } catch {
+                throw error
+            }
+        }
+        self.features     = featureSet
 
         var languages = [String]()
         var languageContainer = try container.nestedUnkeyedContainer(forKey: .baseLanguages)
@@ -201,6 +218,8 @@ class RaceRecord: NSManagedObject, Record, Decodable {
             languages.append(language)
         }
         self.baseLanguages = languages
+        
+//        context.save()
     }
     
     ///holds descriptive references of average attributes for this race
@@ -248,13 +267,19 @@ class RaceRecord: NSManagedObject, Record, Decodable {
 
 
 ///descrbes unique attribtue for a specific race or class
-class Feature: NSObject {
-    let title: String
-    let detail: String
+class Feature: NSManagedObject {
+    @NSManaged public var title: String?
+    @NSManaged public var detail: String?
+    @NSManaged public var race: RaceRecord?
     
-    init(title: String, detail: String) {
+    convenience
+    init(title: String, detail: String, context: NSManagedObjectContext = RecordDataManager.shared.managedContext) {
+        self.init(context: context)
+        
         self.title = title
         self.detail  = detail
+        
+        try? context.save()
     }
     
     static
@@ -273,8 +298,26 @@ class Feature: NSObject {
         }
         return features
     }
-
     
+    static
+    func decoded(from container: UnkeyedDecodingContainer) throws -> Set<Feature> {
+        var mutableContainer = container
+        var features = Set<Feature>()
+        while !mutableContainer.isAtEnd {
+            do {
+                let feature = try mutableContainer.nestedContainer(keyedBy: FeatureCodingKeys.self)
+                let title = try feature.decode(String.self, forKey: .title)
+                let description = try feature.decode(String.self, forKey: .description)
+//                features.adding(Feature(title: title, detail: description))
+                features.insert(Feature(title: title, detail: description))
+//                features.append(Feature(title: title, detail: description))
+            } catch {
+                throw error
+            }
+        }
+        return features
+    }
+
     enum FeatureCodingKeys: CodingKey {
         case title, description
     }
