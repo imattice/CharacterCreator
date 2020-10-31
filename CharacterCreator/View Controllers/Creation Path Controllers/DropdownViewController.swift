@@ -19,7 +19,7 @@ class DropdownViewController: UIViewController {
 
 	var tableViewData: [DropdownCellData] 	= [DropdownCellData]()
 	var selectionWasMade: Bool 				= false
-	var selectedRace: Race?					= nil
+	var selectedRace: OldRace?					= nil
 
 
 	override func viewDidLoad() {
@@ -158,16 +158,16 @@ extension DropdownViewController {
 
 		if dataType == "race" {
 			guard let desintationVC = segue.destination as? DropdownViewController else { print("could not cast VC to DropdownViewController when naving to Class Selection"); return }
-			var destinationRace: Race?
+			var destinationRace: OldRace?
 
 			//if there are subraces available, check which subrace was selected
 			if let subrace = data.childData {
 				let subraceTitle = subrace[selectedIndexPath.row - 1].title
 
-				destinationRace = Race(fromParent: parentTitle, withSubrace: subraceTitle)
+				destinationRace = OldRace(fromParent: parentTitle, withSubrace: subraceTitle)
 			}
 			else {
-				destinationRace = Race(fromParent: parentTitle, withSubrace: nil)
+				destinationRace = OldRace(fromParent: parentTitle, withSubrace: nil)
 			}
 
 			desintationVC.selectedRace = destinationRace

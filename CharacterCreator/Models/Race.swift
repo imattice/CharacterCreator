@@ -8,9 +8,9 @@
 import RealmSwift
 import CoreData
 
-typealias Subrace = Race
+typealias Subrace = OldRace
 
-struct Race {
+struct OldRace {
 	let parentRace: String
 	let subrace: String?
 	let modifiers: [Modifier]
@@ -133,15 +133,36 @@ struct Race {
 	}
 
 
-	static let HillDwarf 			= Race(fromParent: "dwarf", withSubrace: "hill")!
-	static let MountianDwarf		= Race(fromParent: "dwarf", withSubrace: "mountian")!
-	static let HighElf				= Race(fromParent: "elf", withSubrace: "high")!
-	static let WoodElf				= Race(fromParent: "elf", withSubrace: "wood")!
-	static let LightfootHalfling	= Race(fromParent: "halfling", withSubrace: "lightfoot")!
-	static let StoutHalfling		= Race(fromParent: "halfling", withSubrace: "stout")!
-	static let Human				= Race(fromParent: "human", withSubrace: nil)
+	static let HillDwarf 			= OldRace(fromParent: "dwarf", withSubrace: "hill")!
+	static let MountianDwarf		= OldRace(fromParent: "dwarf", withSubrace: "mountian")!
+	static let HighElf				= OldRace(fromParent: "elf", withSubrace: "high")!
+	static let WoodElf				= OldRace(fromParent: "elf", withSubrace: "wood")!
+	static let LightfootHalfling	= OldRace(fromParent: "halfling", withSubrace: "lightfoot")!
+	static let StoutHalfling		= OldRace(fromParent: "halfling", withSubrace: "stout")!
+	static let Human				= OldRace(fromParent: "human", withSubrace: nil)
 }
 
+final
+class Race {
+    ///a reference to static attributes for this race
+    let record: RaceRecord
+    ///a reference to static attributes for the chosen subrace
+    var subrace: SubraceRecord?
+    
+    ///the full name of the race, including the subrace
+    var label: String {
+        guard let subrace = subrace else { return "\(record.name)" }
+        return "\(subrace.name) \(record.name)"
+    }
+    
+    init(race: RaceRecord, subrace: SubraceRecord?) {
+        self.record     = race
+        self.subrace    = subrace
+    }
+    
+}
+
+///an object representing static data for a specific race
 final
 class RaceRecord: Record, Codable, Identifiable {
     ///used to identify the record
@@ -218,6 +239,10 @@ class RaceRecord: Record, Codable, Identifiable {
         let alignment: String
         ///typical physical attributes for this race
         let physique: String
+    }
+    
+    var languageString: String {
+        return baseLanguages.joined(separator: ", ")
     }
     
     enum CodingKeys: CodingKey {

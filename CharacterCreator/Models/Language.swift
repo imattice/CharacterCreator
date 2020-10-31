@@ -53,7 +53,7 @@ class LanguageRecord: Record, Codable {
     ///determines if the language is only know by specific groups
     let isSecret: Bool
         
-    required //convenience
+    required 
     init(from decoder: Decoder) throws {
         let container       = try decoder.container(keyedBy: CodingKeys.self)
         self.name           = try container.decode(String.self, forKey: .name)

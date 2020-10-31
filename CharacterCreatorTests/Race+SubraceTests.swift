@@ -38,6 +38,12 @@ class Race_SubraceTests: XCTestCase {
         XCTAssert(dwarf.baseLanguages.contains { $0 == "common"})
         XCTAssert(dwarf.baseLanguages.contains { $0 == "dwarvish"})
     }
+
+    func testLanguageString() {
+        let elf = RaceRecord.record(for: "elf")!
+        
+        XCTAssertTrue(elf.languageString == "common, elvish")
+    }
     
     func testSubraceJSONParsing() throws {
         let subraces = try SubraceRecord.parseAllFromJSON()

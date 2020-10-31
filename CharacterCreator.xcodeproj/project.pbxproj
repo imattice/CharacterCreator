@@ -45,6 +45,9 @@
 		8169358A2548787400711E67 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816935892548787400711E67 /* Feature.swift */; };
 		8169358F2548788E00711E67 /* CreatureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169358E2548788E00711E67 /* CreatureSize.swift */; };
 		816935942548944700711E67 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816935932548944700711E67 /* Origin.swift */; };
+		8169359D2548A09200711E67 /* CreationProgressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169359C2548A09200711E67 /* CreationProgressionView.swift */; };
+		816935A22548A4E400711E67 /* CharacterCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816935A12548A4E400711E67 /* CharacterCreationView.swift */; };
+		816935AF2548BC1A00711E67 /* RaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816935AE2548BC1A00711E67 /* RaceDetailView.swift */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		81851D5F2254721E00260413 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D5E2254721E00260413 /* UITextView.swift */; };
 		81851D612254725C00260413 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D602254725C00260413 /* UITextField.swift */; };
@@ -186,6 +189,9 @@
 		816935892548787400711E67 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Feature.swift; path = CharacterCreator/Models/Feature.swift; sourceTree = SOURCE_ROOT; };
 		8169358E2548788E00711E67 /* CreatureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSize.swift; sourceTree = "<group>"; };
 		816935932548944700711E67 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
+		8169359C2548A09200711E67 /* CreationProgressionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationProgressionView.swift; sourceTree = "<group>"; };
+		816935A12548A4E400711E67 /* CharacterCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreationView.swift; sourceTree = "<group>"; };
+		816935AE2548BC1A00711E67 /* RaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailView.swift; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		81851D5E2254721E00260413 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
 		81851D602254725C00260413 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
@@ -499,6 +505,25 @@
 			path = "Global Enums";
 			sourceTree = "<group>";
 		};
+		816935A62548A4FA00711E67 /* Character Creation */ = {
+			isa = PBXGroup;
+			children = (
+				816935AA2548A50800711E67 /* Home Views */,
+				81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */,
+				816935AE2548BC1A00711E67 /* RaceDetailView.swift */,
+			);
+			path = "Character Creation";
+			sourceTree = "<group>";
+		};
+		816935AA2548A50800711E67 /* Home Views */ = {
+			isa = PBXGroup;
+			children = (
+				816935A12548A4E400711E67 /* CharacterCreationView.swift */,
+				8169359C2548A09200711E67 /* CreationProgressionView.swift */,
+			);
+			path = "Home Views";
+			sourceTree = "<group>";
+		};
 		8178317420F7F99800BF9B03 /* Design */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,7 +593,7 @@
 		81C8B7DF253CD62F0086F6C8 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */,
+				816935A62548A4FA00711E67 /* Character Creation */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -855,6 +880,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				816935AF2548BC1A00711E67 /* RaceDetailView.swift in Sources */,
 				81C8B8E2253E211D0086F6C8 /* Records.xcdatamodeld in Sources */,
 				81541A35227420C2002C7B72 /* Language.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
@@ -876,6 +902,7 @@
 				81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */,
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
+				816935A22548A4E400711E67 /* CharacterCreationView.swift in Sources */,
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
 				8169358A2548787400711E67 /* Feature.swift in Sources */,
 				816935942548944700711E67 /* Origin.swift in Sources */,
@@ -890,6 +917,7 @@
 				8195037A2256DDAE00EE4469 /* PersonalityDetailView.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
+				8169359D2548A09200711E67 /* CreationProgressionView.swift in Sources */,
 				8195AF8E225706D200153B58 /* TextAreaView.swift in Sources */,
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
 				81243E59227A3562003A9DA8 /* Weapon.swift in Sources */,

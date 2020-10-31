@@ -86,7 +86,7 @@ class DropdownTableViewCell: UITableViewCell {
 				 cornerButton.setTitleColor(.black, for: .normal)
 				 cornerButton.isUserInteractionEnabled		= false
 
-				 cornerButton.setTitle(Race.modifierString(for: cellData.title, withSubrace: nil), for: .normal )
+				 cornerButton.setTitle(OldRace.modifierString(for: cellData.title, withSubrace: nil), for: .normal )
 			}
 
 			if dataType == "class" {
@@ -111,7 +111,7 @@ class DropdownTableViewCell: UITableViewCell {
 				cornerButton.setTitleColor(.black, for: .normal)
 				cornerButton.isUserInteractionEnabled		= false
 
-				cornerButton.setTitle(Race.modifierString(for: parentData.title, withSubrace: childData.title), for: .normal )
+				cornerButton.setTitle(OldRace.modifierString(for: parentData.title, withSubrace: childData.title), for: .normal )
 			}
 
 

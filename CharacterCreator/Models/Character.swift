@@ -7,9 +7,17 @@
 //
 import UIKit
 
+///A class used to hold attributes chosen during character creation
+class TemporaryCharacter {
+    ///the race of the character
+    var race: OldRace?
+    ///the subrace of the character
+    var subrace: Subrace?
+}
+
 class Character {
 	var level: Int				= 1
-	var race: Race!
+	var race: OldRace!
 	var `class`: Class! 		{ didSet { setGlobalTint() }}
 	var stats: [Stat]		= [Stat]() //StatBlock()
 	var background: Background? = nil
@@ -64,7 +72,7 @@ class Character {
 
 	private init(default: String) {
 		self.class 			= Class.EvocationWizard
-		self.race 			= Race.HighElf
+		self.race 			= OldRace.HighElf
 		self.stats 			= [Stat(name: .str, rawValue: 8),
 								  Stat(name: .con, rawValue: 13),
 								  Stat(name: .dex, rawValue: 10),
@@ -99,7 +107,7 @@ class Character {
 											image: UIImage(named: "elf"))
 	}
 
-	init(race: Race, class: Class) {
+	init(race: OldRace, class: Class) {
 		self.race 	= race
 		self.class 	= `class`
 	}
