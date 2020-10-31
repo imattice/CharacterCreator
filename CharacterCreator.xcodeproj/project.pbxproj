@@ -42,6 +42,8 @@
 		81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */; };
 		81541A35227420C2002C7B72 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* Language.swift */; };
 		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
+		815883FD254CF3A300693259 /* CreatureSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815883FC254CF3A300693259 /* CreatureSizeView.swift */; };
+		81588402254CF88900693259 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81588401254CF88900693259 /* Color.swift */; };
 		8169358A2548787400711E67 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816935892548787400711E67 /* Feature.swift */; };
 		8169358F2548788E00711E67 /* CreatureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8169358E2548788E00711E67 /* CreatureSize.swift */; };
 		816935942548944700711E67 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816935932548944700711E67 /* Origin.swift */; };
@@ -186,6 +188,8 @@
 		81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewController.swift; sourceTree = "<group>"; };
 		81541A34227420C2002C7B72 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
+		815883FC254CF3A300693259 /* CreatureSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSizeView.swift; sourceTree = "<group>"; };
+		81588401254CF88900693259 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		816935892548787400711E67 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Feature.swift; path = CharacterCreator/Models/Feature.swift; sourceTree = SOURCE_ROOT; };
 		8169358E2548788E00711E67 /* CreatureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSize.swift; sourceTree = "<group>"; };
 		816935932548944700711E67 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
@@ -529,6 +533,7 @@
 			children = (
 				8178317520F7F9AE00BF9B03 /* UIColor.swift */,
 				8123671A20CA44DD00F7AEFC /* Assets.xcassets */,
+				81588401254CF88900693259 /* Color.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -594,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				816935A62548A4FA00711E67 /* Character Creation */,
+				815883FC254CF3A300693259 /* CreatureSizeView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -882,6 +888,7 @@
 			files = (
 				816935AF2548BC1A00711E67 /* RaceDetailView.swift in Sources */,
 				81C8B8E2253E211D0086F6C8 /* Records.xcdatamodeld in Sources */,
+				81588402254CF88900693259 /* Color.swift in Sources */,
 				81541A35227420C2002C7B72 /* Language.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				81DC8E4221080E9E002F6AE4 /* String.swift in Sources */,
@@ -930,6 +937,7 @@
 				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
 				81C8B93B253F707D0086F6C8 /* CodingUserInfoKey.swift in Sources */,
 				81851D612254725C00260413 /* UITextField.swift in Sources */,
+				815883FD254CF3A300693259 /* CreatureSizeView.swift in Sources */,
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				81FC7CF52106965E00BBDDD7 /* BackgroundSelectionViewController.swift in Sources */,
