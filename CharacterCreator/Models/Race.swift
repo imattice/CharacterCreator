@@ -148,6 +148,9 @@ class Race {
     let record: RaceRecord
     ///a reference to static attributes for the chosen subrace
     var subrace: SubraceRecord?
+    ///the languages that the user selected for this race
+    var selectedLanguages: [Language] = [Language]()
+
     
     ///the full name of the race, including the subrace
     var label: String {
@@ -158,6 +161,16 @@ class Race {
     init(race: RaceRecord, subrace: SubraceRecord?) {
         self.record     = race
         self.subrace    = subrace
+    }
+    
+    ///adds a specific language to the selectedLanguage
+    func addLanguage(_ language: Language) {
+        selectedLanguages.append(language)
+    }
+    ///removes a specific language from the selectedLanguages
+    func removeLanguage(_ language: Language) {
+        guard let index = selectedLanguages.firstIndex(where: { $0.name == language.name }) else { return }
+        selectedLanguages.remove(at: index)
     }
     
 }

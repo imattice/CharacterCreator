@@ -11,6 +11,7 @@ import SwiftUI
 struct RaceDetailView: View {
     @State var race: RaceRecord
     @State var languageSelectionIsShown: Bool = false
+    @State var languageSelection: [Language] = [Language]()
     
     let hasSelectableLanguage: Bool
     var selectedLanguage: Language?
@@ -31,6 +32,9 @@ struct RaceDetailView: View {
                     Text(race.description)
                         .padding()
                         .font(.body)
+                        .background(Color.App.surface)
+                        .cornerRadius(10)
+
 //                    Divider()
                     HStack {
                         CreatureSizeView(race: race)
@@ -45,7 +49,7 @@ struct RaceDetailView: View {
                     
                     if hasSelectableLanguage {
                     NavigationLink(
-                        destination: LanguageSelectionView(),
+                        destination: LanguageSelectionView(known: race.baseLanguages, selected: $languageSelection),
                         isActive: $languageSelectionIsShown,
                         label: {
                             VStack {
@@ -69,8 +73,6 @@ struct RaceDetailView: View {
                             .foregroundColor(.black)
                     }
 
-                    
-                    
 //                    ForEach(race.features) { feature in
 //                        VStack{
 //                            Text(feature.title)
@@ -92,6 +94,8 @@ struct RaceDetailView: View {
                 .background(Color.white)
                 .cornerRadius(10)
                 .padding()
+                
+                
             }
             .background(Color.App.background)
         }
