@@ -15,7 +15,7 @@ struct RaceSelectionView: View {
         NavigationView {
             List {
                 ForEach(allRecords) { record in
-                    NavigationLink(record.name, destination: RaceDetailView(race: record))
+                    NavigationLink(record.name, destination: RaceDetailView(record: record))
                     HStack {
                         Image(record.name)
                             .resizable()

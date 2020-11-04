@@ -10,7 +10,8 @@ import SwiftUI
 
 extension Color {
     
-    ///https://coolors.co/a21622-da4e4a-ceec97-7a28cb-494368-5a5476-d3d1dc
+    //https://coolors.co/a21622-da4e4a-ceec97-7a28cb-494368-5a5476-d3d1dc
+    struct App {
     ///French Violet
     public static var primary: Color {
         return Color(hex: "7A28CB")
@@ -38,6 +39,7 @@ extension Color {
     ///Lavender Gray
     public static var surface: Color {
         return Color(hex: "D3D1DC")
+    }
     }
 }
 

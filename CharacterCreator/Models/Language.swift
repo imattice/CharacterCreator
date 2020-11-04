@@ -14,6 +14,9 @@ import CoreData
 struct Language {
 	let name: String
 	let isSelectable: Bool
+    let source: Origin
+    
+    var record: LanguageRecord { return LanguageRecord.record(for: name)! }
 
 	var spokenBy: String {
 		guard let record = LanguageRecord.record(for: name) else { return "" }
@@ -25,9 +28,10 @@ struct Language {
 		guard let record = LanguageRecord.record(for: name) else { return true }
 		return record.isExotic	}
 
-	init(name: String, isSelectable: Bool = false) { //}, spokenBy: String, script: String, isRare: Bool) {
+    init(name: String, isSelectable: Bool = false, source: Origin) { //}, spokenBy: String, script: String, isRare: Bool) {
 		self.name 			= name
 		self.isSelectable 	= isSelectable
+        self.source         = source
 	}
     
 	enum Script: String {

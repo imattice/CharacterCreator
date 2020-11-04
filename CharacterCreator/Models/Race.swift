@@ -106,10 +106,10 @@ struct OldRace {
 		var result = [Language]()
 		for language in languages {
 			if let record = LanguageRecord.record(for: language) {
-                result.append( Language(name: record.name) )
+                result.append( Language(name: record.name, source: .race) )
 			}
 			if language == "choice" {
-				let languageChoice = Language(name: "choice", isSelectable: true)
+                let languageChoice = Language(name: "choice", isSelectable: true, source: .race)
 				result.append(languageChoice)
 			}}
 		return result
@@ -240,10 +240,7 @@ class RaceRecord: Record, Codable, Identifiable {
         ///typical physical attributes for this race
         let physique: String
     }
-    
-    var languageString: String {
-        return baseLanguages.joined(separator: ", ")
-    }
+
     
     enum CodingKeys: CodingKey {
         case id, name, description, age, alignment, physique, modifiers, size, speed, hasDarkvision, features, baseLanguages, statIncrease

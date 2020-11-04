@@ -7,11 +7,14 @@
 //
 
 ///holds attributes that affect other character attributes
-class Modifier: Codable {
+class Modifier: Codable, Identifiable {
+    ///an id for the modifier
+    let id: String
     ///the source of the modifier
     let origin: Origin
     
     init(origin: Origin) {
+        self.id = UUID().uuidString
         self.origin = origin
     }
 }
@@ -19,7 +22,7 @@ class Modifier: Codable {
 
 //MARK: - Ability Score Modifier
 ///holds attributes that affect ability scores
-class AbilityScoreModifier: Modifier {
+class AbilityScoreModifier: Modifier, Hashable {
     ///the score to be adjusted
     let abilityScore: AbilityScore.Name
     ///how much the score should be affected
@@ -61,12 +64,27 @@ class AbilityScoreModifier: Modifier {
         
         return modifiers
     }
+//MARK: -- Hashable
+    static func == (lhs: AbilityScoreModifier, rhs: AbilityScoreModifier) -> Bool {
+        return lhs.abilityScore == rhs.abilityScore &&
+            lhs.value == rhs.value &&
+            lhs.adjustment == rhs.adjustment &&
+            lhs.isTemporary == rhs.isTemporary
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(abilityScore)
+        hasher.combine(value)
+        hasher.combine(adjustment)
+        hasher.combine(isTemporary)
+    }
     
     enum Adjustment: String {
         case increase, decrease }
     enum CodingKeys: CodingKey {
         case abilityScore, value, adjustment, isTemporary       }
 }
+
 
 //MARK: - HP Modifier
 ///holds attributes that affect raw HP values
