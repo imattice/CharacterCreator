@@ -27,7 +27,7 @@ struct LanguageSelectionView: View {
     var body: some View {
         VStack {
             ///show the number of selctions made
-            Text("Choose \(selectionsMade) additional languages")
+            Text("Choose \(maxSelections - selectionsMade) additional languages")
             ///list all possible language selections
         List {
             ///common languages
