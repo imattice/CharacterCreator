@@ -49,7 +49,8 @@ struct RaceDetailView: View {
                     
                     if hasSelectableLanguage {
                     NavigationLink(
-                        destination: LanguageSelectionView(known: race.baseLanguages, selected: $selectedLanguages),
+                        destination: LanguageSelectionView(known: race.baseLanguages,
+                                                           selected: $selectedLanguages),
                         isActive: $languageSelectionIsShown,
                         label: {
                             VStack {
@@ -121,9 +122,9 @@ struct RaceDetailView: View {
             let language = race.baseLanguages[$0]
             var result = ""
 
-            if language == "choice" {
+            if language.name == "choice" {
                 return "a language of your choice" }
-            else {  result += "\(language.capitalized)," }
+            else {  result += "\(language.name.capitalized)," }
             
             if race.baseLanguages.count > 1 && $0 == race.baseLanguages.count - 2 {
                 result.removeLast()
@@ -138,7 +139,7 @@ struct RaceDetailView: View {
     
     init(record: RaceRecord) {
         self._race = State(wrappedValue: record)
-        self.hasSelectableLanguage = record.baseLanguages.contains("choice")
+        self.hasSelectableLanguage = record.baseLanguages.map({ $0.name }).contains("choice")
     }
     
     

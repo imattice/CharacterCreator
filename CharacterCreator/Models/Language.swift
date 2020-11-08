@@ -16,7 +16,7 @@ struct Language {
 	let isSelectable: Bool
     let source: Origin
     
-    var record: LanguageRecord { return LanguageRecord.record(for: name)! }
+    var record: LanguageRecord? { return LanguageRecord.record(for: name.lowercased()) }
 
 	var spokenBy: String {
 		guard let record = LanguageRecord.record(for: name) else { return "" }

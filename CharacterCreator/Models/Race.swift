@@ -193,7 +193,7 @@ class RaceRecord: Record, Codable, Identifiable {
     ///how far the creature can travel in 6 seconds in feet
     let speed: Int
     ///which languages are typically learned by this race
-    let baseLanguages: [String]
+    let baseLanguages: [Language]
     ///contains features granted by this race which will affect gameplay
     let features: [Feature]
     ///contains modifiers grated by this race which will affect other parts of the character sheet
@@ -227,7 +227,7 @@ class RaceRecord: Record, Codable, Identifiable {
             let language    = try languageContainer.decode(String.self)
             languages.append(language)
         }
-        self.baseLanguages  = languages
+        self.baseLanguages  = languages.map { Language(name: $0, isSelectable: $0 == "choice" ? true : false, source: .race) }
     }
     
     func encode(to encoder: Encoder) throws {
@@ -239,7 +239,7 @@ class RaceRecord: Record, Codable, Identifiable {
         try container.encode(descriptive.alignment, forKey: .alignment)
         try container.encode(descriptive.physique, forKey: .physique)
         try container.encode(size.rawValue, forKey: .size)
-        try container.encode(baseLanguages, forKey: .baseLanguages)
+        try container.encode(baseLanguages.map { $0.name }, forKey: .baseLanguages)
         try container.encode(features, forKey: .features)
         try container.encode(modifiers, forKey: .modifiers)
     }

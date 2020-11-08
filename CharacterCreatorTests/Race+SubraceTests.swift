@@ -35,14 +35,20 @@ class Race_SubraceTests: XCTestCase {
         XCTAssertTrue(conModifier.value == 2)
         
         XCTAssertTrue(dwarf.features.count == 4)
-        XCTAssert(dwarf.baseLanguages.contains { $0 == "common"})
-        XCTAssert(dwarf.baseLanguages.contains { $0 == "dwarvish"})
-    }
-
-    func testLanguageString() {
-        let elf = RaceRecord.record(for: "elf")!
+        XCTAssert(dwarf.baseLanguages.contains { $0.name == "common"})
+        XCTAssert(dwarf.baseLanguages.contains { $0.name == "dwarvish"})
         
-        XCTAssertTrue(elf.languageString == "common, elvish")
+        guard let halfElf = races.filter({ $0.name == "half-elf" }).first else { XCTFail(); return }
+        
+        XCTAssert(halfElf.baseLanguages.contains { $0.name == "elvish"})
+        XCTAssert(halfElf.baseLanguages.contains { $0.name == "common"})
+        XCTAssert(halfElf.baseLanguages.contains { $0.name == "choice"})
+        
+        guard let human = races.filter({ $0.name == "human" }).first else { XCTFail(); return }
+        
+        XCTAssert(human.baseLanguages.contains { $0.name == "choice"})
+
+
     }
     
     func testSubraceJSONParsing() throws {
