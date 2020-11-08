@@ -280,4 +280,5 @@ struct DropdownCellData {
 }
 
 
+enum DataType: String { case `class`, race }
 

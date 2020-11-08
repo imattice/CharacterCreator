@@ -28,43 +28,44 @@ struct LanguageSelectionView: View {
         VStack {
             ///show the number of selctions made
             Text("Choose \(maxSelections - selectionsMade) additional languages")
+                .padding()
             ///list all possible language selections
-        List {
-            ///common languages
-            Section(header: Text("Common Languages")) {
-                ForEach(common) { language in
-                    
+            List {
+                ///common languages
+                Section(header: Text("Common Languages")) {
+                    ForEach(common) { language in
+                        
+                        LanguageCell(for: language,
+                                     selectedLanguages: $selectedLanguages,
+                                     isSelected: selectedLanguages.contains(where: { $0.name == language.name }),
+                                     isKnown: knownLanguages.contains(where: { $0.name == language.name }),
+                                     maxSelections: maxSelections)
+                    }
+                }
+                ///exotic languages
+                Section(header: Text("Exotic Languages")) {
+                    ForEach(exotic) { language in
+                        LanguageCell(for: language,
+                                     selectedLanguages: $selectedLanguages,
+                                     isSelected: selectedLanguages.contains(where: { $0.name == language.name }),
+                                     isKnown: knownLanguages.contains(where: { $0.name == language.name }),
+                                     maxSelections: maxSelections)
+                    }
+                }
+                
+                ///any known secret languages
+                if !knownSecretLanguages.isEmpty {
+                    Section(header: Text("Secret Languages")) {
+                        ForEach(knownSecretLanguages) { language in
                     LanguageCell(for: language,
                                  selectedLanguages: $selectedLanguages,
                                  isSelected: selectedLanguages.contains(where: { $0.name == language.name }),
                                  isKnown: knownLanguages.contains(where: { $0.name == language.name }),
                                  maxSelections: maxSelections)
-                }
-            }
-            ///exotic languages
-            Section(header: Text("Exotic Languages")) {
-                ForEach(exotic) { language in
-                    LanguageCell(for: language,
-                                 selectedLanguages: $selectedLanguages,
-                                 isSelected: selectedLanguages.contains(where: { $0.name == language.name }),
-                                 isKnown: knownLanguages.contains(where: { $0.name == language.name }),
-                                 maxSelections: maxSelections)
-                }
-            }
-            
-            ///any known secret languages
-            if !knownSecretLanguages.isEmpty {
-                Section(header: Text("Secret Languages")) {
-                    ForEach(knownSecretLanguages) { language in
-                LanguageCell(for: language,
-                             selectedLanguages: $selectedLanguages,
-                             isSelected: selectedLanguages.contains(where: { $0.name == language.name }),
-                             isKnown: knownLanguages.contains(where: { $0.name == language.name }),
-                             maxSelections: maxSelections)
+                        }
                     }
                 }
             }
-        }
         }
     }
     
