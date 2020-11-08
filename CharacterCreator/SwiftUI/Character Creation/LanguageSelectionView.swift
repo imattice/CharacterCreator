@@ -21,7 +21,7 @@ struct LanguageSelectionView: View {
         List {
             Section(header: Text("Common Languages")) {
                 ForEach(common) { language in
-                    LanguageCell(language: language, selected: false, selectedLanguages: $selectedLanguages, maxSelections: maxSelections)
+                    LanguageCell(language: language, selected: selectedLanguages.contains(where: { $0.name == language.name }), selectedLanguages: $selectedLanguages, maxSelections: maxSelections)
                 }
             }
 //            Section(header: Text("Exotic Languages")) {
@@ -68,44 +68,31 @@ struct LanguageCell: View {
         .onTapGesture {
             toggleSelect()
         }
-        
-
-        
-//        Button(action: {
-//            selected = !selected
-//            if selected {
-//                selectedLanguages.append(Language(name: language.name, isSelectable: true, source: .race))
-//            }
-//            else {
-//                guard let index = selectedLanguages.firstIndex(where: { $0.name == language.name }) else { return }
-//                selectedLanguages.remove(at: index)
-//            }
-//        },
-//               label: {
-//            VStack(alignment: .leading) {
-//                Text(language.name.capitalized)
-//    //            Text(language.description)
-//    //                .font(.caption)
-//    //            Text("\(language.name.capitalized) is commonly spoken by \(language.spokenBy)")
-//            }
-//            .background(selected ? Color.white : Color.App.surface)
-//        })
-
     }
     
     func toggleSelect() {
-//            guard selectionsMade < maxSelections else { return }
-        selected = !selected
-        
         if selected {
+            
+            //remove
+            guard let index = selectedLanguages.firstIndex(where: { $0.name == language.name }) else { return }
+            selectedLanguages.remove(at: index)
+        }
+        
+        if !selected {
+            //is selection possible
+            guard selectionsMade < maxSelections else { return }
+
+            //add
             selectedLanguages.append(
                 Language(name: language.name, isSelectable: true, source: .race))
-            dump(selectedLanguages)
         }
-        //            else {
-        //                guard let index = selectedLanguages.firstIndex(where: { $0.name == language.name }) else { return }
-        //                selectedLanguages.remove(at: index)
-        //            }
+        
+        selected = !selected
+//        else {
+//            guard let index = selectedLanguages.firstIndex(where: { $0.name == language.name }) else { return }
+//            selectedLanguages.remove(at: index)
+//        }
+        
     }
 }
 
