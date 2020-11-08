@@ -28,6 +28,7 @@ struct RaceSelectionView: View {
                 }
             }
             .navigationTitle("Choose a Race")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

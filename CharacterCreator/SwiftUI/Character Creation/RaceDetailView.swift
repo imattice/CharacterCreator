@@ -11,10 +11,10 @@ import SwiftUI
 struct RaceDetailView: View {
     @State var race: RaceRecord
     @State var languageSelectionIsShown: Bool = false
-    @State var languageSelection: [Language] = [Language]()
+    @State var selectedLanguages: [Language] = [Language]()
     
     let hasSelectableLanguage: Bool
-    var selectedLanguage: Language?
+//    var selectedLanguage: Language?
     
     var body: some View {
         NavigationView {
@@ -49,7 +49,7 @@ struct RaceDetailView: View {
                     
                     if hasSelectableLanguage {
                     NavigationLink(
-                        destination: LanguageSelectionView(known: race.baseLanguages, selected: $languageSelection),
+                        destination: LanguageSelectionView(known: race.baseLanguages, selected: $selectedLanguages),
                         isActive: $languageSelectionIsShown,
                         label: {
                             VStack {
@@ -61,7 +61,8 @@ struct RaceDetailView: View {
                                 
                             Text("Selected Language: ")
                                 .foregroundColor(.black)
-                            + Text(selectedLanguage?.name ?? "None")
+                                + Text(selectedLanguages.isEmpty ? "None" :
+                                        selectedLanguages.map({ $0.name.capitalized }).joined(separator: ", "))
                                 .foregroundColor(Color.App.primary)
                             }
                             })
@@ -95,10 +96,23 @@ struct RaceDetailView: View {
                 .cornerRadius(10)
                 .padding()
                 
-                
+                Button(action: {
+                    print("hi")
+                    dump(selectedLanguages)
+                }, label: {
+                    Text("Choose")
+                        .padding()
+                        .background(Color.App.primary)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .padding(.bottom)
+                })
             }
             .background(Color.App.background)
+            .navigationTitle(race.name.capitalized)
+            .navigationBarTitleDisplayMode(.inline)
         }
+
     }
     
     ///a string that combines the values in baseLanguages, including joining language such as "and"

@@ -22,6 +22,7 @@
 		8135B41B21649F170058E9D6 /* SpellSelectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */; };
 		8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135B43E2169B2030058E9D6 /* SpellDetailView.swift */; };
 		8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B4402169B22C0058E9D6 /* SpellDetailView.xib */; };
+		8137350C25533D5D004DDBA8 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8137350B25533D5D004DDBA8 /* Print.swift */; };
 		81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */; };
 		8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C020D9D320008B7A1A /* Modifier.swift */; };
 		8152B3C320D9D32F008B7A1A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152B3C220D9D32F008B7A1A /* Character.swift */; };
@@ -168,6 +169,7 @@
 		8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpellSelectionHeaderView.xib; sourceTree = "<group>"; };
 		8135B43E2169B2030058E9D6 /* SpellDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetailView.swift; sourceTree = "<group>"; };
 		8135B4402169B22C0058E9D6 /* SpellDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellDetailView.xib; sourceTree = "<group>"; };
+		8137350B25533D5D004DDBA8 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		81529E252152E49D00AD1A1A /* ReviewTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCells.swift; sourceTree = "<group>"; };
 		8152B3C020D9D320008B7A1A /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		8152B3C220D9D32F008B7A1A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -600,6 +602,7 @@
 			isa = PBXGroup;
 			children = (
 				816935A62548A4FA00711E67 /* Character Creation */,
+				8137350B25533D5D004DDBA8 /* Print.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */,
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				81FC7CF52106965E00BBDDD7 /* BackgroundSelectionViewController.swift in Sources */,
+				8137350C25533D5D004DDBA8 /* Print.swift in Sources */,
 				81F8496B218A9A6D00280D8C /* ItemSelectionTableViewCell.swift in Sources */,
 				81C8B945253FE9B90086F6C8 /* AbilityScore.swift in Sources */,
 				81D599DF22BC935F005EE768 /* RealmProvider.swift in Sources */,
