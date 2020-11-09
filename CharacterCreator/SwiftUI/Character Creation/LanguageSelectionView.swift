@@ -118,6 +118,7 @@ struct LanguageCell: View {
             }
         }
         .listRowBackground(isSelected || isKnown ? Color.App.surface : Color.white)
+        .contentShape(Rectangle())
         .onTapGesture {
             if !isKnown {
                 toggleSelect()

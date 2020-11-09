@@ -14,10 +14,8 @@ struct RaceDetailView: View {
     @State var selectedLanguages: [Language] = [Language]()
     
     let hasSelectableLanguage: Bool
-//    var selectedLanguage: Language?
     
     var body: some View {
-        NavigationView {
             VStack {
                 ScrollView {
 //                VStack {
@@ -91,7 +89,6 @@ struct RaceDetailView: View {
 //                                Text(feature.description)
 //                            }
 //                        }
-//                    }
                 }
                 .background(Color.white)
                 .cornerRadius(10)
@@ -112,7 +109,7 @@ struct RaceDetailView: View {
             .background(Color.App.background)
             .navigationTitle(race.name.capitalized)
             .navigationBarTitleDisplayMode(.inline)
-        }
+//        }
 
     }
     
