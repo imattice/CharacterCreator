@@ -6,6 +6,20 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
+extension Array where Element: Hashable {
+    var uniques: Array {
+        var buffer = Array()
+        var added = Set<Element>()
+        for elem in self {
+            if !added.contains(elem) {
+                buffer.append(elem)
+                added.insert(elem)
+            }
+        }
+        return buffer
+    }
+}
+
 extension Array where Element:Equatable {
 	func hasDuplicates() -> Bool {
 		for item in self {

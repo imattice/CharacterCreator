@@ -20,9 +20,11 @@ struct LanguageSelectionView: View {
     ///all known secret languages
     let knownSecretLanguages: [LanguageRecord]
     ///the total selections that can be made in this view
-    let maxSelections: Int
+    var maxSelections: Int
     ///the number of selections made in this view
     var selectionsMade: Int { return selectedLanguages.count }
+    
+    @State var isCustomViewShown: Bool
     
     var body: some View {
         VStack {
@@ -32,40 +34,28 @@ struct LanguageSelectionView: View {
             ///list all possible language selections
             List {
                 ///common languages
-                Section(header: Text("Common Languages")) {
-                    ForEach(common) { language in
-                        
-                        LanguageCell(for: language,
-                                     selectedLanguages: $selectedLanguages,
-                                     isSelected: selectedLanguages.contains(where: { $0.name == language.name }),
-                                     isKnown: knownLanguages.contains(where: { $0.name == language.name }),
-                                     maxSelections: maxSelections)
-                    }
-                }
+                LanguageSection(title: "common", languages: common, selectedLanguages: $selectedLanguages, knownLanguages: knownLanguages, maxSelections: maxSelections)
+                
                 ///exotic languages
-                Section(header: Text("Exotic Languages")) {
-                    ForEach(exotic) { language in
-                        LanguageCell(for: language,
-                                     selectedLanguages: $selectedLanguages,
-                                     isSelected: selectedLanguages.contains(where: { $0.name == language.name }),
-                                     isKnown: knownLanguages.contains(where: { $0.name == language.name }),
-                                     maxSelections: maxSelections)
-                    }
-                }
+                LanguageSection(title: "exotic", languages: exotic, selectedLanguages: $selectedLanguages, knownLanguages: knownLanguages, maxSelections: maxSelections)
                 
                 ///any known secret languages
                 if !knownSecretLanguages.isEmpty {
-                    Section(header: Text("Secret Languages")) {
-                        ForEach(knownSecretLanguages) { language in
-                    LanguageCell(for: language,
-                                 selectedLanguages: $selectedLanguages,
-                                 isSelected: selectedLanguages.contains(where: { $0.name == language.name }),
-                                 isKnown: knownLanguages.contains(where: { $0.name == language.name }),
-                                 maxSelections: maxSelections)
-                        }
-                    }
+                    LanguageSection(title: "secret", languages: knownSecretLanguages, selectedLanguages: $selectedLanguages, knownLanguages: knownLanguages, maxSelections: maxSelections)
                 }
             }
+            
+            NavigationLink(
+                destination: CustomLanguageForm(),
+                isActive: $isCustomViewShown,
+                label: {
+                    Text("Add Custom Langauge")
+                        .padding()
+                        .background(Color.App.primary)
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                        .padding(.bottom)
+                })
         }
     }
     
@@ -79,6 +69,7 @@ struct LanguageSelectionView: View {
         self.knownLanguages = known
 
         self._selectedLanguages = selected
+        self._isCustomViewShown = State(initialValue: false)
     }
 }
 
@@ -153,6 +144,34 @@ struct LanguageCell: View {
         }
         
         isSelected = !isSelected
+    }
+}
+
+struct LanguageSection: View {
+    let title: String
+    let languages: [LanguageRecord]
+    
+    ///an array that holds the languages that are selected in this view
+    @Binding var selectedLanguages: [Language]
+    
+    ///an array that holds languages already known from other sources
+    var knownLanguages: [Language]
+    
+    ///the total selections that can be made in this view
+    let maxSelections: Int
+
+    
+    var body: some View {
+        Section(header: Text("\(title) Languages")) {
+            ForEach(languages) { language in
+                
+                LanguageCell(for: language,
+                             selectedLanguages: $selectedLanguages,
+                             isSelected: selectedLanguages.contains(where: { $0.name == language.name }),
+                             isKnown: knownLanguages.contains(where: { $0.name == language.name }),
+                             maxSelections: maxSelections)
+            }
+        }
     }
 }
 
