@@ -55,6 +55,12 @@ struct LanguageRecord: Record, Customizable, Codable {
     let isExotic: Bool
     ///determines if the language is only know by specific groups
     let isSecret: Bool
+    ///determines if the language is created by the user
+    let isCustom: Bool = false
+    ///returns all unique scripts used for all language records
+    static var scripts: [String] {
+        return all().map { $0.script }.uniques.sorted()
+    }
         
     init(from decoder: Decoder) throws {
         let container       = try decoder.container(keyedBy: CodingKeys.self)
@@ -65,7 +71,7 @@ struct LanguageRecord: Record, Customizable, Codable {
         self.isExotic       = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
         self.isSecret       = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
     }
-    init(name: String, description: String, spokenBy: String, script: String, isExotic: Bool, isSecret: Bool) {
+    init(name: String, description: String, spokenBy: String, script: String, isExotic: Bool, isSecret: Bool, isCustom: Bool = false) {
 
         self.name = name
         self.description = description
@@ -73,10 +79,6 @@ struct LanguageRecord: Record, Customizable, Codable {
         self.script = script
         self.isExotic = isExotic
         self.isSecret = isSecret
-    }
-    
-    static var scripts: [String] {
-        return all().map { $0.script }.uniques.sorted()
     }
 }
 

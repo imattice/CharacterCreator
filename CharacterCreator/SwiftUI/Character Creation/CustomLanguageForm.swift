@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct CustomLanguageForm: View {
+    ///determines if this view is shown
+    @Binding var isShown: Bool
     ///the name of the language
     @State var name: String = ""
     ///a  paragraph containing descriptive details about the language
@@ -44,7 +46,7 @@ struct CustomLanguageForm: View {
             }
             
             Section {
-                TextField("Spoken By", text: $description)
+                TextField("Spoken By", text: $spokenBy)
                 Text("Which groups speak this language regularly?")
                     .font(.caption)
                     .foregroundColor(Color.gray)
@@ -60,7 +62,7 @@ struct CustomLanguageForm: View {
                     .navigationTitle("Script")
                 }
                 if selectedScript == "custom" {
-                    TextField("Script Name", text: $description)
+                    TextField("Script Name", text: $script)
                     Text("Does this language use an existing script? What does the writing of this language look like?")
                         .font(.caption)
                         .foregroundColor(Color.gray)
@@ -87,8 +89,19 @@ struct CustomLanguageForm: View {
             
             Section {
                 Button(action: {
-//                    LanguageRecord.saveCustom(
-//                    )
+                    let record = LanguageRecord(name: name,
+                                                description: description,
+                                                spokenBy: spokenBy,
+                                                script: selectedScript != nil ? selectedScript! : script,
+                                                isExotic: isExotic,
+                                                isSecret: isSecret,
+                                                isCustom: true)
+                    do {
+                        try LanguageRecord.saveCustom(record)
+                    } catch {
+                        print(error)
+                    }
+                    isShown = false
                 }) {
                     Text("Save")
                 }
@@ -103,6 +116,6 @@ struct CustomLanguageForm: View {
 
 struct CustomLanguageForm_Previews: PreviewProvider {
     static var previews: some View {
-        CustomLanguageForm()
+        CustomLanguageForm(isShown: .constant(true))
     }
 }

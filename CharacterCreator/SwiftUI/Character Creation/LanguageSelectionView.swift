@@ -19,6 +19,8 @@ struct LanguageSelectionView: View {
     let exotic: [LanguageRecord]
     ///all known secret languages
     let knownSecretLanguages: [LanguageRecord]
+    ///all custom languages
+    @State var customLanguages: [LanguageRecord]
     ///the total selections that can be made in this view
     var maxSelections: Int
     ///the number of selections made in this view
@@ -43,10 +45,11 @@ struct LanguageSelectionView: View {
                 if !knownSecretLanguages.isEmpty {
                     LanguageSection(title: "secret", languages: knownSecretLanguages, selectedLanguages: $selectedLanguages, knownLanguages: knownLanguages, maxSelections: maxSelections)
                 }
+                
             }
             
             NavigationLink(
-                destination: CustomLanguageForm(),
+                destination: CustomLanguageForm(isShown: $isCustomViewShown),
                 isActive: $isCustomViewShown,
                 label: {
                     Text("Add Custom Langauge")
@@ -64,6 +67,9 @@ struct LanguageSelectionView: View {
         self.common = languages.filter { $0.isExotic == false }
         self.exotic = languages.filter { $0.isExotic == true }
         self.knownSecretLanguages = known.filter { $0.record?.isSecret == true }.map { ($0.record!) }
+        let customLanguages = try? LanguageRecord.allCustom()
+        
+        self._customLanguages = customLanguages ??  [LanguageRecord]()
         
         self.maxSelections = maxSelections
         self.knownLanguages = known

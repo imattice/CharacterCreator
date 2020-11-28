@@ -8,9 +8,10 @@
 
 
 protocol Customizable: Codable {
+    var isCustom: Bool { get }
 }
 
-extension Customizable {
+extension Customizable where Self: Codable {
     static func allCustom() throws -> [Self] {
         let filename: String = {
             let name = "custom" + String(describing: Self.self).capitalized.dropLast(6)
@@ -46,8 +47,6 @@ extension Customizable {
         all.append(record)
         
         let jsonData = try JSONEncoder().encode(all)
-        print(jsonData)
-        
         try jsonData.write(to: URL(fileURLWithPath: path))
     }
 }
