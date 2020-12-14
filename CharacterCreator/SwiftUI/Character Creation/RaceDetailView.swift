@@ -25,15 +25,13 @@ struct RaceDetailView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(minWidth: 70, maxWidth: 150,
                                minHeight: 70, maxHeight: 150)
-                        
 
                     Text(race.description)
                         .padding()
-                        .font(.body)
+                        .font(Font.App.caption)
                         .background(Color.App.surface)
                         .cornerRadius(10)
 
-//                    Divider()
                     HStack {
                         CreatureSizeView(race: race)
                         Spacer()
@@ -72,23 +70,34 @@ struct RaceDetailView: View {
                             .font(.body)
                             .foregroundColor(.black)
                     }
+                    
+                    Divider()
 
-//                    ForEach(race.features) { feature in
-//                        VStack{
-//                            Text(feature.title)
-//                            Text(feature.description)
-//                        }
-//                    }
-//                    ForEach(race.subrace) { subrace in
-//                        Text(subrace.title)
-//                        Text(subrace.description)
-//                        Text(subrace.stats)
-//                        ForEach(subrace.features) { feature in
-//                            VStack{
-//                                Text(feature.title)
-//                                Text(feature.description)
-//                            }
-//                        }
+                    VStack(alignment: .leading, spacing: 8) {
+                        ForEach(race.features) { feature in
+                            VStack(alignment: .leading) {
+                                Text(feature.title)
+                                    .font(Font.App.header)
+                                Text(feature.description)
+                                    .font(Font.App.caption)
+                                    .lineLimit(nil)
+                            }
+                            .padding()
+                            .background(Color.App.surface)
+                            .cornerRadius(10)
+                        }
+                    }
+                    ForEach(race.subrace) { subrace in
+                        Text(subrace.title)
+                        Text(subrace.description)
+                        Text(subrace.stats)
+                        ForEach(subrace.features) { feature in
+                            VStack{
+                                Text(feature.title)
+                                Text(feature.description)
+                            }
+                        }
+                    }
                 }
                 .background(Color.white)
                 .cornerRadius(10)
