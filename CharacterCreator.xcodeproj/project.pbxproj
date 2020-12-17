@@ -19,6 +19,7 @@
 		81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E542279EFE0003A9DA8 /* WeaponStatView.swift */; };
 		81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81243E562279F022003A9DA8 /* WeaponStatView.xib */; };
 		81243E59227A3562003A9DA8 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E58227A3562003A9DA8 /* Weapon.swift */; };
+		8124F53E258B3B51004514A8 /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124F53D258B3B51004514A8 /* SelectionCell.swift */; };
 		8135B41B21649F170058E9D6 /* SpellSelectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */; };
 		8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135B43E2169B2030058E9D6 /* SpellDetailView.swift */; };
 		8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B4402169B22C0058E9D6 /* SpellDetailView.xib */; };
@@ -167,6 +168,7 @@
 		81243E542279EFE0003A9DA8 /* WeaponStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponStatView.swift; sourceTree = "<group>"; };
 		81243E562279F022003A9DA8 /* WeaponStatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeaponStatView.xib; sourceTree = "<group>"; };
 		81243E58227A3562003A9DA8 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		8124F53D258B3B51004514A8 /* SelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
 		8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpellSelectionHeaderView.xib; sourceTree = "<group>"; };
 		8135B43E2169B2030058E9D6 /* SpellDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetailView.swift; sourceTree = "<group>"; };
 		8135B4402169B22C0058E9D6 /* SpellDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellDetailView.xib; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 				816935AA2548A50800711E67 /* Home Views */,
 				81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */,
 				816935AE2548BC1A00711E67 /* RaceDetailView.swift */,
+				8124F53D258B3B51004514A8 /* SelectionCell.swift */,
 				817235102551CBE600C2724C /* LanguageSelectionView.swift */,
 			);
 			path = "Character Creation";
@@ -971,6 +974,7 @@
 				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
 				81C8B7DB253CD62B0086F6C8 /* RaceSelectionView.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,
+				8124F53E258B3B51004514A8 /* SelectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

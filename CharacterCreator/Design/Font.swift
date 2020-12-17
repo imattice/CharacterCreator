@@ -16,5 +16,8 @@ extension Font {
         public static var header: Font {
             return Font.title3
         }
+        public static var headline: Font {
+            return Font.headline
+        }
     }
 }

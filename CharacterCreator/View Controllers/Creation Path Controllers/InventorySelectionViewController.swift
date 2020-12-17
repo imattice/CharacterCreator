@@ -109,7 +109,7 @@ class InventorySelectionViewController: UIViewController {
 			guard let choiceView = choiceView as? ChoiceSelectionView
 				else { print("could not cast to Choice Selection View when getting selections"); continue }
 			guard let stackView = choiceView.stackView.arrangedSubviews[choiceView.pageControl.currentPage] as? UIStackView,
-				let selectionViews = stackView.arrangedSubviews as? [SelectionView]
+				let selectionViews = stackView.arrangedSubviews as? [OldSelectionView]
 				else { print("Could not get selection views from Choice View"); continue }
 
 			for selectionView in selectionViews {
@@ -150,7 +150,7 @@ class InventorySelectionViewController: UIViewController {
 }
 
 extension InventorySelectionViewController: SelectionViewDelegate {
-	func buttonSelected(forView view: SelectionView) {
+	func buttonSelected(forView view: OldSelectionView) {
 		guard let weaponType = view.weaponType else { print("weapon type not set when weapon selection button pressed"); return }
 		if weaponType == .none { return }
 

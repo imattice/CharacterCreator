@@ -11,7 +11,7 @@ import UIKit
 class WeaponSelectionTableViewController: UITableViewController {
 	var tableViewData = [Item]()
 
-	var selectionView: SelectionView?
+	var selectionView: OldSelectionView?
 	var weaponType: Weapon.Category?
 
     override func viewDidLoad() {
