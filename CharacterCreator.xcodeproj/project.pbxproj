@@ -389,8 +389,8 @@
 				81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */,
 				81C8B805253D0B120086F6C8 /* LanguageTests.swift */,
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
-				8123672A20CA44DD00F7AEFC /* Info.plist */,
 				81C8B94F254092260086F6C8 /* ModifierTests.swift */,
+				8123672A20CA44DD00F7AEFC /* Info.plist */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";

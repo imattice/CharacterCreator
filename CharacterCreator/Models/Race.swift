@@ -198,6 +198,13 @@ class RaceRecord: Record, Codable, Identifiable {
     let features: [Feature]
     ///contains modifiers grated by this race which will affect other parts of the character sheet
     let modifiers: [Modifier]
+    ///contains abilityScoreModifiers filtered from the modifiers
+    var abilityScoreModifiers: [AbilityScoreModifier] {
+        modifiers.ofType(AbilityScoreModifier.self)
+    }
+    ///contains all available subrace records for this race
+    var subraces: [SubraceRecord] {
+        return SubraceRecord.subraces(for: name)    }
     
     required
     init(from decoder: Decoder) throws {
@@ -276,6 +283,10 @@ class SubraceRecord: Record, Codable {
     let features: [Feature]
     ///contains modifiers grated by this subrace which will affect other parts of the character sheet
     let modifiers: [Modifier]
+    ///contains abilityScoreModifiers filtered from the modifiers
+    var abilityScoreModifiers: [AbilityScoreModifier] {
+        modifiers.ofType(AbilityScoreModifier.self)
+    }
     
     required
     init(from decoder: Decoder) throws {
@@ -299,6 +310,10 @@ class SubraceRecord: Record, Codable {
         try container.encode(modifiers, forKey: .modifiers)
     }
     
+    static func subraces(for parent: String) -> [SubraceRecord] {
+        return SubraceRecord.all().filter { $0.parent.lowercased() == parent.lowercased() }
+    }
+
     enum CodingKeys: CodingKey {
         case parent, name, description, statIncrease, features, modifiers
     }
