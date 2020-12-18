@@ -441,6 +441,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		8124F55F258D0352004514A8 /* Selection Views */ = {
+			isa = PBXGroup;
+			children = (
+				8124F53D258B3B51004514A8 /* SelectionView.swift */,
+				817235102551CBE600C2724C /* LanguageSelectionView.swift */,
+			);
+			path = "Selection Views";
+			sourceTree = "<group>";
+		};
 		8152B3BF20D9D2F5008B7A1A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,8 +545,7 @@
 				816935AA2548A50800711E67 /* Home Views */,
 				81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */,
 				816935AE2548BC1A00711E67 /* RaceDetailView.swift */,
-				8124F53D258B3B51004514A8 /* SelectionView.swift */,
-				817235102551CBE600C2724C /* LanguageSelectionView.swift */,
+				8124F55F258D0352004514A8 /* Selection Views */,
 			);
 			path = "Character Creation";
 			sourceTree = "<group>";

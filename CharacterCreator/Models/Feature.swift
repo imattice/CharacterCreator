@@ -26,7 +26,7 @@ class Feature: Encodable, Identifiable {
         self.origin         = origin
     }
     
-    ///decodes an Unkeyed JSON decoding container into an array of Features
+    ///decodes an Unkeyed JSON decoding container into an array of Features and SelectableFeatures 
     static
     func decoded(from container: UnkeyedDecodingContainer, source: Origin) -> [Feature] {
         var mutableContainer = container
@@ -59,9 +59,12 @@ class Feature: Encodable, Identifiable {
 }
 
 //MARK: - SelectableFeature
-class SelectableFeature: Feature, Selectable {
+class SelectableFeature: Feature, Selectable, ObservableObject {
+    ///holds the selection for this feature
+    @Published
     var selection: String? = nil
-    var options: [String]
+    ///holds all potential options for this feature
+    let options: [String]
 
     init(title: String, description: String, origin: Origin, options: [String]) {
         self.options = options
