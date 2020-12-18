@@ -8,8 +8,9 @@
 
 import Foundation
 
+//MARK: - Feature
 ///descrbes unique feature that will affect gameplay
-struct Feature: Codable, Hashable, Identifiable {
+class Feature: Encodable, Identifiable {
     ///the id of the feature
     var id: String = UUID().uuidString
     ///the title of the feature
@@ -19,6 +20,12 @@ struct Feature: Codable, Hashable, Identifiable {
     ///the source of the feature
     let origin: Origin
     
+    init(title: String, description: String, origin: Origin) {
+        self.title          = title
+        self.description    = description
+        self.origin         = origin
+    }
+    
     ///decodes an Unkeyed JSON decoding container into an array of Features
     static
     func decoded(from container: UnkeyedDecodingContainer, source: Origin) -> [Feature] {
@@ -27,9 +34,18 @@ struct Feature: Codable, Hashable, Identifiable {
         while !mutableContainer.isAtEnd {
             do {
                 let feature = try mutableContainer.nestedContainer(keyedBy: FeatureCodingKeys.self)
+                
                 let title = try feature.decode(String.self, forKey: .title)
                 let description = try feature.decode(String.self, forKey: .description)
-                features.append(Feature(title: title, description: description, origin: source))
+                
+                //determine if there are options that are a custom array of strings
+                if let options = try? feature.decodeIfPresent([String].self, forKey: .options) {
+                    features.append(SelectableFeature(title: title, description: description, origin: source, options: options))    }
+                
+                //if there are no options, just create and add a basic feature
+                else {
+                    features.append(Feature(title: title, description: description, origin: source))    }
+                
             } catch {
                 print(error)
             }
@@ -38,6 +54,31 @@ struct Feature: Codable, Hashable, Identifiable {
     }
 
     enum FeatureCodingKeys: CodingKey {
-        case title, description
+        case title, description, options
+    }
+}
+
+//MARK: - SelectableFeature
+class SelectableFeature: Feature, Selectable {
+    var selection: String? = nil
+    var options: [String]
+
+    init(title: String, description: String, origin: Origin, options: [String]) {
+        self.options = options
+
+        super.init(title: title, description: description, origin: origin)
+    }
+}
+
+
+
+
+//MARK: - Protocol Conformance
+extension Feature: Equatable, Hashable {
+    static func == (lhs: Feature, rhs: Feature) -> Bool {
+        return lhs.title == rhs.title && lhs.description == rhs.description && lhs.origin == rhs.origin
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

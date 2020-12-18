@@ -19,7 +19,9 @@
 		81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E542279EFE0003A9DA8 /* WeaponStatView.swift */; };
 		81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81243E562279F022003A9DA8 /* WeaponStatView.xib */; };
 		81243E59227A3562003A9DA8 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E58227A3562003A9DA8 /* Weapon.swift */; };
-		8124F53E258B3B51004514A8 /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124F53D258B3B51004514A8 /* SelectionCell.swift */; };
+		8124F53E258B3B51004514A8 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124F53D258B3B51004514A8 /* SelectionView.swift */; };
+		8124F550258C2FC1004514A8 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124F54F258C2FC1004514A8 /* Selectable.swift */; };
+		8124F558258C3A5B004514A8 /* FeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124F557258C3A5B004514A8 /* FeatureTests.swift */; };
 		8135B41B21649F170058E9D6 /* SpellSelectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */; };
 		8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8135B43E2169B2030058E9D6 /* SpellDetailView.swift */; };
 		8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B4402169B22C0058E9D6 /* SpellDetailView.xib */; };
@@ -168,7 +170,9 @@
 		81243E542279EFE0003A9DA8 /* WeaponStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponStatView.swift; sourceTree = "<group>"; };
 		81243E562279F022003A9DA8 /* WeaponStatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeaponStatView.xib; sourceTree = "<group>"; };
 		81243E58227A3562003A9DA8 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
-		8124F53D258B3B51004514A8 /* SelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
+		8124F53D258B3B51004514A8 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		8124F54F258C2FC1004514A8 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
+		8124F557258C3A5B004514A8 /* FeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTests.swift; sourceTree = "<group>"; };
 		8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpellSelectionHeaderView.xib; sourceTree = "<group>"; };
 		8135B43E2169B2030058E9D6 /* SpellDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDetailView.swift; sourceTree = "<group>"; };
 		8135B4402169B22C0058E9D6 /* SpellDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellDetailView.xib; sourceTree = "<group>"; };
@@ -371,6 +375,7 @@
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
+				8124F548258C2FAD004514A8 /* Protocols */,
 				8152B3D820D9F891008B7A1A /* Extensions */,
 				8178317420F7F99800BF9B03 /* Design */,
 				8123674120CA44EE00F7AEFC /* Data */,
@@ -387,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				81C8B7F4253CFA6B0086F6C8 /* Race+SubraceTests.swift */,
+				8124F557258C3A5B004514A8 /* FeatureTests.swift */,
 				81C8B8E6253E21E10086F6C8 /* RecordCoreDataTests.swift */,
 				81C8B8EE253E22800086F6C8 /* TestableCoreDataStack.swift */,
 				81C8B805253D0B120086F6C8 /* LanguageTests.swift */,
@@ -412,7 +418,6 @@
 				81C8B906253E4DEA0086F6C8 /* CoreDataModels */,
 				81D599DE22BC935F005EE768 /* RealmProvider.swift */,
 				81C8B8B1253E196F0086F6C8 /* CoreDataStack.swift */,
-				81C8B89E253E08450086F6C8 /* Record.swift */,
 				81C8B8E0253E211D0086F6C8 /* Records.xcdatamodeld */,
 				819CF3A82543495400B96779 /* ValueTransformers.swift */,
 				81D599E222BD8344005EE768 /* Realms */,
@@ -427,6 +432,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		8124F548258C2FAD004514A8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				81C8B89E253E08450086F6C8 /* Record.swift */,
+				8124F54F258C2FC1004514A8 /* Selectable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		8152B3BF20D9D2F5008B7A1A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +450,7 @@
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
 				81541A34227420C2002C7B72 /* Language.swift */,
+				816935892548787400711E67 /* Feature.swift */,
 				81ACFDB022C6C1F10014597D /* Item Objects */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
 			);
@@ -521,7 +536,7 @@
 				816935AA2548A50800711E67 /* Home Views */,
 				81C8B7DA253CD62B0086F6C8 /* RaceSelectionView.swift */,
 				816935AE2548BC1A00711E67 /* RaceDetailView.swift */,
-				8124F53D258B3B51004514A8 /* SelectionCell.swift */,
+				8124F53D258B3B51004514A8 /* SelectionView.swift */,
 				817235102551CBE600C2724C /* LanguageSelectionView.swift */,
 			);
 			path = "Character Creation";
@@ -593,7 +608,6 @@
 		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
 			isa = PBXGroup;
 			children = (
-				816935892548787400711E67 /* Feature.swift */,
 				81C8B944253FE9B90086F6C8 /* AbilityScore.swift */,
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
@@ -931,6 +945,7 @@
 				81A8D251227D21770015E116 /* Armor.swift in Sources */,
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
+				8124F550258C2FC1004514A8 /* Selectable.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
 				8195037A2256DDAE00EE4469 /* PersonalityDetailView.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
@@ -974,7 +989,7 @@
 				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
 				81C8B7DB253CD62B0086F6C8 /* RaceSelectionView.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,
-				8124F53E258B3B51004514A8 /* SelectionCell.swift in Sources */,
+				8124F53E258B3B51004514A8 /* SelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,6 +998,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
+				8124F558258C3A5B004514A8 /* FeatureTests.swift in Sources */,
 				81C8B8E7253E21E10086F6C8 /* RecordCoreDataTests.swift in Sources */,
 				81C8B950254092270086F6C8 /* ModifierTests.swift in Sources */,
 				81C8B8EF253E22800086F6C8 /* TestableCoreDataStack.swift in Sources */,

@@ -47,10 +47,17 @@ extension Array where Element:Equatable {
 		return result	}
 }
 
-extension Array where Element:Modifier {
+//extension Array where Element:Modifier {
+//    func ofType<T>(_ type: T.Type) -> [T] {
+//        return compactMap { $0 as? T }
+//    }
+//}
+
+extension Array {
     func ofType<T>(_ type: T.Type) -> [T] {
         return compactMap { $0 as? T }
     }
 }
+
 
 

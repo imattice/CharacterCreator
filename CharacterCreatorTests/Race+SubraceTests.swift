@@ -47,8 +47,6 @@ class Race_SubraceTests: XCTestCase {
         guard let human = races.filter({ $0.name == "human" }).first else { XCTFail(); return }
         
         XCTAssert(human.baseLanguages.contains { $0.name == "choice"})
-
-
     }
     
     func testSubraceJSONParsing() throws {
@@ -68,24 +66,17 @@ class Race_SubraceTests: XCTestCase {
         XCTAssertTrue(lightFoot.features.count == 1)
     }
     
-//    func testLoadRaceRecordFromCoreData() {
-//        RaceRecord.loadDataIfNeeded()
-//
-//        let dwarf = RaceRecord.record(for: "dwarf")!
-//
-//        XCTAssertTrue(dwarf.name! == "dwarf")
-//        XCTAssertTrue(dwarf.detail!.starts(with: "Stout and stubborn, a dwarf is"))
-//
-//        dump(dwarf.features)
-//        let descriptive = dwarf.descriptive
-//        XCTAssertTrue(descriptive!.age.starts(with: "Dwarves mature at the same"))
-//        XCTAssertTrue(descriptive!.alignment.starts(with: "Most dwarves are lawful"))
-//        XCTAssertTrue(descriptive!.physique.starts(with: "Dwarves stand between 4 and 5 feet"))
-//
-//        XCTAssertTrue(dwarf.size == .medium)
-//        XCTAssertTrue(dwarf.baseLanguages!.contains("common"))
-//        XCTAssertTrue(dwarf.baseLanguages!.contains("dwarvish"))
-//
-//        XCTAssertTrue(dwarf.features!.count == 4)
-//    }
+    func testAllSubraceFetch() {
+        let subraces = SubraceRecord.all()
+        dump(subraces)
+    }
+    
+    func testSubraceForSpecificRace() {
+        let race = "dwarf"
+        
+        let subraces = SubraceRecord.subraces(for: race)
+        dump(subraces)
+    }
+    
+    
 }

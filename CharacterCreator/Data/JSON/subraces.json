@@ -1,7 +1,7 @@
 [
    {
       "parent":"dwarf",
-      "name":"hill",
+      "name":"hill dwarf",
       "description":"As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.",
       "statIncrease":{
          "wis":1
@@ -15,7 +15,7 @@
    },
    {
       "parent":"elf",
-      "name":"high",
+      "name":"high elf",
       "description":"As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many fantasy gaming worlds, there are two kinds of high elves. One type is haughty and reclusive, believing themselves to be superior to non-­elves and even other elves. The other type is more common and more friendly, and often encountered among humans and other races.",
       "statIncrease":{
          "int":1
@@ -27,17 +27,19 @@
          },
          {
             "title":"Cantrip",
-            "description":"You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
+            "description":"You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.",
+            "options": ["Acid Splash", "Chill Touch", "Dancing Lights", "Fire Bolt", "Light", "Mage Hand", "Mending", "Message", "Minor Illusion", "Poison Spray", "Prestidigitation", "Ray of Frost", "Shocking Grasp", "True Strike"]
          },
          {
             "title":"Extra Language",
-            "description":"You can speak, read, and write one extra language of your choice."
+            "description":"You can speak, read, and write one extra language of your choice.",
+            "options": ["common", "dwarvish", "elvish", "giant", "gnomish", "goblin", "halfling", "orc"]
          }
       ]
    },
    {
       "parent":"halfling",
-      "name":"lightfoot",
+      "name":"lightfoot halfling",
       "description":"As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You’re inclined to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings, and often dwell alongside other races or take up a nomadic life.",
       "statIncrease":{
          "cha":1
@@ -51,7 +53,7 @@
    },
    {
       "parent":"gnome",
-      "name":"rock",
+      "name":"rock gnome",
       "description":"As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.",
       "statIncrease":{
          "con":1
