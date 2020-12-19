@@ -9,7 +9,7 @@
 import SwiftUI
 
 ///for displaying options with a singular selection
-struct SelectablePanel: View {
+struct SelectableFeaturePanel: View {
     @EnvironmentObject var feature: SelectableFeature
     ///tracks if the list view is shown
     @State var selectionListViewIsShown: Bool = false
@@ -116,9 +116,9 @@ struct SelectionView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                SelectablePanel()
+                SelectableFeaturePanel()
                     .environmentObject(SelectableFeature(title: "Sample", description: "This is a sample of the Panel with many words and details on how a selectable panel may look like.", origin: .race, options: ["smith's tools", "brewer's supplies", "mason's tools"]))
-                SelectablePanel()
+                SelectableFeaturePanel()
                     .environmentObject(SelectableFeature(title: "Empty Sample", description: "More description", origin: .race, options: [String]()))
             }
         }

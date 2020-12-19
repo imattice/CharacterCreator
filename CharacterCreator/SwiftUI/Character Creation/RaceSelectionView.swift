@@ -15,7 +15,8 @@ struct RaceSelectionView: View {
         NavigationView {
             List {
                 ForEach(allRecords) { record in
-                    NavigationLink(record.name, destination: RaceDetailView(record: record))
+                    NavigationLink(record.name, destination: RaceDetailView()
+                                    .environmentObject(SelectedRace(record)))
                     HStack {
                         Image(record.name)
                             .resizable()
@@ -36,5 +37,13 @@ struct RaceSelectionView: View {
 struct RaceSelectionView_Previews: PreviewProvider {
     static var previews: some View {
         RaceSelectionView()
+    }
+}
+
+class SelectedRace: ObservableObject {
+    @Published var record: RaceRecord
+    
+    init(_ record: RaceRecord) {
+        self.record = record
     }
 }

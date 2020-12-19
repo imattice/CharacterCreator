@@ -9,160 +9,217 @@
 import SwiftUI
 
 struct RaceDetailView: View {
-    @State var race: RaceRecord
+    @EnvironmentObject var selectedRace: SelectedRace
     @State var languageSelectionIsShown: Bool = false
     @State var selectedLanguages: [Language] = [Language]()
-    
-    let hasSelectableLanguage: Bool
-    
+        
     var body: some View {
             VStack {
                 ScrollView {
-//                VStack {
-//                List {
-                    Image(race.name)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(minWidth: 70, maxWidth: 150,
-                               minHeight: 70, maxHeight: 150)
-
-                    Text(race.description)
-                        .padding()
-                        .font(Font.App.caption)
-                        .background(Color.App.surface)
-                        .cornerRadius(10)
-
-                    HStack {
-                        CreatureSizeView(race: race)
-                        Spacer()
-                        AbilityScoreModifierDisplayView(modifiers: race.modifiers.ofType(AbilityScoreModifier.self))
-                        Spacer()
-                        SpeedView(speed: race.speed)
-
-                    }
-                    .padding()
+                    HeaderView()
                     Divider()
-                    
-                    if hasSelectableLanguage {
-                    NavigationLink(
-                        destination: LanguageSelectionView(known: race.baseLanguages,
-                                                           selected: $selectedLanguages),
-                        isActive: $languageSelectionIsShown,
-                        label: {
-                            VStack {
-                                Text(languageString)
-                                    .multilineTextAlignment(.center)
-                                    .font(.body)
-                                    .foregroundColor(.black)
-                                    .padding()
-                                
-                            Text("Selected Language: ")
-                                .foregroundColor(.black)
-                                + Text(selectedLanguages.isEmpty ? "None" :
-                                        selectedLanguages.map({ $0.name.capitalized }).joined(separator: ", "))
-                                .foregroundColor(Color.App.primary)
-                            }
-                            })
-                    }
-                    else {
-                        Text(languageString)
-                            .multilineTextAlignment(.center)
-                            .font(.body)
-                            .foregroundColor(.black)
-                    }
-                    
+                    LanguageView(selectedLanguages: $selectedLanguages,
+                                 languageSelectionIsShown: $languageSelectionIsShown)
+                        .frame(maxWidth: .infinity)
                     Divider()
-
-                    VStack(alignment: .leading, spacing: 8) {
-                        ForEach(race.features) { feature in
-                            VStack(alignment: .leading) {
-                                Text(feature.title)
-                                    .font(Font.App.header)
-                                Text(feature.description)
-                                    .font(Font.App.caption)
-                                    .lineLimit(nil)
-                            }
-                            .padding()
-                            .background(Color.App.surface)
-                            .cornerRadius(10)
-                        }
-                    }
-                    ForEach(race.subrace) { subrace in
-                        Text(subrace.title)
-                        Text(subrace.description)
-                        Text(subrace.stats)
-                        ForEach(subrace.features) { feature in
-                            VStack{
-                                Text(feature.title)
-                                Text(feature.description)
-                            }
-                        }
-                    }
+                    FeatureStack(features: selectedRace.record.features)
+                    Divider()
+                    SubraceStack()
                 }
-                .background(Color.white)
-                .cornerRadius(10)
-                .padding()
-                
-                Button(action: {
-                    print("hi")
-                    dump(selectedLanguages)
-                }, label: {
-                    Text("Choose")
-                        .padding()
-                        .background(Color.App.primary)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                        .padding(.bottom)
-                })
+                SelectionButton()
             }
             .background(Color.App.background)
-            .navigationTitle(race.name.capitalized)
+            .navigationTitle(selectedRace.record.name.capitalized)
             .navigationBarTitleDisplayMode(.inline)
-//        }
+    }
+}
+
+fileprivate
+struct HeaderView: View {
+    @EnvironmentObject var selectedRace: SelectedRace
+    
+    var body: some View {
+        VStack {
+            Image(selectedRace.record.name)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(minWidth: 70, maxWidth: 150,
+                       minHeight: 70, maxHeight: 150)
+            
+            Text(selectedRace.record.description)
+                .padding()
+                .font(Font.App.caption)
+                .background(Color.App.surface)
+                .cornerRadius(10)
+            
+            HStack {
+                CreatureSizeView(race: selectedRace.record)
+                Spacer()
+                AbilityScoreModifierDisplayView(modifiers: selectedRace.record.abilityScoreModifiers)
+                Spacer()
+                SpeedView(speed: selectedRace.record.speed)
+            }
+        }
+        .padding(8)
+        .background(Color.white)
+        .cornerRadius(10)
+        .padding()
+
+    }
+}
+
+fileprivate
+struct LanguageView: View {
+    @EnvironmentObject var selectedRace: SelectedRace
+    @Binding var selectedLanguages: [Language]
+    @Binding var languageSelectionIsShown: Bool
+
+
+    var body: some View {
+        Group{
+            if selectedRace.record.baseLanguages.map({ $0.name }).contains("choice") {
+                NavigationLink(
+                    destination: LanguageSelectionView(known: selectedRace.record.baseLanguages,
+                                                       selected: $selectedLanguages),
+                    isActive: $languageSelectionIsShown,
+                    label: {
+                        VStack {
+                            Text(languageString)
+                                .multilineTextAlignment(.center)
+                                .font(.body)
+                                .foregroundColor(.black)
+                                .padding()
+
+                        Text("Selected Language: ")
+                            .foregroundColor(.black)
+                            + Text(selectedLanguages.isEmpty ? "None" :
+                                    selectedLanguages.map({ $0.name.capitalized }).joined(separator: ", "))
+                            .foregroundColor(Color.App.primary)
+                        }
+                    })}
+            else {
+                Text(languageString)
+                    .multilineTextAlignment(.center)
+                    .font(.body)
+                    .foregroundColor(.black)
+            }
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(10)
 
     }
     
     ///a string that combines the values in baseLanguages, including joining language such as "and"
     var languageString: String {
-        let mapped: [String] = race.baseLanguages.indices.map {
-            let language = race.baseLanguages[$0]
+        let record: RaceRecord = selectedRace.record
+        let mapped: [String] = record.baseLanguages.indices.map {
+            let language = record.baseLanguages[$0]
             var result = ""
 
             if language.name == "choice" {
                 return "a language of your choice" }
             else {  result += "\(language.name.capitalized)," }
             
-            if race.baseLanguages.count > 1 && $0 == race.baseLanguages.count - 2 {
+            if record.baseLanguages.count > 1 && $0 == record.baseLanguages.count - 2 {
                 result.removeLast()
                 result += " and" }
-            if $0 == race.baseLanguages.count - 1 { result.removeLast() }
+            if $0 == record.baseLanguages.count - 1 { result.removeLast() }
             
             return result
         }
         
-        return "\(race.name.capitalized) natively know \(race.baseLanguages.count) languages: \n\( mapped.joined(separator: " "))"
+        return "\(record.name.capitalized) natively know \(record.baseLanguages.count) languages: \n\( mapped.joined(separator: " "))"
     }
-    
-    init(record: RaceRecord) {
-        self._race = State(wrappedValue: record)
-        self.hasSelectableLanguage = record.baseLanguages.map({ $0.name }).contains("choice")
-    }
-    
-    
 }
 
+struct FeatureStack: View {
+    @State var features: [Feature]
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            ForEach(features) { feature in
+                if let selectableFeature = feature as? SelectableFeature {
+                    SelectableFeaturePanel()
+                        .environmentObject(selectableFeature)
+                }
+                VStack(alignment: .leading) {
+                    Text(feature.title)
+                        .font(Font.App.header)
+                    Text(feature.description)
+                        .font(Font.App.caption)
+                        .lineLimit(nil)
+                }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.App.surface)
+                .cornerRadius(10)
+            }
+        }
+    }
+}
+
+
+struct SubraceStack: View {
+    @EnvironmentObject var selectedRace: SelectedRace
+    var subraces: [SubraceRecord] {
+        selectedRace.record.subraces
+    }
+
+    var body: some View {
+        VStack {
+            ForEach(subraces) { subrace in
+                VStack {
+                    Text(subrace.name)
+                    Text(subrace.description)
+                    AbilityScoreModifierDisplayView(modifiers: subrace.abilityScoreModifiers)
+                    FeatureStack(features: subrace.features)
+                }
+            }
+        }
+    }
+}
+
+//MARK: - Previews
 struct RaceDetailView_Previews: PreviewProvider {
+    @Binding var selection: String
+    
     static var previews: some View {
         Group {
-            RaceDetailView(record: RaceRecord.record(for: "human")!)
-            RaceDetailView(record: RaceRecord.record(for: "dwarf")!)
-            RaceDetailView(record: RaceRecord.record(for: "halfling")!)
-                .previewDevice("iPhone 11 Pro Max")
+            //Test Devices
+            Group {
+                NavigationView {
+                RaceDetailView()
+                    .environmentObject(SelectedRace(RaceRecord.record(for: "human")!))
+                }
+                    .previewDevice("iPhone 11 Pro Max")
+                NavigationView {
+                RaceDetailView()
+                    .environmentObject(SelectedRace(RaceRecord.record(for: "dwarf")!))
+                }
+                RaceDetailView()
+                    .environmentObject(SelectedRace(RaceRecord.record(for: "halfling")!))
+            }
+            
+            //Components
+            Group {
+                HeaderView()
+                    .environmentObject(SelectedRace(RaceRecord.record(for: "dwarf")!))
+
+                FeatureStack(features: RaceRecord.record(for: "dwarf")!.features)
+
+                SubraceStack()
+                    .environmentObject(SelectedRace(RaceRecord.record(for: "dwarf")!))
+                
+            }
+            .previewLayout(.sizeThatFits)
         }
-        
     }
 }
 
+
+
+//MARK: - Helper Views
+fileprivate
 struct CreatureSizeView: View {
     @State var race: RaceRecord
     
@@ -189,6 +246,8 @@ struct CreatureSizeView: View {
     }
     }
 }
+
+fileprivate
 struct SpeedView: View {
     @State var speed: Int
     var body: some View {
@@ -205,12 +264,13 @@ struct SpeedView: View {
     }
 }
 
-
+fileprivate
 struct AbilityScoreModifierDisplayView: View {
     @State var modifiers: [AbilityScoreModifier]
     
     var body: some View {
         VStack {
+            //display mode for if there are 4 or more stats
             if modifiers.count > 3 {
                 let first = Array(modifiers[0...1])
                 let second = Array(modifiers[2...3])
@@ -222,27 +282,8 @@ struct AbilityScoreModifierDisplayView: View {
                         }
                     }
                 }
-
-                
-//                HStack {
-//                    ForEach(firstHalf) { modifier in
-//                        Text("+\(modifier.value) \(modifier.abilityScore.rawValue.capitalized)")
-//                            .font(.caption)
-//                            .padding(8)
-//                            .background(Color.primaryHighlight)
-//                            .cornerRadius(30)
-//                    }
-//                }
-//                HStack {
-//                    ForEach(secondHalf) { modifier in
-//                        Text("+\(modifier.value) \(modifier.abilityScore.rawValue.capitalized)")
-//                            .font(.caption)
-//                            .padding(8)
-//                            .background(Color.primaryHighlight)
-//                            .cornerRadius(30)
-//                    }
-//                }
             }
+            //display mode for if there are 3 or fewer stats
             else {
                 ForEach(modifiers) { modifier in
                     Text("+\(modifier.value) \(modifier.abilityScore.rawValue.capitalized)")
@@ -271,6 +312,7 @@ struct BackgroundCircle: View {
     }
 }
 
+fileprivate
 struct AbilityScoreModifierPillView: View {
     @State var modifier: Int
     @State var abilityScore: AbilityScore.Name
@@ -285,5 +327,40 @@ struct AbilityScoreModifierPillView: View {
             .padding(8)
             .background(Color.App.primaryHighlight)
             .cornerRadius(30)
+    }
+}
+
+struct RaceDetailLanguageView: View {
+    @State var modifier: Int
+    @State var abilityScore: AbilityScore.Name
+    
+    
+    var body: some View {
+        Text("+\(modifier) \(abilityScore.rawValue.capitalized)")
+            .frame(width: 50, height: 20)
+            .frame(minWidth: 50, idealWidth: 60,
+                   minHeight: 20, idealHeight: 25, maxHeight: 25)
+            .font(.caption)
+            .padding(8)
+            .background(Color.App.primaryHighlight)
+            .cornerRadius(30)
+    }
+}
+
+
+
+
+struct SelectionButton: View {
+    var body: some View {
+        Button(action: {
+            print("hi")
+        }, label: {
+            Text("Choose")
+                .padding()
+                .background(Color.App.primary)
+                .cornerRadius(10)
+                .foregroundColor(.white)
+                .padding(.bottom)
+        })
     }
 }

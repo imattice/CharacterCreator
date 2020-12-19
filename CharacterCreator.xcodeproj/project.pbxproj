@@ -19,7 +19,7 @@
 		81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E542279EFE0003A9DA8 /* WeaponStatView.swift */; };
 		81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81243E562279F022003A9DA8 /* WeaponStatView.xib */; };
 		81243E59227A3562003A9DA8 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E58227A3562003A9DA8 /* Weapon.swift */; };
-		8124F53E258B3B51004514A8 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124F53D258B3B51004514A8 /* SelectionView.swift */; };
+		8124F53E258B3B51004514A8 /* FeatureSelectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124F53D258B3B51004514A8 /* FeatureSelectionViews.swift */; };
 		8124F550258C2FC1004514A8 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124F54F258C2FC1004514A8 /* Selectable.swift */; };
 		8124F558258C3A5B004514A8 /* FeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124F557258C3A5B004514A8 /* FeatureTests.swift */; };
 		8135B41B21649F170058E9D6 /* SpellSelectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */; };
@@ -170,7 +170,7 @@
 		81243E542279EFE0003A9DA8 /* WeaponStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponStatView.swift; sourceTree = "<group>"; };
 		81243E562279F022003A9DA8 /* WeaponStatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeaponStatView.xib; sourceTree = "<group>"; };
 		81243E58227A3562003A9DA8 /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
-		8124F53D258B3B51004514A8 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		8124F53D258B3B51004514A8 /* FeatureSelectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSelectionViews.swift; sourceTree = "<group>"; };
 		8124F54F258C2FC1004514A8 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		8124F557258C3A5B004514A8 /* FeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTests.swift; sourceTree = "<group>"; };
 		8135B41A21649F170058E9D6 /* SpellSelectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpellSelectionHeaderView.xib; sourceTree = "<group>"; };
@@ -444,7 +444,7 @@
 		8124F55F258D0352004514A8 /* Selection Views */ = {
 			isa = PBXGroup;
 			children = (
-				8124F53D258B3B51004514A8 /* SelectionView.swift */,
+				8124F53D258B3B51004514A8 /* FeatureSelectionViews.swift */,
 				817235102551CBE600C2724C /* LanguageSelectionView.swift */,
 			);
 			path = "Selection Views";
@@ -997,7 +997,7 @@
 				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
 				81C8B7DB253CD62B0086F6C8 /* RaceSelectionView.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,
-				8124F53E258B3B51004514A8 /* SelectionView.swift in Sources */,
+				8124F53E258B3B51004514A8 /* FeatureSelectionViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
