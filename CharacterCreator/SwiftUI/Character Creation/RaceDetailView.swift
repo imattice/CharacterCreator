@@ -22,7 +22,7 @@ struct RaceDetailView: View {
                                  languageSelectionIsShown: $languageSelectionIsShown)
                         .frame(maxWidth: .infinity)
                     Divider()
-                    FeatureStack(features: selectedRace.record.features)
+                    FeatureStack(selectedRace.record.features)
                     Divider()
                     SubraceStack()
                 }
@@ -46,11 +46,7 @@ struct HeaderView: View {
                 .frame(minWidth: 70, maxWidth: 150,
                        minHeight: 70, maxHeight: 150)
             
-            Text(selectedRace.record.description)
-                .padding()
-                .font(Font.App.caption)
-                .background(Color.App.surface)
-                .cornerRadius(10)
+            DescriptionPanel(selectedRace.record.description)
             
             HStack {
                 CreatureSizeView(race: selectedRace.record)
@@ -65,6 +61,22 @@ struct HeaderView: View {
         .cornerRadius(10)
         .padding()
 
+    }
+}
+
+struct DescriptionPanel: View {
+    let description: String
+    var body: some View {
+        Text(description)
+            .padding()
+            .font(Font.App.caption)
+            .background(Color.App.surface)
+            .cornerRadius(10)
+            .frame(maxWidth: .infinity)
+
+    }
+    init(_ description: String) {
+        self.description = description
     }
 }
 
@@ -140,44 +152,89 @@ struct FeatureStack: View {
             ForEach(features) { feature in
                 if let selectableFeature = feature as? SelectableFeature {
                     SelectableFeaturePanel()
-                        .environmentObject(selectableFeature)
+                        .environmentObject(selectableFeature)            }
+                else {
+                    FeaturePanel(feature)
                 }
-                VStack(alignment: .leading) {
-                    Text(feature.title)
-                        .font(Font.App.header)
-                    Text(feature.description)
-                        .font(Font.App.caption)
-                        .lineLimit(nil)
-                }
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.App.surface)
-                .cornerRadius(10)
+
             }
         }
     }
+    
+    init(_ features: [Feature]) {
+        self._features = State(initialValue: features)
+    }
 }
+
+struct FeaturePanel: View {
+    let feature: Feature
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(feature.title)
+                .font(.subheadline)
+                .bold()
+                .padding(.bottom, 1)
+            Text(feature.description)
+                .font(Font.App.caption)
+                .lineLimit(nil)
+        }
+        .frame(maxWidth: .infinity)
+        .padding()
+        .background(Color.App.surface)
+        .cornerRadius(10)
+    }
+    
+    init(_ feature: Feature) {
+        self.feature = feature
+    }
+}
+
 
 
 struct SubraceStack: View {
     @EnvironmentObject var selectedRace: SelectedRace
+    
     var subraces: [SubraceRecord] {
-        selectedRace.record.subraces
+        return selectedRace.record.subraces
     }
 
     var body: some View {
         VStack {
-            ForEach(subraces) { subrace in
-                VStack {
-                    Text(subrace.name)
-                    Text(subrace.description)
-                    AbilityScoreModifierDisplayView(modifiers: subrace.abilityScoreModifiers)
-                    FeatureStack(features: subrace.features)
+            Text("\(selectedRace.record.name.capitalized) Heritages")
+                .font(.title)
+            DescriptionPanel("\(selectedRace.record.name.capitalized) come in many varieties.  Choose the type of \(selectedRace.record.name.capitalized) that best represents your character's backgound.")
+                .font(.caption)
+            VStack {
+                ForEach(subraces) { subrace in
+                    Divider()
+                    SubracePanel(subrace)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                    
                 }
             }
         }
     }
 }
+
+struct SubracePanel: View {
+    let record: SubraceRecord
+    
+    var body: some View {
+        VStack {
+            Text(record.name.capitalized)
+                .font(.title)
+            DescriptionPanel(record.description)
+            AbilityScoreModifierDisplayView(modifiers: record.abilityScoreModifiers)
+            FeatureStack(record.features)
+        }
+    }
+    
+    init(_ record: SubraceRecord) {
+        self.record = record
+    }
+}
+
 
 //MARK: - Previews
 struct RaceDetailView_Previews: PreviewProvider {
@@ -205,7 +262,7 @@ struct RaceDetailView_Previews: PreviewProvider {
                 HeaderView()
                     .environmentObject(SelectedRace(RaceRecord.record(for: "dwarf")!))
 
-                FeatureStack(features: RaceRecord.record(for: "dwarf")!.features)
+                FeatureStack(RaceRecord.record(for: "dwarf")!.features)
 
                 SubraceStack()
                     .environmentObject(SelectedRace(RaceRecord.record(for: "dwarf")!))
@@ -355,8 +412,10 @@ struct SelectionButton: View {
         Button(action: {
             print("hi")
         }, label: {
-            Text("Choose")
+            Text("Select")
+                .bold()
                 .padding()
+                .frame(maxWidth: .infinity)
                 .background(Color.App.primary)
                 .cornerRadius(10)
                 .foregroundColor(.white)
@@ -364,3 +423,7 @@ struct SelectionButton: View {
         })
     }
 }
+
+
+
+

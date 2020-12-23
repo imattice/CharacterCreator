@@ -25,7 +25,10 @@ struct SelectableFeaturePanel: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(feature.title)
-                                .font(Font.App.header)
+                                .font(.subheadline)
+                                .bold()
+                                .padding(.bottom, 1)
+
                             Text(feature.description)
                                 .font(Font.App.caption)
                                 .lineLimit(nil)
@@ -34,9 +37,11 @@ struct SelectableFeaturePanel: View {
                             if !feature.options.isEmpty {
                                 Divider()
                                 Text("Selected:")
-                                    .font(Font.App.headline)
+                                    .font(.subheadline)
+                                    .padding(.bottom, 1)
                                 Text(feature.selection?.capitalized ?? "None")
                                     .foregroundColor(Color.App.primary)
+                                    .font(.body)
                             }
                         }
                         ///indicate that a selection can be made in another view, if there are options

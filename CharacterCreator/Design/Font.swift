@@ -19,5 +19,12 @@ extension Font {
         public static var headline: Font {
             return Font.headline
         }
+        public static var subheadline: Font {
+            return Font.subheadline
+        }
+        
+        public static var featureTitle: Font {
+            return Font.subheadline.bold()
+        }
     }
 }
