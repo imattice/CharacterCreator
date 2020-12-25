@@ -20,12 +20,16 @@ struct RaceDetailView: View {
                     Divider()
                     LanguageView(selectedLanguages: $selectedLanguages,
                                  languageSelectionIsShown: $languageSelectionIsShown)
-                        .frame(maxWidth: .infinity)
                     Divider()
-                    FeatureStack(selectedRace.record.features)
+                    FeatureStack(title: selectedRace.record.name,
+                                 selectedRace.record.features)
+                        .padding()
                     Divider()
-                    SubraceStack()
+                    if !selectedRace.record.subraces.isEmpty {
+                        SubraceStack()
+                    }
                 }
+
                 SelectionButton()
             }
             .background(Color.App.background)
@@ -70,6 +74,7 @@ struct DescriptionPanel: View {
         Text(description)
             .padding()
             .font(Font.App.caption)
+            .foregroundColor(.black )
             .background(Color.App.surface)
             .cornerRadius(10)
             .frame(maxWidth: .infinity)
@@ -116,10 +121,12 @@ struct LanguageView: View {
                     .foregroundColor(.black)
             }
         }
+        .frame(maxWidth: .infinity)
         .padding()
         .background(Color.white)
+        .foregroundColor(.black)
         .cornerRadius(10)
-
+        .padding()
     }
     
     ///a string that combines the values in baseLanguages, including joining language such as "and"
@@ -146,9 +153,14 @@ struct LanguageView: View {
 }
 
 struct FeatureStack: View {
+    var title: String?
     @State var features: [Feature]
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
+            if let title = title {
+                Text("\(title.capitalized) Features")
+                    .font(.title2)
+            }
             ForEach(features) { feature in
                 if let selectableFeature = feature as? SelectableFeature {
                     SelectableFeaturePanel()
@@ -159,9 +171,14 @@ struct FeatureStack: View {
 
             }
         }
+        .padding(8)
+        .background(Color.white)
+        .cornerRadius(10)
+//        .padding()
     }
     
-    init(_ features: [Feature]) {
+    init(title: String? = nil, _ features: [Feature]) {
+        self.title = title
         self._features = State(initialValue: features)
     }
 }
@@ -181,6 +198,7 @@ struct FeaturePanel: View {
         .frame(maxWidth: .infinity)
         .padding()
         .background(Color.App.surface)
+        .foregroundColor(.black )
         .cornerRadius(10)
     }
     
@@ -199,9 +217,9 @@ struct SubraceStack: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 8) {
             Text("\(selectedRace.record.name.capitalized) Heritages")
-                .font(.title)
+                .font(.title2)
             DescriptionPanel("\(selectedRace.record.name.capitalized) come in many varieties.  Choose the type of \(selectedRace.record.name.capitalized) that best represents your character's backgound.")
                 .font(.caption)
             VStack {
@@ -210,10 +228,13 @@ struct SubraceStack: View {
                     SubracePanel(subrace)
                         .background(Color.white)
                         .cornerRadius(10)
-                    
                 }
             }
         }
+        .padding(8)
+        .background(Color.white)
+        .cornerRadius(10)
+        .padding()
     }
 }
 
@@ -226,8 +247,15 @@ struct SubracePanel: View {
                 .font(.title)
             DescriptionPanel(record.description)
             AbilityScoreModifierDisplayView(modifiers: record.abilityScoreModifiers)
-            FeatureStack(record.features)
+            FeatureStack(title: record.name.capitalized, record.features)
         }
+        .padding(8)
+        .background(Color.white)
+        .foregroundColor(.black )
+        .cornerRadius(10)
+//        .padding()
+
+
     }
     
     init(_ record: SubraceRecord) {
@@ -262,7 +290,9 @@ struct RaceDetailView_Previews: PreviewProvider {
                 HeaderView()
                     .environmentObject(SelectedRace(RaceRecord.record(for: "dwarf")!))
 
-                FeatureStack(RaceRecord.record(for: "dwarf")!.features)
+                FeatureStack(title: RaceRecord.record(for: "dwarf")!.name,
+                             RaceRecord.record(for: "dwarf")!.features)
+
 
                 SubraceStack()
                     .environmentObject(SelectedRace(RaceRecord.record(for: "dwarf")!))
@@ -301,6 +331,8 @@ struct CreatureSizeView: View {
             
         }
     }
+        .foregroundColor(.black )
+
     }
 }
 
@@ -318,6 +350,8 @@ struct SpeedView: View {
                 
             }
         }
+        .foregroundColor(.black )
+
     }
 }
 
@@ -351,6 +385,8 @@ struct AbilityScoreModifierDisplayView: View {
                 }
             }
         }
+        .foregroundColor(.black )
+
     }
 }
 
@@ -383,8 +419,11 @@ struct AbilityScoreModifierPillView: View {
             .font(.caption)
             .padding(8)
             .background(Color.App.primaryHighlight)
+            .foregroundColor(.black )
+
             .cornerRadius(30)
     }
+
 }
 
 struct RaceDetailLanguageView: View {
@@ -400,6 +439,8 @@ struct RaceDetailLanguageView: View {
             .font(.caption)
             .padding(8)
             .background(Color.App.primaryHighlight)
+            .foregroundColor(.black )
+
             .cornerRadius(30)
     }
 }

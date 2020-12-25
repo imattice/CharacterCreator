@@ -15,8 +15,9 @@ struct RaceSelectionView: View {
         NavigationView {
             List {
                 ForEach(allRecords) { record in
-                    NavigationLink(record.name, destination: RaceDetailView()
-                                    .environmentObject(SelectedRace(record)))
+                    NavigationLink(destination: RaceDetailView()
+                                    .environmentObject(SelectedRace(record)),
+                                   label: {
                     HStack {
                         Image(record.name)
                             .resizable()
@@ -26,6 +27,7 @@ struct RaceSelectionView: View {
                                 .font(.headline)
                         }
                     }
+                                   })
                 }
             }
             .navigationTitle("Choose a Race")
