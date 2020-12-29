@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+///Displays the details of a specific race
 struct RaceDetailView: View {
     @EnvironmentObject var selectedRace: SelectedRace
     @State var languageSelectionIsShown: Bool = false
@@ -18,13 +19,16 @@ struct RaceDetailView: View {
                 ScrollView {
                     HeaderView()
                     Divider()
+                    
                     LanguageView(selectedLanguages: $selectedLanguages,
                                  languageSelectionIsShown: $languageSelectionIsShown)
                     Divider()
+                    
                     FeatureStack(title: selectedRace.record.name,
                                  selectedRace.record.features)
                         .padding()
                     Divider()
+                    
                     if !selectedRace.record.subraces.isEmpty {
                         SubraceStack()
                     }
@@ -34,10 +38,11 @@ struct RaceDetailView: View {
             }
             .background(Color.App.background)
             .navigationTitle(selectedRace.record.name.capitalized)
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.large)
     }
 }
 
+///displays an image, size, speed, ability score modifiers and the description for the race
 fileprivate
 struct HeaderView: View {
     @EnvironmentObject var selectedRace: SelectedRace
@@ -64,33 +69,16 @@ struct HeaderView: View {
         .background(Color.white)
         .cornerRadius(10)
         .padding()
-
     }
 }
 
-struct DescriptionPanel: View {
-    let description: String
-    var body: some View {
-        Text(description)
-            .padding()
-            .font(Font.App.caption)
-            .foregroundColor(.black )
-            .background(Color.App.surface)
-            .cornerRadius(10)
-            .frame(maxWidth: .infinity)
-
-    }
-    init(_ description: String) {
-        self.description = description
-    }
-}
-
+///displays languages that are natively known to this race
+///if a selection can be made, tap for a selection view
 fileprivate
 struct LanguageView: View {
     @EnvironmentObject var selectedRace: SelectedRace
     @Binding var selectedLanguages: [Language]
     @Binding var languageSelectionIsShown: Bool
-
 
     var body: some View {
         Group{
@@ -152,63 +140,32 @@ struct LanguageView: View {
     }
 }
 
-struct FeatureStack: View {
-    var title: String?
-    @State var features: [Feature]
+///a panel view for showing details for a given feature
+fileprivate
+struct SubracePanel: View {
+    let record: SubraceRecord
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            if let title = title {
-                Text("\(title.capitalized) Features")
-                    .font(.title2)
-            }
-            ForEach(features) { feature in
-                if let selectableFeature = feature as? SelectableFeature {
-                    SelectableFeaturePanel()
-                        .environmentObject(selectableFeature)            }
-                else {
-                    FeaturePanel(feature)
-                }
-
-            }
+        VStack {
+            Text(record.name.capitalized)
+                .font(.title)
+            DescriptionPanel(record.description)
+            AbilityScoreModifierDisplayView(modifiers: record.abilityScoreModifiers)
+            FeatureStack(title: record.name.capitalized, record.features)
         }
         .padding(8)
         .background(Color.white)
-        .cornerRadius(10)
-//        .padding()
-    }
-    
-    init(title: String? = nil, _ features: [Feature]) {
-        self.title = title
-        self._features = State(initialValue: features)
-    }
-}
-
-struct FeaturePanel: View {
-    let feature: Feature
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(feature.title)
-                .font(.subheadline)
-                .bold()
-                .padding(.bottom, 1)
-            Text(feature.description)
-                .font(Font.App.caption)
-                .lineLimit(nil)
-        }
-        .frame(maxWidth: .infinity)
-        .padding()
-        .background(Color.App.surface)
         .foregroundColor(.black )
         .cornerRadius(10)
     }
     
-    init(_ feature: Feature) {
-        self.feature = feature
+    init(_ record: SubraceRecord) {
+        self.record = record
     }
 }
 
-
-
+///a view showing multiple subraces in a vstack
+fileprivate
 struct SubraceStack: View {
     @EnvironmentObject var selectedRace: SelectedRace
     
@@ -235,31 +192,6 @@ struct SubraceStack: View {
         .background(Color.white)
         .cornerRadius(10)
         .padding()
-    }
-}
-
-struct SubracePanel: View {
-    let record: SubraceRecord
-    
-    var body: some View {
-        VStack {
-            Text(record.name.capitalized)
-                .font(.title)
-            DescriptionPanel(record.description)
-            AbilityScoreModifierDisplayView(modifiers: record.abilityScoreModifiers)
-            FeatureStack(title: record.name.capitalized, record.features)
-        }
-        .padding(8)
-        .background(Color.white)
-        .foregroundColor(.black )
-        .cornerRadius(10)
-//        .padding()
-
-
-    }
-    
-    init(_ record: SubraceRecord) {
-        self.record = record
     }
 }
 
@@ -306,6 +238,8 @@ struct RaceDetailView_Previews: PreviewProvider {
 
 
 //MARK: - Helper Views
+
+///a view for displaying a creature's size category
 fileprivate
 struct CreatureSizeView: View {
     @State var race: RaceRecord
@@ -313,29 +247,19 @@ struct CreatureSizeView: View {
     var body: some View {
         ZStack {
             BackgroundCircle()
-//            Image(race.size.rawValue)
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .frame(width: 70, height: 70)
-//                .frame(minWidth: 40, maxWidth: 40,
-//                       minHeight: 40, maxHeight: 40)
-//                .padding(.top, -10)
-//                .opacity(0.5)
-        VStack {
-            Text("Size")
-                .font(Font.callout.bold())
-            Text(race.size.rawValue.capitalized)
-                .font(.caption)
-//                .padding
-//                .padding(.top, -15)
-            
+            VStack {
+                Text("Size")
+                    .font(Font.callout.bold())
+                Text(race.size.rawValue.capitalized)
+                    .font(.caption)
+            }
         }
-    }
         .foregroundColor(.black )
 
     }
 }
 
+///a view for displaying the speed of a creature
 fileprivate
 struct SpeedView: View {
     @State var speed: Int
@@ -347,14 +271,34 @@ struct SpeedView: View {
                     .font(Font.callout.bold())
                 Text(String(speed))
                     .font(.caption)
-                
             }
         }
         .foregroundColor(.black )
-
     }
 }
 
+/// displays the modifier value of a single ability modifier
+fileprivate
+struct AbilityScoreModifierPillView: View {
+    @State var modifier: Int
+    @State var abilityScore: AbilityScore.Name
+    
+    
+    var body: some View {
+        Text("+\(modifier) \(abilityScore.rawValue.capitalized)")
+            .frame(width: 50, height: 20)
+            .frame(minWidth: 50, idealWidth: 60,
+                   minHeight: 20, idealHeight: 25, maxHeight: 25)
+            .font(.caption)
+            .padding(8)
+            .background(Color.App.primaryHighlight)
+            .foregroundColor(.black )
+            .cornerRadius(30)
+    }
+}
+
+
+///a view for displaying all ability modifiers in a stack or grid pattern, depending on the count of modifiers
 fileprivate
 struct AbilityScoreModifierDisplayView: View {
     @State var modifiers: [AbilityScoreModifier]
@@ -390,6 +334,7 @@ struct AbilityScoreModifierDisplayView: View {
     }
 }
 
+///a circular view to be used as a background
 fileprivate
 struct BackgroundCircle: View {
     let dimension: CGFloat = 60
@@ -404,67 +349,3 @@ struct BackgroundCircle: View {
                    minHeight: min, idealHeight: ideal, maxHeight: max)
     }
 }
-
-fileprivate
-struct AbilityScoreModifierPillView: View {
-    @State var modifier: Int
-    @State var abilityScore: AbilityScore.Name
-    
-    
-    var body: some View {
-        Text("+\(modifier) \(abilityScore.rawValue.capitalized)")
-            .frame(width: 50, height: 20)
-            .frame(minWidth: 50, idealWidth: 60,
-                   minHeight: 20, idealHeight: 25, maxHeight: 25)
-            .font(.caption)
-            .padding(8)
-            .background(Color.App.primaryHighlight)
-            .foregroundColor(.black )
-
-            .cornerRadius(30)
-    }
-
-}
-
-struct RaceDetailLanguageView: View {
-    @State var modifier: Int
-    @State var abilityScore: AbilityScore.Name
-    
-    
-    var body: some View {
-        Text("+\(modifier) \(abilityScore.rawValue.capitalized)")
-            .frame(width: 50, height: 20)
-            .frame(minWidth: 50, idealWidth: 60,
-                   minHeight: 20, idealHeight: 25, maxHeight: 25)
-            .font(.caption)
-            .padding(8)
-            .background(Color.App.primaryHighlight)
-            .foregroundColor(.black )
-
-            .cornerRadius(30)
-    }
-}
-
-
-
-
-struct SelectionButton: View {
-    var body: some View {
-        Button(action: {
-            print("hi")
-        }, label: {
-            Text("Select")
-                .bold()
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.App.primary)
-                .cornerRadius(10)
-                .foregroundColor(.white)
-                .padding(.bottom)
-        })
-    }
-}
-
-
-
-

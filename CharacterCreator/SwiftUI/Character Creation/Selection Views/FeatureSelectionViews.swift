@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-///for displaying options with a singular selection
+///displays options with a singular selection
 struct SelectableFeaturePanel: View {
     @EnvironmentObject var feature: SelectableFeature
     ///tracks if the list view is shown
@@ -77,18 +77,17 @@ struct StandardSelectionListView: View {
                 }
             }
         }
+//        .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading:
                                 Button(action:  { cancel()          },
                                        label:   { Text("Cancel")    }),
                             trailing:
                                 Button(action:  { select()          },
                                        label:   { Text("Select")    }))
-        .navigationBarBackButtonHidden(true)
     }
     
     func cancel() {
         feature.selection = nil
-
         self.shown = false
     }
     func select() {
@@ -97,6 +96,7 @@ struct StandardSelectionListView: View {
     }
 }
 
+///displays options for basic selections
 struct SelectionCell: View {
     ///the title for the option
     @State var title: String
@@ -123,9 +123,10 @@ struct SelectionView_Previews: PreviewProvider {
             NavigationView {
                 SelectableFeaturePanel()
                     .environmentObject(SelectableFeature(title: "Sample", description: "This is a sample of the Panel with many words and details on how a selectable panel may look like.", origin: .race, options: ["smith's tools", "brewer's supplies", "mason's tools"]))
-                SelectableFeaturePanel()
-                    .environmentObject(SelectableFeature(title: "Empty Sample", description: "More description", origin: .race, options: [String]()))
             }
+            
+            SelectableFeaturePanel()
+            .environmentObject(SelectableFeature(title: "Empty Sample", description: "More description", origin: .race, options: [String]()))
         }
         .previewLayout(.sizeThatFits)
     }
