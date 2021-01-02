@@ -65,16 +65,16 @@ class SelectableFeature: Feature, Selectable, ObservableObject {
     var selection: String? = nil
     ///holds all potential options for this feature
     let options: [String]
+    ///the maximum number of selections that are allowed to be made
+    let limit: Int?
 
-    init(title: String, description: String, origin: Origin, options: [String]) {
+    init(title: String, description: String, origin: Origin, options: [String], limit: Int? = nil) {
         self.options = options
+        self.limit = limit
 
         super.init(title: title, description: description, origin: origin)
     }
 }
-
-
-
 
 //MARK: - Protocol Conformance
 extension Feature: Equatable, Hashable {

@@ -88,6 +88,31 @@ struct StandardSelectionListView: View {
     }
 }
 
+//MARK: - Multi-Selection List View
+struct MultiSelectionListView: View {
+    @EnvironmentObject var feature: SelectableFeature
+    ///tracks if this view is shown
+    @Binding var shown: Bool
+    ///holds the selections made in the ui and sets them to the environment object once the view is dismissed
+    @State var selections: [String]
+    ///prevents selections beyond this limit
+    let selectionLimit: Int
+
+    var body: some View {
+        List {
+            ForEach(feature.options, id: \.self) { option in
+                HStack {
+                    SelectionCell(title: option, selection: $selection)
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(trailing:
+                                Button(action:  { select()          },
+                                       label:   { Text("Select")    }))
+    }
+}
+
 ///displays options for basic selections
 struct SelectionCell: View {
     ///the title for the option
