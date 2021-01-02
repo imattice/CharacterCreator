@@ -20,8 +20,11 @@ struct FeaturePanel: View {
             Text(feature.description)
                 .font(Font.App.body)
                 .lineLimit(nil)
+//                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity)
         }
-        .frame(maxWidth: .infinity)
+        .layoutPriority(5)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
         .background(Color.App.surface)
         .foregroundColor(.black )
@@ -41,7 +44,7 @@ struct FeatureStack: View {
         VStack(alignment: .leading, spacing: 8) {
             if let title = title {
                 Text("\(title.capitalized) Features")
-                    .font(.title2)
+                    .font(.title)
             }
             ForEach(features) { feature in
                 if let selectableFeature = feature as? SelectableFeature {
@@ -53,6 +56,7 @@ struct FeatureStack: View {
 
             }
         }
+        .layoutPriority(3)
         .padding(8)
         .background(Color.white)
         .cornerRadius(10)

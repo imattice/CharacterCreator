@@ -63,7 +63,6 @@ struct SelectableFeaturePanel: View {
 ///provides a selection list for simple strings
 struct StandardSelectionListView: View {
     @EnvironmentObject var feature: SelectableFeature
-    
     ///tracks if this view is shown
     @Binding var shown: Bool
     ///holds the selections made in the ui and sets them to the environment object once the view is dismissed
@@ -77,19 +76,12 @@ struct StandardSelectionListView: View {
                 }
             }
         }
-//        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-                                Button(action:  { cancel()          },
-                                       label:   { Text("Cancel")    }),
-                            trailing:
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(trailing:
                                 Button(action:  { select()          },
                                        label:   { Text("Select")    }))
     }
     
-    func cancel() {
-        feature.selection = nil
-        self.shown = false
-    }
     func select() {
         feature.selection = selection
         self.shown = false

@@ -30,7 +30,7 @@ struct RaceSelectionView: View {
                                    })
                 }
             }
-            .navigationTitle("Choose a Race")
+//            .navigationTitle("Choose a Race")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

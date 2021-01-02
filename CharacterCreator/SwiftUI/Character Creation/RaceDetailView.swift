@@ -17,19 +17,25 @@ struct RaceDetailView: View {
     var body: some View {
             VStack {
                 ScrollView {
+                    //Display an image, descriptoin, size, speed and ability score benefits for this race
                     HeaderView()
                     Divider()
                     
+                    //Show the lanagues that are inherant to the race, as well as any that can be selected
                     LanguageView(selectedLanguages: $selectedLanguages,
                                  languageSelectionIsShown: $languageSelectionIsShown)
-                    Divider()
                     
-                    FeatureStack(title: selectedRace.record.name,
-                                 selectedRace.record.features)
-                        .padding()
-                    Divider()
-                    
+                    //Show racial features if there are any
+                    if !selectedRace.record.features.isEmpty {
+                        Divider()
+                        FeatureStack(title: selectedRace.record.name,
+                                     selectedRace.record.features)
+                            .padding()
+                    }
+                    //Show subraces if there are any
                     if !selectedRace.record.subraces.isEmpty {
+                        Divider()
+
                         SubraceStack()
                     }
                 }
@@ -39,6 +45,7 @@ struct RaceDetailView: View {
             .background(Color.App.background)
             .navigationTitle(selectedRace.record.name.capitalized)
             .navigationBarTitleDisplayMode(.large)
+
     }
 }
 
@@ -148,7 +155,7 @@ struct SubracePanel: View {
     var body: some View {
         VStack {
             Text(record.name.capitalized)
-                .font(.title)
+                .font(.title2)
             DescriptionPanel(record.description)
             AbilityScoreModifierDisplayView(modifiers: record.abilityScoreModifiers)
             FeatureStack(title: record.name.capitalized, record.features)
@@ -176,7 +183,7 @@ struct SubraceStack: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("\(selectedRace.record.name.capitalized) Heritages")
-                .font(.title2)
+                .font(.title)
             DescriptionPanel("\(selectedRace.record.name.capitalized) come in many varieties.  Choose the type of \(selectedRace.record.name.capitalized) that best represents your character's backgound.")
                 .font(.caption)
             VStack {

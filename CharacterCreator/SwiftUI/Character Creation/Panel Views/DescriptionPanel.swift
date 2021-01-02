@@ -18,7 +18,7 @@ struct DescriptionPanel: View {
             .foregroundColor(.black )
             .background(Color.App.surface)
             .cornerRadius(10)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
 
     }
     init(_ description: String) {
