@@ -40,7 +40,7 @@ class Feature: Encodable, Identifiable {
                 
                 //determine if there are options that are a custom array of strings
                 if let options = try? feature.decodeIfPresent([String].self, forKey: .options) {
-                    features.append(SelectableFeature(title: title, description: description, origin: source, options: options))    }
+                    features.append(SelectableFeature(title: title, description: description, origin: source, options: options.map({ SelectionOption($0)})))    }
                 
                 //if there are no options, just create and add a basic feature
                 else {
@@ -60,17 +60,15 @@ class Feature: Encodable, Identifiable {
 
 //MARK: - SelectableFeature
 class SelectableFeature: Feature, Selectable, ObservableObject {
-    ///holds the selection for this feature
-    @Published
-    var selection: String? = nil
     ///holds all potential options for this feature
-    let options: [String]
+    @Published
+    var options: [SelectionOption]
     ///the maximum number of selections that are allowed to be made
-    let limit: Int?
+    let selectionLimit: Int
 
-    init(title: String, description: String, origin: Origin, options: [String], limit: Int? = nil) {
+    init(title: String, description: String, origin: Origin, options: [SelectionOption], limit: Int = 1) {
         self.options = options
-        self.limit = limit
+        self.selectionLimit = limit
 
         super.init(title: title, description: description, origin: origin)
     }
