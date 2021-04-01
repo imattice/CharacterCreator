@@ -48,7 +48,7 @@ class ChoiceSelectionView: UIView {
 			let selectionItems = selection.items
 
 			for item in selection.items {
-				guard let selectionView = Bundle.main.loadNibNamed(String(describing: SelectionView.self), owner: self, options: nil)?.first as? SelectionView
+				guard let selectionView = Bundle.main.loadNibNamed(String(describing: OldSelectionView.self), owner: self, options: nil)?.first as? OldSelectionView
 					else { print("Could not load nib for \(choice)"); continue }
 
 				//check for multiple iterations of the same item
@@ -101,10 +101,10 @@ extension ChoiceSelectionView: UIScrollViewDelegate {
 }
 
 protocol SelectionViewDelegate {
-	func buttonSelected(forView view: SelectionView)
+	func buttonSelected(forView view: OldSelectionView)
 }
 
-class SelectionView: UIView {
+class OldSelectionView: UIView {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var imageView: UIImageView!

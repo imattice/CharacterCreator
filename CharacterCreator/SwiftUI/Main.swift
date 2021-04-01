@@ -15,6 +15,7 @@ struct TestApp: App {
     var body: some Scene {
         WindowGroup {
             RaceSelectionView()
+                .accentColor(Color.App.primary)
         }
     }
 }

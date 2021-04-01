@@ -19,7 +19,8 @@
          },
          {
             "title":"Tool Proficiency",
-            "description":"You gain proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools."
+            "description":"You gain proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools.",
+            "options": ["smith’s tools", "brewer’s supplies", "mason’s tools"]
          },
          {
             "title":"Stonecunning",
@@ -130,7 +131,8 @@
       "features":[
          {
             "title":"Draconic Ancestry",
-            "description":"You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table."
+            "description":"You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.",
+            "options": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"]
          },
          {
             "title":"Breath Weapon",

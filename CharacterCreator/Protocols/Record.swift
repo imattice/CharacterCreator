@@ -16,18 +16,14 @@ import CoreData
 
 protocol Record: Identifiable, Codable {
     var id: String { get }
-    
     ///name of the record
     var name: String { get }
-    
     ///return all records parsed from JSON
     static
     func all() -> [Self]
-    
     ///return a specific record that matches the input string
     static
     func record(for name: String) -> Self?
-    
     ///converts JSON file data to Objects
     static
     func parseAllFromJSON() throws -> [Self]
@@ -54,7 +50,7 @@ extension Record where Self: Codable {
     static
     func parseAllFromJSON() throws -> [Self] {
         ///a very simplistic pluralizer to transform the class record name into the json file name
-        ///i.e. this should return languages.json from LanguageRecord and classes.json from ClassRecord
+        //i.e. this should return languages.json from LanguageRecord and classes.json from ClassRecord
         let filename: String = {
             let name = String(describing: Self.self).dropLast(6).lowercased()
             return name.last == "s" ? name + "es" : name + "s"

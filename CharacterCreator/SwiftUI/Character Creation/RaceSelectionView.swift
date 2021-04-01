@@ -15,7 +15,9 @@ struct RaceSelectionView: View {
         NavigationView {
             List {
                 ForEach(allRecords) { record in
-                    NavigationLink(record.name, destination: RaceDetailView(record: record))
+                    NavigationLink(destination: RaceDetailView()
+                                    .environmentObject(SelectedRace(record)),
+                                   label: {
                     HStack {
                         Image(record.name)
                             .resizable()
@@ -25,9 +27,10 @@ struct RaceSelectionView: View {
                                 .font(.headline)
                         }
                     }
+                                   })
                 }
             }
-            .navigationTitle("Choose a Race")
+//            .navigationTitle("Choose a Race")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -36,5 +39,13 @@ struct RaceSelectionView: View {
 struct RaceSelectionView_Previews: PreviewProvider {
     static var previews: some View {
         RaceSelectionView()
+    }
+}
+
+class SelectedRace: ObservableObject {
+    @Published var record: RaceRecord
+    
+    init(_ record: RaceRecord) {
+        self.record = record
     }
 }
