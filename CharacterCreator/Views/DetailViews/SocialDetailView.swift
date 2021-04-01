@@ -124,7 +124,7 @@ extension SocialDetailView: UICollectionViewDelegate, UICollectionViewDataSource
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let removeIndex = indexPath.row - Character.current.languages.innate.filter( { $0.isSelectable == false }).count
 		let data = dataSource[indexPath.row]
-		if !Character.current.languages.innate.contains { $0.name == data.name } {
+        if !Character.current.languages.innate.contains(where: { $0.name == data.name }) {
 			removeLanguage(atIndex: removeIndex)
 		}
 

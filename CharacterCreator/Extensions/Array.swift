@@ -7,7 +7,6 @@
 //
 
 extension Array where Element:Equatable {
-
 	func hasDuplicates() -> Bool {
 		for item in self {
 			let filtered = self.filter( { $0 == item })
@@ -47,3 +46,11 @@ extension Array where Element:Equatable {
 
 		return result	}
 }
+
+extension Array where Element:Modifier {
+    func ofType<T>(_ type: T.Type) -> [T] {
+        return compactMap { $0 as? T }
+    }
+}
+
+

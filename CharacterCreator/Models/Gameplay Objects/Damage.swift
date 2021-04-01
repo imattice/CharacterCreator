@@ -73,3 +73,20 @@ struct Damage: Equatable {
 }
 
 
+enum Condition {
+    case blinded,
+         charmed,
+         deafened,
+         frightened,
+         grappled,
+         incapacitated,
+         invisible,
+         paralyzed,
+         petrafied,
+         poisoned,
+         prone,
+         restrained,
+         stunned,
+         unconcious
+}
+
