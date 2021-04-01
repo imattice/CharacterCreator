@@ -191,11 +191,15 @@
          },
          {
             "title":"Skill Versatility",
-            "description":"You gain proficiency in two skills of your choice."
+            "description":"You gain proficiency in two skills of your choice.",
+            "selectionLimit": 2,
+            "options": ["Athletics", "Acrobatics", "Sleight of Hand", "Stealth", "Arcana", "History", "Investigation", "Nature", "Religion", "Animal Handling", "Insight", "Medicine", "Perception", "Survival", "Intimidation", "Performance", "Persuasion"]
          },
          {
             "title":"Human Lineage",
-            "description":"Two ability scores of your choice increase by 1."
+            "description":"Two ability scores of your choice increase by 1.",
+            "selectionLimit": 2,
+            "options": ["strength", "constitution", "dexterity", "charisma", "wisdom", "intelligence"]
          }
       ],
       "statIncrease":{
