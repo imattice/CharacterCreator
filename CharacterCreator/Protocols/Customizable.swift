@@ -6,6 +6,8 @@
 //  Copyright © 2020 Ike Mattice. All rights reserved.
 //
 
+import Foundation
+
 
 protocol Customizable: Codable {
     var isCustom: Bool { get }

@@ -15,10 +15,10 @@ extension UIView {
 
 		for view in subviews {
 		guard let label = view as? UILabel  else { continue }
-			if backgroundColor.isDark {
-				label.textColor = .lightText		}
-			else {
-				label.textColor = .darkText			}
+//			if backgroundColor.isDark {
+//				label.textColor = .lightText		}
+//			else {
+				label.textColor = .darkText			//}
 		}
 	}
 }

@@ -91,8 +91,10 @@ struct LanguageView: View {
         Group{
             if selectedRace.record.baseLanguages.map({ $0.name }).contains("choice") {
                 NavigationLink(
-                    destination: LanguageSelectionView(known: selectedRace.record.baseLanguages,
-                                                       selected: $selectedLanguages),
+                    destination:
+                        Text("not implemented"),
+//                        LanguageSelectionView(known: selectedRace.record.baseLanguages,
+//                                                       selected: $selectedLanguages),
                     isActive: $languageSelectionIsShown,
                     label: {
                         VStack {

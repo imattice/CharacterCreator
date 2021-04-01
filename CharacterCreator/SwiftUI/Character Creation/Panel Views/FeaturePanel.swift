@@ -48,8 +48,9 @@ struct FeatureStack: View {
             }
             ForEach(features) { feature in
                 if let selectableFeature = feature as? SelectableFeature {
-                    SelectableFeaturePanel()
-                        .environmentObject(selectableFeature)            }
+                    //SelectableFeaturePanel()
+                        //.environmentObject(selectableFeature)
+                }
                 else {
                     FeaturePanel(feature)
                 }

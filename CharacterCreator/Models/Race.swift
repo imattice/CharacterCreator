@@ -5,7 +5,7 @@
 //  Created by Ike Mattice on 6/19/18.
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
-import RealmSwift
+//import RealmSwift
 import CoreData
 
 typealias Subrace = OldRace

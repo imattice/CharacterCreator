@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 import CoreData
 
 ///defines a flexible object to describe a language that can be learned by a character
