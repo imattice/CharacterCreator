@@ -8,9 +8,9 @@
 import RealmSwift
 import CoreData
 
-typealias Subrace = Race
+typealias Subrace = OldRace
 
-struct Race {
+struct OldRace {
 	let parentRace: String
 	let subrace: String?
 	let modifiers: [Modifier]
@@ -106,10 +106,10 @@ struct Race {
 		var result = [Language]()
 		for language in languages {
 			if let record = LanguageRecord.record(for: language) {
-                result.append( Language(name: record.name) )
+                result.append( Language(name: record.name, source: .race) )
 			}
 			if language == "choice" {
-				let languageChoice = Language(name: "choice", isSelectable: true)
+                let languageChoice = Language(name: "choice", isSelectable: true, source: .race)
 				result.append(languageChoice)
 			}}
 		return result
@@ -133,15 +133,49 @@ struct Race {
 	}
 
 
-	static let HillDwarf 			= Race(fromParent: "dwarf", withSubrace: "hill")!
-	static let MountianDwarf		= Race(fromParent: "dwarf", withSubrace: "mountian")!
-	static let HighElf				= Race(fromParent: "elf", withSubrace: "high")!
-	static let WoodElf				= Race(fromParent: "elf", withSubrace: "wood")!
-	static let LightfootHalfling	= Race(fromParent: "halfling", withSubrace: "lightfoot")!
-	static let StoutHalfling		= Race(fromParent: "halfling", withSubrace: "stout")!
-	static let Human				= Race(fromParent: "human", withSubrace: nil)
+	static let HillDwarf 			= OldRace(fromParent: "dwarf", withSubrace: "hill")!
+	static let MountianDwarf		= OldRace(fromParent: "dwarf", withSubrace: "mountian")!
+	static let HighElf				= OldRace(fromParent: "elf", withSubrace: "high")!
+	static let WoodElf				= OldRace(fromParent: "elf", withSubrace: "wood")!
+	static let LightfootHalfling	= OldRace(fromParent: "halfling", withSubrace: "lightfoot")!
+	static let StoutHalfling		= OldRace(fromParent: "halfling", withSubrace: "stout")!
+	static let Human				= OldRace(fromParent: "human", withSubrace: nil)
 }
 
+final
+class Race {
+    ///a reference to static attributes for this race
+    let record: RaceRecord
+    ///a reference to static attributes for the chosen subrace
+    var subrace: SubraceRecord?
+    ///the languages that the user selected for this race
+    var selectedLanguages: [Language] = [Language]()
+
+    
+    ///the full name of the race, including the subrace
+    var label: String {
+        guard let subrace = subrace else { return "\(record.name)" }
+        return "\(subrace.name) \(record.name)"
+    }
+    
+    init(race: RaceRecord, subrace: SubraceRecord?) {
+        self.record     = race
+        self.subrace    = subrace
+    }
+    
+    ///adds a specific language to the selectedLanguage
+    func addLanguage(_ language: Language) {
+        selectedLanguages.append(language)
+    }
+    ///removes a specific language from the selectedLanguages
+    func removeLanguage(_ language: Language) {
+        guard let index = selectedLanguages.firstIndex(where: { $0.name == language.name }) else { return }
+        selectedLanguages.remove(at: index)
+    }
+    
+}
+
+///an object representing static data for a specific race
 final
 class RaceRecord: Record, Codable, Identifiable {
     ///used to identify the record
@@ -159,7 +193,7 @@ class RaceRecord: Record, Codable, Identifiable {
     ///how far the creature can travel in 6 seconds in feet
     let speed: Int
     ///which languages are typically learned by this race
-    let baseLanguages: [String]
+    let baseLanguages: [Language]
     ///contains features granted by this race which will affect gameplay
     let features: [Feature]
     ///contains modifiers grated by this race which will affect other parts of the character sheet
@@ -193,7 +227,7 @@ class RaceRecord: Record, Codable, Identifiable {
             let language    = try languageContainer.decode(String.self)
             languages.append(language)
         }
-        self.baseLanguages  = languages
+        self.baseLanguages  = languages.map { Language(name: $0, isSelectable: $0 == "choice" ? true : false, source: .race) }
     }
     
     func encode(to encoder: Encoder) throws {
@@ -205,7 +239,7 @@ class RaceRecord: Record, Codable, Identifiable {
         try container.encode(descriptive.alignment, forKey: .alignment)
         try container.encode(descriptive.physique, forKey: .physique)
         try container.encode(size.rawValue, forKey: .size)
-        try container.encode(baseLanguages, forKey: .baseLanguages)
+        try container.encode(baseLanguages.map { $0.name }, forKey: .baseLanguages)
         try container.encode(features, forKey: .features)
         try container.encode(modifiers, forKey: .modifiers)
     }
@@ -219,6 +253,7 @@ class RaceRecord: Record, Codable, Identifiable {
         ///typical physical attributes for this race
         let physique: String
     }
+
     
     enum CodingKeys: CodingKey {
         case id, name, description, age, alignment, physique, modifiers, size, speed, hasDarkvision, features, baseLanguages, statIncrease

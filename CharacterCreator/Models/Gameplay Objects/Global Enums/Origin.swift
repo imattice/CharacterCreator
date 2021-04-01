@@ -12,5 +12,6 @@ import Foundation
 enum Origin: String, Codable {
     case race,
          subrace,
-         `class`
+         `class`,
+         background
 }

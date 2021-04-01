@@ -103,7 +103,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			let selectionData = LanguageSelectionData(isSelectable: !isLearned,
 													  source: source,
-                                                      language: Language(name: record.name))
+                                                      language: Language(name: record.name, source: .race))
 			dataSource[0].languageData.append(selectionData)
 		}
 		for record in rareLanguages {
@@ -122,7 +122,7 @@ class LanguageSelectionTableViewController: UITableViewController {
 
 			let selectionData = LanguageSelectionData(isSelectable: !isLearned,
 													  source: source,
-                                                      language: Language(name: record.name))
+                                                      language: Language(name: record.name, source: .race))
 			dataSource[1].languageData.append(selectionData)
 		}
 

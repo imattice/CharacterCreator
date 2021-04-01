@@ -14,6 +14,9 @@ import CoreData
 struct Language {
 	let name: String
 	let isSelectable: Bool
+    let source: Origin
+    
+    var record: LanguageRecord? { return LanguageRecord.record(for: name.lowercased()) }
 
 	var spokenBy: String {
 		guard let record = LanguageRecord.record(for: name) else { return "" }
@@ -25,9 +28,10 @@ struct Language {
 		guard let record = LanguageRecord.record(for: name) else { return true }
 		return record.isExotic	}
 
-	init(name: String, isSelectable: Bool = false) { //}, spokenBy: String, script: String, isRare: Bool) {
+    init(name: String, isSelectable: Bool = false, source: Origin) { //}, spokenBy: String, script: String, isRare: Bool) {
 		self.name 			= name
 		self.isSelectable 	= isSelectable
+        self.source         = source
 	}
     
 	enum Script: String {
@@ -36,12 +40,11 @@ struct Language {
 }
 
 
-final
-class LanguageRecord: Record, Codable {
+struct LanguageRecord: Record, Customizable, Codable {
     ///used to identify the record
     let id: String = UUID().uuidString
     ///the name of the language
-    var name: String
+    let name: String
     ///a  paragraph containing descriptive details about the language
     let description: String
     ///describes who typically speaks this language
@@ -52,8 +55,13 @@ class LanguageRecord: Record, Codable {
     let isExotic: Bool
     ///determines if the language is only know by specific groups
     let isSecret: Bool
+    ///determines if the language is created by the user
+    let isCustom: Bool = false
+    ///returns all unique scripts used for all language records
+    static var scripts: [String] {
+        return all().map { $0.script }.uniques.sorted()
+    }
         
-    required //convenience
     init(from decoder: Decoder) throws {
         let container       = try decoder.container(keyedBy: CodingKeys.self)
         self.name           = try container.decode(String.self, forKey: .name)
@@ -62,6 +70,15 @@ class LanguageRecord: Record, Codable {
         self.script         = try container.decode(String.self, forKey: .script)
         self.isExotic       = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
         self.isSecret       = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
+    }
+    init(name: String, description: String, spokenBy: String, script: String, isExotic: Bool, isSecret: Bool, isCustom: Bool = false) {
+
+        self.name = name
+        self.description = description
+        self.spokenBy = spokenBy
+        self.script = script
+        self.isExotic = isExotic
+        self.isSecret = isSecret
     }
 }
 

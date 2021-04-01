@@ -29,4 +29,23 @@ class LanguageTests: XCTestCase {
         XCTAssertFalse(languages.filter{ $0.name == "dwarvish"}.first!.isSecret)
         XCTAssertFalse(languages.filter{ $0.name == "halfling"}.first!.isExotic)
     }
+    
+    func testScripts() {
+        let scripts = LanguageRecord.scripts
+        
+        XCTAssert(scripts.contains("infernal"))
+        XCTAssert(scripts.contains("common"))
+        XCTAssert(scripts.contains("none"))
+    }
+    
+    func testSaveCustom() {
+        let record = LanguageRecord(name: "English", description: "Spoken in the real world", spokenBy: "humans", script: "roman", isExotic: false, isSecret: false)
+        try? LanguageRecord.saveCustom(record)
+        
+        let record2 = LanguageRecord(name: "Spanish", description: "Also psoken in the real world", spokenBy: "humans", script: "roman", isExotic: false, isSecret: false)
+
+        try? LanguageRecord.saveCustom(record2)
+        
+        dump(try? LanguageRecord.allCustom())
+    }
 }
