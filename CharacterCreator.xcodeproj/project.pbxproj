@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12FDACF72616296700A973CE /* spelllist.json in Resources */ = {isa = PBXBuildFile; fileRef = 12FDACF62616296700A973CE /* spelllist.json */; };
+		12FDAD02261629FD00A973CE /* CreationChoiceViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FDACFF261629FD00A973CE /* CreationChoiceViews.swift */; };
+		12FDAD03261629FD00A973CE /* CharacterCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FDAD00261629FD00A973CE /* CharacterCreationView.swift */; };
+		12FDAD04261629FD00A973CE /* StepPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FDAD01261629FD00A973CE /* StepPanelView.swift */; };
 		810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */; };
 		810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810900B2224EE40100FF8B17 /* BasicDetailView.xib */; };
 		8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */; };
@@ -123,6 +127,10 @@
 
 /* Begin PBXFileReference section */
 		007963E6627C41295E01FA38 /* Pods-CharacterCreatorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreatorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreatorUITests/Pods-CharacterCreatorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		12FDACF62616296700A973CE /* spelllist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spelllist.json; sourceTree = "<group>"; };
+		12FDACFF261629FD00A973CE /* CreationChoiceViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationChoiceViews.swift; sourceTree = "<group>"; };
+		12FDAD00261629FD00A973CE /* CharacterCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCreationView.swift; sourceTree = "<group>"; };
+		12FDAD01261629FD00A973CE /* StepPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepPanelView.swift; sourceTree = "<group>"; };
 		36B00BB9E155699B25486A18 /* Pods_CharacterCreator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharacterCreator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4BCF7797E542B608D4C086 /* libPods-CharacterCreator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CharacterCreator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		415DEC37BB35A776F2A04D97 /* Pods-CharacterCreatorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharacterCreatorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharacterCreatorUITests/Pods-CharacterCreatorUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -274,6 +282,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		12FDACFB2616297E00A973CE /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				12FDAD00261629FD00A973CE /* CharacterCreationView.swift */,
+				12FDACFF261629FD00A973CE /* CreationChoiceViews.swift */,
+				12FDAD01261629FD00A973CE /* StepPanelView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		8112FA7121ACC01800EB61B8 /* Creation Path Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
+				12FDACFB2616297E00A973CE /* SwiftUI */,
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
@@ -367,6 +386,7 @@
 		8123674120CA44EE00F7AEFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				12FDACF62616296700A973CE /* spelllist.json */,
 				81D599DE22BC935F005EE768 /* RealmProvider.swift */,
 				81D599E222BD8344005EE768 /* Realms */,
 				81DF302D213C5F3200C939CE /* items.swift */,
@@ -665,6 +685,7 @@
 			files = (
 				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */,
+				12FDACF72616296700A973CE /* spelllist.json in Resources */,
 				81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */,
 				81B038C822D81A170059AFC1 /* SpellRecords.realm in Resources */,
 				8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */,
@@ -784,6 +805,7 @@
 				81DC8E4221080E9E002F6AE4 /* String.swift in Sources */,
 				81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */,
 				81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */,
+				12FDAD04261629FD00A973CE /* StepPanelView.swift in Sources */,
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
 				81A8D253227D45280015E116 /* Pack.swift in Sources */,
@@ -800,11 +822,13 @@
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
 				81B038D122DD14E00059AFC1 /* Calculation.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
+				12FDAD03261629FD00A973CE /* CharacterCreationView.swift in Sources */,
 				81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */,
 				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,
 				819621E62268F33300A4DD3D /* UIResponder.swift in Sources */,
 				81A8D251227D21770015E116 /* Armor.swift in Sources */,
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
+				12FDAD02261629FD00A973CE /* CreationChoiceViews.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
 				81541A35227420C2002C7B72 /* Language.swift in Sources */,
@@ -1037,7 +1061,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1060,7 +1084,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
