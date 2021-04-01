@@ -67,6 +67,7 @@
 		81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDA022C2F62F0014597D /* DamageTests.swift */; };
 		81ACFDAF22C572BB0014597D /* ItemRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81ACFDAE22C572BB0014597D /* ItemRecords.realm */; };
 		81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDB122CD7DB70014597D /* SpellTests.swift */; };
+		81ADE0922410BC7C00934F0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ADE0912410BC7C00934F0B /* SceneDelegate.swift */; };
 		81B038C822D81A170059AFC1 /* SpellRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81B038C722D81A170059AFC1 /* SpellRecords.realm */; };
 		81B038CC22DC0B750059AFC1 /* BackgroundRecords.realm in Resources */ = {isa = PBXBuildFile; fileRef = 81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */; };
 		81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B038CD22DD14AF0059AFC1 /* Effect.swift */; };
@@ -200,6 +201,7 @@
 		81ACFDA022C2F62F0014597D /* DamageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTests.swift; sourceTree = "<group>"; };
 		81ACFDAE22C572BB0014597D /* ItemRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ItemRecords.realm; sourceTree = "<group>"; };
 		81ACFDB122CD7DB70014597D /* SpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTests.swift; sourceTree = "<group>"; };
+		81ADE0912410BC7C00934F0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		81B038C722D81A170059AFC1 /* SpellRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpellRecords.realm; sourceTree = "<group>"; };
 		81B038CB22DC0B750059AFC1 /* BackgroundRecords.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundRecords.realm; sourceTree = "<group>"; };
 		81B038CD22DD14AF0059AFC1 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
@@ -344,7 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
-				12FDACFB2616297E00A973CE /* SwiftUI */,
+				81ADE0912410BC7C00934F0B /* SceneDelegate.swift */,
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
@@ -456,6 +458,7 @@
 				8195AF91225706F900153B58 /* Custom User Inputs */,
 				81243E542279EFE0003A9DA8 /* WeaponStatView.swift */,
 				81243E562279F022003A9DA8 /* WeaponStatView.xib */,
+				81ADE0962410DC0600934F0B /* SwiftUI */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -526,6 +529,13 @@
 				81A8D252227D45280015E116 /* Pack.swift */,
 			);
 			path = "Item Objects";
+			sourceTree = "<group>";
+		};
+		81ADE0962410DC0600934F0B /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
@@ -834,6 +844,7 @@
 				81541A35227420C2002C7B72 /* Language.swift in Sources */,
 				8195037A2256DDAE00EE4469 /* PersonalityDetailView.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
+				81ADE0922410BC7C00934F0B /* SceneDelegate.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				8195AF8E225706D200153B58 /* TextAreaView.swift in Sources */,
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
