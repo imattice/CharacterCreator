@@ -119,6 +119,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
 		810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDetailView.swift; sourceTree = "<group>"; };
 		810900B2224EE40100FF8B17 /* BasicDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicDetailView.xib; sourceTree = "<group>"; };
 		8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectionTableViewController.swift; sourceTree = "<group>"; };
@@ -175,7 +176,6 @@
 		819621E52268F33300A4DD3D /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		819B065E20E7455300902D4E /* ModalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionHeaderView.swift; sourceTree = "<group>"; };
-		819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
 		81A5E14A22C0277400A838CD /* LanguageDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDataTest.swift; sourceTree = "<group>"; };
 		81A8D250227D21770015E116 /* Armor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Armor.swift; sourceTree = "<group>"; };
 		81A8D252227D45280015E116 /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
@@ -295,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
+				7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */,
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
@@ -305,7 +306,6 @@
 				8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */,
 				8123671F20CA44DD00F7AEFC /* Info.plist */,
 				8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */,
-				819D371820FACE6300986AFB /* CharacterCreator-Bridging-Header.h */,
 			);
 			path = CharacterCreator;
 			sourceTree = "<group>";

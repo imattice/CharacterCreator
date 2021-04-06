@@ -1,5 +1,13 @@
 //
-//  Use this file to import your target's public headers that you would like to expose to Swift.
+//  CharacterCreator-Bridging-Header.h
+//  CharacterCreator
+//
+//  Created by Ike Mattice on 4/6/21.
+//  Copyright © 2021 Ike Mattice. All rights reserved.
 //
 
-#import "NewRelicAgent/NewRelic.h"
+#ifndef CharacterCreator_Bridging_Header_h
+#define CharacterCreator_Bridging_Header_h
+
+
+#endif /* CharacterCreator_Bridging_Header_h */
