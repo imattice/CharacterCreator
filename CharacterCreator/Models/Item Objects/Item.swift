@@ -35,7 +35,7 @@ class ItemRecord: Record {
 }
 
 //MARK: - Weapon Record
-/// A particular item that can be used to grant attack actions
+/// A held item that can be used to grant attack actions
 class WeaponRecord: Item, Record {
     ///Contains the properties of the weapon
     let tags: [Tag]
@@ -49,6 +49,7 @@ class WeaponRecord: Item, Record {
     lazy var isRanged: Bool {
         return range.normal > 10 }
 
+    ///Idenitfies a specific property of the weapon
     enum Tag: String {
         case ammunition, finesse, heavy, light, loading, thrown, twoHanded, versatile, ranged, reach, special
     }
@@ -65,6 +66,8 @@ class WeaponRecord: Item, Record {
     }
 }
 
+//MARK: - Armor Record
+/// A worn item that can be used to increase Armor Class
 class Armor: Item {
     
 }

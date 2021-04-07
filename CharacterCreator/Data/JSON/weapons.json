@@ -1,0 +1,543 @@
+[{
+        "name": "club",
+        "description": "",
+        "details": "",
+        "cost": 10,
+        "weight": 2,
+        "tags": ["light"],
+        "damage": {
+            "multiplier": "1",
+            "type": "bludgeoning",
+            "value": "4"
+        }
+    },
+    {
+        "name": "dagger",
+        "description": "",
+        "details": "",
+        "cost": 200,
+        "weight": 1,
+        "tags": ["finesse", "light", "thrown"],
+        "range": {
+            "normal": "20",
+            "extended": "60"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "4"
+        }
+    },
+    {
+        "name": "greatclub",
+        "description": "",
+        "details": "",
+        "cost": 20,
+        "weight": 10,
+        "tags": ["two_handed"],
+        "damage": {
+            "multiplier": "1",
+            "type": "bludgeoning",
+            "value": "8"
+        }
+    },
+    {
+        "name": "handaxe",
+        "description": "",
+        "details": "",
+        "cost": 500,
+        "weight": 2,
+        "tags": ["light", "thrown"],
+        "range": {
+            "normal": "20",
+            "extended": "60"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "slashing",
+            "value": "6"
+        }
+    },
+    {
+        "name": "javelin",
+        "description": "",
+        "details": "",
+        "cost": 50,
+        "weight": 2,
+        "tags": ["thrown"],
+        "range": {
+            "normal": "30",
+            "extended": "120"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "6"
+        }
+    },
+    {
+        "name": "light hammer",
+        "description": "",
+        "details": "",
+        "cost": 200,
+        "weight": 2,
+        "tags": ["light", "thrown"],
+        "range": {
+            "normal": "20",
+            "extended": "60"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "bludgeoning",
+            "value": "4"
+        }
+    },
+    {
+        "name": "mace",
+        "description": "",
+        "details": "",
+        "cost": 500,
+        "weight": 4,
+        "damage": {
+            "multiplier": "1",
+            "type": "bludgeoning",
+            "value": "6"
+        }
+    },
+    {
+        "name": "quarterstaff",
+        "description": "",
+        "details": "",
+        "cost": 20,
+        "weight": 4,
+        "tags": ["versatile"],
+        "damage": {
+            "multiplier": "1",
+            "type": "bludgeoning",
+            "value": "6"
+        }
+    },
+    {
+        "name": "sickle",
+        "description": "",
+        "details": "",
+        "cost": 100,
+        "weight": 2,
+        "tags": ["light"],
+        "damage": {
+            "multiplier": "1",
+            "type": "slashing",
+            "value": "4"
+        }
+    },
+    {
+        "name": "spear",
+        "description": "",
+        "details": "",
+        "cost": 100,
+        "weight": 3,
+        "tags": ["thrown", "versatile"],
+        "range": {
+            "normal": "20",
+            "extended": "60"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "6"
+        }
+    },
+    {
+        "name": "light crossbow",
+        "description": "",
+        "details": "",
+        "cost": 2500,
+        "weight": 5,
+        "tags": ["ammunition", "ranged", "loading", "two_handed"],
+        "range": {
+            "normal": "80",
+            "extended": "320"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "8"
+        }
+    },
+    {
+        "name": "dart",
+        "description": "",
+        "details": "",
+        "cost": 5,
+        "weight": 0.25,
+        "tags": ["finesse", "thrown"],
+        "range": {
+            "normal": "20",
+            "extended": "60"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "4"
+        }
+    },
+    {
+        "name": "shortbow",
+        "description": "",
+        "details": "",
+        "cost": 2500,
+        "weight": 2,
+        "tags": ["ammunition", "two_handed"],
+        "range": {
+            "normal": "80",
+            "extended": "320"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "6"
+        }
+    },
+    {
+        "name": "sling",
+        "description": "",
+        "details": "",
+        "cost": 10,
+        "weight": 0,
+        "tags": ["ammunition"],
+        "range": {
+            "normal": "30",
+            "extended": "120"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "4"
+        }
+    },
+    {
+        "name": "battleaxe",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 1000,
+        "weight": 4,
+        "tags": ["versatile"],
+        "damage": {
+            "multiplier": "1",
+            "type": "slashing",
+            "value": "8"
+        }
+    },
+    {
+        "name": "flail",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 1000,
+        "weight": 2,
+        "damage": {
+            "multiplier": "1",
+            "type": "bludgeoning",
+            "value": "8"
+        }
+    },
+    {
+        "name": "glaive",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 2000,
+        "weight": 6,
+        "tags": ["heavy", "reach", "two_handed"],
+        "damage": {
+            "multiplier": "1",
+            "type": "bludgeoning",
+            "value": "10"
+        }
+    },
+    {
+        "name": "greataxe",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 3000,
+        "weight": 7,
+        "tags": ["heavy", "two_handed"],
+        "damage": {
+            "multiplier": "1",
+            "type": "slashing",
+            "value": "12"
+        }
+    },
+    {
+        "name": "greatsword",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 5000,
+        "weight": 6,
+        "tags": ["heavy", "two_handed"],
+        "damage": {
+            "multiplier": "2",
+            "type": "slashing",
+            "value": "6"
+        }
+    },
+    {
+        "name": "halberd",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 2000,
+        "weight": 6,
+        "tags": ["heavy", "reach", "two_handed"],
+        "damage": {
+            "multiplier": "1",
+            "type": "slashing",
+            "value": "10"
+        }
+    },
+    {
+        "name": "lance",
+        "isSimple": false,
+        "description": "",
+        "cost": 1000,
+        "weight": 6,
+        "details": "You have disadvantage on a target within 5 feet of you when using the lance.  You must use two hands to wield this weapon while unmounted.",
+        "tags": ["reach", "special"],
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "12"
+        }
+    },
+    {
+        "name": "longsword",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 1500,
+        "weight": 3,
+        "tags": ["versatile"],
+        "damage": {
+            "multiplier": "1",
+            "type": "slashing",
+            "value": "8"
+        }
+    },
+    {
+        "name": "maul",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 1000,
+        "weight": 10,
+        "tags": ["heavy", "two_handed"],
+        "damage": {
+            "multiplier": "1",
+            "type": "bludgeoning",
+            "value": "6"
+        }
+    },
+    {
+        "name": "morningstar",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 1500,
+        "weight": 4,
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "8"
+        }
+    },
+    {
+        "name": "pike",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 500,
+        "weight": 18,
+        "tags": ["heavy", "reach", "two_handed"],
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "10"
+        }
+    },
+    {
+        "name": "rapier",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 2500,
+        "weight": 2,
+        "tags": ["finesse"],
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "8"
+        }
+    },
+    {
+        "name": "scimitar",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 2500,
+        "weight": 3,
+        "tags": ["finesse", "light"],
+        "damage": {
+            "multiplier": "1",
+            "type": "slashing",
+            "value": "6"
+        }
+    },
+    {
+        "name": "shortsword",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 1000,
+        "weight": 2,
+        "tags": ["finesse", "light"],
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "6"
+        }
+    },
+    {
+        "name": "trident",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 500,
+        "weight": 4,
+        "tags": ["thrown", "versatile"],
+        "range": {
+            "normal": "20",
+            "extended": "60"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "6"
+        }
+    },
+    {
+        "name": "war pick",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 500,
+        "weight": 2,
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "8"
+        }
+    },
+    {
+        "name": "warhammer",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 1500,
+        "weight": 2,
+        "tags": ["versatile"],
+        "damage": {
+            "multiplier": "1",
+            "type": "bludgeoning",
+            "value": "8"
+        }
+    },
+    {
+        "name": "whip",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 200,
+        "weight": 3,
+        "tags": ["finesse", "reach"],
+        "damage": {
+            "multiplier": "1",
+            "type": "slashing",
+            "value": "4"
+        }
+    },
+    {
+        "name": "blowgun",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 1000,
+        "weight": 1,
+        "tags": ["ammunition", "ranged", "loading"],
+        "range": {
+            "normal": "25",
+            "extended": "100"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "1"
+        }
+    },
+    {
+        "name": "hand crossbow",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 7500,
+        "weight": 3,
+        "tags": ["ammunition", "light", "loading"],
+        "range": {
+            "normal": "30",
+            "extended": "120"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "6"
+        }
+    },
+    {
+        "name": "heavy crossbow",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 5000,
+        "weight": 18,
+        "tags": ["ammunition", "heavy", "loading", "two_handed"],
+        "range": {
+            "normal": "100",
+            "extended": "400"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "10"
+        }
+    },
+    {
+        "name": "longbow",
+        "isSimple": false,
+        "description": "",
+        "details": "",
+        "cost": 5000,
+        "weight": 2,
+        "tags": ["ammunition", "ranged", "heavy", "two_handed"],
+        "range": {
+            "normal": "150",
+            "extended": "600"
+        },
+        "damage": {
+            "multiplier": "1",
+            "type": "piercing",
+            "value": "8"
+        }
+    }
+]
