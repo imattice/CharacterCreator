@@ -5,27 +5,84 @@
 //  Created by Ike Mattice on 9/2/18.
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
-import UIKit
-import RealmSwift
 
-//defines an object that can be collected, disposed and used by a character
-class Item {
+///defines an object that can be collected, disposed and used by a character
+class ItemRecord: Record {
+    ///An identifier for the item
+    let id: String = UUID().uuidString
+    ///A name for the item
 	let name: String
-	let type: ItemType
-	let detail: String
+    ///A description of the item
+	let description: String
+    ///Provides details on the gameplay mechanics of the item
+    let details: String
+    ///The cost of the item in copper
+    let cost: Int
+    ///The weight of the item in pounds
+    let weight: Double
+    ///Determinees if the item has magical properties
+    let isMagical: Bool = false
+    ///Determines if the item requires attunement by the character
+    let requiresAttunement: Bool = false
+    ///A type that describes the rarity of the item
+    let rarity: Rarity = .common
+    ///Contains any modifiers granted by the item
+    let modifiers: [Modifier]?
+    
+    enum Rarity: String {
+        case common, uncommon, rare, legendary, artifact
+    }
+}
 
-	lazy var image: UIImage? = {
-		if let image = UIImage(named: name) { return image } else { return nil } }()
+//MARK: - Weapon Record
+/// A particular item that can be used to grant attack actions
+class WeaponRecord: Item, Record {
+    ///Contains the properties of the weapon
+    let tags: [Tag]
+    ///Indicates the base damage of the weapon
+    let damage: Damage
+    ///Determines if the weapon requires training to use
+    let isSimple: Bool = true
+    ///Contains the normal and extended range of the weapon, if it can be used at a distance
+    let range: (normal: Int, extended: Int)  = (normal: 5, extended: 5)
+    ///Indicates if the weapon can be used at range
+    lazy var isRanged: Bool {
+        return range.normal > 10 }
 
-	init(_ name: String, type: ItemType = .other, detail: String = "") {
-		self.name	= name
-		self.type	= type
-		self.detail	= detail
-	}
+    enum Tag: String {
+        case ammunition, finesse, heavy, light, loading, thrown, twoHanded, versatile, ranged, reach, special
+    }
+    
+    ///Calculates a tuple containing a range from a string
+    /// - Parameter string: Formatted as '000:000'
+    /// - Returns: A tuple with maximum normal range (Int) and a maximum extended range (int) based on the point the user is located
+    private func range(from string: String) -> (normal: Int, extended: Int)? {
+        //ensure the string is formatted correctly
+        guard string.matches("^[0-9]+:[0-9]+")
+            else { print("Range string does not match pattern '000:000': '\(String(describing: string))'"); return nil }
+        let mapped = trimmed.componentes(separatedBy: ":").map{ Int($0)! }
+        return (normal: mapped.first ?? 0, extended: mapped.last ?? 0)
+    }
+}
 
-	enum ItemType: String {
-		case weapon, armor, shield, pack, other, custom
-	}
+class Armor: Item {
+    
+}
+
+class Shield: Item {
+    
+}
+
+class Container: Item {
+    
+}
+
+class Pack: Item {
+    
+}
+
+class Tool: Item {
+    
 }
 
 extension Item: Equatable {

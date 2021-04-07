@@ -10,53 +10,53 @@ import UIKit
 import RealmSwift
 
 //defines an Item that is used to inflict damage
-class Weapon: Item {
-	let tags: [Tag]
-	let damage: Damage
-	let category: Category
-	let range: (normal: Int, extended: Int)?
-
-	lazy var isRanged: Bool = {
-		return tags.contains(.ranged) }()
-	lazy var specialMechanic: String? = {
-		return WeaponRecord.record(for: name)?.specialMechanic	}()
-	lazy var twoHandedDamage: Damage? = {
-		return tags.contains(.versatile) ?
-			Damage(multiplier: damage.multiplier!, type: damage.type, value: damage.value + 2) : nil	}()
-
-	init(name: String, tags: [Tag], damage: Damage, category: Category, range: (normal: Int, extended: Int)?, detail: String) {
-		self.tags		= tags
-		self.damage 	= damage
-		self.category	= category
-		self.range		= range
-
-		super.init(name, type: .weapon, detail: detail)
-	}
-
-	enum Tag: String {
-		case ammunition, finesse, heavy, light, loading, thrown, twoHanded, versatile, ranged, reach, special
-
-		func image() -> UIImage? {
-			switch self {
-			case .ammunition: 	return UIImage(named: "bow")
-			case .finesse: 		return UIImage(named: "rapier")
-			case .heavy:		return UIImage(named: "warhammer")
-			case .light: 		return UIImage(named: "dagger")
-			case .loading: 		return UIImage(named: "crossbow")
-			case .thrown: 		return UIImage(named: "handaxe")
-			case .twoHanded: 	return UIImage(named: "bow")
-			case .versatile: 	return UIImage(named: "staff")
-			case .ranged: 		return UIImage(named: "bow")
-			case .reach: 		return UIImage(named: "rapier")
-			case .special: 		return UIImage(named: "arcane focus")
-			}
-		}
-	}
-
-	enum Category: String {
-		case martial, simple
-	}
-}
+//class Weapon: Item {
+//	let tags: [Tag]
+//	let damage: Damage
+//	let category: Category
+//	let range: (normal: Int, extended: Int)?
+//
+//	lazy var isRanged: Bool = {
+//		return tags.contains(.ranged) }()
+//	lazy var specialMechanic: String? = {
+//		return WeaponRecord.record(for: name)?.specialMechanic	}()
+//	lazy var twoHandedDamage: Damage? = {
+//		return tags.contains(.versatile) ?
+//			Damage(multiplier: damage.multiplier!, type: damage.type, value: damage.value + 2) : nil	}()
+//
+//	init(name: String, tags: [Tag], damage: Damage, category: Category, range: (normal: Int, extended: Int)?, detail: String) {
+//		self.tags		= tags
+//		self.damage 	= damage
+//		self.category	= category
+//		self.range		= range
+//
+//		super.init(name, type: .weapon, detail: detail)
+//	}
+//
+//	enum Tag: String {
+//		case ammunition, finesse, heavy, light, loading, thrown, twoHanded, versatile, ranged, reach, special
+//
+//		func image() -> UIImage? {
+//			switch self {
+//			case .ammunition: 	return UIImage(named: "bow")
+//			case .finesse: 		return UIImage(named: "rapier")
+//			case .heavy:		return UIImage(named: "warhammer")
+//			case .light: 		return UIImage(named: "dagger")
+//			case .loading: 		return UIImage(named: "crossbow")
+//			case .thrown: 		return UIImage(named: "handaxe")
+//			case .twoHanded: 	return UIImage(named: "bow")
+//			case .versatile: 	return UIImage(named: "staff")
+//			case .ranged: 		return UIImage(named: "bow")
+//			case .reach: 		return UIImage(named: "rapier")
+//			case .special: 		return UIImage(named: "arcane focus")
+//			}
+//		}
+//	}
+//
+//	enum Category: String {
+//		case martial, simple
+//	}
+//}
 
 extension Weapon {
 //	static let Quarterstaff 	= WeaponRecord.record(for: "quarterstaff")!.weapon()
@@ -100,74 +100,74 @@ extension Weapon {
 }
 
 //used as a placeholder for where a weapon selection is to be made rather than a specific weapon
-class WeaponSelectionItem: Item {
-	let category: Weapon.Category
-
-	override init(_ name: String, type: Item.ItemType = .weapon , detail: String = "") {
-		if name == "martial weapon" {
-			self.category 	= .martial	}
-		else {
-			self.category	= .simple	}
-
-		super.init(name, type: type, detail: detail)
-	}
-}
-
-
-@objcMembers
-class WeaponRecord: Object {
-	dynamic var id: String					= UUID().uuidString
-	dynamic var name: String				= "weaponName"
-	dynamic var tags: List<String>			= List<String>()
-	dynamic var damage: String				= "0d0 damageType"
-	dynamic var range: String?				= "000:000"
-	dynamic var isSimple: Bool 				= true
-	dynamic var specialMechanic: String?	= nil
-	dynamic var detail: String				= ""
+//class WeaponSelectionItem: Item {
+//	let category: Weapon.Category
+//
+//	override init(_ name: String, type: Item.ItemType = .weapon , detail: String = "") {
+//		if name == "martial weapon" {
+//			self.category 	= .martial	}
+//		else {
+//			self.category	= .simple	}
+//
+//		super.init(name, type: type, detail: detail)
+//	}
+//}
 
 
-	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<WeaponRecord> {
-		return realm.objects(WeaponRecord.self)//.sorted(byKeyPath: "name")
-	}
-
-	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> WeaponRecord? {
-		return allRecords().filter({ $0.name == name }).first
-	}
-	func weapon() -> Weapon {
-		let weaponTags: [Weapon.Tag] = {
-			var result = [Weapon.Tag]()
-			for tag in self.tags {
-				guard let weaponTag = Weapon.Tag(rawValue: tag)
-					else { print("could not initialize tag: \(tag) for item: \(name)"); continue }
-				result.append(weaponTag)
-				}
-			return result
-		}()
-
-		return Weapon(name: name,
-					  tags: weaponTags,
-					  damage: Damage.fromString(damage)!,
-					  category: isSimple ? .simple : .martial,
-					  range: rangeFromString(range),
-					  detail: detail)
-	}
-	private func rangeFromString(_ string: String?) -> (normal: Int, extended: Int)? {
-		guard let newString = string?.trimmingCharacters(in: .whitespacesAndNewlines)
-			else { return nil }
-
-		//ideal string format: "000:000"
-		guard newString.matches("^[0-9]+:[0-9]+")
-			else { print("Damage string does not match pattern 000:000 damageType: '\(String(describing: string))'"); return nil }
-
-		guard let normalString = newString.components(separatedBy: ":").first,
-			let extendedString = newString.components(separatedBy: ":").last,
-			let normal = Int(normalString),
-			let extended = Int(extendedString)
-			else { print("Incorrect format for range string: \(String(describing: string))"); return nil }
-
-		return (normal: normal, extended: extended)
-	}
-}
+//@objcMembers
+//class WeaponRecord: Object {
+//	dynamic var id: String					= UUID().uuidString
+//	dynamic var name: String				= "weaponName"
+//	dynamic var tags: List<String>			= List<String>()
+//	dynamic var damage: String				= "0d0 damageType"
+//	dynamic var range: String?				= "000:000"
+//	dynamic var isSimple: Bool 				= true
+//	dynamic var specialMechanic: String?	= nil
+//	dynamic var detail: String				= ""
+//
+//
+//	static func allRecords(in realm: Realm = RealmProvider.itemRecords.realm) -> Results<WeaponRecord> {
+//		return realm.objects(WeaponRecord.self)//.sorted(byKeyPath: "name")
+//	}
+//
+//	static func record(for name: String, in realm: Realm = RealmProvider.itemRecords.realm) -> WeaponRecord? {
+//		return allRecords().filter({ $0.name == name }).first
+//	}
+//	func weapon() -> Weapon {
+//		let weaponTags: [Weapon.Tag] = {
+//			var result = [Weapon.Tag]()
+//			for tag in self.tags {
+//				guard let weaponTag = Weapon.Tag(rawValue: tag)
+//					else { print("could not initialize tag: \(tag) for item: \(name)"); continue }
+//				result.append(weaponTag)
+//				}
+//			return result
+//		}()
+//
+//		return Weapon(name: name,
+//					  tags: weaponTags,
+//					  damage: Damage.fromString(damage)!,
+//					  category: isSimple ? .simple : .martial,
+//					  range: rangeFromString(range),
+//					  detail: detail)
+//	}
+//	private func rangeFromString(_ string: String?) -> (normal: Int, extended: Int)? {
+//		guard let newString = string?.trimmingCharacters(in: .whitespacesAndNewlines)
+//			else { return nil }
+//
+//		//ideal string format: "000:000"
+//		guard newString.matches("^[0-9]+:[0-9]+")
+//			else { print("Damage string does not match pattern 000:000 damageType: '\(String(describing: string))'"); return nil }
+//
+//		guard let normalString = newString.components(separatedBy: ":").first,
+//			let extendedString = newString.components(separatedBy: ":").last,
+//			let normal = Int(normalString),
+//			let extended = Int(extendedString)
+//			else { print("Incorrect format for range string: \(String(describing: string))"); return nil }
+//
+//		return (normal: normal, extended: extended)
+//	}
+//}
 
 
 //let weaponDict = [
