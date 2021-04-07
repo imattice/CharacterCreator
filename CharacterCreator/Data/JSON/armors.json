@@ -1,0 +1,140 @@
+[{
+        "name": "padded",
+        "description": "",
+        "detail": "",
+        "cost": 500,
+        "weight": 8,
+        "armorStyle": "light",
+        "baseAC": 11,
+        "imposesStealthDisadvantage": true
+    },
+    {
+        "name": "leather",
+        "description": "",
+        "detail": "",
+        "cost": 1000,
+        "weight": 10,
+        "armorStyle": "light",
+        "baseAC": 11
+    },
+    {
+        "name": "studded leather",
+        "description": "",
+        "detail": "",
+        "cost": 4500,
+        "weight": 13,
+        "armorStyle": "light",
+        "baseAC": 12
+    },
+    {
+        "name": "hide",
+        "description": "",
+        "detail": "",
+        "cost": 1000,
+        "weight": 12,
+        "armorStyle": "medium",
+        "baseAC": 12,
+        "dexMax": 2
+    },
+    {
+        "name": "chain shirt",
+        "description": "",
+        "detail": "",
+        "cost": 5000,
+        "weight": 20,
+        "armorStyle": "medium",
+        "baseAC": 13,
+        "dexMax": 2
+    },
+    {
+        "name": "scale mail",
+        "description": "",
+        "detail": "",
+        "cost": 5000,
+        "weight": 45,
+        "armorStyle": "medium",
+        "baseAC": 14,
+        "dexMax": 2,
+        "imposesStealthDisadvantage": true
+    },
+    {
+        "name": "breastplate",
+        "description": "",
+        "detail": "",
+        "cost": 40000,
+        "weight": 20,
+        "armorStyle": "medium",
+        "baseAC": 14,
+        "dexMax": 2
+    },
+    {
+        "name": "half plate",
+        "description": "",
+        "detail": "",
+        "cost": 75000,
+        "weight": 40,
+        "armorStyle": "medium",
+        "baseAC": 15,
+        "dexMax": 2,
+        "imposesStealthDisadvantage": true
+    },
+    {
+        "name": "ring mail",
+        "description": "",
+        "detail": "",
+        "cost": 3000,
+        "weight": 40,
+        "armorStyle": "heavy",
+        "baseAC": 14,
+        "addsDex": false,
+        "imposesStealthDisadvantage": true
+    },
+    {
+        "name": "chain mail",
+        "description": "",
+        "detail": "",
+        "cost": 7500,
+        "weight": 55,
+        "armorStyle": "heavy",
+        "baseAC": 16,
+        "strRequired": 13,
+        "addsDex": false,
+        "imposesStealthDisadvantage": true
+    },
+    {
+        "name": "chain mail",
+        "description": "",
+        "detail": "",
+        "cost": 7500,
+        "weight": 55,
+        "armorStyle": "heavy",
+        "baseAC": 16,
+        "strRequired": 13,
+        "addsDex": false,
+        "imposesStealthDisadvantage": true
+    },
+    {
+        "name": "splint",
+        "description": "",
+        "detail": "",
+        "cost": 20000,
+        "weight": 60,
+        "armorStyle": "heavy",
+        "baseAC": 17,
+        "strRequired": 15,
+        "addsDex": false,
+        "imposesStealthDisadvantage": true
+    },
+    {
+        "name": "plate",
+        "description": "",
+        "detail": "",
+        "cost": 150000,
+        "weight": 65,
+        "armorStyle": "heavy",
+        "baseAC": 18,
+        "strRequired": 15,
+        "addsDex": false,
+        "imposesStealthDisadvantage": true
+    }
+]

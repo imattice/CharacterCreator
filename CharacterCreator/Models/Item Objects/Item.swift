@@ -26,8 +26,8 @@ class ItemRecord: Record {
     let requiresAttunement: Bool = false
     ///A type that describes the rarity of the item
     let rarity: Rarity = .common
-    ///Contains any modifiers granted by the item
-    let modifiers: [Modifier]?
+//    ///Contains any modifiers granted by the item
+//    let modifiers: [Modifier]?
     
     enum Rarity: String {
         case common, uncommon, rare, legendary, artifact
@@ -68,8 +68,24 @@ class WeaponRecord: Item, Record {
 
 //MARK: - Armor Record
 /// A worn item that can be used to increase Armor Class
-class Armor: Item {
-    
+class ArmorRecord: Item, Record {
+    ///The base AC that is granted by the armor
+    let baseAC: Int
+    ///Indicates if the armor is ligh, medium, or heavy
+    let armorStyle: ArmorStyle
+    ///Indicates if the armor imposes disadvantage on Stealth checks
+    let imposesStealthDisadvantage: Bool                = false
+    ///Indicates if DEX can be used when determining total AC
+    let addsDex: Bool                                   = true
+    ///Indicates the maxium DEX modifier value that can be applied to the total AC when using this armor
+    let dexMax: Int?                                    = nil
+    ///The value of STR that is required in order to use this armor
+    let strRequired: Int                                = 0
+
+    ///Indicates if the armor is ligh, medium, or heavy
+    enum ArmorStyle: String {
+        case light, medium, heavy
+    }
 }
 
 class Shield: Item {
