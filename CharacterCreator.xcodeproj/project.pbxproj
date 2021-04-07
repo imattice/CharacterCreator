@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
+		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */; };
 		810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810900B2224EE40100FF8B17 /* BasicDetailView.xib */; };
 		8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */; };
@@ -120,6 +122,8 @@
 
 /* Begin PBXFileReference section */
 		7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
+		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
+		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDetailView.swift; sourceTree = "<group>"; };
 		810900B2224EE40100FF8B17 /* BasicDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicDetailView.xib; sourceTree = "<group>"; };
 		8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectionTableViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +249,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7FB8C576261D4AEB0088A8E9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7FB8C590261D4DA70088A8E9 /* Record.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7FB8C57C261D4C180088A8E9 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				7FB8C588261D4D760088A8E9 /* races.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		8112FA7121ACC01800EB61B8 /* Creation Path Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +318,7 @@
 				7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */,
 				8152B3CB20D9E004008B7A1A /* View Controllers */,
 				8152B3D920D9FD65008B7A1A /* Views */,
+				7FB8C576261D4AEB0088A8E9 /* Protocols */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
 				8152B3D820D9F891008B7A1A /* Extensions */,
 				8178317420F7F99800BF9B03 /* Design */,
@@ -336,6 +357,7 @@
 		8123674120CA44EE00F7AEFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7FB8C57C261D4C180088A8E9 /* JSON */,
 				81D599DE22BC935F005EE768 /* RealmProvider.swift */,
 				81D599E222BD8344005EE768 /* Realms */,
 				81DF302D213C5F3200C939CE /* items.swift */,
@@ -634,6 +656,7 @@
 				81DC8E5521125637002F6AE4 /* SelectionView.xib in Resources */,
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
+				7FB8C589261D4D760088A8E9 /* races.json in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				81D599EE22BDD85B005EE768 /* LanguageRecords.realm in Resources */,
 				81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */,
@@ -693,6 +716,7 @@
 				8195AF8C225706BE00153B58 /* ImageSelectionView.swift in Sources */,
 				81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
+				7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */,
 				810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */,
 				81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */,
 				81DC8E402107F2F9002F6AE4 /* backgrounds.swift in Sources */,
