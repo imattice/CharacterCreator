@@ -88,8 +88,10 @@ class ArmorRecord: Item, Record {
     }
 }
 
-class Shield: Item {
-    
+//MARK: - Shield Record
+class ShieldRecord: Item, Record {
+    ///The AC bonus that the shield grants when equipped
+    let bonusAC: Int
 }
 
 class Container: Item {
