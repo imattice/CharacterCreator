@@ -89,13 +89,15 @@ class ArmorRecord: Item, Record {
 }
 
 //MARK: - Shield Record
+/// A held item that can be used to increase Armor Class
 class ShieldRecord: Item, Record {
     ///The AC bonus that the shield grants when equipped
     let bonusAC: Int
 }
 
 //MARK: - Pack Record
-class PackRecord: Item, Record {
+///A collection of items that are purchased together
+class PackRecord: Record {
     ///An identifier for the pack
     let id: String = UUID().uuidString
     ///The name of the pack
@@ -108,8 +110,15 @@ class PackRecord: Item, Record {
     let contents: [Item]
 }
 
-class Tool: Item {
+//MARK: - Tool Record
+///An item that can be used with proficiency
+class ToolRecord: Item, Record {
+    ///Indicates if the tool is artisan, musical, or gaming
+    let category: Category?
     
+    enum Category {
+        case artisan, musical, gaming
+    }
 }
 
 extension Item: Equatable {

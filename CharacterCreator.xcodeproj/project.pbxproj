@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F141795261E7EE8008E6571 /* shields.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F141794261E7EE8008E6571 /* shields.json */; };
 		7F1417A2261E904B008E6571 /* packs.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417A1261E904B008E6571 /* packs.json */; };
+		7F1417A7261E9F49008E6571 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417A6261E9F49008E6571 /* tools.json */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -128,6 +129,7 @@
 /* Begin PBXFileReference section */
 		7F141794261E7EE8008E6571 /* shields.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shields.json; sourceTree = "<group>"; };
 		7F1417A1261E904B008E6571 /* packs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = packs.json; sourceTree = "<group>"; };
+		7F1417A6261E9F49008E6571 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
 		7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				7FB8C5A2261E52330088A8E9 /* armors.json */,
 				7F141794261E7EE8008E6571 /* shields.json */,
 				7F1417A1261E904B008E6571 /* packs.json */,
+				7F1417A6261E9F49008E6571 /* tools.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */,
 				8195037E2256DDFB00EE4469 /* PersonalityDetailView.xib in Resources */,
 				81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */,
+				7F1417A7261E9F49008E6571 /* tools.json in Resources */,
 				7F141795261E7EE8008E6571 /* shields.json in Resources */,
 				7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */,
 				81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */,
