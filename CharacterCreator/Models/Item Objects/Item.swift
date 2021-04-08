@@ -94,10 +94,6 @@ class ShieldRecord: Item, Record {
     let bonusAC: Int
 }
 
-class Container: Item {
-    
-}
-
 class Pack: Item {
     
 }

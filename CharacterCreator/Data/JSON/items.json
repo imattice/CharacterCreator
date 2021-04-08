@@ -1,10 +1,9 @@
-[
-    {
+[{
         "name": "abacus",
         "description": "",
         "details": "",
         "cost": 200,
-        "weight": 2,
+        "weight": 2
     },
     {
         "name": "acid (vial)",
@@ -91,10 +90,31 @@
         "weight": 1
     },
     {
+        "name": "backpack",
+        "description": "",
+        "details": "Can hold up to 1 cubic foot or 30 pounds of gear.  You can also strap items, such as a bedroll or a coil of rope, to the outside of a backpack.",
+        "cost": 200,
+        "weight": 5
+    },
+    {
         "name": "ball bearing (1000)",
         "description": "",
         "details": "As an action, you can spill these tiny metal balls from their pouch to cover a level, square area that is 10 feet on a side. A creature moving across the covered area must succeed on a DC 10 Dexterity saving throw or fall prone. A creature moving through the area at half speed doesn’t need to make the save.",
         "cost": 100,
+        "weight": 2
+    },
+    {
+        "name": "barrel",
+        "description": "",
+        "details": "Can contain up to 40 gallons of liquid or 4 cubic feet of solids.",
+        "cost": 200,
+        "weight": 70
+    },
+    {
+        "name": "basket",
+        "description": "",
+        "details": "Can contain up to 2 cubic feet or 40 pounds of gear.",
+        "cost": 40,
         "weight": 2
     },
     {
@@ -133,6 +153,20 @@
         "weight": 5
     },
     {
+        "name": "bottle",
+        "description": "",
+        "details": "Can contain up to 1 1⁄2 pints of liquid.",
+        "cost": 200,
+        "weight": 2
+    },
+    {
+        "name": "bucket",
+        "description": "",
+        "details": "Can contain up to 3 gallons liquid or 1/2 cubic foot solid.",
+        "cost": 5,
+        "weight": 2
+    },
+    {
         "name": "caltrops (20)",
         "description": "",
         "details": "As an action, you can spread a bag of caltrops to cover a square area that is 5 feet on a side. Any creature that enters the area must succeed on a DC 15 Dexterity saving throw or stop moving this turn and take 1 piercing damage. Taking this damage reduces the creature’s walking speed by 10 feet until the creature regains at least 1 hit point. A creature moving through the area at half speed doesn’t need to make the save.",
@@ -147,14 +181,21 @@
         "weight": 0
     },
     {
-        "name": "crossbow bolt case",
+        "name": "chest",
+        "description": "",
+        "details": "Can contain up to 12 cubic feet or 300 pounds of gear.",
+        "cost": 500,
+        "weight": 25
+    },
+    {
+        "name": "case, crossbow bolt",
         "description": "",
         "details": "This wooden case can hold up to twenty crossbow bolts.",
         "cost": 100,
         "weight": 1
     },
     {
-        "name": "map or scroll case",
+        "name": "case, map or scroll",
         "description": "",
         "details": "This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of parchment.",
         "cost": 100,
@@ -259,6 +300,13 @@
         "weight": 4
     },
     {
+        "name": "flask or tankard",
+        "description": "",
+        "details": "Can contain up to 1 pint of liquid.",
+        "cost": 2,
+        "weight": 1
+    },
+    {
         "name": "grappling hook",
         "description": "",
         "details": "",
@@ -341,6 +389,13 @@
         "details": "",
         "cost": 2,
         "weight": 0
+    },
+    {
+        "name": "jug or pitcher",
+        "description": "",
+        "details": "Can contain up to 1 gallon of liquid.",
+        "cost": 2,
+        "weight": 4
     },
     {
         "name": "ladder (10 ft)",
@@ -470,7 +525,7 @@
     },
     {
         "name": "pot, iron",
-        "description": "",
+        "description": "Can contain up to 1 gallon of liquid.",
         "details": "",
         "cost": 200,
         "weight": 10
@@ -481,6 +536,13 @@
         "details": "A character who drinks the magical red fluid in this vial regains 2d4 + 2 hit points. Drinking or administering a potion takes an action.",
         "cost": 5000,
         "weight": 0.5
+    },
+    {
+        "name": "pouch",
+        "description": "",
+        "details": "Can contain up to 1/5 cubic foot or 6 pounds of gear.",
+        "cost": 50,
+        "weight": 1
     },
     {
         "name": "quiver",
@@ -523,6 +585,13 @@
         "details": "Rope has 2 hit points and can be burst with a DC 17 Strength check.",
         "cost": 1000,
         "weight": 5
+    },
+    {
+        "name": "sack",
+        "description": "",
+        "details": "Can contain up to 1 cubic foot or 30 pounds of gear.",
+        "cost": 1,
+        "weight": 0.5
     },
     {
         "name": "scale, merchant's",
@@ -611,14 +680,14 @@
     {
         "name": "vial",
         "description": "",
-        "details": "",
+        "details": "Can contain up to 4 ounces of liquid.",
         "cost": 100,
         "weight": 0
     },
     {
         "name": "waterskin",
         "description": "",
-        "details": "",
+        "details": "Can contain up to 4 pints of liquid.",
         "cost": 20,
         "weight": 5
     },
