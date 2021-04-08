@@ -94,8 +94,18 @@ class ShieldRecord: Item, Record {
     let bonusAC: Int
 }
 
-class Pack: Item {
-    
+//MARK: - Pack Record
+class PackRecord: Item, Record {
+    ///An identifier for the pack
+    let id: String = UUID().uuidString
+    ///The name of the pack
+    let name: String
+    ///A description for the pack
+    let description: String
+    ///The cost of the pack in copper
+    let cost: Int
+    ///The contents of the pack
+    let contents: [Item]
 }
 
 class Tool: Item {

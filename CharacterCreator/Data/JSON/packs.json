@@ -1,0 +1,261 @@
+[{
+        "name": "burglar's pack",
+        "description": "",
+        "cost": 1600,
+        "contents": [{
+                "name": "backpack"
+            },
+            {
+                "name": "ball bearings (1000)"
+            },
+            {
+                "name": "crowbar"
+            },
+            {
+                "name": "hammer"
+            },
+            {
+                "name": "pitons",
+                "count": 10
+            },
+            {
+                "name": "string (10 ft)"
+            },
+            {
+                "name": "bell"
+            },
+            {
+                "name": "tinderbox"
+            },
+            {
+                "name": "oil (flask)",
+                "count": 2
+            },
+            {
+                "name": "candle",
+                "count": 5
+            },
+            {
+                "name": "lantern, hooded"
+            },
+
+            {
+                "name": "rations",
+                "count": 5
+            },
+            {
+                "name": "waterskin"
+            },
+            {
+                "name": "rope, hempen"
+            }
+        ]
+    },
+    {
+        "name": "diplomat's pack",
+        "description": "",
+        "cost": 3900,
+        "contents": [{
+                "name": "chest"
+            },
+            {
+                "name": "clothes, fine"
+            },
+            {
+                "name": "ink (1 ounce bottle)"
+            },
+            {
+                "name": "ink pen"
+            },
+            {
+                "name": "paper",
+                "count": 5
+            },
+            {
+                "name": "sealing wax"
+            },
+            {
+                "name": "case, map or scroll",
+                "count": 2
+            },
+            {
+                "name": "perfume"
+            },
+            {
+                "name": "lamp"
+            },
+            {
+                "name": "oil (flask)",
+                "count": 2
+            },
+            {
+                "name": "soap"
+            }
+        ]
+    },
+    {
+        "name": "dungeoneer's pack",
+        "description": "",
+        "cost": 1200,
+        "contents": [{
+                "name": "backpack"
+            },
+            {
+                "name": "crowbar"
+            },
+            {
+                "name": "hammer"
+            },
+            {
+                "name": "pitons",
+                "count": 10
+            },
+            {
+                "name": "tinderbox"
+            },
+            {
+                "name": "torch",
+                "count": 10
+            },
+            {
+                "name": "rations",
+                "count": 10
+            },
+            {
+                "name": "waterskin"
+            },
+            {
+                "name": "rope, hempen"
+            }
+        ]
+    },
+    {
+        "name": "entertainer's pack",
+        "description": "",
+        "cost": 4000,
+        "contents": [{
+                "name": "backpack"
+            },
+            {
+                "name": "bedroll"
+            },
+            {
+                "name": "disguise kit"
+            },
+            {
+                "name": "clothes, costume",
+                "count": 2
+            },
+            {
+                "name": "candle",
+                "count": 5
+            },
+            {
+                "name": "rations",
+                "count": 5
+            },
+            {
+                "name": "waterskin"
+            }
+        ]
+    },
+    {
+        "name": "explorer's pack",
+        "description": "",
+        "cost": 1000,
+        "contents": [{
+                "name": "backpack"
+            },
+            {
+                "name": "bedroll"
+            },
+            {
+                "name": "tinderbox"
+            },
+            {
+                "name": "torch",
+                "count": 10
+            },
+            {
+                "name": "mess kit"
+            },
+            {
+                "name": "rations",
+                "count": 10
+            },
+            {
+                "name": "waterskin"
+            },
+            {
+                "name": "rope, hempen"
+            }
+        ]
+    },
+    {
+        "name": "priest's pack",
+        "description": "",
+        "cost": 1900,
+        "contents": [{
+                "name": "backpack"
+            },
+            {
+                "name": "blanket"
+            },
+            {
+                "name": "candle",
+                "count": 10
+            },
+            {
+                "name": "block of insense",
+                "count": 2
+            },
+            {
+                "name": "tinderbox"
+            },
+            {
+                "name": "censer"
+            },
+            {
+                "name": "vestments"
+            },
+            {
+                "name": "alms box"
+            },
+            {
+                "name": "rations",
+                "count": 2
+            },
+            {
+                "name": "waterskin"
+            }
+        ]
+    },
+    {
+        "name": "scholar's pack",
+        "description": "",
+        "cost": 4000,
+        "contents": [{
+                "name": "backpack"
+            },
+            {
+                "name": "book of lore"
+            },
+            {
+                "name": "ink pen"
+            },
+            {
+                "name": "ink (1 ounce bottle)"
+            },
+            {
+                "name": "parchment",
+                "count": 10
+            },
+            {
+                "name": "bag of sand"
+            },
+            {
+                "name": "small knife"
+            }
+        ]
+    }
+]
