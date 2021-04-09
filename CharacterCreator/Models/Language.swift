@@ -7,72 +7,103 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
+import CoreData
 
-//defines a flexible object to describe a language that can be learned by the character
+///defines a flexible object to describe a language that can be learned by a character
 struct Language {
-	let name: String
-	let isSelectable: Bool
-
-	var spokenBy: String {
-		guard let record = LanguageRecord.record(for: name) else { return "" }
-		return record.spokenBy	}
-	var script: String {
-		guard let record = LanguageRecord.record(for: name) else { return "" }
-		return record.script	}
-	var isRare: Bool {
-		guard let record = LanguageRecord.record(for: name) else { return true }
-		return record.isRare	}
-
-	init(name: String, isSelectable: Bool = false) { //}, spokenBy: String, script: String, isRare: Bool) {
-		self.name 			= name
-		self.isSelectable 	= isSelectable
-	}
+    let name: String
+    let isSelectable: Bool
+    let source: Origin
     
-    static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {
-        return LanguageRecord.allRecords().filter({ $0.name == name }).first
+    var record: LanguageRecord? = LanguageRecord.record(for: name.lowercased())()
+
+    var spokenBy: String {
+        guard let record = LanguageRecord.record(for: name) else { return "" }
+        return record.spokenBy    }
+    var script: String {
+        guard let record = LanguageRecord.record(for: name) else { return "" }
+        return record.script    }
+    var isExotic: Bool {
+        guard let record = LanguageRecord.record(for: name) else { return true }
+        return record.isExotic    }
+
+    init(name: String, isSelectable: Bool = false, source: Origin) { //}, spokenBy: String, script: String, isRare: Bool) {
+        self.name             = name
+        self.isSelectable     = isSelectable
+        self.source         = source
     }
-
-	enum Script: String {
-		case common, draconic, dwarvish, elvish, infernal, celestial, druidic
-	}
+    
+    enum Script: String {
+        case common, draconic, dwarvish, elvish, infernal, celestial, druidic
+    }
 }
 
-extension Language {
-	static let Common 			= LanguageRecord.record(for: "common")!.language()
-	static let Draconic 		= LanguageRecord.record(for: "draconic")!.language()
-	static let Dwarvish 		= LanguageRecord.record(for: "dwarvish")!.language()
-	static let Elven		 	= LanguageRecord.record(for: "elven")!.language()
 
-	static let Giant 			= LanguageRecord.record(for: "giant")!.language()
-	static let Gnomish 			= LanguageRecord.record(for: "gnomish")!.language()
-	static let Goblin			= LanguageRecord.record(for: "goblin")!.language()
-	static let Halfling 		= LanguageRecord.record(for: "halfling")!.language()
-	static let Abyssal 			= LanguageRecord.record(for: "abyssal")!.language()
-	static let Celestial 		= LanguageRecord.record(for: "celestial")!.language()
-	static let DeepSpeech 		= LanguageRecord.record(for: "deep speech")!.language()
-	static let Infernal 		= LanguageRecord.record(for: "infernal")!.language()
-	static let Orc				= LanguageRecord.record(for: "orc")!.language()
-	static let Undercommon 		= LanguageRecord.record(for: "undercommon")!.language()
+struct LanguageRecord: Record, Customizable, Codable {
+    ///used to identify the record
+    let id: String = UUID().uuidString
+    ///the name of the language
+    let name: String
+    ///a  paragraph containing descriptive details about the language
+    let description: String
+    ///describes who typically speaks this language
+    let spokenBy: String
+    ///the script that is used to write this language
+    let script: String
+    ///determines if the language is rare
+    let isExotic: Bool
+    ///determines if the language is only know by specific groups
+    let isSecret: Bool
+    ///determines if the language is created by the user
+    let isCustom: Bool = false
+    ///returns all unique scripts used for all language records
+    static var scripts: [String] {
+        return all().map { $0.script }.uniques.sorted()
+    }
+        
+    init(from decoder: Decoder) throws {
+        let container       = try decoder.container(keyedBy: CodingKeys.self)
+        self.name           = try container.decode(String.self, forKey: .name)
+        self.description    = try container.decode(String.self, forKey: .description)
+        self.spokenBy       = try container.decode(String.self, forKey: .spokenBy)
+        self.script         = try container.decode(String.self, forKey: .script)
+        self.isExotic       = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
+        self.isSecret       = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
+    }
+    init(name: String, description: String, spokenBy: String, script: String, isExotic: Bool, isSecret: Bool, isCustom: Bool = false) {
+
+        self.name = name
+        self.description = description
+        self.spokenBy = spokenBy
+        self.script = script
+        self.isExotic = isExotic
+        self.isSecret = isSecret
+    }
 }
 
-@objcMembers
-class LanguageRecord : Object {
-	dynamic var id: String 			= UUID().uuidString
-	dynamic var name: String		= ""
-	dynamic var spokenBy: String	= ""
-	dynamic var script: String		= ""
-	dynamic var isRare: Bool		= false
 
-	static func allRecords(in realm: Realm = RealmProvider.languageRecords.realm) -> Results<LanguageRecord> {
-		return realm.objects(LanguageRecord.self)//.sorted(byKeyPath: "name")
-	}
 
-	static func record(for name: String, in realm: Realm = RealmProvider.languageRecords.realm) -> LanguageRecord? {
-		return allRecords().filter({ $0.name == name }).first
-	}
-
-	func language() -> Language {
-		return Language(name: name)
-	}
-}
+//MARK: -Old Core Data Implementation
+//final
+//class LanguageRecord: NSManagedObject, Record, Decodable {
+//    required convenience
+//    init(from decoder: Decoder) throws {
+//        guard let context = decoder.userInfo[CodingUserInfoKey.managedObjectContext] as? NSManagedObjectContext else {
+//          throw JSONError.missingManagedObjectContextForDecoder }
+//
+//        self.init(context: context)
+//
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//
+//        self.id = UUID().uuidString
+//        self.name = try container.decode(String.self, forKey: .name)
+//        self.spokenBy = try container.decode(String.self, forKey: .spokenBy)
+//        self.script = try container.decode(String.self, forKey: .script)
+//        self.isExotic = try container.decodeIfPresent(Bool.self, forKey: .isExotic) ?? false
+//        self.isSecret = try container.decodeIfPresent(Bool.self, forKey: .isSecret) ?? false
+//    }
+//    enum CodingKeys: CodingKey {
+//        case id, isExotic, isSecret, name, script, spokenBy
+//    }
+//}
