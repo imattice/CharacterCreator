@@ -195,7 +195,7 @@ class Race {
     
 }
 
-///an object representing static data for a specific race
+///An object representing static data for a specific race
 final
 class RaceRecord: Record, Codable, Identifiable {
     ///used to identify the record

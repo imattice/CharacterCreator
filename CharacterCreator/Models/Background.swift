@@ -7,82 +7,40 @@
 //
 
 import Foundation
-import RealmSwift
 
-//a representation of the background with flexible proficiencies
+///An object that holds selections made from the Background
 struct Background {
-	let name: String
-	var proficiencies: [String]
-
-	init(_ name: String, proficiencies: [String]) {
-		self.name = name
-		self.proficiencies = proficiencies
-	}
-    
-    static func record(for name: String, in realm: Realm = RealmProvider.backgroundRecords.realm) -> BackgroundRecord? {
-        return BackgroundRecord.allRecords().filter({ $0.name == name }).first
-    }
-
-//	init(_ name: String) {
-//		self.name	= name
-//		self.proficiencies = Array(BackgroundRecord.record(for: name)?.proficiencies)
-//	}
-
-	//record data retrieval methods
-	func description() -> String {
-		guard let record = BackgroundRecord.record(for: name) else { return "" }
-		return record.detail		}
-	func proficiencyOptions() -> [String]? {
-		guard let record = BackgroundRecord.record(for: name) else { return [String]() }
-		return Array(record.proficiencies)	}
-	func initialEquipment() -> String {
-		guard let record = BackgroundRecord.record(for: name) else { return "" }
-		return record.equipment			}
-	func startingGold() -> Int {
-		guard let record = BackgroundRecord.record(for: name) else { return 0 }
-		return record.gold		}
-	func feature() -> String {
-		guard let record = BackgroundRecord.record(for: name) else { return "" }
-		return record.features }
-	func languageOptions() -> [Language] {
-		var results = [Language]()
-		guard let record = BackgroundRecord.record(for: name) else { return results }
-
-		for languageString in record.languages {
-			let language = Language(name: languageString, isSelectable: languageString == "choice" ? true : false )
-			results.append(language)
-		}
-		return results
-	}
-
-	static let Acolyte 	= BackgroundRecord.record(for: "acolyte")!.background()
+    let record: BackgroundRecord
+    var trait: String
+    var ideal: String
+    var bond: String
+    var flaw: String
 }
 
-@objcMembers
-class BackgroundRecord: Object {
-	dynamic var id: String					= ""
-	dynamic	var name: String				= ""
-	dynamic var detail: String				= ""
-	dynamic var proficiencies: List<String>	= List<String>()
-	dynamic var languages: List<String>		= List<String>()
-	dynamic var equipment: String			= ""
-	dynamic var gold: Int					= 0
-	dynamic var features: String			= ""
-	dynamic var traits: List<String>		= List<String>()
-	dynamic var ideals: List<String>		= List<String>()
-	dynamic var bonds: List<String> 		= List<String>()
-	dynamic var flaws: List<String>			= List<String>()
-
-	static func allRecords(in realm: Realm = RealmProvider.backgroundRecords.realm) -> Results<BackgroundRecord> {
-		return realm.objects(BackgroundRecord.self)//.sorted(byKeyPath: "name")
-	}
-
-	static func record(for name: String, in realm: Realm = RealmProvider.backgroundRecords.realm) -> BackgroundRecord? {
-		return allRecords().filter({ $0.name == name }).first
-	}
-
-	func background() -> Background {
-		return Background(name, proficiencies: Array(proficiencies))
-	}
+///an object representing static data for a specific background
+class BackgroundRecord: Record {
+    ///The id for the background
+    let id: String = UUID().uuidString
+    ///The name of the background
+    let name: String
+    ///The description of the background
+    let description: String
+    ///The skill proficiencices granted by this background
+    let proficiencies: [String]
+    ///The languages that are granted by this background
+    let languages: [String]
+    ///The starting items granted by this background
+    let items: [String]
+    ///The starting gold provided by this background
+    let gold: Int
+    ///A description of the relationships and features that are granted by this background
+    let features: String
+    ///The suggested trait options for this background
+    let traits: [String]
+    ///The suggested ideal options for this background
+    let ideals: [String]
+    ///The suggested bond options for this background
+    let bonds: [String]
+    ///The suggested flaw options for this background
+    let flaws: [String]
 }
-
