@@ -17,7 +17,7 @@ struct Background {
     var flaw: String
 }
 
-///an object representing static data for a specific background
+///An object representing static data for a specific background
 class BackgroundRecord: Record {
     ///The id for the background
     let id: String = UUID().uuidString

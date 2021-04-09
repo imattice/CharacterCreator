@@ -7,8 +7,6 @@
 //
 
 import Foundation
-//import RealmSwift
-import CoreData
 
 ///defines a flexible object to describe a language that can be learned by a character
 struct Language {
@@ -39,7 +37,7 @@ struct Language {
     }
 }
 
-
+///An object representing static data for a specific language
 struct LanguageRecord: Record, Customizable, Codable {
     ///used to identify the record
     let id: String = UUID().uuidString
