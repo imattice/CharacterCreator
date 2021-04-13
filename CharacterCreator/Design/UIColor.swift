@@ -7,30 +7,54 @@
 //
 
 import UIKit
-import Hue
 
 protocol Paintable {
 	func paint()
 }
 
 extension UIColor {
+    public convenience init(hex: String) {
+        let r, g, b, a: CGFloat
 
-	static func color(for targetClass: AvailableClass ) -> AppColor {
-		switch targetClass {
-		case .cleric: 		return UIColor.AppColor.blue
-		case .fighter: 		return UIColor.AppColor.red
-		case .rogue: 		return UIColor.AppColor.green
-		case .wizard:		return UIColor.AppColor.purple
-		}
-	}
-	static func gradient(for targetClass: AvailableClass ) -> [UIColor] {
-		switch targetClass {
-		case .cleric: 		return UIColor.MaterialColor.lightBlueGradientColors
-		case .fighter: 		return UIColor.MaterialColor.redGradientColors
-		case .rogue: 		return UIColor.MaterialColor.greenGradientColors
-		case .wizard:		return UIColor.MaterialColor.deepPurpleGradientColors
-		}
-	}
+        if hex.hasPrefix("#") {
+            let start = hex.index(hex.startIndex, offsetBy: 1)
+            let hexColor = String(hex[start...])
+
+            if hexColor.count == 8 {
+                let scanner = Scanner(string: hexColor)
+                var hexNumber: UInt64 = 0
+
+                if scanner.scanHexInt64(&hexNumber) {
+                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
+                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
+                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
+                    a = CGFloat(hexNumber & 0x000000ff) / 255
+
+                    self.init(red: r, green: g, blue: b, alpha: a)
+                    return
+                }
+            }
+        }
+        self.init(red: 0, green: 0, blue: 0, alpha: 0)
+        return
+    }
+
+//	static func color(for targetClass: AvailableClass ) -> AppColor {
+//		switch targetClass {
+//		case .cleric: 		return UIColor.AppColor.blue
+//		case .fighter: 		return UIColor.AppColor.red
+//		case .rogue: 		return UIColor.AppColor.green
+//		case .wizard:		return UIColor.AppColor.purple
+//		}
+//	}
+//	static func gradient(for targetClass: AvailableClass ) -> [UIColor] {
+//		switch targetClass {
+//		case .cleric: 		return UIColor.MaterialColor.lightBlueGradientColors
+//		case .fighter: 		return UIColor.MaterialColor.redGradientColors
+//		case .rogue: 		return UIColor.MaterialColor.greenGradientColors
+//		case .wizard:		return UIColor.MaterialColor.deepPurpleGradientColors
+//		}
+//	}
 
 
 	enum AppColor {
