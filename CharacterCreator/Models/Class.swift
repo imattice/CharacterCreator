@@ -7,6 +7,32 @@
 //
 import UIKit
 
+///An object representing static data for a specific class
+class ClassRecord: Record {
+    let id: String = UUID().uuidString
+    let name: String
+    let description: String
+    let hitDie: Int
+    let proficincies: ClassProficiencies
+    let spellcasting: Spellcasting?
+    ///The features that are available to this class
+    let features: [(level: Int, feature: Feature)]
+    let subClasses: [SubClassRecord]
+    let equipment: [String]
+    
+    struct ClassProficiencies {
+        let armor: [String]
+        let weapons: [String]
+        let tools: [String]
+        let savingThrows: [String]
+        let skills: [String]
+    }
+}
+
+class SubClassRecord: Record {
+    let id: String = UUID().uuidString
+}
+
 struct Class {
 	let base: String
 	let path: String
