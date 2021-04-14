@@ -16,6 +16,8 @@
 		7F1417E326210526008E6571 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1417E226210526008E6571 /* Feature.swift */; };
 		7F1417E8262374D3008E6571 /* classes.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417E7262374D3008E6571 /* classes.json */; };
 		7F14180226268409008E6571 /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F14180126268409008E6571 /* languages.json */; };
+		7F14185D26268938008E6571 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14185C26268938008E6571 /* App.swift */; };
+		7F14186B262689A5008E6571 /* CompendiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14186A262689A5008E6571 /* CompendiumView.swift */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -129,6 +131,8 @@
 		7F1417E226210526008E6571 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		7F1417E7262374D3008E6571 /* classes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = classes.json; sourceTree = "<group>"; };
 		7F14180126268409008E6571 /* languages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = languages.json; sourceTree = "<group>"; };
+		7F14185C26268938008E6571 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		7F14186A262689A5008E6571 /* CompendiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumView.swift; sourceTree = "<group>"; };
 		7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -247,6 +251,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F14180C26268782008E6571 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
+				8152B3CB20D9E004008B7A1A /* View Controllers */,
+				8152B3D920D9FD65008B7A1A /* Views */,
+				7F14181026268798008E6571 /* Extensions */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		7F14181026268798008E6571 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8178317520F7F9AE00BF9B03 /* UIColor.swift */,
+				8152B3E620DC124D008B7A1A /* UIView.swift */,
+				81851D5E2254721E00260413 /* UITextView.swift */,
+				81851D602254725C00260413 /* UITextField.swift */,
+				819621E52268F33300A4DD3D /* UIResponder.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7F141814262687BE008E6571 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				7F14185C26268938008E6571 /* App.swift */,
+				7F14186A262689A5008E6571 /* CompendiumView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		7FB8C576261D4AEB0088A8E9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,10 +358,8 @@
 		8123670F20CA44DA00F7AEFC /* CharacterCreator */ = {
 			isa = PBXGroup;
 			children = (
-				8123671020CA44DA00F7AEFC /* AppDelegate.swift */,
-				7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */,
-				8152B3CB20D9E004008B7A1A /* View Controllers */,
-				8152B3D920D9FD65008B7A1A /* Views */,
+				7F141814262687BE008E6571 /* SwiftUI */,
+				7F14180C26268782008E6571 /* UIKit */,
 				7FB8C576261D4AEB0088A8E9 /* Protocols */,
 				8152B3BF20D9D2F5008B7A1A /* Models */,
 				8152B3D820D9F891008B7A1A /* Extensions */,
@@ -335,6 +369,7 @@
 				8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */,
 				8123671F20CA44DD00F7AEFC /* Info.plist */,
 				8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */,
+				7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */,
 			);
 			path = CharacterCreator;
 			sourceTree = "<group>";
@@ -402,10 +437,6 @@
 				81FC7CF0210556F800BBDDD7 /* Array.swift */,
 				81DC8E4121080E9E002F6AE4 /* String.swift */,
 				8152B41020DEDA8D008B7A1A /* Int.swift */,
-				8152B3E620DC124D008B7A1A /* UIView.swift */,
-				81851D5E2254721E00260413 /* UITextView.swift */,
-				81851D602254725C00260413 /* UITextField.swift */,
-				819621E52268F33300A4DD3D /* UIResponder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -452,7 +483,6 @@
 		8178317420F7F99800BF9B03 /* Design */ = {
 			isa = PBXGroup;
 			children = (
-				8178317520F7F9AE00BF9B03 /* UIColor.swift */,
 				8123671A20CA44DD00F7AEFC /* Assets.xcassets */,
 			);
 			path = Design;
@@ -695,6 +725,7 @@
 				81DC8E4221080E9E002F6AE4 /* String.swift in Sources */,
 				81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */,
 				81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */,
+				7F14185D26268938008E6571 /* App.swift in Sources */,
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */,
@@ -710,6 +741,7 @@
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
 				81B038D122DD14E00059AFC1 /* Calculation.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
+				7F14186B262689A5008E6571 /* CompendiumView.swift in Sources */,
 				81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */,
 				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,
 				819621E62268F33300A4DD3D /* UIResponder.swift in Sources */,
@@ -858,7 +890,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -912,7 +944,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -931,7 +963,7 @@
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CharacterCreator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -941,7 +973,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -954,7 +986,7 @@
 				DEVELOPMENT_TEAM = VNA55J4REY;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = CharacterCreator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -963,7 +995,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
