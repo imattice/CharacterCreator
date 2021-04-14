@@ -28,7 +28,6 @@
 		8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */; };
 		8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA7321ACC37D00EB61B8 /* TextFieldView.swift */; };
 		8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123671020CA44DA00F7AEFC /* AppDelegate.swift */; };
-		8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671420CA44DA00F7AEFC /* Main.storyboard */; };
 		8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */; };
 		8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8123671A20CA44DD00F7AEFC /* Assets.xcassets */; };
 		8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */; };
@@ -145,7 +144,6 @@
 		8112FA7321ACC37D00EB61B8 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		8123670D20CA44DA00F7AEFC /* CharacterCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharacterCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123671020CA44DA00F7AEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8123671520CA44DA00F7AEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8123671820CA44DA00F7AEFC /* CharacterCreator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CharacterCreator.xcdatamodel; sourceTree = "<group>"; };
 		8123671A20CA44DD00F7AEFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8123671D20CA44DD00F7AEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -365,7 +363,6 @@
 				8152B3D820D9F891008B7A1A /* Extensions */,
 				8178317420F7F99800BF9B03 /* Design */,
 				8123674120CA44EE00F7AEFC /* Data */,
-				8123671420CA44DA00F7AEFC /* Main.storyboard */,
 				8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */,
 				8123671F20CA44DD00F7AEFC /* Info.plist */,
 				8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */,
@@ -607,7 +604,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Ike Mattice";
 				TargetAttributes = {
 					8123670C20CA44DA00F7AEFC = {
@@ -680,7 +677,6 @@
 				7F141795261E7EE8008E6571 /* shields.json in Resources */,
 				7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */,
 				81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */,
-				8123671620CA44DA00F7AEFC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,14 +816,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8123671420CA44DA00F7AEFC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8123671520CA44DA00F7AEFC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -865,6 +853,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -925,6 +914,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
