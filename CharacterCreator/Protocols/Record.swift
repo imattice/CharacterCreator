@@ -11,21 +11,21 @@ import Foundation
 ///A type that is backed by a Static JSON file
 protocol Record: Identifiable, Codable {
     var id: String { get }
-    ///name of the record
+    ///The name of the record
     var name: String { get }
-    ///return all records parsed from JSON
+    ///Return all records parsed from JSON
     static
     func all() -> [Self]
-    ///return a specific record that matches the input string
+    ///Return a specific record that matches the input string
     static
     func record(for name: String) -> Self?
-    ///converts JSON file data to Objects
+    ///Converts JSON file data to Objects
     static
     func parseAllFromJSON() throws -> [Self]
 }
 
 extension Record where Self: Codable {
-    ///return all records parsed from JSON
+    ///Return all records parsed from JSON
     static
     func all() -> [Self] {
         do {
@@ -36,16 +36,16 @@ extension Record where Self: Codable {
         }
     }
     
-    ///fetches a specific record of the given name
+    ///Returns a specific record of the given name
     static
     func record(for name: String) -> Self? {
         return all().filter { $0.name == name }.first
     }
     
-    ///decodes JSON from file
+    ///Converts JSON file data to Objects
     static
     func parseAllFromJSON() throws -> [Self] {
-        ///a very simplistic pluralizer to transform the class record name into the json file name
+        //a simplistic pluralizer to transform the class record name into the json file name
         //i.e. this should return languages.json from LanguageRecord and classes.json from ClassRecord
         let filename: String = {
             let name = String(describing: Self.self).dropLast(6).lowercased()

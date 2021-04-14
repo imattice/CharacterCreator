@@ -19,6 +19,8 @@
 		7F14185D26268938008E6571 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14185C26268938008E6571 /* App.swift */; };
 		7F14186B262689A5008E6571 /* CompendiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14186A262689A5008E6571 /* CompendiumView.swift */; };
 		7F14188226275001008E6571 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14188126275001008E6571 /* Errors.swift */; };
+		7F141895262755AC008E6571 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141894262755AC008E6571 /* Origin.swift */; };
+		7F14189A262755F8008E6571 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141899262755F8008E6571 /* Selectable.swift */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -134,6 +136,8 @@
 		7F14185C26268938008E6571 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		7F14186A262689A5008E6571 /* CompendiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumView.swift; sourceTree = "<group>"; };
 		7F14188126275001008E6571 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		7F141894262755AC008E6571 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
+		7F141899262755F8008E6571 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				7FB8C590261D4DA70088A8E9 /* Record.swift */,
+				7F141899262755F8008E6571 /* Selectable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -527,6 +532,7 @@
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
 				81B038D022DD14E00059AFC1 /* Calculation.swift */,
 				7F1417E226210526008E6571 /* Feature.swift */,
+				7F141894262755AC008E6571 /* Origin.swift */,
 			);
 			path = "Gameplay Objects";
 			sourceTree = "<group>";
@@ -735,6 +741,7 @@
 				7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */,
 				810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */,
 				81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */,
+				7F14189A262755F8008E6571 /* Selectable.swift in Sources */,
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
@@ -780,6 +787,7 @@
 				8152B3C320D9D32F008B7A1A /* Character.swift in Sources */,
 				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,
+				7F141895262755AC008E6571 /* Origin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

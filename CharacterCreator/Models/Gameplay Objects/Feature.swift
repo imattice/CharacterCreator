@@ -9,7 +9,7 @@
 import Foundation
 
 //MARK: - Feature
-///descrbes unique feature that will affect gameplay
+/// descrbes unique feature that will affect gameplay
 class Feature: Encodable, Identifiable {
     ///the id of the feature
     var id: String = UUID().uuidString
@@ -17,35 +17,37 @@ class Feature: Encodable, Identifiable {
     let title: String
     ///a paragraph describing the feature's effects
     let description: String
+    ///The level at which this feature is available to the Character
+    let level: Int?
     ///the source of the feature
     let origin: Origin
     
-    init(title: String, description: String, origin: Origin) {
+    init(title: String, description: String, level: Int? = nil, origin: Origin) {
         self.title          = title
         self.description    = description
+        self.level          = level
         self.origin         = origin
     }
     
-    ///decodes an Unkeyed JSON decoding container into an array of Features and SelectableFeatures
+    
+    /// Decodes an Unkeyed JSON decoding container into an array of Features
+    /// - Parameters:
+    ///   - container: An UnkeyedDecodingContainer from Decoded JSON
+    ///   - source: The Source of the data, such as from a particular Race or Class
+    /// - Returns: Returns an array of decoded Features
     static
     func decoded(from container: UnkeyedDecodingContainer, source: Origin) -> [Feature] {
         var mutableContainer = container
         var features = [Feature]()
         while !mutableContainer.isAtEnd {
             do {
-                let feature = try mutableContainer.nestedContainer(keyedBy: FeatureCodingKeys.self)
+                let feature = try mutableContainer.nestedContainer(keyedBy: CodingKeys.self)
                 
                 let title = try feature.decode(String.self, forKey: .title)
                 let description = try feature.decode(String.self, forKey: .description)
+                let level = try feature.decodeIfPresent(Int.self, forKey: .level)
                 
-                //determine if there are options that are a custom array of strings
-                if let options = try? feature.decodeIfPresent([String].self, forKey: .options) {
-                    features.append(SelectableFeature(title: title, description: description, origin: source, options: options.map({ SelectionOption($0)})))    }
-                
-                //if there are no options, just create and add a basic feature
-                else {
-                    features.append(Feature(title: title, description: description, origin: source))    }
-                
+                features.append(Feature(title: title, description: description, level: level, origin: source))
             } catch {
                 print(error)
             }
@@ -53,9 +55,9 @@ class Feature: Encodable, Identifiable {
         return features
     }
 
-    enum FeatureCodingKeys: CodingKey {
-        case title, description, options
-    }
+//    enum FeatureCodingKeys: CodingKey {
+//        case title, description, level
+//    }
 }
 
 //MARK: - SelectableFeature
