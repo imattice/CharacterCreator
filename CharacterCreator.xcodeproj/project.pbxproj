@@ -18,6 +18,7 @@
 		7F14180226268409008E6571 /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F14180126268409008E6571 /* languages.json */; };
 		7F14185D26268938008E6571 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14185C26268938008E6571 /* App.swift */; };
 		7F14186B262689A5008E6571 /* CompendiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14186A262689A5008E6571 /* CompendiumView.swift */; };
+		7F14188226275001008E6571 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14188126275001008E6571 /* Errors.swift */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -132,6 +133,7 @@
 		7F14180126268409008E6571 /* languages.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = languages.json; sourceTree = "<group>"; };
 		7F14185C26268938008E6571 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		7F14186A262689A5008E6571 /* CompendiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumView.swift; sourceTree = "<group>"; };
+		7F14188126275001008E6571 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				8123671F20CA44DD00F7AEFC /* Info.plist */,
 				8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */,
 				7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */,
+				7F14188126275001008E6571 /* Errors.swift */,
 			);
 			path = CharacterCreator;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */,
 				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,
 				819621E62268F33300A4DD3D /* UIResponder.swift in Sources */,
+				7F14188226275001008E6571 /* Errors.swift in Sources */,
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
