@@ -243,7 +243,7 @@ class RaceRecord: Record, Codable, Identifiable {
         
         self.speed          = try container.decode(Int.self, forKey: .speed)
         
-        let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
+        let statModifierContainer = try container.nestedContainer(keyedBy: Stat.self, forKey: .statIncrease)
         self.modifiers      = AbilityScoreModifier.decoded(from: statModifierContainer)
         
         let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
@@ -316,7 +316,7 @@ class SubraceRecord: Record, Codable {
         self.name           = try container.decode(String.self, forKey: .name)
         self.description    = try container.decode(String.self, forKey: .description)
        
-        let statModifierContainer = try container.nestedContainer(keyedBy: AbilityScore.Name.self, forKey: .statIncrease)
+        let statModifierContainer = try container.nestedContainer(keyedBy: Stat.self, forKey: .statIncrease)
         self.modifiers      = AbilityScoreModifier.decoded(from: statModifierContainer)
 
         let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)

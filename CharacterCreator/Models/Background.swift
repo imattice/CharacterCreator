@@ -21,7 +21,8 @@ struct Background {
 final
 class BackgroundRecord: Record {
     ///The id for the background
-    let id: String = UUID().uuidString
+    private(set)
+    var id: String = UUID().uuidString
     ///The name of the background
     let name: String
     ///The description of the background

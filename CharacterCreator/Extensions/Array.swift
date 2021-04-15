@@ -62,3 +62,10 @@ extension Array where Element:Equatable {
 
 		return result	}
 }
+
+extension Array {
+    ///Return elements of a particular subclass that can be casted as the given type
+    func ofType<T>(_ type: T.Type) -> [T] {
+        return compactMap { $0 as? T }
+    }
+}

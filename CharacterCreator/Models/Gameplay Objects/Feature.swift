@@ -98,6 +98,16 @@ class SpellcastingFeature: Feature {
     enum MemoryType {
         case known, prepared
     }
+    
+    internal init(title: String, description: String, level: Int? = nil, stat: Stat, slots: [[Int]], spellCount: Int, knownSpells: [String], spellList: [String], memoryType: SpellcastingFeature.MemoryType, origin: Origin) {
+        self.stat = stat
+        self.slots = slots
+        self.spellCount = spellCount
+        self.knownSpells = knownSpells
+        self.spellList = spellList
+        self.memoryType = memoryType
+        super.init(title: title, description: description, level: level, origin: origin)
+    }
 }
 
 

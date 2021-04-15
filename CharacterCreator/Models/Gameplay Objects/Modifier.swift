@@ -25,7 +25,7 @@ class Modifier: Codable, Identifiable {
 ///holds attributes that affect ability scores
 class AbilityScoreModifier: Modifier, Hashable {
     ///the score to be adjusted
-    let abilityScore: AbilityScore.Name
+    let abilityScore: Stat
     ///how much the score should be affected
     let value: Int
     ///if the score should increase or decrease
@@ -36,7 +36,7 @@ class AbilityScoreModifier: Modifier, Hashable {
     required
     init(from decoder: Decoder) throws {
         let container       = try decoder.container(keyedBy: CodingKeys.self)
-        self.abilityScore   = AbilityScore.Name(rawValue: try container.decode(String.self, forKey: .abilityScore))!
+        self.abilityScore   = Stat(rawValue: try container.decode(String.self, forKey: .abilityScore))!
         self.value          = try container.decode(Int.self, forKey: .value)
         self.adjustment     = Adjustment(rawValue: try (container.decodeIfPresent(String.self, forKey: CodingKeys.adjustment) ?? "increase"))!
         self.isTemporary    = try container.decode(Bool.self, forKey: CodingKeys.adjustment)
@@ -44,7 +44,7 @@ class AbilityScoreModifier: Modifier, Hashable {
         try super.init(from: decoder)
     }
     
-    init(name: AbilityScore.Name, value: Int, adjustment: Adjustment = .increase, isTemp: Bool = false, origin: Origin) {
+    init(name: Stat, value: Int, adjustment: Adjustment = .increase, isTemp: Bool = false, origin: Origin) {
         self.abilityScore    = name
         self.value           = value
         self.adjustment      = adjustment
@@ -55,9 +55,9 @@ class AbilityScoreModifier: Modifier, Hashable {
     
     ///decodes an Unkeyed JSON decoding container into an array of AbilityScoreModifiers
     static
-    func decoded(from container: KeyedDecodingContainer<AbilityScore.Name>) -> [AbilityScoreModifier] {
+    func decoded(from container: KeyedDecodingContainer<Stat>) -> [AbilityScoreModifier] {
         var modifiers = [AbilityScoreModifier]()
-        for key in AbilityScore.Name.allCases {
+        for key in Stat.allCases {
             guard let value = try? container.decodeIfPresent(Int.self, forKey: key)
             else { continue }
             modifiers.append(AbilityScoreModifier(name: key, value: value, origin: .race))

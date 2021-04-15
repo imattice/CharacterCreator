@@ -9,7 +9,7 @@
 import Foundation
 
 //a container for describing how much damage an attack or spell would do
-struct Damage: Equatable {
+struct Damage: Equatable, Codable {
 	let multiplier: Int?
 	let type: DamageType
 	let value: Int
@@ -67,7 +67,7 @@ struct Damage: Equatable {
 		if withType { result += " \(type.rawValue.capitalized)" }
 		return result
 	}
-	enum DamageType: String {
+	enum DamageType: String, Codable {
 		case acid, fire, cold, thunder, poison, necrotic, radient, force, bludgeoning, piercing, slashing
 	}
 }

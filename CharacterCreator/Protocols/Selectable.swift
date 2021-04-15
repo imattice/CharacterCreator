@@ -20,45 +20,46 @@ extension Selectable {
 ///A flexible object that describes a selection
 struct Selection: Identifiable, Codable {
     ///The ID for the selection
-    let id: String
+    private(set)
+    var id: String = UUID().uuidString
     ///The number of selections that can be made
-    let count: Int
+    let limit: Int
     ///The available options to select from
     let options: [String]
     
-    internal init(count: Int, options: [String]) {
+    internal init(limit: Int, options: [String]) {
         self.id = UUID().uuidString
-        self.count = count
+        self.limit = limit
         self.options = options
     }
     
-//    static
-//    func decoded(from container: UnkeyedDecodingContainer) -> [Selection] {
-//        var mutableContainer = container
-//        var selections = [Selection]()
-//        while !mutableContainer.isAtEnd {
-//            do {
-//            let selectionContainer = try mutableContainer.nestedContainer(keyedBy: CodingKeys.self)
-//            let count = try selectionContainer.decode(Int.self, forKey: .selections)
-//            let options = try selectionContainer.decode([String].self, forKey: .options)
-//                selections.append(Selection(count: count, options: options))
-//            }
-//            catch {
-//                print(error)
-//            }
-//        }
-//        return selections
-//    }
+    static
+    func decoded(from container: UnkeyedDecodingContainer) -> [Selection] {
+        var mutableContainer = container
+        var selections = [Selection]()
+        while !mutableContainer.isAtEnd {
+            do {
+            let selectionContainer = try mutableContainer.nestedContainer(keyedBy: CodingKeys.self)
+            let limit = try selectionContainer.decode(Int.self, forKey: .limit)
+            let options = try selectionContainer.decode([String].self, forKey: .options)
+                selections.append(Selection(limit: limit, options: options))
+            }
+            catch {
+                print(error)
+            }
+        }
+        return selections
+    }
     
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        try container.encode(count, forKey: .selections)
-//        try container.encode(options, forKey: .options)
-//    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(limit, forKey: .limit)
+        try container.encode(options, forKey: .options)
+    }
     
-//    enum CodingKeys: String, CodingKey {
-//        case selections = "count", options
-//    }
+    enum CodingKeys: String, CodingKey {
+        case limit, options
+    }
 }
 
 class SelectionOption: Identifiable {

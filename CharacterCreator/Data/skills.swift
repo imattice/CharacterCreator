@@ -71,24 +71,24 @@ enum Skill: String {
 			self.init(rawValue: string)			}
 	}
 
-	func stat() -> StatType {
-		switch self {
-		case .athletics:
-			return .str
-
-		case .acrobatics, .slightOfHand, .stealth:
-			return .dex
-
-		case .arcana, .history, .investigation, .nature, .religion:
-			return .int
-
-		case .animalHandling, .insight, .medicine, .perception, .survival:
-			return .wis
-
-		case .deception, .intimidation, .performance, .persuasion:
-			return .cha
-		}
-	}
+//	func stat() -> StatType {
+//		switch self {
+//		case .athletics:
+//			return .str
+//
+//		case .acrobatics, .slightOfHand, .stealth:
+//			return .dex
+//
+//		case .arcana, .history, .investigation, .nature, .religion:
+//			return .int
+//
+//		case .animalHandling, .insight, .medicine, .perception, .survival:
+//			return .wis
+//
+//		case .deception, .intimidation, .performance, .persuasion:
+//			return .cha
+//		}
+//	}
 
 	func colors() -> [UIColor] {
 		switch self {

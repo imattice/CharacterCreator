@@ -562,7 +562,6 @@
 				8123670920CA44DA00F7AEFC /* Sources */,
 				8123670A20CA44DA00F7AEFC /* Frameworks */,
 				8123670B20CA44DA00F7AEFC /* Resources */,
-				819D371B20FACEC900986AFB /* New Relic dSYM Upload */,
 			);
 			buildRules = (
 			);
@@ -707,23 +706,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		819D371B20FACEC900986AFB /* New Relic dSYM Upload */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "New Relic dSYM Upload";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "SCRIPT=`/usr/bin/find \"${SRCROOT}\" -name newrelic_postbuild.sh | head -n 1`\n\n/bin/sh \"${SCRIPT}\" \"AAc5cd5fead1df73542320108549cfe7ac5f75a1cc\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8123670920CA44DA00F7AEFC /* Sources */ = {
