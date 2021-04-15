@@ -1,7 +1,7 @@
 [{
         "name": "barbarian",
         "description": "",
-        "hit_dice": 12,
+        "hitDie": 12,
         "proficiencies": [{
             "armor": ["light", "medium", "shield"],
             "weapons": ["simple", "martial"],
@@ -129,7 +129,7 @@
     {
         "name": "bard",
         "description": "",
-        "hit_dice": 8,
+        "hitDie": 8,
         "proficiencies": [{
             "armor": ["light"],
             "weapons": ["simple", "hand crossbow", "longsword", "rapier", "shortsword"],
@@ -275,7 +275,7 @@
     {
         "name": "cleric",
         "description": "",
-        "hit_dice": 8,
+        "hitDie": 8,
         "proficiencies": [{
             "armor": ["light", "medium", "shield"],
             "weapons": ["simple"],
@@ -396,7 +396,7 @@
     {
         "name": "druid",
         "description": "",
-        "hit_dice": 8,
+        "hitDie": 8,
         "proficiencies": [{
             "armor": ["light", "medium", "shield"],
             "weapons": ["clubs", "daggers", "darts", "javelins", "maces", "quarterstaffs", "scimitars", "sickles", "slings", "spears"],
@@ -515,7 +515,7 @@
     {
         "name": "fighter",
         "description": "",
-        "hit_dice": 10,
+        "hitDie": 10,
         "proficiencies": [{
             "armor": ["light", "medium", "heavy", "shield"],
             "weapons": ["simple", "martial"],
@@ -614,7 +614,7 @@
     {
         "name": "monk",
         "description": "",
-        "hit_dice": 8,
+        "hitDie": 8,
         "proficiencies": [{
             "weapons": ["simple", "shortsword"],
             "tools": {
@@ -762,7 +762,7 @@
     {
         "name": "paladin",
         "description": "",
-        "hit_dice": 10,
+        "hitDie": 10,
         "proficiencies": [{
             "armor": ["light", "medium", "heavy", "shield"],
             "weapons": ["simple", "martial"],
@@ -891,7 +891,7 @@
     {
         "name": "ranger",
         "description": "",
-        "hit_dice": 10,
+        "hitDie": 10,
         "proficiencies": [{
             "armor": ["light", "medium", "shield"],
             "weapons": ["simple", "martial"],
@@ -1016,7 +1016,7 @@
     {
         "name": "rogue",
         "description": "",
-        "hit_dice": 8,
+        "hitDie": 8,
         "proficiencies": [{
             "armor": ["light"],
             "weapons": ["simple", "hand crossbow", "longsword", "rapier", "shortsword"],
@@ -1154,7 +1154,7 @@
     {
         "name": "sorcerer",
         "description": "",
-        "hit_dice": 6,
+        "hitDie": 6,
         "proficiencies": [{
             "weapons": ["dagger", "darts", "slings", "quarterstaffs", "light crossbows"],
             "saving throws": ["con", "cha"],
@@ -1257,8 +1257,8 @@
     {
         "name": "warlock",
         "description": "",
-        "hit_dice": 8,
-        "proficiencies": [{
+        "hitDie": 8,
+        "proficiencies": {
             "armor": ["light"],
             "weapons": ["simple"],
             "saving throws": ["wis", "cha"],
@@ -1268,7 +1268,7 @@
                     "arcana", "deception", "history", "intimidation", "investigation", "nature", "religion"
                 ]
             }
-        }],
+        },
         "equipment": [{
                 "selections": 1,
                 "options": ["a light crossbow and 20 bolts", "any simple weapon"]
@@ -1359,7 +1359,7 @@
     {
         "name": "wizard",
         "description": "",
-        "hit_dice": 6,
+        "hitDie": 6,
         "proficiencies": [{
             "weapons": ["daggers", "darts", "slings", "quarterstaffs", "light crossbows"],
             "saving throws": ["int", "wis"],

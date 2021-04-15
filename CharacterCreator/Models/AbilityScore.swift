@@ -43,7 +43,7 @@ struct AbilityScore {
     ///the value that is applied to rolls attributed to this Ability Score
     var modifier: Int { value / 2 - 5 }
     
-    init(name: AbilityScore.Name, value: Int) {
+    init(name: Stat, value: Int) {
         self.name = name
         self.value = value
         self.rawValue = value

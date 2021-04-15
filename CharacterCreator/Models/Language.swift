@@ -14,17 +14,17 @@ struct Language {
     let isSelectable: Bool
     let source: Origin
     
-    var record: LanguageRecord? = LanguageRecord.record(for: name.lowercased())()
+//    var record: LanguageRecord? = LanguageRecord.record(for: name.lowercased())()
 
-    var spokenBy: String {
-        guard let record = LanguageRecord.record(for: name) else { return "" }
-        return record.spokenBy    }
-    var script: String {
-        guard let record = LanguageRecord.record(for: name) else { return "" }
-        return record.script    }
-    var isExotic: Bool {
-        guard let record = LanguageRecord.record(for: name) else { return true }
-        return record.isExotic    }
+//    var spokenBy: String {
+//        guard let record = LanguageRecord.record(for: name) else { return "" }
+//        return record.spokenBy    }
+//    var script: String {
+//        guard let record = LanguageRecord.record(for: name) else { return "" }
+//        return record.script    }
+//    var isExotic: Bool {
+//        guard let record = LanguageRecord.record(for: name) else { return true }
+//        return record.isExotic    }
 
     init(name: String, isSelectable: Bool = false, source: Origin) { //}, spokenBy: String, script: String, isRare: Bool) {
         self.name             = name
@@ -38,7 +38,7 @@ struct Language {
 }
 
 ///An object representing static data for a specific language
-struct LanguageRecord: Record, Customizable, Codable {
+struct LanguageRecord: Record, Codable {
     ///used to identify the record
     let id: String = UUID().uuidString
     ///the name of the language

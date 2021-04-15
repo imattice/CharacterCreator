@@ -13,5 +13,6 @@ enum Origin: String, Codable {
     case race,
          subrace,
          `class`,
+         subclass,
          background
 }

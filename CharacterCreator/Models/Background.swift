@@ -18,6 +18,7 @@ struct Background {
 }
 
 ///An object representing static data for a specific background
+final
 class BackgroundRecord: Record {
     ///The id for the background
     let id: String = UUID().uuidString

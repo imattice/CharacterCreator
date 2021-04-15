@@ -6,6 +6,7 @@
 //  Copyright © 2018 Ike Mattice. All rights reserved.
 //
 
+import Foundation
 //typealias Subrace = Race
 //
 //struct Race {

@@ -21,6 +21,7 @@
 		7F14188226275001008E6571 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14188126275001008E6571 /* Errors.swift */; };
 		7F141895262755AC008E6571 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141894262755AC008E6571 /* Origin.swift */; };
 		7F14189A262755F8008E6571 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141899262755F8008E6571 /* Selectable.swift */; };
+		7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A12627BB53008E6571 /* ClassTests.swift */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -77,7 +78,6 @@
 		81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDA022C2F62F0014597D /* DamageTests.swift */; };
 		81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDB122CD7DB70014597D /* SpellTests.swift */; };
 		81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B038CD22DD14AF0059AFC1 /* Effect.swift */; };
-		81B038D122DD14E00059AFC1 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B038D022DD14E00059AFC1 /* Calculation.swift */; };
 		81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A620F0813700B48195 /* SpellTableViewCell.swift */; };
 		81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BC72A720F0813700B48195 /* SpellTableViewCell.xib */; };
 		81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */; };
@@ -138,6 +138,7 @@
 		7F14188126275001008E6571 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		7F141894262755AC008E6571 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
 		7F141899262755F8008E6571 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
+		7F1418A12627BB53008E6571 /* ClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTests.swift; sourceTree = "<group>"; };
 		7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -201,7 +202,6 @@
 		81ACFDA022C2F62F0014597D /* DamageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTests.swift; sourceTree = "<group>"; };
 		81ACFDB122CD7DB70014597D /* SpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTests.swift; sourceTree = "<group>"; };
 		81B038CD22DD14AF0059AFC1 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
-		81B038D022DD14E00059AFC1 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		81BC72A620F0813700B48195 /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
 		81BC72A720F0813700B48195 /* SpellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellTableViewCell.xib; sourceTree = "<group>"; };
 		81BC72AC20F185ED00B48195 /* SpellSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionViewController.swift; sourceTree = "<group>"; };
@@ -389,6 +389,7 @@
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
 				81ACFDB122CD7DB70014597D /* SpellTests.swift */,
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
+				7F1418A12627BB53008E6571 /* ClassTests.swift */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";
@@ -530,7 +531,6 @@
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
-				81B038D022DD14E00059AFC1 /* Calculation.swift */,
 				7F1417E226210526008E6571 /* Feature.swift */,
 				7F141894262755AC008E6571 /* Origin.swift */,
 			);
@@ -745,7 +745,6 @@
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
-				81B038D122DD14E00059AFC1 /* Calculation.swift in Sources */,
 				8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */,
 				7F14186B262689A5008E6571 /* CompendiumView.swift in Sources */,
 				81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */,
@@ -799,6 +798,7 @@
 				8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */,
 				81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */,
 				81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */,
+				7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */,
 				81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */,
 				81A5E14B22C0277400A838CD /* LanguageDataTest.swift in Sources */,
 			);
