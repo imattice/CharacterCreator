@@ -23,6 +23,7 @@
 		7F14189A262755F8008E6571 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141899262755F8008E6571 /* Selectable.swift */; };
 		7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A12627BB53008E6571 /* ClassTests.swift */; };
 		7F1418A72627BE7E008E6571 /* CreatureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A62627BE7E008E6571 /* CreatureSize.swift */; };
+		7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418C026289EB6008E6571 /* RecordTests.swift */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -35,8 +36,6 @@
 		8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123671020CA44DA00F7AEFC /* AppDelegate.swift */; };
 		8123671920CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */; };
 		8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8123671A20CA44DD00F7AEFC /* Assets.xcassets */; };
-		8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */; };
-		8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */; };
 		8123673420CA44DD00F7AEFC /* CharacterCreatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */; };
 		81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81243E542279EFE0003A9DA8 /* WeaponStatView.swift */; };
 		81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81243E562279F022003A9DA8 /* WeaponStatView.xib */; };
@@ -61,8 +60,6 @@
 		81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */; };
 		81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */; };
 		81541A35227420C2002C7B72 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A34227420C2002C7B72 /* Language.swift */; };
-		81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3622754A52002C7B72 /* RaceClassTests.swift */; };
-		81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */; };
 		81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */; };
 		8178317620F7F9AE00BF9B03 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8178317520F7F9AE00BF9B03 /* UIColor.swift */; };
 		81851D5F2254721E00260413 /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81851D5E2254721E00260413 /* UITextView.swift */; };
@@ -75,9 +72,7 @@
 		819621E62268F33300A4DD3D /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819621E52268F33300A4DD3D /* UIResponder.swift */; };
 		819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819B065E20E7455300902D4E /* ModalTableViewController.swift */; };
 		819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */; };
-		81A5E14B22C0277400A838CD /* LanguageDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5E14A22C0277400A838CD /* LanguageDataTest.swift */; };
 		81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDA022C2F62F0014597D /* DamageTests.swift */; };
-		81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81ACFDB122CD7DB70014597D /* SpellTests.swift */; };
 		81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B038CD22DD14AF0059AFC1 /* Effect.swift */; };
 		81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BC72A620F0813700B48195 /* SpellTableViewCell.swift */; };
 		81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BC72A720F0813700B48195 /* SpellTableViewCell.xib */; };
@@ -141,7 +136,7 @@
 		7F141899262755F8008E6571 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		7F1418A12627BB53008E6571 /* ClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTests.swift; sourceTree = "<group>"; };
 		7F1418A62627BE7E008E6571 /* CreatureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSize.swift; sourceTree = "<group>"; };
-		7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
+		7F1418C026289EB6008E6571 /* RecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTests.swift; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		7FB8C598261E03FB0088A8E9 /* weapons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weapons.json; sourceTree = "<group>"; };
@@ -155,10 +150,8 @@
 		8123671020CA44DA00F7AEFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8123671820CA44DA00F7AEFC /* CharacterCreator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CharacterCreator.xcdatamodel; sourceTree = "<group>"; };
 		8123671A20CA44DD00F7AEFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8123671D20CA44DD00F7AEFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8123671F20CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8123672420CA44DD00F7AEFC /* CharacterCreatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorTests.swift; sourceTree = "<group>"; };
 		8123672A20CA44DD00F7AEFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8123672F20CA44DD00F7AEFC /* CharacterCreatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterCreatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8123673320CA44DD00F7AEFC /* CharacterCreatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreatorUITests.swift; sourceTree = "<group>"; };
@@ -186,8 +179,6 @@
 		81541A2F2273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveableLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		81541A3222742051002C7B72 /* LanguageSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionTableViewController.swift; sourceTree = "<group>"; };
 		81541A34227420C2002C7B72 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		81541A3622754A52002C7B72 /* RaceClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceClassTests.swift; sourceTree = "<group>"; };
-		81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundClassTests.swift; sourceTree = "<group>"; };
 		81541A3D2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaticLanguageLabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		8178317520F7F9AE00BF9B03 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		81851D5E2254721E00260413 /* UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
@@ -200,9 +191,7 @@
 		819621E52268F33300A4DD3D /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
 		819B065E20E7455300902D4E /* ModalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTableViewController.swift; sourceTree = "<group>"; };
 		819D371420F9BF4D00986AFB /* SpellSelectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSelectionHeaderView.swift; sourceTree = "<group>"; };
-		81A5E14A22C0277400A838CD /* LanguageDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDataTest.swift; sourceTree = "<group>"; };
 		81ACFDA022C2F62F0014597D /* DamageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamageTests.swift; sourceTree = "<group>"; };
-		81ACFDB122CD7DB70014597D /* SpellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTests.swift; sourceTree = "<group>"; };
 		81B038CD22DD14AF0059AFC1 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		81BC72A620F0813700B48195 /* SpellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellTableViewCell.swift; sourceTree = "<group>"; };
 		81BC72A720F0813700B48195 /* SpellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellTableViewCell.xib; sourceTree = "<group>"; };
@@ -372,10 +361,8 @@
 				8152B3D820D9F891008B7A1A /* Extensions */,
 				8178317420F7F99800BF9B03 /* Design */,
 				8123674120CA44EE00F7AEFC /* Data */,
-				8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */,
 				8123671F20CA44DD00F7AEFC /* Info.plist */,
 				8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */,
-				7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */,
 				7F14188126275001008E6571 /* Errors.swift */,
 			);
 			path = CharacterCreator;
@@ -384,14 +371,10 @@
 		8123672720CA44DD00F7AEFC /* CharacterCreatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				8123672820CA44DD00F7AEFC /* CharacterCreatorTests.swift */,
-				81541A3622754A52002C7B72 /* RaceClassTests.swift */,
-				81541A3A22754C77002C7B72 /* BackgroundClassTests.swift */,
-				81A5E14A22C0277400A838CD /* LanguageDataTest.swift */,
-				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
-				81ACFDB122CD7DB70014597D /* SpellTests.swift */,
-				8123672A20CA44DD00F7AEFC /* Info.plist */,
+				7F1418C026289EB6008E6571 /* RecordTests.swift */,
 				7F1418A12627BB53008E6571 /* ClassTests.swift */,
+				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
+				8123672A20CA44DD00F7AEFC /* Info.plist */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";
@@ -659,7 +642,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8123671E20CA44DD00F7AEFC /* LaunchScreen.storyboard in Resources */,
 				8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */,
 				7FB8C59E261E103B0088A8E9 /* items.json in Resources */,
 				7F1417CF2620F53D008E6571 /* backgrounds.json in Resources */,
@@ -781,12 +763,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
-				8123672920CA44DD00F7AEFC /* CharacterCreatorTests.swift in Sources */,
-				81ACFDB222CD7DB70014597D /* SpellTests.swift in Sources */,
-				81541A3722754A52002C7B72 /* RaceClassTests.swift in Sources */,
 				7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */,
-				81541A3B22754C77002C7B72 /* BackgroundClassTests.swift in Sources */,
-				81A5E14B22C0277400A838CD /* LanguageDataTest.swift in Sources */,
+				7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,17 +790,6 @@
 			targetProxy = 8123673020CA44DD00F7AEFC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		8123671C20CA44DD00F7AEFC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8123671D20CA44DD00F7AEFC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8123673620CA44DD00F7AEFC /* Debug */ = {
@@ -958,7 +925,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -981,7 +947,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ikemattice.CharacterCreator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CharacterCreator/CharacterCreator-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};

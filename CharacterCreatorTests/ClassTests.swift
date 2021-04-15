@@ -8,39 +8,41 @@
 
 import XCTest
 
+@testable import CharacterCreator
+
 class ClassTests: XCTestCase {
-    func testDecodingSelections() {
-        let json = """
-{
-            "equipment": [{
-        "selections": 1,
-        "options": ["a light crossbow and 20 bolts", "any simple weapon"]
-    },
-    {
-        "selections": 1,
-        "options": ["a component pouch", "an arcane focus"]
-    },
-    {
-        "selections": 1,
-        "options": ["a scholar’s pack", "a dungeoneer’s pack"]
-    },
-    {
-        "selections": 1,
-        "options": ["leather armor"]
-    },
-    {
-        "selections": 1,
-        "options": ["any simple weapon"]
-    },
-    {
-        "selections": 1,
-        "options": ["two daggers"]
-    }
-]}
-""".data(using: .utf16)
-        
-        dump(try? JSONDecoder().decode([Selection], from: json))
-    }
+//    func testDecodingSelections() {
+//        let json = """
+//{
+//            "equipment": [{
+//        "selections": 1,
+//        "options": ["a light crossbow and 20 bolts", "any simple weapon"]
+//    },
+//    {
+//        "selections": 1,
+//        "options": ["a component pouch", "an arcane focus"]
+//    },
+//    {
+//        "selections": 1,
+//        "options": ["a scholar’s pack", "a dungeoneer’s pack"]
+//    },
+//    {
+//        "selections": 1,
+//        "options": ["leather armor"]
+//    },
+//    {
+//        "selections": 1,
+//        "options": ["any simple weapon"]
+//    },
+//    {
+//        "selections": 1,
+//        "options": ["two daggers"]
+//    }
+//]}
+//""".data(using: .utf16)
+//        
+//        dump(try? JSONDecoder().decode([Selection], from: json ?? <#default value#>))
+//    }
     
     func testDecodingClass() throws {
         
