@@ -9,6 +9,7 @@
 import Foundation
 
 ///An object holding data for spells
+final
 class SpellRecord: Record {
     ///An id for the spell
     let id: String = UUID().uuidString

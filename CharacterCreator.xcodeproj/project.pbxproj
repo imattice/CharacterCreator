@@ -22,6 +22,7 @@
 		7F141895262755AC008E6571 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141894262755AC008E6571 /* Origin.swift */; };
 		7F14189A262755F8008E6571 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141899262755F8008E6571 /* Selectable.swift */; };
 		7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A12627BB53008E6571 /* ClassTests.swift */; };
+		7F1418A72627BE7E008E6571 /* CreatureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A62627BE7E008E6571 /* CreatureSize.swift */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -139,6 +140,7 @@
 		7F141894262755AC008E6571 /* Origin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
 		7F141899262755F8008E6571 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		7F1418A12627BB53008E6571 /* ClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTests.swift; sourceTree = "<group>"; };
+		7F1418A62627BE7E008E6571 /* CreatureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSize.swift; sourceTree = "<group>"; };
 		7FB8C56F261D1A6C0088A8E9 /* CharacterCreator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharacterCreator-Bridging-Header.h"; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
 				7F1417E226210526008E6571 /* Feature.swift */,
 				7F141894262755AC008E6571 /* Origin.swift */,
+				7F1418A62627BE7E008E6571 /* CreatureSize.swift */,
 			);
 			path = "Gameplay Objects";
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81DC8E4221080E9E002F6AE4 /* String.swift in Sources */,
+				7F1418A72627BE7E008E6571 /* CreatureSize.swift in Sources */,
 				81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */,
 				81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */,
 				7F14185D26268938008E6571 /* App.swift in Sources */,
