@@ -7,17 +7,26 @@
 //
 import Foundation
 
+//MARK: - Modifier
 ///holds attributes that affect other character attributes
 class Modifier: Codable, Identifiable {
     ///an id for the modifier
-    let id: String
+    private(set)
+    var id: String = UUID().uuidString
     ///the source of the modifier
     let origin: Origin
     
     init(origin: Origin) {
-        self.id = UUID().uuidString
+       // self.id = UUID().uuidString
         self.origin = origin
     }
+    
+    required init(from decoder: Decoder) throws {
+        let container       = try decoder.container(keyedBy: CodingKeys.self)
+        self.origin         = Origin(rawValue: try container.decode(String.self, forKey: .origin))!
+    }
+    
+    enum CodingKeys: CodingKey { case origin }
 }
 
 
@@ -25,30 +34,22 @@ class Modifier: Codable, Identifiable {
 ///holds attributes that affect ability scores
 class AbilityScoreModifier: Modifier, Hashable {
     ///the score to be adjusted
-    let abilityScore: Stat
+    let stat: Stat
     ///how much the score should be affected
     let value: Int
-    ///if the score should increase or decrease
-    let adjustment: Adjustment
-    ///if this adjustement can be removed at a later time
-    let isTemporary: Bool
     
     required
     init(from decoder: Decoder) throws {
         let container       = try decoder.container(keyedBy: CodingKeys.self)
-        self.abilityScore   = Stat(rawValue: try container.decode(String.self, forKey: .abilityScore))!
+        self.stat           = Stat(rawValue: try container.decode(String.self, forKey: .stat))!
         self.value          = try container.decode(Int.self, forKey: .value)
-        self.adjustment     = Adjustment(rawValue: try (container.decodeIfPresent(String.self, forKey: CodingKeys.adjustment) ?? "increase"))!
-        self.isTemporary    = try container.decode(Bool.self, forKey: CodingKeys.adjustment)
         
         try super.init(from: decoder)
     }
     
-    init(name: Stat, value: Int, adjustment: Adjustment = .increase, isTemp: Bool = false, origin: Origin) {
-        self.abilityScore    = name
+    init(name: Stat, value: Int, isTemp: Bool = false, origin: Origin) {
+        self.stat    = name
         self.value           = value
-        self.adjustment      = adjustment
-        self.isTemporary     = isTemp
     
         super.init(origin: origin)
     }
@@ -67,23 +68,15 @@ class AbilityScoreModifier: Modifier, Hashable {
     }
 //MARK: -- Hashable
     static func == (lhs: AbilityScoreModifier, rhs: AbilityScoreModifier) -> Bool {
-        return lhs.abilityScore == rhs.abilityScore &&
-            lhs.value == rhs.value &&
-            lhs.adjustment == rhs.adjustment &&
-            lhs.isTemporary == rhs.isTemporary
+        return lhs.id == rhs.id
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(abilityScore)
-        hasher.combine(value)
-        hasher.combine(adjustment)
-        hasher.combine(isTemporary)
+        hasher.combine(id)
     }
     
-    enum Adjustment: String {
-        case increase, decrease }
     enum CodingKeys: CodingKey {
-        case abilityScore, value, adjustment, isTemporary       }
+        case stat, value, origin       }
 }
 
 
