@@ -193,7 +193,6 @@ class Race {
         guard let index = selectedLanguages.firstIndex(where: { $0.name == language.name }) else { return }
         selectedLanguages.remove(at: index)
     }
-    
 }
 
 ///An object representing static data for a specific race
@@ -328,10 +327,6 @@ class SubraceRecord: Record, Codable {
         try container.encode(features, forKey: .features)
         try container.encode(modifiers, forKey: .modifiers)
     }
-    
-//    static func subraces(for parent: String) -> [SubraceRecord] {
-//        return SubraceRecord.all().filter { $0.parent.lowercased() == parent.lowercased() }
-//    }
 
     enum CodingKeys: CodingKey {
         case parent, name, description, abilityScoreIncrease, features, modifiers

@@ -14,19 +14,15 @@ class Modifier: Codable, Identifiable {
     private(set)
     var id: String = UUID().uuidString
     ///the source of the modifier
-    var origin: Origin
+    var origin: Origin? = nil
     
     init(origin: Origin) {
-       // self.id = UUID().uuidString
         self.origin = origin
     }
     
     required init(from decoder: Decoder) throws {
-        let container       = try decoder.container(keyedBy: CodingKeys.self)
-        self.origin         = Origin(rawValue: try container.decode(String.self, forKey: .origin))!
+        self.id = UUID().uuidString
     }
-    
-    enum CodingKeys: CodingKey { case origin }
 }
 
 
@@ -76,7 +72,7 @@ class AbilityScoreModifier: Modifier, Hashable {
     }
     
     enum CodingKeys: CodingKey {
-        case stat, value, origin       }
+        case stat, value       }
 }
 
 

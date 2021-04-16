@@ -10,48 +10,22 @@ import XCTest
 @testable import CharacterCreator
 
 class RecordTests: XCTestCase {
-    func testRace() throws {
-        let races = try RaceRecord.parseAllFromJSON()
-        XCTAssertFalse(races.isEmpty)
-        
-        guard let dwarf = races.filter({ $0.name == "dwarf" }).first else { XCTFail(); return }
-
-        XCTAssertTrue(dwarf.name == "dwarf")
-        XCTAssertTrue(dwarf.description.starts(with: "Stout and stubborn, a dwarf is"))
-        
-        let descriptive = dwarf.descriptive
-        XCTAssertTrue(descriptive.age.starts(with: "Dwarves mature at the same"))
-        XCTAssertTrue(descriptive.alignment.starts(with: "Most dwarves are lawful"))
-        XCTAssertTrue(descriptive.physique.starts(with: "Dwarves stand between 4 and 5 feet"))
-
-        XCTAssertTrue(dwarf.size == .medium)
-        XCTAssertTrue(dwarf.hasDarkvision == true)
-        
-        let modifiers = dwarf.modifiers.ofType(AbilityScoreModifier.self)
-        XCTAssertTrue(modifiers.count == 1)
-
-        let conModifier = modifiers.first!
-        XCTAssertTrue(conModifier.stat == .con)
-        XCTAssertTrue(conModifier.value == 2)
-        
-        XCTAssertTrue(dwarf.features.count == 4)
-        XCTAssert(dwarf.baseLanguages.contains { $0.name == "common"})
-        XCTAssert(dwarf.baseLanguages.contains { $0.name == "dwarvish"})
-        
-        guard let halfElf = races.filter({ $0.name == "half-elf" }).first else { XCTFail(); return }
-        
-        XCTAssert(halfElf.baseLanguages.contains { $0.name == "elvish"})
-        XCTAssert(halfElf.baseLanguages.contains { $0.name == "common"})
-        XCTAssert(halfElf.baseLanguages.contains { $0.name == "choice"})
-        
-        guard let human = races.filter({ $0.name == "human" }).first else { XCTFail(); return }
-        
-        XCTAssert(human.baseLanguages.contains { $0.name == "choice"})
-        
-        XCTAssertEqual(races.count, 9)
+    func testAll() {
+        let races = RaceRecord.all()
+        XCTAssertTrue(races.count == 9)
     }
     
-    func testSingularInstanceJSON() {
+    func testSubraceInitialization() {
+        let races = RaceRecord.all()
+        guard let dwarf = races.filter({ $0.name == "dwarf" }).first,
+              let subrace = dwarf.subraces,
+              let hillDwarf = subrace.first
+        else { XCTFail(); return }
+        
+        XCTAssertTrue(hillDwarf.name == "hill dwarf")
+    }
+    
+    func testRaceSingularInstanceJSON() {
         let data = """
             [{
                     "name": "dwarf",
@@ -105,7 +79,6 @@ class RecordTests: XCTestCase {
         
         do {
             let record = try JSONDecoder().decode([RaceRecord].self, from: data)
-            //dump(record)
             XCTAssertFalse(record.isEmpty)
         }
         catch {
