@@ -14,7 +14,7 @@ class Modifier: Codable, Identifiable {
     private(set)
     var id: String = UUID().uuidString
     ///the source of the modifier
-    let origin: Origin
+    var origin: Origin
     
     init(origin: Origin) {
        // self.id = UUID().uuidString
@@ -55,17 +55,17 @@ class AbilityScoreModifier: Modifier, Hashable {
     }
     
     ///decodes an Unkeyed JSON decoding container into an array of AbilityScoreModifiers
-    static
-    func decoded(from container: KeyedDecodingContainer<Stat>) -> [AbilityScoreModifier] {
-        var modifiers = [AbilityScoreModifier]()
-        for key in Stat.allCases {
-            guard let value = try? container.decodeIfPresent(Int.self, forKey: key)
-            else { continue }
-            modifiers.append(AbilityScoreModifier(name: key, value: value, origin: .race))
-        }
-        
-        return modifiers
-    }
+//    static
+//    func decoded(from container: KeyedDecodingContainer<Stat>) -> [AbilityScoreModifier] {
+//        var modifiers = [AbilityScoreModifier]()
+//        for key in Stat.allCases {
+//            guard let value = try? container.decodeIfPresent(Int.self, forKey: key)
+//            else { continue }
+//            modifiers.append(AbilityScoreModifier(name: key, value: value, origin: .race))
+//        }
+//
+//        return modifiers
+//    }
 //MARK: -- Hashable
     static func == (lhs: AbilityScoreModifier, rhs: AbilityScoreModifier) -> Bool {
         return lhs.id == rhs.id

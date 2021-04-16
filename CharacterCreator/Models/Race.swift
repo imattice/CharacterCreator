@@ -245,19 +245,11 @@ class RaceRecord: Record, Codable, Identifiable {
         
         self.speed          = try container.decode(Int.self, forKey: .speed)
         
-//        var modifiers = [AbilityScoreModifier]()
-//        for key in Stat.allCases {
-//            guard let value = try? container.decodeIfPresent(Int.self, forKey: key)
-//            else { continue }
-//            modifiers.append(AbilityScoreModifier(name: key, value: value, origin: .race))
-//        }
         self.modifiers      = try container.decode([AbilityScoreModifier].self, forKey: .abilityScoreModifiers)
+        modifiers.forEach { $0.origin = .race }
         
-//        let statModifierContainer = try container.nestedContainer(keyedBy: Stat.self, forKey: .abilityScoreModifiers)
-//        self.modifiers      = AbilityScoreModifier.decoded(from: statModifierContainer)
-        
-        let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
-        self.features       = Feature.decoded(from: featureContainer, source: .race)
+        self.features       = try container.decode([Feature].self, forKey: .features)
+        features.forEach { $0.origin = .race}
     
         let languageStrings = try container.decode([String].self, forKey: .baseLanguages)
         self.baseLanguages  = languageStrings.map {
@@ -302,8 +294,6 @@ final
 class SubraceRecord: Record, Codable {
     ///used to identify the record
     let id: String = UUID().uuidString
-    ///the race that this subrace inherits from
-//    let parent: String
     ///the name of the subrace
     var name: String
     ///a  paragraph containing descriptive details about the subrace
@@ -324,13 +314,12 @@ class SubraceRecord: Record, Codable {
         self.description    = try container.decode(String.self, forKey: .description)
        
         self.modifiers       = try container.decodeIfPresent([AbilityScoreModifier].self, forKey: .abilityScoreIncrease) ?? [Modifier]()
+        modifiers.forEach { $0.origin = .subrace }
 
-//        let statModifierContainer = try container.nestedContainer(keyedBy: Stat.self, forKey: .statIncrease)
-//        self.modifiers      = AbilityScoreModifier.decoded(from: statModifierContainer)
-
-        let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
-        self.features       = Feature.decoded(from: featureContainer, source: .subrace)
+        self.features       = try container.decode([Feature].self, forKey: .features)
+        features.forEach { $0.origin = .subrace}
     }
+
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)

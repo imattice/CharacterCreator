@@ -28,7 +28,6 @@
         "abilityScoreModifiers": [{
             "stat": "con",
             "value": 2,
-            "origin": "race"
         }],
         "baseLanguages": [
             "common",
@@ -40,7 +39,6 @@
             "abilityScoreModifiers": [{
                 "stat": "wis",
                 "value": 1,
-                "origin": "subrace"
             }],
             "features": [{
                 "title": "Dwarven Toughness",
@@ -73,7 +71,6 @@
         "abilityScoreModifiers": [{
             "stat": "dex",
             "value": 2,
-            "origin": "race"
         }],
         "baseLanguages": [
             "common",
@@ -85,7 +82,6 @@
             "abilityScoreModifiers": [{
                 "stat": "int",
                 "value": 1,
-                "origin": "subrace"
             }],
             "features": [{
                     "title": "Elf Weapon Training",
@@ -128,7 +124,6 @@
         "abilityScoreModifiers": [{
             "stat": "dex",
             "value": 2,
-            "origin": "race"
         }],
         "baseLanguages": [
             "common",
@@ -140,7 +135,6 @@
             "abilityScoreModifiers": [{
                 "stat": "cha",
                 "value": 1,
-                "origin": "subrace"
             }],
             "features": [{
                 "title": "Naturally Stealthy",
@@ -162,32 +156,26 @@
         "abilityScoreModifiers": [{
                 "stat": "str",
                 "value": 1,
-                "origin": "race"
             },
             {
                 "stat": "con",
                 "value": 1,
-                "origin": "race"
             },
             {
                 "stat": "dex",
                 "value": 1,
-                "origin": "race"
             },
             {
                 "stat": "cha",
                 "value": 1,
-                "origin": "race"
             },
             {
                 "stat": "wis",
                 "value": 1,
-                "origin": "race"
             },
             {
                 "stat": "int",
                 "value": 1,
-                "origin": "race"
             }
         ],
         "baseLanguages": [
@@ -220,12 +208,10 @@
         "abilityScoreModifiers": [{
                 "stat": "str",
                 "value": 2,
-                "origin": "race"
             },
             {
                 "stat": "cha",
                 "value": 1,
-                "origin": "race"
             }
         ],
         "baseLanguages": [
@@ -249,7 +235,6 @@
         "abilityScoreModifiers": [{
             "stat": "int",
             "value": 2,
-            "origin": "race"
         }],
         "baseLanguages": [
             "common",
@@ -261,7 +246,6 @@
             "abilityScoreModifiers": [{
                 "stat": "con",
                 "value": 1,
-                "origin": "race"
             }],
             "features": [{
                     "title": "Artificer’s Lore",
@@ -303,7 +287,6 @@
         "abilityScoreModifiers": [{
             "stat": "cha",
             "value": 2,
-            "origin": "race"
         }],
         "baseLanguages": [
             "common",
@@ -336,11 +319,9 @@
         "abilityScoreModifiers": [{
             "stat": "str",
             "value": 2,
-            "origin": "race"
         }, {
             "stat": "con",
             "value": 1,
-            "origin": "race"
         }],
         "baseLanguages": [
             "common",
@@ -368,11 +349,9 @@
         "abilityScoreModifiers": [{
             "stat": "cha",
             "value": 2,
-            "origin": "race"
         }, {
             "stat": "int",
             "value": 1,
-            "origin": "race"
         }],
         "baseLanguages": [
             "common",
