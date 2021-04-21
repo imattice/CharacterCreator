@@ -24,6 +24,9 @@
 		7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A12627BB53008E6571 /* ClassTests.swift */; };
 		7F1418A72627BE7E008E6571 /* CreatureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A62627BE7E008E6571 /* CreatureSize.swift */; };
 		7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418C026289EB6008E6571 /* RecordTests.swift */; };
+		7F141932262A45E7008E6571 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141931262A45E7008E6571 /* AttributedText.swift */; };
+		7F14193F262A7D0D008E6571 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */; };
+		7F141944262B6B2B008E6571 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141943262B6B2B008E6571 /* Print.swift */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -137,6 +140,9 @@
 		7F1418A12627BB53008E6571 /* ClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTests.swift; sourceTree = "<group>"; };
 		7F1418A62627BE7E008E6571 /* CreatureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSize.swift; sourceTree = "<group>"; };
 		7F1418C026289EB6008E6571 /* RecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTests.swift; sourceTree = "<group>"; };
+		7F141931262A45E7008E6571 /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
+		7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
+		7F141943262B6B2B008E6571 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		7FB8C598261E03FB0088A8E9 /* weapons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weapons.json; sourceTree = "<group>"; };
@@ -274,6 +280,8 @@
 			children = (
 				7F14185C26268938008E6571 /* App.swift */,
 				7F14186A262689A5008E6571 /* CompendiumView.swift */,
+				7F141931262A45E7008E6571 /* AttributedText.swift */,
+				7F141943262B6B2B008E6571 /* Print.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -375,6 +383,7 @@
 				7F1418A12627BB53008E6571 /* ClassTests.swift */,
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
+				7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";
@@ -710,6 +719,7 @@
 				810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */,
 				81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */,
 				7F14189A262755F8008E6571 /* Selectable.swift in Sources */,
+				7F141944262B6B2B008E6571 /* Print.swift in Sources */,
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
@@ -732,6 +742,7 @@
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81851D5F2254721E00260413 /* UITextView.swift in Sources */,
+				7F141932262A45E7008E6571 /* AttributedText.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
 				81851D612254725C00260413 /* UITextField.swift in Sources */,
@@ -762,6 +773,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F14193F262A7D0D008E6571 /* StringExtensionTests.swift in Sources */,
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
 				7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */,
 				7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */,
