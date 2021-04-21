@@ -66,7 +66,7 @@
 //		if spell.components.contains(.verbal) 	{ componentString += "• Verbal "				}
 //		if spell.components.contains(.somatic) 	{ componentString += "• Somatic "				}
 //		if spell.components.contains(.material) { componentString += "• Material "
-//												  componentString += "•\n(\(spell.materials!.capitalized))"	}
+//												  componentString += "•\\n(\(spell.materials!.capitalized))"	}
 //		else {									  componentString += "•"						}
 //		componentLabel.text			= componentString
 //

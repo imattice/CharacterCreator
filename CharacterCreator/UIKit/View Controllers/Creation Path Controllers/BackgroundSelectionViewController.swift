@@ -111,7 +111,7 @@
 //		func itemString() -> String {
 //			var result = ""
 //			for item in items {
-//				result += "• \(item.capitalized) \n"
+//				result += "• \(item.capitalized) \\n"
 //			}
 //			return result.replacingLastOccurrenceOfString(",", with: "").trimmingCharacters(in: .whitespaces).capitalized
 //		}

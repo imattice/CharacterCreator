@@ -57,7 +57,7 @@
 //	override func config() {
 //		classImageView.image	= UIImage(named: Character.current.class.base)
 //		nameLabel.text			= Character.current.class.name()
-//		detailLabel.text		= "\(Character.current.class.baseDescription())\n\n\(Character.current.class.pathDescription())"
+//		detailLabel.text		= "\(Character.current.class.baseDescription())\n\\n\(Character.current.class.pathDescription())"
 //
 //		super.config()
 //	}
@@ -220,7 +220,7 @@
 //			armorText	= armor.name.capitalized									}
 //
 //		if Character.current.items.contains(where: { $0.type == .shield }) {
-//			armorText	+= "\n+ Shield"										}
+//			armorText	+= "\\n+ Shield"										}
 //
 //		acValueLabel.text	= String(Character.current.armorClass())
 //		armorLabel.text		= armorText
@@ -231,13 +231,13 @@
 //		var itemText 	= ""
 //
 //		for item in items {
-//		itemText += "• \(item.name.capitalized)\n"  }
+//		itemText += "• \(item.name.capitalized)\\n"  }
 //
 //		if let pack = Character.current.items.filter( { $0.type == .pack }).first as? Pack {
-//			itemText += "• A \(pack.name.capitalized)\n containing:"
+//			itemText += "• A \(pack.name.capitalized)\\n containing:"
 //
 //			for item in pack.contents {
-//				itemText += "\n     • \(item)"
+//				itemText += "\\n     • \(item)"
 //			}
 //		}
 //
