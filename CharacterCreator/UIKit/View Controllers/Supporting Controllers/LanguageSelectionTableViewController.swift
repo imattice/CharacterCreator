@@ -136,7 +136,7 @@
 //			var result = "Often spoken by \(languageRecord.spokenBy.lowercased())"
 //
 //			if languageRecord.script != "-" {
-//				result.append("\\nWritten in \(languageRecord.script) script")	}
+//				result.append("\nWritten in \(languageRecord.script) script")	}
 //
 //			return result
 //		}()
@@ -196,7 +196,7 @@
 //		case 0:
 //			return "Common languages"
 //		case 1:
-//			return "Rare languages\\n(Talk to your DM before selecting one of these languages.)"
+//			return "Rare languages\n(Talk to your DM before selecting one of these languages.)"
 //		default:
 //			return ""
 //		}
