@@ -20,7 +20,20 @@ class RecordTests: XCTestCase {
         let backgrounds = BackgroundRecord.all()
         XCTAssertEqual(backgrounds.count, 1)
 
-
+        let items = ItemRecord.all()
+        XCTAssertEqual(items.count, 100)
+        let weapons = WeaponRecord.all()
+        XCTAssertEqual(weapons.count, 36)
+        let armor = ArmorRecord.all()
+        XCTAssertEqual(armor.count, 13)
+        let shields = ShieldRecord.all()
+        XCTAssertEqual(shields.count, 1)
+        
+        let packs = PackRecord.all()
+        XCTAssertEqual(packs.count, 7)
+        
+        let tools = ToolRecord.all()
+        XCTAssertEqual(tools.count, 35)
     }
     
     func testSubraceInitialization() {

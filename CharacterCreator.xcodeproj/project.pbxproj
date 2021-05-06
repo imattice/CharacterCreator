@@ -293,8 +293,8 @@
 				7FB8C588261D4D760088A8E9 /* races.json */,
 				7F1417E7262374D3008E6571 /* classes.json */,
 				7F1417CE2620F53D008E6571 /* backgrounds.json */,
-				7FB8C598261E03FB0088A8E9 /* weapons.json */,
 				7FB8C59D261E103A0088A8E9 /* items.json */,
+				7FB8C598261E03FB0088A8E9 /* weapons.json */,
 				7FB8C5A2261E52330088A8E9 /* armors.json */,
 				7F141794261E7EE8008E6571 /* shields.json */,
 				7F1417A1261E904B008E6571 /* packs.json */,
@@ -404,10 +404,10 @@
 				8152B3C620D9D340008B7A1A /* Race.swift */,
 				8152B3C420D9D337008B7A1A /* Class.swift */,
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
+				81DF302B213C5D6A00C939CE /* Item.swift */,
 				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
 				81541A34227420C2002C7B72 /* Language.swift */,
-				81DF302B213C5D6A00C939CE /* Item.swift */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
 			);
 			path = Models;
