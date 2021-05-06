@@ -34,6 +34,9 @@ class RecordTests: XCTestCase {
         
         let tools = ToolRecord.all()
         XCTAssertEqual(tools.count, 35)
+        
+        let spells = SpellRecord.all()
+        XCTAssertEqual(spells.count, 318)
     }
     
     func testSubraceInitialization() {

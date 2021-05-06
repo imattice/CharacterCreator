@@ -405,8 +405,8 @@
 				8152B3C420D9D337008B7A1A /* Class.swift */,
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
 				81DF302B213C5D6A00C939CE /* Item.swift */,
-				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
+				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
 				81541A34227420C2002C7B72 /* Language.swift */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
 			);

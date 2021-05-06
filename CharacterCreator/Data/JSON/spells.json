@@ -2155,7 +2155,7 @@
     {
         "name": "hallucinatroy terrain",
         "level": 4,
-        "school": "illusions",
+        "school": "illusion",
         "castTime": 600,
         "range": 300,
         "components": "vsm",
@@ -3120,7 +3120,7 @@
     {
         "name": "etherealness",
         "level": 7,
-        "school": "transmuation",
+        "school": "transmutation",
         "castTime": 6,
         "range": 0,
         "components": "vs",
