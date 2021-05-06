@@ -8,14 +8,21 @@
 
 import Foundation
 
-struct Item: Codable{
+struct Item: Codable {
     let name: String
-    var count: Int
+    var count: Int = 1
 
     internal init(name: String, count: Int) {
         self.name = name
         self.count = count
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.count  = try container.decodeIfPresent(Int.self, forKey: .count) ?? 1
+    }
+    
 }
 
 //MARK: - Object Record

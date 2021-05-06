@@ -16,6 +16,10 @@ class RecordTests: XCTestCase {
         
         let classes = ClassRecord.all()
         XCTAssertEqual(classes.count, 12)
+        
+        let backgrounds = BackgroundRecord.all()
+        XCTAssertEqual(backgrounds.count, 1)
+
 
     }
     
