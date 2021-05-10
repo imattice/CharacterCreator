@@ -122,8 +122,7 @@ class SubclassRecord: Record, Codable {
         self.name           = try container.decode(String.self, forKey: .name)
         self.description    = try container.decode(String.self, forKey: .description)
         
-        let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
-        self.features       = Feature.decoded(from: featureContainer, source: .subclass)
+        self.features       = try container.decode([Feature].self, forKey: .features)
     }
     
     func encode(to encoder: Encoder) throws {
