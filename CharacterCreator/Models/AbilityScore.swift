@@ -9,7 +9,7 @@
 import Foundation
 
 ///Contains all valid options for Ability Scores
-enum Stat: String, CaseIterable, CodingKey {
+enum Stat: String, CaseIterable, CodingKey, Codable {
     case str, con, dex, cha, wis, int
     
     ///returns a lowercased string for the name of the Ability Score
@@ -33,7 +33,7 @@ enum Stat: String, CaseIterable, CodingKey {
 }
 
 ///The score for a particular stat
-struct AbilityScore: Hashable {
+struct AbilityScore: Hashable, Codable {
     ///the name of the ability score
     let name: Stat
     ///the value of the attribute after modifiers have been applied

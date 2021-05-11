@@ -63,7 +63,7 @@ struct CreatureRecord: Record {
     ///Describes the equiptment for this creature
     let equipment: String
     ///Contains any legendary actions for this creature
-    let legendaryActions: [Action]
+    let legendaryAbilities: LegendaryAbilities?
 
     var proficiencyBonus: Int {
        return Int((Double(challengeRating) / 4.0).rounded(.up)) + 1
@@ -77,7 +77,7 @@ struct CreatureRecord: Record {
         let swim: Int?
     }
     
-    struct LegendaryAbilities {
+    struct LegendaryAbilities: Codable {
         let maxActions: Int
         let actions: [LegendaryAction]
     }
