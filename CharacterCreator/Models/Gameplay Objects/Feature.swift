@@ -12,8 +12,7 @@ import Foundation
 /// descrbes unique feature that will affect gameplay
 class Feature: Codable, Identifiable {
     ///the id of the feature
-    private(set)
-    var id: String = UUID().uuidString
+    let id: String = UUID().uuidString
     ///the title of the feature
     let title: String
     ///a paragraph describing the feature's effects
@@ -30,43 +29,13 @@ class Feature: Codable, Identifiable {
         self.origin         = origin
     }
     
-    required init(from decoder: Decoder) throws {
+    required
+    init(from decoder: Decoder) throws {
         let container       = try decoder.container(keyedBy: CodingKeys.self)
         self.title          = try container.decode(String.self, forKey: .title)
         self.description    = try container.decode(String.self, forKey: .description)
         self.level          = try container.decodeIfPresent(Int.self, forKey: .level)
     }
-    
-    
-    
-    /// Decodes an Unkeyed JSON decoding container into an array of Features
-    /// - Parameters:
-    ///   - container: An UnkeyedDecodingContainer from Decoded JSON
-    ///   - source: The Source of the data, such as from a particular Race or Class
-    /// - Returns: Returns an array of decoded Features
-    static
-    func decoded(from container: UnkeyedDecodingContainer, source: Origin) -> [Feature] {
-        var mutableContainer = container
-        var features = [Feature]()
-        while !mutableContainer.isAtEnd {
-            do {
-                let feature = try mutableContainer.nestedContainer(keyedBy: CodingKeys.self)
-                
-                let title = try feature.decode(String.self, forKey: .title)
-                let description = try feature.decode(String.self, forKey: .description)
-                let level = try feature.decodeIfPresent(Int.self, forKey: .level)
-                
-                features.append(Feature(title: title, description: description, level: level, origin: source))
-            } catch {
-                print(error)
-            }
-        }
-        return features
-    }
-
-//    enum FeatureCodingKeys: CodingKey {
-//        case title, description, level
-//    }
 }
 
 //MARK: - SelectableFeature

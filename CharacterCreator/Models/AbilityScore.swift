@@ -33,7 +33,7 @@ enum Stat: String, CaseIterable, CodingKey {
 }
 
 ///The score for a particular stat
-struct AbilityScore {
+struct AbilityScore: Hashable {
     ///the name of the ability score
     let name: Stat
     ///the value of the attribute after modifiers have been applied
@@ -55,3 +55,16 @@ struct AbilityScore {
         value = rawValue
     }
 }
+
+//struct StatBlock {
+//    private
+//    let scores: [AbilityScore]
+//    
+//    let str: AbilityScore
+//    let con: AbilityScore
+//    let dex: AbilityScore
+//    let cha: AbilityScore
+//    let int: AbilityScore
+//    let wis: AbilityScore
+//    
+//}

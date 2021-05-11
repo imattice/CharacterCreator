@@ -6,9 +6,7 @@
 //  Copyright © 2021 Ike Mattice. All rights reserved.
 //
 
-//import Foundation
-
 ///all options for sizes of creatures
-enum CreatureSize: String {
+enum CreatureSize: String, Codable {
     case tiny, small, medium, large, huge, gargantuan
 }

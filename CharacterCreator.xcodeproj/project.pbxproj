@@ -386,8 +386,8 @@
 				7F1418C026289EB6008E6571 /* RecordTests.swift */,
 				7F1418A12627BB53008E6571 /* ClassTests.swift */,
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
-				8123672A20CA44DD00F7AEFC /* Info.plist */,
 				7FFE87FF2649E25500465809 /* DieTests.swift */,
+				8123672A20CA44DD00F7AEFC /* Info.plist */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";
