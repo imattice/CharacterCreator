@@ -10,11 +10,11 @@ import Foundation
 
 ///Describes an action that can be used in combat
 class Action: Codable {
-    let name: String
+    let title: String
     let description: String
     
-    init(name: String, description: String) {
-        self.name = name
+    init(title: String, description: String) {
+        self.title = title
         self.description = description
     }
 }
@@ -22,16 +22,16 @@ class Action: Codable {
 class LegendaryAction: Action {
     let cost: Int
     
-    init(name: String, description: String, cost: Int) {
+    init(title: String, description: String, cost: Int) {
         self.cost = cost
         
-        super.init(name: name, description: description)
+        super.init(title: title, description: description)
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.cost   = try container.decode(Int.self, forKey: .cost)
+        self.cost   = try container.decodeIfPresent(Int.self, forKey: .cost) ?? 1
         try super.init(from: decoder)
     }
     

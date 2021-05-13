@@ -29,12 +29,13 @@
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
 		7FB8C59E261E103B0088A8E9 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C59D261E103A0088A8E9 /* items.json */; };
 		7FB8C5A3261E52330088A8E9 /* armors.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C5A2261E52330088A8E9 /* armors.json */; };
-		7FFE87E72644894A00465809 /* CreatureRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87E62644894A00465809 /* CreatureRecord.swift */; };
+		7FFE87E72644894A00465809 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87E62644894A00465809 /* Creature.swift */; };
 		7FFE87EC2644999900465809 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87EB2644999900465809 /* Action.swift */; };
 		7FFE87F12645CD4100465809 /* Sense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87F02645CD4100465809 /* Sense.swift */; };
 		7FFE87F62649BB8B00465809 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87F52649BB8B00465809 /* Alignment.swift */; };
 		7FFE87FB2649C2EA00465809 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87FA2649C2EA00465809 /* Die.swift */; };
 		7FFE88002649E25500465809 /* DieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87FF2649E25500465809 /* DieTests.swift */; };
+		7FFE8808264A089D00465809 /* creatures.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FFE8807264A089D00465809 /* creatures.json */; };
 		810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */; };
 		810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810900B2224EE40100FF8B17 /* BasicDetailView.xib */; };
 		8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */; };
@@ -148,12 +149,13 @@
 		7FB8C598261E03FB0088A8E9 /* weapons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weapons.json; sourceTree = "<group>"; };
 		7FB8C59D261E103A0088A8E9 /* items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
 		7FB8C5A2261E52330088A8E9 /* armors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = armors.json; sourceTree = "<group>"; };
-		7FFE87E62644894A00465809 /* CreatureRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureRecord.swift; sourceTree = "<group>"; };
+		7FFE87E62644894A00465809 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		7FFE87EB2644999900465809 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		7FFE87F02645CD4100465809 /* Sense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sense.swift; sourceTree = "<group>"; };
 		7FFE87F52649BB8B00465809 /* Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
 		7FFE87FA2649C2EA00465809 /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 		7FFE87FF2649E25500465809 /* DieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieTests.swift; sourceTree = "<group>"; };
+		7FFE8807264A089D00465809 /* creatures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = creatures.json; sourceTree = "<group>"; };
 		810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDetailView.swift; sourceTree = "<group>"; };
 		810900B2224EE40100FF8B17 /* BasicDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicDetailView.xib; sourceTree = "<group>"; };
 		8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectionTableViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				7F1417A6261E9F49008E6571 /* tools.json */,
 				7F1417C1261F512B008E6571 /* spells.json */,
 				7F14180126268409008E6571 /* languages.json */,
+				7FFE8807264A089D00465809 /* creatures.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -421,10 +424,8 @@
 				81BC72AE20F186C000B48195 /* Spell.swift */,
 				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
 				81541A34227420C2002C7B72 /* Language.swift */,
+				7FFE87E62644894A00465809 /* Creature.swift */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
-				7FFE87E62644894A00465809 /* CreatureRecord.swift */,
-				7FFE87FA2649C2EA00465809 /* Die.swift */,
-				7FFE87F02645CD4100465809 /* Sense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -537,6 +538,8 @@
 				7F1418A62627BE7E008E6571 /* CreatureSize.swift */,
 				7FFE87EB2644999900465809 /* Action.swift */,
 				7FFE87F52649BB8B00465809 /* Alignment.swift */,
+				7FFE87FA2649C2EA00465809 /* Die.swift */,
+				7FFE87F02645CD4100465809 /* Sense.swift */,
 			);
 			path = "Gameplay Objects";
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
 				7FB8C589261D4D760088A8E9 /* races.json in Resources */,
+				7FFE8808264A089D00465809 /* creatures.json in Resources */,
 				7F1417C2261F512B008E6571 /* spells.json in Resources */,
 				7FB8C5A3261E52330088A8E9 /* armors.json in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
@@ -713,7 +717,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81DC8E4221080E9E002F6AE4 /* String.swift in Sources */,
-				7FFE87E72644894A00465809 /* CreatureRecord.swift in Sources */,
+				7FFE87E72644894A00465809 /* Creature.swift in Sources */,
 				7FFE87FB2649C2EA00465809 /* Die.swift in Sources */,
 				7F1418A72627BE7E008E6571 /* CreatureSize.swift in Sources */,
 				81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */,

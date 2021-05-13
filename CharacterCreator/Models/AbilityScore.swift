@@ -56,15 +56,24 @@ struct AbilityScore: Hashable, Codable {
     }
 }
 
-//struct StatBlock {
-//    private
-//    let scores: [AbilityScore]
-//    
-//    let str: AbilityScore
-//    let con: AbilityScore
-//    let dex: AbilityScore
-//    let cha: AbilityScore
-//    let int: AbilityScore
-//    let wis: AbilityScore
-//    
-//}
+///Contains the 6 stats for the creature
+struct StatBlock: Codable {
+    var str: AbilityScore
+    var con: AbilityScore
+    var dex: AbilityScore
+    var cha: AbilityScore
+    var int: AbilityScore
+    var wis: AbilityScore
+    
+    ///initialize from an array where the ordered values are [str, con, dex, cha, int, wis]
+    init?(_ statArray: [Int]) {
+    guard statArray.count == 6 else { print("invalid array size"); return nil }
+        self.str    = AbilityScore(name: .str, value: statArray[0])
+        self.con    = AbilityScore(name: .str, value: statArray[1])
+        self.dex    = AbilityScore(name: .str, value: statArray[2])
+        self.cha    = AbilityScore(name: .str, value: statArray[3])
+        self.int    = AbilityScore(name: .str, value: statArray[4])
+        self.wis    = AbilityScore(name: .str, value: statArray[5])
+    }
+    
+}

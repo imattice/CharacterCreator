@@ -9,6 +9,8 @@
 struct Die: Codable {
     let count: Int
     let value: Int
+    var min: Int { return 1 }
+    var max: Int { return value }
     
     var display: String { return "\(count)d\(value)" }
     
@@ -23,4 +25,14 @@ struct Die: Codable {
         self.count = count
         self.value = value
     }
+    
+    init(count: Int, value: Int) {
+        self.count = count
+        self.value = value
+    }
+    
+    func roll() {
+        
+    }
+
 }
