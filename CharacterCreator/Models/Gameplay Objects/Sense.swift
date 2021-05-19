@@ -13,9 +13,9 @@ enum Sense: Codable {
         let key = container.allKeys.first
         
         switch key {
-        case .blindsense:
-            let distance = try container.decode(Int.self, forKey: .blindsense)
-            self = .blindsense(distance)
+        case .blindsight:
+            let distance = try container.decode(Int.self, forKey: .blindsight)
+            self = .blindsight(distance)
         case .darkvision:
             let distance = try container.decode(Int.self, forKey: .darkvision)
             self = .darkvision(distance)
@@ -29,7 +29,7 @@ enum Sense: Codable {
             throw DecodingError.dataCorrupted(
                 DecodingError.Context(
                     codingPath: container.codingPath,
-                    debugDescription: "Unabled to decode sense enum."
+                    debugDescription: "Unable to decode sense enum for key: \(String(describing: key))."
                 )
             )
         }
@@ -39,8 +39,8 @@ enum Sense: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         switch self {
-        case .blindsense(let distance):
-            try container.encode(distance, forKey: .blindsense)
+        case .blindsight(let distance):
+            try container.encode(distance, forKey: .blindsight)
         case .darkvision(let distance):
             try container.encode(distance, forKey: .darkvision)
         case .tremorsense(let distance):
@@ -50,10 +50,10 @@ enum Sense: Codable {
         }
     }
     
-    case blindsense(Int), darkvision(Int), tremorsense(Int), truesight(Int)
+    case blindsight(Int), darkvision(Int), tremorsense(Int), truesight(Int)
     
     enum CodingKeys: CodingKey {
-        case blindsense, darkvision, tremorsense, truesight
+        case blindsight, darkvision, tremorsense, truesight
     }
 }
 

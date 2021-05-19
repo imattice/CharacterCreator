@@ -107,7 +107,7 @@ struct CreatureRecord: Record, Codable {
         self.resistances = try container.decodeIfPresent([String].self, forKey: .resistances)
         self.immunities = try container.decodeIfPresent([String].self, forKey: .immunities)
         self.senses = try container.decodeIfPresent([Sense].self, forKey: .senses)
-        self.languages = try container.decodeIfPresent5([String].self, forKey: .languages)
+        self.languages = try container.decodeIfPresent([String].self, forKey: .languages)
         self.challengeRating = try container.decode(Int.self, forKey: .challengeRating)
         self.features = try container.decodeIfPresent([Feature].self, forKey: .features)
         self.actions = try container.decode([Action].self, forKey: .actions)
@@ -129,7 +129,7 @@ struct CreatureRecord: Record, Codable {
     }
     
     enum CreatureType: String, Codable {
-        case aberration, beast, celestial, construct, dragon, elemental, fey, fiends, humanoid, monstrocity, ooze, plats, undead
+        case aberration, beast, celestial, construct, dragon, elemental, fey, fiend, giant, humanoid, monstrosity, ooze, plant, undead
     }
 }
 

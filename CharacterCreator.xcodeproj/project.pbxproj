@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F0C1115264F397600D45C49 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C1114264F397600D45C49 /* ActionTests.swift */; };
+		7F0C111D2655DCBC00D45C49 /* Recharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C111C2655DCBC00D45C49 /* Recharge.swift */; };
 		7F141795261E7EE8008E6571 /* shields.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F141794261E7EE8008E6571 /* shields.json */; };
 		7F1417A2261E904B008E6571 /* packs.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417A1261E904B008E6571 /* packs.json */; };
 		7F1417A7261E9F49008E6571 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417A6261E9F49008E6571 /* tools.json */; };
@@ -129,6 +130,7 @@
 
 /* Begin PBXFileReference section */
 		7F0C1114264F397600D45C49 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
+		7F0C111C2655DCBC00D45C49 /* Recharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recharge.swift; sourceTree = "<group>"; };
 		7F141794261E7EE8008E6571 /* shields.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shields.json; sourceTree = "<group>"; };
 		7F1417A1261E904B008E6571 /* packs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = packs.json; sourceTree = "<group>"; };
 		7F1417A6261E9F49008E6571 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 				7FFE87F52649BB8B00465809 /* Alignment.swift */,
 				7FFE87FA2649C2EA00465809 /* Die.swift */,
 				7FFE87F02645CD4100465809 /* Sense.swift */,
+				7F0C111C2655DCBC00D45C49 /* Recharge.swift */,
 			);
 			path = "Gameplay Objects";
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */,
 				81DC8E4C210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift in Sources */,
 				7F1417E326210526008E6571 /* Feature.swift in Sources */,
+				7F0C111D2655DCBC00D45C49 /* Recharge.swift in Sources */,
 				81DC8E57211256EC002F6AE4 /* InventorySelectionViewController.swift in Sources */,
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
 				81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */,

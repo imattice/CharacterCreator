@@ -10,51 +10,31 @@ import Foundation
 
 ///Describes an action that can be used in combat
 class Action: Codable {
+    ///The title for the action
     let title: String
+    ///A description for the action
     let description: String
-//    let recharge: Recharge?
-//    let charges: Int?
+    ///Indicates how and when the action will recharge
+    let recharge: Recharge?
     
-    init(title: String, description: String) {
+    init(title: String, description: String, recharge: Recharge? = nil) {
         self.title = title
         self.description = description
+        self.recharge = recharge
     }
     
-    //The default recahrge is a d6, so we can use an int to indicate that the recharge is roll based
-//    enum Recharge: Codable {
-//        case shortRest,
-//             longRest,
-//             roll(Int)
-//        enum CodingKeys: CodingKey {
-//            case shortRest, longRest, roll, die, minRoll
-//        }
-        
-//        init(from decoder: Decoder) throws {
-//            let container = try decoder.container(keyedBy: CodingKeys.self)
-//            let key = container.allKeys.first
-//
-//            switch key {
-//            case .shortRest:
-//                self = .shortRest
-//            case .longRest:
-//                self = .longRest
-//            case .roll:
-//                let die = Die(from: try container.decodeIfPresent(String.self, forKey: .die) ?? "1d6")!
-//                let minRoll = try container.decode(Int.self, forKey: .minRoll)
-//
-//                self = .roll(minRoll, die)
-//            default:
-//                throw DecodingError.dataCorrupted(
-//                    DecodingError.Context(
-//                        codingPath: container.codingPath,
-//                        debugDescription: "Unabled to decode sense enum."
-//                    )
-//                )
-//            }
-//    }
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.title = try container.decode(String.self, forKey: .title)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.recharge   = try container.decodeIfPresent(Recharge.self, forKey: .recharge)
+    }
+    
 }
 
+///Describes special actions that can be taken by some NPC's
 class LegendaryAction: Action {
+    ///The number of legendary points it takes to take this action
     let cost: Int
     
     init(title: String, description: String, cost: Int) {
@@ -63,7 +43,8 @@ class LegendaryAction: Action {
         super.init(title: title, description: description)
     }
     
-    required init(from decoder: Decoder) throws {
+    required
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         self.cost   = try container.decodeIfPresent(Int.self, forKey: .cost) ?? 1
