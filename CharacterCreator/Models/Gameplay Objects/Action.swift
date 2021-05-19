@@ -12,11 +12,46 @@ import Foundation
 class Action: Codable {
     let title: String
     let description: String
+//    let recharge: Recharge?
+//    let charges: Int?
     
     init(title: String, description: String) {
         self.title = title
         self.description = description
     }
+    
+    //The default recahrge is a d6, so we can use an int to indicate that the recharge is roll based
+//    enum Recharge: Codable {
+//        case shortRest,
+//             longRest,
+//             roll(Int)
+//        enum CodingKeys: CodingKey {
+//            case shortRest, longRest, roll, die, minRoll
+//        }
+        
+//        init(from decoder: Decoder) throws {
+//            let container = try decoder.container(keyedBy: CodingKeys.self)
+//            let key = container.allKeys.first
+//
+//            switch key {
+//            case .shortRest:
+//                self = .shortRest
+//            case .longRest:
+//                self = .longRest
+//            case .roll:
+//                let die = Die(from: try container.decodeIfPresent(String.self, forKey: .die) ?? "1d6")!
+//                let minRoll = try container.decode(Int.self, forKey: .minRoll)
+//
+//                self = .roll(minRoll, die)
+//            default:
+//                throw DecodingError.dataCorrupted(
+//                    DecodingError.Context(
+//                        codingPath: container.codingPath,
+//                        debugDescription: "Unabled to decode sense enum."
+//                    )
+//                )
+//            }
+//    }
 }
 
 class LegendaryAction: Action {

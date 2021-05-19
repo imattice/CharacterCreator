@@ -13,6 +13,9 @@ struct Creature {
     var averageMaxHP: Int {
         return ((record.hitDie.min + record.hitDie.max)*record.hitDie.count) + (record.abilityScores.con.value * record.hitDie.count)
     }
+    var passivePerception: Int {
+        return record.abilityScores.wis.modifier + 10
+    }
 }
 
 ///An object representing static information for a non-playable character
@@ -54,17 +57,15 @@ struct CreatureRecord: Record, Codable {
     ///Contains the senses the creature has
     let senses: [Sense]?
     ///Contains the languages the creature can speak and understand
-    let languages: [String]
+    let languages: [String]?
     ///The challenge rating for the creature
     let challengeRating: Int
     ///Contains the features that are available for this creature
-    let features: [Feature]
+    let features: [Feature]?
     ///Contains the actions that are availablefor this creature
     let actions: [Action]
     ///Contains any reactions available to this creature
     let reactions: [Action]?
-    ///Describes the equiptment for this creature
-    let equipment: String?
     ///Contains any legendary actions for this creature
     let legendaryAbilities: LegendaryAbilities?
     ///The bonus that is applied to proficiencies
@@ -106,12 +107,11 @@ struct CreatureRecord: Record, Codable {
         self.resistances = try container.decodeIfPresent([String].self, forKey: .resistances)
         self.immunities = try container.decodeIfPresent([String].self, forKey: .immunities)
         self.senses = try container.decodeIfPresent([Sense].self, forKey: .senses)
-        self.languages = try container.decode([String].self, forKey: .languages)
+        self.languages = try container.decodeIfPresent5([String].self, forKey: .languages)
         self.challengeRating = try container.decode(Int.self, forKey: .challengeRating)
-        self.features = try container.decode([Feature].self, forKey: .features)
+        self.features = try container.decodeIfPresent([Feature].self, forKey: .features)
         self.actions = try container.decode([Action].self, forKey: .actions)
         self.reactions = try container.decodeIfPresent([Action].self, forKey: .reactions)
-        self.equipment = try container.decodeIfPresent(String.self, forKey: .equipment)
         self.legendaryAbilities = try container.decodeIfPresent(LegendaryAbilities.self, forKey: .legendaryAbilities)
     }
 

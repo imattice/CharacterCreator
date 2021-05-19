@@ -7,5 +7,5 @@
 //
 
 enum Alignment: String, Codable {
-    case lawfulGood, neutralGood, chaoticGood, lawfulNeutral, trueNeutral, chaoticNeutral, lawfulEvil, neutralEvil, chaoticEvil
+    case lawfulGood, neutralGood, chaoticGood, lawfulNeutral, neutral, chaoticNeutral, lawfulEvil, neutralEvil, chaoticEvil, unaligned, any
 }

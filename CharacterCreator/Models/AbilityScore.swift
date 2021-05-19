@@ -65,7 +65,7 @@ struct StatBlock: Codable {
     var int: AbilityScore
     var wis: AbilityScore
     
-    ///initialize from an array where the ordered values are [str, con, dex, cha, int, wis]
+    ///initialize from an array where the ordered values are [str, dex, con, int, wis, cha]
     init?(_ statArray: [Int]) {
     guard statArray.count == 6 else { print("invalid array size"); return nil }
         self.str    = AbilityScore(name: .str, value: statArray[0])
