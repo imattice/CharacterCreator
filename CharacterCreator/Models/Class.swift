@@ -19,7 +19,7 @@ class ClassRecord: Record, Codable {
     ///The base value of the hit die for the class
     let hitDie: Int
     ///An object containing the proficiency granted by this class
-    let proficincies: ClassProficiencies
+    let proficiencies: ClassProficiencies
     ///The features that are available to this class with the associated level they are gained at
     let features: [Feature]
     ///The subclasses that are available for this class
@@ -38,27 +38,8 @@ class ClassRecord: Record, Codable {
         ///The basic saving throw proficiencies provided by this class
         let savingThrows: [String]
         ///The basic skill proficiencies provided by this class
-        let skills: [Selection]
-        
-        /// Decodes an Unkeyed JSON decoding container into a ClassProficidnecies object
-        /// If any decoding fails, an empty [String] is initialized for the proficiency
-        /// - Parameters:
-        ///   - container: An UnkeyedDecodingContainer from Decoded JSON
-        ///   - source: The Source of the data, such as from a particular Race or Class
-        /// - Returns: Returns an array of decoded Features
-        static
-        func decoded(from container: KeyedDecodingContainer<CodingKeys>) -> ClassProficiencies {
-            let armor =     try? container.decodeIfPresent([String].self, forKey: .armor)
-            let weapons =   try? container.decode([String].self, forKey: .weapons)
-            let tools =     try? container.decodeIfPresent([String].self, forKey: .tools)
-            let savingThrows = try? container.decode([String].self, forKey: .savingThrows)
-            
-            let skillsContainer = try! container.nestedUnkeyedContainer(forKey: .skills)
-            let skills = Selection.decoded(from: skillsContainer)
-            
-            return ClassProficiencies(armor: armor, weapons: weapons ?? [String](), tools: tools, savingThrows: savingThrows ?? [String](), skills: skills )
-        }
-        
+        let skills: Selection
+                
         func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(armor,         forKey: .armor)
@@ -77,7 +58,7 @@ class ClassRecord: Record, Codable {
         self.name = name
         self.description = description
         self.hitDie = hitDie
-        self.proficincies = proficincies
+        self.proficiencies = proficincies
         self.features = features
         self.subClasses = subClasses
         self.equipmentOptions = equipment
@@ -90,13 +71,12 @@ class ClassRecord: Record, Codable {
         self.description    = try container.decode(String.self, forKey: .description)
         self.hitDie         = try container.decode(Int.self, forKey: .hitDie)
         
-        let proficiencyContainer   = try container.nestedContainer(keyedBy: ClassProficiencies.CodingKeys.self, forKey: .proficincies)
-        self.proficincies   = ClassProficiencies.decoded(from: proficiencyContainer)
+        self.proficiencies   = try container.decode(ClassProficiencies.self, forKey: .proficiencies)
+
+        self.features       = try container.decode([Feature].self, forKey: .features)
+        features.forEach { $0.origin = .class}
         
-        let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
-        self.features       = Feature.decoded(from: featureContainer, source: .race)
-        
-        self.subClasses     = try container.decode([SubclassRecord].self, forKey: .subclasses)
+        self.subClasses     = try container.decodeIfPresent([SubclassRecord].self, forKey: .subclasses) ?? [SubclassRecord]()
         self.equipmentOptions = try container.decode([Selection].self, forKey: .equipmentOptions)
     }
     
@@ -106,14 +86,14 @@ class ClassRecord: Record, Codable {
         try container.encode(name,              forKey: .name)
         try container.encode(description,       forKey: .description)
         try container.encode(hitDie,            forKey: .hitDie)
-        try container.encode(proficincies,      forKey: .proficincies)
+        try container.encode(proficiencies,      forKey: .proficiencies)
         try container.encode(features,          forKey: .features)
         try container.encode(subClasses,        forKey: .subclasses)
         try container.encode(equipmentOptions,  forKey: .equipmentOptions)
     }
     
     enum CodingKeys: CodingKey {
-        case name, description, hitDie, proficincies, features, subclasses, equipmentOptions
+        case name, description, hitDie, proficiencies, features, subclasses, equipmentOptions
     }
 }
 
@@ -142,8 +122,7 @@ class SubclassRecord: Record, Codable {
         self.name           = try container.decode(String.self, forKey: .name)
         self.description    = try container.decode(String.self, forKey: .description)
         
-        let featureContainer = try container.nestedUnkeyedContainer(forKey: .features)
-        self.features       = Feature.decoded(from: featureContainer, source: .subclass)
+        self.features       = try container.decode([Feature].self, forKey: .features)
     }
     
     func encode(to encoder: Encoder) throws {

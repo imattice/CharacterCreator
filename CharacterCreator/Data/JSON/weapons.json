@@ -6,9 +6,9 @@
         "weight": 2,
         "tags": ["light"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "bludgeoning",
-            "value": "4"
+            "value": 4
         }
     },
     {
@@ -19,13 +19,13 @@
         "weight": 1,
         "tags": ["finesse", "light", "thrown"],
         "range": {
-            "normal": "20",
-            "extended": "60"
+            "normal": 20,
+            "extended": 60
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "4"
+            "value": 4
         }
     },
     {
@@ -34,11 +34,11 @@
         "details": "",
         "cost": 20,
         "weight": 10,
-        "tags": ["two_handed"],
+        "tags": ["twoHanded"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "bludgeoning",
-            "value": "8"
+            "value": 8
         }
     },
     {
@@ -49,13 +49,13 @@
         "weight": 2,
         "tags": ["light", "thrown"],
         "range": {
-            "normal": "20",
-            "extended": "60"
+            "normal": 20,
+            "extended": 60
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "slashing",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -66,13 +66,13 @@
         "weight": 2,
         "tags": ["thrown"],
         "range": {
-            "normal": "30",
-            "extended": "120"
+            "normal": 30,
+            "extended": 120
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -83,13 +83,13 @@
         "weight": 2,
         "tags": ["light", "thrown"],
         "range": {
-            "normal": "20",
-            "extended": "60"
+            "normal": 20,
+            "extended": 60
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "bludgeoning",
-            "value": "4"
+            "value": 4
         }
     },
     {
@@ -99,9 +99,9 @@
         "cost": 500,
         "weight": 4,
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "bludgeoning",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -112,9 +112,9 @@
         "weight": 4,
         "tags": ["versatile"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "bludgeoning",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -125,9 +125,9 @@
         "weight": 2,
         "tags": ["light"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "slashing",
-            "value": "4"
+            "value": 4
         }
     },
     {
@@ -138,13 +138,13 @@
         "weight": 3,
         "tags": ["thrown", "versatile"],
         "range": {
-            "normal": "20",
-            "extended": "60"
+            "normal": 20,
+            "extended": 60
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -153,15 +153,15 @@
         "details": "",
         "cost": 2500,
         "weight": 5,
-        "tags": ["ammunition", "ranged", "loading", "two_handed"],
+        "tags": ["ammunition", "ranged", "loading", "twoHanded"],
         "range": {
-            "normal": "80",
-            "extended": "320"
+            "normal": 80,
+            "extended": 320
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "8"
+            "value": 8
         }
     },
     {
@@ -172,13 +172,13 @@
         "weight": 0.25,
         "tags": ["finesse", "thrown"],
         "range": {
-            "normal": "20",
-            "extended": "60"
+            "normal": 20,
+            "extended": 60
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "4"
+            "value": 4
         }
     },
     {
@@ -187,15 +187,15 @@
         "details": "",
         "cost": 2500,
         "weight": 2,
-        "tags": ["ammunition", "two_handed"],
+        "tags": ["ammunition", "twoHanded"],
         "range": {
-            "normal": "80",
-            "extended": "320"
+            "normal": 80,
+            "extended": 320
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -206,13 +206,13 @@
         "weight": 0,
         "tags": ["ammunition"],
         "range": {
-            "normal": "30",
-            "extended": "120"
+            "normal": 30,
+            "extended": 120
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "4"
+            "value": 4
         }
     },
     {
@@ -224,9 +224,9 @@
         "weight": 4,
         "tags": ["versatile"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "slashing",
-            "value": "8"
+            "value": 8
         }
     },
     {
@@ -237,9 +237,9 @@
         "cost": 1000,
         "weight": 2,
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "bludgeoning",
-            "value": "8"
+            "value": 8
         }
     },
     {
@@ -249,11 +249,11 @@
         "details": "",
         "cost": 2000,
         "weight": 6,
-        "tags": ["heavy", "reach", "two_handed"],
+        "tags": ["heavy", "reach", "twoHanded"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "bludgeoning",
-            "value": "10"
+            "value": 10
         }
     },
     {
@@ -263,11 +263,11 @@
         "details": "",
         "cost": 3000,
         "weight": 7,
-        "tags": ["heavy", "two_handed"],
+        "tags": ["heavy", "twoHanded"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "slashing",
-            "value": "12"
+            "value": 12
         }
     },
     {
@@ -277,11 +277,11 @@
         "details": "",
         "cost": 5000,
         "weight": 6,
-        "tags": ["heavy", "two_handed"],
+        "tags": ["heavy", "twoHanded"],
         "damage": {
-            "multiplier": "2",
+            "multiplier": 2,
             "type": "slashing",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -291,11 +291,11 @@
         "details": "",
         "cost": 2000,
         "weight": 6,
-        "tags": ["heavy", "reach", "two_handed"],
+        "tags": ["heavy", "reach", "twoHanded"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "slashing",
-            "value": "10"
+            "value": 10
         }
     },
     {
@@ -307,9 +307,9 @@
         "details": "You have disadvantage on a target within 5 feet of you when using the lance.  You must use two hands to wield this weapon while unmounted.",
         "tags": ["reach", "special"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "12"
+            "value": 12
         }
     },
     {
@@ -321,9 +321,9 @@
         "weight": 3,
         "tags": ["versatile"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "slashing",
-            "value": "8"
+            "value": 8
         }
     },
     {
@@ -333,11 +333,11 @@
         "details": "",
         "cost": 1000,
         "weight": 10,
-        "tags": ["heavy", "two_handed"],
+        "tags": ["heavy", "twoHanded"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "bludgeoning",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -348,9 +348,9 @@
         "cost": 1500,
         "weight": 4,
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "8"
+            "value": 8
         }
     },
     {
@@ -360,11 +360,11 @@
         "details": "",
         "cost": 500,
         "weight": 18,
-        "tags": ["heavy", "reach", "two_handed"],
+        "tags": ["heavy", "reach", "twoHanded"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "10"
+            "value": 10
         }
     },
     {
@@ -376,9 +376,9 @@
         "weight": 2,
         "tags": ["finesse"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "8"
+            "value": 8
         }
     },
     {
@@ -390,9 +390,9 @@
         "weight": 3,
         "tags": ["finesse", "light"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "slashing",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -404,9 +404,9 @@
         "weight": 2,
         "tags": ["finesse", "light"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -418,13 +418,13 @@
         "weight": 4,
         "tags": ["thrown", "versatile"],
         "range": {
-            "normal": "20",
-            "extended": "60"
+            "normal": 20,
+            "extended": 60
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -435,9 +435,9 @@
         "cost": 500,
         "weight": 2,
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "8"
+            "value": 8
         }
     },
     {
@@ -449,9 +449,9 @@
         "weight": 2,
         "tags": ["versatile"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "bludgeoning",
-            "value": "8"
+            "value": 8
         }
     },
     {
@@ -463,9 +463,9 @@
         "weight": 3,
         "tags": ["finesse", "reach"],
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "slashing",
-            "value": "4"
+            "value": 4
         }
     },
     {
@@ -477,13 +477,13 @@
         "weight": 1,
         "tags": ["ammunition", "ranged", "loading"],
         "range": {
-            "normal": "25",
-            "extended": "100"
+            "normal": 25,
+            "extended": 100
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "1"
+            "value": 1
         }
     },
     {
@@ -495,13 +495,13 @@
         "weight": 3,
         "tags": ["ammunition", "light", "loading"],
         "range": {
-            "normal": "30",
-            "extended": "120"
+            "normal": 30,
+            "extended": 120
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "6"
+            "value": 6
         }
     },
     {
@@ -511,15 +511,15 @@
         "details": "",
         "cost": 5000,
         "weight": 18,
-        "tags": ["ammunition", "heavy", "loading", "two_handed"],
+        "tags": ["ammunition", "heavy", "loading", "twoHanded"],
         "range": {
-            "normal": "100",
-            "extended": "400"
+            "normal": 100,
+            "extended": 400
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "10"
+            "value": 10
         }
     },
     {
@@ -529,15 +529,15 @@
         "details": "",
         "cost": 5000,
         "weight": 2,
-        "tags": ["ammunition", "ranged", "heavy", "two_handed"],
+        "tags": ["ammunition", "ranged", "heavy", "twoHanded"],
         "range": {
-            "normal": "150",
-            "extended": "600"
+            "normal": 150,
+            "extended": 600
         },
         "damage": {
-            "multiplier": "1",
+            "multiplier": 1,
             "type": "piercing",
-            "value": "8"
+            "value": 8
         }
     }
 ]

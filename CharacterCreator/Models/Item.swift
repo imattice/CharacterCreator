@@ -8,14 +8,21 @@
 
 import Foundation
 
-struct Item: Codable{
+struct Item: Codable {
     let name: String
-    var count: Int
+    var count: Int = 1
 
     internal init(name: String, count: Int) {
         self.name = name
         self.count = count
     }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.count  = try container.decodeIfPresent(Int.self, forKey: .count) ?? 1
+    }
+    
 }
 
 //MARK: - Object Record
@@ -23,8 +30,7 @@ struct Item: Codable{
 ///ItemRecord should be used  rather than calling this class directly
 class ObjectRecord: Codable {
     ///An identifier for the item
-    private(set)
-    var id: String = UUID().uuidString
+    let id: String = UUID().uuidString
     ///A name for the item
 	let name: String
     ///A description of the item
@@ -36,14 +42,11 @@ class ObjectRecord: Codable {
     ///The weight of the item in pounds
     let weight: Double
     ///Determinees if the item has magical properties
-    private(set)
-    var isMagical: Bool = false
+    let isMagical: Bool
     ///Determines if the item requires attunement by the character
-    private(set)
-    var requiresAttunement: Bool = false
+    let requiresAttunement: Bool
     ///A type that describes the rarity of the item
-    private(set)
-    var rarity: Rarity = .common
+    let rarity: Rarity
     ///Indicates the rarity of the item
     enum Rarity: String, Codable {
         case common, uncommon, rare, legendary, artifact
@@ -63,15 +66,26 @@ class ObjectRecord: Codable {
         self.requiresAttunement = requiresAttunement
         self.rarity = rarity
     }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name               = try container.decode(String.self, forKey: .name)
+        self.description        = try container.decode(String.self, forKey: .description)
+        self.details            = try container.decode(String.self, forKey: .details)
+        self.cost               = try container.decode(Int.self, forKey: .cost)
+        self.weight             = try container.decode(Double.self, forKey: .weight)
+        self.isMagical          = try container.decodeIfPresent(Bool.self, forKey: .isMagical) ?? false
+        self.requiresAttunement = try container.decodeIfPresent(Bool.self, forKey: .requiresAttunement) ?? false
+        self.rarity             = try container.decodeIfPresent(Rarity.self, forKey: .rarity) ?? .common
+    }
 }
 
 ///Defines an object that can be collected, disposed and used by a character
 final
 class ItemRecord: ObjectRecord, Record {
-    
-    
-    enum CodingKeys: CodingKey {
-        case name, description, details, cost, weight, isMagical, requiresAttunement, rarity
+    required
+    init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
     }
 }
 
@@ -84,11 +98,9 @@ class WeaponRecord: ObjectRecord, Record {
     ///Indicates the base damage of the weapon
     let damage: Damage
     ///Determines if the weapon requires training to use
-    private(set)
-    var isSimple: Bool = true
+    let isSimple: Bool
     ///Contains the normal and extended range of the weapon, if it can be used at a distance
-    private(set)
-    var range: (normal: Int, extended: Int)  = (normal: 5, extended: 5)
+    let range: (normal: Int, extended: Int)
     ///Indicates if the weapon can be used at range
     var isRanged: Bool {
         return range.normal > 10 }
@@ -98,29 +110,25 @@ class WeaponRecord: ObjectRecord, Record {
         case ammunition, finesse, heavy, light, loading, thrown, twoHanded, versatile, ranged, reach, special
     }
     
-    internal init(name: String, description: String, details: String, cost: Int, weight: Double, isMagical: Bool = false, requiresAttunement: Bool = false, rarity: ObjectRecord.Rarity = .common, tags: [WeaponRecord.Tag], damage: Damage) {
-        self.tags = tags
-        self.damage = damage
+    required
+    init(from decoder: Decoder) throws {
+        let container       = try decoder.container(keyedBy: CodingKeys.self)
         
-        super.init(name: name, description: description, details: details, cost: cost, weight: weight, isMagical: isMagical, requiresAttunement: requiresAttunement, rarity: rarity)
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.tags       = try container.decode([Tag].self, forKey: .tags)
-        self.damage     = try container.decode(Damage.self, forKey: .tags)
-        self.isSimple   = try container.decode(Bool.self, forKey: .tags)
-        let rangeContainer = try container.nestedContainer(keyedBy: RangedCodingKeys.self, forKey: .range)
-        let normalRange = try rangeContainer.decode(Int.self, forKey: .normal)
-        let extendedRange = try rangeContainer.decode(Int.self, forKey: .extended)
-
-        self.range      = (normal: normalRange, extended: extendedRange)
-
+        self.tags           = try container.decodeIfPresent([Tag].self, forKey: .tags)                          ?? [Tag]()
+        self.damage         = try container.decode(Damage.self, forKey: .damage)
+        self.isSimple       = try container.decodeIfPresent(Bool.self, forKey: .isSimple)                       ?? true
+        if let rangeContainer  = try? container.nestedContainer(keyedBy: RangedCodingKeys.self, forKey: .range) {
+            let normalRange     = try rangeContainer.decodeIfPresent(Int.self, forKey: .normal)                     ?? 5
+            let extendedRange   = try rangeContainer.decodeIfPresent(Int.self, forKey: .extended)                   ?? 5
+            self.range      = (normal: normalRange, extended: extendedRange)
+        } else {
+            self.range      = (normal: 5, extended: 5)
+        }
         try super.init(from: decoder)
     }
     
     enum CodingKeys: CodingKey {
-        case name, description, details, cost, weight, isMagical, requiresAttunement, rarity, tags, damage, isSimple, range
+        case tags, damage, isSimple, range
     }
     enum RangedCodingKeys: CodingKey {
         case normal, extended
@@ -147,44 +155,34 @@ class ArmorRecord: ObjectRecord, Record {
     ///Indicates if the armor is ligh, medium, or heavy
     let armorStyle: ArmorStyle
     ///Indicates if the armor imposes disadvantage on Stealth checks
-    private(set)
-    var imposesStealthDisadvantage: Bool                = false
+    let imposesStealthDisadvantage: Bool
     ///Indicates if DEX can be used when determining total AC
-    private(set)
-    var addsDex: Bool                                   = true
+    let addsDex: Bool
     ///Indicates the maxium DEX modifier value that can be applied to the total AC when using this armor
-    private(set)
-    var dexMax: Int?                                    = nil
+    let dexMax: Int?
     ///The value of STR that is required in order to use this armor
-    private(set)
-    var strRequired: Int                                = 0
+    let strRequired: Int
 
     ///Indicates if the armor is ligh, medium, or heavy
     enum ArmorStyle: String, Codable {
         case light, medium, heavy
     }
     
-    internal init(name: String, description: String, details: String, cost: Int, weight: Double, isMagical: Bool = false, requiresAttunement: Bool = false, rarity: ObjectRecord.Rarity = .common, baseAC: Int, armorStyle: ArmorRecord.ArmorStyle) {
-        self.baseAC = baseAC
-        self.armorStyle = armorStyle
-        
-        super.init(name: name, description: description, details: details, cost: cost, weight: weight, isMagical: isMagical, requiresAttunement: requiresAttunement, rarity: rarity)
-    }
-    
-    required init(from decoder: Decoder) throws {
+    required
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.baseAC       = try container.decode(Int.self, forKey: .baseAC)
         self.armorStyle     = try container.decode(ArmorStyle.self, forKey: .armorStyle)
-        self.imposesStealthDisadvantage   = try container.decode(Bool.self, forKey: .imposesStealthDisadvantage)
-        self.addsDex   = try container.decode(Bool.self, forKey: .addsDex)
-        self.dexMax   = try container.decode(Int.self, forKey: .dexMax)
-        self.strRequired   = try container.decode(Int.self, forKey: .strRequired)
+        self.imposesStealthDisadvantage   = try container.decodeIfPresent(Bool.self, forKey: .imposesStealthDisadvantage) ?? false
+        self.addsDex   = try container.decodeIfPresent(Bool.self, forKey: .addsDex) ?? true
+        self.dexMax   = try container.decodeIfPresent(Int.self, forKey: .dexMax)
+        self.strRequired   = try container.decodeIfPresent(Int.self, forKey: .strRequired) ?? 0
 
         try super.init(from: decoder)
     }
     
     enum CodingKeys: CodingKey {
-        case name, description, details, cost, weight, isMagical, requiresAttunement, rarity, baseAC, armorStyle, imposesStealthDisadvantage, addsDex, dexMax, strRequired
+        case baseAC, armorStyle, imposesStealthDisadvantage, addsDex, dexMax, strRequired
     }
 }
 
@@ -195,13 +193,8 @@ class ShieldRecord: ObjectRecord, Record {
     ///The AC bonus that the shield grants when equipped
     let bonusAC: Int
     
-    internal init(name: String, description: String, details: String, cost: Int, weight: Double, isMagical: Bool = false, requiresAttunement: Bool = false, rarity: ObjectRecord.Rarity = .common, bonusAC: Int) {
-        self.bonusAC = bonusAC
-        
-        super.init(name: name, description: description, details: details, cost: cost, weight: weight, isMagical: isMagical, requiresAttunement: requiresAttunement, rarity: rarity)
-    }
-    
-    required init(from decoder: Decoder) throws {
+    required
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.bonusAC       = try container.decode(Int.self, forKey: .bonusAC)
 
@@ -209,7 +202,7 @@ class ShieldRecord: ObjectRecord, Record {
     }
     
     enum CodingKeys: CodingKey {
-        case name, description, details, cost, weight, isMagical, requiresAttunement, rarity, bonusAC
+        case bonusAC
     }
 }
 
@@ -220,20 +213,15 @@ class PackRecord: ObjectRecord, Record {
     ///The contents of the pack
     let contents: [Item]
     
-    internal init(name: String, description: String, details: String, cost: Int, weight: Double, isMagical: Bool = false, requiresAttunement: Bool = false, rarity: ObjectRecord.Rarity = .common, contents: [Item]) {
-        self.contents = contents
-        
-        super.init(name: name, description: description, details: details, cost: cost, weight: weight, isMagical: isMagical, requiresAttunement: requiresAttunement, rarity: rarity)
-    }
-    
-    required init(from decoder: Decoder) throws {
+    required
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.contents       = try container.decode([Item].self, forKey: .contents)
 
         try super.init(from: decoder)    }
     
     enum CodingKeys: CodingKey {
-        case name, description, details, cost, weight, isMagical, requiresAttunement, rarity, contents
+        case contents
     }
 }
 
@@ -244,21 +232,16 @@ class ToolRecord: ObjectRecord, Record {
     ///Indicates if the tool is artisan, musical, or gaming
     let category: Category?
     
-    internal init(name: String, description: String, details: String, cost: Int, weight: Double, isMagical: Bool = false, requiresAttunement: Bool = false, rarity: ObjectRecord.Rarity = .common, category: ToolRecord.Category?) {
-        self.category = category
-        
-        super.init(name: name, description: description, details: details, cost: cost, weight: weight, isMagical: isMagical, requiresAttunement: requiresAttunement, rarity: rarity)
-    }
-    
-    required init(from decoder: Decoder) throws {
+    required
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.category       = try container.decode(Category.self, forKey: .category)
+        self.category       = try container.decodeIfPresent(Category.self, forKey: .category)
 
         try super.init(from: decoder)
     }
     
     enum CodingKeys: CodingKey {
-        case name, description, details, cost, weight, isMagical, requiresAttunement, rarity, category
+        case category
     }
     
     enum Category: String, Codable {

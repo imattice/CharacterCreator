@@ -33,24 +33,6 @@ struct Selection: Identifiable, Codable {
         self.options = options
     }
     
-    static
-    func decoded(from container: UnkeyedDecodingContainer) -> [Selection] {
-        var mutableContainer = container
-        var selections = [Selection]()
-        while !mutableContainer.isAtEnd {
-            do {
-            let selectionContainer = try mutableContainer.nestedContainer(keyedBy: CodingKeys.self)
-            let limit = try selectionContainer.decode(Int.self, forKey: .limit)
-            let options = try selectionContainer.decode([String].self, forKey: .options)
-                selections.append(Selection(limit: limit, options: options))
-            }
-            catch {
-                print(error)
-            }
-        }
-        return selections
-    }
-    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(limit, forKey: .limit)

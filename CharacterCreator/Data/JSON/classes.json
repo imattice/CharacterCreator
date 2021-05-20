@@ -2,29 +2,29 @@
         "name": "barbarian",
         "description": "",
         "hitDie": 12,
-        "proficiencies": [{
+        "proficiencies": {
             "armor": ["light", "medium", "shield"],
             "weapons": ["simple", "martial"],
-            "saving throws": ["str", "con"],
+            "savingThrows": ["str", "con"],
             "skills": {
-                "selections": 2,
+                "limit": 2,
                 "options": ["animal handling", "athletics", "intimidation", "nature", "perception", "survival"]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["a greataxe", "any martial melee weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["two handaxes", "any simple weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["an explorer's pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["four javelins"]
             }
         ],
@@ -130,13 +130,13 @@
         "name": "bard",
         "description": "",
         "hitDie": 8,
-        "proficiencies": [{
+        "proficiencies": {
             "armor": ["light"],
             "weapons": ["simple", "hand crossbow", "longsword", "rapier", "shortsword"],
             "tools": ["musical instrument", "musical instrument", "musical instrument"],
-            "saving throws": ["dex", "cha"],
+            "savingThrows": ["dex", "cha"],
             "skills": {
-                "selections": 3,
+                "limit": 3,
                 "options": [
                     "athletics",
 
@@ -163,25 +163,25 @@
                     "survival"
                 ]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["a rapier", "a longsword", "any simple weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a diplomat’s pack", "an entertainer’s pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a lute", "any other musical instrument"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["leather armor"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["dagger"]
             }
         ],
@@ -276,37 +276,37 @@
         "name": "cleric",
         "description": "",
         "hitDie": 8,
-        "proficiencies": [{
+        "proficiencies": {
             "armor": ["light", "medium", "shield"],
             "weapons": ["simple"],
-            "saving throws": ["wis", "cha"],
+            "savingThrows": ["wis", "cha"],
             "skills": {
-                "selections": 2,
+                "limit": 2,
                 "options": ["history", "insight", "medicine", "persuasion", "religion"]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["a mace", "a warhammer"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["scale mail", "leather armor", "chain mail"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a light crossbow and 20 bolts", "any simple weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a priest’s pack", "an explorer’s pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["shield"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a holy symbol"]
             }
         ],
@@ -397,37 +397,37 @@
         "name": "druid",
         "description": "",
         "hitDie": 8,
-        "proficiencies": [{
+        "proficiencies": {
             "armor": ["light", "medium", "shield"],
             "weapons": ["clubs", "daggers", "darts", "javelins", "maces", "quarterstaffs", "scimitars", "sickles", "slings", "spears"],
             "tools": ["herbalism kit"],
-            "saving throws": ["int", "wis"],
+            "savingThrows": ["int", "wis"],
             "skills": {
-                "selections": 2,
+                "limit": 2,
                 "options": [
                     "arcana", "animal handling",
                     "insight", "medicine", "nature", "perception", "religion", "survival"
                 ]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": [" a wooden shield", " any simple weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a scimitar", "any simple melee weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["leather armor"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["an explorer's pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a druidic focus"]
             }
         ],
@@ -516,31 +516,31 @@
         "name": "fighter",
         "description": "",
         "hitDie": 10,
-        "proficiencies": [{
+        "proficiencies": {
             "armor": ["light", "medium", "heavy", "shield"],
             "weapons": ["simple", "martial"],
-            "saving throws": ["str", "con"],
+            "savingThrows": ["str", "con"],
             "skills": {
-                "selections": 2,
+                "limit": 2,
                 "options": [
                     "acrobatics", "animal handling", "athletics", "history", "insight", "intimidation", "perception", "survival"
                 ]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["chain mail", "leather armor, longbow, and 20 arrows"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a martial weapon and a shield", "two martial weapons"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a light crossbow and 20 bolts", "two handaxes"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a dungeoneer’s pack", "an explorer’s pack"]
             }
         ],
@@ -615,30 +615,27 @@
         "name": "monk",
         "description": "",
         "hitDie": 8,
-        "proficiencies": [{
+        "proficiencies": {
             "weapons": ["simple", "shortsword"],
-            "tools": {
-                "selections": 1,
-                "options": ["artisan tool", "musical instrument"]
-            },
-            "saving throws": ["str", "dex"],
+            "tools": ["artisan tool", "musical instrument"],
+            "savingThrows": ["str", "dex"],
             "skills": {
-                "selections": 3,
+                "limit": 3,
                 "options": [
                     "acrobatics", "athletics", "history", "insight", "religion", "stealth"
                 ]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["a shortsword", "any simple weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a dungeoneer’s pack", "an explorer’s pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["10 darts"]
             }
         ],
@@ -763,35 +760,35 @@
         "name": "paladin",
         "description": "",
         "hitDie": 10,
-        "proficiencies": [{
+        "proficiencies": {
             "armor": ["light", "medium", "heavy", "shield"],
             "weapons": ["simple", "martial"],
-            "saving throws": ["wis", "cha"],
+            "savingThrows": ["wis", "cha"],
             "skills": {
-                "selections": 2,
+                "limit": 2,
                 "options": [
                     "acrobatics", "athletics", "athletics", "insight", "intimidation", "medicine", "persuasion", "religion"
                 ]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["a martial weapon and a shield", "two martial weapons"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["five javelins", "any simple melee weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a priest’s pack", "an explorer’s pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["chain mail"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["holy symbol"]
             }
         ],
@@ -892,31 +889,31 @@
         "name": "ranger",
         "description": "",
         "hitDie": 10,
-        "proficiencies": [{
+        "proficiencies": {
             "armor": ["light", "medium", "shield"],
             "weapons": ["simple", "martial"],
-            "saving throws": ["str", "dex"],
+            "savingThrows": ["str", "dex"],
             "skills": {
-                "selections": 3,
+                "limit": 3,
                 "options": [
                     "animal handling", "athletics", "insight", "investigation", "nature", "perception", "stealth", "survival"
                 ]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["scale mail", "leather armor"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["two shortswords", "two simple melee weapons"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a dungeoneer’s pack", "an explorer’s pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a longbow and a quiver of 20 arrows"]
             }
         ],
@@ -1017,40 +1014,40 @@
         "name": "rogue",
         "description": "",
         "hitDie": 8,
-        "proficiencies": [{
+        "proficiencies": {
             "armor": ["light"],
             "weapons": ["simple", "hand crossbow", "longsword", "rapier", "shortsword"],
-            "tools": "thieves' tools",
-            "saving throws": ["dex", "int"],
+            "tools": ["thieves' tools"],
+            "savingThrows": ["dex", "int"],
             "skills": {
-                "selections": 4,
+                "limit": 4,
                 "options": [
                     "acrobatics", "athletics", "deception", "insight", "intimidation", "investigation", "perception", "performance", "persuasion", "sleight of hand", "stealth"
                 ]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["a rapier", "a shortsword"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a shortbow and quiver of 20 arrows", "a shortsword"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a burglar’s pack", "a dungeoneer’s pack", "an explorer’s pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["leather armor"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["two dagger"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["thieves' tools"]
             }
         ],
@@ -1155,30 +1152,30 @@
         "name": "sorcerer",
         "description": "",
         "hitDie": 6,
-        "proficiencies": [{
+        "proficiencies": {
             "weapons": ["dagger", "darts", "slings", "quarterstaffs", "light crossbows"],
-            "saving throws": ["con", "cha"],
+            "savingThrows": ["con", "cha"],
             "skills": {
-                "selections": 2,
+                "limit": 2,
                 "options": [
                     "arcana", "deception", "insight", "intimidation", "persuasion", "religion"
                 ]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["a light crossbow and 20 bolts", "any simple weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a component pouch", "an arcane focus"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a dungeoneer’s pack", "an explorer’s pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["two daggers"]
             }
         ],
@@ -1261,36 +1258,36 @@
         "proficiencies": {
             "armor": ["light"],
             "weapons": ["simple"],
-            "saving throws": ["wis", "cha"],
+            "savingThrows": ["wis", "cha"],
             "skills": {
-                "selections": 3,
+                "limit": 3,
                 "options": [
                     "arcana", "deception", "history", "intimidation", "investigation", "nature", "religion"
                 ]
             }
         },
-        "equipment": [{
-                "selections": 1,
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["a light crossbow and 20 bolts", "any simple weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a component pouch", "an arcane focus"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a scholar’s pack", "a dungeoneer’s pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["leather armor"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["any simple weapon"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["two daggers"]
             }
         ],
@@ -1360,30 +1357,30 @@
         "name": "wizard",
         "description": "",
         "hitDie": 6,
-        "proficiencies": [{
+        "proficiencies": {
             "weapons": ["daggers", "darts", "slings", "quarterstaffs", "light crossbows"],
-            "saving throws": ["int", "wis"],
+            "savingThrows": ["int", "wis"],
             "skills": {
-                "selections": 3,
+                "limit": 3,
                 "options": [
                     "arcana", "history", "insight", "investigation", "medicine", "religion"
                 ]
             }
-        }],
-        "equipment": [{
-                "selections": 1,
+        },
+        "equipmentOptions": [{
+                "limit": 1,
                 "options": ["a quarterstaff", "a dagger"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a component pouch", "an arcane focus"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a scholar’s pack", "an explorer’s pack"]
             },
             {
-                "selections": 1,
+                "limit": 1,
                 "options": ["a spellbook"]
             }
         ],

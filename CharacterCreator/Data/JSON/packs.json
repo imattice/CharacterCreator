@@ -1,7 +1,9 @@
 [{
         "name": "burglar's pack",
         "description": "",
+        "details": "",
         "cost": 1600,
+        "weight": 0,
         "contents": [{
                 "name": "backpack"
             },
@@ -54,7 +56,9 @@
     {
         "name": "diplomat's pack",
         "description": "",
+        "details": "",
         "cost": 3900,
+        "weight": 0,
         "contents": [{
                 "name": "chest"
             },
@@ -96,7 +100,10 @@
     {
         "name": "dungeoneer's pack",
         "description": "",
+        "details": "",
+        "details": "",
         "cost": 1200,
+        "weight": 0,
         "contents": [{
                 "name": "backpack"
             },
@@ -132,7 +139,10 @@
     {
         "name": "entertainer's pack",
         "description": "",
+        "details": "",
+        "details": "",
         "cost": 4000,
+        "weight": 0,
         "contents": [{
                 "name": "backpack"
             },
@@ -162,7 +172,10 @@
     {
         "name": "explorer's pack",
         "description": "",
+        "details": "",
+        "details": "",
         "cost": 1000,
+        "weight": 0,
         "contents": [{
                 "name": "backpack"
             },
@@ -194,7 +207,10 @@
     {
         "name": "priest's pack",
         "description": "",
+        "details": "",
+        "details": "",
         "cost": 1900,
+        "weight": 0,
         "contents": [{
                 "name": "backpack"
             },
@@ -233,7 +249,10 @@
     {
         "name": "scholar's pack",
         "description": "",
+        "details": "",
+        "details": "",
         "cost": 4000,
+        "weight": 0,
         "contents": [{
                 "name": "backpack"
             },

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0C1115264F397600D45C49 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C1114264F397600D45C49 /* ActionTests.swift */; };
+		7F0C111D2655DCBC00D45C49 /* Recharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C111C2655DCBC00D45C49 /* Recharge.swift */; };
 		7F072BBF2638C4440029CA3C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F072BBE2638C4440029CA3C /* Color.swift */; };
 		7F141795261E7EE8008E6571 /* shields.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F141794261E7EE8008E6571 /* shields.json */; };
 		7F1417A2261E904B008E6571 /* packs.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417A1261E904B008E6571 /* packs.json */; };
@@ -33,6 +35,13 @@
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
 		7FB8C59E261E103B0088A8E9 /* items.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C59D261E103A0088A8E9 /* items.json */; };
 		7FB8C5A3261E52330088A8E9 /* armors.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C5A2261E52330088A8E9 /* armors.json */; };
+		7FFE87E72644894A00465809 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87E62644894A00465809 /* Creature.swift */; };
+		7FFE87EC2644999900465809 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87EB2644999900465809 /* Action.swift */; };
+		7FFE87F12645CD4100465809 /* Sense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87F02645CD4100465809 /* Sense.swift */; };
+		7FFE87F62649BB8B00465809 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87F52649BB8B00465809 /* Alignment.swift */; };
+		7FFE87FB2649C2EA00465809 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87FA2649C2EA00465809 /* Die.swift */; };
+		7FFE88002649E25500465809 /* DieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE87FF2649E25500465809 /* DieTests.swift */; };
+		7FFE8808264A089D00465809 /* creatures.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FFE8807264A089D00465809 /* creatures.json */; };
 		810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */; };
 		810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810900B2224EE40100FF8B17 /* BasicDetailView.xib */; };
 		8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */; };
@@ -124,6 +133,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F0C1114264F397600D45C49 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
+		7F0C111C2655DCBC00D45C49 /* Recharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recharge.swift; sourceTree = "<group>"; };
 		7F072BBE2638C4440029CA3C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F141794261E7EE8008E6571 /* shields.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shields.json; sourceTree = "<group>"; };
 		7F1417A1261E904B008E6571 /* packs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = packs.json; sourceTree = "<group>"; };
@@ -150,6 +161,13 @@
 		7FB8C598261E03FB0088A8E9 /* weapons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weapons.json; sourceTree = "<group>"; };
 		7FB8C59D261E103A0088A8E9 /* items.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = items.json; sourceTree = "<group>"; };
 		7FB8C5A2261E52330088A8E9 /* armors.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = armors.json; sourceTree = "<group>"; };
+		7FFE87E62644894A00465809 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
+		7FFE87EB2644999900465809 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		7FFE87F02645CD4100465809 /* Sense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sense.swift; sourceTree = "<group>"; };
+		7FFE87F52649BB8B00465809 /* Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
+		7FFE87FA2649C2EA00465809 /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
+		7FFE87FF2649E25500465809 /* DieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DieTests.swift; sourceTree = "<group>"; };
+		7FFE8807264A089D00465809 /* creatures.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = creatures.json; sourceTree = "<group>"; };
 		810900B0224EE3EF00FF8B17 /* BasicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicDetailView.swift; sourceTree = "<group>"; };
 		810900B2224EE40100FF8B17 /* BasicDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicDetailView.xib; sourceTree = "<group>"; };
 		8112FA6F21A7D03600EB61B8 /* WeaponSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSelectionTableViewController.swift; sourceTree = "<group>"; };
@@ -310,16 +328,17 @@
 			isa = PBXGroup;
 			children = (
 				7FB8C588261D4D760088A8E9 /* races.json */,
-				7FB8C598261E03FB0088A8E9 /* weapons.json */,
+				7F1417E7262374D3008E6571 /* classes.json */,
+				7F1417CE2620F53D008E6571 /* backgrounds.json */,
 				7FB8C59D261E103A0088A8E9 /* items.json */,
+				7FB8C598261E03FB0088A8E9 /* weapons.json */,
 				7FB8C5A2261E52330088A8E9 /* armors.json */,
 				7F141794261E7EE8008E6571 /* shields.json */,
 				7F1417A1261E904B008E6571 /* packs.json */,
 				7F1417A6261E9F49008E6571 /* tools.json */,
 				7F1417C1261F512B008E6571 /* spells.json */,
-				7F1417CE2620F53D008E6571 /* backgrounds.json */,
-				7F1417E7262374D3008E6571 /* classes.json */,
 				7F14180126268409008E6571 /* languages.json */,
+				7FFE8807264A089D00465809 /* creatures.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -391,8 +410,10 @@
 			isa = PBXGroup;
 			children = (
 				7F1418C026289EB6008E6571 /* RecordTests.swift */,
+				7F0C1114264F397600D45C49 /* ActionTests.swift */,
 				7F1418A12627BB53008E6571 /* ClassTests.swift */,
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
+				7FFE87FF2649E25500465809 /* DieTests.swift */,
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
 				7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */,
 			);
@@ -421,13 +442,14 @@
 			isa = PBXGroup;
 			children = (
 				8152B3C220D9D32F008B7A1A /* Character.swift */,
-				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
 				8152B3C620D9D340008B7A1A /* Race.swift */,
 				8152B3C420D9D337008B7A1A /* Class.swift */,
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
-				81BC72AE20F186C000B48195 /* Spell.swift */,
-				81541A34227420C2002C7B72 /* Language.swift */,
 				81DF302B213C5D6A00C939CE /* Item.swift */,
+				81BC72AE20F186C000B48195 /* Spell.swift */,
+				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
+				81541A34227420C2002C7B72 /* Language.swift */,
+				7FFE87E62644894A00465809 /* Creature.swift */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
 			);
 			path = Models;
@@ -539,6 +561,11 @@
 				7F1417E226210526008E6571 /* Feature.swift */,
 				7F141894262755AC008E6571 /* Origin.swift */,
 				7F1418A62627BE7E008E6571 /* CreatureSize.swift */,
+				7FFE87EB2644999900465809 /* Action.swift */,
+				7FFE87F52649BB8B00465809 /* Alignment.swift */,
+				7FFE87FA2649C2EA00465809 /* Die.swift */,
+				7FFE87F02645CD4100465809 /* Sense.swift */,
+				7F0C111C2655DCBC00D45C49 /* Recharge.swift */,
 			);
 			path = "Gameplay Objects";
 			sourceTree = "<group>";
@@ -679,6 +706,7 @@
 				8123671B20CA44DD00F7AEFC /* Assets.xcassets in Resources */,
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
 				7FB8C589261D4D760088A8E9 /* races.json in Resources */,
+				7FFE8808264A089D00465809 /* creatures.json in Resources */,
 				7F1417C2261F512B008E6571 /* spells.json in Resources */,
 				7FB8C5A3261E52330088A8E9 /* armors.json in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
@@ -715,6 +743,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81DC8E4221080E9E002F6AE4 /* String.swift in Sources */,
+				7FFE87E72644894A00465809 /* Creature.swift in Sources */,
+				7FFE87FB2649C2EA00465809 /* Die.swift in Sources */,
 				7F1418A72627BE7E008E6571 /* CreatureSize.swift in Sources */,
 				81DF3030213D8A4C00C939CE /* FlavorViewController.swift in Sources */,
 				81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */,
@@ -750,6 +780,7 @@
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				8195AF8E225706D200153B58 /* TextAreaView.swift in Sources */,
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
+				7FFE87F12645CD4100465809 /* Sense.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
 				7F072BBF2638C4440029CA3C /* Color.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
@@ -762,9 +793,11 @@
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				81FC7CF52106965E00BBDDD7 /* BackgroundSelectionViewController.swift in Sources */,
 				81F8496B218A9A6D00280D8C /* ItemSelectionTableViewCell.swift in Sources */,
+				7FFE87EC2644999900465809 /* Action.swift in Sources */,
 				8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */,
 				81DC8E4C210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift in Sources */,
 				7F1417E326210526008E6571 /* Feature.swift in Sources */,
+				7F0C111D2655DCBC00D45C49 /* Recharge.swift in Sources */,
 				81DC8E57211256EC002F6AE4 /* InventorySelectionViewController.swift in Sources */,
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
 				81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */,
@@ -774,6 +807,7 @@
 				8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */,
 				81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */,
 				8152B41120DEDA8D008B7A1A /* Int.swift in Sources */,
+				7FFE87F62649BB8B00465809 /* Alignment.swift in Sources */,
 				8152B3C320D9D32F008B7A1A /* Character.swift in Sources */,
 				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,
@@ -785,9 +819,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F0C1115264F397600D45C49 /* ActionTests.swift in Sources */,
 				7F14193F262A7D0D008E6571 /* StringExtensionTests.swift in Sources */,
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
 				7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */,
+				7FFE88002649E25500465809 /* DieTests.swift in Sources */,
 				7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
