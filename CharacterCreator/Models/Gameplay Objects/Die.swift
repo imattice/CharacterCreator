@@ -5,12 +5,10 @@
 //  Created by Ike Mattice on 5/10/21.
 //  Copyright © 2021 Ike Mattice. All rights reserved.
 //
-
+///An object used to hold data for a die roll
 struct Die: Codable {
     let count: Int
     let value: Int
-    var min: Int { return 1 }
-    var max: Int { return value }
     
     var display: String { return "\(count)d\(value)" }
     
@@ -31,6 +29,10 @@ struct Die: Codable {
         self.value = value
     }
     
+    //MARK: Roll calculations
+    var min: Int { return 1 }
+    var average: Int { return (min + max) / count }
+    var max: Int { return value }
     func roll() {
         
     }

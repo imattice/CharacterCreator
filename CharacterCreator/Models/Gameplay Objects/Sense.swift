@@ -7,6 +7,7 @@
 //
 
 import Foundation
+///Indicates the type of sense as well as the maximum range for that sense
 enum Sense: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
