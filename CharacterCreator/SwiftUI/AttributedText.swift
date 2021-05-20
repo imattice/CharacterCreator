@@ -9,7 +9,7 @@
 import SwiftUI
 
 //TODO: - ✅ Handle new lines of text
-//TODO: - Add additional space between new lines
+//TODO: - ✅ Add additional space between new lines
 //TODO: - ✅ Die should be bold (1d4)
 //TODO: - ✅ Damage types should be bold and colored (1d4 acid damage)
 //TODO: - Use some kind of markdown to represent a table
@@ -19,11 +19,20 @@ import SwiftUI
 
 struct AttributedText: View {
     let text: String
+    var splitText: [String] {
+    text.components(separatedBy: .newlines)
+      .filter { !$0.isEmpty }
+  }
     
     var body: some View {
-        AttributedTextView(text: text)
-            .lineSpacing(4)
-            .padding()
+        VStack(alignment: .leading) {
+            ForEach(splitText, id: \.self) { text in
+            AttributedTextView(text: text)
+                .lineSpacing(4)
+                .padding(.top, 4)
+            }
+        }
+        .padding()
     }
     
     private
@@ -240,6 +249,9 @@ struct AttributedText_Previews: PreviewProvider {
         Group {
             AttributedText(text: "Blazing orbs of fire plummet to the ground at four different points you can see within range. Each creature in a 40-foot-radius sphere centered on each point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.\nThe spell damages objects in the area and ignites flammable objects that aren’t being worn or carried.")
             .previewLayout(.sizeThatFits)
+            
+            AttributedText(text: "You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\n• 50 hit points or fewer: deafened for 1 minute\n• 40 hit points or fewer: deafened and blinded for 10 minutes\n• 30 hit points or fewer: blinded, deafened, and stunned for 1 hour\n• 20 hit points or fewer: killed instantly\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn’t there already) and can’t return to your current plane for 24 hours by any means short of a wish spell.")
+                .previewLayout(.sizeThatFits)
             
             DataTableView(table: JSONTable(
                             title: "Animated Object Statistics",
