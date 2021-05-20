@@ -14,7 +14,7 @@ import SwiftUI
 //TODO: - ✅ Damage types should be bold and colored (1d4 acid damage)
 //TODO: - Use some kind of markdown to represent a table
 //TODO: - Display table as part of string (probably as a separate UI view)
-//TODO: - Display titled paragraphs
+//TODO: - ✅ Display titled paragraphs
 //TODO: - Display bulleted lists
 
 struct AttributedText: View {
@@ -23,13 +23,28 @@ struct AttributedText: View {
     text.components(separatedBy: .newlines)
       .filter { !$0.isEmpty }
   }
+    let titleLength: Int = 10
+
     
     var body: some View {
         VStack(alignment: .leading) {
             ForEach(splitText, id: \.self) { text in
+                let titleRegex = "([1-9]+\\.) [A-z]{1,\(titleLength)}\\."
+                let titleRange = text.range(of: titleRegex, options: .regularExpression)
+                
+                if let range = titleRange,
+                   let title = String(text[range]),
+                   let paragraph = String(text[range.upperBound..<text.endIndex]){
+                    Group {
+                        TitleText(text: title) +
+                            AttributedTextView(text: paragraph)
+                    }
+                    .padding(EdgeInsets(top: 4, leading: 20, bottom: 0, trailing: 0))
+                } else {
             AttributedTextView(text: text)
                 .lineSpacing(4)
                 .padding(.top, 4)
+            }
             }
         }
         .padding()
@@ -96,23 +111,31 @@ struct AttributedText: View {
             .font(.system(size: 18))
             .foregroundColor(color)
     }
-}
-
-struct TitledParagraphView: View {
-    let title: String
-    let paragraph: String
     
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(title)
-                .font(.title3)
-                .bold()
-                .padding(.bottom, 4)
-            AttributedText(text: paragraph)
-        }
-        .padding(8)
+    private
+    func TitleText(text: String) -> Text {
+        return
+            Text(text)
+            .font(.title3)
+            .bold()
     }
 }
+
+//struct TitledParagraphView: View {
+//    let title: String
+//    let paragraph: String
+//
+//    var body: some View {
+//        VStack(alignment: .leading) {
+//            Text(title)
+//                .font(.title3)
+//                .bold()
+//                .padding(.bottom, 4)
+//            AttributedText(text: paragraph)
+//        }
+//        .padding(8)
+//    }
+//}
 
 ///Contains data that can be displayed in a Data Table View
 struct JSONTable: Codable {
@@ -266,17 +289,18 @@ struct AttributedText_Previews: PreviewProvider {
                 .previewLayout(.fixed(width: 700, height: 700))
         }
         Group {
-            VStack(alignment: .leading) {
-            TitledParagraphView(title: "1. Red.", paragraph: "The target takes 10d6 fire damage on a failed save, or half as much damage on a successful one.")
-            TitledParagraphView(title: "2. Orange.", paragraph: "The target takes 10d6 acid damage on a failed save, or half as much damage on a successful one.")
-                
-            TitledParagraphView(title: "3. Yellow.", paragraph: "The target takes 10d6 lightning damage on a failed save, or half as much damage on a successful one.")
-            TitledParagraphView(title: "4. Green.", paragraph: "The target takes 10d6 poison damage on a failed save, or half as much damage on a successful one.")
-            TitledParagraphView(title: "5. Blue.", paragraph: "The target takes 10d6 cold damage on a failed save, or half as much damage on a successful one.")
-            TitledParagraphView(title: "6. Indigo.", paragraph: "On a failed save, the target is restrained. It must then make a Constitution saving throw at the end of each of its turns. If it successfully saves three times, the spell ends. If it fails its save three times, it permanently turns to stone and is subjected to the petrified condition. The successes and failures don’t need to be consecutive; keep track of both until the target collects three of a kind.")
-            TitledParagraphView(title: "7. Violet.", paragraph: "On a failed save, the target is blinded. It must then make a Wisdom saving throw at the start of your next turn. A successful save ends the blindness. If it fails that save, the creature is transported to another plane of existence of the GM’s choosing and is no longer blinded. (Typically, a creature that is on a plane that isn’t its home plane is banished home, while other creatures are usually cast into the Astral or Ethereal planes.)")
-            TitledParagraphView(title: "8. Special.", paragraph: "The target is struck by two rays. Roll twice more, rerolling any 8.")
-            }
+            AttributedText(text: "Eight multicolored rays of light flash from your hand. Each ray is a different color and has a different power and purpose. Each creature in a 60-foot cone must make a Dexterity saving throw. For each target, roll a d8 to determine which color ray affects it.\n1. Red. The target takes 10d6 fire damage on a failed save, or half as much damage on a successful one.\n2. Orange. The target takes 10d6 acid damage on a failed save, or half as much damage on a successful one.\n3. Yellow. The target takes 10d6 lightning damage on a failed save, or half as much damage on a successful one.\n4. Green. The target takes 10d6 poison damage on a failed save, or half as much damage on a successful one.\n5. Blue. The target takes 10d6 cold damage on a failed save, or half as much damage on a successful one.\n6. Indigo. On a failed save, the target is restrained. It must then make a Constitution saving throw at the end of each of its turns. If it successfully saves three times, the spell ends. If it fails its save three times, it permanently turns to stone and is subjected to the petrified condition. The successes and failures don’t need to be consecutive; keep track of both until the target collects three of a kind.\n7. Violet. On a failed save, the target is blinded. It must then make a Wisdom saving throw at the start of your next turn. A successful save ends the blindness. If it fails that save, the creature is transported to another plane of existence of the GM’s choosing and is no longer blinded. (Typically, a creature that is on a plane that isn’t its home plane is banished home, while other creatures are usually cast into the Astral or Ethereal planes.)\n8. Special. The target is struck by two rays. Roll twice more, rerolling any 8.")
+//            VStack(alignment: .leading) {
+//            TitledParagraphView(title: "1. Red.", paragraph: "The target takes 10d6 fire damage on a failed save, or half as much damage on a successful one.")
+//            TitledParagraphView(title: "2. Orange.", paragraph: "The target takes 10d6 acid damage on a failed save, or half as much damage on a successful one.")
+//
+//            TitledParagraphView(title: "3. Yellow.", paragraph: "The target takes 10d6 lightning damage on a failed save, or half as much damage on a successful one.")
+//            TitledParagraphView(title: "4. Green.", paragraph: "The target takes 10d6 poison damage on a failed save, or half as much damage on a successful one.")
+//            TitledParagraphView(title: "5. Blue.", paragraph: "The target takes 10d6 cold damage on a failed save, or half as much damage on a successful one.")
+//            TitledParagraphView(title: "6. Indigo.", paragraph: "On a failed save, the target is restrained. It must then make a Constitution saving throw at the end of each of its turns. If it successfully saves three times, the spell ends. If it fails its save three times, it permanently turns to stone and is subjected to the petrified condition. The successes and failures don’t need to be consecutive; keep track of both until the target collects three of a kind.")
+//            TitledParagraphView(title: "7. Violet.", paragraph: "On a failed save, the target is blinded. It must then make a Wisdom saving throw at the start of your next turn. A successful save ends the blindness. If it fails that save, the creature is transported to another plane of existence of the GM’s choosing and is no longer blinded. (Typically, a creature that is on a plane that isn’t its home plane is banished home, while other creatures are usually cast into the Astral or Ethereal planes.)")
+//            TitledParagraphView(title: "8. Special.", paragraph: "The target is struck by two rays. Roll twice more, rerolling any 8.")
+//            }
             .previewLayout(.sizeThatFits)
         }
         
