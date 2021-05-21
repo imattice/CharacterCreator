@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F072BBF2638C4440029CA3C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F072BBE2638C4440029CA3C /* Color.swift */; };
 		7F0C1115264F397600D45C49 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C1114264F397600D45C49 /* ActionTests.swift */; };
 		7F0C111D2655DCBC00D45C49 /* Recharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C111C2655DCBC00D45C49 /* Recharge.swift */; };
-		7F072BBF2638C4440029CA3C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F072BBE2638C4440029CA3C /* Color.swift */; };
+		7F0C112E26576DE200D45C49 /* tables.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F0C112D26576DE200D45C49 /* tables.json */; };
+		7F0C113326580E4800D45C49 /* DataTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C113226580E4800D45C49 /* DataTable.swift */; };
+		7F0C113826580F3B00D45C49 /* DataTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C113726580F3B00D45C49 /* DataTable.swift */; };
+		7F0C113D2658228B00D45C49 /* DataTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C113C2658228B00D45C49 /* DataTableView.swift */; };
 		7F141795261E7EE8008E6571 /* shields.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F141794261E7EE8008E6571 /* shields.json */; };
 		7F1417A2261E904B008E6571 /* packs.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417A1261E904B008E6571 /* packs.json */; };
 		7F1417A7261E9F49008E6571 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417A6261E9F49008E6571 /* tools.json */; };
@@ -133,9 +137,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F072BBE2638C4440029CA3C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F0C1114264F397600D45C49 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		7F0C111C2655DCBC00D45C49 /* Recharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recharge.swift; sourceTree = "<group>"; };
-		7F072BBE2638C4440029CA3C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		7F0C112D26576DE200D45C49 /* tables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tables.json; sourceTree = "<group>"; };
+		7F0C113226580E4800D45C49 /* DataTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTable.swift; sourceTree = "<group>"; };
+		7F0C113726580F3B00D45C49 /* DataTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTable.swift; sourceTree = "<group>"; };
+		7F0C113C2658228B00D45C49 /* DataTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableView.swift; sourceTree = "<group>"; };
 		7F141794261E7EE8008E6571 /* shields.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shields.json; sourceTree = "<group>"; };
 		7F1417A1261E904B008E6571 /* packs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = packs.json; sourceTree = "<group>"; };
 		7F1417A6261E9F49008E6571 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
@@ -311,6 +319,7 @@
 				7F14186A262689A5008E6571 /* CompendiumView.swift */,
 				7F141931262A45E7008E6571 /* AttributedText.swift */,
 				7F141943262B6B2B008E6571 /* Print.swift */,
+				7F0C113C2658228B00D45C49 /* DataTableView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -339,6 +348,7 @@
 				7F1417C1261F512B008E6571 /* spells.json */,
 				7F14180126268409008E6571 /* languages.json */,
 				7FFE8807264A089D00465809 /* creatures.json */,
+				7F0C112D26576DE200D45C49 /* tables.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -416,6 +426,7 @@
 				7FFE87FF2649E25500465809 /* DieTests.swift */,
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
 				7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */,
+				7F0C113726580F3B00D45C49 /* DataTable.swift */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";
@@ -451,6 +462,7 @@
 				81541A34227420C2002C7B72 /* Language.swift */,
 				7FFE87E62644894A00465809 /* Creature.swift */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
+				7F0C113226580E4800D45C49 /* DataTable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -707,6 +719,7 @@
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
 				7FB8C589261D4D760088A8E9 /* races.json in Resources */,
 				7FFE8808264A089D00465809 /* creatures.json in Resources */,
+				7F0C112E26576DE200D45C49 /* tables.json in Resources */,
 				7F1417C2261F512B008E6571 /* spells.json in Resources */,
 				7FB8C5A3261E52330088A8E9 /* armors.json in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
@@ -750,6 +763,7 @@
 				81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */,
 				7F14185D26268938008E6571 /* App.swift in Sources */,
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
+				7F0C113326580E4800D45C49 /* DataTable.swift in Sources */,
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */,
 				8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */,
@@ -760,6 +774,7 @@
 				810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */,
 				81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */,
 				7F14189A262755F8008E6571 /* Selectable.swift in Sources */,
+				7F0C113D2658228B00D45C49 /* DataTableView.swift in Sources */,
 				7F141944262B6B2B008E6571 /* Print.swift in Sources */,
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
@@ -825,6 +840,7 @@
 				7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */,
 				7FFE88002649E25500465809 /* DieTests.swift in Sources */,
 				7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */,
+				7F0C113826580F3B00D45C49 /* DataTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
