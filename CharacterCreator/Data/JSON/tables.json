@@ -1,0 +1,284 @@
+[{
+        "title": "draconic ancestry",
+        "headers": ["dragon", "damage type", "breath shape", "saving throw"],
+        "rows": [
+            ["black", "acid", "5 by 30ft line", "dex"],
+            ["blue", "lightning", "5 by 30ft line", "dex"],
+            ["brass", "fire", "5 by 30ft line", "dex"],
+            ["bronze", "fire", "5 by 30ft line", "dex"],
+            ["copper", "acid", "5 by 30ft line", "dex"],
+            ["gold", "fire", "15ft cone", "dex"],
+            ["green", "poison", "15ft cone", "con"],
+            ["red", "fire", "15ft cone", "dex"],
+            ["silver", "cold", "15ft cone", "con"],
+            ["white", "cold", "15ft cone", "con"]
+        ],
+        "tag": "draconic_ancestry"
+    },
+    {
+        "title": "destroy undead",
+        "headers": ["cleric level", "destroys undead of CR..."],
+        "rows": [
+            ["5th", "1/2 or lower"],
+            ["8th", "1 or lower"],
+            ["11th", "2 or lower"],
+            ["14th", "3 or lower"],
+            ["17th", "4 or lower"]
+        ],
+        "tag": "cleric_destroy_undead"
+    },
+    {
+        "title": "life domain spells",
+        "headers": ["cleric level", "spells"],
+        "rows": [
+            ["1st", "bless, cure wounds"],
+            ["3rd", "lesser restoration, spiritual weapon"],
+            ["5th", "beacon of hope, revivify"],
+            ["7th", "death ward, guardian of faith"]
+        ],
+        "tag": "life_domain_spells"
+    },
+    {
+        "title": "beast shapes",
+        "headers": ["druid level", "CR", "limitations"],
+        "rows": [
+            ["2nd", "1/4", "no flying or swimming speed"],
+            ["4th", "1/2", "no flying speed"],
+            ["8th", "1", "-"]
+        ],
+        "tag": "druid_beast_shapes"
+    },
+    {
+        "title": "arctic circle",
+        "headers": ["druid level", "circle spells"],
+        "rows": [
+            ["3rd", "hold person, spike growth"],
+            ["5th", "sleet storm, slow"],
+            ["7th", "freedom of movement, ice storm"],
+            ["9th", "commune with nature, scrying"]
+        ],
+        "tag": "druid_circle_of_land_spells_arctic"
+    }, {
+        "title": "coastal circle",
+        "headers": ["druid level", "circle spells"],
+        "rows": [
+            ["3rd", "mirror image, misty step"],
+            ["5th", "water breathing, water walk"],
+            ["7th", "control water, freedom of movement"],
+            ["9th", "conjure elemental, scrying"]
+        ],
+        "tag": "druid_circle_of_land_spells_coast"
+    }, {
+        "title": "desert circle",
+        "headers": ["druid level", "circle spells"],
+        "rows": [
+            ["3rd", "blur, silence"],
+            ["5th", "create food and water, protection from energy"],
+            ["7th", "blight, hallucinatory terrain"],
+            ["9th", "insect plague, wall of stone"]
+        ],
+        "tag": "druid_circle_of_land_spells_desert"
+    }, {
+        "title": "forest circle",
+        "headers": ["druid level", "circle spells"],
+        "rows": [
+            ["3rd", "barkskin, spider climb"],
+            ["5th", "call lightning, plant growth"],
+            ["7th", "divination, freedom of movement"],
+            ["9th", "commune with nature, tree stride"]
+        ],
+        "tag": "druid_circle_of_land_spells_forest"
+    }, {
+        "title": "grassland circle",
+        "headers": ["druid level", "circle spells"],
+        "rows": [
+            ["3rd", "invisibility, pass without trace"],
+            ["5th", "daylight, haste"],
+            ["7th", "divination, freedom of movement"],
+            ["9th", "dream, insect plague"]
+        ],
+        "tag": "druid_circle_of_land_spells_grassland"
+    }, {
+        "title": "mountain circle",
+        "headers": ["druid level", "circle spells"],
+        "rows": [
+            ["3rd", "spider climb, spike growth"],
+            ["5th", "lightning bolt, meld into stone"],
+            ["7th", "stone shape, stoneskin"],
+            ["9th", "passwall, wall of stone"]
+        ],
+        "tag": "druid_circle_of_land_spells_mountain"
+    }, {
+        "title": "swamp circle",
+        "headers": ["druid level", "circle spells"],
+        "rows": [
+            ["3rd", "acid arrow, darkness"],
+            ["5th", "water walk, stinking cloud"],
+            ["7th", "freedom of movement, locate creature"],
+            ["9th", "insect plague, scrying"]
+        ],
+        "tag": "druid_circle_of_land_spells_swamp"
+    }, {
+        "title": "oath of devotion spells",
+        "headers": ["paladin level", "spells"],
+        "rows": [
+            ["3rd", "protection from evil and good, sanctuary"],
+            ["5th", "lesser restoration, zone of truth"],
+            ["9th", "beacon of hope, dispel magic"],
+            ["13th", "freedom of movement, guardian of faith"],
+            ["17th", "commune, flame strike"]
+        ],
+        "tag": "paladin_oath_of_devotion_spells"
+    },
+    {
+        "title": "create spell slots from sorcery points",
+        "headers": ["spell slot level", "sorcery point cost"],
+        "rows": [
+            ["1st", "2"],
+            ["2nd", "3"],
+            ["3rd", "5"],
+            ["4th", "6"],
+            ["5th", "7"]
+        ],
+        "tag": "sorcerer_point_to_slot_conversion"
+    }, {
+        "title": "draconic ancestry",
+        "headers": ["dragon", "damage type"],
+        "rows": [
+            ["black", "acid"],
+            ["blue", "lightning"],
+            ["brass", "fire"],
+            ["bronze", "lightning"],
+            ["copper", "acid"],
+            ["gold", "fire"],
+            ["green", "poison"],
+            ["red", "fire"],
+            ["silver", "cold"],
+            ["white", "cold"]
+        ],
+        "tag": "sorcerer_draconic_ancestry"
+    }, {
+        "title": "fiend expanded spells",
+        "headers": ["spell level", "spells"],
+        "rows": [
+            ["1st", "burning hands, command"],
+            ["2nd", "blindness/deafness, scorching ray"],
+            ["3rd", "fireball, stinking cloud"],
+            ["4th", "fire shield, wall of fire"],
+            ["5th", "flame strike, hallow"]
+        ],
+        "tag": "warlock_expanded_spells_fiend"
+    },
+    {
+        "title": "Animated Object Statistics",
+        "headers": ["Size", "HP", "AC", "Attack", "Str", "Dex"],
+        "rows": [
+            ["Tiny", "20", "18", "+8 to hit, 1d4+4 damage", "4", "8"],
+            ["Small", "25", "16", "+6 to hit, 1d8+2 damage", "6", "14"],
+            ["Medium", "40", "13", "+5 to hit, 2d6+1 damage", "10", "12"],
+            ["Large", "50", "10", "+6 to hit, 2d10+2 damage", "14", "10"],
+            ["Huge", "80", "10", "+8 to hit, 2d12 + 4 damage", "18", "6"]
+        ],
+        "tag": "spell_animate_objects_statistics"
+    },
+    {
+        "title": "creation objects",
+        "headers": ["material", "duration"],
+        "rows": [
+            ["vegetable matter", "1 day"],
+            ["stone or crystal", "12 hours"],
+            ["precious metals", "1 hour"],
+            ["gems", "10 minutes"],
+            ["adamantine or mythril", "1 minute"]
+        ],
+        "tag": "spell_creation"
+    }, {
+        "title": "reincarnation roll table",
+        "headers": ["d100", "race"],
+        "rows": [
+            ["01-04", "dragonborn"],
+            ["05-13", "dwarf, hill"],
+            ["14-21", "dwarf, mountain"],
+            ["22-25", "elf, dark"],
+            ["26-34", "elf, high"],
+            ["35-42", "elf, wood"],
+            ["43-46", "gnome, forest"],
+            ["47-52", "gnome, rock"],
+            ["53-56", "half-elf"],
+            ["57-60", "half-orc"],
+            ["61-68", "halfling, lightfoot"],
+            ["69-76", "halfling, stout"],
+            ["77-96", "human"],
+            ["97-00", "tiefling"]
+        ],
+        "tag": "spell_reincarnation"
+    },
+    {
+        "title": "scrying",
+        "headers": ["knowledge", "save modifier"],
+        "rows": [
+            ["secondhand (you have heard of the target)", "+5"],
+            ["firsthand (you have met the target)", "+0"],
+            ["familiar (you know the target well)", "-5"]
+        ],
+        "tag": "spell_scrying_knowledge"
+    },
+    {
+        "title": "scrying",
+        "headers": ["connection", "save modifier"],
+        "rows": [
+            ["likeness or picture", "-2"],
+            ["possession or garment", "-4"],
+            ["body part, lock of hair, bit of nail, or the like", "-10"]
+        ],
+        "tag": "spell_scrying_connection"
+    }, {
+        "title": "teleportation accuracy",
+        "headers": ["familiarity", "mishap", "similar area", "off target", "on target"],
+        "rows": [
+            ["permanent circle", "-", "-", "-", "01-100"],
+            ["associated object", "-", "-", "-", "01-100"],
+            ["very familiar", "01-05", "06-13", "14-24", "25-100"],
+            ["seen casually", "01-33", "34-43", "44-53", "54-100"],
+            ["viewed once", "01-43", "44-53", "54-73", "74-100"],
+            ["description", "01-43", "44-53", "54-73", "74-100"],
+            ["false destination", "01-50", "51-100", "-", "-"]
+        ],
+        "tag": "spell_teleportation_accuracy"
+    },
+    {
+        "title": "precipitation",
+        "headers": ["stage", "condition"],
+        "rows": [
+            ["1", "clear"],
+            ["2", "light clouds"],
+            ["3", "overcast or ground fog"],
+            ["4", "rain, hail, or snow"],
+            ["5", "torrential rain, driving hail, or blizzard"]
+        ],
+        "tag": "spell_control_weather_precipitation"
+    }, {
+        "title": "temperature",
+        "headers": ["stage", "condition"],
+        "rows": [
+            ["1", "unbearable heat"],
+            ["2", "hot"],
+            ["3", "warm"],
+            ["4", "cool"],
+            ["5", "cold"],
+            ["6", "arctic cold"]
+        ],
+        "tag": "spell_control_weather_temperature"
+    }, {
+        "title": "wind",
+        "headers": ["stage", "condition"],
+        "rows": [
+            ["1", "calm"],
+            ["2", "moderate wind"],
+            ["3", "strong wind"],
+            ["4", "gale"],
+            ["5", "storm"]
+        ],
+        "tag": "spell_control_weather_wind"
+    }
+]
