@@ -133,7 +133,7 @@ class ClassTests: XCTestCase {
             "features": [{
                     "level": 1,
                     "title": "expanded spell list",
-                    "description": "The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.\n<INSERT TABLE HERE>"
+                    "description": "The Fiend lets you choose from an expanded list of spells when you learn a warlock spell. The following spells are added to the warlock spell list for you.\nTABLE:warlock_expanded_spells_fiend"
                 },
                 {
                     "level": 1,

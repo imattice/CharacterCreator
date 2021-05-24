@@ -68,7 +68,7 @@ struct DataTableView: View {
         let title: String
         
         var body: some View {
-            Text(title)
+            Text(title.capitalized)
                 .bold()
                 .font(.title)
                 .padding()

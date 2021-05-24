@@ -24,13 +24,13 @@ struct AttributedText: View {
       .filter { !$0.isEmpty }
   }
     let tables: [DataTable]? = nil
-    let titleLength: Int = 10
+    let titleLength: Int = 12
 
     
     var body: some View {
         VStack(alignment: .leading) {
             ForEach(splitText, id: \.self) { text in
-                let titleRegex = "([1-9]+\\.) [A-z]{1,\(titleLength)}\\."
+                let titleRegex = "^([1-9]\\.)? ?[A-z ]+\\."
                 let titleRange = text.range(of: titleRegex, options: .regularExpression)
                 
                 if let range = titleRange,
@@ -45,6 +45,10 @@ struct AttributedText: View {
                 else if text.first == "•" {
                     AttributedTextView(text: text)
                         .padding(EdgeInsets(top: 4, leading: 20, bottom: 0, trailing: 0))
+                }
+                else if text.first == "-" {
+                    AttributedTextView(text: text)
+                        .padding(EdgeInsets(top: 4, leading: 35, bottom: 0, trailing: 0))
                 }
                 else if text.matches("TABLE:[a-z_]+"),
                         let tableID = text.dropFirst(6) {
@@ -66,7 +70,6 @@ struct AttributedText: View {
             case die = "[0-9]+d[0-9]+"
             case damage = "(acid|fire|cold|thunder|lightning|poison|necrotic|radient|force|bludgeoning|piercing|slashing) damage"
             case savingThrow = "(Strength|Constitution|Dexterity|Charisma|Wisdom|Intelligence) saving throw"
-            case table = "TABLE:[a-z_]+"
             
             static
             func all() -> String {
@@ -80,9 +83,6 @@ struct AttributedText: View {
                 }
                 else if text.matches(Rules.damage.rawValue) {
                     return damage
-                }
-                else if text.matches(Rules.table.rawValue) {
-                    return table
                 }
                 else if text.matches(Rules.savingThrow.rawValue) {
                     return savingThrow
@@ -149,12 +149,11 @@ struct AttributedText_Previews: PreviewProvider {
             
             AttributedText(text: "You pull wisps of shadow material from the Shadowfell to create a nonliving object of vegetable matter within range: soft goods, rope, wood, or something similar. You can also use this spell to create mineral objects such as stone, crystal, or metal. The object created must be no larger than a 5- foot cube, and the object must be of a form and material that you have seen before.\nThe duration depends on the object’s material. If the object is composed of multiple materials, use the shortest duration.\nTABLE:creation\nUsing any material created by this spell as another spell’s material component causes that spell to fail.")
                 .previewLayout(.sizeThatFits)
+            
+            AttributedText(text: "This spell instantly transports you and up to eight willing creatures of your choice that you can see within range, or a single object that you can see within range, to a destination you select. If you target an object, it must be able to fit entirely inside a 10-foot cube, and it can’t be held or carried by an unwilling creature.\nThe destination you choose must be known to you, and it must be on the same plane of existence as you. Your familiarity with the destination determines whether you arrive there successfully. The GM rolls d100 and consults the table.\nTABLE:spell_teleportation_accuracy\nFamiliarity. “Permanent circle” means a permanent teleportation circle whose sigil sequence you know. “Associated object” means that you possess an object taken from the desired destination within the last six months, such as a book from a wizard’s library, bed linen from a royal suite, or a chunk of marble from a lich’s secret tomb.\n-“Very familiar” is a place you have been very often, a place you have carefully studied, or a place you can see when you cast the spell. \n-“Seen casually” is someplace you have seen more than once but with which you aren’t very familiar. \n-“Viewed once” is a place you have seen once, possibly using magic. \n-“Description” is a place whose location and appearance you know through someone else’s description, perhaps from a map.\n-“False destination” is a place that doesn’t exist. Perhaps you tried to scry an enemy’s sanctum but instead viewed an illusion, or you are attempting to teleport to a familiar location that no longer exists.\nOn Target. You and your group (or the target object) appear where you want to.\nOff Target. You and your group (or the target object) appear a random distance away from the destination in a random direction. Distance off target is 1d10 × 1d10 percent of the distance that was to be traveled. For example, if you tried to travel 120 miles, landed off target, and rolled a 5 and 3 on the two d10s, then you would be off target by 15 percent, or 18 miles. The GM determines the direction off target randomly by rolling a d8 and designating 1 as north, 2 as northeast, 3 as east, and so on around the points of the compass. If you were teleporting to a coastal city and wound up 18 miles out at sea, you could be in trouble.\nSimilar Area. You and your group (or the target object) wind up in a different area that’s visually or thematically similar to the target area. If you are heading for your home laboratory, for example, you might wind up in another wizard’s laboratory or in an alchemical supply shop that has many of the same tools and implements as your laboratory. Generally, you appear in the closest similar place, but since the spell has no range limit, you could conceivably wind up anywhere on the plane.\nMishap. The spell’s unpredictable magic results in a difficult journey. Each teleporting creature (or the target object) takes 3d10 force damage, and the GM rerolls on the table to see where you wind up (multiple mishaps can occur, dealing damage each time).")
+                    .previewLayout(.sizeThatFits)
 
         }
     }
 }
-    
-    //Last Test
-//    This spell instantly transports you and up to eight willing creatures of your choice that you can see within range, or a single object that you can see within range, to a destination you select. If you target an object, it must be able to fit entirely inside a 10-foot cube, and it can’t be held or carried by an unwilling creature.\nThe destination you choose must be known to you, and it must be on the same plane of existence as you. Your familiarity with the destination determines whether you arrive there successfully. The GM rolls d100 and consults the table.\n<INSERT TABLE HERE>\nFamiliarity. “Permanent circle” means a permanent teleportation circle whose sigil sequence you know. “Associated object” means that you possess an object taken from the desired destination within the last six months, such as a book from a wizard’s library, bed linen from a royal suite, or a chunk of marble from a lich’s secret tomb.\n“Very familiar” is a place you have been very often, a place you have carefully studied, or a place you can see when you cast the spell. “Seen casually” is someplace you have seen more than once but with which you aren’t very familiar. “Viewed once” is a place you have seen once, possibly using magic. “Description” is a place whose location and appearance you know through someone else’s description, perhaps from a map.\n“False destination” is a place that doesn’t exist. Perhaps you tried to scry an enemy’s sanctum but instead viewed an illusion, or you are attempting to teleport to a familiar location that no longer exists.\nOn Target. You and your group (or the target object) appear where you want to.\nOff Target. You and your group (or the target object) appear a random distance away from the destination in a random direction. Distance off target is 1d10 × 1d10 percent of the distance that was to be traveled. For example, if you tried to travel 120 miles, landed off target, and rolled a 5 and 3 on the two d10s, then you would be off target by 15 percent, or 18 miles. The GM determines the direction off target randomly by rolling a d8 and designating 1 as north, 2 as northeast, 3 as east, and so on around the points of the compass. If you were teleporting to a coastal city and wound up 18 miles out at sea, you could be in trouble.\nSimilar Area. You and your group (or the target object) wind up in a different area that’s visually or thematically similar to the target area. If you are heading for your home laboratory, for example, you might wind up in another wizard’s laboratory or in an alchemical supply shop that has many of the same tools and implements as your laboratory. Generally, you appear in the closest similar place, but since the spell has no range limit, you could conceivably wind up anywhere on the plane.\nMishap. The spell’s unpredictable magic results in a difficult journey. Each teleporting creature (or the target object) takes 3d10 force damage, and the GM rerolls on the table to see where you wind up (multiple mishaps can occur, dealing damage each time).
-//}
 

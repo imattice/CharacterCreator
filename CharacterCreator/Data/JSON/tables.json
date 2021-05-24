@@ -13,7 +13,7 @@
             ["silver", "cold", "15ft cone", "con"],
             ["white", "cold", "15ft cone", "con"]
         ],
-        "tag": "draconic_ancestry"
+        "tag": "race_draconic_ancestry"
     },
     {
         "title": "destroy undead",
@@ -36,7 +36,7 @@
             ["5th", "beacon of hope, revivify"],
             ["7th", "death ward, guardian of faith"]
         ],
-        "tag": "life_domain_spells"
+        "tag": "cleric_life_domain_spells"
     },
     {
         "title": "beast shapes",
