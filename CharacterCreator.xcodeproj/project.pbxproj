@@ -34,6 +34,8 @@
 		7F141932262A45E7008E6571 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141931262A45E7008E6571 /* AttributedText.swift */; };
 		7F14193F262A7D0D008E6571 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */; };
 		7F141944262B6B2B008E6571 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141943262B6B2B008E6571 /* Print.swift */; };
+		7F84B4A6265D85FE00901F69 /* RegexRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4A5265D85FE00901F69 /* RegexRules.swift */; };
+		7F84B4BB265DBCC100901F69 /* RegexRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -164,6 +166,8 @@
 		7F141931262A45E7008E6571 /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 		7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		7F141943262B6B2B008E6571 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		7F84B4A5265D85FE00901F69 /* RegexRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRules.swift; sourceTree = "<group>"; };
+		7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRuleTests.swift; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		7FB8C598261E03FB0088A8E9 /* weapons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weapons.json; sourceTree = "<group>"; };
@@ -427,6 +431,7 @@
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
 				7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */,
 				7F0C113726580F3B00D45C49 /* DataTable.swift */,
+				7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 				7FFE87E62644894A00465809 /* Creature.swift */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
 				7F0C113226580E4800D45C49 /* DataTable.swift */,
+				7F84B4A5265D85FE00901F69 /* RegexRules.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -792,6 +798,7 @@
 				8195037A2256DDAE00EE4469 /* PersonalityDetailView.swift in Sources */,
 				7F1417BD261F4CF1008E6571 /* AbilityScore.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
+				7F84B4A6265D85FE00901F69 /* RegexRules.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				8195AF8E225706D200153B58 /* TextAreaView.swift in Sources */,
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
@@ -839,6 +846,7 @@
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
 				7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */,
 				7FFE88002649E25500465809 /* DieTests.swift in Sources */,
+				7F84B4BB265DBCC100901F69 /* RegexRuleTests.swift in Sources */,
 				7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */,
 				7F0C113826580F3B00D45C49 /* DataTable.swift in Sources */,
 			);
