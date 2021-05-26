@@ -280,5 +280,17 @@
             ["5", "storm"]
         ],
         "tag": "spell_control_weather_wind"
+    }, {
+        "title": "exhaustion",
+        "headers": ["level", "effect"],
+        "rows": [
+            ["1", "disadvantage on ability checks"],
+            ["2", "speed halved"],
+            ["3", "disadvantage on attack rolls and saving throws"],
+            ["4", "hit point maximum halved"],
+            ["5", "speed reduced to 0"],
+            ["6", "death"]
+        ],
+        "tag": "condition_exhaustion"
     }
 ]
