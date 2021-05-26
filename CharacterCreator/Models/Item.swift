@@ -248,3 +248,36 @@ class ToolRecord: ObjectRecord, Record {
         case artisan, musical, gaming
     }
 }
+
+//MARK: - Poison Record
+///An object representing static information for a poison that can be used in game
+final
+class PoisonRecord: ObjectRecord, Record {
+    ///Indicates how the poison's effects are applied
+    let applicationType: PoisonApplication
+    
+    ///Indicates how the poison's effects are applied
+    enum PoisonApplication: String, Codable {
+        case contact, ingested, inhaled, injury
+        
+        var description: String {
+            switch self {
+            case .contact: return "Contact poison can be smeared on an object and remains potent until it is touched or washed off. A creature that touches contact poison with exposed skin suffers its effects."
+            case .ingested: return "A creature must swallow an entire dose of ingested poison to suffer its effects. The dose can be delivered in food or a liquid. You may decide that a partial dose has a reduced effect, such as allowing advantage on the saving throw or dealing only half damage on a failed save."
+            case .inhaled: return "These poisons are powders or gases that take effect when inhaled. Blowing the powder or releasing the gas subjects creatures in a 5-­‐‑foot cube to its effect. The resulting cloud dissipates immediately afterward. Holding one’s breath is ineffective against inhaled poisons, as they affect nasal membranes, tear ducts, and other parts of the body."
+            case .injury: return "Injury poison can be applied to weapons, ammunition, trap components, and other objects that deal piercing or slashing damage and remains potent until delivered through a wound or washed off. A creature that takes piercing or slashing damage from an object coated with the poison is exposed to its effects."
+            }
+        }
+    }
+    
+    required
+    init(from decoder: Decoder) throws {
+        let container               = try decoder.container(keyedBy: CodingKeys.self)
+        self.applicationType        = try container.decode(PoisonApplication.self, forKey: .applicationType)
+
+        try super.init(from: decoder)
+    }
+    enum CodingKeys: CodingKey {
+        case applicationType
+    }
+}

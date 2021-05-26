@@ -28,6 +28,9 @@ class RecordTests: XCTestCase {
         XCTAssertEqual(armor.count, 13)
         let shields = ShieldRecord.all()
         XCTAssertEqual(shields.count, 1)
+        let poisons = PoisonRecord.all()
+        XCTAssertEqual(poisons.count, 14)
+
         
         let packs = PackRecord.all()
         XCTAssertEqual(packs.count, 7)

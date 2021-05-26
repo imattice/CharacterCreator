@@ -40,6 +40,7 @@
 		7F84B4D1265EBC1000901F69 /* Feat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4D0265EBC1000901F69 /* Feat.swift */; };
 		7F84B4D6265EBC8C00901F69 /* feats.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F84B4D5265EBC8C00901F69 /* feats.json */; };
 		7F84B4DB265EC53F00901F69 /* conditions.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F84B4DA265EC53F00901F69 /* conditions.json */; };
+		7F84B4EC265ECF4E00901F69 /* poisons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F84B4EB265ECF4E00901F69 /* poisons.json */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -176,6 +177,7 @@
 		7F84B4D0265EBC1000901F69 /* Feat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feat.swift; sourceTree = "<group>"; };
 		7F84B4D5265EBC8C00901F69 /* feats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = feats.json; sourceTree = "<group>"; };
 		7F84B4DA265EC53F00901F69 /* conditions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = conditions.json; sourceTree = "<group>"; };
+		7F84B4EB265ECF4E00901F69 /* poisons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = poisons.json; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		7FB8C598261E03FB0088A8E9 /* weapons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weapons.json; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				7F0C112D26576DE200D45C49 /* tables.json */,
 				7F84B4D5265EBC8C00901F69 /* feats.json */,
 				7F84B4DA265EC53F00901F69 /* conditions.json */,
+				7F84B4EB265ECF4E00901F69 /* poisons.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				7FFE8808264A089D00465809 /* creatures.json in Resources */,
 				7F0C112E26576DE200D45C49 /* tables.json in Resources */,
 				7F1417C2261F512B008E6571 /* spells.json in Resources */,
+				7F84B4EC265ECF4E00901F69 /* poisons.json in Resources */,
 				7FB8C5A3261E52330088A8E9 /* armors.json in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				7F14180226268409008E6571 /* languages.json in Resources */,
