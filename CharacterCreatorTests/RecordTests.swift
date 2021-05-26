@@ -43,6 +43,9 @@ class RecordTests: XCTestCase {
         
         let feats = FeatRecord.all()
         XCTAssertEqual(feats.count, 1)
+        
+        let conditions = ConditionRecord.all()
+        XCTAssertEqual(conditions.count, 15)
     }
     
     func testSubraceInitialization() {
