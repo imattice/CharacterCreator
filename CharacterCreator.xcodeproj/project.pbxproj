@@ -26,6 +26,9 @@
 		7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A12627BB53008E6571 /* ClassTests.swift */; };
 		7F1418A72627BE7E008E6571 /* CreatureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A62627BE7E008E6571 /* CreatureSize.swift */; };
 		7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418C026289EB6008E6571 /* RecordTests.swift */; };
+		7F84B4CC265EBBCD00901F69 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4CB265EBBCD00901F69 /* Condition.swift */; };
+		7F84B4D1265EBC1000901F69 /* Feat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4D0265EBC1000901F69 /* Feat.swift */; };
+		7F84B4D6265EBC8C00901F69 /* feats.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F84B4D5265EBC8C00901F69 /* feats.json */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -148,6 +151,9 @@
 		7F1418A12627BB53008E6571 /* ClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTests.swift; sourceTree = "<group>"; };
 		7F1418A62627BE7E008E6571 /* CreatureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSize.swift; sourceTree = "<group>"; };
 		7F1418C026289EB6008E6571 /* RecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTests.swift; sourceTree = "<group>"; };
+		7F84B4CB265EBBCD00901F69 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
+		7F84B4D0265EBC1000901F69 /* Feat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feat.swift; sourceTree = "<group>"; };
+		7F84B4D5265EBC8C00901F69 /* feats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = feats.json; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		7FB8C598261E03FB0088A8E9 /* weapons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weapons.json; sourceTree = "<group>"; };
@@ -320,6 +326,7 @@
 				7F1417C1261F512B008E6571 /* spells.json */,
 				7F14180126268409008E6571 /* languages.json */,
 				7FFE8807264A089D00465809 /* creatures.json */,
+				7F84B4D5265EBC8C00901F69 /* feats.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -431,6 +438,8 @@
 				81541A34227420C2002C7B72 /* Language.swift */,
 				7FFE87E62644894A00465809 /* Creature.swift */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
+				7F84B4CB265EBBCD00901F69 /* Condition.swift */,
+				7F84B4D0265EBC1000901F69 /* Feat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -692,6 +701,7 @@
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				7F14180226268409008E6571 /* languages.json in Resources */,
 				81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */,
+				7F84B4D6265EBC8C00901F69 /* feats.json in Resources */,
 				8195037E2256DDFB00EE4469 /* PersonalityDetailView.xib in Resources */,
 				81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */,
 				7F1417A7261E9F49008E6571 /* tools.json in Resources */,
@@ -748,6 +758,7 @@
 				81243E552279EFE1003A9DA8 /* WeaponStatView.swift in Sources */,
 				8112FA7421ACC37D00EB61B8 /* TextFieldView.swift in Sources */,
 				819621E62268F33300A4DD3D /* UIResponder.swift in Sources */,
+				7F84B4D1265EBC1000901F69 /* Feat.swift in Sources */,
 				7F14188226275001008E6571 /* Errors.swift in Sources */,
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
@@ -775,6 +786,7 @@
 				81DC8E4C210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift in Sources */,
 				7F1417E326210526008E6571 /* Feature.swift in Sources */,
 				7F0C111D2655DCBC00D45C49 /* Recharge.swift in Sources */,
+				7F84B4CC265EBBCD00901F69 /* Condition.swift in Sources */,
 				81DC8E57211256EC002F6AE4 /* InventorySelectionViewController.swift in Sources */,
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
 				81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */,

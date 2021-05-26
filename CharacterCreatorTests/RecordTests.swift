@@ -40,6 +40,9 @@ class RecordTests: XCTestCase {
         
         let creatures = CreatureRecord.all()
         XCTAssertEqual(creatures.count, 318)
+        
+        let feats = FeatRecord.all()
+        XCTAssertEqual(feats.count, 1)
     }
     
     func testSubraceInitialization() {
