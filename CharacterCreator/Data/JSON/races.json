@@ -2,7 +2,7 @@
         "name": "dwarf",
         "description": "Stout and stubborn, a dwarf is known for their tenacity with metalwork and ores.  They can often be found in deep recesses of mountains, underground and generally keeping to themselves.",
         "age": "Dwarves mature at the same rate as humans, but they’re considered young until they reach the age of 50. On average, they live about 350 years.",
-        "alignment": "Most dwarves are lawful, believing firmly in the benefits of a well-­‐‑ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order.",
+        "alignment": "Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order.",
         "physique": "Dwarves stand between 4 and 5 feet tall and average about 150 pounds.",
         "size": "medium",
         "hasDarkvision": true,
@@ -50,7 +50,7 @@
         "name": "elf",
         "description": "The elves posess grace unlike any other, seeming to move quickly through sunbeams without so much as a hint of disruption.  Learning new magicks come easily to them, as do many other works that marry art, craft and deep wisdom.",
         "age": "Although elves reach physical maturity at about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old.",
-        "alignment": "Elves love freedom, variety, and self-­‐‑ expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others’ freedom as well as their own, and they are more often good than not.",
+        "alignment": "Elves love freedom, variety, and self- expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others’ freedom as well as their own, and they are more often good than not.",
         "physique": "Elves range from under 5 to over 6 feet tall and have slender builds. ",
         "size": "medium",
         "hasDarkvision": true,
@@ -104,7 +104,7 @@
         "name": "halfling",
         "description": "A comfortable home and the happiness of friends are what most halflings desire.  They tend to avoid the adventuring life, though some are willing to ignore the expectation of the domestic life to see the world.",
         "age": "A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century.",
-        "alignment": "Most halflings are lawful good. As a rule, they are good-­‐‑hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways.",
+        "alignment": "Most halflings are lawful good. As a rule, they are good-hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways.",
         "physique": "Halflings average about 3 feet tall and weigh about 40 pounds",
         "size": "small",
         "speed": 25,
@@ -193,8 +193,7 @@
         "speed": 30,
         "features": [{
                 "title": "Draconic Ancestry",
-                "description": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.",
-                "options": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"]
+                "description": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.\nTABLE:race_draconic_ancestry"
             },
             {
                 "title": "Breath Weapon",
@@ -223,7 +222,7 @@
         "name": "gnome",
         "description": "",
         "age": "Gnomes mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years.",
-        "alignment": "Gnomes are most often good. Those who tend toward law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are good-­‐‑hearted, and even the tricksters among them are more playful than vicious.",
+        "alignment": "Gnomes are most often good. Those who tend toward law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are good-hearted, and even the tricksters among them are more playful than vicious.",
         "physique": "Gnomes are between 3 and 4 feet tall and average about 40 pounds.",
         "size": "small",
         "speed": 25,

@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F072BBF2638C4440029CA3C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F072BBE2638C4440029CA3C /* Color.swift */; };
 		7F0C1115264F397600D45C49 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C1114264F397600D45C49 /* ActionTests.swift */; };
 		7F0C111D2655DCBC00D45C49 /* Recharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C111C2655DCBC00D45C49 /* Recharge.swift */; };
+		7F0C112E26576DE200D45C49 /* tables.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F0C112D26576DE200D45C49 /* tables.json */; };
+		7F0C113326580E4800D45C49 /* DataTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C113226580E4800D45C49 /* DataTable.swift */; };
+		7F0C113826580F3B00D45C49 /* DataTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C113726580F3B00D45C49 /* DataTable.swift */; };
+		7F0C113D2658228B00D45C49 /* DataTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0C113C2658228B00D45C49 /* DataTableView.swift */; };
 		7F141795261E7EE8008E6571 /* shields.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F141794261E7EE8008E6571 /* shields.json */; };
 		7F1417A2261E904B008E6571 /* packs.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417A1261E904B008E6571 /* packs.json */; };
 		7F1417A7261E9F49008E6571 /* tools.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F1417A6261E9F49008E6571 /* tools.json */; };
@@ -26,6 +31,11 @@
 		7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A12627BB53008E6571 /* ClassTests.swift */; };
 		7F1418A72627BE7E008E6571 /* CreatureSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418A62627BE7E008E6571 /* CreatureSize.swift */; };
 		7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1418C026289EB6008E6571 /* RecordTests.swift */; };
+		7F141932262A45E7008E6571 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141931262A45E7008E6571 /* AttributedText.swift */; };
+		7F14193F262A7D0D008E6571 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */; };
+		7F141944262B6B2B008E6571 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141943262B6B2B008E6571 /* Print.swift */; };
+		7F84B4A6265D85FE00901F69 /* RegexRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4A5265D85FE00901F69 /* RegexRules.swift */; };
+		7F84B4BB265DBCC100901F69 /* RegexRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */; };
 		7F84B4CC265EBBCD00901F69 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4CB265EBBCD00901F69 /* Condition.swift */; };
 		7F84B4D1265EBC1000901F69 /* Feat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4D0265EBC1000901F69 /* Feat.swift */; };
 		7F84B4D6265EBC8C00901F69 /* feats.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F84B4D5265EBC8C00901F69 /* feats.json */; };
@@ -133,8 +143,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F072BBE2638C4440029CA3C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7F0C1114264F397600D45C49 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		7F0C111C2655DCBC00D45C49 /* Recharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recharge.swift; sourceTree = "<group>"; };
+		7F0C112D26576DE200D45C49 /* tables.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tables.json; sourceTree = "<group>"; };
+		7F0C113226580E4800D45C49 /* DataTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTable.swift; sourceTree = "<group>"; };
+		7F0C113726580F3B00D45C49 /* DataTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTable.swift; sourceTree = "<group>"; };
+		7F0C113C2658228B00D45C49 /* DataTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableView.swift; sourceTree = "<group>"; };
 		7F141794261E7EE8008E6571 /* shields.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = shields.json; sourceTree = "<group>"; };
 		7F1417A1261E904B008E6571 /* packs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = packs.json; sourceTree = "<group>"; };
 		7F1417A6261E9F49008E6571 /* tools.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tools.json; sourceTree = "<group>"; };
@@ -152,6 +167,11 @@
 		7F1418A12627BB53008E6571 /* ClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTests.swift; sourceTree = "<group>"; };
 		7F1418A62627BE7E008E6571 /* CreatureSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSize.swift; sourceTree = "<group>"; };
 		7F1418C026289EB6008E6571 /* RecordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTests.swift; sourceTree = "<group>"; };
+		7F141931262A45E7008E6571 /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
+		7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
+		7F141943262B6B2B008E6571 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		7F84B4A5265D85FE00901F69 /* RegexRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRules.swift; sourceTree = "<group>"; };
+		7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRuleTests.swift; sourceTree = "<group>"; };
 		7F84B4CB265EBBCD00901F69 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
 		7F84B4D0265EBC1000901F69 /* Feat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feat.swift; sourceTree = "<group>"; };
 		7F84B4D5265EBC8C00901F69 /* feats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = feats.json; sourceTree = "<group>"; };
@@ -272,6 +292,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F072BBD2638C4360029CA3C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F072BBE2638C4440029CA3C /* Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7F14180C26268782008E6571 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,8 +326,12 @@
 		7F141814262687BE008E6571 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				7F072BBD2638C4360029CA3C /* Extensions */,
 				7F14185C26268938008E6571 /* App.swift */,
 				7F14186A262689A5008E6571 /* CompendiumView.swift */,
+				7F141931262A45E7008E6571 /* AttributedText.swift */,
+				7F141943262B6B2B008E6571 /* Print.swift */,
+				7F0C113C2658228B00D45C49 /* DataTableView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -328,6 +360,7 @@
 				7F1417C1261F512B008E6571 /* spells.json */,
 				7F14180126268409008E6571 /* languages.json */,
 				7FFE8807264A089D00465809 /* creatures.json */,
+				7F0C112D26576DE200D45C49 /* tables.json */,
 				7F84B4D5265EBC8C00901F69 /* feats.json */,
 				7F84B4DA265EC53F00901F69 /* conditions.json */,
 			);
@@ -406,6 +439,9 @@
 				81ACFDA022C2F62F0014597D /* DamageTests.swift */,
 				7FFE87FF2649E25500465809 /* DieTests.swift */,
 				8123672A20CA44DD00F7AEFC /* Info.plist */,
+				7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */,
+				7F0C113726580F3B00D45C49 /* DataTable.swift */,
+				7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */,
 			);
 			path = CharacterCreatorTests;
 			sourceTree = "<group>";
@@ -441,6 +477,8 @@
 				81541A34227420C2002C7B72 /* Language.swift */,
 				7FFE87E62644894A00465809 /* Creature.swift */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
+				7F0C113226580E4800D45C49 /* DataTable.swift */,
+				7F84B4A5265D85FE00901F69 /* RegexRules.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -699,6 +737,7 @@
 				81DC8E512112548A002F6AE4 /* ChoiceSelectionView.xib in Resources */,
 				7FB8C589261D4D760088A8E9 /* races.json in Resources */,
 				7FFE8808264A089D00465809 /* creatures.json in Resources */,
+				7F0C112E26576DE200D45C49 /* tables.json in Resources */,
 				7F1417C2261F512B008E6571 /* spells.json in Resources */,
 				7FB8C5A3261E52330088A8E9 /* armors.json in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
@@ -744,6 +783,7 @@
 				81DF3032214310AD00C939CE /* FlavorViews.swift in Sources */,
 				7F14185D26268938008E6571 /* App.swift in Sources */,
 				8152B3E720DC124D008B7A1A /* UIView.swift in Sources */,
+				7F0C113326580E4800D45C49 /* DataTable.swift in Sources */,
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */,
 				8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */,
@@ -754,6 +794,8 @@
 				810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */,
 				81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */,
 				7F14189A262755F8008E6571 /* Selectable.swift in Sources */,
+				7F0C113D2658228B00D45C49 /* DataTableView.swift in Sources */,
+				7F141944262B6B2B008E6571 /* Print.swift in Sources */,
 				81BC72AF20F186C000B48195 /* Spell.swift in Sources */,
 				8123671120CA44DA00F7AEFC /* AppDelegate.swift in Sources */,
 				81CC0DE3226544C400FDC0AD /* SocialDetailView.swift in Sources */,
@@ -771,13 +813,16 @@
 				8195037A2256DDAE00EE4469 /* PersonalityDetailView.swift in Sources */,
 				7F1417BD261F4CF1008E6571 /* AbilityScore.swift in Sources */,
 				8152B3C520D9D337008B7A1A /* Class.swift in Sources */,
+				7F84B4A6265D85FE00901F69 /* RegexRules.swift in Sources */,
 				819D371520F9BF4D00986AFB /* SpellSelectionHeaderView.swift in Sources */,
 				8195AF8E225706D200153B58 /* TextAreaView.swift in Sources */,
 				81DC8E46210BB993002F6AE4 /* AbilitySelectionViewController.swift in Sources */,
 				7FFE87F12645CD4100465809 /* Sense.swift in Sources */,
 				8152B3C720D9D340008B7A1A /* Race.swift in Sources */,
+				7F072BBF2638C4440029CA3C /* Color.swift in Sources */,
 				819B065F20E7455300902D4E /* ModalTableViewController.swift in Sources */,
 				81851D5F2254721E00260413 /* UITextView.swift in Sources */,
+				7F141932262A45E7008E6571 /* AttributedText.swift in Sources */,
 				81BC72A820F0813700B48195 /* SpellTableViewCell.swift in Sources */,
 				81529E262152E49D00AD1A1A /* ReviewTableViewCells.swift in Sources */,
 				81851D612254725C00260413 /* UITextField.swift in Sources */,
@@ -813,10 +858,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F0C1115264F397600D45C49 /* ActionTests.swift in Sources */,
+				7F14193F262A7D0D008E6571 /* StringExtensionTests.swift in Sources */,
 				81ACFDA122C2F62F0014597D /* DamageTests.swift in Sources */,
 				7F1418A22627BB53008E6571 /* ClassTests.swift in Sources */,
 				7FFE88002649E25500465809 /* DieTests.swift in Sources */,
+				7F84B4BB265DBCC100901F69 /* RegexRuleTests.swift in Sources */,
 				7F1418C126289EB6008E6571 /* RecordTests.swift in Sources */,
+				7F0C113826580F3B00D45C49 /* DataTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
