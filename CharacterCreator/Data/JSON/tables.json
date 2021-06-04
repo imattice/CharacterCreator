@@ -292,5 +292,384 @@
             ["6", "death"]
         ],
         "tag": "condition_exhaustion"
+    }, {
+        "title": "apparatus of the crab levers",
+        "headers": ["lever", "up", "down"],
+        "rows": [
+            ["1", "Legs and tail extend, allowing the apparatus to walk and swim", "Legs and tail retract, reducing the apparatus's speed to 0 and making it unable to benefit from the bonuses to speed."],
+            ["2", "Forward window shutter opens.", "Forward window shutter closes."],
+            ["3", "Side window shutters open (two per side).", "Side window shutters close (two per side)."],
+            ["4", "Two claws extend from the front sides of the apparatus.", "The claws retract."],
+            ["5", "Each extended claw makes the following melee weapon attack: +8 to hit, reach 5 ft., one target. Hit: 7 (2d6) bludgeoning damage.", "Each extended claw makes the following melee weapon attack: +8 to hit, reach 5 ft., one target. Hit: The target is grappled (escape DC 15)."],
+            ["6", "The apparatus walks or swims forward.", "The apparatus walks or swims backward."],
+            ["7", "The apparatus turns 90 degrees left.", "The apparatus turns 90 degrees right."],
+            ["8", "Eyelike fixtures emit bright light in a 30-foot radius and dim light for an additional 30 feet.", "The light turns off."],
+            ["9", "The apparatus sinks as much as 20 feet in liquid.", "The apparatus rises up to 20 feet in liquid."],
+            ["10", "The rear hatch unseals and opens.", "The rear hatch closes and seals."]
+        ],
+        "tag": "magical_item_apparatus_of_the_crab_levers"
+    }, {
+        "title": "armor of resistance roll table",
+        "headers": ["d10", "damage type"],
+        "rows": [
+            ["1", "acid"],
+            ["2", "cold"],
+            ["3", "fire"],
+            ["4", "force"],
+            ["5", "lightning"],
+            ["6", "necrotic"],
+            ["7", "poison"],
+            ["8", "psychic"],
+            ["9", "radiant"],
+            ["10", "thunder"]
+        ],
+        "tag": "magical_item_armor_of_resistance_roll_table"
+    },
+
+    {
+        "title": "bag of beans roll table",
+        "headers": ["d100", "effect"],
+        "rows": [
+            ["01", "5d4 toadstools sprout. If a creature eats a toadstool, roll any die. On an odd roll, the eater must succeed on a DC 15 Constitution saving throw or take 5d6 poison damage and become poisoned for 1 hour. On an even roll, the eater gains 5d6 temporary hit points for 1 hour."],
+            ["02-10", "A geyser erupts and spouts water, beer, berry juice, tea, vinegar, wine, or oil (GM’s choice) 30 feet into the air for 1d12 rounds."],
+            ["11-20", "A treant sprouts. There’s a 50 percent chance that the treant is chaotic evil and attacks."],
+            ["21-30", "An animate, immobile stone statue in your likeness rises. It makes verbal threats against you. If you leave it and others come near, it describes you as the most heinous of villains and directs the newcomers to find and attack you. If you are on the same plane of existence as the statue, it knows where you are. The statue becomes inanimate after 24 hours."],
+            ["31-40", "A campfire with blue flames springs forth and burns for 24 hours (or until it is extinguished)."],
+            ["41-50", "1d6 + 6 shriekers sprout"],
+            ["51-60", "1d4 + 8 bright pink toads crawl forth. Whenever a toad is touched, it transforms into a Large or smaller monster of the GM’s choice. The monster remains for 1 minute, then disappears in a puff of bright pink smoke."],
+            ["61-70", "A hungry bulette burrows up and attacks."],
+            ["71-80", "A fruit tree grows. It has 1d10 + 20 fruit, 1d8 of which act as randomly determined magic potions, while one acts as an ingested poison of the GM’s choice. The tree vanishes after 1 hour. Picked fruit remains, retaining any magic for 30 days."],
+            ["81-90", "A nest of 1d4 + 3 eggs springs up. Any creature that eats an egg must make a DC 20 Constitution saving throw. On a successful save, a creature permanently increases its lowest ability score by 1, randomly choosing among equally low scores. On a failed save, the creature takes 10d6 force damage from an internal magical explosion."],
+            ["91-99", "A pyramid with a 60-foot-square base bursts upward. Inside is a sarcophagus containing a mummy lord. The pyramid is treated as the mummy lord’s lair, and its sarcophagus contains treasure of the GM’s choice."],
+            ["00", "A giant beanstalk sprouts, growing to a height of the GM’s choice. The top leads where the GM chooses, such as to a great view, a cloud giant’s castle, or a different plane of existence."]
+        ],
+        "tag": "magic_item_bag_of_beans_roll_table"
+    }, {
+        "title": "gray bag of tricks roll table",
+        "headers": ["d8", "creature"],
+        "rows": [
+            ["1", "weasel"],
+            ["2", "giant rat"],
+            ["3", "badger"],
+            ["4", "boar"],
+            ["5", "panther"],
+            ["6", "giant badger"],
+            ["7", "dire wolf"],
+            ["8", "giant elk"]
+        ],
+        "tag": "magical_item_bag_of_tricks_gray_roll_table"
+    }, {
+        "title": "rust bag of tricks roll table",
+        "headers": ["d8", "creature"],
+        "rows": [
+            ["1", "rat"],
+            ["2", "owl"],
+            ["3", "mastiff"],
+            ["4", "goat"],
+            ["5", "giant goat"],
+            ["6", "giant boar"],
+            ["7", "lion"],
+            ["8", "brown bear"]
+        ],
+        "tag": "magical_item_bag_of_tricks_rust_roll_table"
+    }, {
+        "title": "tan bag of tricks roll table",
+        "headers": ["d8", "creature"],
+        "rows": [
+            ["1", "jackel"],
+            ["2", "ape"],
+            ["3", "baboon"],
+            ["4", "axe beak"],
+            ["5", "black bear"],
+            ["6", "giant weasel"],
+            ["7", "giant hyena"],
+            ["8", "tiger"]
+        ],
+        "tag": "magical_item_bag_of_tricks_tan_roll_table"
+    }, {
+        "title": "candle of invocation alignment roll table",
+        "headers": ["d20", "alignment"],
+        "rows": [
+            ["1-2", "chaotic evil"],
+            ["3-4", "chaotic neutral"],
+            ["5-7", "chaotic good"],
+            ["8-9", "neutral evil"],
+            ["10-11", "neutral"],
+            ["12-13", "netural good"],
+            ["14-15", "lawful evil"],
+            ["16-17", "lawful neutral"],
+            ["18-20", "lawful good"]
+        ],
+        "tag": "magical_item_candle_of_invocation_alignment"
+    }, {
+        "title": "carpet of flying sizes",
+        "headers": ["d100", "size", "capacity", "flying speed"],
+        "rows": [
+            ["01-20", "3 ft. x 5 ft.", "200 lbs.", "80 feet"],
+            ["21-55", "4 ft. x 6 ft.", "400 lbs.", "60 feet"],
+            ["56-80", "5 ft. x 7 ft.", "600 lbs.", "40 feet"],
+            ["81-100", "6 ft. x 9 ft.", "800 lbs.", "30 feet"]
+        ],
+        "tag": "magical_item_carpet_of_flying_sizes"
+    },
+    {
+        "title": "cube of force faces",
+        "headers": ["face", "charges", "effect"],
+        "rows": [
+            ["1", "1", "Gases, wind, and fog can’t pass through the barrier."],
+            ["2", "2", "Nonliving matter can’t pass through the barrier. Walls, floors, and ceilings can pass through at your discretion."],
+            ["3", "3", "Living matter can’t pass through the barrier."],
+            ["4", "4", "Spell effects can’t pass through the barrier."],
+            ["5", "5", "Nothing can pass through the barrier. Walls, floors, and ceilings can pass through at your discretion."],
+            ["6", "0", "The barrier deactivates."]
+        ],
+        "tag": "magical_item_cube_of_force_faces"
+    }, {
+        "title": "spell damage to barrier",
+        "headers": ["spell or item", "charges lost"],
+        "rows": [
+            ["disintegrate", "1d12"],
+            ["horn of blasting", "1d10"],
+            ["passwall", "1d6"],
+            ["prismatic spray", "1d20"],
+            ["wall of fire", "1d4"]
+
+        ],
+        "tag": "magical_item_cube_of_force_spell_damage"
+    },
+    {
+        "title": "illusions from deck of illusions",
+        "headers": ["playing card", "illusion"],
+        "rows": [
+            ["ace of hearts", "red dragon"],
+            ["king of hearts", "knight and four guards"],
+            ["queen of hearts", "succubus or incubus"],
+            ["jack of hearts", "druid"],
+            ["ten of hearts", "cloud giant"],
+            ["nine of hearts", "ettin"],
+            ["eight of heats", "bugbear"],
+            ["two of hearts", "goblin"],
+            ["ace of diamonds", "beholder"],
+            ["king of diamonds", "archmage and mage apprentice"],
+            ["queen of diamonds", "night hag"],
+            ["jack of diamonds", "assassin"],
+            ["ten of diamonds", "fire giant"],
+            ["nine of diamonds", "ogre mage"],
+            ["eight of diamonds", "gnoll"],
+            ["two of diamonds", "kobold"],
+            ["ace of spades", "lich"],
+            ["king of spades", "priest and two acolytes"],
+            ["queen of spades", "medusa"],
+            ["jack of spades", "veteran"],
+            ["ten of spades", "frost giant"],
+            ["nine of spades", "troll"],
+            ["eight of spades", "hobgoblin"],
+            ["two of spades", "goblin"],
+            ["ace of clubs", "iron golem"],
+            ["king of clubs", "bandit captian and three bandits"],
+            ["queen of clubs", "erinyes"],
+            ["jack of clubs", "berserker"],
+            ["ten of clubs", "hill giant"],
+            ["nine of clubs", "ogre'"],
+            ["eight of clubs", "orc"],
+            ["two of clubs", "kobold"],
+            ["jokers (2)", "you (the deck owner)"]
+        ],
+        "tag": "magical_item_deck_of_illusions"
+    }, {
+        "title": "dragon scale resistance",
+        "headers": ["dragon", "resistance"],
+        "rows": [
+            ["black", "acid"],
+            ["blue", "lightning"],
+            ["brass", "fire"],
+            ["bronze", "lightning"],
+            ["copper", "acid"],
+            ["gold", "fire"],
+            ["green", "poison"],
+            ["red", "fire"],
+            ["silver", "cold"],
+            ["white", "cold"]
+        ],
+        "tag": "magical_item_dragon_scale_mail_resistances"
+    }, {
+        "title": "efreeti bottle roll table",
+        "headers": ["d100", "effect"],
+        "rows": [
+            ["01-10", "The efreeti attacks you. After fighting for 5 rounds, the efreeti disappears, and the bottle loses its magic."],
+            ["11-90", "The efreeti serves you for 1 hour, doing as you command. Then the efreeti returns to the bottle, and a new stopper contains it. The stopper can’t be removed for 24 hours. The next two times the bottle is opened, the same effect occurs. If the bottle is opened a fourth time, the efreeti escapes and disappears, and the bottle loses its magic."],
+            ["91-00", "The efreeti can cast the wish spell three times for you. It disappears when it grants the final wish or after 1 hour, and the bottle loses its magic."]
+        ],
+        "tag": "magical_item_efreeti_bottle_roll_table"
+    },
+    {
+        "title": "feather token roll table",
+        "headers": ["d100", "feather token"],
+        "rows": [
+            ["01-20", "anchor"],
+            ["21-35", "bird"],
+            ["36-50", "fan"],
+            ["51-65", "swan boat"],
+            ["66-90", "tree"],
+            ["91-00", "whip"]
+        ],
+        "tag": "magical_item_feather_token"
+    }, {
+        "title": "trapped creature roll table",
+        "headers": ["d100", "contents"],
+        "rows": [
+            ["1-50", "empty"],
+            ["51-54", "demon (type 1)"],
+            ["55-58", "demon (type 2)"],
+            ["59-62", "demon (type 3)"],
+            ["63-64", "demon (type 4)"],
+            ["65", "demon (type 5)"],
+            ["66", "demon (type 6)"],
+            ["67", "deva"],
+            ["68-69", "devil (greater)"],
+            ["70-73", "devil (lesser)"],
+            ["74-75", "djinni"],
+            ["74-77", "efreeti"],
+            ["78-83", "elemental (any)"],
+            ["84-86", "invisible stalker"],
+            ["87-90", "night hag"],
+            ["91", "planetar"],
+            ["92-95", "salamander"],
+            ["96", "solar"],
+            ["97-99", "succubus/incubus"],
+            ["100", "xorn"]
+        ],
+        "tag": "magical_item_iron_flask_roll_table"
+    }, {
+        "title": "prayer bead spells",
+        "headers": ["d20", "bead of...", "spell"],
+        "rows": [
+            ["1-6", "blessing", "bless"],
+            ["7-12", "curing", "cure wounds (2nd level) or lesser restoration"],
+            ["13-16", "favor", "greater restoration"],
+            ["17-18", "smiting", "branding smite"],
+            ["19", "summons", "planar ally"],
+            ["20", "wind walking", "wind walk"]
+        ],
+        "tag": "magical_item_necklace_of_prayer_beads_spells"
+    }, {
+        "title": "possible resistances",
+        "headers": ["d10", "damage type"],
+        "rows": [
+            ["1", "acid"],
+            ["2", "cold"],
+            ["3", "fire"],
+            ["4", "force"],
+            ["5", "lightning"],
+            ["6", "necrotic"],
+            ["7", "poison"],
+            ["8", "psychic"],
+            ["9", "radiant"],
+            ["10", "thunder"]
+        ],
+        "tag": "magical_item_potion_of_resistance_roll_table"
+    }, {
+        "title": "resistance gems",
+        "headers": ["d10", "damage type", "gem"],
+        "rows": [
+            ["1", "acid", "pearl"],
+            ["2", "cold", "tourmaline"],
+            ["3", "fire", "garnet"],
+            ["4", "force", "sapphire"],
+            ["5", "lightning", "citrine"],
+            ["6", "necrotic", "jet"],
+            ["7", "poison", "amethyst"],
+            ["8", "psychic", "jade"],
+            ["9", "radiant", "topaz"],
+            ["10", "thunder", "spinel"]
+        ],
+        "tag": "magical_item_ring_of_resistance_damage_types"
+    }, {
+        "title": "ball lightning explosion damage",
+        "headers": ["spheres", "lightning damage"],
+        "rows": [
+            ["4", "2d4"],
+            ["3", "2d6"],
+            ["2", "5d4"],
+            ["1", "4d12"]
+        ],
+        "tag": "magical_item_ring_of_shooting_stars_ball_lightning_damage"
+    }, {
+        "title": "useful patches",
+        "headers": ["d100", "patch"],
+        "rows": [
+            ["01-08", "bag of 100gp"],
+            ["09-15", "Silver coffer (1 foot long, 6 inches wide and deep) worth 500 gp"],
+            ["16-22", "Iron door (up to 10 feet wide and 10 feet high, barred on one side of your choice), which you can place in an opening you can reach; it conforms to fit the opening, attaching and hinging itself"],
+            ["23-30", "10 gems worth 100 gp each"],
+            ["31-44", "Wooden ladder (24 feet long)"],
+            ["45-51", "A riding horse with saddle bags"],
+            ["52-59", "Pit (a cube 10 feet on a side), which you can place on the ground within 10 feet of you"],
+            ["60-68", "4 potions of healing"],
+            ["69-75", "Rowboat (12 feet long)"],
+            ["76-83", "Spell scroll containing one spell of 1st to 3rd level"],
+            ["84-90", "2 mastiffs"],
+            ["91-96", "Window (2 feet by 4 feet, up to 2 feet deep), which you can place on a vertical surface you can reach"],
+            ["97-00", "Portable ram"]
+
+        ],
+        "tag": "magical_item_robe_of_useful_items_patches"
+    }, {
+        "title": "portal collision roll table",
+        "headers": ["d100", "result"],
+        "rows": [
+            ["01-50", "The sphere is destroyed."],
+            ["51-85", "The sphere moves through the portal or into the extradimensional space."],
+            ["86-00", " A spatial rift sends each creature and object within 180 feet of the sphere, including the sphere, to a random plane of existence."]
+        ],
+        "tag": "magical_item_sphere_of_annihilation_collision_roll_table"
+    }, {
+        "title": "explosion damage",
+        "headers": ["distance from origin", "damage"],
+        "rows": [
+            ["10 feet away or closer", "8 x the number of charges in the staff"],
+            ["11 to 20 feet away", "6 x the number of charges in the staff"],
+            ["21 to 30 feet away", "4 x the number of charges in the staff"]
+        ],
+        "tag": "magical_item_staff_of_power_explosion_damage"
+    }, {
+        "title": "explosion damage",
+        "headers": ["distance from origin", "damage"],
+        "rows": [
+            ["10 feet away or closer", "8 x the number of charges in the staff"],
+            ["11 to 20 feet away", "6 x the number of charges in the staff"],
+            ["21 to 30 feet away", "4 x the number of charges in the staff"]
+        ],
+        "tag": "magical_item_staff_of_the_magi_explosion_damage"
+    },
+    {
+        "title": "wand of wonder magical effects",
+        "headers": ["d100", "effect"],
+        "rows": [
+            ["01-05", "you cast slow."],
+            ["06-10", "you cast faerie fire."],
+            ["11-15", "You are stunned until the start of your next turn, believing something awesome just happened."],
+            ["16-20", "You cast gust of wind."],
+            ["21-25", "You cast detect thoughts on the target you chose. If you didn’t target a creature, you instead take 1d6 psychic damage."],
+            ["26-30", "You cast stinking cloud."],
+            ["31-33", "Heavy rain falls in a 60-foot radius centered on the target. The area becomes lightly obscured. The rain falls until the start of your next turn."],
+            ["34-36", "An animal appears in the unoccupied space nearest the target. The animal isn’t under your control and acts as it normally would. Roll a d100 to determine which animal appears. On a 01–25, a rhinoceros appears; on a 26–50, an elephant appears; and on a 51–100, a rat appears."],
+            ["37-46", "You cast lightning bolt."],
+            ["47-49", "A cloud of 600 oversized butterflies fills a 30-foot radius centered on the target. The area becomes heavily obscured. The butterflies remain for 10 minutes."],
+            ["50-53", "You enlarge the target as if you had cast enlarge/reduce. If the target can’t be affected by that spell, or if you didn’t target a creature, you become the target."],
+            ["54-58", "You cast darkness."],
+            ["59-62", "Grass grows on the ground in a 60-foot radius centered on the target. If grass is already there, it grows to ten times its normal size and remains overgrown for 1 minute."],
+            ["63-65", "An object of the GM’s choice disappears into the Ethereal Plane. The object must be neither worn nor carried, within 120 feet of the target, and no larger than 10 feet in any dimension."],
+            ["66-69", "You shrink yourself as if you had cast enlarge/reduce on yourself."],
+            ["70-79", "You cast fireball."],
+            ["80-84", "You cast invisibility on yourself."],
+            ["85-87", "Leaves grow from the target. If you chose a point in space as the target, leaves sprout from the creature nearest to that point. Unless they are picked off, the leaves turn brown and fall off after 24 hours."],
+            ["88-90", "A stream of 1d4 × 10 gems, each worth 1 gp, shoots from the wand’s tip in a line 30 feet long and 5 feet wide. Each gem deals 1 bludgeoning damage, and the total damage of the gems is divided equally among all creatures in the line."],
+            ["91-95", "A burst of colorful shimmering light extends from you in a 30-foot radius. You and each creature in the area that can see must succeed on a DC 15 Constitution saving throw or become blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."],
+            ["96-97", "The target’s skin turns bright blue for 1d10 days. If you chose a point in space, the creature nearest to that point is affected."],
+            ["98-00", "If you targeted a creature, it must make a DC 15 Constitution saving throw. If you didn’t target a creature, you become the target and must make the saving throw. If the saving throw fails by 5 or more, the target is instantly petrified. On any other failed save, the target is restrained and begins to turn to stone. While restrained in this way, the target must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the target is freed by the greater restoration spell or similar magic."]
+        ],
+        "tag": "magical_item_wand_of_wonder_magical_effects"
     }
+
 ]

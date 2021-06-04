@@ -34,6 +34,7 @@
 		7F141932262A45E7008E6571 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141931262A45E7008E6571 /* AttributedText.swift */; };
 		7F14193F262A7D0D008E6571 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */; };
 		7F141944262B6B2B008E6571 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141943262B6B2B008E6571 /* Print.swift */; };
+		7F2A215F265F1EA6009CC51D /* magicalitems.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A215E265F1EA6009CC51D /* magicalitems.json */; };
 		7F84B4A6265D85FE00901F69 /* RegexRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4A5265D85FE00901F69 /* RegexRules.swift */; };
 		7F84B4BB265DBCC100901F69 /* RegexRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */; };
 		7F84B4CC265EBBCD00901F69 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4CB265EBBCD00901F69 /* Condition.swift */; };
@@ -171,6 +172,7 @@
 		7F141931262A45E7008E6571 /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 		7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		7F141943262B6B2B008E6571 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
+		7F2A215E265F1EA6009CC51D /* magicalitems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = magicalitems.json; sourceTree = "<group>"; };
 		7F84B4A5265D85FE00901F69 /* RegexRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRules.swift; sourceTree = "<group>"; };
 		7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRuleTests.swift; sourceTree = "<group>"; };
 		7F84B4CB265EBBCD00901F69 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
@@ -362,10 +364,11 @@
 				7F1417C1261F512B008E6571 /* spells.json */,
 				7F14180126268409008E6571 /* languages.json */,
 				7FFE8807264A089D00465809 /* creatures.json */,
-				7F0C112D26576DE200D45C49 /* tables.json */,
 				7F84B4D5265EBC8C00901F69 /* feats.json */,
 				7F84B4DA265EC53F00901F69 /* conditions.json */,
 				7F84B4EB265ECF4E00901F69 /* poisons.json */,
+				7F2A215E265F1EA6009CC51D /* magicalitems.json */,
+				7F0C112D26576DE200D45C49 /* tables.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				81243E572279F022003A9DA8 /* WeaponStatView.xib in Resources */,
 				810900B3224EE40100FF8B17 /* BasicDetailView.xib in Resources */,
 				8135B41B21649F170058E9D6 /* SpellSelectionHeaderView.xib in Resources */,
+				7F2A215F265F1EA6009CC51D /* magicalitems.json in Resources */,
 				81F8496C218A9A6D00280D8C /* ItemSelectionTableViewCell.xib in Resources */,
 				81BC72A920F0813700B48195 /* SpellTableViewCell.xib in Resources */,
 				81DC8E5521125637002F6AE4 /* SelectionView.xib in Resources */,

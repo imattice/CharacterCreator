@@ -11819,5 +11819,59 @@
             "title": "heavy crossbow",
             "description": "Ranged Weapon Attack: +3 to hit, range 100/400 ft., one target. Hit: 6 (1d10 + 1) piercing damage."
         }]
+    },{
+        "name": "avatar of death",
+        "description": "",
+        "size": "medium",
+        "type": "undead",
+        "alignment": "neutralEvil",
+        "armorClass": 20,
+        "hitDie": "9d8",
+        "speed": {
+            "walk": 60,
+            "fly":60
+        },
+        "abilityScores": [16, 16,16,16,16,16],
+        "immunities":["necrotic","poison","charmed","frightened","paralyzed","petrified","poisoned","unconscious"],
+        "senses":[{
+            "darkvision":60,
+            "truesight":60
+        }],
+        "challengeRating": -4,
+        "features": [{
+            "title": "Summoned Being",
+            "description": "The avatar of death's max HP is equal to half of the HP maxium of it's summoner.  It also knows all knowledge of its summoner."
+        },{
+                "title": "hovering",
+                "description": "The avatar of death hovers in place and while moving, and is difficult to knock out of the air.  The avatar of death stops hovering when it dies."
+            },{
+                "title": "incorporeal movement",
+                "description": "The avatar can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object."
+            },{
+                "title": "turning immunity",
+                "description": "The avatar is immune to features that turn undead."
+            }],
+        "actions": [{
+            "title": "reaping scythe",
+            "description": "The avatar sweeps its spectral scythe through a creature within 5 feet of it, dealing 7 (1d8 + 3) slashing damage plus 4 (1d8) necrotic damage."
+        }]
+    },{
+        "name": "giant fly",
+        "description": "",
+        "size": "large",
+        "type": "beast",
+        "alignment": "unaligned",
+        "armorClass": 11,
+        "hitDie": "3d10",
+        "speed": {
+            "walk": 60,
+            "fly":60
+        },
+        "abilityScores": [14,13,13,2,10,3],
+        "senses":[{
+            "darkvision":60
+        }],
+        "challengeRating": -4,
+        "actions": []
     }
 ]

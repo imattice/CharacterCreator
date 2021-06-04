@@ -33,38 +33,17 @@ class ObjectRecord: Codable {
     let id: String = UUID().uuidString
     ///A name for the item
 	let name: String
-    ///A description of the item
+    ///A descriptive summary of the appearance of the item
 	let description: String
-    ///Provides details on the gameplay mechanics of the item
+    ///Details on the gameplay mechanics of the item
     let details: String
     ///The cost of the item in copper
-    let cost: Int
+    let cost: Int?
     ///The weight of the item in pounds
-    let weight: Double
-    ///Determinees if the item has magical properties
-    let isMagical: Bool
-    ///Determines if the item requires attunement by the character
-    let requiresAttunement: Bool
-    ///A type that describes the rarity of the item
-    let rarity: Rarity
-    ///Indicates the rarity of the item
-    enum Rarity: String, Codable {
-        case common, uncommon, rare, legendary, artifact
-    }
+    let weight: Double?
     
     enum CodingKeys: CodingKey {
-        case name, description, details, cost, weight, isMagical, requiresAttunement, rarity
-    }
-    
-    internal init(name: String, description: String, details: String, cost: Int, weight: Double, isMagical: Bool = false, requiresAttunement: Bool = false, rarity: ObjectRecord.Rarity = .common) {
-        self.name = name
-        self.description = description
-        self.details = details
-        self.cost = cost
-        self.weight = weight
-        self.isMagical = isMagical
-        self.requiresAttunement = requiresAttunement
-        self.rarity = rarity
+        case name, description, details, cost, weight
     }
     
     required init(from decoder: Decoder) throws {
@@ -72,11 +51,8 @@ class ObjectRecord: Codable {
         self.name               = try container.decode(String.self, forKey: .name)
         self.description        = try container.decode(String.self, forKey: .description)
         self.details            = try container.decode(String.self, forKey: .details)
-        self.cost               = try container.decode(Int.self, forKey: .cost)
-        self.weight             = try container.decode(Double.self, forKey: .weight)
-        self.isMagical          = try container.decodeIfPresent(Bool.self, forKey: .isMagical) ?? false
-        self.requiresAttunement = try container.decodeIfPresent(Bool.self, forKey: .requiresAttunement) ?? false
-        self.rarity             = try container.decodeIfPresent(Rarity.self, forKey: .rarity) ?? .common
+        self.cost               = try container.decodeIfPresent(Int.self, forKey: .cost)
+        self.weight             = try container.decodeIfPresent(Double.self, forKey: .weight)
     }
 }
 
@@ -279,5 +255,44 @@ class PoisonRecord: ObjectRecord, Record {
     }
     enum CodingKeys: CodingKey {
         case applicationType
+    }
+}
+//MARK: - Magic Item Record
+final
+class MagicalItemRecord: Record {
+    ///An identifier for the item
+    let id: String = UUID().uuidString
+    ///A name for the item
+    let name: String
+    ///A description of the item
+    let description: String
+    ///Provides details on the gameplay mechanics of the item
+    let details: String
+    ///Indicates any restictions for the item, such as only being plate armor
+    let restrictions: String?
+    ///Indicates the rarity of the item
+    let rarity: Rarity
+    ///Indicates if the item requires attunemnt to be used
+    let requiresAttunement: Bool
+    
+    required
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.details = try container.decode(String.self, forKey: .details)
+        self.restrictions = try container.decodeIfPresent(String.self, forKey: .restrictions)
+        self.rarity = try container.decode(Rarity.self, forKey: .rarity)
+        self.requiresAttunement = try container.decodeIfPresent(Bool.self, forKey: .requiresAttunement) ?? false
+    }
+    
+    ///Indicates the rarity of the item
+    enum Rarity: String, Codable {
+        case common, uncommon, rare, veryRare, legendary, artifact
+    }
+
+    
+    enum ItemType: String, Codable {
+        case armor, weapon, item, rod, poison, potion, ring, scroll, staff, wand
     }
 }
