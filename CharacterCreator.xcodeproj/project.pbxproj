@@ -35,6 +35,7 @@
 		7F14193F262A7D0D008E6571 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */; };
 		7F141944262B6B2B008E6571 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141943262B6B2B008E6571 /* Print.swift */; };
 		7F2A215F265F1EA6009CC51D /* magicalitems.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A215E265F1EA6009CC51D /* magicalitems.json */; };
+		7F5E4D16266C664700F2E3F4 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E4D15266C664600F2E3F4 /* Rule.swift */; };
 		7F84B4A6265D85FE00901F69 /* RegexRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4A5265D85FE00901F69 /* RegexRules.swift */; };
 		7F84B4BB265DBCC100901F69 /* RegexRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */; };
 		7F84B4CC265EBBCD00901F69 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4CB265EBBCD00901F69 /* Condition.swift */; };
@@ -173,6 +174,7 @@
 		7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		7F141943262B6B2B008E6571 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		7F2A215E265F1EA6009CC51D /* magicalitems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = magicalitems.json; sourceTree = "<group>"; };
+		7F5E4D15266C664600F2E3F4 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		7F84B4A5265D85FE00901F69 /* RegexRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRules.swift; sourceTree = "<group>"; };
 		7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRuleTests.swift; sourceTree = "<group>"; };
 		7F84B4CB265EBBCD00901F69 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
 				7F0C113226580E4800D45C49 /* DataTable.swift */,
 				7F84B4A5265D85FE00901F69 /* RegexRules.swift */,
+				7F5E4D15266C664600F2E3F4 /* Rule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -848,6 +851,7 @@
 				8152B3DF20DAE9EE008B7A1A /* StatStepperView.swift in Sources */,
 				81DC8E48210BBA64002F6AE4 /* skills.swift in Sources */,
 				8195AF90225706E000153B58 /* SelectionPickerView.swift in Sources */,
+				7F5E4D16266C664700F2E3F4 /* Rule.swift in Sources */,
 				81FC7CF921078F9100BBDDD7 /* BackgroundSelectionTableViewCell.swift in Sources */,
 				81DC8E4F211252AD002F6AE4 /* ChoiceSelectionView.swift in Sources */,
 				8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */,
