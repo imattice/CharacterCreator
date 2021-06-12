@@ -670,6 +670,518 @@
             ["98-00", "If you targeted a creature, it must make a DC 15 Constitution saving throw. If you didn’t target a creature, you become the target and must make the saving throw. If the saving throw fails by 5 or more, the target is instantly petrified. On any other failed save, the target is restrained and begins to turn to stone. While restrained in this way, the target must repeat the saving throw at the end of its next turn, becoming petrified on a failure or ending the effect on a success. The petrification lasts until the target is freed by the greater restoration spell or similar magic."]
         ],
         "tag": "magical_item_wand_of_wonder_magical_effects"
-    }
+    }, {
+        "title": "character advancement",
+        "headers": ["experience points", "level", "proficiency bonus"],
+        "rows": [
+            ["0", "1", "+2"],
+            ["300", "2", "+2"],
+            ["900", "3", "+2"],
+            ["2,700", "4", "+2"],
+            ["6,500", "5", "+2"],
+            ["14,000", "6", "+3"],
+            ["23,000", "7", "+3"],
+            ["34,000", "8", "+3"],
+            ["48,000", "9", "+4"],
+            ["64,000", "10", "+4"],
+            ["85,000", "11", "+4"],
+            ["100,000", "12", "+4"],
+            ["120,000", "13", "+5"],
+            ["140,000", "14", "+5"],
+            ["165,000", "15", "+5"],
+            ["195,000", "16", "+5"],
+            ["225,000", "17", "+6"],
+            ["265,000", "18", "+6"],
+            ["305,000", "19", "+6"],
+            ["355,000", "20", "+6"]
 
+        ],
+        "tag": "rules_leveling_up_character_advancement"
+    }, {
+        "title": "multiclassing prerequisites",
+        "headers": ["class", "ability score minimum"],
+        "rows": [
+            ["barbarian", "strength 13"],
+            ["bard", "charisma 13"],
+            ["cleric", "wisdom 13"],
+            ["druid", "wisdom 13"],
+            ["fighter", "strength 13 or dexterity 13"],
+            ["monk", "dexterity 13 and wisdom 13"],
+            ["paladin", "strenth 13 and wisdom 13"],
+            ["ranger", "dexterity 13 and wisdom 13"],
+            ["rogue", "dexterity 13"],
+            ["sorcerer", "charisma 13"],
+            ["warlock", "charisma 13"],
+            ["wizard", "intelligence 13"]
+        ],
+        "tag": "rules_multiclassing_prerequisites"
+    }, {
+        "title": "multiclassing proficiencies",
+        "headers": ["class", "proficiencies gained"],
+        "rows": [
+            ["barbarian", "shields, simple weapons, martial weapons"],
+            ["bard", "light armor, one skill of your choice, one musical instrument of your choice"],
+            ["cleric", "light armor, medium armor, shields"],
+            ["druid", "light armor, medium armor, shields (druids will not wear armor or use shields made of metal)"],
+            ["fighter", "light armor, medium armor, shields, simple weapons, martial weapons"],
+            ["monk", "simple weapons, shortswords"],
+            ["paladin", "light armor, medium armor, shields, simple weapons, martial weapons"],
+            ["ranger", "light armor, medium armor, shileds, simple weapons, martial weapons, one skill from the class's skill list"],
+            ["rogue", "light armor, one skill from the class's skill list, thieves' tools"],
+            ["sorcerer", "-"],
+            ["warlock", "light armor, simple weapons"],
+            ["wizard", "-"]
+        ],
+        "tag": "rules_multiclassing_proficiencies"
+    }, {
+        "title": "multiclassing spell slots",
+        "headers": ["level", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th"],
+        "rows": [
+            ["1st", "2", "-", "-", "-", "-", "-", "-", "-", "-"],
+            ["2nd", "3", "-", "-", "-", "-", "-", "-", "-", "-"],
+            ["3rd", "4", "2", "-", "-", "-", "-", "-", "-", "-"],
+            ["4th", "4", "3", "-", "-", "-", "-", "-", "-", "-"],
+            ["5th", "4", "3", "2", "-", "-", "-", "-", "-", "-"],
+            ["6th", "4", "3", "3", "-", "-", "-", "-", "-", "-"],
+            ["7th", "4", "3", "3", "1", "-", "-", "-", "-", "-"],
+            ["8th", "4", "3", "3", "2", "-", "-", "-", "-", "-"],
+            ["9th", "4", "3", "3", "3", "1", "-", "-", "-", "-"],
+            ["10th", "4", "3", "3", "3", "2", "-", "-", "-", "-"],
+            ["11th", "4", "3", "3", "3", "2", "1", "-", "-", "-"],
+            ["12th", "4", "3", "3", "3", "2", "1", "-", "-", "-"],
+            ["13th", "4", "3", "3", "3", "2", "1", "1", "-", "-"],
+            ["14th", "4", "3", "3", "3", "2", "1", "1", "-", "-"],
+            ["15th", "4", "3", "3", "3", "2", "1", "1", "1", "-"],
+            ["16th", "4", "3", "3", "3", "2", "1", "1", "1", "-"],
+            ["18th", "4", "3", "3", "3", "3", "1", "1", "1", "1"],
+            ["19th", "4", "3", "3", "3", "3", "2", "1", "1", "1"],
+            ["20th", "4", "3", "3", "3", "3", "2", "2", "1", "1"]
+        ],
+        "tag": "rules_multiclassing_spell_slots"
+    }, {
+        "title": "standard languages",
+        "headers": ["languages", "typical speakers", "script"],
+        "rows": [
+            ["common", "human", "common"],
+            ["dwarvish", "dwarves", "dwarvish"],
+            ["elvish", "elves", "elvish"],
+            ["giant", "ogres, giants", "dwarvish"],
+            ["gnomish", "gnomes", "dwarish"],
+            ["goblin", "goblinoids", "dwarvish"],
+            ["halfling", "halflings", "common"],
+            ["orc", "orcs", "dwarvish"]
+        ],
+        "tag": "rules_standard_languages"
+    }, {
+        "title": "exotic languages",
+        "headers": ["languages", "typical speakers", "script"],
+        "rows": [
+            ["abyssal", "demons", "infernal"],
+            ["celestial", "celestials", "celestial"],
+            ["draconic", "dragons, dragonborn", "draconic"],
+            ["deep speech", "aboleths, cloakers", "-"],
+            ["infernal", "devils", "infernal"],
+            ["primordial", "elementals", "dwarish"],
+            ["sylvan", "fey creatures", "elvish"],
+            ["undercommon", "underworld traders", "elvish"]
+        ],
+        "tag": "rules_exoctic_languages"
+    }, {
+        "title": "standard exchange rates",
+        "headers": ["coin", "CP", "SP", "EP", "GP", "PP"],
+        "rows": [
+            ["copper (cp)", "1", "1/10", "1/100", "1/1,000"],
+            ["silver (sp)", "10", "1", "1/10", "1/100"],
+            ["electrum (ep)", "50", "5", "1", "1/2", "1/20"],
+            ["gold (gp)", "100", "10", "1", "1/10"],
+            ["platinum (pp)", "1,000", "100", "10", "1"]
+        ],
+        "tag": "rules_coin_exchange_rate"
+    }, {
+        "title": "mounts and other animals",
+        "headers": ["item", "cost", "speed", "carrying capacity"],
+        "rows": [
+            ["camel", "50gp", "50ft.", "480lb."],
+            ["donkey or mule", "8gp", "40ft.", "420lb."],
+            ["elephant", "200gp", "40ft.", "1320lb."],
+            ["horse, draft", "50gp", "40ft.", "540lb."],
+            ["horse, riding", "75gp", "60ft.", "480lb."],
+            ["mastiff", "25gp", "40ft.", "195lb."],
+            ["pony", "30gp", "40ft.", "225lb."],
+            ["warhorse", "400gp", "60ft", "540lb."]
+        ],
+        "tag": "rules_mounts"
+    }, {
+        "title": "tack, harness, and drawn vehicles",
+        "headers": ["item", "cost", "weight"],
+        "rows": [
+            ["barding", "x4", "x2"],
+            ["bit and bridle", "2gp", "1lb."],
+            ["carriage", "100gp", "600lb."],
+            ["cart", "15gp", "200lb."],
+            ["chariot", "250gp", "100lb."],
+            ["carriage", "250gp", "100lb."],
+            ["feed (per day)", "5cp", "10lb."],
+            ["saddle, exotic", "60gp", "40lb."],
+            ["saddle, military", "20gp", "30lb."],
+            ["saddle, pack", "5gp", "15lb."],
+            ["saddle, riding", "10gp", "25lb."],
+            ["saddlebags", "4gp", "8lb."],
+            ["sied", "20gp", "300lb."],
+            ["stabling (per day)", "5sp", "-"],
+            ["wagon", "35gp", "400lb."]
+        ],
+        "tag": "rules_tack_harness_and_drawn_vehicles"
+    }, {
+        "title": "waterborne vehicles",
+        "headers": ["item", "cost", "speed"],
+        "rows": [
+            ["galley", "30,000gp", "4mph"],
+            ["keelboat", "3,000gp", "1mph"],
+            ["longship", "10,000gp", "3mph"],
+            ["rowboat", "50gp", "1 1/2mph"],
+            ["sailing ship", "10,000gp", "2mph"],
+            ["warship", "25,000gp", "2 1/2mph"]
+        ],
+        "tag": "rules_waterborne_vehicles"
+    }, {
+        "title": "trade goods",
+        "headers": ["cost", "goods"],
+        "rows": [
+            ["1 cp", "1 lb. of wheat"],
+            ["2 cp", "1 lb. of flour or one chicken"],
+            ["5 cp", "1 lb. of salt"],
+            ["1 sp", "1 lb. of iron or 1 sq. yd. of canvas"],
+            ["5 sp", "1 lb. of copper or 1 sq. yd. of cotton cloth"],
+            ["1 gp", "1 lb. of ginger or one goat"],
+            ["2 gp", "1 lb. of cinnamon or pepper, or one sheep"],
+            ["3 gp", "1 lb. of cloves or one pig"],
+            ["5 gp", "1 lb. of silver or 1 sq. yd. of linen"],
+            ["10 gp", "1 sq. yd. of silk or one cow"],
+            ["15 gp", "1 lb. of saffron or one ox"],
+            ["50 gp", "1 lb. of gold"],
+            ["500 gp", "1 lb. of platinum"]
+        ],
+        "tag": "rules_trade_goods"
+    },
+    {
+        "title": "lifestyle expenses",
+        "headers": ["lifestyle", "price/day"],
+        "rows": [
+            ["wretched", "-"],
+            ["squalid", "1 sp"],
+            ["poor", "2 sp"],
+            ["modest", "1 gp"],
+            ["comfortable", "2 gp"],
+            ["wealthy", "4 gp"],
+            ["aristocratic", "10 gp minimum"]
+        ],
+        "tag": "rules_lifestyle_expenses"
+    }, {
+        "title": "food, drink, and lodging",
+        "headers": ["item", "cost"],
+        "rows": [
+            ["ale, gallon", "2 sp"],
+            ["ale, mug", "4 cp"],
+            ["banquet (per person)", "10 gp"],
+            ["bread, loaf", "2 cp"],
+            ["cheese, hunk", "1 sp"],
+            ["inn stay, squalid", "7 cp/day)"],
+            ["inn stay, poor", "1 sp/day"],
+            ["inn stay, modest", "5 sp/day"],
+            ["inn stay, comfortable", "8 sp/day"],
+            ["inn stay, wealthy", "2 gp/day"],
+            ["inn stay, aristocratic", "4 gp/day"],
+            ["meals, sqalid", "3 cp/day"],
+            ["meals, poor", "6 cp/day"],
+            ["meals, modest", "3 sp/day"],
+            ["meals, comfortable", "5 sp/day"],
+            ["meals, wealthy", "8 sp/day"],
+            ["meals, aristocratic", "2 gp/day"],
+            ["meat chunk", "3 sp"],
+            ["wine, common(pitcher)", "2 sp"],
+            ["wine, fine(bottle)", "10 gp"]
+        ],
+        "tag": "rules_food_drink_lodging"
+    }, {
+        "title": "services",
+        "headers": ["service", "pay"],
+        "rows": [
+            ["coach cab, between towns", "3 cp per mile"],
+            ["coach cab, within a city", "1 cp"],
+            ["hireling, skilled", "2 gp per day"],
+            ["hireling, untrained", "2 sp per day"],
+            ["messenger", "2 cp per mile"],
+            ["road or gate toll", "1 cp"],
+            ["ship's passage", "1 sp per mile"]
+        ],
+        "tag": "rules_services"
+    }, {
+        "title": "ability scores and modifiers",
+        "headers": ["score", "modifier"],
+        "rows": [
+            ["1", "-5"],
+            ["2-3", "-4"],
+            ["4-5", "-3"],
+            ["6-7", "-2"],
+            ["8-9", "-1"],
+            ["10-11", "+0"],
+            ["12-13", "+1"],
+            ["14-15", "+2"],
+            ["16-17", "+3"],
+            ["18-19", "+4"],
+            ["20-21", "+5"],
+            ["22-23", "+6"],
+            ["24-25", "+7"],
+            ["26-27", "+8"],
+            ["28-29", "+9"],
+            ["30", "+10"]
+        ],
+        "tag": "rules_ability_score_modifiers"
+    }, {
+        "title": "typcial difficulty classes",
+        "headers": ["task difficulty", "DC"],
+        "rows": [
+            ["very easy", "5"],
+            ["easy", "10"],
+            ["medium", "15"],
+            ["hard", "20"],
+            ["very hard", "25"],
+            ["nearly impossible", "25"]
+        ],
+        "tag": "rules_difficulty_classes"
+    }, {
+        "title": "travel pace",
+        "headers": ["pace", "per minute", "per hour", "per day", "effect"],
+        "rows": [
+            ["fast", "400 feet", "4 miles", "30 miles", "-5 penalty to passive Wisdom (Perception) scores"],
+            ["normal", "300 feet", "3 miles", "24 miles", "-"],
+            ["slow", "200 feet", "2 miles", "18 miles", "able to use stealth"]
+        ],
+        "tag": "rules_travel_pace"
+    }, {
+        "title": "size categories",
+        "headers": ["size", "spaces"],
+        "rows": [
+            ["tiny", "2 1/2 by 2 1/2 ft."],
+            ["small", "5 by 5 ft."],
+            ["medium", "5 by 5 ft."],
+            ["large", "10 by 10 ft."],
+            ["huge", "15 by 15 ft."],
+            ["gargantuan", "20 by 20 ft. or larger"]
+        ],
+        "tag": "rules_creature_sizes"
+    }, {
+        "title": "trap save DC's and attack bonuses",
+        "headers": ["trap danger", "save DC", "attack bonus"],
+        "rows": [
+            ["setback", "10-11", "+3 to +5"],
+            ["dangerous", "12-15", "+6 to +8"],
+            ["deadly", "16-20", "+9 to +12"]
+
+        ],
+        "tag": "rules_traps_save_dc_and_attack_bonuses"
+    }, {
+        "title": "damage severity by level",
+        "headers": ["character level", "setback", "dangerous", "deadly"],
+        "rows": [
+            ["1st-4th", "1d10", "2d10", "4d10"],
+            ["5th-10th", "2d10", "4d10", "10d10"],
+            ["11th-16th", "4d10", "10d10", "18d10"],
+            ["17th-20th", "10d10", "18d10", "24d10"]
+        ],
+        "tag": "rules_traps_damage_severity"
+    }, {
+        "title": "short-term madness",
+        "headers": ["d100", "effect (lasts 1d10 minutes)"],
+        "rows": [
+            ["01-20", "The character retreats into his or her mind and becomes paralyzed. The effect ends if the character takes any damage."],
+            ["21-30", "The character becomes incapacitated and spends the duration screaming, laughing, or weeping."],
+            ["31-40", "The character becomes frightened and must use his or her action and movement each round to flee from the source of the fear."],
+            ["41-50", "The character begins babbling and is incapable of normal speech or spellcasting."],
+            ["51-60", "The character must use his or her action each round to attack the nearest creature."],
+            ["61-70", "The character experiences vivid hallucinations and has disadvantage on ability checks."],
+            ["71-75", "The character does whatever anyone tells him or her to do that isn’t obviously self-destructive."],
+            ["76-80", "The character experiences an overpowering urge to eat something strange such as dirt, slime, or offal."],
+            ["81-90", "The character is stunned."],
+            ["91-100", "The character falls unconscious."]
+        ],
+        "tag": "rules_short_term_madness"
+    }, {
+        "title": "long-term madness",
+        "headers": ["d100", "effect (lasts 1d10 x10 hours)"],
+        "rows": [
+            ["01-10", "The character feels compelled to repeat a specific activity over and over, such as washing hands, touching things, praying, or counting coins."],
+            ["11-20", "The character experiences vivid hallucinations and has disadvantage on ability checks."],
+            ["21-30", "The character suffers extreme paranoia. The character has disadvantage on Wisdom and Charisma checks."],
+            ["31-40", "The character regards something (usually the source of madness) with intense revulsion, as if affected by the antipathy effect of the antipathy/sympathy spell."],
+            ["41-45", "The character experiences a powerful delusion. Choose a potion. The character imagines that he or she is under its effects."],
+            ["46-55", "The character becomes attached to a “lucky charm,” such as a person or an object, and has disadvantage on attack rolls, ability checks, and saving throws while more than 30 feet from it."],
+            ["56-65", "The character is blinded (25%) or deafened (75%)."],
+            ["66-75", "The character experiences uncontrollable tremors or tics, which impose disadvantage on attack rolls, ability checks, and saving throws that involve Strength or Dexterity."],
+            ["76-85", "The character suffers from partial amnesia. The character knows who he or she is and retains racial traits and class features, but doesn’t recognize other people or remember anything that happened before the madness took effect."],
+            ["86-90", "Whenever the character takes damage, he or she must succeed on a DC 15 Wisdom saving throw or be affected as though he or she failed a saving throw against the confusion spell. The confusion effect lasts for 1 minute."],
+            ["91-95", "The character loses the ability to speak."],
+            ["96-100", "The character falls unconscious. No amount of jostling or damage can wake the character."]
+        ],
+        "tag": "rules_long_term_madness"
+    }, {
+        "title": "indefinite madness",
+        "headers": ["d100", "effect (lasts until cured)"],
+        "rows": [
+            ["01-15", "“Being drunk keeps me sane.”"],
+            ["16-25", "“I keep whatever I find.”"],
+            ["26-30", "“I try to become more like someone else I know—adopting his or her style of dress, mannerisms, and name.”"],
+            ["31-35", "“I must bend the truth, exaggerate, or outright lie to be interesting to other people.”"],
+            ["36-45", "“Achieving my goal is the only thing of interest to me, and I’ll ignore everything else to pursue it.”"],
+            ["46-50", "“I find it hard to care about anything that goes on around me.”"],
+            ["51-55", "“I don’t like the way people judge me all the time.”"],
+            ["56-70", "“I am the smartest, wisest, strongest, fastest, and most beautiful person I know.”"],
+            ["71-80", "“I am convinced that powerful enemies are hunting me, and their agents are everywhere I go. I am sure they’re watching me all the time.”"],
+            ["81-85", "“There’s only one person I can trust. And only I can see this special friend.”"],
+            ["86-95", "“I can’t take anything seriously. The more serious the situation, the funnier I find it.”"],
+            ["96-100", "“I’ve discovered that I really like killing people.”"]
+        ],
+        "tag": "rules_indefinite_madness"
+    }, {
+        "title": "object armor class",
+        "headers": ["substance", "AC"],
+        "rows": [
+            ["cloth, paper, rope", "11"],
+            ["crystal, glass, ice", "13"],
+            ["wood, bone", "15"],
+            ["stone", "17"],
+            ["iron, steel", "19"],
+            ["mithral", "21"],
+            ["adamantine", "23"]
+        ],
+        "tag": "rules_object_armor_class"
+    }, {
+        "title": "object hit points",
+        "headers": ["size", "fragile", "resilient"],
+        "rows": [
+            ["tiny (bottle, lock)", "2(1d4)", "5(2d4)"],
+            ["small (chest, lute)", "3(1d6)", "10(3d6)"],
+            ["medium (barrel, chandelier)", "4(1d8)", "18(4d8)"],
+            ["large (cart, 10ft by 10ft window)", "5(1d10)", "27(5d10)"]
+        ],
+        "tag": "rules_object_hit_points"
+    }, {
+        "title": "communication",
+        "headers": ["d100", "communication"],
+        "rows": [
+            ["0-60", "The item communicates by transmitting emotion to the creature carrying or wielding it."],
+            ["61-90", "The item can speak, read, and understand one or more languages."],
+            ["91-00", "The item can speak, read, and understand one or more languages. In addition, the item can communicate telepathically with any character that carries or wields it."]
+        ],
+        "tag": "rules_sentient_magic_item_communication"
+    }, {
+        "title": "senses",
+        "headers": ["d4", "senses"],
+        "rows": [
+            ["1", "Hearing and normal vision out to 30 feet."],
+            ["2", "Hearing and normal vision out to 60 feet."],
+            ["3", "Hearing and normal vision out to 120 feet."],
+            ["4", "Hearing and darkvision out to 120 feet."]
+        ],
+        "tag": "rules_sentient_magic_item_senses"
+    }, {
+        "title": "alignment",
+        "headers": ["d100", "alignment"],
+        "rows": [
+            ["01-15", "lawful good"],
+            ["16-35", "neutral good"],
+            ["36-50", "chaotic good"],
+            ["51-63", "lawful neutral"],
+            ["64-73", "neutral"],
+            ["74-85", "chaotic neutral"],
+            ["86-89", "lawful evil"],
+            ["90-96", "neutral evil"],
+            ["97-00", "chaotic evil"]
+        ],
+        "tag": "rules_sentient_magic_item_alignment"
+    }, {
+        "title": "purpose",
+        "headers": ["d10", "purpose"],
+        "rows": [
+            ["1", "Aligned: The item seeks to defeat or destroy those of a diametrically opposed alignment. (Such an item is never neutral.)"],
+            ["2", "Bane: The item seeks to defeat or destroy creatures of a particular kind, such as fiends, shapechangers, trolls, or wizards."],
+            ["3", "Protector: The item or kind of creature, such as elves or druids."],
+            ["4", "Crusader: The item seeks to defeat, weaken, or destroy the servants of a particular deity."],
+            ["5", "Templar: The item seeks to defend the servants and interests of a particular deity."],
+            ["6", "Destroyer: The item craves destruction and goads its user to fight arbitrarily."],
+            ["7", "Glory Seeker. The item seeks renown as the greatest magic item in the world, by establishing its user as a famous or notorious figure."],
+            ["8", "Lore Seeker: The item craves knowledge or is determined to solve a mystery, learn a secret, or unravel a cryptic prophecy."],
+            ["9", "Destiny Seeker: The item is convinced that it and its wielder have key roles to play in future events."],
+            ["10", "Creator Seeker: The item seeks its creator and wants to understand why it was created."]
+        ],
+        "tag": "rules_sentient_magic_item_purpose"
+    }, {
+        "title": "hit dice by size",
+        "headers": ["size", "hit die", "average HP per die"],
+        "rows": [
+            ["tiny", "d4", "2 1/2"],
+            ["small", "d6", "3 1/2"],
+            ["medium", "d8", "4 1/2"],
+            ["large", "d10", "5 1/2"],
+            ["huge", "d12", "6 1/2"],
+            ["gargantuan", "d20", "10 1/2"]
+
+        ],
+        "tag": "rules_creatures_hit_die"
+    }, {
+        "title": "proficiency bonus by challenge rating",
+        "headers": ["challenge rating", "proficiency bonus"],
+        "rows": [
+            ["0-4", "+2"],
+            ["5-8", "+3"],
+            ["9-12", "+4"],
+            ["13-16", "+5"],
+            ["17-20", "+6"],
+            ["21-24", "+7"],
+            ["25-28", "+8"],
+            ["29-30", "+9"]
+        ],
+        "tag": "rules_creatures_proficiency_bonus"
+    }, {
+        "title": "experiance points by challenge rating",
+        "headers": ["challenge", "XP"],
+        "rows": [
+            ["0", "0 or 10"],
+            ["1/8", "25"],
+            ["1/4", "50"],
+            ["1/2", "100"],
+            ["1", "200"],
+            ["2", "450"],
+            ["3", "700"],
+            ["4", "1,100"],
+            ["5", "1,800"],
+            ["6", "2,300"],
+            ["7", "2,900"],
+            ["8", "3,900"],
+            ["9", "5,000"],
+            ["10", "5,900"],
+            ["11", "7,200"],
+            ["12", "8,400"],
+            ["13", "10,000"],
+            ["14", "11,500"],
+            ["15", "13,000"],
+            ["16", "15,000"],
+            ["17", "18,000"],
+            ["18", "20,000"],
+            ["19", "22,000"],
+            ["20", "25,000"],
+            ["21", "33,000"],
+            ["22", "41,000"],
+            ["23", "50,000"],
+            ["24", "62,000"],
+            ["25", "75,000"],
+            ["26", "90,000"],
+            ["27", "105,000"],
+            ["28", "120,000"],
+            ["29", "135,000"],
+            ["30", "155,000"]
+        ],
+        "tag": "rules_creatures_experiance_points_per_challenge_rating"
+    }
 ]

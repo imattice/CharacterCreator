@@ -36,6 +36,9 @@
 		7F141944262B6B2B008E6571 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141943262B6B2B008E6571 /* Print.swift */; };
 		7F2A215F265F1EA6009CC51D /* magicalitems.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A215E265F1EA6009CC51D /* magicalitems.json */; };
 		7F5E4D16266C664700F2E3F4 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E4D15266C664600F2E3F4 /* Rule.swift */; };
+		7F5E4D1C266EEA2000F2E3F4 /* rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E4D1B266EEA2000F2E3F4 /* rules.json */; };
+		7F5E4D1E2673FAB700F2E3F4 /* traps.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E4D1D2673FAB700F2E3F4 /* traps.json */; };
+		7F5E4D202673FC8500F2E3F4 /* diseases.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E4D1F2673FC8500F2E3F4 /* diseases.json */; };
 		7F84B4A6265D85FE00901F69 /* RegexRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4A5265D85FE00901F69 /* RegexRules.swift */; };
 		7F84B4BB265DBCC100901F69 /* RegexRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */; };
 		7F84B4CC265EBBCD00901F69 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4CB265EBBCD00901F69 /* Condition.swift */; };
@@ -175,6 +178,9 @@
 		7F141943262B6B2B008E6571 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		7F2A215E265F1EA6009CC51D /* magicalitems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = magicalitems.json; sourceTree = "<group>"; };
 		7F5E4D15266C664600F2E3F4 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
+		7F5E4D1B266EEA2000F2E3F4 /* rules.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rules.json; sourceTree = "<group>"; };
+		7F5E4D1D2673FAB700F2E3F4 /* traps.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = traps.json; sourceTree = "<group>"; };
+		7F5E4D1F2673FC8500F2E3F4 /* diseases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = diseases.json; sourceTree = "<group>"; };
 		7F84B4A5265D85FE00901F69 /* RegexRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRules.swift; sourceTree = "<group>"; };
 		7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRuleTests.swift; sourceTree = "<group>"; };
 		7F84B4CB265EBBCD00901F69 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
@@ -371,6 +377,9 @@
 				7F84B4EB265ECF4E00901F69 /* poisons.json */,
 				7F2A215E265F1EA6009CC51D /* magicalitems.json */,
 				7F0C112D26576DE200D45C49 /* tables.json */,
+				7F5E4D1B266EEA2000F2E3F4 /* rules.json */,
+				7F5E4D1D2673FAB700F2E3F4 /* traps.json */,
+				7F5E4D1F2673FC8500F2E3F4 /* diseases.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -730,6 +739,7 @@
 			files = (
 				8152B41520DEE659008B7A1A /* DropdownTableViewCell.xib in Resources */,
 				7FB8C59E261E103B0088A8E9 /* items.json in Resources */,
+				7F5E4D1C266EEA2000F2E3F4 /* rules.json in Resources */,
 				7F1417CF2620F53D008E6571 /* backgrounds.json in Resources */,
 				7F1417A2261E904B008E6571 /* packs.json in Resources */,
 				81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */,
@@ -755,11 +765,13 @@
 				7F14180226268409008E6571 /* languages.json in Resources */,
 				81541A3F2276A29B002C7B72 /* StaticLanguageLabelCollectionViewCell.xib in Resources */,
 				7F84B4D6265EBC8C00901F69 /* feats.json in Resources */,
+				7F5E4D1E2673FAB700F2E3F4 /* traps.json in Resources */,
 				8195037E2256DDFB00EE4469 /* PersonalityDetailView.xib in Resources */,
 				81DC8E4D210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.xib in Resources */,
 				7F1417A7261E9F49008E6571 /* tools.json in Resources */,
 				7F141795261E7EE8008E6571 /* shields.json in Resources */,
 				7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */,
+				7F5E4D202673FC8500F2E3F4 /* diseases.json in Resources */,
 				7F84B4DB265EC53F00901F69 /* conditions.json in Resources */,
 				81CC0DE5226544D400FDC0AD /* SocialDetailView.xib in Resources */,
 			);
