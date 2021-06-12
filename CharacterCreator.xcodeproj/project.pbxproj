@@ -39,6 +39,8 @@
 		7F5E4D1C266EEA2000F2E3F4 /* rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E4D1B266EEA2000F2E3F4 /* rules.json */; };
 		7F5E4D1E2673FAB700F2E3F4 /* traps.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E4D1D2673FAB700F2E3F4 /* traps.json */; };
 		7F5E4D202673FC8500F2E3F4 /* diseases.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E4D1F2673FC8500F2E3F4 /* diseases.json */; };
+		7F5E4D22267469C700F2E3F4 /* Trap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E4D21267469C700F2E3F4 /* Trap.swift */; };
+		7F5E4D2426746A8400F2E3F4 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E4D2326746A8400F2E3F4 /* Disease.swift */; };
 		7F84B4A6265D85FE00901F69 /* RegexRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4A5265D85FE00901F69 /* RegexRules.swift */; };
 		7F84B4BB265DBCC100901F69 /* RegexRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */; };
 		7F84B4CC265EBBCD00901F69 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F84B4CB265EBBCD00901F69 /* Condition.swift */; };
@@ -181,6 +183,8 @@
 		7F5E4D1B266EEA2000F2E3F4 /* rules.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rules.json; sourceTree = "<group>"; };
 		7F5E4D1D2673FAB700F2E3F4 /* traps.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = traps.json; sourceTree = "<group>"; };
 		7F5E4D1F2673FC8500F2E3F4 /* diseases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = diseases.json; sourceTree = "<group>"; };
+		7F5E4D21267469C700F2E3F4 /* Trap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trap.swift; sourceTree = "<group>"; };
+		7F5E4D2326746A8400F2E3F4 /* Disease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
 		7F84B4A5265D85FE00901F69 /* RegexRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRules.swift; sourceTree = "<group>"; };
 		7F84B4BA265DBCC100901F69 /* RegexRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexRuleTests.swift; sourceTree = "<group>"; };
 		7F84B4CB265EBBCD00901F69 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
@@ -601,6 +605,7 @@
 		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
 			isa = PBXGroup;
 			children = (
+				7F5E4D21267469C700F2E3F4 /* Trap.swift */,
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
@@ -614,6 +619,7 @@
 				7FFE87FA2649C2EA00465809 /* Die.swift */,
 				7FFE87F02645CD4100465809 /* Sense.swift */,
 				7F0C111C2655DCBC00D45C49 /* Recharge.swift */,
+				7F5E4D2326746A8400F2E3F4 /* Disease.swift */,
 			);
 			path = "Gameplay Objects";
 			sourceTree = "<group>";
@@ -810,6 +816,7 @@
 				81DF302C213C5D6A00C939CE /* Item.swift in Sources */,
 				8152B3D320D9E0B5008B7A1A /* ReviewViewController.swift in Sources */,
 				8135B43F2169B2040058E9D6 /* SpellDetailView.swift in Sources */,
+				7F5E4D2426746A8400F2E3F4 /* Disease.swift in Sources */,
 				8195AF8C225706BE00153B58 /* ImageSelectionView.swift in Sources */,
 				81B038CE22DD14AF0059AFC1 /* Effect.swift in Sources */,
 				8152B3CD20D9E01A008B7A1A /* StatDistributionViewController.swift in Sources */,
@@ -832,6 +839,7 @@
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
+				7F5E4D22267469C700F2E3F4 /* Trap.swift in Sources */,
 				81541A35227420C2002C7B72 /* Language.swift in Sources */,
 				8195037A2256DDAE00EE4469 /* PersonalityDetailView.swift in Sources */,
 				7F1417BD261F4CF1008E6571 /* AbilityScore.swift in Sources */,

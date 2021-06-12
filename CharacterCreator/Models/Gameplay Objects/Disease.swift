@@ -1,14 +1,14 @@
 //
-//  Rule.swift
+//  Disease.swift
 //  CharacterCreator
 //
-//  Created by Ike Mattice on 6/5/21.
+//  Created by Ike Mattice on 6/11/21.
 //  Copyright © 2021 Ike Mattice. All rights reserved.
 //
 
 import Foundation
 
-struct RulesRecord: Record {
+struct DiseaseRecord: Record, Codable {
     let id: String = UUID().uuidString
     let name: String
     let description: String
