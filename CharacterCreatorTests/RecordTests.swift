@@ -52,6 +52,15 @@ class RecordTests: XCTestCase {
         
         let magicItems = MagicalItemRecord.all()
         XCTAssertEqual(magicItems.count, 308)
+        
+        let diseases = DiseaseRecord.all()
+        XCTAssertEqual(diseases.count, 3)
+        
+        let traps = TrapRecord.all()
+        XCTAssertEqual(traps.count, 11)
+        
+        let rules = RuleRecord.all()
+        XCTAssertEqual(rules.count, 54)
     }
     
     func testSubraceInitialization() {

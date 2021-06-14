@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RulesRecord: Record {
+struct RuleRecord: Record {
     let id: String = UUID().uuidString
     let name: String
     let description: String
