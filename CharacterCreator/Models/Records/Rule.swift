@@ -9,10 +9,14 @@
 import Foundation
 import CoreData
 
+///An model representing static data for a specific rule
 @objc(RuleRecord)
 final class RuleRecord: NSManagedObject, Record {
-    let id: String = UUID().uuidString
+    ///A unique identifier for the rule
+    @NSManaged public var id: String
+    ///A name for the rule
     @NSManaged public var name: String
+    ///A descriptive summary for the rule
     @NSManaged public var summary: String
     
     required convenience init(from decoder: Decoder) throws {
@@ -25,6 +29,7 @@ final class RuleRecord: NSManagedObject, Record {
         self.init(entity: entity, insertInto: managedObjectContext)
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = UUID().uuidString
         self.name = try container.decode(String.self, forKey: .name)
         self.summary = try container.decode(String.self, forKey: .summary)
     }

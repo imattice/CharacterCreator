@@ -47,7 +47,24 @@ class RecordTests: XCTestCase {
         XCTAssertNotNil(records, "Fetched nil results after saving DiseaseRecord")
         XCTAssertTrue(records!.count > 0, "Fetched empty array after saving DiseaseRecord")
     }
-    
+    func testSaveTrapRecords() {
+        //Add to core data
+        do {
+            try TrapRecord.save(to: testDataManager)
+        } catch {
+            print(error)
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<TrapRecord>(entityName: String(describing: TrapRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving TrapRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving TrapRecord")
+    }
+
     func testParseFromJSON() {
         //RaceRecord
         XCTAssertNoThrow(try RaceRecord.parseFromJSON(),

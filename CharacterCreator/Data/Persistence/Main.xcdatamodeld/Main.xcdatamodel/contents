@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DiseaseRecord" representedClassName="DiseaseRecord" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
     </entity>
     <entity name="RuleRecord" representedClassName="RuleRecord" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="TrapRecord" representedClassName="TrapRecord" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <attribute name="typeString" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
-        <element name="RuleRecord" positionX="-54" positionY="-9" width="128" height="59"/>
-        <element name="DiseaseRecord" positionX="-36" positionY="27" width="128" height="59"/>
+        <element name="RuleRecord" positionX="-54" positionY="-9" width="128" height="74"/>
+        <element name="DiseaseRecord" positionX="-36" positionY="27" width="128" height="74"/>
+        <element name="TrapRecord" positionX="-18" positionY="63" width="128" height="89"/>
     </elements>
 </model>

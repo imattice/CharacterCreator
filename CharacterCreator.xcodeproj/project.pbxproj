@@ -372,6 +372,7 @@
 			children = (
 				7F5E4D15266C664600F2E3F4 /* Rule.swift */,
 				7F5E4D2326746A8400F2E3F4 /* Disease.swift */,
+				7F5E4D21267469C700F2E3F4 /* Trap.swift */,
 			);
 			path = Records;
 			sourceTree = "<group>";
@@ -631,7 +632,6 @@
 		81B038CF22DD14BA0059AFC1 /* Gameplay Objects */ = {
 			isa = PBXGroup;
 			children = (
-				7F5E4D21267469C700F2E3F4 /* Trap.swift */,
 				8152B3C020D9D320008B7A1A /* Modifier.swift */,
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
