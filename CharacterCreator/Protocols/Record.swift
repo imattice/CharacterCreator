@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 ///A type that is backed by a Static JSON file
 protocol Record: Identifiable, Codable {
@@ -21,30 +22,33 @@ protocol Record: Identifiable, Codable {
     func record(for name: String) -> Self?
     ///Converts JSON file data to Objects
     static
-    func parseAllFromJSON() throws -> [Self]
+    func parseFromJSON(_ dataStack: CoreDataStack) throws -> [Self]
+    
 }
 
 extension Record where Self: Codable {
     ///Return all records parsed from JSON
     static
     func all() -> [Self] {
-        do {
-            return try parseAllFromJSON()
-        } catch {
-            print(error)
-            return [Self]()
-        }
+//        do {
+//            return try parseAllFromJSON()
+//        } catch {
+//            print(error)
+//            return [Self]()
+//        }
+        return [Self]()
     }
     
     ///Returns a specific record of the given name
     static
     func record(for name: String) -> Self? {
-        return all().filter { $0.name == name }.first
+//        return all().filter { $0.name == name }.first
+        return RuleRecord() as! Self
     }
     
-    ///Converts JSON file data to Objects
+    ///Converts JSON file data to an array of Records
     static
-    func parseAllFromJSON() throws -> [Self] {
+    func parseFromJSON(_ dataStack: CoreDataStack = CoreDataStack.shared) throws -> [Self] {
         //a simplistic pluralizer to transform the class record name into the json file name
         //i.e. this should return languages.json from LanguageRecord and classes.json from ClassRecord
         let filename: String = {
@@ -54,15 +58,46 @@ extension Record where Self: Codable {
 
         guard let path = Bundle.main.path(forResource: filename, ofType: "json")
         else { print("file not found for \(filename).json"); throw JSONError.fileNotFound }
-
         do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: [])
-            return try JSONDecoder().decode([Self].self, from: data)
+            let data = try Data(contentsOf: URL(fileURLWithPath: path))
+            //get the key that will allow the decoder to access the managed context
+            guard let managedObjectContextKey = CodingUserInfoKey.managedObjectContext else { throw DecoderConfigurationError.missingCodingUserInfoKey }
+
+            let decoder = JSONDecoder()
+            //set the shared context as the decoder's context key so that the context can be used from within the init(from:Decoder) method
+            decoder.userInfo[managedObjectContextKey] = dataStack.context
+            return try decoder.decode([Self].self, from: data)
         }
         catch {
             print("error while parsing JSON for file \(filename).json")
             print(error)
             throw JSONError.parsingError
+        }
+    }
+}
+    
+extension Record where Self:Codable, Self:NSManagedObject {
+    static
+    func save(to dataStack: CoreDataStack = CoreDataStack.shared) throws {
+        //Check if there are records already stored
+        guard let count = try? dataStack.context.fetch(NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: Self.self))).count,
+              count == 0
+        else { return }
+        
+        do {
+            let records = try parseFromJSON(dataStack)
+            let managedObjectContext = dataStack.context
+
+            records.forEach { record in
+                managedObjectContext.insert(record)
+            }
+            
+            try managedObjectContext.save()
+            
+        } catch {
+            print("error while saving to managed context")
+            print(error)
+            throw error
         }
     }
 }
