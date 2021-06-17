@@ -35,6 +35,9 @@
 		7F14193F262A7D0D008E6571 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */; };
 		7F141944262B6B2B008E6571 /* Print.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F141943262B6B2B008E6571 /* Print.swift */; };
 		7F2A215F265F1EA6009CC51D /* magicalitems.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F2A215E265F1EA6009CC51D /* magicalitems.json */; };
+		7F5C98AE2677DDC700D609DE /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C98AC2677DDC700D609DE /* Main.xcdatamodeld */; };
+		7F5C98B02677E93200D609DE /* CodingUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C98AF2677E93200D609DE /* CodingUserInfoKey.swift */; };
+		7F5C98B22677F63700D609DE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C98B12677F63700D609DE /* CoreDataStack.swift */; };
 		7F5E4D16266C664700F2E3F4 /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E4D15266C664600F2E3F4 /* Rule.swift */; };
 		7F5E4D1C266EEA2000F2E3F4 /* rules.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E4D1B266EEA2000F2E3F4 /* rules.json */; };
 		7F5E4D1E2673FAB700F2E3F4 /* traps.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F5E4D1D2673FAB700F2E3F4 /* traps.json */; };
@@ -179,6 +182,9 @@
 		7F14193E262A7D0D008E6571 /* StringExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		7F141943262B6B2B008E6571 /* Print.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Print.swift; sourceTree = "<group>"; };
 		7F2A215E265F1EA6009CC51D /* magicalitems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = magicalitems.json; sourceTree = "<group>"; };
+		7F5C98AD2677DDC700D609DE /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
+		7F5C98AF2677E93200D609DE /* CodingUserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKey.swift; sourceTree = "<group>"; };
+		7F5C98B12677F63700D609DE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7F5E4D15266C664600F2E3F4 /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		7F5E4D1B266EEA2000F2E3F4 /* rules.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rules.json; sourceTree = "<group>"; };
 		7F5E4D1D2673FAB700F2E3F4 /* traps.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = traps.json; sourceTree = "<group>"; };
@@ -352,6 +358,15 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
+		7F5C98A82677D78B00D609DE /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				7F5C98B12677F63700D609DE /* CoreDataStack.swift */,
+				7F5C98AC2677DDC700D609DE /* Main.xcdatamodeld */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		7FB8C576261D4AEB0088A8E9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +494,7 @@
 		8123674120CA44EE00F7AEFC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7F5C98A82677D78B00D609DE /* Persistence */,
 				7FB8C57C261D4C180088A8E9 /* JSON */,
 				81DC8E47210BBA64002F6AE4 /* skills.swift */,
 			);
@@ -520,6 +536,7 @@
 				81FC7CF0210556F800BBDDD7 /* Array.swift */,
 				81DC8E4121080E9E002F6AE4 /* String.swift */,
 				8152B41020DEDA8D008B7A1A /* Int.swift */,
+				7F5C98AF2677E93200D609DE /* CodingUserInfoKey.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -836,6 +853,7 @@
 				819621E62268F33300A4DD3D /* UIResponder.swift in Sources */,
 				7F84B4D1265EBC1000901F69 /* Feat.swift in Sources */,
 				7F14188226275001008E6571 /* Errors.swift in Sources */,
+				7F5C98AE2677DDC700D609DE /* Main.xcdatamodeld in Sources */,
 				81F8496E218B7FBD00280D8C /* Damage.swift in Sources */,
 				8152B41420DEE659008B7A1A /* DropdownTableViewCell.swift in Sources */,
 				81FC7CF1210556F800BBDDD7 /* Array.swift in Sources */,
@@ -861,10 +879,12 @@
 				8152B3C120D9D320008B7A1A /* Modifier.swift in Sources */,
 				81FC7CF52106965E00BBDDD7 /* BackgroundSelectionViewController.swift in Sources */,
 				81F8496B218A9A6D00280D8C /* ItemSelectionTableViewCell.swift in Sources */,
+				7F5C98B02677E93200D609DE /* CodingUserInfoKey.swift in Sources */,
 				7FFE87EC2644999900465809 /* Action.swift in Sources */,
 				8152B3D120D9E097008B7A1A /* DropdownViewController.swift in Sources */,
 				81DC8E4C210BBF31002F6AE4 /* SkillSelectionCollectionViewCell.swift in Sources */,
 				7F1417E326210526008E6571 /* Feature.swift in Sources */,
+				7F5C98B22677F63700D609DE /* CoreDataStack.swift in Sources */,
 				7F0C111D2655DCBC00D45C49 /* Recharge.swift in Sources */,
 				7F84B4CC265EBBCD00901F69 /* Condition.swift in Sources */,
 				81DC8E57211256EC002F6AE4 /* InventorySelectionViewController.swift in Sources */,
@@ -1208,6 +1228,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		7F5C98AC2677DDC700D609DE /* Main.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7F5C98AD2677DDC700D609DE /* Main.xcdatamodel */,
+			);
+			currentVersion = 7F5C98AD2677DDC700D609DE /* Main.xcdatamodel */;
+			path = Main.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		8123671720CA44DA00F7AEFC /* CharacterCreator.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
