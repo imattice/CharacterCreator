@@ -367,6 +367,15 @@
 			path = Persistence;
 			sourceTree = "<group>";
 		};
+		7F5C98B5267AEF0E00D609DE /* Records */ = {
+			isa = PBXGroup;
+			children = (
+				7F5E4D15266C664600F2E3F4 /* Rule.swift */,
+				7F5E4D2326746A8400F2E3F4 /* Disease.swift */,
+			);
+			path = Records;
+			sourceTree = "<group>";
+		};
 		7FB8C576261D4AEB0088A8E9 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +513,7 @@
 		8152B3BF20D9D2F5008B7A1A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7F5C98B5267AEF0E00D609DE /* Records */,
 				8152B3C220D9D32F008B7A1A /* Character.swift */,
 				8152B3C620D9D340008B7A1A /* Race.swift */,
 				8152B3C420D9D337008B7A1A /* Class.swift */,
@@ -516,7 +526,6 @@
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,
 				7F0C113226580E4800D45C49 /* DataTable.swift */,
 				7F84B4A5265D85FE00901F69 /* RegexRules.swift */,
-				7F5E4D15266C664600F2E3F4 /* Rule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -636,7 +645,6 @@
 				7FFE87FA2649C2EA00465809 /* Die.swift */,
 				7FFE87F02645CD4100465809 /* Sense.swift */,
 				7F0C111C2655DCBC00D45C49 /* Recharge.swift */,
-				7F5E4D2326746A8400F2E3F4 /* Disease.swift */,
 			);
 			path = "Gameplay Objects";
 			sourceTree = "<group>";

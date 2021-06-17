@@ -13,7 +13,7 @@ import CoreData
 class RecordTests: XCTestCase {
     let testDataManager = CoreDataStack(inMemory: true)
     
-    func testSave() {
+    func testSaveRuleRecords() {
         //Add to core data
         do {
             try RuleRecord.save(to: testDataManager)
@@ -23,12 +23,29 @@ class RecordTests: XCTestCase {
         }
         
         //Fetch the saved data
-        let fetchRequest = NSFetchRequest<RuleRecord>(entityName: String(describing: RuleRecord.self))
-        let ruleRecords = try? testDataManager.context.fetch(fetchRequest)
+        let request = NSFetchRequest<RuleRecord>(entityName: String(describing: RuleRecord.self))
+        let records = try? testDataManager.context.fetch(request)
         
         //Validate records
-        XCTAssertNotNil(ruleRecords, "Fetched nil results after saving RuleRecord")
-        XCTAssertTrue(ruleRecords!.count > 0, "Fetched empty array after saving RuleRecord")
+        XCTAssertNotNil(records, "Fetched nil results after saving RuleRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving RuleRecord")
+    }
+    func testSaveDiseaseRecords() {
+        //Add to core data
+        do {
+            try DiseaseRecord.save(to: testDataManager)
+        } catch {
+            print(error)
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<DiseaseRecord>(entityName: String(describing: DiseaseRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving DiseaseRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving DiseaseRecord")
     }
     
     func testParseFromJSON() {
