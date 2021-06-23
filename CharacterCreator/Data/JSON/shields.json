@@ -1,7 +1,7 @@
 [
     {
         "name": "shield",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 6,

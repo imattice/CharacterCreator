@@ -25,10 +25,10 @@ class DamageTests: XCTestCase {
 		let incorrectDamageType		= " 1d6 normal"
 		let correctDamagePattern	= "10d12 fire"
 
-		let missingMultiplierResult 	= Damage.fromString(missingMultiplier)
-		let missingValueResult			= Damage.fromString(missingValue)
-		let incorrectDamageTypeResult	= Damage.fromString(incorrectDamageType)
-		let correctDamagePatternResult	= Damage.fromString(correctDamagePattern)
+		let missingMultiplierResult 	= try? Damage(missingMultiplier)
+		let missingValueResult			= try? Damage(missingValue)
+		let incorrectDamageTypeResult	= try? Damage(incorrectDamageType)
+		let correctDamagePatternResult	= try? Damage(correctDamagePattern)
 
 		XCTAssertNil(missingMultiplierResult)
 		XCTAssertNil(missingValueResult)

@@ -1,7 +1,7 @@
 [
     {
         "name": "alchemist's supplies",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 5000,
         "weight": 8,
@@ -9,7 +9,7 @@
     },
     {
         "name": "brewer's supplies",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2000,
         "weight": 9,
@@ -17,7 +17,7 @@
     },
     {
         "name": "calligrapher's supplies",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 5,
@@ -25,7 +25,7 @@
     },
     {
         "name": "carpenter's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 800,
         "weight": 6,
@@ -33,7 +33,7 @@
     },
     {
         "name": "cartographer's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1500,
         "weight": 6,
@@ -41,7 +41,7 @@
     },
     {
         "name": "cobbler's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 500,
         "weight": 5,
@@ -49,7 +49,7 @@
     },
     {
         "name": "cook's utinsils",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 100,
         "weight": 8,
@@ -57,7 +57,7 @@
     },
     {
         "name": "glassblower's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 3000,
         "weight": 5,
@@ -65,7 +65,7 @@
     },
     {
         "name": "jewler's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2500,
         "weight": 2,
@@ -73,7 +73,7 @@
     },
     {
         "name": "leatherworker's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 500,
         "weight": 5,
@@ -81,7 +81,7 @@
     },
     {
         "name": "mason's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 8,
@@ -89,7 +89,7 @@
     },
     {
         "name": "painter's supplies",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 5,
@@ -97,7 +97,7 @@
     },
     {
         "name": "potter's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 3,
@@ -105,7 +105,7 @@
     },
     {
         "name": "smith's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2000,
         "weight": 8,
@@ -113,7 +113,7 @@
     },
     {
         "name": "tinker's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 5000,
         "weight": 10,
@@ -121,7 +121,7 @@
     },
     {
         "name": "weaver's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 100,
         "weight": 5,
@@ -129,7 +129,7 @@
     },
     {
         "name": "woodcarver's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 100,
         "weight": 5,
@@ -137,7 +137,7 @@
     },
     {
         "name": "disguise kit",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2500,
         "weight": 3,
@@ -145,7 +145,7 @@
     },
     {
         "name": "forgery kit",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1500,
         "weight": 5,
@@ -153,7 +153,7 @@
     },
     {
         "name": "dice set",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 10,
         "weight": 0,
@@ -161,7 +161,7 @@
     },
     {
         "name": "playing card set",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 50,
         "weight": 0,
@@ -169,14 +169,14 @@
     },
     {
         "name": "herbalism kit",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 500,
         "weight": 3,
     },
     {
         "name": "bagpipes",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 3000,
         "weight": 6,
@@ -184,7 +184,7 @@
     },
     {
         "name": "drum",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 600,
         "weight": 3,
@@ -192,7 +192,7 @@
     },
     {
         "name": "dulcimer",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2500,
         "weight": 10,
@@ -200,7 +200,7 @@
     },
     {
         "name": "flute",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 200,
         "weight": 1,
@@ -208,7 +208,7 @@
     },
     {
         "name": "lute",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 3500,
         "weight": 2,
@@ -216,7 +216,7 @@
     },
     {
         "name": "lyre",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 3000,
         "weight": 2,
@@ -224,7 +224,7 @@
     },
     {
         "name": "horn",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 300,
         "weight": 2,
@@ -232,7 +232,7 @@
     },
     {
         "name": "pan flute",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1200,
         "weight": 2,
@@ -240,7 +240,7 @@
     },
     {
         "name": "shawm",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 200,
         "weight": 1,
@@ -248,7 +248,7 @@
     },
     {
         "name": "viol",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 3000,
         "weight": 1,
@@ -256,21 +256,21 @@
     },
     {
         "name": "navigator's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2500,
         "weight": 2,
     },
     {
         "name": "poisoner's kit",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 5000,
         "weight": 2,
     },
     {
         "name": "thieve's tools",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2500,
         "weight": 1,

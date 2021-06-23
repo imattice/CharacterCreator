@@ -51,6 +51,7 @@
 		7F84B4D6265EBC8C00901F69 /* feats.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F84B4D5265EBC8C00901F69 /* feats.json */; };
 		7F84B4DB265EC53F00901F69 /* conditions.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F84B4DA265EC53F00901F69 /* conditions.json */; };
 		7F84B4EC265ECF4E00901F69 /* poisons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F84B4EB265ECF4E00901F69 /* poisons.json */; };
+		7F875E1926819305009968AC /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F875E1826819305009968AC /* DataTransformer.swift */; };
 		7FB8C589261D4D760088A8E9 /* races.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C588261D4D760088A8E9 /* races.json */; };
 		7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8C590261D4DA70088A8E9 /* Record.swift */; };
 		7FB8C599261E03FB0088A8E9 /* weapons.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FB8C598261E03FB0088A8E9 /* weapons.json */; };
@@ -198,6 +199,7 @@
 		7F84B4D5265EBC8C00901F69 /* feats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = feats.json; sourceTree = "<group>"; };
 		7F84B4DA265EC53F00901F69 /* conditions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = conditions.json; sourceTree = "<group>"; };
 		7F84B4EB265ECF4E00901F69 /* poisons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = poisons.json; sourceTree = "<group>"; };
+		7F875E1826819305009968AC /* DataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
 		7FB8C588261D4D760088A8E9 /* races.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = races.json; sourceTree = "<group>"; };
 		7FB8C590261D4DA70088A8E9 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		7FB8C598261E03FB0088A8E9 /* weapons.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weapons.json; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			children = (
 				7F5C98B12677F63700D609DE /* CoreDataStack.swift */,
 				7F5C98AC2677DDC700D609DE /* Main.xcdatamodeld */,
+				7F875E1826819305009968AC /* DataTransformer.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				7F5E4D15266C664600F2E3F4 /* Rule.swift */,
 				7F5E4D2326746A8400F2E3F4 /* Disease.swift */,
 				7F5E4D21267469C700F2E3F4 /* Trap.swift */,
+				81DF302B213C5D6A00C939CE /* Item.swift */,
 			);
 			path = Records;
 			sourceTree = "<group>";
@@ -519,7 +523,6 @@
 				8152B3C620D9D340008B7A1A /* Race.swift */,
 				8152B3C420D9D337008B7A1A /* Class.swift */,
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
-				81DF302B213C5D6A00C939CE /* Item.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
 				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
 				81541A34227420C2002C7B72 /* Language.swift */,
@@ -848,6 +851,7 @@
 				7FB8C591261D4DA70088A8E9 /* Record.swift in Sources */,
 				810900B1224EE3EF00FF8B17 /* BasicDetailView.swift in Sources */,
 				81541A302273CD86002C7B72 /* LanguageLabelCollectionViewCell.swift in Sources */,
+				7F875E1926819305009968AC /* DataTransformer.swift in Sources */,
 				7F14189A262755F8008E6571 /* Selectable.swift in Sources */,
 				7F0C113D2658228B00D45C49 /* DataTableView.swift in Sources */,
 				7F141944262B6B2B008E6571 /* Print.swift in Sources */,

@@ -12,6 +12,10 @@ struct SourceApp: App {
     @Environment(\.scenePhase) var scenePhase
     let dataStack = CoreDataStack.shared
     
+    init() {
+        ItemDataTransformer.register()
+    }
+    
     var body: some Scene {
         WindowGroup {
             CompendiumView()

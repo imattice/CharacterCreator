@@ -1,6 +1,6 @@
 [{
         "name": "club",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 10,
         "weight": 2,
@@ -13,7 +13,7 @@
     },
     {
         "name": "dagger",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 200,
         "weight": 1,
@@ -30,7 +30,7 @@
     },
     {
         "name": "greatclub",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 20,
         "weight": 10,
@@ -43,7 +43,7 @@
     },
     {
         "name": "handaxe",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 500,
         "weight": 2,
@@ -60,7 +60,7 @@
     },
     {
         "name": "javelin",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 50,
         "weight": 2,
@@ -77,7 +77,7 @@
     },
     {
         "name": "light hammer",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 200,
         "weight": 2,
@@ -94,7 +94,7 @@
     },
     {
         "name": "mace",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 500,
         "weight": 4,
@@ -106,7 +106,7 @@
     },
     {
         "name": "quarterstaff",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 20,
         "weight": 4,
@@ -119,7 +119,7 @@
     },
     {
         "name": "sickle",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 100,
         "weight": 2,
@@ -132,7 +132,7 @@
     },
     {
         "name": "spear",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 100,
         "weight": 3,
@@ -149,7 +149,7 @@
     },
     {
         "name": "light crossbow",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2500,
         "weight": 5,
@@ -166,7 +166,7 @@
     },
     {
         "name": "dart",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 5,
         "weight": 0.25,
@@ -183,7 +183,7 @@
     },
     {
         "name": "shortbow",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2500,
         "weight": 2,
@@ -200,7 +200,7 @@
     },
     {
         "name": "sling",
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 10,
         "weight": 0,
@@ -218,7 +218,7 @@
     {
         "name": "battleaxe",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 4,
@@ -232,7 +232,7 @@
     {
         "name": "flail",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 2,
@@ -245,7 +245,7 @@
     {
         "name": "glaive",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2000,
         "weight": 6,
@@ -259,7 +259,7 @@
     {
         "name": "greataxe",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 3000,
         "weight": 7,
@@ -273,7 +273,7 @@
     {
         "name": "greatsword",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 5000,
         "weight": 6,
@@ -287,7 +287,7 @@
     {
         "name": "halberd",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2000,
         "weight": 6,
@@ -301,7 +301,7 @@
     {
         "name": "lance",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "cost": 1000,
         "weight": 6,
         "details": "You have disadvantage on a target within 5 feet of you when using the lance.  You must use two hands to wield this weapon while unmounted.",
@@ -315,7 +315,7 @@
     {
         "name": "longsword",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1500,
         "weight": 3,
@@ -329,7 +329,7 @@
     {
         "name": "maul",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 10,
@@ -343,7 +343,7 @@
     {
         "name": "morningstar",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1500,
         "weight": 4,
@@ -356,7 +356,7 @@
     {
         "name": "pike",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 500,
         "weight": 18,
@@ -370,7 +370,7 @@
     {
         "name": "rapier",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2500,
         "weight": 2,
@@ -384,7 +384,7 @@
     {
         "name": "scimitar",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 2500,
         "weight": 3,
@@ -398,7 +398,7 @@
     {
         "name": "shortsword",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 2,
@@ -412,7 +412,7 @@
     {
         "name": "trident",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 500,
         "weight": 4,
@@ -430,7 +430,7 @@
     {
         "name": "war pick",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 500,
         "weight": 2,
@@ -443,7 +443,7 @@
     {
         "name": "warhammer",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1500,
         "weight": 2,
@@ -457,7 +457,7 @@
     {
         "name": "whip",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 200,
         "weight": 3,
@@ -471,7 +471,7 @@
     {
         "name": "blowgun",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 1000,
         "weight": 1,
@@ -489,7 +489,7 @@
     {
         "name": "hand crossbow",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 7500,
         "weight": 3,
@@ -507,7 +507,7 @@
     {
         "name": "heavy crossbow",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 5000,
         "weight": 18,
@@ -525,7 +525,7 @@
     {
         "name": "longbow",
         "isSimple": false,
-        "description": "",
+        "summary": "",
         "details": "",
         "cost": 5000,
         "weight": 2,
