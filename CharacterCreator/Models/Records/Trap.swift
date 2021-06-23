@@ -19,11 +19,11 @@ final class TrapRecord: NSManagedObject, Record, Codable {
     ///A descriptive summary for the trap
     @NSManaged public var summary: String
     ///Indicates the type of trap (used to store value to Core Data)
-    @NSManaged private var typeString: String
+    @NSManaged private var cdType: String
     ///Indicates the type of trap
     var type: TrapType {
-        get { return TrapType(rawValue: typeString)! }
-        set { self.typeString = newValue.rawValue }
+        get { return TrapType(rawValue: cdType)! }
+        set { cdType = newValue.rawValue }
     }
     
     required convenience init(from decoder: Decoder) throws {

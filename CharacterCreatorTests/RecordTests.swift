@@ -184,17 +184,17 @@ class RecordTests: XCTestCase {
         XCTAssertNotNil(records, "Fetched nil results after saving PoisonRecord")
         XCTAssertTrue(records!.count > 0, "Fetched empty array after saving PoisonRecord")
     }
-    func testSaveMagicalItemRecords() {
+    func testSaveMagicItemRecords() {
         //Add to core data
         do {
-            try MagicalItemRecord.save(to: testDataManager)
+            try MagicItemRecord.save(to: testDataManager)
         } catch {
             print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
         //Fetch the saved data
-        let request = NSFetchRequest<MagicalItemRecord>(entityName: String(describing: MagicalItemRecord.self))
+        let request = NSFetchRequest<MagicItemRecord>(entityName: String(describing: MagicItemRecord.self))
         let records = try? testDataManager.context.fetch(request)
         
         //Validate records
@@ -252,9 +252,9 @@ class RecordTests: XCTestCase {
                        "Parsing PoisonRecord from JSON returned an empty array")
     }
     func testParseMagicalItemRecordFromJSON() {
-        XCTAssertNoThrow(try MagicalItemRecord.parseFromJSON(),
+        XCTAssertNoThrow(try MagicItemRecord.parseFromJSON(),
                          "Parsing MagicalItemRecord from JSON threw an error")
-        XCTAssertFalse(try MagicalItemRecord.parseFromJSON().isEmpty,
+        XCTAssertFalse(try MagicItemRecord.parseFromJSON().isEmpty,
                        "Parsing MagicalItemRecord from JSON returned an empty array")
     }
     func testParsePackRecordFromJSON() {
