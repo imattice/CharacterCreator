@@ -198,10 +198,27 @@ class RecordTests: XCTestCase {
         let records = try? testDataManager.context.fetch(request)
         
         //Validate records
-        XCTAssertNotNil(records, "Fetched nil results after saving MagicalItemRecord")
-        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving MagicalItemRecord")
+        XCTAssertNotNil(records, "Fetched nil results after saving MagicItemRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving MagicItemRecord")
     }
-    
+    func testSaveBackgroundRecords() {
+        //Add to core data
+        do {
+            try BackgroundRecord.save(to: testDataManager)
+        } catch {
+            print(error)
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<BackgroundRecord>(entityName: String(describing: BackgroundRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving BackgroundRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving BackgroundRecord")
+    }
+
     //MARK: - JSON Parsing
     func testParseRaceRecordFromJSON() {
         XCTAssertNoThrow(try RaceRecord.parseFromJSON(),

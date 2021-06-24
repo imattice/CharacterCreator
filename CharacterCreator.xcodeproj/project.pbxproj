@@ -395,6 +395,7 @@
 				7F2B9FF62682F2AD0054F1BC /* Tool.swift */,
 				7F2B9FF82682F2B30054F1BC /* Poison.swift */,
 				7F2B9FFC2682F2D60054F1BC /* MagicItem.swift */,
+				81DC8E43210BA599002F6AE4 /* Background.swift */,
 			);
 			path = Records;
 			sourceTree = "<group>";
@@ -420,6 +421,7 @@
 				7F84B4D5265EBC8C00901F69 /* feats.json */,
 				7FB8C59D261E103A0088A8E9 /* items.json */,
 				7F14180126268409008E6571 /* languages.json */,
+				7F2B9FFE2683CC9D0054F1BC /* magicitems.json */,
 				7F1417A1261E904B008E6571 /* packs.json */,
 				7F84B4EB265ECF4E00901F69 /* poisons.json */,
 				7FB8C588261D4D760088A8E9 /* races.json */,
@@ -430,7 +432,6 @@
 				7F1417A6261E9F49008E6571 /* tools.json */,
 				7F5E4D1D2673FAB700F2E3F4 /* traps.json */,
 				7FB8C598261E03FB0088A8E9 /* weapons.json */,
-				7F2B9FFE2683CC9D0054F1BC /* magicitems.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -540,7 +541,6 @@
 				8152B3C220D9D32F008B7A1A /* Character.swift */,
 				8152B3C620D9D340008B7A1A /* Race.swift */,
 				8152B3C420D9D337008B7A1A /* Class.swift */,
-				81DC8E43210BA599002F6AE4 /* Background.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
 				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
 				81541A34227420C2002C7B72 /* Language.swift */,
