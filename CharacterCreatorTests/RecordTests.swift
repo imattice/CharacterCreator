@@ -14,12 +14,75 @@ class RecordTests: XCTestCase {
     let testDataManager = CoreDataStack(inMemory: true)
     
     //MARK: - Core Data Saving
+    func testSaveRaceRecords() {
+        //Add to core data
+        do {
+            try RaceRecord.save(to: testDataManager)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<RaceRecord>(entityName: String(describing: RaceRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving RaceRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving RaceRecord")
+    }
+    func testSaveSubraceRecords() {
+        //Add to core data
+        do {
+            try SubraceRecord.save(to: testDataManager)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<SubraceRecord>(entityName: String(describing: SubraceRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving SubraceRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving SubraceRecord")
+    }
+    func testSaveClassRecords() {
+        //Add to core data
+        do {
+            try ClassRecord.save(to: testDataManager)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<ClassRecord>(entityName: String(describing: ClassRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving ClassRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving ClassRecord")
+    }
+    func testSaveSubclassRecords() {
+        //Add to core data
+        do {
+            try SubclassRecord.save(to: testDataManager)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<SubclassRecord>(entityName: String(describing: SubclassRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving SubclassRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving SubclassRecord")
+    }
     func testSaveRuleRecords() {
         //Add to core data
         do {
             try RuleRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -36,7 +99,6 @@ class RecordTests: XCTestCase {
         do {
             try DiseaseRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -53,7 +115,6 @@ class RecordTests: XCTestCase {
         do {
             try TrapRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -70,7 +131,6 @@ class RecordTests: XCTestCase {
         do {
             try ItemRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -87,7 +147,6 @@ class RecordTests: XCTestCase {
         do {
             try WeaponRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -104,7 +163,6 @@ class RecordTests: XCTestCase {
         do {
             try ArmorRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -121,7 +179,6 @@ class RecordTests: XCTestCase {
         do {
             try ShieldRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -138,7 +195,6 @@ class RecordTests: XCTestCase {
         do {
             try PackRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -155,7 +211,6 @@ class RecordTests: XCTestCase {
         do {
             try ToolRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -172,7 +227,6 @@ class RecordTests: XCTestCase {
         do {
             try PoisonRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -189,7 +243,6 @@ class RecordTests: XCTestCase {
         do {
             try MagicItemRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -206,7 +259,6 @@ class RecordTests: XCTestCase {
         do {
             try BackgroundRecord.save(to: testDataManager)
         } catch {
-            print(error)
             XCTFail("There was an error while saving: \(error)")
         }
         
@@ -218,6 +270,79 @@ class RecordTests: XCTestCase {
         XCTAssertNotNil(records, "Fetched nil results after saving BackgroundRecord")
         XCTAssertTrue(records!.count > 0, "Fetched empty array after saving BackgroundRecord")
     }
+    
+    func testSubraceLinking() {
+        //Add to core data
+        do {
+            try RaceRecord.save(to: testDataManager)
+            let request = NSFetchRequest<RaceRecord>(entityName: String(describing: RaceRecord.self))
+            let records = try testDataManager.context.fetch(request)
+            guard let record = records.first else { XCTFail("failed to fetch record while linking subraces"); return }
+            
+            XCTAssertTrue(record.subraces.isEmpty)
+            
+            try SubraceRecord.save(to: testDataManager)
+            record.linkSubraceRecords(in: testDataManager.context)
+
+            XCTAssertFalse(record.subraces.isEmpty)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+    }
+    func testRaceLinking() {
+        //Add to core data
+        do {
+            try SubraceRecord.save(to: testDataManager)
+            let request = NSFetchRequest<SubraceRecord>(entityName: String(describing: SubraceRecord.self))
+            let records = try testDataManager.context.fetch(request)
+            guard let record = records.first else { XCTFail("failed to fetch record while linking subraces"); return }
+            //A parent record does not exist because the RaceRecords have not been saved
+            XCTAssertNil(record.parentRecord)
+            //Save the RaceRecords
+            try RaceRecord.save(to: testDataManager)
+            //The RaceRecord initializer will create an inverse relationship with its subraces
+            XCTAssertNotNil(record.parentRecord)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+    }
+    func testClassLinking() {
+        //Add to core data
+        do {
+            try SubclassRecord.save(to: testDataManager)
+            let request = NSFetchRequest<SubclassRecord>(entityName: String(describing: SubclassRecord.self))
+            let records = try testDataManager.context.fetch(request)
+            guard let record = records.first else { XCTFail("failed to fetch record while linking subraces"); return }
+            //A parent record does not exist because the ClassRecords have not been saved
+            XCTAssertNil(record.parentRecord)
+            //Save the ClassRecords
+            try ClassRecord.save(to: testDataManager)
+            //The ClassRecord initializer will create an inverse relationship with its subclasses
+            XCTAssertNotNil(record.parentRecord)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+    }
+
+    func testSubclassLinking() {
+        //Add to core data
+        do {
+            try ClassRecord.save(to: testDataManager)
+            let request = NSFetchRequest<ClassRecord>(entityName: String(describing: ClassRecord.self))
+            let records = try testDataManager.context.fetch(request)
+            guard let record = records.first else { XCTFail("failed to fetch record while linking subclasses"); return }
+            
+            XCTAssertTrue(record.subclasses.isEmpty)
+            
+            try SubclassRecord.save(to: testDataManager)
+            record.linkSubclassRecords(in: testDataManager.context)
+
+            XCTAssertFalse(record.subclasses.isEmpty)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+    }
+
 
     //MARK: - JSON Parsing
     func testParseRaceRecordFromJSON() {
@@ -226,11 +351,23 @@ class RecordTests: XCTestCase {
         XCTAssertFalse(try RaceRecord.parseFromJSON().isEmpty,
                        "Parsing RaceRecord from JSON returned an empty array")
     }
+    func testParseSubraceRecordFromJSON() {
+        XCTAssertNoThrow(try SubraceRecord.parseFromJSON(),
+                         "Parsing SubraceRecord from JSON threw an error")
+        XCTAssertFalse(try SubraceRecord.parseFromJSON().isEmpty,
+                       "Parsing SubraceRecord from JSON returned an empty array")
+    }
     func testParseClassRecordFromJSON() {
         XCTAssertNoThrow(try ClassRecord.parseFromJSON(),
                          "Parsing ClassRecord from JSON threw an error")
         XCTAssertFalse(try ClassRecord.parseFromJSON().isEmpty,
                        "Parsing ClassRecord from JSON returned an empty array")
+    }
+    func testParseSubclassRecordFromJSON() {
+        XCTAssertNoThrow(try SubclassRecord.parseFromJSON(),
+                         "Parsing SubclassRecord from JSON threw an error")
+        XCTAssertFalse(try SubclassRecord.parseFromJSON().isEmpty,
+                       "Parsing SubclassRecord from JSON returned an empty array")
     }
     func testParseBackgroundRecordFromJSON() {
         XCTAssertNoThrow(try BackgroundRecord.parseFromJSON(),

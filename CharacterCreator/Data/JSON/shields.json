@@ -1,10 +1,10 @@
 [
-    {
-        "name": "shield",
-        "summary": "",
-        "details": "",
-        "cost": 1000,
-        "weight": 6,
-        "bonusAC": 2
-    }
+  {
+    "name": "shield",
+    "summary": "",
+    "details": "",
+    "cost": 1000,
+    "weight": 6,
+    "bonusAC": 2
+  }
 ]

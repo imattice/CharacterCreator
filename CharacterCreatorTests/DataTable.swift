@@ -12,7 +12,10 @@ import XCTest
 class DataTableTests: XCTestCase {
 
     func testJSONParsing() {
-        XCTAssertEqual(try DataTable.parseAllFromJSON().count, 24)
+        XCTAssertNoThrow(try DataTable.parseFromJSON(),
+                         "Parsing DataTable from JSON threw an error")
+        XCTAssertFalse(try DataTable.parseFromJSON().isEmpty,
+                       "Parsing DataTable from JSON returned an empty array")
     }
 
 }

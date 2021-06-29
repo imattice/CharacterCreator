@@ -119,7 +119,6 @@ class BackgroundRecord: NSManagedObject, Record, Codable {
                cdFlaws = String(data: json, encoding:.utf8)!
            } catch { cdFlaws = "" }
         }
-
     }
     
     required convenience

@@ -20,7 +20,7 @@ struct DataTable: Codable {
     
     ///Converts JSON file data to Objects
     static
-    func parseAllFromJSON() throws -> [Self] {
+    func parseFromJSON() throws -> [Self] {
         guard let path = Bundle.main.path(forResource: "tables", ofType: "json")
         else { print("file not found for tables.json"); throw JSONError.fileNotFound }
 
@@ -36,7 +36,7 @@ struct DataTable: Codable {
     }
     
     init?(id: String) {
-        guard let table = try? DataTable.parseAllFromJSON().filter({ $0.tag == id }).first else { return nil }
+        guard let table = try? DataTable.parseFromJSON().filter({ $0.tag == id }).first else { return nil }
         self = table
     }
     init(title: String, headers: [String], rows: [[String]], tag: String) {

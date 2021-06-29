@@ -28,6 +28,16 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="ClassRecord" representedClassName="ClassRecord" syncable="YES">
+        <attribute name="cdEquipmentOptions" optional="YES" attributeType="String"/>
+        <attribute name="cdFeatures" optional="YES" attributeType="String"/>
+        <attribute name="cdProficiencies" optional="YES" attributeType="String"/>
+        <attribute name="hitDie" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <relationship name="cdSubclassRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubclassRecord" inverseName="parentRecord" inverseEntity="SubclassRecord"/>
+    </entity>
     <entity name="DiseaseRecord" representedClassName="DiseaseRecord" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -69,6 +79,19 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="RaceRecord" representedClassName="RaceRecord" syncable="YES">
+        <attribute name="cdDescriptive" optional="YES" attributeType="String"/>
+        <attribute name="cdFeatures" optional="YES" attributeType="String"/>
+        <attribute name="cdLanguages" optional="YES" attributeType="String"/>
+        <attribute name="cdModifiers" optional="YES" attributeType="String"/>
+        <attribute name="cdSize" optional="YES" attributeType="String"/>
+        <attribute name="hasDarkvision" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <relationship name="cdSubraceRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubraceRecord" inverseName="parentRecord" inverseEntity="SubraceRecord"/>
+    </entity>
     <entity name="RuleRecord" representedClassName="RuleRecord" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -82,6 +105,23 @@
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SubclassRecord" representedClassName="SubclassRecord" syncable="YES">
+        <attribute name="cdFeatures" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="parent" optional="YES" attributeType="String"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <relationship name="parentRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClassRecord" inverseName="cdSubclassRecords" inverseEntity="ClassRecord"/>
+    </entity>
+    <entity name="SubraceRecord" representedClassName="SubraceRecord" syncable="YES">
+        <attribute name="cdFeatures" optional="YES" attributeType="String"/>
+        <attribute name="cdModifiers" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="parent" optional="YES" attributeType="String"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <relationship name="parentRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RaceRecord" inverseName="cdSubraceRecords" inverseEntity="RaceRecord"/>
     </entity>
     <entity name="ToolRecord" representedClassName="ToolRecord" syncable="YES">
         <attribute name="cdCategory" optional="YES" attributeType="String"/>
@@ -112,6 +152,7 @@
     </entity>
     <elements>
         <element name="ArmorRecord" positionX="36" positionY="198" width="128" height="209"/>
+        <element name="BackgroundRecord" positionX="-9" positionY="162" width="128" height="209"/>
         <element name="DiseaseRecord" positionX="-36" positionY="27" width="128" height="74"/>
         <element name="ItemRecord" positionX="0" positionY="90" width="128" height="119"/>
         <element name="MagicItemRecord" positionX="9" positionY="171" width="128" height="14"/>
@@ -122,6 +163,9 @@
         <element name="ToolRecord" positionX="-9" positionY="153" width="128" height="134"/>
         <element name="TrapRecord" positionX="-18" positionY="63" width="128" height="89"/>
         <element name="WeaponRecord" positionX="18" positionY="135" width="128" height="179"/>
-        <element name="BackgroundRecord" positionX="-9" positionY="162" width="128" height="209"/>
+        <element name="RaceRecord" positionX="0" positionY="162" width="128" height="194"/>
+        <element name="SubraceRecord" positionX="9" positionY="180" width="128" height="134"/>
+        <element name="SubclassRecord" positionX="18" positionY="189" width="128" height="119"/>
+        <element name="ClassRecord" positionX="27" positionY="198" width="128" height="149"/>
     </elements>
 </model>

@@ -42,6 +42,10 @@
 		7F2B9FF92682F2B30054F1BC /* Poison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B9FF82682F2B30054F1BC /* Poison.swift */; };
 		7F2B9FFD2682F2D60054F1BC /* MagicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2B9FFC2682F2D60054F1BC /* MagicItem.swift */; };
 		7F2B9FFF2683CC9D0054F1BC /* magicitems.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F2B9FFE2683CC9D0054F1BC /* magicitems.json */; };
+		7F2BA00126857E030054F1BC /* subraces.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F2BA00026857E030054F1BC /* subraces.json */; };
+		7F2BA005268903D60054F1BC /* subclasses.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F2BA004268903D60054F1BC /* subclasses.json */; };
+		7F2BA007268B8E290054F1BC /* Subrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BA006268B8E290054F1BC /* Subrace.swift */; };
+		7F2BA009268B8E2F0054F1BC /* Subclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2BA008268B8E2F0054F1BC /* Subclass.swift */; };
 		7F5C98AE2677DDC700D609DE /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C98AC2677DDC700D609DE /* Main.xcdatamodeld */; };
 		7F5C98B02677E93200D609DE /* CodingUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C98AF2677E93200D609DE /* CodingUserInfoKey.swift */; };
 		7F5C98B22677F63700D609DE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5C98B12677F63700D609DE /* CoreDataStack.swift */; };
@@ -196,6 +200,10 @@
 		7F2B9FF82682F2B30054F1BC /* Poison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poison.swift; sourceTree = "<group>"; };
 		7F2B9FFC2682F2D60054F1BC /* MagicItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicItem.swift; sourceTree = "<group>"; };
 		7F2B9FFE2683CC9D0054F1BC /* magicitems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = magicitems.json; sourceTree = "<group>"; };
+		7F2BA00026857E030054F1BC /* subraces.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = subraces.json; sourceTree = "<group>"; };
+		7F2BA004268903D60054F1BC /* subclasses.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = subclasses.json; sourceTree = "<group>"; };
+		7F2BA006268B8E290054F1BC /* Subrace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subrace.swift; sourceTree = "<group>"; };
+		7F2BA008268B8E2F0054F1BC /* Subclass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subclass.swift; sourceTree = "<group>"; };
 		7F5C98AD2677DDC700D609DE /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		7F5C98AF2677E93200D609DE /* CodingUserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodingUserInfoKey.swift; sourceTree = "<group>"; };
 		7F5C98B12677F63700D609DE /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -396,6 +404,10 @@
 				7F2B9FF82682F2B30054F1BC /* Poison.swift */,
 				7F2B9FFC2682F2D60054F1BC /* MagicItem.swift */,
 				81DC8E43210BA599002F6AE4 /* Background.swift */,
+				8152B3C620D9D340008B7A1A /* Race.swift */,
+				7F2BA006268B8E290054F1BC /* Subrace.swift */,
+				8152B3C420D9D337008B7A1A /* Class.swift */,
+				7F2BA008268B8E2F0054F1BC /* Subclass.swift */,
 			);
 			path = Records;
 			sourceTree = "<group>";
@@ -431,7 +443,9 @@
 				7F0C112D26576DE200D45C49 /* tables.json */,
 				7F1417A6261E9F49008E6571 /* tools.json */,
 				7F5E4D1D2673FAB700F2E3F4 /* traps.json */,
+				7F2BA004268903D60054F1BC /* subclasses.json */,
 				7FB8C598261E03FB0088A8E9 /* weapons.json */,
+				7F2BA00026857E030054F1BC /* subraces.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -539,8 +553,6 @@
 			children = (
 				7F5C98B5267AEF0E00D609DE /* Records */,
 				8152B3C220D9D32F008B7A1A /* Character.swift */,
-				8152B3C620D9D340008B7A1A /* Race.swift */,
-				8152B3C420D9D337008B7A1A /* Class.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
 				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
 				81541A34227420C2002C7B72 /* Language.swift */,
@@ -796,6 +808,7 @@
 				7F1417CF2620F53D008E6571 /* backgrounds.json in Resources */,
 				7F1417A2261E904B008E6571 /* packs.json in Resources */,
 				81541A312273CD86002C7B72 /* RemoveableLanguageLabelCollectionViewCell.xib in Resources */,
+				7F2BA005268903D60054F1BC /* subclasses.json in Resources */,
 				8135B4412169B22C0058E9D6 /* SpellDetailView.xib in Resources */,
 				7F1417E8262374D3008E6571 /* classes.json in Resources */,
 				81FC7CFB21078FA800BBDDD7 /* BackgroundSelectionTableViewCell.xib in Resources */,
@@ -812,6 +825,7 @@
 				7F0C112E26576DE200D45C49 /* tables.json in Resources */,
 				7F1417C2261F512B008E6571 /* spells.json in Resources */,
 				7F84B4EC265ECF4E00901F69 /* poisons.json in Resources */,
+				7F2BA00126857E030054F1BC /* subraces.json in Resources */,
 				7FB8C5A3261E52330088A8E9 /* armors.json in Resources */,
 				8152B3E120DAE9FB008B7A1A /* StatStepperView.xib in Resources */,
 				7F14180226268409008E6571 /* languages.json in Resources */,
@@ -933,9 +947,11 @@
 				8112FA7021A7D03600EB61B8 /* WeaponSelectionTableViewController.swift in Sources */,
 				81BC72AD20F185ED00B48195 /* SpellSelectionViewController.swift in Sources */,
 				8152B41120DEDA8D008B7A1A /* Int.swift in Sources */,
+				7F2BA007268B8E290054F1BC /* Subrace.swift in Sources */,
 				7FFE87F62649BB8B00465809 /* Alignment.swift in Sources */,
 				8152B3C320D9D32F008B7A1A /* Character.swift in Sources */,
 				81541A3322742051002C7B72 /* LanguageSelectionTableViewController.swift in Sources */,
+				7F2BA009268B8E2F0054F1BC /* Subclass.swift in Sources */,
 				81DC8E44210BA599002F6AE4 /* Background.swift in Sources */,
 				7F141895262755AC008E6571 /* Origin.swift in Sources */,
 			);

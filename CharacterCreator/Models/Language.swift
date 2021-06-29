@@ -9,7 +9,7 @@
 import Foundation
 
 ///defines a flexible object to describe a language that can be learned by a character
-struct Language {
+struct Language: Codable {
     let name: String
     let isSelectable: Bool
     let source: Origin
