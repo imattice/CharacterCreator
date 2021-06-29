@@ -270,7 +270,24 @@ class RecordTests: XCTestCase {
         XCTAssertNotNil(records, "Fetched nil results after saving BackgroundRecord")
         XCTAssertTrue(records!.count > 0, "Fetched empty array after saving BackgroundRecord")
     }
+    func testSaveLanguageRecords() {
+        //Add to core data
+        do {
+            try LanguageRecord.save(to: testDataManager)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<LanguageRecord>(entityName: String(describing: LanguageRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving LanguageRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving LanguageRecord")
+    }
     
+    //MARK: - Relationship Linking
     func testSubraceLinking() {
         //Add to core data
         do {
@@ -306,6 +323,7 @@ class RecordTests: XCTestCase {
             XCTFail("There was an error while saving: \(error)")
         }
     }
+    
     func testClassLinking() {
         //Add to core data
         do {

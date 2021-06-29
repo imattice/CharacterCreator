@@ -1,118 +1,118 @@
 [
    {
       "name":"common",
-      "description":"",
+      "summary":"",
       "spokenBy":"humans",
       "script":"common"
    },
    {
       "name":"dwarvish",
-      "description":"Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.",
+      "summary":"Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.",
       "spokenBy":"dwarves",
       "script":"dwarvish"
    },
    {
       "name":"elvish",
-      "description":"Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.",
+      "summary":"Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.",
       "spokenBy":"elves",
       "script":"elvish"
    },
    {
       "name":"giant",
-      "description":"",
+      "summary":"",
       "spokenBy":"orgres and giants",
       "script":"dwarvish"
    },
    {
       "name":"gnomish",
-      "description":"The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.",
+      "summary":"The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.",
       "spokenBy":"gnomes",
       "script":"dwarvish"
    },
    {
       "name":"goblin",
-      "description":"",
+      "summary":"",
       "spokenBy":"goblinoids",
       "script":"dwarvish"
    },
    {
       "name":"halfling",
-      "description":"The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.",
+      "summary":"The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.",
       "spokenBy":"halflings",
       "script":"common"
    },
    {
       "name":"orc",
-      "description":"Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.",
+      "summary":"Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.",
       "spokenBy":"orcs",
       "script":"dwarvish"
    },
    {
       "name":"abyssal",
-      "description":"",
+      "summary":"",
       "spokenBy":"demons",
       "script":"infernal",
       "isExotic":true
    },
    {
       "name":"celestial",
-      "description":"",
+      "summary":"",
       "spokenBy":"celestials",
       "script":"celestial",
       "isExotic":true
    },
    {
       "name":"draconic",
-      "description":"Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.",
+      "summary":"Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.",
       "spokenBy":"dragons and dragonborn",
       "script":"draconic",
       "isExotic":true
    },
    {
       "name":"deep speech",
-      "description":"",
+      "summary":"",
       "spokenBy":"aboleths and cloakers",
       "script":"none",
       "isExotic":true
    },
    {
       "name":"infernal",
-      "description":"",
+      "summary":"",
       "spokenBy":"devils",
       "script":"infernal",
       "isExotic":true
    },
    {
       "name":"primordial",
-      "description":"",
+      "summary":"",
       "spokenBy":"elementals",
       "script":"dwarvish",
       "isExotic":true
    },
    {
       "name":"sylvan",
-      "description":"",
+      "summary":"",
       "spokenBy":"fey creatures",
       "script":"elvish",
       "isExotic":true
    },
    {
       "name":"undercommon",
-      "description":"",
+      "summary":"",
       "spokenBy":"underworld traders",
       "script":"elvish",
       "isExotic":true
    },
    {
       "name":"thieves' cant",
-      "description":"",
+      "summary":"",
       "spokenBy":"thieves",
       "script":"symbolic",
       "isSecret":true
    },
    {
       "name":"tongue of the druids",
-      "description":"",
+      "summary":"",
       "spokenBy":"druids",
       "script":"symbolic",
       "isSecret":true
