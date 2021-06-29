@@ -38,6 +38,11 @@
         <attribute name="summary" optional="YES" attributeType="String"/>
         <relationship name="cdSubclassRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubclassRecord" inverseName="parentRecord" inverseEntity="SubclassRecord"/>
     </entity>
+    <entity name="ConditionRecord" representedClassName="ConditionRecord" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="CreatureRecord" representedClassName="CreatureRecord" syncable="YES">
         <attribute name="armorClass" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="armorType" optional="YES" attributeType="String"/>
@@ -67,6 +72,12 @@
     <entity name="DiseaseRecord" representedClassName="DiseaseRecord" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="FeatRecord" representedClassName="FeatRecord" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="prerequisite" optional="YES" attributeType="String"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
     </entity>
     <entity name="ItemRecord" representedClassName="ItemRecord" syncable="YES">
@@ -220,5 +231,7 @@
         <element name="WeaponRecord" positionX="18" positionY="135" width="128" height="179"/>
         <element name="SpellRecord" positionX="45" positionY="216" width="128" height="224"/>
         <element name="CreatureRecord" positionX="0" positionY="153" width="128" height="389"/>
+        <element name="ConditionRecord" positionX="9" positionY="162" width="128" height="74"/>
+        <element name="FeatRecord" positionX="18" positionY="171" width="128" height="89"/>
     </elements>
 </model>

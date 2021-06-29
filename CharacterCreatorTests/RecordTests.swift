@@ -318,6 +318,38 @@ class RecordTests: XCTestCase {
         XCTAssertNotNil(records, "Fetched nil results after saving CreatureRecord")
         XCTAssertTrue(records!.count > 0, "Fetched empty array after saving CreatureRecord")
     }
+    func testSaveFeatRecords() {
+        //Add to core data
+        do {
+            try FeatRecord.save(to: testDataManager)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<FeatRecord>(entityName: String(describing: FeatRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving FeatRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving FeatRecord")
+    }
+    func testSaveConditionRecords() {
+        //Add to core data
+        do {
+            try ConditionRecord.save(to: testDataManager)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<ConditionRecord>(entityName: String(describing: ConditionRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving ConditionRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving ConditionRecord")
+    }
 
 
     

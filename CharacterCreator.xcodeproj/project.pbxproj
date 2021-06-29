@@ -411,6 +411,8 @@
 				81541A34227420C2002C7B72 /* Language.swift */,
 				81BC72AE20F186C000B48195 /* Spell.swift */,
 				7FFE87E62644894A00465809 /* Creature.swift */,
+				7F84B4CB265EBBCD00901F69 /* Condition.swift */,
+				7F84B4D0265EBC1000901F69 /* Feat.swift */,
 			);
 			path = Records;
 			sourceTree = "<group>";
@@ -669,8 +671,6 @@
 				81F8496D218B7FBD00280D8C /* Damage.swift */,
 				81B038CD22DD14AF0059AFC1 /* Effect.swift */,
 				7F1417E226210526008E6571 /* Feature.swift */,
-				7F84B4CB265EBBCD00901F69 /* Condition.swift */,
-				7F84B4D0265EBC1000901F69 /* Feat.swift */,
 				7F141894262755AC008E6571 /* Origin.swift */,
 				7F1418A62627BE7E008E6571 /* CreatureSize.swift */,
 				7FFE87EB2644999900465809 /* Action.swift */,
