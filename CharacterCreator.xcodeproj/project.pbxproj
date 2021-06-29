@@ -409,6 +409,7 @@
 				8152B3C420D9D337008B7A1A /* Class.swift */,
 				7F2BA008268B8E2F0054F1BC /* Subclass.swift */,
 				81541A34227420C2002C7B72 /* Language.swift */,
+				81BC72AE20F186C000B48195 /* Spell.swift */,
 			);
 			path = Records;
 			sourceTree = "<group>";
@@ -554,7 +555,6 @@
 			children = (
 				7F5C98B5267AEF0E00D609DE /* Records */,
 				8152B3C220D9D32F008B7A1A /* Character.swift */,
-				81BC72AE20F186C000B48195 /* Spell.swift */,
 				7F1417BC261F4CF1008E6571 /* AbilityScore.swift */,
 				7FFE87E62644894A00465809 /* Creature.swift */,
 				81B038CF22DD14BA0059AFC1 /* Gameplay Objects */,

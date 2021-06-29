@@ -115,6 +115,21 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="summary" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="SpellRecord" representedClassName="SpellRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="castTime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cdSchool" optional="YES" attributeType="String"/>
+        <attribute name="components" optional="YES" attributeType="String"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="isRitual" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="materials" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="range" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="requiresConcentration" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <attribute name="upcast" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="SubclassRecord" representedClassName="SubclassRecord" syncable="YES">
         <attribute name="cdFeatures" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
@@ -165,6 +180,7 @@
         <element name="ClassRecord" positionX="27" positionY="198" width="128" height="149"/>
         <element name="DiseaseRecord" positionX="-36" positionY="27" width="128" height="74"/>
         <element name="ItemRecord" positionX="0" positionY="90" width="128" height="119"/>
+        <element name="LanguageRecord" positionX="36" positionY="198" width="128" height="134"/>
         <element name="MagicItemRecord" positionX="9" positionY="171" width="128" height="14"/>
         <element name="PackRecord" positionX="0" positionY="162" width="128" height="134"/>
         <element name="PoisonRecord" positionX="0" positionY="162" width="128" height="134"/>
@@ -176,6 +192,6 @@
         <element name="ToolRecord" positionX="-9" positionY="153" width="128" height="134"/>
         <element name="TrapRecord" positionX="-18" positionY="63" width="128" height="89"/>
         <element name="WeaponRecord" positionX="18" positionY="135" width="128" height="179"/>
-        <element name="LanguageRecord" positionX="36" positionY="198" width="128" height="134"/>
+        <element name="SpellRecord" positionX="45" positionY="216" width="128" height="14"/>
     </elements>
 </model>
