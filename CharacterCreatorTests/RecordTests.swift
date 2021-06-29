@@ -286,6 +286,40 @@ class RecordTests: XCTestCase {
         XCTAssertNotNil(records, "Fetched nil results after saving LanguageRecord")
         XCTAssertTrue(records!.count > 0, "Fetched empty array after saving LanguageRecord")
     }
+    func testSaveSpellRecords() {
+        //Add to core data
+        do {
+            try SpellRecord.save(to: testDataManager)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<SpellRecord>(entityName: String(describing: SpellRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving SpellRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving SpellRecord")
+    }
+    func testSaveCreatureRecords() {
+        //Add to core data
+        do {
+            try CreatureRecord.save(to: testDataManager)
+        } catch {
+            XCTFail("There was an error while saving: \(error)")
+        }
+        
+        //Fetch the saved data
+        let request = NSFetchRequest<CreatureRecord>(entityName: String(describing: CreatureRecord.self))
+        let records = try? testDataManager.context.fetch(request)
+        
+        //Validate records
+        XCTAssertNotNil(records, "Fetched nil results after saving CreatureRecord")
+        XCTAssertTrue(records!.count > 0, "Fetched empty array after saving CreatureRecord")
+    }
+
+
     
     //MARK: - Relationship Linking
     func testSubraceLinking() {

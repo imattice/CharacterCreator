@@ -103,8 +103,6 @@ class SpellRecord: NSManagedObject, Record {
     enum CodingKeys: CodingKey {
         case name, level, school, isRitual, castTime, range, requiresConcentration, duration, components, materials, summary, upcast
     }
-    
-    
 }
 
 enum SpellSchool: String, Codable {

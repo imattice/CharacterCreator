@@ -1,7 +1,7 @@
 [
   {
     "name": "abolith",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "aberration",
     "alignment": "lawfulEvil",
@@ -95,7 +95,7 @@
   },
   {
     "name": "deva",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "celestial",
     "alignment": "lawfulGood",
@@ -196,7 +196,7 @@
   },
   {
     "name": "planetar",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "celestial",
     "alignment": "lawfulGood",
@@ -297,7 +297,7 @@
   },
   {
     "name": "solar",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "celestial",
     "alignment": "lawfulGood",
@@ -428,7 +428,7 @@
   },
   {
     "name": "animated armor",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "construct",
     "alignment": "unaligned",
@@ -491,7 +491,7 @@
   },
   {
     "name": "flying sword",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "construct",
     "alignment": "unaligned",
@@ -557,7 +557,7 @@
   },
   {
     "name": "rug of smothering",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "construct",
     "alignment": "unaligned",
@@ -618,7 +618,7 @@
   },
   {
     "name": "ankheg",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -664,7 +664,7 @@
   },
   {
     "name": "azer",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "elemental",
     "alignment": "lawfulNeutral",
@@ -717,7 +717,7 @@
   },
   {
     "name": "basilisk",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -756,7 +756,7 @@
   },
   {
     "name": "behir",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "monstrosity",
     "alignment": "neutralEvil",
@@ -816,7 +816,7 @@
   },
   {
     "name": "bugbear",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -874,7 +874,7 @@
   },
   {
     "name": "bulette",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -922,7 +922,7 @@
   },
   {
     "name": "centaur",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "neutralGood",
@@ -976,7 +976,7 @@
   },
   {
     "name": "chimera",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "chaoticEvil",
@@ -1039,7 +1039,7 @@
   },
   {
     "name": "chuul",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "aberration",
     "alignment": "chaoticEvil",
@@ -1105,7 +1105,7 @@
   },
   {
     "name": "cloaker",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "aberration",
     "alignment": "chaoticNeutral",
@@ -1177,7 +1177,7 @@
   },
   {
     "name": "cocatrice",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -1210,7 +1210,7 @@
   },
   {
     "name": "couatl",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "celestial",
     "alignment": "lawfulGood",
@@ -1302,7 +1302,7 @@
   },
   {
     "name": "darkmantle",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -1352,7 +1352,7 @@
   },
   {
     "name": "balor",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "fiend",
     "tags": [
@@ -1444,7 +1444,7 @@
   },
   {
     "name": "dretch",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "fiend",
     "tags": [
@@ -1510,7 +1510,7 @@
   },
   {
     "name": "glabrezu",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "tags": [
@@ -1589,7 +1589,7 @@
   },
   {
     "name": "hezrou",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "tags": [
@@ -1667,7 +1667,7 @@
   },
   {
     "name": "marilith",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "tags": [
@@ -1760,7 +1760,7 @@
   },
   {
     "name": "nalfeshnee",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "tags": [
@@ -1845,7 +1845,7 @@
   },
   {
     "name": "quasit",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "fiend",
     "tags": [
@@ -1918,7 +1918,7 @@
   },
   {
     "name": "vrock",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "tags": [
@@ -2002,7 +2002,7 @@
   },
   {
     "name": "barbed devil",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fiend",
     "tags": [
@@ -2097,7 +2097,7 @@
   },
   {
     "name": "bearded devil",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fiend",
     "tags": [
@@ -2182,7 +2182,7 @@
   },
   {
     "name": "bone devil",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "tags": [
@@ -2268,7 +2268,7 @@
   },
   {
     "name": "chain devil",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fiend",
     "tags": [
@@ -2356,7 +2356,7 @@
   },
   {
     "name": "erinyes",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fiend",
     "tags": [
@@ -2445,7 +2445,7 @@
   },
   {
     "name": "horned devil",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "tags": [
@@ -2532,7 +2532,7 @@
   },
   {
     "name": "ice devil",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "tags": [
@@ -2624,7 +2624,7 @@
   },
   {
     "name": "imp",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "fiend",
     "tags": [
@@ -2704,7 +2704,7 @@
   },
   {
     "name": "lemure",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fiend",
     "tags": [
@@ -2770,7 +2770,7 @@
   },
   {
     "name": "pit fiend",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "tags": [
@@ -2869,7 +2869,7 @@
   },
   {
     "name": "plesiosaurus",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -2908,7 +2908,7 @@
   },
   {
     "name": "triceratops",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -2946,7 +2946,7 @@
   },
   {
     "name": "tyrannosaurus rex",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -2985,7 +2985,7 @@
   },
   {
     "name": "doppelganger",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "monstrosity",
     "tags": [
@@ -3052,7 +3052,7 @@
   },
   {
     "name": "black dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -3154,7 +3154,7 @@
   },
   {
     "name": "black dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -3256,7 +3256,7 @@
   },
   {
     "name": "black dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -3328,7 +3328,7 @@
   },
   {
     "name": "black dragon, wyrmling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -3395,7 +3395,7 @@
   },
   {
     "name": "blue dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "lawfulEvil",
@@ -3493,7 +3493,7 @@
   },
   {
     "name": "blue dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "lawfulEvil",
@@ -3591,7 +3591,7 @@
   },
   {
     "name": "blue dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "lawfulEvil",
@@ -3657,7 +3657,7 @@
   },
   {
     "name": "blue dragon, wrymling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "lawfulEvil",
@@ -3714,7 +3714,7 @@
   },
   {
     "name": "green dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "lawfulEvil",
@@ -3820,7 +3820,7 @@
   },
   {
     "name": "green dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "lawfulEvil",
@@ -3926,7 +3926,7 @@
   },
   {
     "name": "green dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "lawfulEvil",
@@ -4000,7 +4000,7 @@
   },
   {
     "name": "green dragon, wyrmling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "lawfulEvil",
@@ -4064,7 +4064,7 @@
   },
   {
     "name": "red dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -4162,7 +4162,7 @@
   },
   {
     "name": "red dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -4260,7 +4260,7 @@
   },
   {
     "name": "red dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -4326,7 +4326,7 @@
   },
   {
     "name": "red dragon, wyrmling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -4383,7 +4383,7 @@
   },
   {
     "name": "white dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -4486,7 +4486,7 @@
   },
   {
     "name": "white dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -4589,7 +4589,7 @@
   },
   {
     "name": "white dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -4662,7 +4662,7 @@
   },
   {
     "name": "white dragon, wyrmling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "chaoticEvil",
@@ -4720,7 +4720,7 @@
   },
   {
     "name": "brass dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "chaoticGood",
@@ -4824,7 +4824,7 @@
   },
   {
     "name": "brass dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "chaoticGood",
@@ -4924,7 +4924,7 @@
   },
   {
     "name": "brass dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "chaoticGood",
@@ -4992,7 +4992,7 @@
   },
   {
     "name": "brass dragon, wyrmling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "chaoticGood",
@@ -5051,7 +5051,7 @@
   },
   {
     "name": "bronze dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -5158,7 +5158,7 @@
   },
   {
     "name": "bronze dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -5265,7 +5265,7 @@
   },
   {
     "name": "bronze dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -5338,7 +5338,7 @@
   },
   {
     "name": "bronze dragon, wyrmling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -5401,7 +5401,7 @@
   },
   {
     "name": "copper dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "chaoticGood",
@@ -5504,7 +5504,7 @@
   },
   {
     "name": "copper dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "chaoticGood",
@@ -5603,7 +5603,7 @@
   },
   {
     "name": "copper dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "chaoticGood",
@@ -5670,7 +5670,7 @@
   },
   {
     "name": "copper dragon, wyrmling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "chaoticGood",
@@ -5727,7 +5727,7 @@
   },
   {
     "name": "gold dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -5835,7 +5835,7 @@
   },
   {
     "name": "gold dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -5943,7 +5943,7 @@
   },
   {
     "name": "gold dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -6017,7 +6017,7 @@
   },
   {
     "name": "gold dragon, wyrmling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -6080,7 +6080,7 @@
   },
   {
     "name": "silver dragon, ancient",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -6183,7 +6183,7 @@
   },
   {
     "name": "silver dragon, adult",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -6286,7 +6286,7 @@
   },
   {
     "name": "silver dragon, young",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -6353,7 +6353,7 @@
   },
   {
     "name": "silver dragon, wyrmling",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "dragon",
     "alignment": "lawfulGood",
@@ -6409,7 +6409,7 @@
   },
   {
     "name": "dragon turtle",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "dragon",
     "alignment": "neutral",
@@ -6478,7 +6478,7 @@
   },
   {
     "name": "drider",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "chaoticEvil",
@@ -6554,7 +6554,7 @@
   },
   {
     "name": "dryad",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fey",
     "alignment": "neutral",
@@ -6617,7 +6617,7 @@
   },
   {
     "name": "duergar",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -6684,7 +6684,7 @@
   },
   {
     "name": "elemental, air",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "elemental",
     "alignment": "neutral",
@@ -6757,7 +6757,7 @@
   },
   {
     "name": "elemental, earth",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "elemental",
     "alignment": "neutral",
@@ -6825,7 +6825,7 @@
   },
   {
     "name": "elemental, fire",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "elemental",
     "alignment": "neutral",
@@ -6895,7 +6895,7 @@
   },
   {
     "name": "elemental, water",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "elemental",
     "alignment": "neutral",
@@ -6968,7 +6968,7 @@
   },
   {
     "name": "elf, drow",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -7030,7 +7030,7 @@
   },
   {
     "name": "ettercap",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "monstrosity",
     "alignment": "neutralEvil",
@@ -7096,7 +7096,7 @@
   },
   {
     "name": "ettin",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "giant",
     "alignment": "chaoticEvil",
@@ -7154,7 +7154,7 @@
   },
   {
     "name": "shrieker",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "plant",
     "alignment": "unaligned",
@@ -7201,7 +7201,7 @@
   },
   {
     "name": "violet fungus",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "plant",
     "alignment": "unaligned",
@@ -7252,7 +7252,7 @@
   },
   {
     "name": "gargoyle",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "elemental",
     "alignment": "chaoticEvil",
@@ -7318,7 +7318,7 @@
   },
   {
     "name": "djinni",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "elemental",
     "alignment": "chaoticGood",
@@ -7382,7 +7382,7 @@
   },
   {
     "name": "efreeti",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "elemental",
     "alignment": "lawfulEvil",
@@ -7445,7 +7445,7 @@
   },
   {
     "name": "ghost",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "any",
@@ -7531,7 +7531,7 @@
   },
   {
     "name": "ghast",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "chaoticEvil",
@@ -7589,7 +7589,7 @@
   },
   {
     "name": "ghoul",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "chaoticEvil",
@@ -7634,7 +7634,7 @@
   },
   {
     "name": "giant, cloud",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "giant",
     "alignment": "neutralGood",
@@ -7693,7 +7693,7 @@
   },
   {
     "name": "giant, fire",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "giant",
     "alignment": "lawfulEvil",
@@ -7744,7 +7744,7 @@
   },
   {
     "name": "giant, frost",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "giant",
     "alignment": "neutralEvil",
@@ -7795,7 +7795,7 @@
   },
   {
     "name": "giant, hill",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "giant",
     "alignment": "chaoticEvil",
@@ -7837,7 +7837,7 @@
   },
   {
     "name": "giant, stone",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "giant",
     "alignment": "neutral",
@@ -7902,7 +7902,7 @@
   },
   {
     "name": "giant, storm",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "giant",
     "alignment": "chaoticGood",
@@ -7977,7 +7977,7 @@
   },
   {
     "name": "gibbering mouther",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "aberration",
     "alignment": "neutral",
@@ -8027,7 +8027,7 @@
   },
   {
     "name": "gnoll",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -8080,7 +8080,7 @@
   },
   {
     "name": "gnome, deep (svirfneblin)",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "humanoid",
     "tags": [
@@ -8144,7 +8144,7 @@
   },
   {
     "name": "goblin",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "humanoid",
     "tags": [
@@ -8197,7 +8197,7 @@
   },
   {
     "name": "golem, clay",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "construct",
     "alignment": "unaligned",
@@ -8283,7 +8283,7 @@
   },
   {
     "name": "golem, flesh",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "construct",
     "alignment": "neutral",
@@ -8366,7 +8366,7 @@
   },
   {
     "name": "golem, iron",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "construct",
     "alignment": "unaligned",
@@ -8452,7 +8452,7 @@
   },
   {
     "name": "golem, stone",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "construct",
     "alignment": "unaligned",
@@ -8529,7 +8529,7 @@
   },
   {
     "name": "gorgon",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -8583,7 +8583,7 @@
   },
   {
     "name": "grick",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "monstrosity",
     "alignment": "neutral",
@@ -8636,7 +8636,7 @@
   },
   {
     "name": "griffon",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -8686,7 +8686,7 @@
   },
   {
     "name": "grimlock",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -8746,7 +8746,7 @@
   },
   {
     "name": "hag, green",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fey",
     "alignment": "neutralEvil",
@@ -8812,7 +8812,7 @@
   },
   {
     "name": "hag, night",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fiend",
     "alignment": "neutralEvil",
@@ -8893,7 +8893,7 @@
   },
   {
     "name": "hag, sea",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fey",
     "alignment": "neutralEvil",
@@ -8950,7 +8950,7 @@
   },
   {
     "name": "half-red dragon veteran",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -9015,7 +9015,7 @@
   },
   {
     "name": "harpy",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "monstrosity",
     "alignment": "chaoticEvil",
@@ -9040,7 +9040,7 @@
     "actions": [
       {
         "title": "multiattack",
-        "description": ""
+        "description": "The harpy makes two attacks: one with its claws and one with its club."
       },
       {
         "title": "claws",
@@ -9058,7 +9058,7 @@
   },
   {
     "name": "hell hound",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fiend",
     "alignment": "lawfulEvil",
@@ -9119,7 +9119,7 @@
   },
   {
     "name": "hippogriff",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -9164,7 +9164,7 @@
   },
   {
     "name": "hobgoblin",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -9214,7 +9214,7 @@
   },
   {
     "name": "homunculus",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "construct",
     "alignment": "neutral",
@@ -9263,7 +9263,7 @@
   },
   {
     "name": "hydra",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -9322,7 +9322,7 @@
   },
   {
     "name": "invisible stalker",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "elemental",
     "alignment": "neutral",
@@ -9401,7 +9401,7 @@
   },
   {
     "name": "kobold",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "humanoid",
     "tags": [
@@ -9454,7 +9454,7 @@
   },
   {
     "name": "kraken",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "monstrosity",
     "tags": [
@@ -9569,7 +9569,7 @@
   },
   {
     "name": "lamia",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "chaoticEvil",
@@ -9629,7 +9629,7 @@
   },
   {
     "name": "lich",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "neutralEvil",
@@ -9711,12 +9711,6 @@
         "description": "Melee Spell Attack: +12 to hit, reach 5 ft., one creature. Hit: 10 (3d6) cold damage. The target must succeed on a DC 18 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
       }
     ],
-    "reactions": [
-      {
-        "title": "",
-        "description": ""
-      }
-    ],
     "legendaryAbilities": {
       "maxActions": 3,
       "actions": [
@@ -9744,7 +9738,7 @@
   },
   {
     "name": "lizardfolk",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -9806,7 +9800,7 @@
   },
   {
     "name": "werebear",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -9879,7 +9873,7 @@
   },
   {
     "name": "wereboar",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -9953,7 +9947,7 @@
   },
   {
     "name": "wererat",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -10026,7 +10020,7 @@
   },
   {
     "name": "weretiger",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -10112,7 +10106,7 @@
   },
   {
     "name": "werewolf",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -10185,7 +10179,7 @@
   },
   {
     "name": "magmin",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "elemental",
     "alignment": "chaoticNeutral",
@@ -10237,7 +10231,7 @@
   },
   {
     "name": "manticore",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "lawfulEvil",
@@ -10292,7 +10286,7 @@
   },
   {
     "name": "medusa",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "monstrosity",
     "alignment": "lawfulEvil",
@@ -10352,7 +10346,7 @@
   },
   {
     "name": "mephit, dust",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "elemental",
     "alignment": "neutralEvil",
@@ -10415,7 +10409,7 @@
   },
   {
     "name": "mephit, ice",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "elemental",
     "alignment": "neutralEvil",
@@ -10484,7 +10478,7 @@
   },
   {
     "name": "mephit, magma",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "elemental",
     "alignment": "neutralEvil",
@@ -10551,7 +10545,7 @@
   },
   {
     "name": "mephit, steam",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "elemental",
     "alignment": "neutralEvil",
@@ -10608,7 +10602,7 @@
   },
   {
     "name": "merfolk",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -10652,7 +10646,7 @@
   },
   {
     "name": "merrow",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "chaoticEvil",
@@ -10708,7 +10702,7 @@
   },
   {
     "name": "mimic",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "monstrosity",
     "tags": [
@@ -10773,7 +10767,7 @@
   },
   {
     "name": "minotaur",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "chaoticEvil",
@@ -10830,7 +10824,7 @@
   },
   {
     "name": "mummy",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "lawfulEvil",
@@ -10897,7 +10891,7 @@
   },
   {
     "name": "mummy lord",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "lawfulEvil",
@@ -11009,7 +11003,7 @@
   },
   {
     "name": "naga, guardian",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "lawfulGood",
@@ -11072,7 +11066,7 @@
   },
   {
     "name": "naga, spirit",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "lawfulEvil",
@@ -11130,7 +11124,7 @@
   },
   {
     "name": "nightmare",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "fiend",
     "alignment": "neutralEvil",
@@ -11185,7 +11179,7 @@
   },
   {
     "name": "ogre",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "giant",
     "alignment": "chaoticEvil",
@@ -11226,7 +11220,7 @@
   },
   {
     "name": "oni",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "giant",
     "alignment": "lawfulEvil",
@@ -11301,7 +11295,7 @@
   },
   {
     "name": "black pudding",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "ooze",
     "alignment": "unaligned",
@@ -11370,7 +11364,7 @@
   },
   {
     "name": "gelatinous cube",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "ooze",
     "alignment": "unaligned",
@@ -11428,7 +11422,7 @@
   },
   {
     "name": "gray ooze",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "ooze",
     "alignment": "unaligned",
@@ -11495,7 +11489,7 @@
   },
   {
     "name": "ochre jelly",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "ooze",
     "alignment": "unaligned",
@@ -11561,7 +11555,7 @@
   },
   {
     "name": "orc",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -11614,7 +11608,7 @@
   },
   {
     "name": "otyugh",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "aberration",
     "alignment": "neutral",
@@ -11671,7 +11665,7 @@
   },
   {
     "name": "owlbear",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -11721,7 +11715,7 @@
   },
   {
     "name": "pegasus",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "celestial",
     "alignment": "chaoticGood",
@@ -11769,7 +11763,7 @@
   },
   {
     "name": "pseudodragon",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "dragon",
     "alignment": "neutralGood",
@@ -11834,7 +11828,7 @@
   },
   {
     "name": "purple worm",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -11887,7 +11881,7 @@
   },
   {
     "name": "rakshasa",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fiend",
     "alignment": "lawfulEvil",
@@ -11951,7 +11945,7 @@
   },
   {
     "name": "remorhaz",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -12000,7 +11994,7 @@
   },
   {
     "name": "roc",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -12052,7 +12046,7 @@
   },
   {
     "name": "roper",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "neutralEvil",
@@ -12116,7 +12110,7 @@
   },
   {
     "name": "rust monster",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -12163,7 +12157,7 @@
   },
   {
     "name": "sahuagin",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "humanoid",
     "tags": [
@@ -12232,7 +12226,7 @@
   },
   {
     "name": "salamander",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "elemental",
     "alignment": "neutralEvil",
@@ -12297,7 +12291,7 @@
   },
   {
     "name": "satyr",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fey",
     "alignment": "chaoticNeutral",
@@ -12349,7 +12343,7 @@
   },
   {
     "name": "shadow",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "chaoticEvil",
@@ -12423,7 +12417,7 @@
   },
   {
     "name": "shambling mound",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "plant",
     "alignment": "unaligned",
@@ -12488,7 +12482,7 @@
   },
   {
     "name": "shield guardian",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "construct",
     "alignment": "unaligned",
@@ -12558,7 +12552,7 @@
   },
   {
     "name": "skeleton",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "lawfulEvil",
@@ -12609,7 +12603,7 @@
   },
   {
     "name": "skeleton, minotaur",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "undead",
     "alignment": "lawfulEvil",
@@ -12667,7 +12661,7 @@
   },
   {
     "name": "skeleton, warhorse",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "undead",
     "alignment": "lawfulEvil",
@@ -12708,7 +12702,7 @@
   },
   {
     "name": "specter",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "chaoticEvil",
@@ -12782,7 +12776,7 @@
   },
   {
     "name": "androsphinx",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "lawfulNeutral",
@@ -12880,7 +12874,7 @@
   },
   {
     "name": "gynosphinx",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "monstrosity",
     "alignment": "lawfulNeutral",
@@ -12971,7 +12965,7 @@
   },
   {
     "name": "sprite",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "fey",
     "alignment": "neutralGood",
@@ -13021,7 +13015,7 @@
   },
   {
     "name": "stirge",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -13055,7 +13049,7 @@
   },
   {
     "name": "succubus/incubus",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "fiend",
     "tags": [
@@ -13139,7 +13133,7 @@
   },
   {
     "name": "tarrasque",
-    "description": "",
+    "summary": "",
     "size": "gargantuan",
     "type": "monstrosity",
     "tags": [
@@ -13251,7 +13245,7 @@
   },
   {
     "name": "treant",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "plant",
     "alignment": "chaoticGood",
@@ -13314,7 +13308,7 @@
   },
   {
     "name": "troll",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "giant",
     "alignment": "chaoticEvil",
@@ -13371,7 +13365,7 @@
   },
   {
     "name": "unicorn",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "celestial",
     "alignment": "lawfulGood",
@@ -13472,7 +13466,7 @@
   },
   {
     "name": "vampire",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "tags": [
@@ -13586,7 +13580,7 @@
   },
   {
     "name": "vampire spawn",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "neutralEvil",
@@ -13659,7 +13653,7 @@
   },
   {
     "name": "wight",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "neutralEvil",
@@ -13733,7 +13727,7 @@
   },
   {
     "name": "will-o'-wisp",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "undead",
     "alignment": "chaoticEvil",
@@ -13817,7 +13811,7 @@
   },
   {
     "name": "wraith",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "neutralEvil",
@@ -13898,7 +13892,7 @@
   },
   {
     "name": "wyvern",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "dragon",
     "alignment": "unaligned",
@@ -13947,7 +13941,7 @@
   },
   {
     "name": "xorn",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "elemental",
     "alignment": "neutral",
@@ -14019,7 +14013,7 @@
   },
   {
     "name": "zombie",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "neutralEvil",
@@ -14068,7 +14062,7 @@
   },
   {
     "name": "zombie, ogre",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "undead",
     "alignment": "neutralEvil",
@@ -14121,7 +14115,7 @@
   },
   {
     "name": "ape",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -14162,7 +14156,7 @@
   },
   {
     "name": "awakened shrub",
-    "description": "An awakened shrub is an ordinary shrub given sentience and mobility by the awaken spell or similar magic.",
+    "summary": "An awakened shrub is an ordinary shrub given sentience and mobility by the awaken spell or similar magic.",
     "size": "small",
     "type": "plant",
     "alignment": "unaligned",
@@ -14205,7 +14199,7 @@
   },
   {
     "name": "awakened tree",
-    "description": "An awakened tree is an ordinary tree given sentience and mobility by the awaken spell or similar magic.",
+    "summary": "An awakened tree is an ordinary tree given sentience and mobility by the awaken spell or similar magic.",
     "size": "huge",
     "type": "plant",
     "alignment": "unaligned",
@@ -14249,7 +14243,7 @@
   },
   {
     "name": "axe beak",
-    "description": "An axe beak is a tall flightless bird with strong legs and a heavy, wedge-­‐‑shaped beak. It has a nasty disposition and tends to attack any unfamiliar creature that wanders too close.",
+    "summary": "An axe beak is a tall flightless bird with strong legs and a heavy, wedge-­‐‑shaped beak. It has a nasty disposition and tends to attack any unfamiliar creature that wanders too close.",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -14277,7 +14271,7 @@
   },
   {
     "name": "baboon",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "beast",
     "alignment": "unaligned",
@@ -14311,7 +14305,7 @@
   },
   {
     "name": "badger",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -14350,7 +14344,7 @@
   },
   {
     "name": "bat",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -14393,7 +14387,7 @@
   },
   {
     "name": "black bear",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -14439,7 +14433,7 @@
   },
   {
     "name": "blink dog",
-    "description": "A blink dog takes its name from its ability to blink in and out of existence, a talent it uses to aid its attacks and to avoid harm.",
+    "summary": "A blink dog takes its name from its ability to blink in and out of existence, a talent it uses to aid its attacks and to avoid harm.",
     "size": "medium",
     "type": "fey",
     "alignment": "lawfulGood",
@@ -14485,7 +14479,7 @@
   },
   {
     "name": "blood hawk",
-    "description": "Taking its name from its crimson feathers and aggressive nature, the blood hawk fearlessly attacks almost any animal, stabbing it with its daggerlike beak. Blood hawks flock together in large numbers, attacking as a pack to take down prey.",
+    "summary": "Taking its name from its crimson feathers and aggressive nature, the blood hawk fearlessly attacks almost any animal, stabbing it with its daggerlike beak. Blood hawks flock together in large numbers, attacking as a pack to take down prey.",
     "size": "small",
     "type": "beast",
     "alignment": "unaligned",
@@ -14526,7 +14520,7 @@
   },
   {
     "name": "boar",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -14564,7 +14558,7 @@
   },
   {
     "name": "brown bear",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -14610,7 +14604,7 @@
   },
   {
     "name": "camel",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -14637,7 +14631,7 @@
   },
   {
     "name": "cat",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -14676,7 +14670,7 @@
   },
   {
     "name": "constrictor snake",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -14713,7 +14707,7 @@
   },
   {
     "name": "crab",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -14756,7 +14750,7 @@
   },
   {
     "name": "crocodile",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -14794,7 +14788,7 @@
   },
   {
     "name": "death dog",
-    "description": "A death dog is an ugly two-­‐‑headed hound that roams plains, and deserts. Hate burns in a death dog’s heart, and a taste for humanoid flesh drives it to attack travelers and explorers. Death dog saliva carries a foul disease that causes a victim’s flesh to slowly rot off the bone.",
+    "summary": "A death dog is an ugly two-­‐‑headed hound that roams plains, and deserts. Hate burns in a death dog’s heart, and a taste for humanoid flesh drives it to attack travelers and explorers. Death dog saliva carries a foul disease that causes a victim’s flesh to slowly rot off the bone.",
     "size": "medium",
     "type": "monstrosity",
     "alignment": "neutralEvil",
@@ -14840,7 +14834,7 @@
   },
   {
     "name": "deer",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -14867,7 +14861,7 @@
   },
   {
     "name": "dire wolf",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -14909,7 +14903,7 @@
   },
   {
     "name": "draft horse",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -14936,7 +14930,7 @@
   },
   {
     "name": "eagle",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "beast",
     "alignment": "unaligned",
@@ -14973,7 +14967,7 @@
   },
   {
     "name": "elephant",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -15011,7 +15005,7 @@
   },
   {
     "name": "elk",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -15048,7 +15042,7 @@
   },
   {
     "name": "flying snake",
-    "description": "A flying snake is a brightly colored, winged serpent found in remote jungles. Tribespeople and cultists sometimes domesticate flying snakes to serve as messengers that deliver scrolls wrapped in their coils.",
+    "summary": "A flying snake is a brightly colored, winged serpent found in remote jungles. Tribespeople and cultists sometimes domesticate flying snakes to serve as messengers that deliver scrolls wrapped in their coils.",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -15088,7 +15082,7 @@
   },
   {
     "name": "frog",
-    "description": "A frog has no effective attacks. It feeds on small insects and typically dwells near water, in trees, or underground. The frog’s statistics can also be used to represent a toad.",
+    "summary": "A frog has no effective attacks. It feeds on small insects and typically dwells near water, in trees, or underground. The frog’s statistics can also be used to represent a toad.",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -15135,7 +15129,7 @@
   },
   {
     "name": "giant ape",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -15175,7 +15169,7 @@
   },
   {
     "name": "giant badger",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -15222,7 +15216,7 @@
   },
   {
     "name": "giant bat",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -15265,7 +15259,7 @@
   },
   {
     "name": "giant boar",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -15303,7 +15297,7 @@
   },
   {
     "name": "giant centipede",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "beast",
     "alignment": "unaligned",
@@ -15337,7 +15331,7 @@
   },
   {
     "name": "giant constrictor snake",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -15377,7 +15371,7 @@
   },
   {
     "name": "giant crab",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -15420,7 +15414,7 @@
   },
   {
     "name": "giant crocodile",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -15466,7 +15460,7 @@
   },
   {
     "name": "giant eagle",
-    "description": "A giant eagle is a noble creature that speaks its own language and understands speech in the Common tongue. A mated pair of giant eagles typically has up to four eggs or young in their nest (treat the young as normal eagles).",
+    "summary": "A giant eagle is a noble creature that speaks its own language and understands speech in the Common tongue. A mated pair of giant eagles typically has up to four eggs or young in their nest (treat the young as normal eagles).",
     "size": "large",
     "type": "beast",
     "alignment": "neutralGood",
@@ -15515,7 +15509,7 @@
   },
   {
     "name": "giant elk",
-    "description": "The majestic giant elk is rare to the point that its appearance is often taken as a foreshadowing of an important event, such as the birth of a king. Legends tell of gods that take the form of giant elk when visiting the Material Plane. Many cultures therefore believe that to hunt these creatures is to invite divine wrath.",
+    "summary": "The majestic giant elk is rare to the point that its appearance is often taken as a foreshadowing of an important event, such as the birth of a king. Legends tell of gods that take the form of giant elk when visiting the Material Plane. Many cultures therefore believe that to hunt these creatures is to invite divine wrath.",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -15560,7 +15554,7 @@
   },
   {
     "name": "giant fire beetle",
-    "description": "A giant fire beetle is a nocturnal creature that takes its name from a pair of glowing glands that give off light. Miners and adventurers prize these creatures, for a giant fire beetle’s glands continue to shed light for 1d6 days after the beetle dies. Giant fire beetles are most commonly found underground and in dark forests.",
+    "summary": "A giant fire beetle is a nocturnal creature that takes its name from a pair of glowing glands that give off light. Miners and adventurers prize these creatures, for a giant fire beetle’s glands continue to shed light for 1d6 days after the beetle dies. Giant fire beetles are most commonly found underground and in dark forests.",
     "size": "small",
     "type": "beast",
     "alignment": "unaligned",
@@ -15599,7 +15593,7 @@
   },
   {
     "name": "giant frog",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -15650,7 +15644,7 @@
   },
   {
     "name": "giant goat",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -15688,7 +15682,7 @@
   },
   {
     "name": "giant hyena",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -15724,7 +15718,7 @@
   },
   {
     "name": "giant lizard",
-    "description": "A giant lizard can be ridden or used as a draft animal. Lizardfolk also keep them as pets, and subterranean giant lizards are used as mounts and pack animals by drow, duergar, and others.",
+    "summary": "A giant lizard can be ridden or used as a draft animal. Lizardfolk also keep them as pets, and subterranean giant lizards are used as mounts and pack animals by drow, duergar, and others.",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -15758,7 +15752,7 @@
   },
   {
     "name": "giant octopus",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -15814,7 +15808,7 @@
   },
   {
     "name": "giant owl",
-    "description": "Giant owls often befriend fey and other sylvan creatures and are guardians of their woodland realms.",
+    "summary": "Giant owls often befriend fey and other sylvan creatures and are guardians of their woodland realms.",
     "size": "large",
     "type": "beast",
     "alignment": "neutral",
@@ -15866,7 +15860,7 @@
   },
   {
     "name": "giant poisonous snake",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -15902,7 +15896,7 @@
   },
   {
     "name": "giant rat",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "beast",
     "alignment": "unaligned",
@@ -15949,7 +15943,7 @@
   },
   {
     "name": "giant scorpion",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -15990,7 +15984,7 @@
   },
   {
     "name": "giant sea horse",
-    "description": "Like their smaller kin, giant sea horses are shy, colorful fish with elongated bodies and curled tails. Aquatic elves train them as mounts.",
+    "summary": "Like their smaller kin, giant sea horses are shy, colorful fish with elongated bodies and curled tails. Aquatic elves train them as mounts.",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -16029,7 +16023,7 @@
   },
   {
     "name": "giant shark",
-    "description": "A giant shark is 30 feet long and normally found in deep oceans. Utterly fearless, it preys on anything that crosses its path, including whales and ships.",
+    "summary": "A giant shark is 30 feet long and normally found in deep oceans. Utterly fearless, it preys on anything that crosses its path, including whales and ships.",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -16076,7 +16070,7 @@
   },
   {
     "name": "giant spider",
-    "description": "To snare its prey, a giant spider spins elaborate webs or shoots sticky strands of webbing from its abdomen. Giant spiders are most commonly found underground, making their lairs on ceilings or in dark, web-­‐‑filled crevices. Such lairs are often festooned with web cocoons holding past victims.",
+    "summary": "To snare its prey, a giant spider spins elaborate webs or shoots sticky strands of webbing from its abdomen. Giant spiders are most commonly found underground, making their lairs on ceilings or in dark, web-­‐‑filled crevices. Such lairs are often festooned with web cocoons holding past victims.",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -16133,7 +16127,7 @@
   },
   {
     "name": "giant toad",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -16180,7 +16174,7 @@
   },
   {
     "name": "giant vulture",
-    "description": "A giant vulture has advanced intelligence and a malevolent bent. Unlike its smaller kin, it will attack a wounded creature to hasten its end. Giant vultures have been known to haunt a thirsty, starving creature for days to enjoy its suffering.",
+    "summary": "A giant vulture has advanced intelligence and a malevolent bent. Unlike its smaller kin, it will attack a wounded creature to hasten its end. Giant vultures have been known to haunt a thirsty, starving creature for days to enjoy its suffering.",
     "size": "large",
     "type": "beast",
     "alignment": "neutralEvil",
@@ -16233,7 +16227,7 @@
   },
   {
     "name": "giant wasp",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -16261,7 +16255,7 @@
   },
   {
     "name": "giant weasel",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -16303,7 +16297,7 @@
   },
   {
     "name": "giant wolf spider",
-    "description": "Smaller than a giant spider, a giant wolf spider hunts prey across open ground or hides in a burrow or crevice, or in a hidden cavity beneath debris.",
+    "summary": "Smaller than a giant spider, a giant wolf spider hunts prey across open ground or hides in a burrow or crevice, or in a hidden cavity beneath debris.",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -16356,7 +16350,7 @@
   },
   {
     "name": "goat",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -16393,7 +16387,7 @@
   },
   {
     "name": "hawk",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -16430,7 +16424,7 @@
   },
   {
     "name": "hunter shark",
-    "description": "Smaller than a giant shark but larger and fiercer than a reef shark, a hunter shark haunts deep waters. It usually hunts alone, but multiple hunter sharks might feed in the same area. A fully grown hunter shark is 15 to 20 feet long.",
+    "summary": "Smaller than a giant shark but larger and fiercer than a reef shark, a hunter shark haunts deep waters. It usually hunts alone, but multiple hunter sharks might feed in the same area. A fully grown hunter shark is 15 to 20 feet long.",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -16477,7 +16471,7 @@
   },
   {
     "name": "hyena",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -16513,7 +16507,7 @@
   },
   {
     "name": "jackal",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "beast",
     "alignment": "unaligned",
@@ -16554,7 +16548,7 @@
   },
   {
     "name": "killer whale",
-    "description": "",
+    "summary": "",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -16605,7 +16599,7 @@
   },
   {
     "name": "lion",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -16659,7 +16653,7 @@
   },
   {
     "name": "lizard",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -16692,7 +16686,7 @@
   },
   {
     "name": "mammoth",
-    "description": "A mammoth is an elephantine creature with thick fur and long tusks. Stockier and fiercer than normal elephants, mammoths inhabit a wide range of climes, from subarctic to subtropical.",
+    "summary": "A mammoth is an elephantine creature with thick fur and long tusks. Stockier and fiercer than normal elephants, mammoths inhabit a wide range of climes, from subarctic to subtropical.",
     "size": "huge",
     "type": "beast",
     "alignment": "unaligned",
@@ -16730,7 +16724,7 @@
   },
   {
     "name": "mastiff",
-    "description": "Mastiffs are impressive hounds prized by humanoids for their loyalty and keen senses. Mastiffs can be trained as guard dogs, hunting dogs, and war dogs. Halflings and other Small humanoids ride them as mounts.",
+    "summary": "Mastiffs are impressive hounds prized by humanoids for their loyalty and keen senses. Mastiffs can be trained as guard dogs, hunting dogs, and war dogs. Halflings and other Small humanoids ride them as mounts.",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -16767,7 +16761,7 @@
   },
   {
     "name": "mule",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -16804,7 +16798,7 @@
   },
   {
     "name": "octopus",
-    "description": "",
+    "summary": "",
     "size": "small",
     "type": "beast",
     "alignment": "unaligned",
@@ -16860,7 +16854,7 @@
   },
   {
     "name": "owl",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -16907,7 +16901,7 @@
   },
   {
     "name": "panther",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -16953,7 +16947,7 @@
   },
   {
     "name": "panther",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -16999,7 +16993,7 @@
   },
   {
     "name": "phase spider",
-    "description": "A phase spider possesses the magical ability to phase in and out of the Ethereal Plane. It seems to appear out of nowhere and quickly vanishes after attacking. Its movement on the Ethereal Plane before coming back to the Material Plane makes it seem like it can teleport.",
+    "summary": "A phase spider possesses the magical ability to phase in and out of the Ethereal Plane. It seems to appear out of nowhere and quickly vanishes after attacking. Its movement on the Ethereal Plane before coming back to the Material Plane makes it seem like it can teleport.",
     "size": "large",
     "type": "monstrosity",
     "alignment": "unaligned",
@@ -17050,7 +17044,7 @@
   },
   {
     "name": "poisonous snake",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -17083,7 +17077,7 @@
   },
   {
     "name": "polar bear",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -17129,7 +17123,7 @@
   },
   {
     "name": "pony",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -17156,7 +17150,7 @@
   },
   {
     "name": "quipper",
-    "description": "A quipper is a carnivorous fish with sharp teeth. Quippers can adapt to any aquatic environment, including cold subterranean lakes. They frequently gather in swarms; the statistics for a swarm of quippers appear later in this appendix.",
+    "summary": "A quipper is a carnivorous fish with sharp teeth. Quippers can adapt to any aquatic environment, including cold subterranean lakes. They frequently gather in swarms; the statistics for a swarm of quippers appear later in this appendix.",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -17199,7 +17193,7 @@
   },
   {
     "name": "rat",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -17237,7 +17231,7 @@
   },
   {
     "name": "raven",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -17274,7 +17268,7 @@
   },
   {
     "name": "reef shark",
-    "description": "Smaller than giant sharks and hunter sharks, reef sharks inhabit shallow waters and coral reefs, gathering in small packs to hunt. A full-­‐‑grown specimen measures 6 to 10 feet long.",
+    "summary": "Smaller than giant sharks and hunter sharks, reef sharks inhabit shallow waters and coral reefs, gathering in small packs to hunt. A full-­‐‑grown specimen measures 6 to 10 feet long.",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -17321,7 +17315,7 @@
   },
   {
     "name": "rinoceros",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -17355,7 +17349,7 @@
   },
   {
     "name": "riding horses",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -17383,7 +17377,7 @@
   },
   {
     "name": "saber-toothed tiger",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -17429,7 +17423,7 @@
   },
   {
     "name": "scorpion",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -17462,7 +17456,7 @@
   },
   {
     "name": "sea horse",
-    "description": "A sea horse has no effective attacks.",
+    "summary": "A sea horse has no effective attacks.",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -17496,7 +17490,7 @@
   },
   {
     "name": "spider",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -17547,7 +17541,7 @@
   },
   {
     "name": "swarm of bats",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -17609,7 +17603,7 @@
   },
   {
     "name": "swarm of insects",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -17680,7 +17674,7 @@
   },
   {
     "name": "swarm of snakes",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -17734,7 +17728,7 @@
   },
   {
     "name": "swarm of quippers",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -17796,7 +17790,7 @@
   },
   {
     "name": "swarm of rats",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -17853,7 +17847,7 @@
   },
   {
     "name": "swarm of ravens",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -17905,7 +17899,7 @@
   },
   {
     "name": "tiger",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -17955,7 +17949,7 @@
   },
   {
     "name": "vulture",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -17997,7 +17991,7 @@
   },
   {
     "name": "warhorse",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",
@@ -18030,7 +18024,7 @@
   },
   {
     "name": "weasel",
-    "description": "",
+    "summary": "",
     "size": "tiny",
     "type": "beast",
     "alignment": "unaligned",
@@ -18067,7 +18061,7 @@
   },
   {
     "name": "winter wolf",
-    "description": "The arctic-dwelling winter wolf is as large as a dire wolf but has snow-white fur and pale blue eyes. Frost giants use these evil creatures as guards and hunting companions, putting the wolves’ deadly breath weapon to use against their foes. Winter wolves communicate with one another using growls and barks, but they speak Common and Giant well enough to follow simple conversations.",
+    "summary": "The arctic-dwelling winter wolf is as large as a dire wolf but has snow-white fur and pale blue eyes. Frost giants use these evil creatures as guards and hunting companions, putting the wolves’ deadly breath weapon to use against their foes. Winter wolves communicate with one another using growls and barks, but they speak Common and Giant well enough to follow simple conversations.",
     "size": "large",
     "type": "monstrosity",
     "alignment": "neutralEvil",
@@ -18129,7 +18123,7 @@
   },
   {
     "name": "wolf",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "beast",
     "alignment": "unaligned",
@@ -18171,7 +18165,7 @@
   },
   {
     "name": "worg",
-    "description": "A worg is an evil predator that delights in hunting and devouring creatures weaker than itself. Cunning and malevolent, worgs roam across the remote wilderness or are raised by goblins and hobgoblins. Those creatures use worgs as mounts, but a worg will turn on its rider if it feels mistreated or malnourished. Worgs speak in their own language and Goblin, and a few learn to speak Common as well.",
+    "summary": "A worg is an evil predator that delights in hunting and devouring creatures weaker than itself. Cunning and malevolent, worgs roam across the remote wilderness or are raised by goblins and hobgoblins. Those creatures use worgs as mounts, but a worg will turn on its rider if it feels mistreated or malnourished. Worgs speak in their own language and Goblin, and a few learn to speak Common as well.",
     "size": "large",
     "type": "monstrosity",
     "alignment": "neutralEvil",
@@ -18220,7 +18214,7 @@
   },
   {
     "name": "acolyte",
-    "description": "Acolytes are junior members of a clergy, usually answerable to a priest. They perform a variety of functions in a temple and are granted minor spellcasting power by their deities.",
+    "summary": "Acolytes are junior members of a clergy, usually answerable to a priest. They perform a variety of functions in a temple and are granted minor spellcasting power by their deities.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18261,7 +18255,7 @@
   },
   {
     "name": "archmage",
-    "description": "Archmages are powerful (and usually quite old) spellcasters dedicated to the study of the arcane arts. Benevolent ones counsel kings and queens, while evil ones rule as tyrants and pursue lichdom. Those who are neither good nor evil sequester themselves in remote towers to practice their magic without interruption.\nAn archmage typically has one or more apprentice mages, and an archmage’s abode has numerous magical wards and guardians to discourage interlopers.",
+    "summary": "Archmages are powerful (and usually quite old) spellcasters dedicated to the study of the arcane arts. Benevolent ones counsel kings and queens, while evil ones rule as tyrants and pursue lichdom. Those who are neither good nor evil sequester themselves in remote towers to practice their magic without interruption.\nAn archmage typically has one or more apprentice mages, and an archmage’s abode has numerous magical wards and guardians to discourage interlopers.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18319,7 +18313,7 @@
   },
   {
     "name": "assassin",
-    "description": "Trained in the use of poison, assassins are remorseless killers who work for nobles, guildmasters, sovereigns, and anyone else who can afford them.",
+    "summary": "Trained in the use of poison, assassins are remorseless killers who work for nobles, guildmasters, sovereigns, and anyone else who can afford them.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18386,7 +18380,7 @@
   },
   {
     "name": "bandit",
-    "description": "Bandits rove in gangs and are sometimes led by thugs, veterans, or spellcasters. Not all bandits are evil. Oppression, drought, disease, or famine can often drive otherwise honest folk to a life of banditry.\nPirates are bandits of the high seas. They might be freebooters interested only in treasure and murder, or they might be privateers sanctioned by the crown to attack and plunder an enemy nation’s vessels.",
+    "summary": "Bandits rove in gangs and are sometimes led by thugs, veterans, or spellcasters. Not all bandits are evil. Oppression, drought, disease, or famine can often drive otherwise honest folk to a life of banditry.\nPirates are bandits of the high seas. They might be freebooters interested only in treasure and murder, or they might be privateers sanctioned by the crown to attack and plunder an enemy nation’s vessels.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18424,7 +18418,7 @@
   },
   {
     "name": "bandit captain",
-    "description": "It takes a strong personality, ruthless cunning, and a silver tongue to keep a gang of bandits in line. The bandit captain has these qualities in spades.\nIn addition to managing a crew of selfish malcontents, the pirate captain is a variation of the bandit captain, with a ship to protect and command. To keep the crew in line, the captain must mete out rewards and punishment on a regular basis.\nMore than treasure, a bandit captain or pirate captain craves infamy. A prisoner who appeals to the captain’s vanity or ego is more likely to be treated fairly than a prisoner who does not or claims not to know anything of the captain’s colorful reputation.",
+    "summary": "It takes a strong personality, ruthless cunning, and a silver tongue to keep a gang of bandits in line. The bandit captain has these qualities in spades.\nIn addition to managing a crew of selfish malcontents, the pirate captain is a variation of the bandit captain, with a ship to protect and command. To keep the crew in line, the captain must mete out rewards and punishment on a regular basis.\nMore than treasure, a bandit captain or pirate captain craves infamy. A prisoner who appeals to the captain’s vanity or ego is more likely to be treated fairly than a prisoner who does not or claims not to know anything of the captain’s colorful reputation.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18481,7 +18475,7 @@
   },
   {
     "name": "berserker",
-    "description": "Hailing from uncivilized lands, unpredictable berserkers come together in war parties and seek conflict wherever they can find it.",
+    "summary": "Hailing from uncivilized lands, unpredictable berserkers come together in war parties and seek conflict wherever they can find it.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18519,7 +18513,7 @@
   },
   {
     "name": "commoner",
-    "description": "Commoners include peasants, serfs, slaves, servants, pilgrims, merchants, artisans, and hermits.",
+    "summary": "Commoners include peasants, serfs, slaves, servants, pilgrims, merchants, artisans, and hermits.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18552,7 +18546,7 @@
   },
   {
     "name": "cultist",
-    "description": "Cultists swear allegiance to dark powers such as elemental princes, demon lords, or archdevils. Most conceal their loyalties to avoid being ostracized, imprisoned, or executed for their beliefs. Unlike evil acolytes, cultists often show signs of insanity in their beliefs and practices.",
+    "summary": "Cultists swear allegiance to dark powers such as elemental princes, demon lords, or archdevils. Most conceal their loyalties to avoid being ostracized, imprisoned, or executed for their beliefs. Unlike evil acolytes, cultists often show signs of insanity in their beliefs and practices.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18594,7 +18588,7 @@
   },
   {
     "name": "cult fanatic",
-    "description": "Fanatics are often part of a cult’s leadership, using their charisma and dogma to influence and prey on those of weak will. Most are interested in personal power above all else.",
+    "summary": "Fanatics are often part of a cult’s leadership, using their charisma and dogma to influence and prey on those of weak will. Most are interested in personal power above all else.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18645,7 +18639,7 @@
   },
   {
     "name": "druid",
-    "description": "Druids dwell in forests and other secluded wilderness locations, where they protect the natural world from monsters and the encroachment of civilization. Some are tribal shamans who heal the sick, pray to animal spirits, and provide spiritual guidance.",
+    "summary": "Druids dwell in forests and other secluded wilderness locations, where they protect the natural world from monsters and the encroachment of civilization. Some are tribal shamans who heal the sick, pray to animal spirits, and provide spiritual guidance.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18688,7 +18682,7 @@
   },
   {
     "name": "gladiator",
-    "description": "Gladiators battle for the entertainment of raucous crowds. Some gladiators are brutal pit fighters who treat each match as a life-­‐‑or-­‐‑death struggle, while others are professional duelists who command huge fees but rarely fight to the death.",
+    "summary": "Gladiators battle for the entertainment of raucous crowds. Some gladiators are brutal pit fighters who treat each match as a life-­‐‑or-­‐‑death struggle, while others are professional duelists who command huge fees but rarely fight to the death.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18753,7 +18747,7 @@
   },
   {
     "name": "guard",
-    "description": "Guards include members of a city watch, sentries in a citadel or fortified town, and the bodyguards of merchants and nobles.",
+    "summary": "Guards include members of a city watch, sentries in a citadel or fortified town, and the bodyguards of merchants and nobles.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18790,7 +18784,7 @@
   },
   {
     "name": "knight",
-    "description": "Knights are warriors who pledge service to rulers, religious orders, and noble causes. A knight’s alignment determines the extent to which a pledge is honored. Whether undertaking a quest or patrolling a realm, a knight often travels with an entourage that includes squires and hirelings who are commoners.",
+    "summary": "Knights are warriors who pledge service to rulers, religious orders, and noble causes. A knight’s alignment determines the extent to which a pledge is honored. Whether undertaking a quest or patrolling a realm, a knight often travels with an entourage that includes squires and hirelings who are commoners.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18851,7 +18845,7 @@
   },
   {
     "name": "mage",
-    "description": "Mages spend their lives in the study and practice of magic. Good-­‐‑aligned mages offer counsel to nobles and others in power, while evil mages dwell in isolated sites to perform unspeakable experiments without interference.",
+    "summary": "Mages spend their lives in the study and practice of magic. Good-­‐‑aligned mages offer counsel to nobles and others in power, while evil mages dwell in isolated sites to perform unspeakable experiments without interference.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18897,7 +18891,7 @@
   },
   {
     "name": "noble",
-    "description": "Nobles wield great authority and influence as members of the upper class, possessing wealth and connections that can make them as powerful as monarchs and generals. A noble often travels in the company of guards, as well as servants who are commoners.\nThe noble’s statistics can also be used to represent courtiers who aren’t of noble birth.",
+    "summary": "Nobles wield great authority and influence as members of the upper class, possessing wealth and connections that can make them as powerful as monarchs and generals. A noble often travels in the company of guards, as well as servants who are commoners.\nThe noble’s statistics can also be used to represent courtiers who aren’t of noble birth.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18942,7 +18936,7 @@
   },
   {
     "name": "priest",
-    "description": "Priests bring the teachings of their gods to the common folk. They are the spiritual leaders of temples and shrines and often hold positions of influence in their communities. Evil priests might work openly under a tyrant, or they might be the leaders of religious sects hidden in the shadows of good society, overseeing depraved rites.\nA priest typically has one or more acolytes to help with religious ceremonies and other sacred duties.",
+    "summary": "Priests bring the teachings of their gods to the common folk. They are the spiritual leaders of temples and shrines and often hold positions of influence in their communities. Evil priests might work openly under a tyrant, or they might be the leaders of religious sects hidden in the shadows of good society, overseeing depraved rites.\nA priest typically has one or more acolytes to help with religious ceremonies and other sacred duties.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -18985,17 +18979,11 @@
         "title": "mace",
         "description": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 3 (1d6) bludgeoning damage."
       }
-    ],
-    "reactions": [
-      {
-        "title": "",
-        "description": ""
-      }
     ]
   },
   {
     "name": "scout",
-    "description": "Scouts are skilled hunters and trackers who offer their services for a fee. Most hunt wild game, but a few work as bounty hunters, serve as guides, or provide military reconnaissance.",
+    "summary": "Scouts are skilled hunters and trackers who offer their services for a fee. Most hunt wild game, but a few work as bounty hunters, serve as guides, or provide military reconnaissance.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -19047,7 +19035,7 @@
   },
   {
     "name": "spy",
-    "description": "Rulers, nobles, merchants, guildmasters, and other wealthy individuals use spies to gain the upper hand in a world of cutthroat politics. A spy is trained to secretly gather information. Loyal spies would rather die than divulge information that could compromise them or their employers.",
+    "summary": "Rulers, nobles, merchants, guildmasters, and other wealthy individuals use spies to gain the upper hand in a world of cutthroat politics. A spy is trained to secretly gather information. Loyal spies would rather die than divulge information that could compromise them or their employers.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -19105,7 +19093,7 @@
   },
   {
     "name": "thug",
-    "description": "Thugs are ruthless enforcers skilled at intimidation and violence. They work for money and have few scruples.",
+    "summary": "Thugs are ruthless enforcers skilled at intimidation and violence. They work for money and have few scruples.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -19154,7 +19142,7 @@
   },
   {
     "name": "tribal warrior",
-    "description": "Tribal warriors live beyond civilization, most often subsisting on fishing and hunting. Each tribe acts in accordance with the wishes of its chief, who is the greatest or oldest warrior of the tribe or a tribe member blessed by the gods.",
+    "summary": "Tribal warriors live beyond civilization, most often subsisting on fishing and hunting. Each tribe acts in accordance with the wishes of its chief, who is the greatest or oldest warrior of the tribe or a tribe member blessed by the gods.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -19192,7 +19180,7 @@
   },
   {
     "name": "veteran",
-    "description": "Veterans are professional fighters that take up arms for pay or to protect something they believe in or value. Their ranks include soldiers retired from long service and warriors who never served anyone but themselves.",
+    "summary": "Veterans are professional fighters that take up arms for pay or to protect something they believe in or value. Their ranks include soldiers retired from long service and warriors who never served anyone but themselves.",
     "size": "medium",
     "type": "humanoid",
     "alignment": "any",
@@ -19242,7 +19230,7 @@
   },
   {
     "name": "avatar of death",
-    "description": "",
+    "summary": "",
     "size": "medium",
     "type": "undead",
     "alignment": "neutralEvil",
@@ -19304,7 +19292,7 @@
   },
   {
     "name": "giant fly",
-    "description": "",
+    "summary": "",
     "size": "large",
     "type": "beast",
     "alignment": "unaligned",

@@ -70,7 +70,6 @@ extension Record where Self: Codable {
         }
         catch {
             print("error while parsing JSON for file \(filename).json")
-            print(error)
             throw JSONError.parsingError
         }
     }
