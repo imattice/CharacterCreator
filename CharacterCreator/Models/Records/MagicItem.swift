@@ -55,7 +55,7 @@ class MagicItemRecord: NSManagedObject, Record {
         self.init(entity: entity, insertInto: managedObjectContext)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name = try container.decode(String.self, forKey: .name)
         self.summary = try container.decode(String.self, forKey: .summary)
         self.details = try container.decode(String.self, forKey: .details)
@@ -66,6 +66,7 @@ class MagicItemRecord: NSManagedObject, Record {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(summary, forKey: .summary)
         try container.encode(details, forKey: .details)
@@ -80,7 +81,7 @@ class MagicItemRecord: NSManagedObject, Record {
     }
     
     enum CodingKeys: CodingKey {
-        case name, summary, details, restrictions, rarity, requiresAttunement
+        case id, name, summary, details, restrictions, rarity, requiresAttunement
     }
     
     enum ItemType: String, Codable {

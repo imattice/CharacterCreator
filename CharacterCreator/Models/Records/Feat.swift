@@ -31,7 +31,7 @@ final class FeatRecord: NSManagedObject, Record {
     self.init(entity: entity, insertInto: managedObjectContext)
         
         let container       = try decoder.container(keyedBy: CodingKeys.self)
-        self.id             = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name           = try container.decode(String.self, forKey: .name)
         self.summary    = try container.decode(String.self, forKey: .summary)
         self.prerequisite   = try container.decodeIfPresent(String.self, forKey: .prerequisite)

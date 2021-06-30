@@ -62,7 +62,7 @@ class ArmorRecord: ObjectRecord, Record {
         self.init(entity: entity, insertInto: managedObjectContext)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id                 = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name               = try container.decode(String.self, forKey: .name)
         self.summary            = try container.decode(String.self, forKey: .summary)
         self.details            = try container.decode(String.self, forKey: .details)
@@ -76,7 +76,19 @@ class ArmorRecord: ObjectRecord, Record {
         self.strRequired   = try container.decodeIfPresent(Int.self, forKey: .strRequired) ?? 0
     }
     
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(baseAC, forKey: .baseAC)
+        try container.encode(armorStyle, forKey: .armorStyle)
+        try container.encode(imposesStealthDisadvantage, forKey: .imposesStealthDisadvantage)
+        try container.encode(addsDex, forKey: .addsDex)
+        try container.encode(dexMax, forKey: .dexMax)
+        try container.encode(strRequired, forKey: .strRequired)
+    }
+
+    
     enum CodingKeys: CodingKey {
-        case name, summary, details, cost, weight, baseAC, armorStyle, imposesStealthDisadvantage, addsDex, dexMax, strRequired
+        case id, name, summary, details, cost, weight, baseAC, armorStyle, imposesStealthDisadvantage, addsDex, dexMax, strRequired
     }
 }

@@ -68,7 +68,7 @@ class SpellRecord: NSManagedObject, Record {
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.id                     = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name                   = try container.decode(String.self, forKey: .name)
         self.level                  = try container.decode(Int.self, forKey: .level)
         self.school                 = try container.decode(SpellSchool.self, forKey: .school)
@@ -85,7 +85,7 @@ class SpellRecord: NSManagedObject, Record {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        
+        try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(level, forKey: .level)
         try container.encode(school, forKey: .school)
@@ -101,7 +101,7 @@ class SpellRecord: NSManagedObject, Record {
     }
     
     enum CodingKeys: CodingKey {
-        case name, level, school, isRitual, castTime, range, requiresConcentration, duration, components, materials, summary, upcast
+        case id, name, level, school, isRitual, castTime, range, requiresConcentration, duration, components, materials, summary, upcast
     }
 }
 

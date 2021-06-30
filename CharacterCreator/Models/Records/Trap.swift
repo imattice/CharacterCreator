@@ -36,7 +36,7 @@ final class TrapRecord: NSManagedObject, Record, Codable {
         self.init(entity: entity, insertInto: managedObjectContext)
 
         let container       = try decoder.container(keyedBy: CodingKeys.self)
-        self.id             = UUID().uuidString
+        self.id             = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name           = try container.decode(String.self, forKey: .name)
         self.summary        = try container.decode(String.self, forKey: .summary)
         self.type           = try container.decode(TrapType.self, forKey: .type)
@@ -44,13 +44,14 @@ final class TrapRecord: NSManagedObject, Record, Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(summary, forKey: .summary)
         try container.encode(type.rawValue, forKey: .type)
     }
     
     enum CodingKeys: CodingKey {
-        case name, summary, type
+        case id, name, summary, type
     }
     enum TrapType: String, Codable {
         case mechanical, magic

@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 ///A type that is backed by a Static JSON file
-protocol Record: Identifiable, Codable {
+protocol Record: NSManagedObject, Identifiable, Codable {
     var id: String { get }
     ///The name of the record
     var name: String { get }
@@ -26,7 +26,7 @@ protocol Record: Identifiable, Codable {
     
 }
 
-extension Record where Self: Codable {
+extension Record {
     ///Return all records parsed from JSON
     static
     func all() -> [Self] {
@@ -75,7 +75,7 @@ extension Record where Self: Codable {
     }
 }
     
-extension Record where Self:Codable, Self:NSManagedObject {
+extension Record {
     static
     func save(to dataStack: CoreDataStack = CoreDataStack.shared) throws {
         //Check if there are records already stored

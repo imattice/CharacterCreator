@@ -88,7 +88,7 @@ final class WeaponRecord: ObjectRecord, Record {
         self.init(entity: entity, insertInto: managedObjectContext)
 
         let container   = try decoder.container(keyedBy: CodingKeys.self)
-        self.id         = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name       = try container.decode(String.self, forKey: .name)
         self.summary    = try container.decode(String.self, forKey: .summary)
         self.details    = try container.decode(String.self, forKey: .details)
@@ -106,8 +106,17 @@ final class WeaponRecord: ObjectRecord, Record {
         ///The extended range of the weapon
         let extended: Int
     }
+    
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(tags, forKey: .tags)
+        try container.encode(damage, forKey: .damage)
+        try container.encode(isSimple, forKey: .isSimple)
+        try container.encode(range, forKey: .range)
+    }
         
     enum CodingKeys: CodingKey {
-        case name, summary, details, cost, weight, tags, damage, isSimple, range
+        case id, name, summary, details, cost, weight, tags, damage, isSimple, range
     }
 }

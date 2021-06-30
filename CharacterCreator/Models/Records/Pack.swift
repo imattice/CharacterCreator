@@ -42,7 +42,7 @@ class PackRecord: ObjectRecord, Record {
         self.init(entity: entity, insertInto: managedObjectContext)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id                 = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name               = try container.decode(String.self, forKey: .name)
         self.summary            = try container.decode(String.self, forKey: .summary)
         self.details            = try container.decode(String.self, forKey: .details)
@@ -50,7 +50,13 @@ class PackRecord: ObjectRecord, Record {
         self.weight             = try container.decodeIfPresent(Double.self, forKey: .weight)
         self.contents       = try container.decode([Item].self, forKey: .contents)
     }
+    
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(contents, forKey: .contents)
+    }
     enum CodingKeys: CodingKey {
-        case name, summary, details, cost, weight, contents
+        case id, name, summary, details, cost, weight, contents
     }
 }

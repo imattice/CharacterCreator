@@ -44,7 +44,7 @@ final class ItemRecord: ObjectRecord, Record {
         self.init(entity: entity, insertInto: managedObjectContext)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id                 = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name               = try container.decode(String.self, forKey: .name)
         self.summary            = try container.decode(String.self, forKey: .summary)
         self.details            = try container.decode(String.self, forKey: .details)
@@ -101,7 +101,7 @@ class ObjectRecord: NSManagedObject, Codable {
 
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id                 = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name               = try container.decode(String.self, forKey: .name)
         self.summary            = try container.decode(String.self, forKey: .summary)
         self.details            = try container.decode(String.self, forKey: .details)
@@ -111,14 +111,16 @@ class ObjectRecord: NSManagedObject, Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(summary, forKey: .summary)
         try container.encode(details, forKey: .details)
         try container.encodeIfPresent(cost, forKey: .cost)
         try container .encodeIfPresent(weight, forKey: .weight)
     }
+
     
     enum CodingKeys: CodingKey {
-        case name, summary, details, cost, weight
+        case id, name, summary, details, cost, weight
     }
 }

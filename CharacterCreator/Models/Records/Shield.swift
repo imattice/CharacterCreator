@@ -34,7 +34,7 @@ class ShieldRecord: ObjectRecord, Record {
         self.init(entity: entity, insertInto: managedObjectContext)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id                 = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name               = try container.decode(String.self, forKey: .name)
         self.summary            = try container.decode(String.self, forKey: .summary)
         self.details            = try container.decode(String.self, forKey: .details)
@@ -43,8 +43,14 @@ class ShieldRecord: ObjectRecord, Record {
         self.bonusAC       = try container.decode(Int.self, forKey: .bonusAC)
     }
     
+    override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(bonusAC, forKey: .bonusAC)
+    }
+    
     enum CodingKeys: CodingKey {
-        case name, summary, details, cost, weight, bonusAC
+        case id, name, summary, details, cost, weight, bonusAC
     }
 }
 

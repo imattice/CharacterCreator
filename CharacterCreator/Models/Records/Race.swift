@@ -124,7 +124,7 @@ class RaceRecord: NSManagedObject, Record, Codable, Identifiable {
         self.init(entity: entity, insertInto: managedObjectContext)
         
         let container       = try decoder.container(keyedBy: CodingKeys.self)
-        self.id             = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name           = try container.decode(String.self, forKey: .name)
         self.summary    = try container.decode(String.self, forKey: .summary)
 
@@ -153,6 +153,7 @@ class RaceRecord: NSManagedObject, Record, Codable, Identifiable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(summary, forKey: .summary)
         try container.encode(hasDarkvision, forKey: .hasDarkvision)

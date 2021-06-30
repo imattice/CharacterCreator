@@ -132,7 +132,7 @@ class BackgroundRecord: NSManagedObject, Record, Codable {
         self.init(entity: entity, insertInto: managedObjectContext)
         
         let container       = try decoder.container(keyedBy: CodingKeys.self)
-        self.id             = UUID().uuidString
+        self.id             = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name           = try container.decode(String.self, forKey: .name)
         self.summary        = try container.decode(String.self, forKey: .summary)
         self.proficiencies  = try container.decode([String].self, forKey: .proficiencies)
@@ -148,6 +148,7 @@ class BackgroundRecord: NSManagedObject, Record, Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(summary, forKey: .summary)
         try container.encode(proficiencies, forKey: .proficiencies)
@@ -162,6 +163,6 @@ class BackgroundRecord: NSManagedObject, Record, Codable {
     }
     
     enum CodingKeys: CodingKey {
-        case name, summary, proficiencies, languages, items, gold, feature, traits, ideals, bonds, flaws
+        case id, name, summary, proficiencies, languages, items, gold, feature, traits, ideals, bonds, flaws
     }
 }

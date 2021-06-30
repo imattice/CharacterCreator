@@ -29,18 +29,19 @@ final class RuleRecord: NSManagedObject, Record {
         self.init(entity: entity, insertInto: managedObjectContext)
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = UUID().uuidString
+        self.id = try container.decodeIfPresent(String.self, forKey: .id) ?? UUID().uuidString
         self.name = try container.decode(String.self, forKey: .name)
         self.summary = try container.decode(String.self, forKey: .summary)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         try container.encode(summary, forKey: .summary)
     }
     
     enum CodingKeys: CodingKey {
-        case name, summary
+        case id, name, summary
     }
 }
