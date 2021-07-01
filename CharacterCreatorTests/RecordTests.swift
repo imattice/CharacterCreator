@@ -12,6 +12,15 @@ import CoreData
 
 class RecordTests: XCTestCase {
     let testDataManager = CoreDataStack(inMemory: true)
+//    let types: [Any] = [LanguageRecord.self, ClassRecord.self]
+//
+//    func testSave() {
+//        types.forEach { type in
+//
+//            guard let record = type as? Record else { return }
+//            print(record)
+//        }
+//    }
     
     //MARK: - Core Data Saving
     func testSaveRaceRecords() {
@@ -426,6 +435,21 @@ class RecordTests: XCTestCase {
             XCTFail("There was an error while saving: \(error)")
         }
     }
+    
+    //MARK: - Test Data Retrieval
+    func testRaceRecordRetrieval() {
+        ///The specific record that will be fetched during the test
+        let recordName: String = "dwarf"
+        typealias RecordType = RaceRecord
+        
+        do {
+            try RecordType.save(to: testDataManager)
+        }
+        catch { XCTFail("There was an error while saving: \(error)") }
+        
+        XCTAssertFalse(RecordType.all(in: testDataManager.context).isEmpty, "Failed to retrieve all RaceRecords")
+        XCTAssertNotNil(RaceRecord.record(for: recordName, in: testDataManager.context), "Failed to retrieve record for \(recordName)")
+    }
 
 
     //MARK: - JSON Parsing
@@ -543,4 +567,11 @@ class RecordTests: XCTestCase {
         XCTAssertFalse(try RuleRecord.parseFromJSON().isEmpty,
                        "Parsing RuleRecord from JSON returned an empty array")
     }
+    func testParseLanguageRecordFromJSON() {
+        XCTAssertNoThrow(try LanguageRecord.parseFromJSON(),
+                         "Parsing LanguageRecord from JSON threw an error")
+        XCTAssertFalse(try LanguageRecord.parseFromJSON().isEmpty,
+                       "Parsing LanguageRecord from JSON returned an empty array")
+    }
+
 }
